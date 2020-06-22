@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('test', 'Controller@test');
 
-Route::get('/excel', function () {
-    return view('excel');
-});
+Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

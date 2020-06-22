@@ -1,9 +1,7 @@
-require('./bootstrap');
-
-
+require('../bootstrap.js');
 
 import Vue from 'vue';
-Vue.component('excel', require('./components/excel.vue').default);
+import Routes from './router'
 
 // Vue.config.productionTip = false;
 // Vue.config.devtools = false;
@@ -14,8 +12,6 @@ Vue.component('excel', require('./components/excel.vue').default);
 
 
 
-
-
 new Vue({
-    el: '#app',
-});
+    Routes
+}).$mount('#auth');
