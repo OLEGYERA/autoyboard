@@ -1,0 +1,79 @@
+@import "resources/sass/vars";
+
+.yinput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .yinput-input-row{
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input,
+        .yinput-icon{
+            background-color: $light-white;
+            height: 100%;
+            border: 2px solid transparent;
+        }
+        input{
+            border-radius: 15px 0 0 15px;
+            width: 100%;
+            padding: 5px 5px 5px 15px;
+            font-family: $noto;
+            font-weight: 400;
+            font-size: 16px;
+            color: $grey;
+            border-right: none!important;
+        }
+        .yinput-icon{
+            border-radius: 0 15px 15px 0px;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: none!important;
+            img{
+                width: 20px;
+            }
+        }
+        &.tg{
+            input,
+            .yinput-icon{
+                border: 2px solid $yboard;
+            }
+        }
+
+    }
+
+    .yinput-alert-row{
+        font-size: em(12);
+        font-family: $noto;
+        font-weight: 400;
+        color: $red;
+        margin: 5px 15px 0px
+    }
+
+
+    &.error{
+        margin-bottom: 5px;
+        .yinput-input-row{
+            input,
+            .yinput-icon{
+                border: 2px solid $red;
+            }
+        }
+    }
+    &.success{
+        .yinput-input-row{
+            input,
+            .yinput-icon{
+                border: 2px solid $green;
+            }
+        }
+    }
+    &:last-child{
+        margin-bottom: 0px!important;
+    }
+}

@@ -26,6 +26,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "vue": "^2.6.11"
+        "inputmask": "^5.0.4-beta.33",
+        "vue": "^2.6.11",
+        "vue-router": "^3.3.4"
     }
 }

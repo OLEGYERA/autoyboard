@@ -1,0 +1,43 @@
+@import 'resources/sass/vars';
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+header, footer, div, section, article, aside, main, input, button{
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+
+
+//titles
+h1.yb-main-title{
+    font-family: $fira;
+    font-size: em(24);
+    color: $grey;
+    margin: 0px;
+    margin-bottom: 15px
+}
+
+span.yb-gradient{
+    background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+
+.yb-tm-box{
+    background-color: #fff;
+    box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.9), 6px -6px 12px rgba(255, 255, 255, 0.9), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 30px;
+}
+
+

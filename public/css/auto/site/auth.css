@@ -1,0 +1,114 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+header,
+footer,
+div,
+section,
+article,
+aside,
+main {
+  box-sizing: border-box;
+}
+
+h1.yb-main-title {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.5em;
+  color: #2E2E2E;
+  margin: 0px;
+  margin-bottom: 15px;
+}
+
+span.yb-gradient {
+  background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.yb-tm-box {
+  background-color: #fff;
+  box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.9), 6px -6px 12px rgba(255, 255, 255, 0.9), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 30px;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+#authentication {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+}
+
+#authentication .yb-page {
+  display: flex;
+  flex-direction: inherit;
+  height: 100%;
+  width: 100%;
+}
+
+#authentication .yb-page .yb-signup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box {
+  width: 30%;
+  min-width: 300px;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box h1 {
+  text-align: center;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth h2 {
+  font-family: "Noto Sans", sans-serif;
+  color: #C4C4C4;
+  font-weight: 400;
+  font-size: 1em;
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links .yb-auth-link {
+  width: 40px;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links .yb-auth-link img {
+  width: 100%;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links .yb-auth-link:first-child {
+  margin-right: 15px;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+

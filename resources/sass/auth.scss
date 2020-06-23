@@ -1,0 +1,94 @@
+@import 'resources/sass/vars';
+@import 'auto/clear';
+@import 'MODULES/yinput';
+@import 'MODULES/ycheck';
+@import 'MODULES/ybutton';
+
+
+html, body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#authentication{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(213, 238, 237, 0.1) 0%, rgba(255, 255, 255, 0.65) 91.47%), #F4F8F9;
+    height: 100%;
+    width: 100%;
+    padding: 30px 80px;
+
+    .yb-page{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        .yb-presentation{
+            width: 1000px;
+            img{
+                width: 100%;
+            }
+        }
+
+        .yb-signup{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .yb-header{
+                width: 240px;
+                margin-bottom: 30px;
+                img{
+                    width: 100%;
+                }
+            }
+
+            .yb-signup-box{
+                width: 460px;
+
+                h1{
+                    text-align: center;
+                }
+
+                .yb-additional-auth{
+                    h2{
+                        font-family: $noto;
+                        color: $ashen;
+                        font-weight: 400;
+                        font-size: em(16);
+                        text-align: center;
+                        margin: 0px;
+                        margin-bottom: 5px;
+                    }
+
+                    .yb-auth-links{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .yb-auth-link{
+                            width: 40px;
+                            img{
+                                width: 100%;
+                            }
+                            &:first-child{
+                                margin-right: 15px;
+                            }
+                        }
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .yb-signup-form{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

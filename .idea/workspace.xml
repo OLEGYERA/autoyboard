@@ -2,28 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/auto/site/auth/components.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/auto/site/auth/components/signin.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/auto/site/auth/components/signup.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/auto/site/auth/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auto/site/basicHTML.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/auto/site/ru.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/auth/components/basic.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/auth/components/signin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/auth/components/signup.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/MODULES/_yinput.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_vars.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auth.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auto/site/Auth.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicBLADE.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/yboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yboard.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auto/site/auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/excel.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auto/site/auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auto/site/auth/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auto/site/auth/components/signin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/MODULES/ycheck.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auto/site/auth/components/signup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/MODULES/yinput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auto/site/auth/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/basicBLADE.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/MODULES/_ybutton.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/MODULES/_ycheck.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auto/site/ru.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auto/site/ru.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,12 +162,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/auto" />
-      <recent name="$PROJECT_DIR$/resources/js/auto" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/img/marks_logo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/sass" />
+      <recent name="$PROJECT_DIR$/resources/js" />
+      <recent name="$PROJECT_DIR$/resources/js/yboard" />
+      <recent name="$PROJECT_DIR$/resources/views/auto/site/templates" />
+      <recent name="$PROJECT_DIR$/resources/views/auto" />
     </key>
   </component>
   <component name="RunManager">
@@ -189,7 +199,8 @@
       <workItem from="1591268026910" duration="8882000" />
       <workItem from="1591948888737" duration="627000" />
       <workItem from="1592811035556" duration="8975000" />
-      <workItem from="1592822449025" duration="9759000" />
+      <workItem from="1592822449025" duration="15991000" />
+      <workItem from="1592896942478" duration="25818000" />
     </task>
     <servers />
   </component>

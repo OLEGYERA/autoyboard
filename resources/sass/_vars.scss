@@ -1,0 +1,39 @@
+// Body
+$body-bg: #fff;
+
+//Fonts
+$fira: 'Fira Sans', sans-serif;
+$noto: 'Noto Sans', sans-serif;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+
+$pink: #f66d9b;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$green: #95E2B6;
+$red: #FF3434;
+$yboard: #0C828B;
+$grey: #2E2E2E;
+$ashen: #C4C4C4;
+$light-white: #f8f8f8;
+
+
+
+
+
+//em function for resizing fonts from em to px
+$y-context: 16;
+@function em($pixels, $context: $y-context) {
+    @return #{$pixels/$context}em;
+}
