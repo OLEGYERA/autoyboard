@@ -13,7 +13,8 @@ Route::name('web.auth.')->prefix('/authentication')->namespace('Auth')->group(fu
         return view('auto.site.Auth');
     });
     Route::get('/email/ver/{token}', 'VerificationController@emailVerification')->name('email.verification');
-
+    Route::get('/redirect', 'GoogleController@redirect');
+    Route::get('/callback', 'GoogleController@callback');
 });
 
 

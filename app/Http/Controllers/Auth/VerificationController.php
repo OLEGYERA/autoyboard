@@ -57,6 +57,16 @@ class VerificationController extends Controller
         }
     }
 
+    protected function google(){
+        $client = new \Google_Client;
+        $client->setClientId(env('GOOGLE_CLIENT_ID'));
+        $client->setClientSecret(env('GOOGLE_SECRET_KEY'));
+        $client->setRedirectUri('/');
+        $client->addScope("email");
+        $client->addScope("profile");
+        dd($client);
+    }
+
 
     private function findUserByToken($token){
         $user = User::where('remember_token', $token)->first();

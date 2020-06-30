@@ -1983,20 +1983,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['type', 'name', 'placeholder', 'status', 'yref'],
   mounted: function mounted() {
-    if (this.type == 'tel') inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
-      mask: "+380-(99)-99-99-999",
-      keepStatic: true,
-      'autoUnmask': false
-    }).mask(this.$refs[this.name]);
+    this.initMask(this.type);
+    this.yplaceholder = this.placeholder;
   },
   data: function data() {
     return {
       toggled: false,
-      model: null
+      model: null,
+      yplaceholder: null
     };
   },
   methods: {
@@ -2005,21 +2006,103 @@ __webpack_require__.r(__webpack_exports__);
       this.toggled = e;
 
       if (!e) {
-        this.EmitInput(ref);
+        if (this.type == 'multy') {
+          var type = null;
+
+          if (this.model !== null) {
+            type = this.model.indexOf('+') == 0 ? 'tel' : 'email';
+          } else {
+            type = 'email';
+          }
+
+          this.EmitInput({
+            alias: 'login',
+            name: type,
+            model: this.model,
+            ref: ref
+          });
+        } else {
+          this.EmitInput({
+            alias: this.name,
+            name: this.name,
+            model: this.model,
+            ref: ref
+          });
+        }
       } else {
-        if (this.type == 'tel' && this.model == null) this.model = '+380-(__)-__-__-___';
+        switch (this.type) {
+          case 'tel':
+            if (this.model == null) {
+              this.model = '+380-(__)-__-__-___';
+            }
+
+            break;
+
+          case 'multy':
+            break;
+        }
       }
     },
-    EmitInput: function EmitInput(ref) {
-      this.$emit('yturn', {
-        model: this.model,
-        ref: ref
-      });
+    EmitInput: function EmitInput(data) {
+      this.$emit('yturn', data);
+    },
+    initMask: function initMask(type) {
+      var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+      switch (type) {
+        case 'tel':
+          inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
+            mask: "+380-(99)-99-99-999",
+            keepStatic: true,
+            'autoUnmask': false
+          }).mask(this.$refs[this.name]);
+          break;
+
+        case 'multy':
+          if (force) {
+            if (this.model !== null && this.model.indexOf('+') == 0 && this.model.length == 1) {
+              inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
+                mask: "+380-(99)-99-99-999",
+                'autoUnmask': false
+              }).mask(this.$refs[this.name]);
+              this.model = '+380-(__)-__-__-___';
+            }
+          }
+
+          break;
+      }
+    },
+    doKeyEvent: function doKeyEvent(e) {
+      switch (e.key) {
+        case 'Enter':
+          this.Ytoggler(false, 1);
+          break;
+
+        case 'Backspace':
+        case 'Delete':
+          if (this.model == '+380-(__)-__-__-___' || this.model == '') {
+            this.model = null;
+            inputmask__WEBPACK_IMPORTED_MODULE_0___default.a.remove(this.$refs[this.name]);
+          }
+
+          break;
+      }
+
+      console.log(e.key);
+    }
+  },
+  computed: {
+    isMulty: function isMulty() {
+      return this.type == 'multy' && this.toggled && (this.model == null || this.model == '');
     }
   },
   watch: {
     yref: function yref(to, from) {
       this.$refs[this.name].focus();
+    },
+    model: function model(to) {
+      this.initMask(this.type, true);
+      console.log(this.$refs[this.name].placeholder = 12021212);
     }
   }
 });
@@ -2137,48 +2220,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
   data: function data() {
     return {
       form: {
-        first_name: {
+        login: {
           value: null,
-          code: 0,
-          message: null,
-          next: 'last_name',
-          ref: false
-        },
-        last_name: {
-          value: null,
-          code: 0,
-          message: null,
-          next: 'tel',
-          ref: false
-        },
-        tel: {
-          value: null,
-          code: 0,
-          message: null,
-          next: 'email',
-          ref: false
-        },
-        email: {
-          value: null,
-          code: 0,
-          message: null,
-          next: 'agreement',
-          ref: false
-        },
-        agreement: {
-          value: false,
           code: 0,
           message: null,
           next: null,
           ref: false
         }
       },
+      // form: {
+      //     first_name: {value:null, code:0, message:null, next:'last_name', ref:false},
+      //     last_name: {value:null, code:0, message:null, next:'tel', ref:false},
+      //     tel: {value:null, code:0, message:null, next:'email', ref:false},
+      //     email: {value:null, code:0, message:null, next:'agreement', ref:false},
+      //     agreement: {value:false, code:0, message:null, next:null, ref:false},
+      // },
       isformSuccess: false,
       isformSendedSuccess: false
     };
@@ -2210,42 +2274,47 @@ __webpack_require__.r(__webpack_exports__);
         self.isformSuccess = success_count == item_count ? true : false;
       }, 150);
     },
-    verifyYturn: function verifyYturn(type, data) {
+    verifyYturn: function verifyYturn(data) {
       var _this2 = this;
 
       _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/verify", {
-        type: type,
+        name: data.name,
         data: data.model
       }) // asdas@sadwa.asd
       .then(function (response) {
-        _this2.form[type].code = 1;
-        _this2.form[type].message = response.data;
-        _this2.form[type].value = data.model;
+        console.log(type);
+        _this2.form[data.alias].code = 1;
+        _this2.form[data.alias].message = response.data;
+        _this2.form[data.alias].value = data.model;
 
-        if (data.ref && _this2.form[type].next) {
-          var reverse = !_this2.form[_this2.form[type].next].ref;
-          _this2.form[_this2.form[type].next].ref = reverse;
+        if (data.ref && _this2.form[data.alias].next) {
+          var reverse = !_this2.form[_this2.form[data.alias].next].ref;
+          _this2.form[_this2.form[data.alias].next].ref = reverse;
         }
       })["catch"](function (error) {
-        _this2.form[type].code = 2;
-        _this2.form[type].message = error.response.data;
+        console.log(error.response);
+        _this2.form[data.alias].code = 2;
+        _this2.form[data.alias].message = error.response.data;
       });
       this.checkSuccessingForm();
     },
+    loginYturn: function loginYturn(data) {
+      this.verifyYturn(data);
+    },
     fnameYturn: function fnameYturn(data) {
-      this.verifyYturn('first_name', data);
+      this.verifyYturn(data);
     },
     lnameYturn: function lnameYturn(data) {
-      this.verifyYturn('last_name', data);
+      this.verifyYturn(data);
     },
     telYturn: function telYturn(data) {
       if (data.model !== null) {
         data['model'] = data.model.replace(/\D/g, '');
-        this.verifyYturn('tel', data);
+        this.verifyYturn(data);
       }
     },
     emailYturn: function emailYturn(data) {
-      this.verifyYturn('email', data);
+      this.verifyYturn(data);
     },
     //except without http verification
     agreementYturn: function agreementYturn(data) {
@@ -22773,7 +22842,11 @@ var render = function() {
     "div",
     {
       staticClass: "yinput",
-      class: { error: _vm.status.code == 2, success: _vm.status.code == 1 }
+      class: {
+        error: _vm.status.code == 2,
+        success: _vm.status.code == 1,
+        helper: _vm.isMulty
+      }
     },
     [
       _c(
@@ -22793,7 +22866,7 @@ var render = function() {
                 ref: _vm.name,
                 attrs: {
                   name: _vm.name,
-                  placeholder: _vm.placeholder,
+                  placeholder: _vm.yplaceholder,
                   autocomplete: "off",
                   type: "checkbox"
                 },
@@ -22810,13 +22883,7 @@ var render = function() {
                     return _vm.Ytoggler(false)
                   },
                   keyup: function($event) {
-                    if (
-                      !$event.type.indexOf("key") &&
-                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                    ) {
-                      return null
-                    }
-                    return _vm.Ytoggler(false, 1)
+                    return _vm.doKeyEvent($event)
                   },
                   change: function($event) {
                     var $$a = _vm.model,
@@ -22852,7 +22919,7 @@ var render = function() {
                 ref: _vm.name,
                 attrs: {
                   name: _vm.name,
-                  placeholder: _vm.placeholder,
+                  placeholder: _vm.yplaceholder,
                   autocomplete: "off",
                   type: "radio"
                 },
@@ -22865,13 +22932,7 @@ var render = function() {
                     return _vm.Ytoggler(false)
                   },
                   keyup: function($event) {
-                    if (
-                      !$event.type.indexOf("key") &&
-                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                    ) {
-                      return null
-                    }
-                    return _vm.Ytoggler(false, 1)
+                    return _vm.doKeyEvent($event)
                   },
                   change: function($event) {
                     _vm.model = null
@@ -22890,7 +22951,7 @@ var render = function() {
                 ref: _vm.name,
                 attrs: {
                   name: _vm.name,
-                  placeholder: _vm.placeholder,
+                  placeholder: _vm.yplaceholder,
                   autocomplete: "off",
                   type: _vm.type
                 },
@@ -22903,13 +22964,7 @@ var render = function() {
                     return _vm.Ytoggler(false)
                   },
                   keyup: function($event) {
-                    if (
-                      !$event.type.indexOf("key") &&
-                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                    ) {
-                      return null
-                    }
-                    return _vm.Ytoggler(false, 1)
+                    return _vm.doKeyEvent($event)
                   },
                   input: function($event) {
                     if ($event.target.composing) {
@@ -22933,6 +22988,13 @@ var render = function() {
           ])
         ]
       ),
+      _vm._v(" "),
+      _vm.isMulty
+        ? _c("div", { staticClass: "yinput-helper" }, [
+            _c("b", [_vm._v("+")]),
+            _vm._v(" для ввода номера телефона\n    ")
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _vm.status.code == 2
         ? _c("div", {
@@ -23035,7 +23097,7 @@ var render = function() {
       _vm._v(" "),
       !_vm.isformSendedSuccess
         ? _c("div", { staticClass: "yb-signup-box yb-tm-box" }, [
-            _c("h1", { staticClass: "yb-main-title" }, [_vm._v("Регистрация")]),
+            _c("h1", { staticClass: "yb-main-title" }, [_vm._v("Авторизация")]),
             _vm._v(" "),
             _vm._m(2),
             _vm._v(" "),
@@ -23053,56 +23115,12 @@ var render = function() {
               [
                 _c("yinput", {
                   attrs: {
-                    type: "text",
-                    name: "first_name",
-                    placeholder: "Имя",
-                    status: _vm.form.first_name
+                    type: "multy",
+                    name: "login",
+                    placeholder: "E-mail или телефон",
+                    status: _vm.form.login
                   },
-                  on: { yturn: _vm.fnameYturn }
-                }),
-                _vm._v(" "),
-                _c("yinput", {
-                  attrs: {
-                    type: "text",
-                    name: "last_name",
-                    placeholder: "Фамилия",
-                    status: _vm.form.last_name,
-                    yref: _vm.form.last_name.ref
-                  },
-                  on: { yturn: _vm.lnameYturn }
-                }),
-                _vm._v(" "),
-                _c("yinput", {
-                  attrs: {
-                    type: "tel",
-                    name: "tel",
-                    placeholder: "Телефон",
-                    status: _vm.form.tel,
-                    yref: _vm.form.tel.ref
-                  },
-                  on: { yturn: _vm.telYturn }
-                }),
-                _vm._v(" "),
-                _c("yinput", {
-                  attrs: {
-                    type: "email",
-                    name: "email",
-                    placeholder: "E-mail",
-                    status: _vm.form.email,
-                    yref: _vm.form.email.ref
-                  },
-                  on: { yturn: _vm.emailYturn }
-                }),
-                _vm._v(" "),
-                _c("ycheck", {
-                  attrs: {
-                    label:
-                      "Я принимаю условия “Соглашения о предоставлении онлайн-сервисов”",
-                    name: "agreement",
-                    status: _vm.form.agreement,
-                    yref: _vm.form.agreement.ref
-                  },
-                  on: { yturn: _vm.agreementYturn }
+                  on: { yturn: _vm.loginYturn }
                 }),
                 _vm._v(" "),
                 _c(
@@ -23146,7 +23164,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "success-alert" }, [
               _vm._v(
-                "\n                Ключ подтверждения отправлен на почту.\n            "
+                "\n                    Ключ подтверждения отправлен на почту.\n                "
               )
             ]),
             _vm._v(" "),
@@ -38818,7 +38836,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     component: _components_js__WEBPACK_IMPORTED_MODULE_0__["default"].signin,
     name: 'signin'
   }, {
-    path: '/sign-up',
+    path: '/login',
     component: _components_js__WEBPACK_IMPORTED_MODULE_0__["default"].signup,
     name: 'signup'
   }]

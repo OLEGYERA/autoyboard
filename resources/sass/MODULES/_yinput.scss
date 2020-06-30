@@ -47,6 +47,23 @@
 
     }
 
+    .yinput-helper{
+        height: 40px;
+        top: 40px;
+        width: 100%;
+        position: absolute;
+        font-family: $noto;
+        list-style: none;
+        margin: 0;
+        padding: 5px 15px;
+        background-color: $blue;
+        color: #fff;
+        border-radius: 0px 0px 15px 15px;
+        border: 2px solid $blue;
+        border-top: 0px solid transparent;
+        z-index: 1;
+    }
+
     .yinput-alert-row{
         font-size: em(12);
         font-family: $noto;
@@ -64,6 +81,10 @@
                 border: 2px solid $red;
             }
         }
+        .yinput-helper{
+            background-color: $red;
+            border: 2px solid $red;
+        }
     }
     &.success{
         .yinput-input-row{
@@ -71,6 +92,19 @@
             .yinput-icon{
                 border: 2px solid $green;
             }
+        }
+        .yinput-helper{
+            background-color: $green;
+            border: 2px solid $green;
+        }
+    }
+    &.helper{
+        position: relative;
+        input{
+            border-radius: 15px 0px 0px 0px;
+        }
+        .yinput-icon{
+            border-radius: 0px 15px 0px 0px;
         }
     }
     &:last-child{

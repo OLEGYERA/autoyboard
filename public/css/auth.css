@@ -92,6 +92,23 @@ span.yb-gradient {
   border: 2px solid #2603FF;
 }
 
+.yinput .yinput-helper {
+  height: 40px;
+  top: 40px;
+  width: 100%;
+  position: absolute;
+  font-family: "Noto Sans", sans-serif;
+  list-style: none;
+  margin: 0;
+  padding: 5px 15px;
+  background-color: #2603FF;
+  color: #fff;
+  border-radius: 0px 0px 15px 15px;
+  border: 2px solid #2603FF;
+  border-top: 0px solid transparent;
+  z-index: 1;
+}
+
 .yinput .yinput-alert-row {
   font-size: 0.75em;
   font-family: "Noto Sans", sans-serif;
@@ -109,9 +126,31 @@ span.yb-gradient {
   border: 2px solid #FF3434;
 }
 
+.yinput.error .yinput-helper {
+  background-color: #FF3434;
+  border: 2px solid #FF3434;
+}
+
 .yinput.success .yinput-input-row input,
 .yinput.success .yinput-input-row .yinput-icon {
   border: 2px solid #95E2B6;
+}
+
+.yinput.success .yinput-helper {
+  background-color: #95E2B6;
+  border: 2px solid #95E2B6;
+}
+
+.yinput.helper {
+  position: relative;
+}
+
+.yinput.helper input {
+  border-radius: 15px 0px 0px 0px;
+}
+
+.yinput.helper .yinput-icon {
+  border-radius: 0px 15px 0px 0px;
 }
 
 .yinput:last-child {

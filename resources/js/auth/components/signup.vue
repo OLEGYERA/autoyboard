@@ -8,7 +8,7 @@
                 <img src="/img/system/logos/logo.png" alt="">
             </div>
             <div class="yb-signup-box yb-tm-box" v-if="!isformSendedSuccess">
-                <h1 class="yb-main-title">Регистрация</h1>
+                <h1 class="yb-main-title">Авторизация</h1>
                 <div class="yb-additional-auth">
                     <h2><span>через</span></h2>
                     <div class="yb-auth-links">
@@ -22,11 +22,13 @@
                     <h2><span>или</span></h2>
                 </div>
                 <form class="yb-signup-form" @submit.prevent="signData">
-                    <yinput :type="'text'" :name="'first_name'" :placeholder="'Имя'" :status="form.first_name" @yturn="fnameYturn"></yinput>
-                    <yinput :type="'text'" :name="'last_name'" :placeholder="'Фамилия'" :status="form.last_name" :yref="form.last_name.ref" @yturn="lnameYturn"></yinput>
-                    <yinput :type="'tel'" :name="'tel'" :placeholder="'Телефон'" :status="form.tel" :yref="form.tel.ref" @yturn="telYturn"></yinput>
-                    <yinput :type="'email'" :name="'email'" :placeholder="'E-mail'" :status="form.email" :yref="form.email.ref" @yturn="emailYturn"></yinput>
-                    <ycheck :label="'Я принимаю условия “Соглашения о предоставлении онлайн-сервисов”'" :name="'agreement'" :status="form.agreement" :yref="form.agreement.ref" @yturn="agreementYturn" ></ycheck>
+                    <yinput :type="'multy'" :name="'login'" :placeholder="'E-mail или телефон'" :status="form.login" @yturn="loginYturn"></yinput>
+
+<!--                    <yinput :type="'text'" :name="'first_name'" :placeholder="'Имя'" :status="form.first_name" @yturn="fnameYturn"></yinput>-->
+<!--                    <yinput :type="'text'" :name="'last_name'" :placeholder="'Фамилия'" :status="form.last_name" :yref="form.last_name.ref" @yturn="lnameYturn"></yinput>-->
+<!--                    <yinput :type="'tel'" :name="'tel'" :placeholder="'Телефон'" :status="form.tel" :yref="form.tel.ref" @yturn="telYturn"></yinput>-->
+<!--                    <yinput :type="'email'" :name="'email'" :placeholder="'E-mail'" :status="form.email" :yref="form.email.ref" @yturn="emailYturn"></yinput>-->
+<!--                    <ycheck :label="'Я принимаю условия “Соглашения о предоставлении онлайн-сервисов”'" :name="'agreement'" :status="form.agreement" :yref="form.agreement.ref" @yturn="agreementYturn" ></ycheck>-->
 
                     <button type="submit" class="ybtn" :class="{disabled: !isformSuccess}">Продолжить</button>
                 </form>
@@ -52,12 +54,15 @@
         data: function(){
             return{
                 form: {
-                    first_name: {value:null, code:0, message:null, next:'last_name', ref:false},
-                    last_name: {value:null, code:0, message:null, next:'tel', ref:false},
-                    tel: {value:null, code:0, message:null, next:'email', ref:false},
-                    email: {value:null, code:0, message:null, next:'agreement', ref:false},
-                    agreement: {value:false, code:0, message:null, next:null, ref:false},
+                    login: {value:null, code:0, message:null, next:null, ref:false},
                 },
+                // form: {
+                //     first_name: {value:null, code:0, message:null, next:'last_name', ref:false},
+                //     last_name: {value:null, code:0, message:null, next:'tel', ref:false},
+                //     tel: {value:null, code:0, message:null, next:'email', ref:false},
+                //     email: {value:null, code:0, message:null, next:'agreement', ref:false},
+                //     agreement: {value:false, code:0, message:null, next:null, ref:false},
+                // },
                 isformSuccess: false,
                 isformSendedSuccess: false,
             }
@@ -87,41 +92,46 @@
                     self.isformSuccess = success_count == item_count ? true : false;
                 }, 150)
             },
-            verifyYturn(type, data){
+            verifyYturn(data){
                 HTTP.post(`auth/verify`, {
-                    type: type,
+                    name: data.name,
                     data: data.model,
                 })
                 // asdas@sadwa.asd
                     .then(response => {
-                        this.form[type].code = 1;
-                        this.form[type].message = response.data;
-                        this.form[type].value = data.model;
-                        if(data.ref && this.form[type].next){
-                            let reverse = !this.form[this.form[type].next].ref;
-                            this.form[this.form[type].next].ref = reverse;
+                        console.log(type);
+                        this.form[data.alias].code = 1;
+                        this.form[data.alias].message = response.data;
+                        this.form[data.alias].value = data.model;
+                        if(data.ref && this.form[data.alias].next){
+                            let reverse = !this.form[this.form[data.alias].next].ref;
+                            this.form[this.form[data.alias].next].ref = reverse;
                         }
                     })
                     .catch(error => {
-                        this.form[type].code = 2;
-                        this.form[type].message = error.response.data;
+                        console.log(error.response);
+                        this.form[data.alias].code = 2;
+                        this.form[data.alias].message = error.response.data;
                     })
                 this.checkSuccessingForm()
             },
+            loginYturn(data){
+                this.verifyYturn(data);
+            },
             fnameYturn(data){
-                this.verifyYturn('first_name', data);
+                this.verifyYturn(data);
             },
             lnameYturn(data){
-                this.verifyYturn('last_name', data);
+                this.verifyYturn(data);
             },
             telYturn(data){
                 if(data.model !== null){
                     data['model'] = data.model.replace(/\D/g, '');
-                    this.verifyYturn('tel', data);
+                    this.verifyYturn( data);
                 }
             },
             emailYturn(data){
-                this.verifyYturn('email', data);
+                this.verifyYturn( data);
             },
 
             //except without http verification

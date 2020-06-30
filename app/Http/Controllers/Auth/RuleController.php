@@ -22,7 +22,7 @@ class RuleController extends Controller
 
     public function verify(Request $request){
         $return_data = [];
-        switch ($request->type){
+        switch ($request->name){
             case 'first_name':
                 $return_data = $this->validateString($request->data, 'Имя', 'ru', 2, 30, false);
                 break;
@@ -39,7 +39,7 @@ class RuleController extends Controller
         return response()->json($return_data['alert'], $return_data['status']);
     }
 
-    private function validateString($model, $atribute, $lang, $min, $max, $can_empty, $type = null)
+    private function validateString($model, $atribute, $lang, $min, $max, $can_empty, $name = null)
     {
 
         if(mb_strlen($model) == 0) {
@@ -65,7 +65,7 @@ class RuleController extends Controller
             ];
         }
         else{
-            switch ($type) {
+            switch ($name) {
                 case 'email':
                     if (!filter_var($model, FILTER_VALIDATE_EMAIL)) {
                         $str_replaced = str_replace(':atribute', $atribute, $this->error_list[$lang]['wrong']);
