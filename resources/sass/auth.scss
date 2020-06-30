@@ -15,7 +15,8 @@ html, body{
 #authentication{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, rgba(213, 238, 237, 0.1) 0%, rgba(255, 255, 255, 0.65) 91.47%), #F4F8F9;
+    background-color: #F8FAFA;
+    //background: linear-gradient(180deg, rgba(213, 238, 237, 0.1) 0%, rgba(255, 255, 255, 0.65) 91.47%), #F4F8F9;
     height: 100%;
     width: 100%;
     padding: 30px 80px;
@@ -40,8 +41,8 @@ html, body{
             align-items: center;
 
             .yb-header{
-                width: 240px;
-                margin-bottom: 30px;
+                width: 160px;
+                margin-bottom: 20px;
                 img{
                     width: 100%;
                 }
@@ -52,23 +53,42 @@ html, body{
 
                 h1{
                     text-align: center;
+                    margin-bottom: 15px;
                 }
 
                 .yb-additional-auth{
                     h2{
-                        font-family: $noto;
-                        color: $ashen;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-family: $fira;
                         font-weight: 400;
                         font-size: em(16);
-                        text-align: center;
                         margin: 0px;
-                        margin-bottom: 5px;
+                        margin-bottom: 10px;
+                        position: relative;
+                        span{
+                            padding: 0px 5px 2px;
+                            background-color: #fff;
+                            z-index: 1;
+                            color: $ashen;
+                            font-weight: 500;
+                        }
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            width: 100%;
+                            height: 1px;
+                            background-color: $ashen;
+                            left: 0;
+                        }
                     }
 
                     .yb-auth-links{
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        margin-bottom: 10px;
                         .yb-auth-link{
                             width: 40px;
                             img{
@@ -78,7 +98,6 @@ html, body{
                                 margin-right: 15px;
                             }
                         }
-                        margin-bottom: 20px;
                     }
                 }
 
@@ -87,6 +106,34 @@ html, body{
                     flex-direction: column;
                     align-items: center;
                     width: 100%;
+
+                    .ybtn{
+                        margin-top: 5px;
+                    }
+                }
+            }
+            .yb-success-box{
+                width: 480px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                svg{
+                    width: 60px;
+                    border-radius: 50%;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    background-color: $dgreen;
+                    margin-bottom: 35px;
+                    path{
+                        fill: #fff;
+                    }
+                }
+                .success-alert{
+                    font-family: $noto;
+                    font-weight: 400;
+                    color: $dashen;
+                    text-align: center;
                 }
             }
         }

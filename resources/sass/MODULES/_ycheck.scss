@@ -38,29 +38,36 @@
         background-size: 50% 50%;
     }
     #ycheck-box:checked+label.ycheck-label::before {
-        border-color: $yboard;
-        background-color: $yboard;
+        border-color: $blue;
+        background-color: $blue;
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
     }
     /* стили при наведении курсора на checkbox */
     #ycheck-box:not(:disabled):not(:checked)+label.ycheck-label:hover::before {
-        border-color: $green;
+        border-color: $blue;
     }
     /* стили для активного состояния чекбокса (при нажатии на него) */
     #ycheck-box:not(:disabled):active+label.ycheck-label::before {
-        background-color: $green;
-        border-color: $green;
+        background-color: $blue;
+        border-color: $blue;
     }
     /* стили для чекбокса, находящегося в фокусе */
     #ycheck-box:focus+label.ycheck-label::before {
-        box-shadow: 0 0 0 0.2rem rgba(12, 130, 139, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(38, 3, 255, 0.25);
     }
     /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
     #ycheck-box:focus:not(:checked)+label.ycheck-label::before {
-        border-color: $green;
+        border-color: $blue;
     }
     /* стили для чекбокса, находящегося в состоянии disabled */
     #ycheck-box:disabled+label.ycheck-label::before {
         background-color: #e9ecef;
+    }
+
+    &.error{
+        #ycheck-box:not(:disabled):not(:checked)+label.ycheck-label::before {
+            border-color: $red;
+            box-shadow: 0 0 0 0.2rem rgba(255, 52, 52, 0.25);
+        }
     }
 }

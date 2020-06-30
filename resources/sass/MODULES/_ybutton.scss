@@ -1,14 +1,19 @@
 @import "resources/sass/vars";
 
 .ybtn{
-    border-radius: 10px;
-    background-color: $yboard;
-    background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+    border-radius: 32px;
+    background-color: $blue;
     font-family: $fira;
+    text-transform: uppercase;
     font-weight: 500;
     font-size: em(16);
     color: #fff;
-    padding: 10px 25px;
+    padding: 12px 30px;
     border: none;
     cursor: pointer;
+
+    &.disabled{
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
 }

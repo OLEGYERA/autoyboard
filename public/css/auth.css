@@ -23,10 +23,10 @@ button {
 
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
-  font-size: 1.5em;
-  color: #2E2E2E;
   margin: 0px;
-  margin-bottom: 15px;
+  font-size: 1.625em;
+  font-weight: 500;
+  color: #2E2E2E;
 }
 
 span.yb-gradient {
@@ -39,7 +39,7 @@ span.yb-gradient {
   background-color: #fff;
   box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.9), 6px -6px 12px rgba(255, 255, 255, 0.9), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
   border-radius: 30px;
-  padding: 30px;
+  padding: 25px 40px;
 }
 
 .yinput {
@@ -89,7 +89,7 @@ span.yb-gradient {
 
 .yinput .yinput-input-row.tg input,
 .yinput .yinput-input-row.tg .yinput-icon {
-  border: 2px solid #0C828B;
+  border: 2px solid #2603FF;
 }
 
 .yinput .yinput-alert-row {
@@ -168,43 +168,53 @@ span.yb-gradient {
 }
 
 .ycheck #ycheck-box:checked + label.ycheck-label::before {
-  border-color: #0C828B;
-  background-color: #0C828B;
+  border-color: #2603FF;
+  background-color: #2603FF;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 }
 
 .ycheck #ycheck-box:not(:disabled):not(:checked) + label.ycheck-label:hover::before {
-  border-color: #95E2B6;
+  border-color: #2603FF;
 }
 
 .ycheck #ycheck-box:not(:disabled):active + label.ycheck-label::before {
-  background-color: #95E2B6;
-  border-color: #95E2B6;
+  background-color: #2603FF;
+  border-color: #2603FF;
 }
 
 .ycheck #ycheck-box:focus + label.ycheck-label::before {
-  box-shadow: 0 0 0 0.2rem rgba(12, 130, 139, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(38, 3, 255, 0.25);
 }
 
 .ycheck #ycheck-box:focus:not(:checked) + label.ycheck-label::before {
-  border-color: #95E2B6;
+  border-color: #2603FF;
 }
 
 .ycheck #ycheck-box:disabled + label.ycheck-label::before {
   background-color: #e9ecef;
 }
 
+.ycheck.error #ycheck-box:not(:disabled):not(:checked) + label.ycheck-label::before {
+  border-color: #FF3434;
+  box-shadow: 0 0 0 0.2rem rgba(255, 52, 52, 0.25);
+}
+
 .ybtn {
-  border-radius: 10px;
-  background-color: #0C828B;
-  background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+  border-radius: 32px;
+  background-color: #2603FF;
   font-family: "Fira Sans", sans-serif;
+  text-transform: uppercase;
   font-weight: 500;
   font-size: 1em;
   color: #fff;
-  padding: 10px 25px;
+  padding: 12px 30px;
   border: none;
   cursor: pointer;
+}
+
+.ybtn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 html,
@@ -218,7 +228,7 @@ body {
 #authentication {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, rgba(213, 238, 237, 0.1) 0%, rgba(255, 255, 255, 0.65) 91.47%), #F4F8F9;
+  background-color: #F8FAFA;
   height: 100%;
   width: 100%;
   padding: 30px 80px;
@@ -247,8 +257,8 @@ body {
 }
 
 #authentication .yb-page .yb-signup .yb-header {
-  width: 240px;
-  margin-bottom: 30px;
+  width: 160px;
+  margin-bottom: 20px;
 }
 
 #authentication .yb-page .yb-signup .yb-header img {
@@ -261,23 +271,43 @@ body {
 
 #authentication .yb-page .yb-signup .yb-signup-box h1 {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 #authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth h2 {
-  font-family: "Noto Sans", sans-serif;
-  color: #C4C4C4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Fira Sans", sans-serif;
   font-weight: 400;
   font-size: 1em;
-  text-align: center;
   margin: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth h2 span {
+  padding: 0px 5px 2px;
+  background-color: #fff;
+  z-index: 1;
+  color: #C4C4C4;
+  font-weight: 500;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth h2:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #C4C4C4;
+  left: 0;
 }
 
 #authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links .yb-auth-link {
@@ -297,5 +327,37 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+#authentication .yb-page .yb-signup .yb-signup-box .yb-signup-form .ybtn {
+  margin-top: 5px;
+}
+
+#authentication .yb-page .yb-signup .yb-success-box {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#authentication .yb-page .yb-signup .yb-success-box svg {
+  width: 60px;
+  border-radius: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #2ECC71;
+  margin-bottom: 35px;
+}
+
+#authentication .yb-page .yb-signup .yb-success-box svg path {
+  fill: #fff;
+}
+
+#authentication .yb-page .yb-signup .yb-success-box .success-alert {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  color: rgba(46, 46, 46, 0.7);
+  text-align: center;
 }
 

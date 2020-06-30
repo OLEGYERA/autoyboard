@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class VerificationController extends Controller
@@ -35,8 +38,33 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
+//        $this->middleware('auth');
+//        $this->middleware('signed')->only('verify');
+        $this->middleware('throttle:3,2')->only('emailVerification');
+    }
+
+    protected function emailVerification($token){
+        $user = $this->findUserByToken($token);
+        if($user && $user->email_verified_at == null){
+            $user->email_verified_at = Carbon::now();
+            $user->remember_token = null;
+            $user->save();
+
+            $this->manuallyAuth($user);
+        }
+        else{
+            abort(404);
+        }
+    }
+
+
+    private function findUserByToken($token){
+        $user = User::where('remember_token', $token)->first();
+
+        return !empty($user) ? $user : false;
+    }
+
+    private function manuallyAuth($user){
+        Auth::loginUsingId($user->id);
     }
 }

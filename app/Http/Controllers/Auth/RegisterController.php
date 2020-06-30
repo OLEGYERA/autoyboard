@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AuthEmail;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
+use Dirape\Token\Token;
 
 class RegisterController extends Controller
 {
@@ -41,33 +46,31 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+
+    protected function signup(Request $request){
+        $user = User::create([
+            'first_name' => $request->first_name['value'],
+            'last_name' => $request->last_name['value'],
+            'tel' => $request->tel['value'],
+            'email' => $request->email['value'],
+            'agreement' => $request->agreement['value'],
         ]);
+
+        $this->generateTokens($user);
+
+        $this->sendVerificationEmail($user);
+
+        return true;
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+    private function generateTokens($user){
+        $user->password = bcrypt((new Token())->Unique('users', 'password', 32));
+        $user->remember_token = (new Token())->Unique('users', 'remember_token', 32);
+
+        $user->save();
+    }
+
+    private function sendVerificationEmail($user){
+        Mail::to($user->email)->send(new AuthEmail($user));
     }
 }

@@ -1915,20 +1915,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['label', 'status'],
+  props: ['label', 'name', 'status', 'yref'],
   mounted: function mounted() {},
   data: function data() {
     return {
-      toggled: false
+      toggled: false,
+      model: null
     };
   },
   methods: {
-    Ytoggler: function Ytoggler(e) {
-      this.toggled = e;
+    YCheking: function YCheking() {
+      console.log(this.status.code, 123);
+      this.$emit('yturn', this.model);
     }
   },
-  watch: {}
+  watch: {
+    yref: function yref(to, from) {
+      this.$refs[this.name].focus();
+    },
+    model: function model(to, from) {
+      this.YCheking();
+    }
+  }
 });
 
 /***/ }),
@@ -1971,12 +1987,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['type', 'name', 'placeholder', 'status', 'yref'],
   mounted: function mounted() {
-    if (this.type == 'tel') {
-      inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
-        mask: "+380-(99)-99-99-999",
-        keepStatic: true
-      }).mask(this.$refs[this.name]);
-    }
+    if (this.type == 'tel') inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
+      mask: "+380-(99)-99-99-999",
+      keepStatic: true,
+      'autoUnmask': false
+    }).mask(this.$refs[this.name]);
   },
   data: function data() {
     return {
@@ -1991,7 +2006,9 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!e) {
         this.EmitInput(ref);
-      } else {}
+      } else {
+        if (this.type == 'tel' && this.model == null) this.model = '+380-(__)-__-__-___';
+      }
     },
     EmitInput: function EmitInput(ref) {
       this.$emit('yturn', {
@@ -2001,12 +2018,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
-    model: function model(to, from) {// switch (this.type) {
-      //     case 'tel':
-      //         Inputmask("+380-(99)-99-99-999").mask(this.$refs[this.name]);
-      //         break;
-      // }
-    },
     yref: function yref(to, from) {
       this.$refs[this.name].focus();
     }
@@ -2024,6 +2035,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2121,45 +2137,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -2167,76 +2144,93 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         first_name: {
-          //status
+          value: null,
           code: 0,
           message: null,
-          //ref
           next: 'last_name',
           ref: false
         },
         last_name: {
-          //status
+          value: null,
           code: 0,
           message: null,
-          //ref
           next: 'tel',
           ref: false
         },
         tel: {
-          //status
+          value: null,
           code: 0,
           message: null,
-          //ref
           next: 'email',
           ref: false
         },
         email: {
-          //status
+          value: null,
           code: 0,
           message: null,
-          //ref
-          next: 'country',
+          next: 'agreement',
           ref: false
         },
-        country: {
-          //status
+        agreement: {
+          value: false,
           code: 0,
           message: null,
-          //ref
-          next: 'city',
-          ref: false
-        },
-        city: {
-          //status
-          code: 0,
-          message: null,
-          //ref
           next: null,
           ref: false
         }
-      }
+      },
+      isformSuccess: false,
+      isformSendedSuccess: false
     };
   },
   methods: {
-    verifyYturn: function verifyYturn(type, data) {
+    signData: function signData(e) {
       var _this = this;
 
-      console.log(data);
+      this.checkSuccessingForm();
+
+      if (this.isformSuccess) {
+        _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/signup", this.form).then(function (response) {
+          _this.isformSendedSuccess = true;
+        })["catch"](function (error) {
+          console.log(error.response);
+        });
+      }
+    },
+    checkSuccessingForm: function checkSuccessingForm() {
+      var self = this,
+          item_count = 0,
+          // .length dont work
+      success_count = 0;
+      setTimeout(function () {
+        Object.keys(self.form).forEach(function (key) {
+          self.form[key].code == 1 ? success_count++ : '';
+          item_count++;
+        });
+        self.isformSuccess = success_count == item_count ? true : false;
+      }, 150);
+    },
+    verifyYturn: function verifyYturn(type, data) {
+      var _this2 = this;
+
       _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/verify", {
         type: type,
         data: data.model
-      }).then(function (response) {
-        _this.form[type].code = 1;
-        _this.form[type].message = response.data;
+      }) // asdas@sadwa.asd
+      .then(function (response) {
+        _this2.form[type].code = 1;
+        _this2.form[type].message = response.data;
+        _this2.form[type].value = data.model;
 
-        if (data.ref) {
-          var reverse = !_this.form[_this.form[type].next].ref;
-          _this.form[_this.form[type].next].ref = reverse;
+        if (data.ref && _this2.form[type].next) {
+          var reverse = !_this2.form[_this2.form[type].next].ref;
+          _this2.form[_this2.form[type].next].ref = reverse;
         }
       })["catch"](function (error) {
-        _this.form[type].code = 2;
-        _this.form[type].message = error.response.data;
+        _this2.form[type].code = 2;
+        _this2.form[type].message = error.response.data;
       });
+      this.checkSuccessingForm();
     },
     fnameYturn: function fnameYturn(data) {
       this.verifyYturn('first_name', data);
@@ -2253,14 +2247,14 @@ __webpack_require__.r(__webpack_exports__);
     emailYturn: function emailYturn(data) {
       this.verifyYturn('email', data);
     },
-    countryYturn: function countryYturn(data) {
-      this.verifyYturn('country', data);
-    },
-    cityYturn: function cityYturn(data) {
-      this.verifyYturn('city', data);
+    //except without http verification
+    agreementYturn: function agreementYturn(data) {
+      this.form.agreement.code = data ? 1 : 2;
+      this.form.agreement.value = data ? true : false;
+      this.checkSuccessingForm();
     }
   },
-  watch: {}
+  computed: {}
 });
 
 /***/ }),
@@ -22695,13 +22689,63 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ycheck" }, [
-    _c("input", { attrs: { type: "checkbox", id: "ycheck-box" } }),
-    _vm._v(" "),
-    _c("label", { staticClass: "ycheck-label", attrs: { for: "ycheck-box" } }, [
-      _vm._v(_vm._s(_vm.label))
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "ycheck", class: { error: _vm.status.code == 2 } },
+    [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.model,
+            expression: "model"
+          }
+        ],
+        ref: _vm.name,
+        attrs: { type: "checkbox", id: "ycheck-box", name: _vm.name },
+        domProps: {
+          checked: Array.isArray(_vm.model)
+            ? _vm._i(_vm.model, null) > -1
+            : _vm.model
+        },
+        on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.YCheking($event)
+          },
+          change: function($event) {
+            var $$a = _vm.model,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false
+            if (Array.isArray($$a)) {
+              var $$v = null,
+                $$i = _vm._i($$a, $$v)
+              if ($$el.checked) {
+                $$i < 0 && (_vm.model = $$a.concat([$$v]))
+              } else {
+                $$i > -1 &&
+                  (_vm.model = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+              }
+            } else {
+              _vm.model = $$c
+            }
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "ycheck-label", attrs: { for: "ycheck-box" } },
+        [_vm._v(_vm._s(_vm.label))]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22921,9 +22965,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-view")
+  return _c(
+    "div",
+    { staticClass: "yb-page" },
+    [_vm._m(0), _vm._v(" "), _c("router-view")],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "yb-presentation" }, [
+      _c("img", { attrs: { src: "/img/animation.png", alt: "" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -22975,82 +23033,125 @@ var render = function() {
     _c("div", { staticClass: "yb-signup" }, [
       _vm._m(1),
       _vm._v(" "),
-      _c("div", { staticClass: "yb-signup-box yb-tm-box" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _c(
-          "form",
-          {
-            staticClass: "yb-signup-form",
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-              }
-            }
-          },
-          [
-            _c("yinput", {
-              attrs: {
-                type: "text",
-                name: "first_name",
-                placeholder: "Имя",
-                status: _vm.form.first_name
+      !_vm.isformSendedSuccess
+        ? _c("div", { staticClass: "yb-signup-box yb-tm-box" }, [
+            _c("h1", { staticClass: "yb-main-title" }, [_vm._v("Регистрация")]),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "yb-signup-form",
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.signData($event)
+                  }
+                }
               },
-              on: { yturn: _vm.fnameYturn }
-            }),
-            _vm._v(" "),
-            _c("yinput", {
-              attrs: {
-                type: "text",
-                name: "last_name",
-                placeholder: "Фамилия",
-                status: _vm.form.last_name,
-                yref: _vm.form.last_name.ref
+              [
+                _c("yinput", {
+                  attrs: {
+                    type: "text",
+                    name: "first_name",
+                    placeholder: "Имя",
+                    status: _vm.form.first_name
+                  },
+                  on: { yturn: _vm.fnameYturn }
+                }),
+                _vm._v(" "),
+                _c("yinput", {
+                  attrs: {
+                    type: "text",
+                    name: "last_name",
+                    placeholder: "Фамилия",
+                    status: _vm.form.last_name,
+                    yref: _vm.form.last_name.ref
+                  },
+                  on: { yturn: _vm.lnameYturn }
+                }),
+                _vm._v(" "),
+                _c("yinput", {
+                  attrs: {
+                    type: "tel",
+                    name: "tel",
+                    placeholder: "Телефон",
+                    status: _vm.form.tel,
+                    yref: _vm.form.tel.ref
+                  },
+                  on: { yturn: _vm.telYturn }
+                }),
+                _vm._v(" "),
+                _c("yinput", {
+                  attrs: {
+                    type: "email",
+                    name: "email",
+                    placeholder: "E-mail",
+                    status: _vm.form.email,
+                    yref: _vm.form.email.ref
+                  },
+                  on: { yturn: _vm.emailYturn }
+                }),
+                _vm._v(" "),
+                _c("ycheck", {
+                  attrs: {
+                    label:
+                      "Я принимаю условия “Соглашения о предоставлении онлайн-сервисов”",
+                    name: "agreement",
+                    status: _vm.form.agreement,
+                    yref: _vm.form.agreement.ref
+                  },
+                  on: { yturn: _vm.agreementYturn }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "ybtn",
+                    class: { disabled: !_vm.isformSuccess },
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Продолжить")]
+                )
+              ],
+              1
+            )
+          ])
+        : _c("div", { staticClass: "yb-success-box yb-tm-box" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "svg-inline--fa fa-check fa-w-16",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  "aria-hidden": "true",
+                  focusable: "false",
+                  "data-prefix": "fas",
+                  "data-icon": "check",
+                  role: "img",
+                  viewBox: "0 0 512 512"
+                }
               },
-              on: { yturn: _vm.lnameYturn }
-            }),
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "currentColor",
+                    d:
+                      "M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                  }
+                })
+              ]
+            ),
             _vm._v(" "),
-            _c("yinput", {
-              attrs: {
-                type: "tel",
-                name: "tel",
-                placeholder: "Телефон",
-                status: _vm.form.tel,
-                yref: _vm.form.tel.ref
-              },
-              on: { yturn: _vm.telYturn }
-            }),
-            _vm._v(" "),
-            _c("yinput", {
-              attrs: {
-                type: "email",
-                name: "email",
-                placeholder: "E-mail",
-                status: _vm.form.email,
-                yref: _vm.form.email.ref
-              },
-              on: { yturn: _vm.emailYturn }
-            }),
-            _vm._v(" "),
-            _c("ycheck", {
-              attrs: {
-                label:
-                  "Я принимаю условия “Соглашения о предоставлении онлайн-сервисов”",
-                status: 0
-              }
-            }),
-            _vm._v(" "),
-            _c("button", { staticClass: "ybtn" }, [
+            _c("div", { staticClass: "success-alert" }, [
               _vm._v(
-                "\n                        Продолжить\n                    "
+                "\n                Ключ подтверждения отправлен на почту.\n            "
               )
-            ])
-          ],
-          1
-        )
-      ])
+            ]),
+            _vm._v(" "),
+            _vm._m(3)
+          ])
     ])
   ])
 }
@@ -23075,17 +23176,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "yb-main-title" }, [
-      _vm._v("Регистрация на сайте "),
-      _c("span", { staticClass: "yb-gradient" }, [_vm._v("AutoYBoard")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "yb-additional-auth" }, [
-      _c("h2", [_vm._v("Зарегистрироваться через")]),
+      _c("h2", [_c("span", [_vm._v("через")])]),
       _vm._v(" "),
       _c("div", { staticClass: "yb-auth-links" }, [
         _c("div", { staticClass: "yb-auth-link" }, [
@@ -23097,7 +23189,17 @@ var staticRenderFns = [
         _c("div", { staticClass: "yb-auth-link" }, [
           _c("img", { attrs: { src: "/img/system/icons/Google.png", alt: "" } })
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c("h2", [_c("span", [_vm._v("или")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "manage-links" }, [
+      _c("a", { attrs: { href: "/" } }, [_vm._v("Войти")])
     ])
   }
 ]

@@ -27,9 +27,8 @@
     export default {
         props: ['type', 'name', 'placeholder', 'status', 'yref'],
         mounted() {
-            if(this.type == 'tel'){
-                Inputmask({mask: "+380-(99)-99-99-999", keepStatic: true}).mask(this.$refs[this.name]);
-            }
+            if(this.type == 'tel') Inputmask({mask: "+380-(99)-99-99-999", keepStatic: true, 'autoUnmask': false}).mask(this.$refs[this.name]);
+
         },
         data: function(){
             return{
@@ -43,7 +42,7 @@
                 if(!e){
                     this.EmitInput(ref);
                 }else{
-
+                    if(this.type == 'tel' && this.model == null) this.model = '+380-(__)-__-__-___'
                 }
             },
             EmitInput(ref){
@@ -51,13 +50,6 @@
             },
         },
         watch: {
-            model(to, from){
-                // switch (this.type) {
-                //     case 'tel':
-                //         Inputmask("+380-(99)-99-99-999").mask(this.$refs[this.name]);
-                //         break;
-                // }
-            },
             yref(to, from){
                 this.$refs[this.name].focus()
             }

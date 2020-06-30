@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ea05e84cde112d445148b09a01e157e",
+    "content-hash": "492734f7cb00b343ffa05d624eed1c87",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -103,6 +103,62 @@
                 "math"
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "dirape/token",
+            "version": "V2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mustafakhaleddev/laravel-token.git",
+                "reference": "653590e561641e94f04c40e3034c6cd3436cda7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mustafakhaleddev/laravel-token/zipball/653590e561641e94f04c40e3034c6cd3436cda7d",
+                "reference": "653590e561641e94f04c40e3034c6cd3436cda7d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=4.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dirape\\Token\\TokenServiceProvider"
+                    ],
+                    "aliases": {
+                        "Token": "Dirape\\Token\\Facades\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dirape\\Token\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MustafaKhaled",
+                    "email": "MustafaKhaled.dev@gmail.com"
+                }
+            ],
+            "description": "Unique Token Generator For Laravel",
+            "keywords": [
+                "PHP token",
+                "generate",
+                "laravel",
+                "laravel token",
+                "token",
+                "token generator",
+                "unique token"
+            ],
+            "time": "2020-04-13T14:56:42+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1255,16 +1311,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.33.0",
+            "version": "2.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b"
+                "reference": "4b9bd835261ef23d36397a46a76b496a458305e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
-                "reference": "4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4b9bd835261ef23d36397a46a76b496a458305e5",
+                "reference": "4b9bd835261ef23d36397a46a76b496a458305e5",
                 "shasum": ""
             },
             "require": {
@@ -1288,7 +1344,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "2.x-dev",
+                    "dev-3.x": "3.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -1323,7 +1380,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-04-20T15:05:43+00:00"
+            "time": "2020-05-24T18:27:52+00:00"
         },
         {
             "name": "nikic/php-parser",
