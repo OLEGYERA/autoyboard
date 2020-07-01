@@ -57,15 +57,16 @@ html, body{
                 }
 
                 .yb-additional-auth{
+                    margin-bottom: 15px;
                     h2{
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         font-family: $fira;
                         font-weight: 400;
-                        font-size: em(16);
+                        font-size: em(14);
                         margin: 0px;
-                        margin-bottom: 10px;
+                        margin-bottom: 0px;
                         position: relative;
                         span{
                             padding: 0px 5px 2px;
@@ -88,9 +89,9 @@ html, body{
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        margin-bottom: 10px;
+                        margin-bottom: 0px;
                         .yb-auth-link{
-                            width: 40px;
+                            width: 30px;
                             img{
                                 width: 100%;
                             }

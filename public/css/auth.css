@@ -313,15 +313,19 @@ body {
   margin-bottom: 15px;
 }
 
+#authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth {
+  margin-bottom: 15px;
+}
+
 #authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth h2 {
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Fira Sans", sans-serif;
   font-weight: 400;
-  font-size: 1em;
+  font-size: 0.875em;
   margin: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   position: relative;
 }
 
@@ -346,11 +350,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 #authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links .yb-auth-link {
-  width: 40px;
+  width: 30px;
 }
 
 #authentication .yb-page .yb-signup .yb-signup-box .yb-additional-auth .yb-auth-links .yb-auth-link img {
