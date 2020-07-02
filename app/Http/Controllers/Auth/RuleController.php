@@ -87,7 +87,7 @@ class RuleController extends Controller
                             if(!empty(User::where('email', $model)->first())){
                                 $str_replaced = str_replace(':atribute', $atribute, $this->error_list[$lang]['unique']);
                                 return [
-                                    'status' => 400,
+                                    'status' => 418,
                                     'alert' => $str_replaced,
                                 ];
                             }
@@ -109,7 +109,7 @@ class RuleController extends Controller
                             if(!empty(User::where('tel', $model)->first())){
                                 $str_replaced = str_replace(':atribute', $atribute . 'ом', $this->error_list[$lang]['unique']);
                                 return [
-                                    'status' => 400,
+                                    'status' => 418,
                                     'alert' => $str_replaced,
                                 ];
                             }

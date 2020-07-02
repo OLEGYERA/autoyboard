@@ -7,7 +7,7 @@ const router = new VueRouter
 ({
     routes: [
         {path: '/sign-in', component: C.signin, name: 'signin'},
-        {path: '/login', component: C.login, name: 'login'},
+        {path: '/sign-up', component: C.signup, name: 'signup'},
     ]
 })
 

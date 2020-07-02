@@ -1,34 +1,33 @@
 import {HTTP} from '../../http.js'
 
 let state = {
-    sign: {
-        isLogin: null,
-        lastVerify: [],
-        teapotLogin: null,
-    },
+    VerifyPageName: null,
+    lastVerify: [], // data || isNew
+    teapotLogin: null,
 };
 
 let getters = {
-    SIGN_IS_LOGIN: state => {
-        return state.sign.isLogin;
+    AUTH_VERIFY_ID_COUNTER: state => {
+        return state.VerifyIDCounter;
     },
     AUTH_VERIFY: state => {
-        return state.sign.lastVerify;
+        return state.lastVerify;
     },
     AUTH_TEAPOT_LOGIN: state => {
-        return state.sign.teapotLogin;
+        return state.teapotLogin;
     },
 };
 
 let mutations = {
+    SET_VERIFY_PAGE_NAME: (state, payload) => {
+        state.VerifyPageName = payload;
+    },
     SET_AUIH_VERIFY: (state, payload) => {
-        state.sign.lastVerify = payload;
+        state.lastVerify = payload;
     },
-
     SET_AUTH_TEAPOT_LOGIN: (state, payload) => {
-        state.sign.teapotLogin = payload;
+        state.teapotLogin = payload;
     },
-
     //
     // ADD_TODO: (state, payload) => {
     //     state.todos.push(payload);
@@ -36,11 +35,12 @@ let mutations = {
 };
 
 let actions = {
-    GET_AUTH_VERIFY: (context, payload) => {
+    GET_AUTH_VERIFY: async (context, payload) => {
+        let verify_page_name = context.state.VerifyPageName;
         HTTP.post(`auth/verify`, payload).then(response => {
-            context.commit('SET_AUIH_VERIFY', {status: 1, data: response.data, sended_data: payload});
+            context.commit('SET_AUIH_VERIFY', {verify_page_name: verify_page_name, status: 1, data: response.data, sended_data: payload});
         }).catch(error => {
-            context.commit('SET_AUIH_VERIFY', {status: 0, data: error.response, sended_data: payload});
+            context.commit('SET_AUIH_VERIFY', {verify_page_name: verify_page_name, status: 0, data: error.response, sended_data: payload});
         })
     },
     // GET_TODO: async (context, payload) => {

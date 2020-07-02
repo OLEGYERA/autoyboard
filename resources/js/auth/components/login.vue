@@ -82,7 +82,7 @@
             },
             teapotCreation(){
                 this.SET_AUTH_TEAPOT_LOGIN(this.form.login);
-                console.log(this.AUTH_TEAPOT_LOGIN)
+                this.$router.push({name: 'signin'})
             }
         },
         computed: {

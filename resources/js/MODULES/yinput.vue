@@ -28,9 +28,14 @@
     import Inputmask from "inputmask";
 
     export default {
-        props: ['type', 'name', 'placeholder', 'callback', 'status', 'yref', 'unique'],
+        props: ['type', 'name', 'value', 'placeholder', 'callback', 'status', 'yref', 'unique'],
         mounted() {
+            if(this.type == 'multy') console.log(this.status)
             if(this.type == 'tel') Inputmask({mask: "+380-(99)-99-99-999", keepStatic: true, 'autoUnmask': false}).mask(this.$refs[this.name])
+            // if(this.value !== null){
+            //     this.model = this.value;
+            //     console.log(this.value, 123)
+            // }
         },
         data: function(){
             return{
@@ -76,6 +81,7 @@
                 this.Ytoggler(false, false);
             },
             yref(to, from){
+                console.log(to);
                 this.$refs[this.name].focus()
             },
             model(to){
@@ -83,6 +89,19 @@
                 if(this.type == 'multy' && this.model !== null && this.model.indexOf('+') == 0 && this.model.length == 1){
                     Inputmask({mask: "+380-(99)-99-99-999", 'autoUnmask': false}).mask(this.$refs[this.name])
                     this.model = '+380-(__)-__-__-___';
+                }
+            },
+            value(to, from){
+                console.log(from)
+                if(from === null){
+                    if(this.type == 'multy' && to.indexOf('@') == -1){
+                        this.model = '+' + to;
+                        Inputmask({mask: "+380-(99)-99-99-999", keepStatic: true, 'autoUnmask': false}).mask(this.$refs[this.name])
+                    }else{
+                        this.model = to;
+                    }
+
+                    this.Ytoggler(false, true);
                 }
             }
         }
