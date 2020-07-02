@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/STORE/modules/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/STORE/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/auth/components/login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RuleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RuleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/MODULES/yinput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/MODULES/yinput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/auth/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/components.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/auth/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/STORE/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/STORE/modules/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/components/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/components/login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auth.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +187,8 @@
       <workItem from="1593078112860" duration="15849000" />
       <workItem from="1593157103556" duration="6038000" />
       <workItem from="1593501605807" duration="27007000" />
-      <workItem from="1593588594116" duration="6561000" />
+      <workItem from="1593588594116" duration="20968000" />
+      <workItem from="1593673501221" duration="5043000" />
     </task>
     <servers />
   </component>
@@ -216,10 +212,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="720" y="456" width="471" height="162" key="ComposerInitDialogKey/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588806378734" />
-    <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl" timestamp="1593526860493">
+    <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl" timestamp="1593609059631">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593526860493" />
+    <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593609059631" />
     <state x="623" y="248" key="run.anything.popup" timestamp="1588950553602">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -259,7 +255,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/auth/router.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

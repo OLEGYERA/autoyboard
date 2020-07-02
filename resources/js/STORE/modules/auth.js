@@ -4,6 +4,7 @@ let state = {
     sign: {
         isLogin: null,
         lastVerify: [],
+        teapotLogin: null,
     },
 };
 
@@ -11,14 +12,21 @@ let getters = {
     SIGN_IS_LOGIN: state => {
         return state.sign.isLogin;
     },
-    SIGN_VERIFY: state => {
+    AUTH_VERIFY: state => {
         return state.sign.lastVerify;
+    },
+    AUTH_TEAPOT_LOGIN: state => {
+        return state.sign.teapotLogin;
     },
 };
 
 let mutations = {
-    SET_SIGN_VERIFY: (state, payload) => {
+    SET_AUIH_VERIFY: (state, payload) => {
         state.sign.lastVerify = payload;
+    },
+
+    SET_AUTH_TEAPOT_LOGIN: (state, payload) => {
+        state.sign.teapotLogin = payload;
     },
 
     //
@@ -28,11 +36,11 @@ let mutations = {
 };
 
 let actions = {
-    GET_SIGN_VERIFY: (context, payload) => {
+    GET_AUTH_VERIFY: (context, payload) => {
         HTTP.post(`auth/verify`, payload).then(response => {
-            context.commit('SET_SIGN_VERIFY', {status: 1, data: response.data});
+            context.commit('SET_AUIH_VERIFY', {status: 1, data: response.data, sended_data: payload});
         }).catch(error => {
-            context.commit('SET_SIGN_VERIFY', {status: 0, data: error.response});
+            context.commit('SET_AUIH_VERIFY', {status: 0, data: error.response, sended_data: payload});
         })
     },
     // GET_TODO: async (context, payload) => {

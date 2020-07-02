@@ -1,9 +1,9 @@
 <template>
-    <div class="yb-signup">
+    <div class="yb-auth">
         <div class="yb-header">
             <img src="/img/system/logos/logo.png" alt="">
         </div>
-        <div class="yb-signup-box yb-tm-box" v-if="!isformSendedSuccess">
+        <div class="yb-auth-box yb-tm-box">
             <h1 class="yb-main-title">Авторизация</h1>
             <div class="yb-additional-auth">
                 <h2><span>через</span></h2>
@@ -17,9 +17,16 @@
                 </div>
                 <h2><span>или</span></h2>
             </div>
-            <form class="yb-signup-form" @submit.prevent="signData">
-                <yinput :type="'multy'" :name="'login'" :placeholder="'E-mail или телефон'" :status="form.login" @yturn="loginYturn"></yinput>
-                <button type="submit" class="ybtn" :class="{disabled: !isformSuccess}">Продолжить</button>
+            <form class="yb-auth-form" @submit.prevent="formValidation" :class="{'sign-teapot-alert': teapot}">
+                <yinput :type="'multy'" :name="'login'" :placeholder="'E-mail или телефон'" :callback="callback" :status="{message: form.login.message, code: form.login.code}" :unique="form.login.unique" @yturn="loginYturn" @ywatch="loginYwatch"></yinput>
+                <div class="sign-teapot-btn" v-if="teapot" @click="teapotCreation">Создать аккаунт</div>
+                <div class="yb-auth-submiters">
+                    <button type="submit" class="ybtn">Продолжить</button>
+                    <div class="submit-changer">
+                        <div class="changer-title">Ещё нет аккаунта?</div>
+                        <router-link :to="'/'" class="changer-link">Зарегистрируйтесь</router-link>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -27,83 +34,77 @@
 
 <script>
     import {HTTP} from '../../http.js'
-    import {mapGetters, mapActions} from 'vuex';
+    import {mapGetters, mapActions, mapMutations} from 'vuex';
     export default {
         mounted() {
-            console.log(this.$store.getters.SIGN_VERIFY, this.SIGN_VERIFY)
+            console.log(this.$store.getters.AUTH_VERIFY, this.AUTH_VERIFY)
         },
         data: function(){
             return{
                 form: {
-                    login: {value:null, code:0, message:null, next:null, ref:false},
+                    login: {value:null, code:0, message:null, next:null, ref:false, unique: false},
                 },
-                isformSuccess: false,
+                callback: false,
+                teapot: false,
                 isformSendedSuccess: false,
             }
         },
         methods: {
-            ...mapActions(['GET_SIGN_VERIFY']),
-            signData(e){
-                this.checkSuccessingForm();
-                if(this.isformSuccess){
-                    HTTP.post(`auth/signup`, this.form)
-                        .then(response => {
-                            this.isformSendedSuccess = true;
-                        })
-                        .catch(error => {
-                            console.log(error.response);
-                        })
-                }
+            ...mapActions(['GET_AUTH_VERIFY']),
+            ...mapMutations(['SET_AUTH_TEAPOT_LOGIN']),
+            loginYturn(data){
+                this.GET_AUTH_VERIFY(data)
             },
-            checkSuccessingForm(){
+            loginYwatch(){
+                if(this.teapot) this.teapot = false;
+            },
+            formValidation(){
                 let self = this,
                     item_count = 0, // .length dont work
                     success_count = 0;
+                self.callback = !self.callback;  //verify all yinput
+
                 setTimeout(function(){
-                    Object.keys(self.form).forEach(function(key){
+                    Object.keys(self.form).forEach(function(key) {
                         self.form[key].code == 1 ? success_count++ : '';
                         item_count++;
-                    })
-                    self.isformSuccess = success_count == item_count ? true : false;
-                }, 150)
+                    });
+                    success_count == item_count ? self.formSubmission() : '';
+                }, 150);
             },
-            verifyYturn(data){
-                HTTP.post(`auth/verify`, {
-                    name: data.name,
-                    data: data.model,
-                })
-                    // asdas@sadwa.asd
+            formSubmission(){
+                HTTP.post(`auth/auth`, this.form)
                     .then(response => {
-                        console.log(type);
-                        this.form[data.alias].code = 1;
-                        this.form[data.alias].message = response.data;
-                        this.form[data.alias].value = data.model;
-                        if(data.ref && this.form[data.alias].next){
-                            let reverse = !this.form[this.form[data.alias].next].ref;
-                            this.form[this.form[data.alias].next].ref = reverse;
-                        }
                     })
                     .catch(error => {
                         console.log(error.response);
-                        this.form[data.alias].code = 2;
-                        this.form[data.alias].message = error.response.data;
                     })
-                this.checkSuccessingForm()
             },
-            loginYturn(data){
-                console.log(data);
-                this.verifyYturn(data);
-            },
-
-            //except without http verification
-            agreementYturn(data){
-                this.form.agreement.code = data ? 1 : 2;
-                this.form.agreement.value = data ? true : false;
-                this.checkSuccessingForm()
-            },
+            teapotCreation(){
+                this.SET_AUTH_TEAPOT_LOGIN(this.form.login);
+                console.log(this.AUTH_TEAPOT_LOGIN)
+            }
         },
         computed: {
-            ...mapGetters(['SIGN_IS_LOGIN', 'SIGN_VERIFY']),
+            ...mapGetters(['AUTH_VERIFY', 'AUTH_TEAPOT_LOGIN']),
+        },
+        watch: {
+            AUTH_VERIFY(to, from){
+                if(to.status){
+                    this.form[to.sended_data.name].code = 1;
+                    this.form[to.sended_data.name].message = to.data;
+                    this.form[to.sended_data.name].value = to.sended_data.model;
+                    if(to.sended_data.ref && this.form[to.sended_data.name].next){
+                        let reverse = !this.form[this.form[to.sended_data.name].next].ref;
+                        this.form[this.form[to.sended_data.name].next].ref = reverse;
+                    }
+                }else{
+                    if(to.data.status == 418) this.teapot = true;
+                    this.form[to.sended_data.name].code = 2;
+                    this.form[to.sended_data.name].message = to.data.data;
+                    this.form[to.sended_data.name].value = to.sended_data.model;
+                }
+            }
         }
     }
 </script>

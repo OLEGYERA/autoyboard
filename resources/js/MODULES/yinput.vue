@@ -28,7 +28,7 @@
     import Inputmask from "inputmask";
 
     export default {
-        props: ['type', 'name', 'placeholder', 'status', 'yref'],
+        props: ['type', 'name', 'placeholder', 'callback', 'status', 'yref', 'unique'],
         mounted() {
             if(this.type == 'tel') Inputmask({mask: "+380-(99)-99-99-999", keepStatic: true, 'autoUnmask': false}).mask(this.$refs[this.name])
         },
@@ -44,9 +44,10 @@
                 if(toggle){
                     if(this.type == 'tel' && this.model == null) this.model = '+380-(__)-__-__-___';
                 }else{
-                    let type = (this.type == 'multy') ? (this.model !== null ? (this.model.indexOf('+') == 0 ? 'tel' : 'email') : 'email') : this.name;
+                    let alias = (this.type == 'multy') ? (this.model !== null ? (this.model.indexOf('+') == 0 ? 'tel' : 'email') : 'email') : this.name;
+                    let model = alias == 'tel' ? this.model.replace(/\D/g, '') : this.model;
 
-                    this.$emit('yturn', {alias: type, name: this.name, model: this.model, ref: ref});
+                    this.$emit('yturn', {alias: alias, name: this.name, model: model, ref: ref, unique: this.unique});
                 }
             },
             doKeyEvent(e){
@@ -71,10 +72,14 @@
             }
         },
         watch: {
+            callback(){
+                this.Ytoggler(false, false);
+            },
             yref(to, from){
                 this.$refs[this.name].focus()
             },
             model(to){
+                this.$emit('ywatch');
                 if(this.type == 'multy' && this.model !== null && this.model.indexOf('+') == 0 && this.model.length == 1){
                     Inputmask({mask: "+380-(99)-99-99-999", 'autoUnmask': false}).mask(this.$refs[this.name])
                     this.model = '+380-(__)-__-__-___';

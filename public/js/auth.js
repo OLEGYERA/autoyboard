@@ -1988,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['type', 'name', 'placeholder', 'status', 'yref'],
+  props: ['type', 'name', 'placeholder', 'callback', 'status', 'yref', 'unique'],
   mounted: function mounted() {
     if (this.type == 'tel') inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
       mask: "+380-(99)-99-99-999",
@@ -2010,12 +2010,14 @@ __webpack_require__.r(__webpack_exports__);
       if (toggle) {
         if (this.type == 'tel' && this.model == null) this.model = '+380-(__)-__-__-___';
       } else {
-        var type = this.type == 'multy' ? this.model !== null ? this.model.indexOf('+') == 0 ? 'tel' : 'email' : 'email' : this.name;
+        var alias = this.type == 'multy' ? this.model !== null ? this.model.indexOf('+') == 0 ? 'tel' : 'email' : 'email' : this.name;
+        var model = alias == 'tel' ? this.model.replace(/\D/g, '') : this.model;
         this.$emit('yturn', {
-          alias: type,
+          alias: alias,
           name: this.name,
-          model: this.model,
-          ref: ref
+          model: model,
+          ref: ref,
+          unique: this.unique
         });
       }
     },
@@ -2043,10 +2045,15 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
+    callback: function callback() {
+      this.Ytoggler(false, false);
+    },
     yref: function yref(to, from) {
       this.$refs[this.name].focus();
     },
     model: function model(to) {
+      this.$emit('ywatch');
+
       if (this.type == 'multy' && this.model !== null && this.model.indexOf('+') == 0 && this.model.length == 1) {
         inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
           mask: "+380-(99)-99-99-999",
@@ -2133,11 +2140,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log(this.$store.getters.SIGN_VERIFY, this.SIGN_VERIFY);
+    console.log(this.$store.getters.AUTH_VERIFY, this.AUTH_VERIFY);
   },
   data: function data() {
     return {
@@ -2147,76 +2161,67 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           code: 0,
           message: null,
           next: null,
-          ref: false
+          ref: false,
+          unique: false
         }
       },
-      isformSuccess: false,
+      callback: false,
+      teapot: false,
       isformSendedSuccess: false
     };
   },
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GET_SIGN_VERIFY'])), {}, {
-    signData: function signData(e) {
-      var _this = this;
-
-      this.checkSuccessingForm();
-
-      if (this.isformSuccess) {
-        _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/signup", this.form).then(function (response) {
-          _this.isformSendedSuccess = true;
-        })["catch"](function (error) {
-          console.log(error.response);
-        });
-      }
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GET_AUTH_VERIFY'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['SET_AUTH_TEAPOT_LOGIN'])), {}, {
+    loginYturn: function loginYturn(data) {
+      this.GET_AUTH_VERIFY(data);
     },
-    checkSuccessingForm: function checkSuccessingForm() {
+    loginYwatch: function loginYwatch() {
+      if (this.teapot) this.teapot = false;
+    },
+    formValidation: function formValidation() {
       var self = this,
           item_count = 0,
           // .length dont work
       success_count = 0;
+      self.callback = !self.callback; //verify all yinput
+
       setTimeout(function () {
         Object.keys(self.form).forEach(function (key) {
           self.form[key].code == 1 ? success_count++ : '';
           item_count++;
         });
-        self.isformSuccess = success_count == item_count ? true : false;
+        success_count == item_count ? self.formSubmission() : '';
       }, 150);
     },
-    verifyYturn: function verifyYturn(data) {
-      var _this2 = this;
-
-      _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/verify", {
-        name: data.name,
-        data: data.model
-      }) // asdas@sadwa.asd
-      .then(function (response) {
-        console.log(type);
-        _this2.form[data.alias].code = 1;
-        _this2.form[data.alias].message = response.data;
-        _this2.form[data.alias].value = data.model;
-
-        if (data.ref && _this2.form[data.alias].next) {
-          var reverse = !_this2.form[_this2.form[data.alias].next].ref;
-          _this2.form[_this2.form[data.alias].next].ref = reverse;
-        }
-      })["catch"](function (error) {
+    formSubmission: function formSubmission() {
+      _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/auth", this.form).then(function (response) {})["catch"](function (error) {
         console.log(error.response);
-        _this2.form[data.alias].code = 2;
-        _this2.form[data.alias].message = error.response.data;
       });
-      this.checkSuccessingForm();
     },
-    loginYturn: function loginYturn(data) {
-      console.log(data);
-      this.verifyYturn(data);
-    },
-    //except without http verification
-    agreementYturn: function agreementYturn(data) {
-      this.form.agreement.code = data ? 1 : 2;
-      this.form.agreement.value = data ? true : false;
-      this.checkSuccessingForm();
+    teapotCreation: function teapotCreation() {
+      this.SET_AUTH_TEAPOT_LOGIN(this.form.login);
+      console.log(this.AUTH_TEAPOT_LOGIN);
     }
   }),
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['SIGN_IS_LOGIN', 'SIGN_VERIFY']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['AUTH_VERIFY', 'AUTH_TEAPOT_LOGIN'])),
+  watch: {
+    AUTH_VERIFY: function AUTH_VERIFY(to, from) {
+      if (to.status) {
+        this.form[to.sended_data.name].code = 1;
+        this.form[to.sended_data.name].message = to.data;
+        this.form[to.sended_data.name].value = to.sended_data.model;
+
+        if (to.sended_data.ref && this.form[to.sended_data.name].next) {
+          var reverse = !this.form[this.form[to.sended_data.name].next].ref;
+          this.form[this.form[to.sended_data.name].next].ref = reverse;
+        }
+      } else {
+        if (to.data.status == 418) this.teapot = true;
+        this.form[to.sended_data.name].code = 2;
+        this.form[to.sended_data.name].message = to.data.data;
+        this.form[to.sended_data.name].value = to.sended_data.model;
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -23148,51 +23153,79 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "yb-signup" }, [
+  return _c("div", { staticClass: "yb-auth" }, [
     _vm._m(0),
     _vm._v(" "),
-    !_vm.isformSendedSuccess
-      ? _c("div", { staticClass: "yb-signup-box yb-tm-box" }, [
-          _c("h1", { staticClass: "yb-main-title" }, [_vm._v("Авторизация")]),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              staticClass: "yb-signup-form",
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.signData($event)
-                }
-              }
+    _c("div", { staticClass: "yb-auth-box yb-tm-box" }, [
+      _c("h1", { staticClass: "yb-main-title" }, [_vm._v("Авторизация")]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "yb-auth-form",
+          class: { "sign-teapot-alert": _vm.teapot },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.formValidation($event)
+            }
+          }
+        },
+        [
+          _c("yinput", {
+            attrs: {
+              type: "multy",
+              name: "login",
+              placeholder: "E-mail или телефон",
+              callback: _vm.callback,
+              status: {
+                message: _vm.form.login.message,
+                code: _vm.form.login.code
+              },
+              unique: _vm.form.login.unique
             },
-            [
-              _c("yinput", {
-                attrs: {
-                  type: "multy",
-                  name: "login",
-                  placeholder: "E-mail или телефон",
-                  status: _vm.form.login
-                },
-                on: { yturn: _vm.loginYturn }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
+            on: { yturn: _vm.loginYturn, ywatch: _vm.loginYwatch }
+          }),
+          _vm._v(" "),
+          _vm.teapot
+            ? _c(
+                "div",
                 {
-                  staticClass: "ybtn",
-                  class: { disabled: !_vm.isformSuccess },
-                  attrs: { type: "submit" }
+                  staticClass: "sign-teapot-btn",
+                  on: { click: _vm.teapotCreation }
                 },
-                [_vm._v("Продолжить")]
+                [_vm._v("Создать аккаунт")]
               )
-            ],
-            1
-          )
-        ])
-      : _vm._e()
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-auth-submiters" }, [
+            _c("button", { staticClass: "ybtn", attrs: { type: "submit" } }, [
+              _vm._v("Продолжить")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "submit-changer" },
+              [
+                _c("div", { staticClass: "changer-title" }, [
+                  _vm._v("Ещё нет аккаунта?")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "changer-link", attrs: { to: "/" } },
+                  [_vm._v("Зарегистрируйтесь")]
+                )
+              ],
+              1
+            )
+          ])
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -40014,20 +40047,27 @@ __webpack_require__.r(__webpack_exports__);
 var state = {
   sign: {
     isLogin: null,
-    lastVerify: []
+    lastVerify: [],
+    teapotLogin: null
   }
 };
 var getters = {
   SIGN_IS_LOGIN: function SIGN_IS_LOGIN(state) {
     return state.sign.isLogin;
   },
-  SIGN_VERIFY: function SIGN_VERIFY(state) {
+  AUTH_VERIFY: function AUTH_VERIFY(state) {
     return state.sign.lastVerify;
+  },
+  AUTH_TEAPOT_LOGIN: function AUTH_TEAPOT_LOGIN(state) {
+    return state.sign.teapotLogin;
   }
 };
 var mutations = {
-  SET_SIGN_VERIFY: function SET_SIGN_VERIFY(state, payload) {
+  SET_AUIH_VERIFY: function SET_AUIH_VERIFY(state, payload) {
     state.sign.lastVerify = payload;
+  },
+  SET_AUTH_TEAPOT_LOGIN: function SET_AUTH_TEAPOT_LOGIN(state, payload) {
+    state.sign.teapotLogin = payload;
   } //
   // ADD_TODO: (state, payload) => {
   //     state.todos.push(payload);
@@ -40035,16 +40075,18 @@ var mutations = {
 
 };
 var actions = {
-  GET_SIGN_VERIFY: function GET_SIGN_VERIFY(context, payload) {
+  GET_AUTH_VERIFY: function GET_AUTH_VERIFY(context, payload) {
     _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/verify", payload).then(function (response) {
-      context.commit('SET_SIGN_VERIFY', {
+      context.commit('SET_AUIH_VERIFY', {
         status: 1,
-        data: response.data
+        data: response.data,
+        sended_data: payload
       });
     })["catch"](function (error) {
-      context.commit('SET_SIGN_VERIFY', {
+      context.commit('SET_AUIH_VERIFY', {
         status: 0,
-        data: error.response
+        data: error.response,
+        sended_data: payload
       });
     });
   } // GET_TODO: async (context, payload) => {
