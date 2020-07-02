@@ -10,7 +10,7 @@ Route::name('api.auth')->prefix('/yb-v1/api/auth')->namespace('Auth')->group(fun
 
 Route::name('web.auth.')->prefix('/authentication')->namespace('Auth')->group(function () {
     Route::get('/', function() {
-        return view('auto.site.Auth');
+        return view('Auth');
     });
     Route::get('/email/ver/{token}', 'VerificationController@emailVerification')->name('email.verification');
     Route::get('/redirect', 'GoogleController@redirect');
