@@ -17,11 +17,11 @@
                 </div>
                 <h2><span>или</span></h2>
             </div>
-            <form class="yb-auth-form" @submit.prevent="formValidation" :class="{'sign-teapot-alert': teapot}">
+            <form class="yb-auth-form" @submit.prevent :class="{'sign-teapot-alert': teapot}">
                 <yinput :type="'multy'" :name="'login'" :value="form.login.value" :placeholder="'E-mail или телефон'" :callback="callback" :status="{message: form.login.message, code: form.login.code}" :unique="form.login.unique" @yturn="loginYturn" @ywatch="loginYwatch"></yinput>
                 <div class="sign-teapot-btn" v-if="teapot" @click="teapotCreation">Создать аккаунт?</div>
                 <div class="yb-auth-submiters">
-                    <button type="submit" class="ybtn">Продолжить</button>
+                    <div class="ybtn" @click="formValidation">Продолжить</div>
                     <div class="submit-changer">
                         <div class="changer-title">Ещё нет аккаунта?</div>
                         <router-link :to="{name: 'signup'}" class="changer-link">Зарегистрируйтесь</router-link>
@@ -62,6 +62,10 @@
             loginYwatch(){
                 if(this.teapot) this.teapot = false;
             },
+            teapotCreation(){
+                this.SET_AUTH_TEAPOT_LOGIN({data: this.form.login, isNew: true});
+                this.$router.push({name: 'signup'})
+            },
             formValidation(){
                 let self = this,
                     item_count = 0, // .length dont work
@@ -84,10 +88,6 @@
                         console.log(error.response);
                     })
             },
-            teapotCreation(){
-                this.SET_AUTH_TEAPOT_LOGIN({data: this.form.login, isNew: true});
-                this.$router.push({name: 'signup'})
-            }
         },
         computed: {
             ...mapGetters(['AUTH_VERIFY_ID_COUNTER', 'AUTH_VERIFY', 'AUTH_TEAPOT_LOGIN']),

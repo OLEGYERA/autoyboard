@@ -10,11 +10,11 @@ use Carbon\Carbon;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 use App\Http\Controllers\Controller;
 
-class GoogleController extends Controller
+class FacebookController extends Controller
 {
     public function redirect()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
     /**
      * Return a callback method from google api.
@@ -23,11 +23,12 @@ class GoogleController extends Controller
      */
     public function callback()
     {
-        $user = $this->createOrGetUser(Socialite::driver('google')->user());
+        $user = $this->createOrGetUser(Socialite::driver('facebook')->user());
         return redirect()->route('home');
     }
 
     protected function createOrGetUser(ProviderUser $providerUser){
+        dd(123);
         $seek_user = User::where('google_id', $providerUser->getId())->first();
 
         if(empty($seek_user)){

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fb4118fb402d26dd22ad4409601e9cb",
+    "content-hash": "b9d301855b5bd1db898ae45d09b3f544",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1355,6 +1355,56 @@
                 "twitter"
             ],
             "time": "2016-08-17T00:36:58+00:00"
+        },
+        {
+            "name": "mobizon/mobizon-php",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mobizon/mobizon-php.git",
+                "reference": "0382a6b8b69800ef71d582578eba629baeae409d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mobizon/mobizon-php/zipball/0382a6b8b69800ef71d582578eba629baeae409d",
+                "reference": "0382a6b8b69800ef71d582578eba629baeae409d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-simplexml": "*",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mobizon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Shcherbak",
+                    "email": "Ivan.Shcherbak@mobizon.com",
+                    "homepage": "https://mobizon.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP library for communicating with the Mobizon API. Mobizon is a powerful SMS gateway and online marketing tools.",
+            "homepage": "https://mobizon.com/",
+            "keywords": [
+                "A2P",
+                "api",
+                "gateway",
+                "messaging",
+                "mobizon",
+                "sms"
+            ],
+            "time": "2020-01-13T17:22:32+00:00"
         },
         {
             "name": "monolog/monolog",

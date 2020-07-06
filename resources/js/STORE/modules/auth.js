@@ -25,6 +25,9 @@ let mutations = {
     SET_AUIH_VERIFY: (state, payload) => {
         state.lastVerify = payload;
     },
+    SET_AUIH_VERIFY_CODE: (state, payload) => {
+        state.lastVerify = payload;
+    },
     SET_AUTH_TEAPOT_LOGIN: (state, payload) => {
         state.teapotLogin = payload;
     },
@@ -41,6 +44,14 @@ let actions = {
             context.commit('SET_AUIH_VERIFY', {verify_page_name: verify_page_name, status: 1, data: response.data, sended_data: payload});
         }).catch(error => {
             context.commit('SET_AUIH_VERIFY', {verify_page_name: verify_page_name, status: 0, data: error.response, sended_data: payload});
+        })
+    },
+    GET_AUTH_VERIFY_CODE: async (context, payload) => {
+        let verify_page_name = context.state.VerifyPageName;
+        HTTP.post(`auth/verify/code`, payload).then(response => {
+            context.commit('SET_AUIH_VERIFY_CODE', {verify_page_name: verify_page_name, status: 1, data: response.data, sended_data: payload});
+        }).catch(error => {
+            context.commit('SET_AUIH_VERIFY_CODE', {verify_page_name: verify_page_name, status: 0, data: error.response, sended_data: payload});
         })
     },
     // GET_TODO: async (context, payload) => {

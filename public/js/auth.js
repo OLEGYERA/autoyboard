@@ -2002,15 +2002,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['type', 'name', 'value', 'placeholder', 'callback', 'status', 'yref', 'unique'],
   mounted: function mounted() {
-    if (this.type == 'multy') console.log(this.status);
     if (this.type == 'tel') inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
       mask: "+380-(99)-99-99-999",
       keepStatic: true,
       'autoUnmask': false
-    }).mask(this.$refs[this.name]); // if(this.value !== null){
-    //     this.model = this.value;
-    //     console.log(this.value, 123)
-    // }
+    }).mask(this.$refs[this.name]);
   },
   data: function data() {
     return {
@@ -2065,7 +2061,6 @@ __webpack_require__.r(__webpack_exports__);
       this.Ytoggler(false, false);
     },
     yref: function yref(to, from) {
-      console.log(to);
       this.$refs[this.name].focus();
     },
     model: function model(to) {
@@ -2080,9 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     value: function value(to, from) {
-      console.log(from);
-
-      if (from === null) {
+      if (from === '') {
         if (this.type == 'multy' && to.indexOf('@') == -1) {
           this.model = '+' + to;
           inputmask__WEBPACK_IMPORTED_MODULE_0___default()({
@@ -2216,6 +2209,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     loginYwatch: function loginYwatch() {
       if (this.teapot) this.teapot = false;
     },
+    teapotCreation: function teapotCreation() {
+      this.SET_AUTH_TEAPOT_LOGIN({
+        data: this.form.login,
+        isNew: true
+      });
+      this.$router.push({
+        name: 'signup'
+      });
+    },
     formValidation: function formValidation() {
       var self = this,
           item_count = 0,
@@ -2234,15 +2236,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     formSubmission: function formSubmission() {
       _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/auth", this.form).then(function (response) {})["catch"](function (error) {
         console.log(error.response);
-      });
-    },
-    teapotCreation: function teapotCreation() {
-      this.SET_AUTH_TEAPOT_LOGIN({
-        data: this.form.login,
-        isNew: true
-      });
-      this.$router.push({
-        name: 'signup'
       });
     }
   }),
@@ -2335,7 +2328,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2343,7 +2335,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.SET_VERIFY_PAGE_NAME(this.$router.currentRoute.name);
 
     if (this.AUTH_TEAPOT_LOGIN !== null && this.AUTH_TEAPOT_LOGIN.isNew) {
-      this.form.login.value = this.AUTH_TEAPOT_LOGIN.data.value;
+      this.form.login.value = '';
+      var self = this;
+      setTimeout(function () {}, 0);
     }
   },
   data: function data() {
@@ -2397,17 +2391,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     lnameYturn: function lnameYturn(data) {
       this.GET_AUTH_VERIFY(data);
     },
-    signData: function signData(e) {},
-    verifyYturn: function verifyYturn(data) {},
-    telYturn: function telYturn(data) {
-      if (data.model !== null) {
-        data['model'] = data.model.replace(/\D/g, '');
-        this.verifyYturn(data);
-      }
-    },
-    emailYturn: function emailYturn(data) {
-      this.verifyYturn(data);
-    },
     //except without http verification
     agreementYturn: function agreementYturn(data) {
       this.form.agreement.code = data ? 1 : 2;
@@ -2421,6 +2404,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$router.push({
         name: 'signin'
       });
+    },
+    formValidation: function formValidation() {
+      var self = this,
+          item_count = 0,
+          // .length dont work
+      success_count = 0;
+      self.callback = !self.callback; //verify all yinput
+      //check validator
+
+      if (this.form.agreement.code != 1) this.form.agreement.code = 2;
+      setTimeout(function () {
+        Object.keys(self.form).forEach(function (key) {
+          self.form[key].code == 1 ? success_count++ : '';
+          item_count++;
+        });
+        success_count == item_count ? self.formSubmission() : '';
+      }, 150);
+    },
+    formSubmission: function formSubmission() {
+      var _this = this;
+
+      _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/signup", this.form).then(function (response) {
+        _this.$router.push({
+          name: 'telver',
+          params: {
+            user: response.data.id
+          }
+        });
+      });
     }
   }),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['AUTH_VERIFY', 'AUTH_TEAPOT_LOGIN'])),
@@ -2428,9 +2440,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     AUTH_VERIFY: function AUTH_VERIFY(to, from) {
       if (to.verify_page_name == this.$router.currentRoute.name) {
         if (to.status) {
+          console.log(to);
           this.form[to.sended_data.name].code = 1;
           this.form[to.sended_data.name].message = to.data;
           this.form[to.sended_data.name].value = to.sended_data.model;
+          this.form[to.sended_data.name].alias = to.sended_data.alias;
 
           if (to.sended_data.ref && this.form[to.sended_data.name].next !== null) {
             var reverse = !this.form[this.form[to.sended_data.name].next].ref;
@@ -2441,6 +2455,112 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (to.data.status == 418) this.teapot = true;
           this.form[to.sended_data.name].code = 2;
           this.form[to.sended_data.name].message = to.data.data;
+          this.form[to.sended_data.name].value = to.sended_data.model;
+        }
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/auth/components/telver.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/auth/components/telver.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        tel_code: {
+          value: null,
+          code: 0,
+          message: null
+        }
+      },
+      callback: false
+    };
+  },
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GET_AUTH_VERIFY_CODE'])), {}, {
+    telCodeYturn: function telCodeYturn(data) {
+      data['user'] = this.$route.params.user;
+      this.GET_AUTH_VERIFY_CODE(data);
+    },
+    formValidation: function formValidation() {
+      var self = this,
+          item_count = 0,
+          // .length dont work
+      success_count = 0;
+      self.callback = !self.callback; //verify all yinput
+
+      setTimeout(function () {
+        Object.keys(self.form).forEach(function (key) {
+          self.form[key].code == 1 ? success_count++ : '';
+          item_count++;
+        });
+        success_count == item_count ? self.formSubmission() : '';
+      }, 150);
+    },
+    formSubmission: function formSubmission() {
+      _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].post("auth/auth", this.form).then(function (response) {})["catch"](function (error) {
+        console.log(error.response);
+      });
+    }
+  }),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['AUTH_VERIFY'])),
+  watch: {
+    AUTH_VERIFY: function AUTH_VERIFY(to, from) {
+      if (to.status) {
+        this.form[to.sended_data.name].code = 1;
+        this.form[to.sended_data.name].message = to.data;
+        this.form[to.sended_data.name].value = to.sended_data.model;
+      } else {
+        if (to.data.status == 400) {
+          this.form[to.sended_data.name].code = 2;
+          this.form[to.sended_data.name].message = to.data.data;
+          this.form[to.sended_data.name].value = to.sended_data.model;
+        } else {
+          this.form[to.sended_data.name].code = 2;
+          this.form[to.sended_data.name].message = to.data.data.message;
           this.form[to.sended_data.name].value = to.sended_data.model;
         }
       }
@@ -23943,7 +24063,6 @@ var render = function() {
           on: {
             submit: function($event) {
               $event.preventDefault()
-              return _vm.formValidation($event)
             }
           }
         },
@@ -23976,9 +24095,11 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "yb-auth-submiters" }, [
-            _c("button", { staticClass: "ybtn", attrs: { type: "submit" } }, [
-              _vm._v("Продолжить")
-            ]),
+            _c(
+              "div",
+              { staticClass: "ybtn", on: { click: _vm.formValidation } },
+              [_vm._v("Продолжить")]
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -24075,7 +24196,6 @@ var render = function() {
               on: {
                 submit: function($event) {
                   $event.preventDefault()
-                  return _vm.signData($event)
                 }
               }
             },
@@ -24113,8 +24233,12 @@ var render = function() {
                   type: "text",
                   name: "first_name",
                   placeholder: "Имя",
-                  status: _vm.form.first_name,
-                  yref: _vm.form.first_name.ref
+                  status: {
+                    message: _vm.form.first_name.message,
+                    code: _vm.form.first_name.code
+                  },
+                  yref: _vm.form.first_name.ref,
+                  callback: _vm.callback
                 },
                 on: { yturn: _vm.fnameYturn }
               }),
@@ -24124,8 +24248,12 @@ var render = function() {
                   type: "text",
                   name: "last_name",
                   placeholder: "Фамилия",
-                  status: _vm.form.last_name,
-                  yref: _vm.form.last_name.ref
+                  status: {
+                    message: _vm.form.last_name.message,
+                    code: _vm.form.last_name.code
+                  },
+                  yref: _vm.form.last_name.ref,
+                  callback: _vm.callback
                 },
                 on: { yturn: _vm.lnameYturn }
               }),
@@ -24135,16 +24263,17 @@ var render = function() {
                   label:
                     "Я принимаю условия “Соглашения о предоставлении онлайн-сервисов”",
                   name: "agreement",
-                  status: _vm.form.agreement,
-                  yref: _vm.form.agreement.ref
+                  status: { code: _vm.form.agreement.code },
+                  yref: _vm.form.agreement.ref,
+                  callback: _vm.callback
                 },
                 on: { yturn: _vm.agreementYturn }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "yb-auth-submiters" }, [
                 _c(
-                  "button",
-                  { staticClass: "ybtn", attrs: { type: "submit" } },
+                  "div",
+                  { staticClass: "ybtn", on: { click: _vm.formValidation } },
                   [_vm._v("Продолжить")]
                 ),
                 _vm._v(" "),
@@ -24225,15 +24354,31 @@ var staticRenderFns = [
       _c("h2", [_c("span", [_vm._v("через")])]),
       _vm._v(" "),
       _c("div", { staticClass: "yb-auth-links" }, [
-        _c("div", { staticClass: "yb-auth-link" }, [
-          _c("img", {
-            attrs: { src: "/img/system/icons/Facebook.png", alt: "" }
-          })
-        ]),
+        _c(
+          "a",
+          {
+            staticClass: "yb-auth-link",
+            attrs: { href: "/authentication/facebook" }
+          },
+          [
+            _c("img", {
+              attrs: { src: "/img/system/icons/Facebook.png", alt: "" }
+            })
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "yb-auth-link" }, [
-          _c("img", { attrs: { src: "/img/system/icons/Google.png", alt: "" } })
-        ])
+        _c(
+          "a",
+          {
+            staticClass: "yb-auth-link",
+            attrs: { href: "/authentication/google" }
+          },
+          [
+            _c("img", {
+              attrs: { src: "/img/system/icons/Google.png", alt: "" }
+            })
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("h2", [_c("span", [_vm._v("или")])])
@@ -24245,6 +24390,113 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "manage-links" }, [
       _c("a", { attrs: { href: "/" } }, [_vm._v("Войти")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/auth/components/telver.vue?vue&type=template&id=f4727dd0&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/auth/components/telver.vue?vue&type=template&id=f4727dd0& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "yb-auth" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "yb-auth-box yb-tm-box" }, [
+      _c("h1", { staticClass: "yb-main-title" }, [
+        _vm._v("Подтверждение телефона")
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "yb-auth-form",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+            }
+          }
+        },
+        [
+          _c("yinput", {
+            attrs: {
+              type: "text",
+              name: "tel_code",
+              placeholder: "6 - значный код",
+              callback: _vm.callback,
+              status: {
+                message: _vm.form.tel_code.message,
+                code: _vm.form.tel_code.code
+              }
+            },
+            on: { yturn: _vm.telCodeYturn }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-auth-submiters" }, [
+            _c(
+              "div",
+              { staticClass: "ybtn", on: { click: _vm.formValidation } },
+              [_vm._v("Продолжить")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "submit-changer" },
+              [
+                _c("div", { staticClass: "changer-title" }, [
+                  _vm._v("Ещё нет аккаунта?")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "changer-link",
+                    attrs: { to: { name: "signup" } }
+                  },
+                  [_vm._v("Зарегистрируйтесь")]
+                )
+              ],
+              1
+            )
+          ])
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-header" }, [
+      _c("img", { attrs: { src: "/img/system/logos/logo.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-additional-auth" }, [
+      _c("div", { staticClass: "yb-auth-links" })
     ])
   }
 ]
@@ -40887,6 +41139,9 @@ var mutations = {
   SET_AUIH_VERIFY: function SET_AUIH_VERIFY(state, payload) {
     state.lastVerify = payload;
   },
+  SET_AUIH_VERIFY_CODE: function SET_AUIH_VERIFY_CODE(state, payload) {
+    state.lastVerify = payload;
+  },
   SET_AUTH_TEAPOT_LOGIN: function SET_AUTH_TEAPOT_LOGIN(state, payload) {
     state.teapotLogin = payload;
   } //
@@ -40933,6 +41188,44 @@ var actions = {
     }
 
     return GET_AUTH_VERIFY;
+  }(),
+  GET_AUTH_VERIFY_CODE: function () {
+    var _GET_AUTH_VERIFY_CODE = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      var verify_page_name;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              verify_page_name = context.state.VerifyPageName;
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].post("auth/verify/code", payload).then(function (response) {
+                context.commit('SET_AUIH_VERIFY_CODE', {
+                  verify_page_name: verify_page_name,
+                  status: 1,
+                  data: response.data,
+                  sended_data: payload
+                });
+              })["catch"](function (error) {
+                context.commit('SET_AUIH_VERIFY_CODE', {
+                  verify_page_name: verify_page_name,
+                  status: 0,
+                  data: error.response,
+                  sended_data: payload
+                });
+              });
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function GET_AUTH_VERIFY_CODE(_x3, _x4) {
+      return _GET_AUTH_VERIFY_CODE.apply(this, arguments);
+    }
+
+    return GET_AUTH_VERIFY_CODE;
   }() // GET_TODO: async (context, payload) => {
   //     let {data} = await Axios.get('http://yourwebsite.com/api/todo');
   //     context.commit('SET_TODO', data);
@@ -41030,7 +41323,8 @@ __webpack_require__.r(__webpack_exports__);
 var Components = {
   basic: vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('basic', __webpack_require__(/*! ./components/basic.vue */ "./resources/js/auth/components/basic.vue")["default"]),
   signin: vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('signin', __webpack_require__(/*! ./components/signin.vue */ "./resources/js/auth/components/signin.vue")["default"]),
-  signup: vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('signup', __webpack_require__(/*! ./components/signup.vue */ "./resources/js/auth/components/signup.vue")["default"])
+  signup: vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('signup', __webpack_require__(/*! ./components/signup.vue */ "./resources/js/auth/components/signup.vue")["default"]),
+  telver: vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('telver', __webpack_require__(/*! ./components/telver.vue */ "./resources/js/auth/components/telver.vue")["default"])
 };
 /* harmony default export */ __webpack_exports__["default"] = (Components);
 
@@ -41243,6 +41537,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/auth/components/telver.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/auth/components/telver.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _telver_vue_vue_type_template_id_f4727dd0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./telver.vue?vue&type=template&id=f4727dd0& */ "./resources/js/auth/components/telver.vue?vue&type=template&id=f4727dd0&");
+/* harmony import */ var _telver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./telver.vue?vue&type=script&lang=js& */ "./resources/js/auth/components/telver.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _telver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _telver_vue_vue_type_template_id_f4727dd0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _telver_vue_vue_type_template_id_f4727dd0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/auth/components/telver.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/auth/components/telver.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/auth/components/telver.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_telver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./telver.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/auth/components/telver.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_telver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/auth/components/telver.vue?vue&type=template&id=f4727dd0&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/auth/components/telver.vue?vue&type=template&id=f4727dd0& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_telver_vue_vue_type_template_id_f4727dd0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./telver.vue?vue&type=template&id=f4727dd0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/auth/components/telver.vue?vue&type=template&id=f4727dd0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_telver_vue_vue_type_template_id_f4727dd0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_telver_vue_vue_type_template_id_f4727dd0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/auth/router.js":
 /*!*************************************!*\
   !*** ./resources/js/auth/router.js ***!
@@ -41269,6 +41632,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     path: '/sign-up',
     component: _components_js__WEBPACK_IMPORTED_MODULE_0__["default"].signup,
     name: 'signup'
+  }, {
+    path: '/tel/verification/:user',
+    component: _components_js__WEBPACK_IMPORTED_MODULE_0__["default"].telver,
+    name: 'telver'
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
