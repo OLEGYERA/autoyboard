@@ -4,6 +4,7 @@ let state = {
     VerifyPageName: null,
     lastVerify: [], // data || isNew
     teapotLogin: null,
+    user: [],
 };
 
 let getters = {
@@ -15,6 +16,9 @@ let getters = {
     },
     AUTH_TEAPOT_LOGIN: state => {
         return state.teapotLogin;
+    },
+    AUTH_USER: state => {
+        return state.user;
     },
 };
 
@@ -31,7 +35,9 @@ let mutations = {
     SET_AUTH_TEAPOT_LOGIN: (state, payload) => {
         state.teapotLogin = payload;
     },
-    //
+    SET_AUTH_USER: (state, payload) => {
+        state.user = payload;
+    },
     // ADD_TODO: (state, payload) => {
     //     state.todos.push(payload);
     // },
@@ -52,6 +58,13 @@ let actions = {
             context.commit('SET_AUIH_VERIFY_CODE', {verify_page_name: verify_page_name, status: 1, data: response.data, sended_data: payload});
         }).catch(error => {
             context.commit('SET_AUIH_VERIFY_CODE', {verify_page_name: verify_page_name, status: 0, data: error.response, sended_data: payload});
+        })
+    },
+    GET_AUTH_USER: (context, payload) => {
+        HTTP.post(`auth/get/user`, payload).then(response => {
+            context.commit('SET_AUTH_USER', {status: 1, data: response.data, sended_data: payload});
+        }).catch(error => {
+            context.commit('SET_AUTH_USER', {status: 0, data: error.response, sended_data: payload});
         })
     },
     // GET_TODO: async (context, payload) => {

@@ -2,27 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/FacebookController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/auth/components/telver.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/auth/components/signinpass.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/yboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yboard.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/GoogleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/FacebookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/FacebookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RuleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RuleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_25_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_25_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/MODULES/yinput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/MODULES/yinput.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/STORE/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/STORE/modules/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/auth/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/components/basic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/components/basic.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/auth/components/signin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/components/signin.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/auth/components/signup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/components/signup.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/auth/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auth.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
     </list>
@@ -206,7 +200,9 @@
       <workItem from="1593501605807" duration="27007000" />
       <workItem from="1593588594116" duration="20968000" />
       <workItem from="1593673501221" duration="25687000" />
-      <workItem from="1594019038278" duration="28251000" />
+      <workItem from="1594019038278" duration="29024000" />
+      <workItem from="1594112965944" duration="9529000" />
+      <workItem from="1594196999674" duration="847000" />
     </task>
     <servers />
   </component>
@@ -214,10 +210,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592833231227">
+    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594198237497">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1592833231227" />
+    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594198237497" />
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593517992266">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -274,6 +270,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/auth/router.js</url>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/resources/js/STORE/modules/auth.js</url>
+          <line>55</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -5,21 +5,16 @@
         </div>
         <div class="yb-auth-box yb-tm-box">
             <h1 class="yb-main-title">Вход</h1>
-            <div class="yb-additional-auth">
-                <h2><span>через</span></h2>
-                <div class="yb-auth-links">
-                    <div class="yb-auth-link">
-                        <img src="/img/system/icons/Facebook.png" alt="">
-                    </div>
-                    <div class="yb-auth-link">
-                        <img src="/img/system/icons/Google.png" alt="">
-                    </div>
+            <div class="yb-login-info">
+                <figure class="login-avatar">
+                    <img v-bind:src="user.avatar_original" alt="">
+                </figure>
+                <div class="login-name">
+                    {{user.last_name}} {{user.first_name}}
                 </div>
-                <h2><span>или</span></h2>
             </div>
-            <form class="yb-auth-form" @submit.prevent :class="{'sign-teapot-alert': teapot}">
-                <yinput :type="'multy'" :name="'login'" :value="form.login.value" :placeholder="'E-mail или телефон'" :callback="callback" :status="{message: form.login.message, code: form.login.code}" :unique="form.login.unique" @yturn="loginYturn" @ywatch="loginYwatch"></yinput>
-                <div class="sign-teapot-btn" v-if="teapot" @click="teapotCreation">Создать аккаунт?</div>
+            <form class="yb-auth-form" @submit.prevent>
+                <yinput :type="'password'" :name="'password'" :value="form.password.value" :placeholder="'Пароль'" :callback="callback" :status="{message: form.password.message, code: form.password.code}" @yturn="passwordYturn"></yinput>
                 <div class="yb-auth-submiters">
                     <div class="ybtn" @click="formValidation">Продолжить</div>
                     <div class="submit-changer">
@@ -37,34 +32,22 @@
     import {mapGetters, mapActions, mapMutations} from 'vuex';
     export default {
         mounted() {
-            this.SET_VERIFY_PAGE_NAME(this.$router.currentRoute.name);
-            if(this.AUTH_TEAPOT_LOGIN !== null && !this.AUTH_TEAPOT_LOGIN.isNew){
-                this.form.login.value = this.AUTH_TEAPOT_LOGIN.data.value;
-
-                console.log(this.form.login.value);
-            }
+            this.GET_AUTH_USER({login: this.$route.params.login})
         },
         data: function(){
             return{
                 form: {
-                    login: {value:null, code:0, message:null, next:null, ref:false, unique: false},
+                    password: {value:null, code:0, message:null},
                 },
+                user: [],
                 callback: false,
-                teapot: false,
             }
         },
         methods: {
-            ...mapMutations(['SET_VERIFY_PAGE_NAME', 'SET_AUIH_VERIFY', 'SET_AUTH_TEAPOT_LOGIN']),
-            ...mapActions(['GET_AUTH_VERIFY']),
-            loginYturn(data){
+            // ...mapMutations(['SET_VERIFY_PAGE_NAME', 'SET_AUIH_VERIFY', 'SET_AUTH_TEAPOT_LOGIN']),
+            ...mapActions(['GET_AUTH_VERIFY', 'GET_AUTH_USER']),
+            passwordYturn(data){
                 this.GET_AUTH_VERIFY(data)
-            },
-            loginYwatch(){
-                if(this.teapot) this.teapot = false;
-            },
-            teapotCreation(){
-                this.SET_AUTH_TEAPOT_LOGIN({data: this.form.login, isNew: true});
-                this.$router.push({name: 'signup'})
             },
             formValidation(){
                 let self = this,
@@ -81,13 +64,20 @@
                 }, 150);
             },
             formSubmission(){
-                this.$router.push({name: 'signinpass', params: {login: this.form.login.value}})
             },
         },
         computed: {
-            ...mapGetters(['AUTH_VERIFY_ID_COUNTER', 'AUTH_VERIFY', 'AUTH_TEAPOT_LOGIN']),
+            ...mapGetters(['AUTH_USER', 'AUTH_VERIFY']),
         },
         watch: {
+            AUTH_USER(to, from){
+                console.log(to);
+                if(to.status == 0){
+                    this.$router.push({name: 'signin'})
+                }else{
+                    this.user = to.data;
+                }
+            },
             AUTH_VERIFY(to, from){
                 if(to.verify_page_name == this.$router.currentRoute.name){
                     if(to.status){

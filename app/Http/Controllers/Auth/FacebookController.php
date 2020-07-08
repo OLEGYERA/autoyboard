@@ -28,32 +28,17 @@ class FacebookController extends Controller
     }
 
     protected function createOrGetUser(ProviderUser $providerUser){
-        dd(123);
-        $seek_user = User::where('google_id', $providerUser->getId())->first();
+        $seek_user = User::where('facebook_id', $providerUser->getId())->first();
 
         if(empty($seek_user)){
-            $is_email = User::where('email', $providerUser->getEmail())->first();
+            $new_user = User::create([
+                'facebook_id' => $providerUser->getId(),
+                'first_name' => explode(' ', $providerUser->getName())[0],
+                'last_name' => explode(' ', $providerUser->getName())[1],
+                'avatar_original' => $providerUser->getAvatar()
+            ]);
 
-            if($is_email){
-                $is_email->update([
-                    'google_id' => $providerUser->getId(),
-                    'email_verified_at' => Carbon::now(),
-                    'remember_token' => null,
-                ]);
-
-                Auth::login($is_email);
-            }
-            else{
-                $new_user = User::create([
-                    'google_id' => $providerUser->getId(),
-                    'first_name' => $providerUser->user['given_name'],
-                    'last_name' => $providerUser->user['family_name'],
-                    'email' => $providerUser->getEmail(),
-                    'email_verified_at' => Carbon::now(),
-                ]);
-
-                Auth::login($new_user);
-            }
+            Auth::login($new_user);
         }
         else{
             Auth::login($seek_user, true);

@@ -50,10 +50,12 @@
     export default {
         mounted() {
             this.SET_VERIFY_PAGE_NAME(this.$router.currentRoute.name);
+            console.log(this.AUTH_TEAPOT_LOGIN)
             if(this.AUTH_TEAPOT_LOGIN !== null && this.AUTH_TEAPOT_LOGIN.isNew){
                 this.form.login.value = '';
                 let self = this;
                 setTimeout(function(){
+                    self.form.login.value = self.AUTH_TEAPOT_LOGIN.data.value;
                 }, 0);
             }
         },
@@ -118,6 +120,7 @@
             },
             formSubmission(){
                 HTTP.post(`auth/signup`, this.form).then(response => {
+                    console.log(response);
                     this.$router.push({name: 'telver', params: {user: response.data.id}})
                 })
             },

@@ -20,7 +20,7 @@ class RuleController extends Controller
             'wrong' => 'Введите действительный :atribute.',
             'unique' => 'Пользователь с таким :atribute уже существует.',
             'unUnique' => 'Пользователя с таким :atribute не существует.',
-
+            'ver' => ':atribute не подтвержден.',
         ]
     ];
 
@@ -106,9 +106,14 @@ class RuleController extends Controller
                 $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unique']);
             }
         }else{
-            if(empty(User::where('tel', $model)->first())){
+            $user = User::where('tel', $model)->first();
+            if(empty($user)){
                 $status = 418;
                 $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unUnique']);
+            }
+            if(!empty($user) && $user->tel_verified_at === null){
+                $status = 400;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['ver']);
             }
         }
 
@@ -130,9 +135,14 @@ class RuleController extends Controller
                 $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unique']);
             }
         }else{
-            if(empty(User::where('email', $model)->first())){
+            $user = User::where('email', $model)->first();
+            if(empty($user)){
                 $status = 418;
                 $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unUnique']);
+            }
+            if(!empty($user) && $user->email_verified_at === null){
+                $status = 400;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['ver']);
             }
         }
 

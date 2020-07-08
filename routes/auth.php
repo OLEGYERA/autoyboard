@@ -6,6 +6,8 @@ Route::name('api.auth')->prefix('/yb-v1/api/auth')->namespace('Auth')->group(fun
     Route::post('/verify', 'RuleController@verify')->name('verify');
     Route::post('/verify/code', 'RuleController@validateCode')->name('verify');
     Route::post('/signup', 'RegisterController@signup')->name('signup');
+    Route::post('/signin', 'LoginController@signin')->name('signin');
+    Route::post('/get/user', 'LoginController@getUser')->name('signin');
 });
 
 Route::name('web.auth.')->prefix('/authentication')->namespace('Auth')->group(function () {
