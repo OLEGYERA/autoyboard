@@ -23,7 +23,7 @@ abstract class Kernel
 //            ->returnResponseObject()
 //            ->get();
 //        $response->content
-        $contents = File::get('index.html');
+        $contents = File::get('index.htmls');
 //        $tidy_config = array(
 //            'clean' => true,
 //            'output-xhtml' => true,

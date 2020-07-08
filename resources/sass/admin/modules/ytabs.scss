@@ -1,0 +1,40 @@
+@import '../../vars';
+@import '../../auto/clear';
+
+ul.ytabs{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li.ytab-item{
+        position: relative;
+        padding: 5px 25px 10px;
+        margin-right: 10px;
+        a.item-link{
+            text-decoration: none;
+            color: $admin-grey;
+        }
+
+        &.active{
+            a.item-link{
+                color: $admin-purple;
+                opacity: 0.65;
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(180deg, $admin-purple 0%, #908EFD 93.75%), #FFFFFF;
+                box-shadow: 4px 4px 10px rgba(48, 0, 151, 0.21), -4px 4px 8px rgba(55, 16, 166, 0.22);
+                border-radius: 9px;
+            }
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
