@@ -1,5 +1,5 @@
 <template>
-    <router-view v-if="1"></router-view>
+    <router-view v-if="1" :apiURL="'aggregator'"></router-view>
     <div v-else>
         123
     </div>

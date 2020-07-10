@@ -20,15 +20,30 @@
     }
 
     .ytable-cols-header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 20px;
-        border-bottom: 1px solid $admin-line;
+         padding-bottom: 20px;
         .ytable-col{
             font-size: em(16);
             font-weight: 600;
             color: $admin-grey;
+        }
+    }
+
+    .ytable-body{
+        display: flex;
+        flex-direction: column;
+        .ytable-row{
+            padding: 20px 0;
+        }
+    }
+
+
+    .ytable-cols-header,
+    .ytable-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $admin-line;
+        .ytable-col{
             display: flex;
             align-items: center;
 

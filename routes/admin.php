@@ -2,8 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::name('api.admin')->prefix('/yb-v1/api/admin')->namespace('Admin')->group(function () {
+Route::name('api.admin.')->prefix('/yb-v1/api/admin')->namespace('Admin')->group(function () {
     Route::get('/auth-user', 'AuthUserController@receiveData')->name('verify');
+
+    Route::name('aggregator.')->prefix('aggregator')->namespace('Aggregator')->group(function () {
+        Route::name('nucleus.')->prefix('nucleus')->namespace('Nucleus')->group(function () {
+            Route::get('/proxy/all', 'ProxyController@receiveAll')->name('all');
+        });
+    });
 });
 //
 

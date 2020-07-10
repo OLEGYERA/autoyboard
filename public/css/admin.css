@@ -330,33 +330,53 @@ span.yb-gradient {
 }
 
 .ytable .ytable-cols-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(212, 215, 217, 0.9);
 }
 
 .ytable .ytable-cols-header .ytable-col {
   font-size: 1em;
   font-weight: 600;
   color: #616161;
+}
+
+.ytable .ytable-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ytable .ytable-body .ytable-row {
+  padding: 20px 0;
+}
+
+.ytable .ytable-cols-header,
+.ytable .ytable-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(212, 215, 217, 0.9);
+}
+
+.ytable .ytable-cols-header .ytable-col,
+.ytable .ytable-row .ytable-col {
   display: flex;
   align-items: center;
 }
 
-.ytable .ytable-cols-header .ytable-col.s {
+.ytable .ytable-cols-header .ytable-col.s,
+.ytable .ytable-row .ytable-col.s {
   min-width: 60px;
   max-width: 60px;
   justify-content: center;
 }
 
-.ytable .ytable-cols-header .ytable-col.m {
+.ytable .ytable-cols-header .ytable-col.m,
+.ytable .ytable-row .ytable-col.m {
   min-width: 160px;
   max-width: 160px;
 }
 
-.ytable .ytable-cols-header .ytable-col.l {
+.ytable .ytable-cols-header .ytable-col.l,
+.ytable .ytable-row .ytable-col.l {
   min-width: 240px;
   max-width: 240px;
 }

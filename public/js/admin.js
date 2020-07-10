@@ -1995,6 +1995,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['apiURL'],
   created: function created() {},
   data: function data() {
     return {};
@@ -2071,11 +2072,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {},
+  props: ['apiURL'],
+  created: function created() {
+    console.log(this.apiURL);
+  },
   data: function data() {
     return {
+      modelURL: 'proxy',
       tableContent: {
         cols: [{
           name: 'id',
@@ -2088,7 +2094,8 @@ __webpack_require__.r(__webpack_exports__);
         }, {
           name: 'address',
           title: 'Адрес',
-          size: 'l'
+          size: 'l',
+          group: ['country', 'city', 'ip']
         }, {
           name: 'ban',
           title: 'Бан-статус',
@@ -2548,6 +2555,29 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2570,17 +2600,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tableContent'],
-  created: function created() {},
+  props: ['tableContent', 'apiURL'],
+  beforeMount: function beforeMount() {
+    this.GET_ALL_DATA({
+      url: this.apiURL
+    });
+  },
   data: function data() {
     return {};
   },
-  methods: {// ...mapMutations(['SET_USER_DATA']),
-    // ...mapActions(['GET_USER_DATA']),
-  },
-  computed: {// ...mapGetters(['USER_DATA']),
-  },
-  watch: {}
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['GET_ALL_DATA'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['ALL_DATA'])),
+  watch: {
+    ALL_DATA: function ALL_DATA(to, from) {
+      console.log(to);
+    }
+  }
 });
 
 /***/ }),
@@ -20224,7 +20259,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return 1 ? _c("router-view") : undefined
+  return 1
+    ? _c("router-view", { attrs: { apiURL: "aggregator" } })
+    : undefined
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20254,7 +20291,7 @@ var render = function() {
     [
       _c("ytabs", { attrs: { parentName: "agg_nucleus" } }),
       _vm._v(" "),
-      _c("router-view")
+      _c("router-view", { attrs: { apiURL: _vm.apiURL + "/nucleus" } })
     ],
     1
   )
@@ -20308,7 +20345,14 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "app-list" },
-    [_c("ytable", { attrs: { tableContent: _vm.tableContent } })],
+    [
+      _c("ytable", {
+        attrs: {
+          tableContent: _vm.tableContent,
+          apiURL: _vm.apiURL + "/" + _vm.modelURL
+        }
+      })
+    ],
     1
   )
 }
@@ -20775,8 +20819,45 @@ var render = function() {
       { staticClass: "ytable-cols-header" },
       _vm._l(_vm.tableContent.cols, function(col, key) {
         return _c("div", { staticClass: "ytable-col", class: col.size }, [
-          _vm._v("\n            " + _vm._s(col.title) + "\n        ")
+          _c("span", { staticClass: "content" }, [_vm._v(_vm._s(col.title))])
         ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "ytable-body" },
+      _vm._l(_vm.ALL_DATA, function(data, key) {
+        return _c(
+          "div",
+          { staticClass: "ytable-row" },
+          _vm._l(_vm.tableContent.cols, function(col, key) {
+            return _c("div", { staticClass: "ytable-col", class: col.size }, [
+              col.group
+                ? _c(
+                    "span",
+                    { staticClass: "group" },
+                    _vm._l(col.group, function(group_item, key) {
+                      return _c("span", { staticClass: "content" }, [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(data[group_item]) +
+                            "\n                    "
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("span", { staticClass: "content" }, [
+                _vm._v(_vm._s(data[col.name]))
+              ])
+            ])
+          }),
+          0
+        )
       }),
       0
     )
@@ -38461,6 +38542,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _storage_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../storage/user */ "./resources/js/admin/storage/user.js");
+/* harmony import */ var _storage_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../storage/model */ "./resources/js/admin/storage/model.js");
+
 
 
 
@@ -38471,8 +38554,49 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   mutations: {},
   actions: {},
   modules: {
-    user: _storage_user__WEBPACK_IMPORTED_MODULE_2__["default"]
+    user: _storage_user__WEBPACK_IMPORTED_MODULE_2__["default"],
+    model: _storage_model__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/storage/model.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/storage/model.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+
+var state = {
+  all: []
+};
+var getters = {
+  ALL_DATA: function ALL_DATA(state) {
+    return state.all;
+  }
+};
+var mutations = {
+  SET_ALL_DATA: function SET_ALL_DATA(state, payload) {
+    state.all = payload;
+  }
+};
+var actions = {
+  GET_ALL_DATA: function GET_ALL_DATA(context, payload) {
+    _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].get("admin/".concat(payload.url, "/all")).then(function (response) {
+      context.commit('SET_ALL_DATA', response.data);
+    });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
 });
 
 /***/ }),
