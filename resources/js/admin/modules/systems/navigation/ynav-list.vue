@@ -1,14 +1,15 @@
 <template>
     <ul class="ynav-list" v-if="this.route_data.children">
-        <li class="ynav-list-item">
-<!--            <router-link> </router-link>-->
-            <i class="fas" @click="toggleList" :class="this.status ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+        <li class="ynav-list-item" :class="{active: this.current_router.name == this.route_data.name}">
+            <router-link :to="{name: this.route_data.name}"><i :class="this.route_data.meta.icon"></i> {{this.route_data.meta.title}}</router-link>
+            <i class="ynav-list-toggle fas" @click="toggleList" :class="this.status ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
         </li>
-        {{this.route_data.meta.title}}
-        <ynav-list v-for="(route, key) in this.route_data.children" :key="key + '-router-id'" :route_data="route" @uncoverParent="uncoverParent"></ynav-list>
+        <ynav-list v-for="(route, key) in this.route_data.children" :key="key + '-router-id'" :route_data="route" v-if="status"></ynav-list>
     </ul>
-    <ul class="ynav-list" v-else-if="this.route_data.meta">
-        {{this.route_data.meta.title}}
+    <ul class="ynav-list non-child" v-else-if="this.route_data.meta">
+        <li class="ynav-list-item" :class="{active: this.current_router.name == this.route_data.name}">
+            <router-link :to="{name: this.route_data.name}"><i :class="this.route_data.meta.icon"></i> {{this.route_data.meta.title}}</router-link>
+        </li>
     </ul>
 </template>
 
@@ -16,26 +17,35 @@
     import {mapGetters, mapActions, mapMutations} from 'vuex';
     export default {
         props: ['route_data'],
+        beforeMount() {
+            this.current_router = this.$router.currentRoute;
+        },
         mounted() {
+            this.reInitNavListStatus();
         },
         data: function(){
             return{
-                status: 0
+                status: 0,
+                current_router: null,
             }
         },
         methods: {
             toggleList(){
                 this.status = !this.status;
-                if(this.status){
-                    this.$emit('uncoverParent')
-                }
             },
-            uncoverParent(){
-                this.status = 1;
+            reInitNavListStatus(){
+                let self = this;
+                self.status = 0;
+                this.current_router.matched.forEach(function(el){
+                    if(el.name == self.route_data.name) self.status = 1;
+                });
             }
         },
         watch: {
-
+            $route(to){
+                this.current_router = to;
+                this.reInitNavListStatus();
+            }
         }
     }
 </script>

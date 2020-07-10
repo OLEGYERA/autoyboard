@@ -1,6 +1,6 @@
 <template>
     <div class="yb-page" v-if="authAccess">
-        <ynavigation></ynavigation>
+        <ynav></ynav>
         <div class="yb-content">
             <yheader></yheader>
             <router-view></router-view>
@@ -14,7 +14,6 @@
     export default {
         created() {
             this.GET_USER_DATA();
-            console.log(this.$router.options.routes);
         },
         data: function(){
             return{

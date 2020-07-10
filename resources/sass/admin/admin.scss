@@ -3,6 +3,9 @@
 @import 'modules/yinput';
 @import 'modules/yavatar';
 @import 'modules/ytabs';
+@import 'modules/ytable';
+@import 'modules/yselector';
+@import 'modules/ybutton';
 @import '../MODULES/ycheck';
 @import '../MODULES/ybutton';
 
@@ -36,7 +39,7 @@ html, body{
 
             .yb-navigation-header{
                 width: 100%;
-                padding: 30px 25px;
+                padding: 30px 20px;
                 margin-bottom: 0px;
                 img.yb-logo{
                     width: 100px;
@@ -45,64 +48,108 @@ html, body{
 
             .yb-navigation-lists{
                 width: 100%;
-                .yb-navigation-list{
-                    margin-bottom: 8px;
-
-                    .list-title{
+                .ynav-list{
+                    list-style: none;
+                    position: relative;
+                    padding-left: 20px;
+                    .ynav-list-item{
                         display: flex;
+                        justify-content: space-between;
                         align-items: center;
-                        font-size: 16px;
-                        font-weight: 700;
-                        margin: 0px 0px 5px;
-                        padding: 5px 0px 5px 25px;
-                        color: $admin-grey;
-                        cursor: pointer;
-                        span{
-                            margin-top: 3px;
+                        position: relative;
+                        margin-bottom: 3px;
+                        a{
+                            display: flex;
+                            align-items: center;
+                            font-size: 16px;
+                            color: $admin-grey;
+                            text-decoration: none;
+                            font-weight: 600;
+                            padding: 5px 5px;
+                            width: 100%;
+                            i{
+                                //padding: 8px 5px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 25px;
+                                font-size: em(20);
+                                color: $admin-ashen;
+                                margin-right: 8px;
+                            }
+                            &:hover{
+                                color: $admin-purple;
+                                i{
+                                    color: $admin-purple;
+                                }
+                            }
                         }
-                        i:first-child{
-                            font-size: em(26);
-                            margin-right: 20px;
-                            color: $admin-purple;
-                            width: 30px;
+                        .ynav-list-toggle{
+                            min-width: 25px;
+                            height: 25px;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                        }
-                        i:last-child{
-                            font-size: em(12);
-                            margin-top: 8px;
-                            margin-left: 10px;
+                            margin-right: 20px;
+                            font-size: 12px;
+                            border-radius: 32px;
                             color: $admin-ashen;
+                            cursor: pointer;
+                            &:hover{
+                                box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+                            }
                         }
-                        &:hover{
-                            background-color: $admin-purple;
-                            color: #fff;
-                            i{
-                                color: #fff;
+
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            right: 0px;
+                            height: 100%;
+                            width: 2px;
+                        }
+
+
+                        &.active{
+                            &:after{
+                                background-color: $admin-purple;
+                            }
+                        }
+
+                        &.active{
+                            a{
+                                color: $admin-purple;
+                                i{
+                                    color: $admin-purple;
+                                }
                             }
                         }
                     }
 
-                    .list-links{
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
-                        li{
-                            padding: 5px 0px;
-                            padding-left: calc(25px + 30px + 20px);
-                            cursor: pointer;
+                    &:after{
+                        position: absolute;
+                        content: '';
+                        width: 2px;
+                        background-color: $admin-purple;
+                        height: calc(100% - 32px);
+                        top: 32px;
+                        left: 35px;
+                    }
+                    &.non-child{
+                        .ynav-list-item{
                             a{
-                                font-size: em(16);
-                                font-weight: 400;
-                                color: $admin-grey;
-                            }
-                            &:hover{
-                                background-color: $admin-purple;
-                                a{
-                                    color: #fff;
+                                font-size: 16px;
+                                font-weight: 500;
+                                padding: 5px 5px;
+                                i{
+                                    width: 23px;
+                                    font-size: em(18);
+                                    margin-right: 8px;
                                 }
                             }
+                        }
+                        &:after{
+                            display: none;
                         }
                     }
                 }
@@ -136,7 +183,14 @@ html, body{
             }
 
             .yb-admin-app{
-
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                .app-list{
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
     }
