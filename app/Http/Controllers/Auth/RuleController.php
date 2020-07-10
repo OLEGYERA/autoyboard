@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 
 class RuleController extends Controller
@@ -18,30 +20,51 @@ class RuleController extends Controller
             'wrong' => 'Введите действительный :atribute.',
             'unique' => 'Пользователь с таким :atribute уже существует.',
             'unUnique' => 'Пользователя с таким :atribute не существует.',
-
+            'ver' => ':atribute не подтвержден.',
         ]
     ];
+
+    public function __construct()
+    {
+        $this->middleware('throttle:6,1')->only('validateCode');
+    }
 
     public function verify(Request $request){
         $return_data = [];
         switch ($request->alias){
             case 'first_name':
-                $return_data = $this->validateString($request->model, 'Имя', 'ru', 2, 30, $request->unique, $request->alias);
+                $return_data = $this->validateString($request->model, 'Имя', 'ru', 2, 30);
                 break;
             case 'last_name':
-                $return_data = $this->validateString($request->model, 'Фамилия', 'ru', 2, 40, $request->unique, $request->alias);
+                $return_data = $this->validateString($request->model, 'Фамилия', 'ru', 2, 40);
                 break;
             case 'tel':
-                $return_data = $this->validateString($request->model, 'Телефон', 'ru', 12, 12, $request->unique, $request->alias);
+                $return_data = $this->validateString($request->model, 'Телефон', 'ru', 12, 12);
+                if($return_data['status'] == 200)
+                    $return_data = $this->validateTel($request->model, 'Телефон', 'ru', $request->unique);
                 break;
             case 'email':
-                $return_data = $this->validateString($request->model, 'E-mail', 'ru', 5, 60, $request->unique, $request->alias);
+                $return_data = $this->validateString($request->model, 'E-mail', 'ru', 5, 60);
+                if($return_data['status'] == 200)
+                    $return_data = $this->validateEmail($request->model, 'E-mail', 'ru', $request->unique);
                 break;
         }
         return response()->json($return_data['alert'], $return_data['status']);
     }
 
-    private function validateString($model, $atribute, $lang, $min, $max, $unique, $name = null)
+    public function validateCode(Request $request){
+        $status = 200;
+        $alert = null;
+
+        if(empty(User::where('id', $request->user)->where('remember_token', $request->model)->first())){
+            $status = 400;
+            $alert = str_replace(':atribute', 'код проверки', $this->error_list['ru']['wrong']);
+        }
+
+        return response()->json($alert, $status);
+    }
+
+    private function validateString($model, $atribute, $lang, $min, $max)
     {
 
         if(mb_strlen($model) == 0) {
@@ -67,69 +90,65 @@ class RuleController extends Controller
             ];
         }
         else{
-            if($unique === null){
-                return [
-                    'status' => 200,
-                    'alert' => null,
-                ];
-            }
-            switch ($name) {
-                case 'email':
-                    if (!filter_var($model, FILTER_VALIDATE_EMAIL)) {
-                        $str_replaced = str_replace(':atribute', $atribute, $this->error_list[$lang]['wrong']);
-                        return [
-                            'status' => 400,
-                            'alert' => $str_replaced,
-                        ];
-                    }
-                    switch ($unique){
-                        case true:
-                            if(!empty(User::where('email', $model)->first())){
-                                $str_replaced = str_replace(':atribute', $atribute, $this->error_list[$lang]['unique']);
-                                return [
-                                    'status' => 400,
-                                    'alert' => $str_replaced,
-                                ];
-                            }
-                            break;
-                        case false:
-                            if(empty(User::where('email', $model)->first())){
-                                $str_replaced = str_replace(':atribute', $atribute, $this->error_list[$lang]['unUnique']);
-                                return [
-                                    'status' => 418,
-                                    'alert' => $str_replaced,
-                                ];
-                            }
-                            break;
-                    }
-                    break;
-                case 'tel':
-                    switch ($unique){
-                        case true:
-                            if(!empty(User::where('tel', $model)->first())){
-                                $str_replaced = str_replace(':atribute', $atribute . 'ом', $this->error_list[$lang]['unique']);
-                                return [
-                                    'status' => 400,
-                                    'alert' => $str_replaced,
-                                ];
-                            }
-                            break;
-                        case false:
-                            if(empty(User::where('tel', $model)->first())){
-                                $str_replaced = str_replace(':atribute', $atribute . 'ом', $this->error_list[$lang]['unUnique']);
-                                return [
-                                    'status' => 418,
-                                    'alert' => $str_replaced,
-                                ];
-                            }
-                            break;
-                    }
-                    break;
-            }
             return [
                 'status' => 200,
                 'alert' => null,
             ];
         }
+    }
+
+    private function validateTel($model, $atribute, $lang, $unique){
+        $status = 200;
+        $alert = null;
+        if ($unique){
+            if(!empty(User::where('tel', $model)->first())){
+                $status = 418;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unique']);
+            }
+        }else{
+            $user = User::where('tel', $model)->first();
+            if(empty($user)){
+                $status = 418;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unUnique']);
+            }
+            if(!empty($user) && $user->tel_verified_at === null){
+                $status = 400;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['ver']);
+            }
+        }
+
+        return [
+            'status' => $status,
+            'alert' => $alert,
+        ];
+    }
+
+    private function validateEmail($model, $atribute, $lang, $unique){
+        $status = 200;
+        $alert = null;
+        if (!filter_var($model, FILTER_VALIDATE_EMAIL)) {
+            $status = 400;
+            $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['wrong']);
+        }elseif ($unique){
+            if(!empty(User::where('email', $model)->first())){
+                $status = 418;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unique']);
+            }
+        }else{
+            $user = User::where('email', $model)->first();
+            if(empty($user)){
+                $status = 418;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['unUnique']);
+            }
+            if(!empty($user) && $user->email_verified_at === null){
+                $status = 400;
+                $alert = str_replace(':atribute', $atribute, $this->error_list[$lang]['ver']);
+            }
+        }
+
+        return [
+            'status' => $status,
+            'alert' => $alert,
+        ];
     }
 }

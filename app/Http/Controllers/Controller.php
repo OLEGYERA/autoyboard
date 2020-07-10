@@ -198,7 +198,7 @@ class Controller extends BaseController
 
 
 //        $response->content
-//        $contents = File::get('index.html');
+//        $contents = File::get('index.htmls');
 //        $tidy_config = array(
 //            'clean' => true,
 //            'output-xhtml' => true,
@@ -210,8 +210,8 @@ class Controller extends BaseController
 //        dd($tidy);
 //        $dom = new Dom;
 //        $dom = $dom->loadStr($contents);
-//        $html = $dom->find('.address')[0];
-//        dd($html, $html->innerHtml);
+//        $htmls = $dom->find('.address')[0];
+//        dd($htmls, $htmls->innerHtml);
     }
 //getAttribute('href')
 

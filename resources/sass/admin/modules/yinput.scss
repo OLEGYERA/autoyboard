@@ -1,0 +1,41 @@
+@import '../../vars';
+@import '../../auto/clear';
+
+.yinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    input{
+        width: 100%;
+        height: 100%;
+        border-radius: 45px;
+        background-color: #fff;
+        border: none;
+    }
+
+    i{
+        position: absolute;
+        left: 30px;
+    }
+
+    &.lg{
+        height: 40px;
+
+        i{
+            font-size: em(18);
+            color: $admin-ashen;
+        }
+
+        input{
+            font-family: $mont;
+            font-size: em(20);
+            font-weight: 400;
+            padding: 8px 20px 10px 60px;
+            &::placeholder{
+                color: $admin-ashen;
+            }
+        }
+    }
+}

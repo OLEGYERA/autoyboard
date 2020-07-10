@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
     "/css/auto/site.css": "/css/auto/site.css",
     "/css/auto/yBoard.css": "/css/auto/yBoard.css"
+=======
+    "/js/admin.js": "/js/admin.js",
+    "/css/admin.css": "/css/admin.css"
+>>>>>>> a9c3acdbf608e5c4f4d0704025672d5d9f43f6af
 }

@@ -2,12 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AuthUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/admin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/aggregator.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/nucleus.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/proxy/edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/proxy/list.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/user-agent/list.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/navigation.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/htmls/yavatar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/htmls/yinput.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/systems/navigation/ynav-list.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/systems/ytabs.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/services/components.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/services/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/services/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/storage/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/admin/admin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/admin/modules/yavatar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/admin/modules/yinput.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/admin/modules/ytabs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/Auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Auth.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Parser/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Parser/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +45,20 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -125,6 +165,7 @@
       <path value="$PROJECT_DIR$/vendor/dirape/token" />
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/mobizon/mobizon-php" />
     </include_path>
   </component>
   <component name="ProjectId" id="1bXdc1ikCQKPStHvxEaSYrYXhNQ" />
@@ -138,19 +179,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Medpravda" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/auth/components" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/auth/components" />
+      <recent name="$PROJECT_DIR$/resources/js/admin" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
       <recent name="$PROJECT_DIR$/public/img/marks_logo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/modules/often" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/services" />
+      <recent name="$PROJECT_DIR$/resources/sass/admin" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/js/STORE/modules" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
-      <recent name="$PROJECT_DIR$/resources/sass" />
-      <recent name="$PROJECT_DIR$/resources/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -186,7 +230,10 @@
       <workItem from="1593157103556" duration="6038000" />
       <workItem from="1593501605807" duration="27007000" />
       <workItem from="1593588594116" duration="20968000" />
-      <workItem from="1593673501221" duration="7294000" />
+      <workItem from="1593673501221" duration="25687000" />
+      <workItem from="1594019038278" duration="29024000" />
+      <workItem from="1594112965944" duration="9529000" />
+      <workItem from="1594196999674" duration="29541000" />
     </task>
     <servers />
   </component>
@@ -194,10 +241,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592833231227">
+    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594198545201">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1592833231227" />
+    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594198545201" />
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593517992266">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -214,14 +261,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593609059631" />
-    <state x="623" y="248" key="run.anything.popup" timestamp="1588950553602">
+    <state x="623" y="248" key="run.anything.popup" timestamp="1594224403015">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="248" key="run.anything.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588950553602" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1593522956280">
+    <state x="623" y="248" key="run.anything.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594224403015" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1594200269751">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593522956280" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594200269751" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -252,8 +299,9 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/resources/js/auth/router.js</url>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/resources/js/STORE/modules/auth.js</url>
+          <line>55</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

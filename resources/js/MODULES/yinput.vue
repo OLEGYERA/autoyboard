@@ -28,7 +28,7 @@
     import Inputmask from "inputmask";
 
     export default {
-        props: ['type', 'name', 'placeholder', 'callback', 'status', 'yref', 'unique'],
+        props: ['type', 'name', 'value', 'placeholder', 'callback', 'status', 'yref', 'unique'],
         mounted() {
             if(this.type == 'tel') Inputmask({mask: "+380-(99)-99-99-999", keepStatic: true, 'autoUnmask': false}).mask(this.$refs[this.name])
         },
@@ -45,6 +45,7 @@
                     if(this.type == 'tel' && this.model == null) this.model = '+380-(__)-__-__-___';
                 }else{
                     let alias = (this.type == 'multy') ? (this.model !== null ? (this.model.indexOf('+') == 0 ? 'tel' : 'email') : 'email') : this.name;
+
                     let model = alias == 'tel' ? this.model.replace(/\D/g, '') : this.model;
 
                     this.$emit('yturn', {alias: alias, name: this.name, model: model, ref: ref, unique: this.unique});
@@ -83,6 +84,18 @@
                 if(this.type == 'multy' && this.model !== null && this.model.indexOf('+') == 0 && this.model.length == 1){
                     Inputmask({mask: "+380-(99)-99-99-999", 'autoUnmask': false}).mask(this.$refs[this.name])
                     this.model = '+380-(__)-__-__-___';
+                }
+            },
+            value(to, from){
+                if(from === ''){
+                    if(this.type == 'multy' && to.indexOf('@') == -1){
+                        this.model = '+' + to;
+                        Inputmask({mask: "+380-(99)-99-99-999", keepStatic: true, 'autoUnmask': false}).mask(this.$refs[this.name])
+                    }else{
+                        this.model = to;
+                    }
+
+                    this.Ytoggler(false, true);
                 }
             }
         }

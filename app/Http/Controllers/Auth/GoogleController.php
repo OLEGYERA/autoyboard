@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
+use App\User;
+use Carbon\Carbon;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 use App\Http\Controllers\Controller;
 
@@ -21,10 +24,42 @@ class GoogleController extends Controller
     public function callback()
     {
         $user = $this->createOrGetUser(Socialite::driver('google')->user());
+        return redirect()->route('home');
     }
 
     protected function createOrGetUser(ProviderUser $providerUser){
-        dd($providerUser);
+        $seek_user = User::where('google_id', $providerUser->getId())->first();
+
+        if(empty($seek_user)){
+            $is_email = User::where('email', $providerUser->getEmail())->first();
+
+            if($is_email){
+                $is_email->update([
+                    'google_id' => $providerUser->getId(),
+                    'email_verified_at' => Carbon::now(),
+                    'remember_token' => null,
+                ]);
+
+                Auth::login($is_email);
+            }
+            else{
+                $new_user = User::create([
+                    'google_id' => $providerUser->getId(),
+                    'first_name' => $providerUser->user['given_name'],
+                    'last_name' => $providerUser->user['family_name'],
+                    'email' => $providerUser->getEmail(),
+                    'email_verified_at' => Carbon::now(),
+                ]);
+
+                Auth::login($new_user);
+            }
+        }
+        else{
+            Auth::login($seek_user, true);
+        }
+
+
+
     }
 }
 

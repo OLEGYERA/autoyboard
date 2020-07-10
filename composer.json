@@ -19,6 +19,7 @@
         "laravel/socialite": "^4.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
+        "mobizon/mobizon-php": "^2.0",
         "nesbot/carbon": "^2.35",
         "paquettg/php-html-parser": "^2.2"
     },

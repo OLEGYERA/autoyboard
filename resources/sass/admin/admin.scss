@@ -1,0 +1,143 @@
+@import '../vars';
+@import '../auto/clear';
+@import 'modules/yinput';
+@import 'modules/yavatar';
+@import 'modules/ytabs';
+@import '../MODULES/ycheck';
+@import '../MODULES/ybutton';
+
+
+html, body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#admin-panel{
+    display: flex;
+    background-color: #F8FAFA;
+    background: linear-gradient(138.74deg, #F3F4FF 0%, #F6F4FF 100%);
+    height: 100%;
+    width: 100%;
+    font-family: $mont;
+    .yb-page{
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+
+        .yb-navigation{
+            background-color: #fff;
+            width: 250px;
+            height: 100%;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.09);
+            border-radius: 0px 60px 60px 0px;
+
+            .yb-navigation-header{
+                width: 100%;
+                padding: 30px 25px;
+                margin-bottom: 0px;
+                img.yb-logo{
+                    width: 100px;
+                }
+            }
+
+            .yb-navigation-lists{
+                width: 100%;
+                .yb-navigation-list{
+                    margin-bottom: 8px;
+
+                    .list-title{
+                        display: flex;
+                        align-items: center;
+                        font-size: 16px;
+                        font-weight: 700;
+                        margin: 0px 0px 5px;
+                        padding: 5px 0px 5px 25px;
+                        color: $admin-grey;
+                        cursor: pointer;
+                        span{
+                            margin-top: 3px;
+                        }
+                        i:first-child{
+                            font-size: em(26);
+                            margin-right: 20px;
+                            color: $admin-purple;
+                            width: 30px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        i:last-child{
+                            font-size: em(12);
+                            margin-top: 8px;
+                            margin-left: 10px;
+                            color: $admin-ashen;
+                        }
+                        &:hover{
+                            background-color: $admin-purple;
+                            color: #fff;
+                            i{
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    .list-links{
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        li{
+                            padding: 5px 0px;
+                            padding-left: calc(25px + 30px + 20px);
+                            cursor: pointer;
+                            a{
+                                font-size: em(16);
+                                font-weight: 400;
+                                color: $admin-grey;
+                            }
+                            &:hover{
+                                background-color: $admin-purple;
+                                a{
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .yb-content{
+            width: calc(100% - 250px);
+            display: flex;
+            flex-direction: column;
+            padding: 25px 50px;
+
+            header.yb-header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 35px;
+
+                .yinput{
+                    width: 85%;
+                }
+
+                .yb-smart-helpers{
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    .yavatar{
+                      margin-left: 20px;
+                    }
+                }
+            }
+
+            .yb-admin-app{
+
+            }
+        }
+    }
+}
