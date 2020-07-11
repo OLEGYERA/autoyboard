@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 130px;
     i{
         color: #0B3F8D;
         font-size: em(30);
@@ -15,8 +14,7 @@
 
 
     .dropdown-input{
-        width: 116px;
-        height: 37px;
+        width: 100%;
         font-family: $aleg;
         font-style: normal;
         font-weight: normal;
@@ -45,6 +43,7 @@
     width: 100%;
     left: 20px;
     top: 45px;
+    z-index: 2;
 
     .autocomplete-result {
         padding: 10px;

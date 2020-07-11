@@ -8,17 +8,18 @@
             @keydown.down="onArrowDown"
             @keydown.up="onArrowUp"
             @keydown.enter="onEnter"
+            @keydown.esc="isOpen = false"
             @click="showAll"
             placeholder="Вся Украина"
             type="text"
         />
-        <ul
+        <div
             id="autocomplete-results"
             v-show="isOpen"
             ref="scrollContainer"
             class="autocomplete-results">
 
-            <li
+            <div
                 ref="options"
                 v-for="(result, i) in results"
                 :key="i"
@@ -26,8 +27,8 @@
                 class="autocomplete-result"
                 :class="{ 'is-active': i === arrowCounter }">
                 {{result}}
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </template>
 

@@ -1,0 +1,11 @@
+@import '../clear';
+@import '../../vars';
+
+
+.yb_form{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,32 @@
+@import '../clear';
+@import '../../vars';
+
+.yb_ex-search{
+    .ex_search{
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-family: $aleg;
+        font-style: normal;
+        font-weight: bold;
+        font-size: em(22);
+        line-height: 26px;
+        text-align: center;
+        color: #FFFFFF;
+        padding: 0;
+        .arrow{
+            position: absolute;
+            right: 15px;
+            color:  #0B3F8D;
+            font-size: em(40);
+            width: 50px;
+
+        }
+        .eclipse{
+            color: #FFFFFF;
+            font-size: em(50);
+            margin-left: 20px;
+        }
+
+    }
+}

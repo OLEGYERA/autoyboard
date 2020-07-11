@@ -32,9 +32,32 @@
         </div>
     </header>
 
-    <main>
-        <section>
-
+    <main class="yb_content">
+        <section class="yform">
+            <div class="yb-form_left">
+                <div class="yb-block_reg">
+                    <div class="form_title">
+                        <h3>Актуальные</h3>
+                    </div>
+                    <div class="yreguest">
+                        <yreguests></yreguests>
+                    </div>
+                </div>
+                <div class="yb_select-form">
+                    <yform></yform>
+                </div>
+            </div>
+{{--            <div class="yb_select-form">--}}
+{{--                <yform></yform>--}}
+{{--            </div>--}}
+            <div class="yb-form_right">
+                    <div class="yb-expanded_search">
+                       <yexpanded></yexpanded>
+                    </div>
+                <div class="yb-status">
+                    <ystatus></ystatus>
+                </div>
+            </div>
         </section>
     </main>
     <footer>

@@ -12,6 +12,12 @@ header, footer, div, section, article, aside, main, input, button{
     outline: none;
 }
 
+li, a{
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+}
+
 button{
     background: transparent;
     border: none

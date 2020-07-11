@@ -7,6 +7,12 @@ Vue.component('ybutton', require('./components/ybutton.vue').default);
 Vue.component('ysearch', require('./components/ysearch.vue').default);
 Vue.component('ylocation', require('./components/ylocation.vue').default);
 Vue.component('ymenu', require('./components/ymenu.vue').default);
+Vue.component('yreguests', require('./components/yreguests').default);
+
+Vue.component('ystatus', require('./components/ystatus').default);
+Vue.component('yexpanded', require('./components/yexpanded').default);
+Vue.component('yform', require('./components/yform').default);
+
 
 new Vue({
 
