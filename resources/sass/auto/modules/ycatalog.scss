@@ -1,0 +1,105 @@
+@import '../clear';
+@import '../../vars';
+
+.ycatalog_block{
+
+    .y-cat_top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 80px;
+        .cat_title{
+            position: relative;
+            .title{
+                font-family: $rale;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 54px;
+                line-height: 63px;
+                text-transform: capitalize;
+                color: $titleblue;
+                &:after{
+                    content: '';
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 0px;
+                    position: absolute;
+                    border: 2px solid $titleblue;
+
+                }
+            }
+        }
+        .change_visible{
+            .change_view{
+                width: 50px;
+                height: 50px;
+                border-radius: 8px;
+                margin: 10px;
+                i{
+                    color: $admin-ashen;
+                    font-size: em(40);
+                }
+                &:focus{
+                    background: #FFFFFF;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12), 0px -4px 4px rgba(0, 0, 0, 0.08);
+                    i{
+                        color: $titleblue ;
+                    }
+                }
+            }
+
+        }
+    }
+    .y-cat-bottom{
+        display: flex;
+        border-radius: 35px;
+        box-shadow: 28px 28px 113px rgba(220, 222, 222, 0.17), -28px -28px 56px rgba(255, 255, 255, 0.9), 23px 20px 35px rgba(220, 222, 222, 0.11), inset -1px -1px 2px #DCDEDE, inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+        .cat_categories{
+            .y-bt_title{
+                .title{
+                    padding: 20px;
+                    font-family: $rale;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 48px;
+                    line-height: 56px;
+                    text-transform: capitalize;
+                    color: rgba(80, 83, 83, 0.92);
+                    margin: 0;
+                }
+            }
+            .cat_list-items{
+                .list_items{
+                    text-align: start;
+                    padding: 0;
+                    .cat_item{
+                        padding: 20px;
+                        font-family: $mont;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 24px;
+                        color: rgba(80, 83, 83, 0.92);
+                        &:hover {
+                            color: #FFFFFF;
+                            background: $darkblue;
+                            border-radius: 1px;
+                        }
+                    }
+                }
+            }
+        }
+        .type_body-marks{
+            background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
+            border-radius: 11px;
+            .car_body-type{
+
+            }
+            .car_type-marks{
+
+            }
+        }
+    }
+}

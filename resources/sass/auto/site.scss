@@ -10,6 +10,7 @@
 @import 'modules/ystatus';
 @import 'modules/yform';
 @import 'modules/ybestoffers';
+@import 'modules/ycatalog';
 
 #yb-site{
     display: flex;
@@ -83,10 +84,8 @@
         }
     }
     .yb_content{
-        padding: 0px 160px;
         .yform{
-            width: 100%;
-            height: 480px;
+            margin: 0px 160px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -97,10 +96,9 @@
                 .yb-form_left{
                     display: flex;
                     height: 100%;
-                    margin: 20px 0px 0px 20px;
                     width: 522px;
                     background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
-                    border-radius: 0px;
+                    border-radius: 8px;
                     .yb-block_reg{
                         width: 100%;
                         .form_title{
@@ -124,9 +122,9 @@
 
                     .yb_select-form{
                         position: absolute;
-                        margin: 25px 0px 0px 25%;
+                        margin: 40px 0px 0px 25%;
                         width: 723px;
-                        height: 462px;
+                        height: 400px;
                         background: linear-gradient(180deg, rgba(250, 250, 250, 0.3) 0%, rgba(237, 237, 237, 0.3) 100%), #FFFFFF;
                         box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.33), 6px -6px 12px rgba(255, 255, 255, 0.05), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
                         border-radius: 19px;
@@ -141,7 +139,7 @@
         .yb_sticker{
             display: flex;
             justify-content: space-between;
-            padding-bottom: 80px;
+            padding: 0px 160px 80px 160px;
             .yb_st-item{
                 box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
                 border-radius: 11px;
@@ -211,13 +209,13 @@
                 }
             }
         }
-    }
-    .yb_content_blue{
-        background: linear-gradient(179.87deg, rgba(255, 255, 255, 0.97) -67.8%, rgba(255, 255, 255, 0.94) 103.31%), #697C8C;
         .best_offers{
-            padding: 0px 160px;
+            padding: 0px 160px 80px 160px;
+            background: linear-gradient(179.87deg, rgba(255, 255, 255, 0.97) -67.8%, rgba(255, 255, 255, 0.94) 103.31%), #697C8C;
+        }
+        .ycatalog{
+            padding: 0px 160px 80px 160px;
         }
     }
-
 }
 

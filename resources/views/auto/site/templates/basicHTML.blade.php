@@ -15,7 +15,9 @@
     <header class="yb-header">
         <div class="yb-header-left">
             <div class="yb-logo">
-                <img src="{{asset('img/system/logos/logo.png')}}" alt="logo">
+                <a href="#">
+                    <img src="{{asset('img/system/logos/logo.png')}}" alt="logo">
+                </a>
             </div>
             <ycats></ycats>
         </div>
@@ -85,12 +87,14 @@
                     <h4 class="yb-st_title">Новый Mercedes-Benz </h4>
                 </div>
         </section>
-    </main>
-    <main class="yb_content_blue">
         <section class="best_offers">
             <ybestoffer></ybestoffer>
         </section>
+        <section class="ycatalog">
+                <ycatalog></ycatalog>
+        </section>
     </main>
+
     <footer>
 
     </footer>

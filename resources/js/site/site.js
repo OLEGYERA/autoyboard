@@ -14,6 +14,9 @@ Vue.component('yform', require('./components/yform').default);
 
 Vue.component('ybestoffer', require('./components/ybestoffers').default);
 
+Vue.component('ycatalog', require('./components/ycatalog').default);
+
+
 
 new Vue({
 
