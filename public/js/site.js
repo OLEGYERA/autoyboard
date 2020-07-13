@@ -1899,6 +1899,140 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybutton.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybutton.vue?vue&type=script&lang=js& ***!
@@ -1973,6 +2107,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /***/ }),
 
@@ -1983,6 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//
 //
 //
 //
@@ -2212,6 +2350,10 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
 //
 //
 //
@@ -19825,6 +19967,394 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "ybestoffer" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "y-best_items" }, [
+      _c("div", { staticClass: "offer_item" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "offer_item" }, [
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "offer_item" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(7)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "y-best_top" }, [
+      _c("div", { staticClass: "top_title" }, [
+        _c("h3", { staticClass: "title" }, [_vm._v("Лучшие предложения")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "change_visible" }, [
+        _c("button", { staticClass: "change_view" }, [
+          _c("i", { staticClass: "fas fa-th-list" })
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "change_view" }, [
+          _c("i", { staticClass: "fas fa-th" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "item_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "item_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "item_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "show-items_dots" }, [
+      _c("ul", { staticClass: "item_dots" }, [
+        _c("li", { staticClass: "dots" }, [
+          _c("button", { staticClass: "check_dot" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "dots" }, [
+          _c("button", { staticClass: "check_dot" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "dots" }, [
+          _c("button", { staticClass: "check_dot" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "dots" }, [
+          _c("button", { staticClass: "check_dot" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "dots" }, [
+          _c("button", { staticClass: "check_dot" })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybutton.vue?vue&type=template&id=8ad660a8&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybutton.vue?vue&type=template&id=8ad660a8& ***!
@@ -19910,23 +20440,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_ex-search" }, [
-      _c("button", { staticClass: "ex_search" }, [
-        _vm._v("\n        Расширеный поиск\n        "),
-        _c("i", { staticClass: "arrow fas fa-long-arrow-alt-right" }),
-        _vm._v(" "),
-        _c("i", { staticClass: "eclipse fas fa-circle" })
-      ])
+  return _c("div", { staticClass: "yb_ex-search" }, [
+    _c("button", { staticClass: "ex_search" }, [
+      _vm._v("\n        Расширеный поиск\n        "),
+      _c(
+        "svg",
+        {
+          staticClass: "arrow",
+          staticStyle: { fill: "#000000" },
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            x: "0px",
+            y: "0px",
+            width: "60",
+            height: "60",
+            viewBox: "0 0 172 172"
+          }
+        },
+        [
+          _c(
+            "g",
+            {
+              staticStyle: { "mix-blend-mode": "normal" },
+              attrs: {
+                fill: "none",
+                "fill-rule": "nonzero",
+                stroke: "none",
+                "stroke-width": "1",
+                "stroke-linecap": "butt",
+                "stroke-linejoin": "miter",
+                "stroke-miterlimit": "10",
+                "stroke-dasharray": "",
+                "stroke-dashoffset": "0",
+                "font-family": "none",
+                "font-weight": "none",
+                "font-size": "none",
+                "text-anchor": "none"
+              }
+            },
+            [
+              _c("path", {
+                attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+              }),
+              _c("g", { attrs: { fill: "#0b3f8d" } }, [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M131.81067,51.54401c-2.33302,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26668l18.87969,18.87969h-135.22604c-2.06765,-0.02924 -3.99087,1.05709 -5.03322,2.843c-1.04236,1.78592 -1.04236,3.99474 0,5.78066c1.04236,1.78592 2.96558,2.87225 5.03322,2.843h135.22604l-18.87969,18.87969c-1.49778,1.43802 -2.10113,3.5734 -1.57735,5.5826c0.52378,2.0092 2.09284,3.57826 4.10204,4.10204c2.0092,0.52378 4.14458,-0.07957 5.5826,-1.57735l28.16276,-28.16276c1.41918,-1.08154 2.25398,-2.76211 2.25837,-4.54643c0.00439,-1.78431 -0.82213,-3.46898 -2.23597,-4.55748c-0.01117,-0.0075 -0.02237,-0.01497 -0.03359,-0.02239l-28.15157,-28.15156c-1.07942,-1.10959 -2.56163,-1.73559 -4.10964,-1.73568z"
+                  }
+                })
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("i", { staticClass: "eclipse fas fa-circle" })
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -20269,30 +20842,36 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_count" }, [
-      _c("div", { staticClass: "yb_count-status" }, [
+    return _c("div", { staticClass: "yb_count-status" }, [
+      _c("div", { staticClass: "status_items" }, [
         _c("div", { staticClass: "count_number" }, [
-          _vm._v("\n           + 5 246\n       ")
+          _vm._v("\n               + 5 246\n           ")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "count_title" }, [
-          _vm._v("\n           Последних поисков за день\n       ")
-        ]),
-        _vm._v(" "),
+          _vm._v("\n               Последних поисков за день\n           ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
         _c("div", { staticClass: "count_number" }, [
-          _vm._v("\n           + 1100\n       ")
+          _vm._v("\n               + 1100\n           ")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "count_title" }, [
-          _vm._v("\n           Последних поисков за час\n       ")
-        ]),
-        _vm._v(" "),
+          _vm._v("\n               Последних поисков за час\n           ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
         _c("div", { staticClass: "count_number" }, [
-          _vm._v("\n           + 8 600\n       ")
+          _vm._v("\n               + 8 600\n           ")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "count_title" }, [
-          _vm._v("\n           Проверено авто\n           по VIN-коду\n       ")
+          _vm._v(
+            "\n               Проверено авто\n               по VIN-коду\n           "
+          )
         ])
       ])
     ])
@@ -32487,6 +33066,78 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/site/components/ybestoffers.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/site/components/ybestoffers.vue ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ybestoffers.vue?vue&type=template&id=5ebce775& */ "./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775&");
+/* harmony import */ var _ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ybestoffers.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/ybestoffers.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ybestoffers.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ybestoffers.vue?vue&type=template&id=5ebce775& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/site/components/ybutton.vue":
 /*!**************************************************!*\
   !*** ./resources/js/site/components/ybutton.vue ***!
@@ -33152,6 +33803,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yreguests', __webpack_requ
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystatus', __webpack_require__(/*! ./components/ystatus */ "./resources/js/site/components/ystatus.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yexpanded', __webpack_require__(/*! ./components/yexpanded */ "./resources/js/site/components/yexpanded.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yform', __webpack_require__(/*! ./components/yform */ "./resources/js/site/components/yform.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ybestoffer', __webpack_require__(/*! ./components/ybestoffers */ "./resources/js/site/components/ybestoffers.vue")["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({}).$mount('#yb-site');
 
 /***/ }),

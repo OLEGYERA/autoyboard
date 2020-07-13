@@ -9,6 +9,7 @@
 @import 'modules/yexpanded';
 @import 'modules/ystatus';
 @import 'modules/yform';
+@import 'modules/ybestoffers';
 
 #yb-site{
     display: flex;
@@ -92,6 +93,7 @@
             background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
             border-radius: 11px;
             position: relative;
+            margin-bottom: 50px;
                 .yb-form_left{
                     display: flex;
                     height: 100%;
@@ -136,6 +138,86 @@
                 }
 
         }
+        .yb_sticker{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 80px;
+            .yb_st-item{
+                box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
+                border-radius: 11px;
+                max-width: 500px;
+                max-height: 260px;
+                position: relative;
+                overflow: hidden;
+                .yb-st_logo{
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    padding: 20px;
+                    z-index: 2;
+                    .brand_title{
+                        color: #FFFFFF;
+                        font-size: em(18);
+                        font-family: $mont;
+                        font-style: normal;
+                        font-weight: 500;
+                        margin-right: 10px;
+                        line-height: 34px;
+                        &:last-child{
+                            margin-left: 10px;
+                        }
+                    }
+                    img{
+                        width: 35px;
+                    }
+                }
+                .background_style{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
+
+                .yb-st_title{
+                    position: absolute;
+                    font-family: $mont;
+                    font-style: normal;
+                    font-weight: 600;
+                    bottom: 0;
+                    font-size: em(28);
+                    line-height: 34px;
+                    margin: 0;
+                    padding: 20px;
+                }
+
+                &:nth-child(1){
+                    .yb-st_title{
+                        color: #FFFFFF;
+                    }
+                }
+                &:nth-child(2){
+                    .yb-st_title{
+                        color: #1B1B1B;
+                    }
+                }
+                &:nth-child(3){
+                    .yb-st_title{
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
     }
+    .yb_content_blue{
+        background: linear-gradient(179.87deg, rgba(255, 255, 255, 0.97) -67.8%, rgba(255, 255, 255, 0.94) 103.31%), #697C8C;
+        .best_offers{
+            padding: 0px 160px;
+        }
+    }
+
 }
 

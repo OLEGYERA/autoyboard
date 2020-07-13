@@ -47,9 +47,6 @@
                     <yform></yform>
                 </div>
             </div>
-{{--            <div class="yb_select-form">--}}
-{{--                <yform></yform>--}}
-{{--            </div>--}}
             <div class="yb-form_right">
                     <div class="yb-expanded_search">
                        <yexpanded></yexpanded>
@@ -58,6 +55,40 @@
                     <ystatus></ystatus>
                 </div>
             </div>
+        </section>
+        <section class="yb_sticker">
+                <div class="yb_st-item">
+                    <div class="yb-st_logo">
+                        <span class="brand_title">Audi</span>
+                        <img src="{{asset('img/system/static/audi_logo.png')}}" alt="">
+                    </div>
+                    <div class="background_style" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%);"></div>
+                    <img src="https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg" alt="">
+                    <h4 class="yb-st_title">Новая Audi TT RS</h4>
+                </div>
+                <div class="yb_st-item">
+                    <div class="yb-st_logo">
+                        <span class="brand_title">Volkswagen</span>
+                        <img src="{{asset('img/system/static/vw_logo.png')}}" alt="">
+                    </div>
+                    <div class="background_style" style="background: linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%);"></div>
+                    <img src="https://carexpert.ru/img/foto600/vw/vwar001.jpg" alt="">
+                    <h4 class="yb-st_title">Новый Volkswagen Arteon </h4>
+                </div>
+                <div class="yb_st-item">
+                    <div class="yb-st_logo">
+                        <img src="{{asset('img/brands_logo/mercedes-benz.png')}}" alt="">
+                        <span class="brand_title">Mercedes-Benz</span>
+                    </div>
+                    <div class="background_style" style="background:linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%); "></div>
+                    <img src="https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg" alt="">
+                    <h4 class="yb-st_title">Новый Mercedes-Benz </h4>
+                </div>
+        </section>
+    </main>
+    <main class="yb_content_blue">
+        <section class="best_offers">
+            <ybestoffer></ybestoffer>
         </section>
     </main>
     <footer>

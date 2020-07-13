@@ -20,21 +20,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yform.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yreguests.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ystatus.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/raleway.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblack.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblack.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblack.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblackitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblackitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblackitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralight.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralight.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralightitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralightitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralightitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylight.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylight.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylightitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylightitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylightitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymedium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymedium.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymedium.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymediumitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymediumitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymediumitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayregular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayregular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayregular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythin.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythin.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythinitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythinitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythinitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/car_check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/audi_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/vw_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report.20200713.151320.10524.0.001.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ydeselect.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ylocation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ylocation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yform.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yform.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ystatus.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ystatus.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/site/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_ylocation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ylocation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
     </list>
@@ -177,12 +234,15 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1bXdc1ikCQKPStHvxEaSYrYXhNQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -241,7 +301,8 @@
       <workItem from="1594112965944" duration="9529000" />
       <workItem from="1594196999674" duration="29541000" />
       <workItem from="1594378497299" duration="17500000" />
-      <workItem from="1594458663245" duration="17768000" />
+      <workItem from="1594458663245" duration="17947000" />
+      <workItem from="1594627251036" duration="21366000" />
     </task>
     <servers />
   </component>
@@ -260,6 +321,9 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="494" y="233" width="520" height="258" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594468052429">
       <screen x="0" y="0" width="1366" height="728" />
@@ -271,9 +335,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593517992266" />
-    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594460630791">
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594639519685">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594639519685" />
     <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1594460630791" />
     <state x="693" y="298" width="526" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593097985317">
       <screen x="0" y="0" width="1920" height="1080" />
