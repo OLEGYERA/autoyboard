@@ -7,10 +7,14 @@
 @import 'modules/ymenu';
 @import 'modules/yreguests';
 @import 'modules/yexpanded';
+@import 'modules/topcontent';
 @import 'modules/ystatus';
 @import 'modules/yform';
 @import 'modules/ybestoffers';
 @import 'modules/ycatalog';
+@import 'modules/yfavorite';
+@import 'modules/yanalitics';
+@import 'modules/ynews';
 
 #yb-site{
     display: flex;
@@ -85,14 +89,14 @@
     }
     .yb_content{
         .yform{
-            margin: 0px 160px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
-            border-radius: 11px;
-            position: relative;
-            margin-bottom: 50px;
+            padding: 0px 160px 80px 160px;
+            .yb_container{
+                display: flex;
+                align-items: center;
+                background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
+                justify-content: space-between;
+                border-radius: 11px;
+                position: relative;
                 .yb-form_left{
                     display: flex;
                     height: 100%;
@@ -132,8 +136,14 @@
                 }
 
                 .yb-form_right{
-                margin-right: 20px;
+                    padding: 30px 20px 0px 0px;
+                        .white{
+                            color: #FFFFFF;
+                        }
+
                 }
+            }
+
 
         }
         .yb_sticker{
@@ -214,6 +224,12 @@
             background: linear-gradient(179.87deg, rgba(255, 255, 255, 0.97) -67.8%, rgba(255, 255, 255, 0.94) 103.31%), #697C8C;
         }
         .ycatalog{
+            padding: 0px 160px 80px 160px;
+        }
+        .yanalytics{
+            padding: 0px 160px 80px 160px;
+        }
+        .ynews{
             padding: 0px 160px 80px 160px;
         }
     }

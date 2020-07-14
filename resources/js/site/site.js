@@ -11,12 +11,13 @@ Vue.component('yreguests', require('./components/yreguests').default);
 Vue.component('ystatus', require('./components/ystatus').default);
 Vue.component('yexpanded', require('./components/yexpanded').default);
 Vue.component('yform', require('./components/yform').default);
-
+Vue.component('ytopcontent', require('./components/topcontent').default);
 Vue.component('ybestoffer', require('./components/ybestoffers').default);
 
 Vue.component('ycatalog', require('./components/ycatalog').default);
-
-
+Vue.component('yfavorite', require('./components/yfavorite').default);
+Vue.component('yanalitics', require('./components/yanalitics').default);
+Vue.component('ynews', require('./components/ynews').default);
 
 new Vue({
 

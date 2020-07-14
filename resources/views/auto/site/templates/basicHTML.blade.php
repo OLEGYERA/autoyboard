@@ -8,6 +8,7 @@
     <title>Главная</title>
     <link rel="stylesheet" href="{{asset('css/site.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/AlegreyaSans/alegreyasans.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/Raleway/raleway.css')}}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
@@ -36,6 +37,7 @@
 
     <main class="yb_content">
         <section class="yform">
+            <div class="yb_container">
             <div class="yb-form_left">
                 <div class="yb-block_reg">
                     <div class="form_title">
@@ -51,11 +53,12 @@
             </div>
             <div class="yb-form_right">
                     <div class="yb-expanded_search">
-                       <yexpanded></yexpanded>
+                       <yexpanded :text_color="'white'" :text="'Расширеный поиск'"></yexpanded>
                     </div>
                 <div class="yb-status">
                     <ystatus></ystatus>
                 </div>
+            </div>
             </div>
         </section>
         <section class="yb_sticker">
@@ -87,11 +90,21 @@
                     <h4 class="yb-st_title">Новый Mercedes-Benz </h4>
                 </div>
         </section>
+
         <section class="best_offers">
             <ybestoffer></ybestoffer>
         </section>
+
         <section class="ycatalog">
-                <ycatalog></ycatalog>
+            <ycatalog></ycatalog>
+        </section>
+
+        <section class="yanalytics">
+            <yanalitics></yanalitics>
+        </section>
+
+        <section class="ynews">
+            <ynews></ynews>
         </section>
     </main>
 

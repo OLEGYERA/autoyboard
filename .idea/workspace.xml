@@ -20,12 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/arrow_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/heart_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/heart_red.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/analitics_prev.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/cabriolet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/crossover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/sedan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/topcontent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yanalitics.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yfavorite.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/topcontent.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yfavorite.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/site/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
     </list>
@@ -236,7 +256,8 @@
       <workItem from="1594196999674" duration="29541000" />
       <workItem from="1594378497299" duration="17500000" />
       <workItem from="1594458663245" duration="17947000" />
-      <workItem from="1594627251036" duration="25626000" />
+      <workItem from="1594627251036" duration="26265000" />
+      <workItem from="1594710032036" duration="28597000" />
     </task>
     <servers />
   </component>
@@ -259,10 +280,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="494" y="233" width="520" height="258" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594468052429">
+    <state x="494" y="233" width="522" height="258" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594730167842">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="494" y="233" width="496" height="258" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594384042380" />
+    <state x="494" y="233" width="522" height="258" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594730167842" />
     <state x="494" y="233" width="520" height="258" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1594468052429" />
     <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594198545201" />
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593517992266">

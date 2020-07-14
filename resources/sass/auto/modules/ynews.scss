@@ -1,0 +1,85 @@
+@import '../clear';
+@import '../../vars';
+
+
+.yb_auto_news{
+    .ynews_item{
+        .y_item-top{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            .ynews_left{
+                position: relative;
+                border-radius: 17px;
+                overflow: hidden;
+                max-width: 600px;
+                max-height: 450px;
+                margin-right: 30px;
+                .left_img{
+                    position: relative;
+                    overflow: hidden;
+                    margin: 0;
+                    width: 100%;
+                    img{
+                        width: 100%;
+                    }
+                }
+
+            }
+            .ynews_right{
+                position: relative;
+                border-radius: 17px;
+                overflow: hidden;
+                max-width: 800px;
+                max-height: 450px;
+                .right_img{
+                    position: relative;
+                    overflow: hidden;
+                    margin: 0;
+                    width: 100%;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+            .news_decs{
+                position: absolute;
+                z-index: 2;
+                bottom: 0;
+                .title{
+                    font-family: $mont;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: em(24);
+                    line-height: 29px;
+                    color: #FFFFFF;
+                }
+                .desc{
+                    font-family: $aleg;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: #FFFFFF;
+                    margin: 0;
+                    padding: 0;
+                }
+                .read_more{
+                    display: flex;
+                    font-family: $mont;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #FFFFFF;
+                }
+            }
+        }
+        .y_item-bottom{
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}

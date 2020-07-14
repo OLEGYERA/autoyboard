@@ -2,68 +2,19 @@
 @import '../../vars';
 
 .ycatalog_block{
-
-    .y-cat_top{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
-        margin-bottom: 80px;
-        .cat_title{
-            position: relative;
-            .title{
-                font-family: $rale;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 54px;
-                line-height: 63px;
-                text-transform: capitalize;
-                color: $titleblue;
-                &:after{
-                    content: '';
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 0px;
-                    position: absolute;
-                    border: 2px solid $titleblue;
-
-                }
-            }
-        }
-        .change_visible{
-            .change_view{
-                width: 50px;
-                height: 50px;
-                border-radius: 8px;
-                margin: 10px;
-                i{
-                    color: $admin-ashen;
-                    font-size: em(40);
-                }
-                &:focus{
-                    background: #FFFFFF;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12), 0px -4px 4px rgba(0, 0, 0, 0.08);
-                    i{
-                        color: $titleblue ;
-                    }
-                }
-            }
-
-        }
-    }
     .y-cat-bottom{
         display: flex;
         border-radius: 35px;
         box-shadow: 28px 28px 113px rgba(220, 222, 222, 0.17), -28px -28px 56px rgba(255, 255, 255, 0.9), 23px 20px 35px rgba(220, 222, 222, 0.11), inset -1px -1px 2px #DCDEDE, inset 1px 1px 2px rgba(255, 255, 255, 0.3);
         .cat_categories{
+            background: linear-gradient(151.07deg, #FEFFFF -17.9%, #E6E8E8 100%);
             .y-bt_title{
+                padding: 80px 60px 0px 70px;
                 .title{
-                    padding: 20px;
                     font-family: $rale;
                     font-style: normal;
                     font-weight: normal;
-                    font-size: 48px;
+                    font-size: em(48);
                     line-height: 56px;
                     text-transform: capitalize;
                     color: rgba(80, 83, 83, 0.92);
@@ -75,16 +26,17 @@
                     text-align: start;
                     padding: 0;
                     .cat_item{
-                        padding: 20px;
+                        cursor: pointer;
+                        padding: 20px 60px 20px 70px;
                         font-family: $mont;
                         font-style: normal;
                         font-weight: 500;
-                        font-size: 20px;
+                        font-size: em(20);
                         line-height: 24px;
                         color: rgba(80, 83, 83, 0.92);
-                        &:hover {
+                        &:focus {
                             color: #FFFFFF;
-                            background: $darkblue;
+                            background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
                             border-radius: 1px;
                         }
                     }
@@ -92,13 +44,141 @@
             }
         }
         .type_body-marks{
-            background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
-            border-radius: 11px;
+            width: 100%;
+            border-radius: 0px 35px 0px 0px;
+            overflow: hidden;
             .car_body-type{
-
+                background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
+                .body-type_top{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 60px ;
+                    .white{
+                        color: #FFFFFF;
+                    }
+                    .type-top_title{
+                        margin: 0;
+                        font-family: $rale;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: em(48);
+                        line-height: 56px;
+                        text-transform: capitalize;
+                        color: #FFFFFF;
+                    }
+                    .ex_search{
+                        &:after{
+                            content: '';
+                            width: 20px;
+                            height: 3px;
+                            position: absolute;
+                            background: #FFFFFF;
+                            top: 33px;
+                            right: 66px;
+                        }
+                    }
+                }
+                .yb-slide_type{
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 0px 60px 60px 60px;
+                        .yb_clide-body{
+                            .slide{
+                                overflow: hidden;
+                                margin: 0;
+                                width: 100%;
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                            .body_name{
+                                font-family: $mont;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 29px;
+                                color: #FFFFFF;
+                                font-size: em(24);
+                            }
+                            &:nth-child(2){
+                                font-size: em(36);
+                            }
+                        }
+                }
             }
-            .car_type-marks{
+            .yb-car_marks{
+                .car_marks-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 40px 70px 40px 80px;
+                        .marks_title{
+                            font-family: $rale;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 48px;
+                            line-height: 56px;
+                            text-transform: capitalize;
+                            color: rgba(80, 83, 83, 0.92);
+                            margin: 0;
+                        }
+                    .blue{
+                        color: #072F6A;
+                    }
+                    .ex_search{
+                        .arrow{
+                            g{
+                                fill: #fff;
+                            }
+                        }
+                        .eclipse{
+                            color: #072F6A;
+                        }
+                        &:after{
+                            content: '';
+                            width: 20px;
+                            height: 3px;
+                            color: #FFFFFF;
+                            position: absolute;
+                            background: #072F6A;
+                            top: 34px;
+                            right: 66px;
+                        }
+                    }
 
+
+                }
+                .yb_list{
+                    .yb_marks_list{
+                        .marks-list_body{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            flex-flow: wrap;
+                            margin: 0;
+                            padding: 0px 70px 40px 80px;
+                            .mark_list{
+                                max-width: 220px;
+                                max-height: 160px;
+                                display: flex;
+                                align-items: center;
+                                background: conic-gradient(from 89.31deg at -60.22% 59.22%, #FFFFFF 0deg, #FFFFFF 266.25deg, #EEEEEE 346.88deg, #FFFFFF 360deg);
+                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
+                                border-radius: 14px;
+                                margin: 20px;
+                                .marks{
+                                    overflow: hidden;
+                                    margin: 0;
+                                    max-width: 130px;
+                                    padding: 50px  ;
+                                    img{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
