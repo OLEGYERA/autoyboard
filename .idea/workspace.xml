@@ -20,32 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/system/icons/arrow_right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/icons/heart_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/icons/heart_red.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/static/analitics_prev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/static/cabriolet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/static/crossover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/static/sedan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/topcontent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yanalitics.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yfavorite.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/topcontent.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yfavorite.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/test.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yform.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yform.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ylocation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ylocation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_ylocation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ylocation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
     </list>
@@ -257,7 +241,8 @@
       <workItem from="1594378497299" duration="17500000" />
       <workItem from="1594458663245" duration="17947000" />
       <workItem from="1594627251036" duration="26265000" />
-      <workItem from="1594710032036" duration="28597000" />
+      <workItem from="1594710032036" duration="29072000" />
+      <workItem from="1594796671934" duration="28046000" />
     </task>
     <servers />
   </component>
@@ -290,10 +275,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593517992266" />
-    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594639519685">
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594806066121">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594639519685" />
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594806066121" />
     <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1594460630791" />
     <state x="693" y="298" width="526" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593097985317">
       <screen x="0" y="0" width="1920" height="1080" />

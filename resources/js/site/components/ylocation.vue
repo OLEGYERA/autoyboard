@@ -1,8 +1,7 @@
 <template>
-    <div class="ylocations">
-        <i class="fas fa-map-marker-alt"></i>
+    <div :class="container">
         <input
-            class="dropdown-input"
+            :class="input_style"
             @input="onChange"
             v-model="search"
             @keydown.down="onArrowDown"
@@ -10,22 +9,22 @@
             @keydown.enter="onEnter"
             @keydown.esc="isOpen = false"
             @click="showAll"
-            placeholder="Вся Украина"
+            :placeholder="text"
             type="text"
         />
         <div
             id="autocomplete-results"
             v-show="isOpen"
             ref="scrollContainer"
-            class="autocomplete-results">
+            :class="drop_style">
 
             <div
                 ref="options"
                 v-for="(result, i) in results"
                 :key="i"
                 @click="setResult(result)"
-                class="autocomplete-result"
-                :class="{ 'is-active': i === arrowCounter }">
+                :class="[list_style, {'is-active': i === arrowCounter}]"
+            >
                 {{result}}
             </div>
         </div>
@@ -34,7 +33,7 @@
 
 <script>
     export default {
-
+            props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
         data() {
             return {
                 isOpen: false,

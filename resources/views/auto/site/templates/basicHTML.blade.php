@@ -24,7 +24,16 @@
         </div>
         <div class="yb-header-right">
                 <ysearch></ysearch>
-                <ylocation></ylocation>
+            <div class="ylocation">
+                <i class="fas fa-map-marker-alt"></i>
+                <ylocation
+                    :container="'ylocations'"
+                    :text="'Вся Украина'"
+                    :list_style="'autocomplete-result'"
+                    :drop_style="'autocomplete-results'"
+                    :input_style="'dropdown-input'">
+                </ylocation>
+            </div>
             <div class="yb-lang-switcher">
                     <button class="ylang">UA</button>
                     <button class="ylang">RU</button>
@@ -116,3 +125,9 @@
 <script src="{{asset('js/site.js')}}"></script>
 </body>
 </html>
+<script>
+    import Test from "../../../../js/site/components/test";
+    export default {
+        components: {Test}
+    }
+</script>

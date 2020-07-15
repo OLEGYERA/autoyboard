@@ -55,6 +55,51 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
+            .ylocation{
+                display: flex;
+                    i{
+                        color: #0B3F8D;
+                        font-size: em(30);
+                        position: relative;
+                        padding-right: 10px;
+                    }
+                .autocomplete-results{
+                    font-family: $aleg;
+                    background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
+                    position: absolute;
+                    padding: 0;
+                    margin: 0;
+                    height: 180px;
+                    overflow: auto;
+                    width: 100%;
+                    top: 45px;
+                    z-index: 2;
+                    .autocomplete-result {
+                        padding: 10px;
+                        text-align: left;
+                        cursor: pointer;
+                        color: rgba(34, 34, 34, 0.79);
+                    }
+                    .autocomplete-result.is-active,
+                    .autocomplete-result:hover {
+                        background: linear-gradient(0deg, #0B3F8D, #0B3F8D), #FFFFFF;
+                        color: #FFFFFF;
+                    }
+
+                }
+                .dropdown-input{
+                    width: 100%;
+                    font-family: $aleg;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: em(20);
+                    line-height: 24px;
+                    border: none;
+                    outline: none;
+                    color: rgba(34, 34, 34, 0.79);
+                }
+
+            }
             .yb-lang-switcher{
                 display: flex;
                 align-items: center;
@@ -128,7 +173,6 @@
                         position: absolute;
                         margin: 40px 0px 0px 25%;
                         width: 723px;
-                        height: 400px;
                         background: linear-gradient(180deg, rgba(250, 250, 250, 0.3) 0%, rgba(237, 237, 237, 0.3) 100%), #FFFFFF;
                         box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.33), 6px -6px 12px rgba(255, 255, 255, 0.05), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
                         border-radius: 19px;

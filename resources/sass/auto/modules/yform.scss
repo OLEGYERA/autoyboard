@@ -5,7 +5,203 @@
 .yb_form{
     display: flex;
     justify-content: space-around;
-    padding: 30px;
+    padding: 42px 35px 42px 35px;
     width: 100%;
     height: 100%;
+    .left_options{
+        .yinput_list{
+            display: flex;
+            align-items: center;
+            background: #F8F8F8;
+            border-radius: 15px;
+            position: relative;
+            margin-bottom: 12px;
+            .yselect{
+                display: flex;
+                align-items: center;
+                background: #F8F8F8;
+                border-radius: 15px;
+                max-width: 300px;
+            }
+            .ynav_drop{
+                font-family: $aleg;
+                background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
+                position: absolute;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 180px;
+                overflow: auto;
+                top: 50px;
+                z-index: 2;
+                .y_nav_list{
+                    padding: 10px;
+                    cursor: pointer;
+                    color: rgba(34, 34, 34, 0.79);
+                }
+                .y_nav_list.is-active,
+                .y_nav_list:hover {
+                    background: linear-gradient(0deg, #0B3F8D, #0B3F8D), #FFFFFF;
+                    color: #FFFFFF;
+                }
+            }
+
+            .select_form{
+                padding: 12px 80px 12px 20px;
+                background: #F8F8F8;
+                border: none;
+                font-family: $aleg;
+                font-style: normal;
+                font-weight: 500;
+                font-size: em(16);
+                line-height: 19px;
+                color: #C7C7C7;
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        .ynav-list-toggle{
+            color: #C7C7C7;
+            margin-right: 15px;
+        }
+
+    }
+    .ysuccess_btn{
+        margin-top: 50px;
+        display: flex;
+        .success{
+            background: linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
+            border-radius: 14px;
+            font-family: $aleg;
+            font-style: normal;
+            font-weight: bold;
+            font-size: em(22);
+            line-height: 26px;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 10px 60px 10px 60px;
+        }
+    }
+    .another_options{
+        .yoption_btn{
+            display: flex;
+            background: #F8F8F8;
+            border-radius: 12px 12px 0px 0px;
+            padding-bottom: 12px;
+            .change_type{
+                padding: 12px 20px 12px 20px;
+                font-family: $aleg;
+                font-style: normal;
+                font-weight: 500;
+                font-size: em(16);
+                line-height: 19px;
+                color: rgba(54, 54, 54, 0.76);
+                &:focus{
+                    background: linear-gradient(0deg, #0B3F8D, #0B3F8D), #FFFFFF;
+                    color: #FFFEFE;
+                    border-radius: 12px 12px 0px 0px;
+                }
+            }
+        }
+        .yprice_options{
+            background: #F8F8F8;
+            border-radius: 12px;
+            .ytitle_option{
+                font-family: $aleg;
+                font-style: normal;
+                text-align: start;
+                font-weight: 500;
+                padding: 15px 0px 12px 30px;
+                margin: 0;
+                font-size: em(22);
+                line-height: 26px;
+                color: rgba(91, 91, 91, 0.9);
+            }
+            .change_price{
+                padding: 12px 30px 0px 30px;
+                .input_change{
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    padding-bottom: 30px;
+                    .change{
+                        max-width: 115px;
+                        max-height: 40px;
+                        padding: 10px 0px 10px 14px;
+                        margin-right: 20px;
+                        background: #FFFFFF;
+                        border: 2px solid #FFFFFF;
+                        box-sizing: border-box;
+                        border-radius: 15px;
+                        font-family: $aleg;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: em(16);
+                        line-height: 19px;
+                        color: rgba(199, 199, 199, 0.9);
+                        &:last-child{
+                            margin-right: 0px;
+                        }
+                    }
+                }
+                .range_slider{
+                    width: 200px;
+                    margin: auto 16px;
+                    text-align: center;
+                    position: relative;
+
+                    input[type=range]{
+                        webkit-appearance: none;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        outline: none;
+                        width: 100%;
+                    }
+
+
+
+                    input[type=range]::-webkit-slider-thumb{
+                        -webkit-appearance: none;
+                        background: #FFFEFE;
+                        border-radius: 4px;
+                        width: 15px;
+                        cursor: pointer;
+                        height: 15px;
+                        z-index: 2;
+                        position: relative;
+                        top: 2px;
+                        margin-top: -7px;
+                    }
+                    input[type=range]::-moz-range-thumb{
+                        -webkit-appearance: none;
+                        width: 15px;
+                        cursor: pointer;
+                        height: 15px;
+                        border-radius: 4px;
+                        background: #FFFEFE;
+                    }
+                    //input[type=range]::-ms-thumb{
+                    //    -webkit-appearance: none;
+                    //    width: 15px;
+                    //    cursor: pointer;
+                    //    height: 15px;
+                    //    border-radius: 4px;
+                    //    background: #FFFEFE;
+                    //}
+                    input[type=range]::-webkit-slider-runnable-track{
+                        -webkit-appearance: none;
+                        cursor: pointer;
+                        width: 100%;
+                        background: #E5E5E5;
+                    }
+
+
+
+                }
+            }
+        }
+    }
 }
