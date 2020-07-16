@@ -56,10 +56,10 @@
                         <yreguests></yreguests>
                     </div>
                 </div>
+            </div>
                 <div class="yb_select-form">
                     <yform></yform>
                 </div>
-            </div>
             <div class="yb-form_right">
                     <div class="yb-expanded_search">
                        <yexpanded :text_color="'white'" :text="'Расширеный поиск'"></yexpanded>
@@ -117,8 +117,9 @@
         </section>
     </main>
 
-    <footer>
-
+    <footer class="yfooter_content">
+        <div class="yfooter_left"></div>
+        <div class="yfooter_right"></div>
     </footer>
 </div>
 
@@ -126,8 +127,6 @@
 </body>
 </html>
 <script>
-    import Test from "../../../../js/site/components/test";
-    export default {
-        components: {Test}
-    }
+
+
 </script>

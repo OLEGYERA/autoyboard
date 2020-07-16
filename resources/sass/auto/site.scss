@@ -10,6 +10,8 @@
 @import 'modules/topcontent';
 @import 'modules/ystatus';
 @import 'modules/yform';
+@import 'modules/ycheckbox';
+@import 'modules/yrangeslider';
 @import 'modules/ybestoffers';
 @import 'modules/ycatalog';
 @import 'modules/yfavorite';
@@ -145,7 +147,8 @@
                 .yb-form_left{
                     display: flex;
                     height: 100%;
-                    width: 522px;
+                    max-width: 520px;
+                    width: 100%;
                     background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
                     border-radius: 8px;
                     .yb-block_reg{
@@ -169,14 +172,16 @@
                         }
                     }
 
-                    .yb_select-form{
-                        position: absolute;
-                        margin: 40px 0px 0px 25%;
-                        width: 723px;
-                        background: linear-gradient(180deg, rgba(250, 250, 250, 0.3) 0%, rgba(237, 237, 237, 0.3) 100%), #FFFFFF;
-                        box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.33), 6px -6px 12px rgba(255, 255, 255, 0.05), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
-                        border-radius: 19px;
-                    }
+                }
+
+                .yb_select-form{
+                    position: absolute;
+                    left: 30%;
+                    top: 30px;
+                    width: 723px;
+                    background: linear-gradient(180deg, rgba(250, 250, 250, 0.3) 0%, rgba(237, 237, 237, 0.3) 100%), #FFFFFF;
+                    box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.33), 6px -6px 12px rgba(255, 255, 255, 0.05), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
+                    border-radius: 19px;
                 }
 
                 .yb-form_right{
@@ -192,8 +197,8 @@
         }
         .yb_sticker{
             display: flex;
-            justify-content: space-between;
             padding: 0px 160px 80px 160px;
+            justify-content: space-between;
             .yb_st-item{
                 box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
                 border-radius: 11px;
@@ -201,6 +206,7 @@
                 max-height: 260px;
                 position: relative;
                 overflow: hidden;
+                margin-right: 20px;
                 .yb-st_logo{
                     display: flex;
                     align-items: center;
@@ -261,6 +267,9 @@
                         color: #FFFFFF;
                     }
                 }
+                &:last-child{
+                    margin-right: 0px;
+                }
             }
         }
         .best_offers{
@@ -276,6 +285,12 @@
         .ynews{
             padding: 0px 160px 80px 160px;
         }
+    }
+    .yfooter_content{
+        background: rgba(1, 21, 51, 0.92);
+        box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.06);
+        padding: 40px 50px 40px 50px;
+        display: flex;
     }
 }
 

@@ -5,11 +5,11 @@
 .ybestoffer{
     .y-best_items{
         display: flex;
-        justify-content: space-between;
         margin-bottom: 60px;
         .offer_item{
             max-width: 500px;
             position: relative;
+            margin-right: 50px;
             .yb-icon_check{
                 display: flex;
                 align-items: center;
@@ -106,6 +106,9 @@
                         }
                     }
                 }
+            }
+            &:last-child{
+                margin-right: 0px;
             }
         }
     }

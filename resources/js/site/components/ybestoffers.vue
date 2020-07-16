@@ -71,9 +71,7 @@
                 </div>
                 <figure class="item_image">
                     <img src="https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg" alt="">
-                    <button class="favorite">
-                        <img class="heart_svg" src="img/system/icons/heart_icon.svg" alt="">
-                    </button>
+                    <yfavorite :favorite="favorite"></yfavorite>
                 </figure>
                 <div class="item_desc">
                     <h2 class="item_name">Mercedes-Benz E 220 2009</h2>

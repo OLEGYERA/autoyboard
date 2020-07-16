@@ -64,29 +64,13 @@
             <div class="yprice_options">
                 <h3 class="ytitle_option">Цена</h3>
                 <div class="change_price">
-                    <div class="input_change">
-                        <input class="change" type="text" placeholder="От">
-                        <input class="change" type="text" placeholder="До">
-                    </div>
-                    <div class="range_slider">
-                        <input
-                            min="0"
-                            max="1000"
-                            step="10"
-                            type="range"
-                            v-model.number="minPrice"
-                            @change="setRangeSlider"
-                        >
-                        <input
-                            min="0"
-                            max="1000"
-                            step="10"
-                            type="range"
-                            v-model.number="maxPrice"
-                            @change="setRangeSlider"
-                        >
-                    </div>
+                    <yrange></yrange>
                 </div>
+            </div>
+            <div class="yresource_options">
+                <ycheckbox :text="'Поиск со всех ресурсов'"></ycheckbox>
+                <ycheckbox :text="'Провереные'"></ycheckbox>
+                <ycheckbox :text="'С фото'"></ycheckbox>
             </div>
         </div>
     </div>
@@ -95,14 +79,10 @@
 <script>
 
     export default {
-
-        mounted() {
-        },
+        props: [],
         data: function(){
             return{
                 catStatus: false,
-                minPrice: 0,
-                maxPrice: 1000,
             }
         },
         methods: {
@@ -125,7 +105,5 @@
 </script>
 
 <style>
-    .select_form{
-        width: 100%;
-    }
+
 </style>
