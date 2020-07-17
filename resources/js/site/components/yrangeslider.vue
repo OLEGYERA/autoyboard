@@ -1,8 +1,8 @@
 <template>
     <div class="yprice_container">
         <div class="input_change">
-            <input class="change" v-model="minPrice" type="number" placeholder="От">
-            <input class="change" v-model="maxPrice" type="number" placeholder="До">
+            <input class="change" v-model.number="minPrice" type="number" placeholder="От">
+            <input class="change" v-model.number="maxPrice" type="number" placeholder="До">
         </div>
         <div class="track-container">
             <div class="track" ref="_vpcTrack"></div>

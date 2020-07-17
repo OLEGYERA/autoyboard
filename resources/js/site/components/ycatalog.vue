@@ -12,7 +12,7 @@
                         <li  tabindex="1" class="cat_item">Мото</li>
                         <li  tabindex="2"  class="cat_item">Автобусы</li>
                         <li  tabindex="3" class="cat_item">Водный</li>
-                        <li  tabindex="4" class="cat_item">Сельхозтехник</li>
+                        <li  tabindex="4" class="cat_item">Сельхозтехника</li>
                         <li  tabindex="5" class="cat_item">Спецтехника</li>
                         <li  tabindex="6"  class="cat_item">Прицепы</li>
                     </ul>

@@ -12,7 +12,7 @@
             :placeholder="text"
             type="text"
         />
-        <div
+        <ul
             id="autocomplete-results"
             v-show="isOpen"
             ref="scrollContainer"
@@ -22,12 +22,14 @@
                 ref="options"
                 v-for="(result, i) in results"
                 :key="i"
+                v-if="results.length > 0"
                 @click="setResult(result)"
                 :class="[list_style, {'is-active': i === arrowCounter}]"
             >
                 {{result}}
             </div>
-        </div>
+            <div class="autocomplete-result" v-if="results.length === 0">Не найдено</div>
+        </ul>
     </div>
 </template>
 
@@ -102,6 +104,14 @@
                 ],
             }
         },
+        computed:{
+            filterResults() {
+                this.results = this.items.filter((item) => {
+                    return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+                });
+            },
+
+        },
 
         methods: {
 
@@ -109,19 +119,11 @@
                 this.isOpen = true;
                 this.filterResults();
             },
-
-            filterResults() {
-                this.results = this.items.filter((item) => {
-                    return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
-                    console.log(this.results)
-                    console.log(this.items)
-                });
-            },
-
             setResult(result) {
                 this.search = result;
                 this.isOpen = false;
-                console.log(result)
+                this.onArrowDown()
+                this.onArrowUp()
             },
 
             onArrowDown(ev) {

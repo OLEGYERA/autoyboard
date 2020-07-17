@@ -136,7 +136,7 @@
     }
     .yb_content{
         .yform{
-            padding: 0px 160px 80px 160px;
+            padding: 0px 8.5% 80px 8.5%;
             .yb_container{
                 display: flex;
                 align-items: center;
@@ -216,7 +216,7 @@
                     .brand_title{
                         color: #FFFFFF;
                         font-size: em(18);
-                        font-family: $mont;
+                        font-family: $aleg;
                         font-style: normal;
                         font-weight: 500;
                         margin-right: 10px;
@@ -242,7 +242,7 @@
 
                 .yb-st_title{
                     position: absolute;
-                    font-family: $mont;
+                    font-family: $aleg;
                     font-style: normal;
                     font-weight: 600;
                     bottom: 0;
@@ -289,8 +289,113 @@
     .yfooter_content{
         background: rgba(1, 21, 51, 0.92);
         box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.06);
-        padding: 40px 50px 40px 50px;
-        display: flex;
+        padding: 60px 120px 60px 120px;
+        .yrepeat_footer{
+                    display: flex;
+                    justify-content: space-between;
+                        .logo_social{
+                            padding-top: 50px;
+                            .yb_logo_white{
+                                display: flex;
+                                img{
+                                    width: 100px;
+                                }
+                            }
+                            .social_yb{
+                                .in_social{
+                                    font-family: $rale;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: em(28);
+                                    line-height: 35px;
+                                    color: #FFFFFF;
+                                }
+                                .social_link{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    .social_logo{
+                                        padding: 30px 20px 0px 0px;
+                                        img{
+                                            width: 40px;
+                                        }
+                                        &:last-child{
+                                            padding: 20px 0px 0px 0px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    .yrepeat_catalog{
+                        text-align: center;
+                        .yrepeat_title{
+                            margin: 0;
+                            display: flex;
+                            font-family: $rale;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: em(26);
+                            line-height: 32px;
+                            text-transform: capitalize;
+                            color: #FFFFFF;
+                        }
+                        .yrepeat_list{
+                            padding: 0;
+                            margin: 0;
+                            margin-top: 15px;
+                            .item_repeat{
+                                text-align: start;
+                                padding-bottom: 4px;
+                                a{
+                                    font-family: $aleg;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: em(20);
+                                    line-height: 28px;
+                                    color: #FFFFFF;
+                                }
+                                &:last-child{
+                                    padding-bottom: 0px;
+                                }
+                            }
+                        }
+                    }
+                    .ysite_step{
+                        .yrepeat_title{
+                            margin: 0;
+                            display: flex;
+                            font-family: $rale;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: em(26);
+                            line-height: 32px;
+                            text-transform: capitalize;
+                            color: #FFFFFF;
+                        }
+                        .site_step-list{
+                            padding: 0;
+                            margin: 0;
+                            margin-top: 15px;
+                            .step_list{
+                                text-align: start;
+                                padding-bottom: 4px;
+                                .step{
+                                    font-family: $aleg;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: em(22);
+                                    line-height: 38px;
+                                    letter-spacing: -0.04em;
+                                    color: #FFFFFF;
+                                }
+                            }
+                        }
+                    }
+                }
+
+    }
+    @media only screen and (max-width: 600px){
+
     }
 }
 

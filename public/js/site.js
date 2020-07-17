@@ -2508,6 +2508,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
   data: function data() {
@@ -2519,24 +2521,25 @@ __webpack_require__.r(__webpack_exports__);
       items: ['Поляна', 'Славское', 'Тернополь', 'Трускавец', 'Хмельницкий', 'Чайковка', 'Чубинское', 'Шаян', 'Шешоры', 'Яремче', 'Петровское', 'Приморское', 'Черновцы', 'Днепропетровск', 'Донецк', 'Ивано-Франковск', 'Каменец-Подольский', 'Харьков', 'Херсон', 'Киев', 'Кривой Рог', 'Луганск', 'Львов', 'Николаев', 'Одесса', 'Полтава', 'Сумы', 'Ужгород', 'Запорожье', 'Винница', 'Черкассы', 'Чернигов', 'Ильичевск', 'Луцк', 'Малехов', 'Микуличин', 'Ровно', 'Стрый', 'Ахтырка', 'Белогородка', 'Бердянск', 'Борисполь', 'Бояны', 'Бровары', 'Буковель', 'Бурлачья Балка', 'Верховина', 'Винники', 'Жденево', 'Житомир', 'Жовтневое', 'Затока', 'Кировоград', 'Коблево', 'Козин', 'Колоденка', 'Коропово', 'Кременчуг', 'Макеевка', 'Мукачево']
     };
   },
-  methods: {
-    onChange: function onChange() {
-      this.isOpen = true;
-      this.filterResults();
-    },
+  computed: {
     filterResults: function filterResults() {
       var _this = this;
 
       this.results = this.items.filter(function (item) {
         return item.toLowerCase().indexOf(_this.search.toLowerCase()) > -1;
-        console.log(_this.results);
-        console.log(_this.items);
       });
+    }
+  },
+  methods: {
+    onChange: function onChange() {
+      this.isOpen = true;
+      this.filterResults();
     },
     setResult: function setResult(result) {
       this.search = result;
       this.isOpen = false;
-      console.log(result);
+      this.onArrowDown();
+      this.onArrowUp();
     },
     onArrowDown: function onArrowDown(ev) {
       ev.preventDefault();
@@ -2635,6 +2638,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//
+//
+//
 //
 //
 //
@@ -21192,7 +21198,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "cat_item", attrs: { tabindex: "4" } }, [
-            _vm._v("Сельхозтехник")
+            _vm._v("Сельхозтехника")
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "cat_item", attrs: { tabindex: "5" } }, [
@@ -21854,7 +21860,7 @@ var render = function() {
     }),
     _vm._v(" "),
     _c(
-      "div",
+      "ul",
       {
         directives: [
           {
@@ -21868,24 +21874,37 @@ var render = function() {
         class: _vm.drop_style,
         attrs: { id: "autocomplete-results" }
       },
-      _vm._l(_vm.results, function(result, i) {
-        return _c(
-          "div",
-          {
-            key: i,
-            ref: "options",
-            refInFor: true,
-            class: [_vm.list_style, { "is-active": i === _vm.arrowCounter }],
-            on: {
-              click: function($event) {
-                return _vm.setResult(result)
-              }
-            }
-          },
-          [_vm._v("\n            " + _vm._s(result) + "\n        ")]
-        )
-      }),
-      0
+      [
+        _vm._l(_vm.results, function(result, i) {
+          return _vm.results.length > 0
+            ? _c(
+                "div",
+                {
+                  key: i,
+                  ref: "options",
+                  refInFor: true,
+                  class: [
+                    _vm.list_style,
+                    { "is-active": i === _vm.arrowCounter }
+                  ],
+                  on: {
+                    click: function($event) {
+                      return _vm.setResult(result)
+                    }
+                  }
+                },
+                [_vm._v("\n            " + _vm._s(result) + "\n        ")]
+              )
+            : _vm._e()
+        }),
+        _vm._v(" "),
+        _vm.results.length === 0
+          ? _c("div", { staticClass: "autocomplete-result" }, [
+              _vm._v("Не найдено")
+            ])
+          : _vm._e()
+      ],
+      2
     )
   ])
 }
@@ -22142,6 +22161,10 @@ var staticRenderFns = [
             })
           ])
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ybtn_show_more" }, [
+        _c("button", { staticClass: "show_more" }, [_vm._v("Смотреть еще")])
       ])
     ])
   }
@@ -22173,9 +22196,10 @@ var render = function() {
         directives: [
           {
             name: "model",
-            rawName: "v-model",
+            rawName: "v-model.number",
             value: _vm.minPrice,
-            expression: "minPrice"
+            expression: "minPrice",
+            modifiers: { number: true }
           }
         ],
         staticClass: "change",
@@ -22186,7 +22210,10 @@ var render = function() {
             if ($event.target.composing) {
               return
             }
-            _vm.minPrice = $event.target.value
+            _vm.minPrice = _vm._n($event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$forceUpdate()
           }
         }
       }),
@@ -22195,9 +22222,10 @@ var render = function() {
         directives: [
           {
             name: "model",
-            rawName: "v-model",
+            rawName: "v-model.number",
             value: _vm.maxPrice,
-            expression: "maxPrice"
+            expression: "maxPrice",
+            modifiers: { number: true }
           }
         ],
         staticClass: "change",
@@ -22208,7 +22236,10 @@ var render = function() {
             if ($event.target.composing) {
               return
             }
-            _vm.maxPrice = $event.target.value
+            _vm.maxPrice = _vm._n($event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$forceUpdate()
           }
         }
       })
@@ -35008,15 +35039,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/site/components/ycheckbox.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ycheckbox_vue_vue_type_template_id_0c72e33d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ycheckbox.vue?vue&type=template&id=0c72e33d& */ "./resources/js/site/components/ycheckbox.vue?vue&type=template&id=0c72e33d&");
 /* harmony import */ var _ycheckbox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ycheckbox.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ycheckbox.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ycheckbox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ycheckbox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -35046,7 +35076,7 @@ component.options.__file = "resources/js/site/components/ycheckbox.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/site/components/ycheckbox.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35498,15 +35528,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************!*\
   !*** ./resources/js/site/components/yrangeslider.vue ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _yrangeslider_vue_vue_type_template_id_39988254___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yrangeslider.vue?vue&type=template&id=39988254& */ "./resources/js/site/components/yrangeslider.vue?vue&type=template&id=39988254&");
 /* harmony import */ var _yrangeslider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yrangeslider.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _yrangeslider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _yrangeslider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -35536,7 +35565,7 @@ component.options.__file = "resources/js/site/components/yrangeslider.vue"
 /*!********************************************************************************!*\
   !*** ./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

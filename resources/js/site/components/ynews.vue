@@ -71,6 +71,9 @@
                     </figure>
                 </div>
             </div>
+            <div class="ybtn_show_more">
+                <button class="show_more">Смотреть еще</button>
+            </div>
         </div>
     </div>
 </template>
