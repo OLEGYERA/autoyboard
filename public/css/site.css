@@ -535,6 +535,7 @@ span.yb-gradient {
   width: 100%;
   height: 0px;
   border: 3px solid #EEEEEE;
+  left: 0;
 }
 
 html,
@@ -916,14 +917,18 @@ span.yb-gradient {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 180px;
+  max-height: 180px;
   overflow: auto;
   top: 50px;
   z-index: 2;
+  scrollbar-width: none;
 }
 
 .yb_form .left_options .yinput_list .ynav_drop .y_nav_list {
-  padding: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   color: rgba(34, 34, 34, 0.79);
 }
@@ -934,9 +939,14 @@ span.yb-gradient {
   color: #FFFFFF;
 }
 
+.yb_form .left_options .yinput_list .ynav_drop::-webkit-scrollbar {
+  width: 0px;
+}
+
 .yb_form .left_options .yinput_list .select_form {
   padding: 12px 80px 12px 20px;
   background: #F8F8F8;
+  border-radius: 15px;
   border: none;
   font-family: "Alegreya Sans", sans-serif;
   font-style: normal;
@@ -1252,6 +1262,16 @@ span.yb-gradient {
 
 .yprice_container .input_change .change:last-child {
   margin-right: 0px;
+}
+
+.yprice_container .input_change input::-webkit-outer-spin-button,
+.yprice_container .input_change input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.yprice_container .input_change input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .yprice_container .track-container {
@@ -2297,16 +2317,19 @@ span.yb-gradient {
   position: absolute;
   padding: 0;
   margin: 0;
-  height: 180px;
+  max-height: 180px;
   overflow: auto;
   width: 100%;
   top: 45px;
   z-index: 2;
+  scrollbar-width: none;
 }
 
 #yb-site header.yb-header .yb-header-right .ylocation .autocomplete-results .autocomplete-result {
-  padding: 10px;
-  text-align: left;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   color: rgba(34, 34, 34, 0.79);
 }
@@ -2315,6 +2338,10 @@ span.yb-gradient {
 #yb-site header.yb-header .yb-header-right .ylocation .autocomplete-results .autocomplete-result:hover {
   background: linear-gradient(0deg, #0B3F8D, #0B3F8D), #FFFFFF;
   color: #FFFFFF;
+}
+
+#yb-site header.yb-header .yb-header-right .ylocation .autocomplete-results::-webkit-scrollbar {
+  width: 0px;
 }
 
 #yb-site header.yb-header .yb-header-right .ylocation .dropdown-input {

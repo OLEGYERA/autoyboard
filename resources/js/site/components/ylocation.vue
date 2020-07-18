@@ -12,7 +12,7 @@
             :placeholder="text"
             type="text"
         />
-        <ul
+        <div
             id="autocomplete-results"
             v-show="isOpen"
             ref="scrollContainer"
@@ -29,7 +29,7 @@
                 {{result}}
             </div>
             <div class="autocomplete-result" v-if="results.length === 0">Не найдено</div>
-        </ul>
+        </div>
     </div>
 </template>
 

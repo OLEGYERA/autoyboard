@@ -20,25 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/face_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/flat_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/insta_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/logo_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/med_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/telegram_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/travel_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/system/logos/yt_logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ycheckbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ycheckbox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yform.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yform.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/site/components/ylocation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ylocation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yrangeslider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yrangeslider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ysearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ysearch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yrangeslider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yrangeslider.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +243,8 @@
       <workItem from="1594710032036" duration="29072000" />
       <workItem from="1594796671934" duration="28163000" />
       <workItem from="1594882658659" duration="28062000" />
-      <workItem from="1594969513126" duration="24054000" />
+      <workItem from="1594969513126" duration="24132000" />
+      <workItem from="1595077495400" duration="5748000" />
     </task>
     <servers />
   </component>

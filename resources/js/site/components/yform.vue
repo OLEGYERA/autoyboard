@@ -68,9 +68,17 @@
                 </div>
             </div>
             <div class="yresource_options">
-                <ycheckbox :text="'Поиск со всех ресурсов'"></ycheckbox>
-                <ycheckbox :text="'Провереные'"></ycheckbox>
-                <ycheckbox :text="'С фото'"></ycheckbox>
+                <ycheckbox
+                    v-model="selectedCheck"
+                    :selectedCheck="selectedCheck"
+                    :text="'Поиск со всех ресурсов'">
+                </ycheckbox>
+                <ycheckbox
+                    :text="'Провереные'">
+                </ycheckbox>
+                <ycheckbox
+                    :text="'С фото'">
+                </ycheckbox>
             </div>
         </div>
     </div>
