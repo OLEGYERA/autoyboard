@@ -13,6 +13,7 @@
                         </button>
                     </div>
                     <figure class="left_img">
+                        <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
                         <img src="https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg" alt="">
                     </figure>
                 </div>
@@ -26,6 +27,7 @@
                         </button>
                     </div>
                     <figure class="right_img">
+                        <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
                         <img src="https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg" alt="">
                     </figure>
                 </div>
@@ -41,6 +43,7 @@
                         </button>
                     </div>
                     <figure class="ynews_image">
+                        <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
                         <img src="https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg" alt="">
                     </figure>
                 </div>
@@ -54,6 +57,7 @@
                         </button>
                     </div>
                     <figure class="ynews_image">
+                        <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
                         <img src="https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg" alt="">
                     </figure>
                 </div>
@@ -67,13 +71,14 @@
                         </button>
                     </div>
                     <figure class="ynews_image">
+                        <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
                         <img src="https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg" alt="">
                     </figure>
                 </div>
             </div>
-            <div class="ybtn_show_more">
-                <button class="show_more">Смотреть еще</button>
-            </div>
+        </div>
+        <div class="ybtn_show_more">
+            <button class="show_more">Смотреть еще</button>
         </div>
     </div>
 </template>

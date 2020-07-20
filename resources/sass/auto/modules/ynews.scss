@@ -15,13 +15,21 @@
                 border-radius: 17px;
                 overflow: hidden;
                 margin-right: 30px;
+                max-width: 800px;
                 .left_img{
                     position: relative;
                     overflow: hidden;
                     margin: 0;
                     width: 100%;
+                    .background_style{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        z-index: 2;
+                    }
                     img{
                         width: 100%;
+                        position: relative;
                     }
                 }
 
@@ -30,19 +38,28 @@
                 position: relative;
                 border-radius: 17px;
                 overflow: hidden;
+                max-width: 800px;
                 .right_img{
                     position: relative;
                     overflow: hidden;
                     margin: 0;
                     width: 100%;
+                    .background_style{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        z-index: 2;
+                    }
                     img{
                         width: 100%;
+                        position: relative;
+
                     }
                 }
             }
             .news_decs{
                 position: absolute;
-                z-index: 2;
+                z-index: 3;
                 bottom: 0;
                 padding: 0px 30px 30px 40px;
                 text-align: start;
@@ -91,10 +108,10 @@
                 border-radius: 17px;
                 overflow: hidden;
                 margin-right: 15px;
-                max-height: 470px;
+                max-width: 520px;
                     .news_decs{
                         position: absolute;
-                        z-index: 2;
+                        z-index: 3;
                         bottom: 0;
                         padding: 0px 30px 20px 40px;
                         text-align: start;
@@ -138,9 +155,16 @@
                     margin: 0;
                     width: 100%;
                     height: 100%;
+                    .background_style{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        z-index: 2;
+                    }
                     img{
                         width: 100%;
                         height: 100%;
+                        position: relative;
                     }
                 }
                 &:last-child{
@@ -148,24 +172,24 @@
                 }
             }
         }
-        .ybtn_show_more{
-            margin-top: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .show_more{
-                background: linear-gradient(0deg, #072F6A, #072F6A), #FFFFFF;
-                box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
-                border-radius: 14px;
-                font-family: $aleg;
-                font-style: normal;
-                font-weight: bold;
-                font-size: em(22);
-                line-height: 26px;
-                text-align: center;
-                color: #FFFFFF;
-                padding: 18px 71px 18px 71px;
-            }
+    }
+    .ybtn_show_more{
+        margin-top: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .show_more{
+            background: linear-gradient(0deg, #072F6A, #072F6A), #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
+            border-radius: 14px;
+            font-family: $aleg;
+            font-style: normal;
+            font-weight: bold;
+            font-size: em(22);
+            line-height: 26px;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 18px 71px 18px 71px;
         }
     }
 }

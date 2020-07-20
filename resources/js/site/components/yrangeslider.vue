@@ -1,8 +1,16 @@
 <template>
     <div class="yprice_container">
         <div class="input_change">
-            <input class="change" v-model.number="minPrice" type="number" placeholder="От">
-            <input class="change" v-model.number="maxPrice" type="number" placeholder="До">
+            <input
+                class="change"
+                v-model.number="minPrice"
+                type="number"
+                placeholder="От">
+            <input
+                class="change"
+                v-model.number="maxPrice"
+                type="number"
+                placeholder="До">
         </div>
         <div class="track-container">
             <div class="track" ref="_vpcTrack"></div>
@@ -21,8 +29,8 @@
             return{
                 min: 200,
                 max: 100000,
-                minPrice: 30000,
-                maxPrice: 60000,
+                minPrice: 0,
+                maxPrice: 0,
                 step: 500,
                 totalSteps: 0,
                 percentPerStep: 1,
@@ -111,7 +119,6 @@
             setClickMove(ev){
                 let track1Left = this.$refs.track1.getBoundingClientRect().left;
                 let track2Left = this.$refs.track2.getBoundingClientRect().left;
-                // console.log('track1Left', track1Left)
                 if(ev.clientX < track1Left){
                     this.moveTrack('track1', ev)
                 }else if((ev.clientX - track1Left) < (track2Left - ev.clientX) ){

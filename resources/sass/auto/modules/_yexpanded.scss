@@ -15,27 +15,18 @@
         padding: 0;
         .arrow{
             position: absolute;
-            right: 21px;
+            right: 28px;
             color:  #0B3F8D;
             font-size: em(40);
-            width: 50px;
+            width: 40px;
 
         }
         .eclipse{
             color: #FFFFFF;
-            font-size: em(50);
+            font-size: 54px;
             padding-left: 40px;
         }
 
     }
-    &:after{
-        content: '';
-        width: 20px;
-        height: 3px;
-        color: #FFFFFF;
-        position: absolute;
-        background: #FFFFFF;
-        top: 71px;
-        right: 88px;
-    }
+
 }

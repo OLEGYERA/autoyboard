@@ -8,8 +8,8 @@
                 max-width: 130px;
                 font-family: $noto;
                 font-style: normal;
-                font-weight: 500;
-                font-size: em(28);
+                font-weight: bold;
+                font-size: em(38);
                 line-height: 52px;
                 text-align: center;
                 font-variant: small-caps;
@@ -30,9 +30,8 @@
                     margin: 0;
                 }
         }
-
+            &:last-child{
+                margin-bottom: 0;
+            }
         }
-    &:last-child{
-        margin-bottom: 0;
-    }
 }

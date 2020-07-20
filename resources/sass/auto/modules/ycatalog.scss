@@ -56,6 +56,18 @@
                     padding: 60px ;
                     .white{
                         color: #FFFFFF;
+                        .arrow{
+                            right: 15px;
+                        }
+                        :after{
+                            content: "";
+                            width: 20px;
+                            height: 3px;
+                            position: absolute;
+                            background: #FFFFFF;
+                            top: 26px;
+                            right: 54px;
+                        }
                     }
                     .type-top_title{
                         margin: 0;
@@ -66,17 +78,6 @@
                         line-height: 56px;
                         text-transform: capitalize;
                         color: #FFFFFF;
-                    }
-                    .ex_search{
-                        &:after{
-                            content: '';
-                            width: 20px;
-                            height: 3px;
-                            position: absolute;
-                            background: #FFFFFF;
-                            top: 33px;
-                            right: 66px;
-                        }
                     }
                 }
                 .yb-slide_type{
@@ -124,15 +125,11 @@
                         }
                     .blue{
                         color: #072F6A;
-                    }
-                    .ex_search{
                         .arrow{
+                            right: 15px;
                             g{
                                 fill: #fff;
                             }
-                        }
-                        .eclipse{
-                            color: #072F6A;
                         }
                         &:after{
                             content: '';
@@ -141,10 +138,16 @@
                             color: #FFFFFF;
                             position: absolute;
                             background: #072F6A;
-                            top: 34px;
-                            right: 66px;
+                            top: 27px;
+                            right: 52px;
                         }
                     }
+
+
+                        .eclipse{
+                            color: #072F6A;
+                        }
+
 
 
                 }

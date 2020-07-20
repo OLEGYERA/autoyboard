@@ -69,8 +69,6 @@
             </div>
             <div class="yresource_options">
                 <ycheckbox
-                    v-model="selectedCheck"
-                    :selectedCheck="selectedCheck"
                     :text="'Поиск со всех ресурсов'">
                 </ycheckbox>
                 <ycheckbox

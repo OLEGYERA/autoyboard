@@ -2448,8 +2448,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [],
   data: function data() {
@@ -2726,6 +2724,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -2754,13 +2757,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       min: 200,
       max: 100000,
-      minPrice: 30000,
-      maxPrice: 60000,
+      minPrice: 0,
+      maxPrice: 0,
       step: 500,
       totalSteps: 0,
       percentPerStep: 1,
@@ -2833,7 +2844,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     setClickMove: function setClickMove(ev) {
       var track1Left = this.$refs.track1.getBoundingClientRect().left;
-      var track2Left = this.$refs.track2.getBoundingClientRect().left; // console.log('track1Left', track1Left)
+      var track2Left = this.$refs.track2.getBoundingClientRect().left;
 
       if (ev.clientX < track1Left) {
         this.moveTrack('track1', ev);
@@ -2945,26 +2956,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: [],
-  data: function (_data) {
-    function data() {
-      return _data.apply(this, arguments);
-    }
-
-    data.toString = function () {
-      return _data.toString();
-    };
-
-    return data;
-  }(function () {
-    return {
-      data: data,
-      search: ''
-    };
-  }),
-  methods: {}
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -21771,19 +21763,7 @@ var render = function() {
         "div",
         { staticClass: "yresource_options" },
         [
-          _c("ycheckbox", {
-            attrs: {
-              selectedCheck: _vm.selectedCheck,
-              text: "Поиск со всех ресурсов"
-            },
-            model: {
-              value: _vm.selectedCheck,
-              callback: function($$v) {
-                _vm.selectedCheck = $$v
-              },
-              expression: "selectedCheck"
-            }
-          }),
+          _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
           _vm._v(" "),
           _c("ycheckbox", { attrs: { text: "Провереные" } }),
           _vm._v(" "),
@@ -22029,7 +22009,9 @@ var render = function() {
     [
       _c("ytopcontent", { attrs: { title: "Новости" } }),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1)
     ],
     1
   )
@@ -22064,6 +22046,14 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("figure", { staticClass: "left_img" }, [
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+              }
+            }),
+            _vm._v(" "),
             _c("img", {
               attrs: {
                 src:
@@ -22097,6 +22087,14 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("figure", { staticClass: "right_img" }, [
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+              }
+            }),
+            _vm._v(" "),
             _c("img", {
               attrs: {
                 src:
@@ -22132,6 +22130,14 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("figure", { staticClass: "ynews_image" }, [
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+              }
+            }),
+            _vm._v(" "),
             _c("img", {
               attrs: {
                 src:
@@ -22165,6 +22171,14 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("figure", { staticClass: "ynews_image" }, [
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+              }
+            }),
+            _vm._v(" "),
             _c("img", {
               attrs: {
                 src:
@@ -22198,6 +22212,14 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("figure", { staticClass: "ynews_image" }, [
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+              }
+            }),
+            _vm._v(" "),
             _c("img", {
               attrs: {
                 src:
@@ -22207,11 +22229,15 @@ var staticRenderFns = [
             })
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ybtn_show_more" }, [
-        _c("button", { staticClass: "show_more" }, [_vm._v("Смотреть еще")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ybtn_show_more" }, [
+      _c("button", { staticClass: "show_more" }, [_vm._v("Смотреть еще")])
     ])
   }
 ]
@@ -35715,15 +35741,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./resources/js/site/components/ysearch.vue ***!
   \**************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ysearch_vue_vue_type_template_id_7adce322___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ysearch.vue?vue&type=template&id=7adce322& */ "./resources/js/site/components/ysearch.vue?vue&type=template&id=7adce322&");
 /* harmony import */ var _ysearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ysearch.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ysearch.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ysearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ysearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -35753,7 +35778,7 @@ component.options.__file = "resources/js/site/components/ysearch.vue"
 /*!***************************************************************************!*\
   !*** ./resources/js/site/components/ysearch.vue?vue&type=script&lang=js& ***!
   \***************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

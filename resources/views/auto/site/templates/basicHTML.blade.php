@@ -33,11 +33,12 @@
                     :drop_style="'autocomplete-results'"
                     :input_style="'dropdown-input'">
                 </ylocation>
-            </div>
-            <div class="yb-lang-switcher">
+                <div class="yb-lang-switcher">
                     <button class="ylang">UA</button>
                     <button class="ylang">RU</button>
+                </div>
             </div>
+
             <div class="yb_user-menu">
                 <ymenu></ymenu>
             </div>
@@ -48,25 +49,18 @@
         <section class="yform">
             <div class="yb_container">
             <div class="yb-form_left">
-                <div class="yb-block_reg">
-                    <div class="form_title">
-                        <h3>Актуальные</h3>
-                    </div>
-                    <div class="yreguest">
-                        <yreguests></yreguests>
-                    </div>
-                </div>
+                <h3 class="form_title">Актуальные</h3>
+                <div class="yline"></div>
+                <yreguests></yreguests>
             </div>
                 <div class="yb_select-form">
                     <yform></yform>
                 </div>
             <div class="yb-form_right">
-                    <div class="yb-expanded_search">
-                       <yexpanded :text_color="'white'" :text="'Расширеный поиск'"></yexpanded>
+                    <yexpanded :text_color="'white'" :text="'Расширеный поиск'"></yexpanded>
+                    <div class="yb-status">
+                        <ystatus></ystatus>
                     </div>
-                <div class="yb-status">
-                    <ystatus></ystatus>
-                </div>
             </div>
             </div>
         </section>
