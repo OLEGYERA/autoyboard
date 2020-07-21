@@ -21157,7 +21157,9 @@ var render = function() {
               "div",
               { staticClass: "body-type_top" },
               [
-                _c("h3", { staticClass: "type-top_title" }, [_vm._v("Кузовы")]),
+                _c("h3", { staticClass: "type-top_title" }, [
+                  _vm._v("Популярные кузовы")
+                ]),
                 _vm._v(" "),
                 _c("yexpanded", {
                   attrs: { text_color: "white", text: "Смотреть больше" }
@@ -21258,7 +21260,7 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("span", { staticClass: "body_name" }, [_vm._v("Кроссовер")])
+        _c("span", { staticClass: "body_name bold" }, [_vm._v("Кроссовер")])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "yb_clide-body" }, [

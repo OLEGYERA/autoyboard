@@ -265,7 +265,7 @@
 
                 .yb-st_title{
                     position: absolute;
-                    font-family: $aleg;
+                    font-family: $rale;
                     font-style: normal;
                     font-weight: 600;
                     bottom: 0;
@@ -324,15 +324,6 @@
                                     width: 100px;
                                 }
                             }
-                            .social_yb{
-                                .in_social{
-                                    font-family: $rale;
-                                    font-style: normal;
-                                    font-weight: 600;
-                                    font-size: em(28);
-                                    line-height: 35px;
-                                    color: #FFFFFF;
-                                }
                                 .social_link{
                                     display: flex;
                                     justify-content: center;
@@ -347,7 +338,7 @@
                                         }
                                     }
                                 }
-                            }
+
                         }
                     .yrepeat_catalog{
                         text-align: center;
@@ -357,8 +348,8 @@
                             font-family: $rale;
                             font-style: normal;
                             font-weight: bold;
-                            font-size: em(26);
-                            line-height: 32px;
+                            font-size: em(22);
+                            line-height: 26px;
                             text-transform: capitalize;
                             color: #FFFFFF;
                         }
@@ -372,7 +363,7 @@
                                 a{
                                     font-family: $aleg;
                                     font-style: normal;
-                                    font-weight: bold;
+                                    font-weight: normal;
                                     font-size: em(20);
                                     line-height: 28px;
                                     color: #FFFFFF;
@@ -390,8 +381,8 @@
                             font-family: $rale;
                             font-style: normal;
                             font-weight: bold;
-                            font-size: em(26);
-                            line-height: 32px;
+                            font-size: em(22);
+                            line-height: 26px;
                             text-transform: capitalize;
                             color: #FFFFFF;
                         }
@@ -405,7 +396,7 @@
                                 .step{
                                     font-family: $aleg;
                                     font-style: normal;
-                                    font-weight: bold;
+                                    font-weight: normal;
                                     font-size: em(22);
                                     line-height: 38px;
                                     letter-spacing: -0.04em;
@@ -438,6 +429,9 @@
                     max-width: 460px;
                 }
                 .ybestoffer{
+                    .offer_item{
+                        margin-right: 20px;
+                    }
                     .favorite{
                         right: 40px;
                         width: 60px;
@@ -447,6 +441,9 @@
                         padding: 20px 50px 20px 20px;
                     }
                 }
+              .yb-slide_type{
+                  padding: 0px 60px 110px 60px;
+              }
                 .marks-list_body{
                     padding: 0px 70px 40px 80px;
                     .mark_list{
@@ -472,12 +469,6 @@
         }
         .yfooter_content{
             padding: 60px 50px 60px 50px;
-            .social_link{
-                flex-direction: column;
-                .social_logo{
-                    padding: 20px 20px 0px 0px;
-                }
-            }
         }
     }
     @media only screen and (max-width: 1440px){
@@ -514,12 +505,25 @@
                         padding: 20px 50px 20px 20px;
                     }
                 }
+                .yb-slide_type{
+                    padding: 0px 60px 110px 60px;
+                }
+                .cat_item{
+                    padding: 18px 60px 18px 70px;
+                }
+                .type-top_title{
+                    font-size: em(38);
+                }
                 .marks-list_body{
                     padding: 0px 35px 40px 35px;
                     .mark_list{
                         margin: 8px;
                         .marks{
                             padding: 35px;
+                            img{
+                                width: 100px;
+                                height: 80px;
+                            }
                         }
                     }
                 }
@@ -563,6 +567,23 @@
 
             }
         }
+        .yfooter_content{
+            padding: 60px 30px 60px 30px;
+            .yrepeat_footer{
+                .yrepeat_catalog{
+                    .yrepeat_title{
+                        font-size: em(20);
+                    }
+                    .yrepeat_list{
+                        .item_repeat{
+                            a{
+                                font-size: em(16);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     @media only screen and (max-width: 1366px){
         .yb_content{
@@ -580,7 +601,7 @@
                     }
                 }
                 .yb_st-item{
-                    max-width: 395px;
+                    max-width: 400px;
                 }
                 .ybestoffer{
                     .offer_item{
@@ -631,47 +652,444 @@
                     .yb-form_left{
                         max-width: 400px;
                     }
-                    .yb-form_right{
-                        max-width: 310px;
-                    }
-                    .yb_select-form{
-                        max-width: 650px;
-                    }
                 }
                 .yb_st-item{
                     max-width: 395px;
                 }
-                .ybestoffer{
-                    .offer_item{
-                        margin-right: 20px;
-                    }
-                    .favorite{
-                        right: 20px;
-                        width: 55px;
-                        height: 55px;
-                    }
-                    .item_desc{
-                        padding: 20px 35px 20px 20px;
+                .cat_item{
+                    padding: 17px 60px 17px 70px;
+                }
+                .body-type_top{
+                    padding: 80px 40px 50px 50px;
+                    .type-top_title{
+                        font-size: em(36);
                     }
                 }
-                .marks-list_body{
-                    padding: 0px 20px 40px 20px;
-                    .mark_list{
-                        margin: 8px;
-                        .marks{
-                            padding: 30px;
-                            img{
-                                width: 100px;
-                                height: 80px;
+
+            }
+        }
+    }
+    @media only screen and (max-width: 1280px){
+        .yb_content{
+            .yform, .yb_sticker, .best_offers, .ycatalog, .yanalytics, .ynews {
+                padding: 0px 3.2% 60px 3.2%;
+                .yb_container{
+                    .yb-form_left{
+                        max-width: 400px;
+                    }
+                    .yb_select-form{
+                        max-width: 620px;
+                    }
+                    .yb-form_right{
+                        max-width: 300px;
+                    }
+                }
+                .ybestoffer{
+                    .item_desc{
+                        padding: 20px 45px 20px 20px;
+                        .item_name{
+                            font-size: em(22);
+                        }
+                    }
+                }
+                .cat_item{
+                    padding: 16px 60px 16px 70px;
+                }
+                .yanalitic{
+                    .yanalitics_nav{
+                        .nav_item{
+                            padding: 14px 15px 14px 15px;
+                            font-size: em(20);
+                        }
+                    }
+                }
+                .yb_auto_news{
+                    .ynews_left, .ynews_right{
+                        max-width: 600px;
+                    }
+                    .y_item-bottom{
+                        .bottom_item-news{
+                            max-width: 405px;
+                            .news_decs{
+                                padding: 0px 10px 20px 20px;
+                                .title{
+                                    font-size: em(18);
+                                    margin-block-end: 0.2em;
+                                }
+                                .read_more{
+                                    margin-block-start: 0.70em;
+                                }
                             }
                         }
                     }
                 }
-                .nav_item{
-                    padding: 14px 20px 14px 20px;
+
+            }
+        }
+        .yfooter_content{
+            .yrepeat_footer{
+                .logo_social{
+                    .social_link{
+                        .social_logo{
+                            padding: 30px 15px 0px 0px;
+                            img{
+                                width: 35px;
+                            }
+                        }
+                    }
                 }
-                .analitics_desc{
-                    max-width: 540px;
+            }
+        }
+    }
+    @media only screen and (max-width: 1024px){
+        header.yb-header{
+            padding: 0px 1.5% 0px 1.5%;
+            margin-bottom: 10px;
+            .yb-header-left{
+                .yb-logo{
+                    height: 26px;
+                    margin-right: 30px;
+                }
+                .ycats{
+                    .ybutton{
+                        width: 200px;
+                        height: 50px;
+                        font-size: em(20);
+                        justify-content: space-around;
+                    }
+                }
+            }
+            .yb-header-right{
+                .ysearch{
+                    .search{
+                        width: 200px;
+                        padding: 10px 0px 10px 20px;
+                        font-size: em(18);
+                        font-weight: 500;
+                    }
+                    .fas{
+                        font-size: em(18);
+                    }
+                }
+                .ylocation{
+                    .fas{
+                        font-size: em(22);
+                    }
+                    .ylocations{
+                        width: 120px;
+                    }
+                    .yb-lang-switcher{
+                        .ylang{
+                            font-size: em(18);
+                        }
+                    }
+                }
+                .yb_user-menu{
+                    .ymenu{
+                        .ydots{
+                            padding-right: 15px;
+                            i{
+                                font-size: 35px;
+                            }
+                        }
+                        .users_icon{
+                            .favorite_items{
+                                padding-right: 15px;
+                                i{
+                                    font-size: 35px;
+                                }
+                            }
+                            .user_room{
+                                width: 40px;
+                                height: 40px;
+                                i{
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        .yb_content{
+            .yform, .yb_sticker, .best_offers, .ycatalog, .yanalytics, .ynews{
+                padding: 0px 1.5% 40px 1.5%;
+                justify-content: center;
+                .yb_container{
+                    .yb-form_left{
+                        max-width: 280px;
+                        padding: 33px 0px 0px 20px;
+                        .form_title{
+                            font-size: em(24);
+                            line-height: 28px;
+                            padding-bottom: 16px;
+                        }
+                        .ybreguests{
+                            .reg_item{
+                                padding: 0px 0px 25px 0px;
+                                font-size: em(16);
+                                &:nth-child(n+7){
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    .yb_select-form{
+                        max-width: 580px;
+                        left: 18%;
+                        top: 24px;
+                        .yb_form{
+                            padding: 20px 20px 20px 20px;
+                            .left_options{
+                                margin-right: 14px;
+                                .yinput_list{
+                                    margin-bottom: 10px;
+                                    &:last-child{
+                                        margin-bottom: 0px;
+                                    }
+                                    .yselect{
+                                        max-width:260px ;
+                                        .select_form{
+                                            padding: 12px 50px 12px 20px;
+                                            font-size: em(16);
+                                        }
+                                    }
+                                    .ynav-list-toggle{
+                                        margin-right: 0px;
+                                    }
+                                }
+                                .ysuccess_btn{
+                                    justify-content: center;
+                                    margin-top: 45px;
+                                    .success{
+                                        font-size: em(18);
+                                        padding: 8px 77px 8px 77px;
+                                    }
+                                }
+                            }
+                            .another_options{
+                                margin-right: 8px;
+                                .yoption_btn{
+                                    .change_type{
+                                        padding: 12px 15px 12px 15px;
+                                    }
+                                }
+                                .yprice_options{
+                                    .ytitle_option{
+                                        font-size: em(18);
+                                    }
+                                    .change_price{
+                                        padding: 12px 12px 30px 12px;
+                                        .yprice_container{
+                                            .input_change{
+                                                .change{
+                                                    margin-right: 10px;
+                                                    &:last-child{
+                                                        margin-right: 0px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .yresource_options{
+                                    padding: 15px 30px 25px 15px;
+                                    .change_resource{
+                                        .title_change{
+                                            font-size: em(16);
+                                            line-height: 19px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .yb-form_right{
+                        max-width: 200px;
+                        padding: 64px 50px 0px 0px;
+                        .yb_ex-search{
+                            display: none;
+                        }
+                        .yb-status{
+                            .status_items{
+                                .count_number{
+                                    font-size: em(22);
+                                }
+                                .count_title{
+                                    font-weight: normal;
+                                    font-size: em(14);
+                                    line-height: 17px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .yb_st-item{
+                    max-width: 310px;
+                    .yb-st_title{
+                        font-size: em(22);
+                        line-height: 27px;
+                        padding: 15px;
+                    }
+                }
+                .ybestoffer{
+                    .y-best_top{
+                        margin-bottom: 60px;
+                        .top_title{
+                            .title{
+                                font-size: em(38);
+                                line-height: 57px;
+                                margin-block-start: 20px;
+                                margin-block-end: 20px;
+                            }
+                        }
+                    }
+                    .y-best_items{
+                        .offer_item{
+                            .yb-icon_check{
+                                .item_check{
+                                    width: 50px;
+                                    height: 50px;
+                                    img{
+                                        width: 30px;
+                                    }
+                                }
+                                .new_item{
+                                    width: 50px;
+                                    height: 50px;
+                                    font-size: em(16);
+                                }
+                            }
+                            .item_image{
+                                .favorite{
+                                    width: 45px;
+                                    height: 45px;
+                                    svg{
+                                        width: 28px;
+                                    }
+                                }
+                            }
+                            .item_desc{
+                                padding: 20px 25px 20px 20px;
+                                .item_name{
+                                    font-size: em(20);
+                                }
+                                .price_more{
+                                    .item_price{
+                                        font-size: em(24);
+                                    }
+                                    .show_more{
+                                        font-size: em(18);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .ycatalog_block{
+                    .y-best_top{
+                        margin-bottom: 60px;
+                        .top_title{
+                            .title{
+                                font-size: em(38);
+                                line-height: 57px;
+                                margin-block-start: 20px;
+                                margin-block-end: 20px;
+                            }
+                        }
+                    }
+                    .y-cat-bottom{
+                        .cat_categories{
+                            .y-bt_title{
+                                padding: 40px 60px 15px 70px;
+                                .title{
+                                    font-size: em(46);
+                                    line-height: 50px;
+                                }
+                            }
+                        }
+                        .cat_item{
+                            padding: 12px 60px 12px 70px;
+                        }
+                        .type_body-marks{
+                            .car_body-type{
+                                .body-type_top{
+                                    padding: 45px 25px 35px 25px;
+                                    .type-top_title{
+                                        font-size: em(32);
+                                    }
+                                    .yb_ex-search{
+                                        .ex_search{
+                                            font-size: em(20);
+                                        }
+                                    }
+                                }
+                                .yb-slide_type{
+                                    padding: 0px 45px 50px 45px;
+                                    .yb_clide-body{
+                                        .body_name{
+                                            font-size: em(20);
+                                        }
+                                        .bold{
+                                            font-size: em(18);
+                                        }
+                                    }
+                                }
+                            }
+                            .yb-car_marks{
+                                .car_marks-title{
+                                    padding: 40px 55px 40px 55px;
+                                }
+                                .yb_list{
+                                    .yb_marks_list{
+                                        .marks-list_body{
+                                            .mark_list{
+                                                .marks{
+                                                    padding: 15px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .yanalitic{
+                    .analitics_title{
+                        .title{
+                            font-size: em(38);
+                            line-height: 57px;
+                            margin-block-start: 20px;
+                            margin-block-end: 20px;
+                        }
+                    }
+                    .yanalitics_nav{
+                        .ynavigation{
+                            .nav_item{
+                                padding: 12px 10px 12px 10px;
+                                font-size: em(20);
+                                font-weight: 500;
+                                line-height: 22px;
+                            }
+                        }
+                    }
+                    .analitics_content{
+                        padding-top: 68px;
+                        justify-content: space-around;
+                        .analitics_desc{
+                            max-width: 400px;
+                            .analitics_subtitle{
+                                font-size: em(36);
+                                line-height: 35px;
+                            }
+                            .subtitle_desc{
+                                font-size: em(18);
+                                line-height: 28px;
+                            }
+                        }
+                    }
                 }
             }
         }

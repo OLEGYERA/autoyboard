@@ -9,7 +9,7 @@
         .cat_categories{
             background: linear-gradient(151.07deg, #FEFFFF -17.9%, #E6E8E8 100%);
             .y-bt_title{
-                padding: 80px 60px 0px 70px;
+                padding: 55px 80px 24px 70px;
                 .title{
                     font-family: $rale;
                     font-style: normal;
@@ -25,6 +25,7 @@
                 .list_items{
                     text-align: start;
                     padding: 0;
+                    margin: 0;
                     .cat_item{
                         cursor: pointer;
                         padding: 20px 60px 20px 70px;
@@ -53,7 +54,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    padding: 60px ;
+                    padding: 80px 50px 50px 70px;
                     .white{
                         color: #FFFFFF;
                         .arrow{
@@ -103,6 +104,7 @@
                             }
                             &:nth-child(2){
                                 font-size: em(36);
+                                line-height: 44px;
                             }
                         }
                 }

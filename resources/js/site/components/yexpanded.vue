@@ -15,4 +15,8 @@
 export default {
     props: ['color', 'text', 'text_color']
 }
+
+
+
+
 </script>

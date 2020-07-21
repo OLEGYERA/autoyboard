@@ -21,7 +21,7 @@
             <div class="type_body-marks">
                 <div class="car_body-type">
                     <div class="body-type_top">
-                        <h3 class="type-top_title">Кузовы</h3>
+                        <h3 class="type-top_title">Популярные кузовы</h3>
                         <yexpanded :text_color="'white'" :text="'Смотреть больше'"></yexpanded>
                     </div>
                     <div class="yb-slide_type">
@@ -35,7 +35,7 @@
                             <figure class="slide">
                                 <img src="img/system/static/crossover.png" alt="">
                             </figure>
-                            <span class="body_name">Кроссовер</span>
+                            <span class="body_name bold">Кроссовер</span>
                         </div>
                         <div class="yb_clide-body">
                             <figure class="slide">

@@ -119,7 +119,6 @@
                                 <img src="{{asset('img/system/logos/logo_white.png')}}" alt="logo">
                             </a>
                         </div>
-                        <div class="social_yb">
                             <div class="social_link">
                                 <a class="social_logo" href="">
                                     <img src="{{asset('img/system/logos/insta_logo.png')}}" alt="">
@@ -134,7 +133,6 @@
                                     <img src="{{asset('img/system/logos/telegram_logo.png')}}" alt="">
                                 </a>
                             </div>
-                        </div>
                     </div>
                     <div class="yrepeat_catalog">
                         <h3 class="yrepeat_title">Каталог</h3>

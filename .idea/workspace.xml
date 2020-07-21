@@ -22,18 +22,13 @@
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/system/logos/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/system/logos/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yform.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yform.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yrangeslider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yrangeslider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ysearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ysearch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_ymenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ymenu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
     </list>
@@ -251,7 +246,8 @@
       <workItem from="1594969513126" duration="24132000" />
       <workItem from="1595077495400" duration="5886000" />
       <workItem from="1595083444937" duration="14000" />
-      <workItem from="1595228558838" duration="27823000" />
+      <workItem from="1595228558838" duration="27915000" />
+      <workItem from="1595314575701" duration="32809000" />
     </task>
     <servers />
   </component>
