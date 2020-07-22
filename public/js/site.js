@@ -2258,6 +2258,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2273,7 +2331,7 @@ __webpack_require__.r(__webpack_exports__);
         edgeFriction: 0.35,
         infinite: false,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1
       }
     };
@@ -3228,7 +3286,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.carousel-wrapper {\n    padding: 40px;\n}\n.img-wrapper img {\n    margin: auto;\n    width: 200px;\n    height: 100px;\n    background-image: linear-gradient(gray 100%, transparent 0);\n}\n", ""]);
+exports.push([module.i, "\n.slick-track{\n    display: flex;\n}\n", ""]);
 
 // exports
 
@@ -21959,355 +22017,355 @@ var render = function() {
     [
       _c("ytopcontent", { attrs: { title: "Лучшие предложения" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "y-best_items" }, [
-        _c("div", { staticClass: "offer_item" }, [
-          _vm._m(0),
-          _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "y-best_items" },
+        [
           _c(
-            "figure",
-            { staticClass: "item_image" },
+            "VueSlickCarousel",
+            _vm._b(
+              { staticStyle: { display: "flex" } },
+              "VueSlickCarousel",
+              _vm.settings,
+              false
+            ),
             [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
-                  alt: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_desc" }, [
-            _c("h2", { staticClass: "item_name" }, [
-              _vm._v("Mercedes-Benz E 220 2009")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "price_more" }, [
-              _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
-              _vm._v(" "),
-              _c("button", { staticClass: "show_more" }, [
-                _vm._v(
-                  "\n                            Подробнее\n                            "
-                ),
-                _c(
-                  "svg",
-                  {
-                    staticClass: "arrow_right",
-                    staticStyle: { fill: "#000000" },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      x: "0px",
-                      y: "0px",
-                      width: "40",
-                      height: "40",
-                      viewBox: "0 0 172 172"
-                    }
-                  },
-                  [
-                    _c(
-                      "g",
-                      {
-                        staticStyle: { "mix-blend-mode": "normal" },
-                        attrs: {
-                          fill: "none",
-                          "fill-rule": "nonzero",
-                          stroke: "none",
-                          "stroke-width": "1",
-                          "stroke-linecap": "butt",
-                          "stroke-linejoin": "miter",
-                          "stroke-miterlimit": "10",
-                          "stroke-dasharray": "",
-                          "stroke-dashoffset": "0",
-                          "font-family": "none",
-                          "font-weight": "none",
-                          "font-size": "none",
-                          "text-anchor": "none"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                        }),
-                        _c("g", { attrs: { fill: "#111e6c" } }, [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                            }
-                          })
-                        ])
-                      ]
+              _c("div", { staticClass: "offer_item" }, [
+                _c("div", { staticClass: "yb-icon_check" }, [
+                  _c("button", { staticClass: "item_check" }, [
+                    _c("img", {
+                      attrs: { src: "img/system/icons/car_check.svg", alt: "" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "new_item" }, [
+                    _vm._v(
+                      "\n                                NEW\n                            "
                     )
-                  ]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "offer_item" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "figure",
-            { staticClass: "item_image" },
-            [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
-                  alt: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_desc" }, [
-            _c("h2", { staticClass: "item_name" }, [
-              _vm._v("Mercedes-Benz E 220 2009")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "price_more" }, [
-              _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
-              _vm._v(" "),
-              _c("button", { staticClass: "show_more" }, [
-                _vm._v(
-                  "\n                            Подробнее\n                            "
-                ),
+                  ])
+                ]),
+                _vm._v(" "),
                 _c(
-                  "svg",
-                  {
-                    staticClass: "arrow_right",
-                    staticStyle: { fill: "#000000" },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      x: "0px",
-                      y: "0px",
-                      width: "40",
-                      height: "40",
-                      viewBox: "0 0 172 172"
-                    }
-                  },
+                  "figure",
+                  { staticClass: "item_image" },
                   [
-                    _c(
-                      "g",
-                      {
-                        staticStyle: { "mix-blend-mode": "normal" },
-                        attrs: {
-                          fill: "none",
-                          "fill-rule": "nonzero",
-                          stroke: "none",
-                          "stroke-width": "1",
-                          "stroke-linecap": "butt",
-                          "stroke-linejoin": "miter",
-                          "stroke-miterlimit": "10",
-                          "stroke-dasharray": "",
-                          "stroke-dashoffset": "0",
-                          "font-family": "none",
-                          "font-weight": "none",
-                          "font-size": "none",
-                          "text-anchor": "none"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                        }),
-                        _c("g", { attrs: { fill: "#111e6c" } }, [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                            }
-                          })
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "offer_item" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "figure",
-            { staticClass: "item_image" },
-            [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
-                  alt: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_desc" }, [
-            _c("h2", { staticClass: "item_name" }, [
-              _vm._v("Mercedes-Benz E 220 2009")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "price_more" }, [
-              _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
-              _vm._v(" "),
-              _c("button", { staticClass: "show_more" }, [
-                _vm._v(
-                  "\n                            Подробнее\n                            "
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                  ],
+                  1
                 ),
-                _c(
-                  "svg",
-                  {
-                    staticClass: "arrow_right",
-                    staticStyle: { fill: "#000000" },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      x: "0px",
-                      y: "0px",
-                      width: "40",
-                      height: "40",
-                      viewBox: "0 0 172 172"
-                    }
-                  },
-                  [
-                    _c(
-                      "g",
-                      {
-                        staticStyle: { "mix-blend-mode": "normal" },
-                        attrs: {
-                          fill: "none",
-                          "fill-rule": "nonzero",
-                          stroke: "none",
-                          "stroke-width": "1",
-                          "stroke-linecap": "butt",
-                          "stroke-linejoin": "miter",
-                          "stroke-miterlimit": "10",
-                          "stroke-dasharray": "",
-                          "stroke-dashoffset": "0",
-                          "font-family": "none",
-                          "font-weight": "none",
-                          "font-size": "none",
-                          "text-anchor": "none"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                        }),
-                        _c("g", { attrs: { fill: "#111e6c" } }, [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                            }
-                          })
-                        ])
-                      ]
+                _vm._v(" "),
+                _c("div", { staticClass: "item_desc" }, [
+                  _c("h2", { staticClass: "item_name" }, [
+                    _vm._v("Mercedes-Benz E 220 2009")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sity-name_item" }, [
+                    _vm._v("Киев")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "price_more" }, [
+                    _c("span", { staticClass: "item_price" }, [
+                      _vm._v("8 200 $")
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                                    Подробнее\n                                    "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "arrow_right",
+                          staticStyle: { fill: "#000000" },
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            x: "0px",
+                            y: "0px",
+                            width: "40",
+                            height: "40",
+                            viewBox: "0 0 172 172"
+                          }
+                        },
+                        [
+                          _c(
+                            "g",
+                            {
+                              staticStyle: { "mix-blend-mode": "normal" },
+                              attrs: {
+                                fill: "none",
+                                "fill-rule": "nonzero",
+                                stroke: "none",
+                                "stroke-width": "1",
+                                "stroke-linecap": "butt",
+                                "stroke-linejoin": "miter",
+                                "stroke-miterlimit": "10",
+                                "stroke-dasharray": "",
+                                "stroke-dashoffset": "0",
+                                "font-family": "none",
+                                "font-weight": "none",
+                                "font-size": "none",
+                                "text-anchor": "none"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d: "M0,172v-172h172v172z",
+                                  fill: "none"
+                                }
+                              }),
+                              _c("g", { attrs: { fill: "#111e6c" } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "offer_item" }, [
+                _c("div", { staticClass: "yb-icon_check" }, [
+                  _c("button", { staticClass: "item_check" }, [
+                    _c("img", {
+                      attrs: { src: "img/system/icons/car_check.svg", alt: "" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "new_item" }, [
+                    _vm._v(
+                      "\n                                NEW\n                            "
                     )
-                  ]
-                )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "figure",
+                  { staticClass: "item_image" },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_desc" }, [
+                  _c("h2", { staticClass: "item_name" }, [
+                    _vm._v("Mercedes-Benz E 220 2009")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sity-name_item" }, [
+                    _vm._v("Киев")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "price_more" }, [
+                    _c("span", { staticClass: "item_price" }, [
+                      _vm._v("8 200 $")
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                                    Подробнее\n                                    "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "arrow_right",
+                          staticStyle: { fill: "#000000" },
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            x: "0px",
+                            y: "0px",
+                            width: "40",
+                            height: "40",
+                            viewBox: "0 0 172 172"
+                          }
+                        },
+                        [
+                          _c(
+                            "g",
+                            {
+                              staticStyle: { "mix-blend-mode": "normal" },
+                              attrs: {
+                                fill: "none",
+                                "fill-rule": "nonzero",
+                                stroke: "none",
+                                "stroke-width": "1",
+                                "stroke-linecap": "butt",
+                                "stroke-linejoin": "miter",
+                                "stroke-miterlimit": "10",
+                                "stroke-dasharray": "",
+                                "stroke-dashoffset": "0",
+                                "font-family": "none",
+                                "font-weight": "none",
+                                "font-size": "none",
+                                "text-anchor": "none"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d: "M0,172v-172h172v172z",
+                                  fill: "none"
+                                }
+                              }),
+                              _c("g", { attrs: { fill: "#111e6c" } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "offer_item" }, [
+                _c("div", { staticClass: "yb-icon_check" }, [
+                  _c("button", { staticClass: "item_check" }, [
+                    _c("img", {
+                      attrs: { src: "img/system/icons/car_check.svg", alt: "" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "new_item" }, [
+                    _vm._v(
+                      "\n                                NEW\n                            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "figure",
+                  { staticClass: "item_image" },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_desc" }, [
+                  _c("h2", { staticClass: "item_name" }, [
+                    _vm._v("Mercedes-Benz E 220 2009")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sity-name_item" }, [
+                    _vm._v("Киев")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "price_more" }, [
+                    _c("span", { staticClass: "item_price" }, [
+                      _vm._v("8 200 $")
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                                    Подробнее\n                                    "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "arrow_right",
+                          staticStyle: { fill: "#000000" },
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            x: "0px",
+                            y: "0px",
+                            width: "40",
+                            height: "40",
+                            viewBox: "0 0 172 172"
+                          }
+                        },
+                        [
+                          _c(
+                            "g",
+                            {
+                              staticStyle: { "mix-blend-mode": "normal" },
+                              attrs: {
+                                fill: "none",
+                                "fill-rule": "nonzero",
+                                stroke: "none",
+                                "stroke-width": "1",
+                                "stroke-linecap": "butt",
+                                "stroke-linejoin": "miter",
+                                "stroke-miterlimit": "10",
+                                "stroke-dasharray": "",
+                                "stroke-dashoffset": "0",
+                                "font-family": "none",
+                                "font-weight": "none",
+                                "font-size": "none",
+                                "text-anchor": "none"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d: "M0,172v-172h172v172z",
+                                  fill: "none"
+                                }
+                              }),
+                              _c("g", { attrs: { fill: "#111e6c" } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
               ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(3)
+            ]
+          )
+        ],
+        1
+      )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-icon_check" }, [
-      _c("button", { staticClass: "item_check" }, [
-        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "new_item" }, [
-        _vm._v("\n                        NEW\n                    ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-icon_check" }, [
-      _c("button", { staticClass: "item_check" }, [
-        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "new_item" }, [
-        _vm._v("\n                        NEW\n                    ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-icon_check" }, [
-      _c("button", { staticClass: "item_check" }, [
-        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "new_item" }, [
-        _vm._v("\n                        NEW\n                    ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "show-items_dots" }, [
-      _c("ul", { staticClass: "item_dots" }, [
-        _c("li", { staticClass: "dots" }, [
-          _c("button", { staticClass: "check_dot" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "dots" }, [
-          _c("button", { staticClass: "check_dot" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "dots" }, [
-          _c("button", { staticClass: "check_dot" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "dots" }, [
-          _c("button", { staticClass: "check_dot" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "dots" }, [
-          _c("button", { staticClass: "check_dot" })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

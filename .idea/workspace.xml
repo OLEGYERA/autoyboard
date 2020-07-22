@@ -20,19 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/site/components/carousel.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/topcontent.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/topcontent.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +241,8 @@
       <workItem from="1595228558838" duration="27915000" />
       <workItem from="1595314575701" duration="32868000" />
       <workItem from="1595365854172" duration="28000" />
-      <workItem from="1595401510453" duration="30759000" />
+      <workItem from="1595401510453" duration="30873000" />
+      <workItem from="1595438733365" duration="1467000" />
     </task>
     <servers />
   </component>
