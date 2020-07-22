@@ -43,12 +43,26 @@
 
             &:focus {
                 background: #FFFFFF;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12), 0px -4px 4px rgba(0, 0, 0, 0.08);
-
+                box-shadow: 0px 4px 0px rgba(11, 63, 141, 0.35), 0px 1px 4px rgba(11, 63, 141, 0.18);
                 i {
                     color: $titleblue;
                 }
             }
+        }
+    }
+    @media only screen and (max-width: 945px){
+            .top_title{
+                .title{
+                    font-size: em(36)!important;
+                    &:after{
+                        display: none;
+                    }
+                }
+            }
+
+
+        .change_visible{
+            display: none;
         }
     }
 }

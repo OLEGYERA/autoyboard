@@ -121,16 +121,16 @@
                         </div>
                             <div class="social_link">
                                 <a class="social_logo" href="">
-                                    <img src="{{asset('img/system/logos/insta_logo.png')}}" alt="">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                                 <a class="social_logo" href="">
-                                    <img src="{{asset('img/system/logos/face_logo.png')}}" alt="">
+                                    <i class="fab fa-facebook"></i>
                                 </a>
                                 <a class="social_logo" href="">
-                                    <img src="{{asset('img/system/logos/yt_logo.png')}}" alt="">
+                                    <i class="fab fa-youtube"></i>
                                 </a>
                                 <a class="social_logo" href="">
-                                    <img src="{{asset('img/system/logos/telegram_logo.png')}}" alt="">
+                                    <i class="fab fa-telegram"></i>
                                 </a>
                             </div>
                     </div>

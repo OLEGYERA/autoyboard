@@ -20,6 +20,8 @@ Vue.component('yfavorite', require('./components/yfavorite').default);
 Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 
+Vue.component('carousel', require('./components/carousel').default);
+
 new Vue({
 
 }).$mount('#yb-site', );

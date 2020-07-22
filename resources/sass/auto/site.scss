@@ -330,8 +330,9 @@
                                     align-items: center;
                                     .social_logo{
                                         padding: 30px 20px 0px 0px;
-                                        img{
-                                            width: 40px;
+                                        i{
+                                            color: #FFFFFF;
+                                            font-size: em(40);
                                         }
                                         &:last-child{
                                             padding: 30px 20px 0px 0px;
@@ -453,6 +454,12 @@
                         }
                     }
                 }
+                .nav_item{
+                    padding: 16px 22px 16px 22px;
+                    font-size: em(18);
+                    font-weight: 500;
+                    line-height: 22px;
+                }
                 .ynews_item{
                     .ynews_left, .ynews_right{
                         max-width: 700px;
@@ -529,6 +536,9 @@
                 }
                 .nav_item{
                     padding: 14px 20px 14px 20px;
+                    font-size: em(18);
+                    font-weight: 500;
+                    line-height: 22px;
                 }
                 .analitics_desc{
                     max-width: 580px;
@@ -630,7 +640,10 @@
                     }
                 }
                 .nav_item{
-                    padding: 14px 20px 14px 20px;
+                    padding: 12px 10px 12px 10px;
+                    font-size: em(18);
+                    font-weight: 500;
+                    line-height: 22px;
                 }
                 .analitics_desc{
                     max-width: 540px;
@@ -698,8 +711,10 @@
                 .yanalitic{
                     .yanalitics_nav{
                         .nav_item{
-                            padding: 14px 15px 14px 15px;
-                            font-size: em(20);
+                            padding: 12px 10px 12px 10px;
+                            font-size: em(18);
+                            font-weight: 500;
+                            line-height: 22px;
                         }
                     }
                 }
@@ -914,12 +929,12 @@
                         .yb-status{
                             .status_items{
                                 .count_number{
-                                    font-size: em(22);
+                                    font-size: em(30);
                                 }
                                 .count_title{
                                     font-weight: normal;
-                                    font-size: em(14);
-                                    line-height: 17px;
+                                    font-size: em(20);
+                                    line-height: 18px;
                                 }
                             }
                         }
@@ -1017,7 +1032,8 @@
                                 .body-type_top{
                                     padding: 45px 25px 35px 25px;
                                     .type-top_title{
-                                        font-size: em(32);
+                                        font-size: em(30);
+                                        font-weight: bold;
                                     }
                                     .yb_ex-search{
                                         .ex_search{
@@ -1069,7 +1085,7 @@
                         .ynavigation{
                             .nav_item{
                                 padding: 12px 10px 12px 10px;
-                                font-size: em(20);
+                                font-size: em(18);
                                 font-weight: 500;
                                 line-height: 22px;
                             }
@@ -1078,17 +1094,275 @@
                     .analitics_content{
                         padding-top: 68px;
                         justify-content: space-around;
+                        align-items: center;
                         .analitics_desc{
                             max-width: 400px;
                             .analitics_subtitle{
-                                font-size: em(36);
+                                font-size: em(46);
                                 line-height: 35px;
                             }
                             .subtitle_desc{
-                                font-size: em(18);
+                                font-size: em(22);
                                 line-height: 28px;
                             }
                         }
+                        .analitics_prev{
+                            max-width: 520px;
+                        }
+                    }
+                }
+                .yb_auto_news{
+                    .y-best_top{
+                        .top_title{
+                            .title{
+                                font-size: em(38);
+                                line-height: 57px;
+                                margin-block-start: 20px;
+                                margin-block-end: 20px;
+                            }
+                        }
+                    }
+                    .ynews_item{
+                        display: block;
+                        .y_item-top{
+                            display: flex;
+                            justify-content: space-between;
+                            .ynews_left, .ynews_right{
+                                max-width: 480px;
+                                margin-bottom: 0px;
+                                margin-right: 0px;
+
+                            }
+                        }
+                        .y_item-bottom{
+                            display: flex;
+                            .bottom_item-news{
+                                max-width: 320px;
+                                margin-bottom: 0px;
+                                min-height: 296px;
+                                .news_decs{
+                                    padding: 0px 0px 20px 15px;
+                                    .title{
+                                        line-height: 26px;
+                                        font-size: 20px;
+                                    }
+                                    .desc{
+                                        line-height: 20px;
+
+                                    }
+                                    .read_more{
+                                        margin-block-start: 0.4em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+        .yfooter_content{
+            padding: 40px 20px 90px 20px;
+            .yrepeat_footer{
+                position: relative;
+                .logo_social{
+                    position: absolute;
+                    bottom: -50px;
+                    right: 40%;
+                    .yb_logo_white{
+                        justify-content: center;
+                        img{
+                            width: 126px;
+                        }
+                    }
+                    .social_link{
+                        margin-top: 20px;
+                        .social_logo{
+                            padding: 10px;
+                            &:last-child{
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+                .yrepeat_catalog{
+                    .yrepeat_title{
+                        line-height: 23px;
+                    }
+                    .yrepeat_list{
+                        .item_repeat{
+                            a{
+                                line-height: 26px;
+                            }
+                        }
+                    }
+                }
+                .ysite_step{
+                    .yrepeat_title{
+                        font-size: em(20);
+                        max-width: 140px;
+                        text-align: start;
+                        line-height: 30px;
+
+                    }
+                    .site_step-list{
+                        .step_list{
+                            .step{
+                                font-weight: bold;
+                                font-size: 22px;
+                                line-height: 46px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 945px){
+        header.yb-header{
+            margin-bottom: 0px;
+            padding: 0px 1% 0px 1%;
+            height: 77px;
+            .yb-header-left{
+                .yb-logo{
+                    margin-right: 23px;
+                }
+                .ycats{
+                    .ybutton{
+                        width: 174px;
+                        height: 40px;
+                        font-size: em(18);
+                        line-height: 22px;
+                        justify-content: space-evenly;
+                        .ynav-list-toggle{
+                            font-size: em(10);
+                        }
+                    }
+                }
+            }
+            .yb-header-right{
+                .ysearch{
+                    .search{
+                        border-radius: 12px;
+                        font-size: em(16);
+                        line-height: 19px;
+                        font-weight: 500;
+                        width: 323px;
+                        height: 40px;
+                    }
+                    .fas{
+                        font-size: em(15);
+                    }
+                }
+                .ylocation{
+                    .fas{
+                        font-size: em(18);
+                    }
+                    .ylocations{
+                        width: 100px;
+                        .dropdown-input{
+                            font-size: em(18);
+                            line-height: 22px;
+                        }
+                        .autocomplete-results{
+                            max-height: 110px;
+                        }
+                    }
+                    .yb-lang-switcher{
+                        .ylang{
+                            font-size: em(15);
+                            line-height: 18px;
+                            &:nth-child(1):after{
+                                margin: 5px;
+                            }
+                        }
+                    }
+                }
+                .yb_user-menu{
+                    .ymenu{
+                        flex-direction: row-reverse;
+                        .ydots{
+                            padding-right: 0px;
+                            .fas{
+                                font-size: em(23);
+                            }
+                        }
+                        .users_icon{
+                            .favorite_items{
+                                padding-right: 12px;
+                                .far{
+                                    font-size: em(30);
+                                }
+                            }
+                            .user_room{
+                                margin-right: 12px;
+                                width: 24px;
+                                height: 24px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                .fas{
+                                    font-size: em(13);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .yb_content{
+            .yform{
+                padding: 0px 0% 40px 0%;
+               .yb_container{
+                   border-radius: 0px 0px 11px 11px;
+                   .yb-form_left{
+                       border-radius: 0px;
+                       padding: 44px 0px 0px 10px;
+                       .yline{
+                           border: 1px solid #EEEEEE;
+                       }
+                   }
+                   .yb-form_right{
+                       padding: 50px 50px 0px 50px;
+
+                        .yb-status{
+                            .yb_count-status{
+                                .status_items{
+                                    margin-bottom: 48px;
+                                    .count_number{
+                                        font-size: em(22);
+                                        line-height: 30px;
+                                    }
+                                    .count_title{
+                                        font-size: em(14);
+                                        line-height: 17px;
+                                    }
+                                }
+                            }
+                        }
+                   }
+               }
+            }
+            .yb_sticker, .best_offers, .ycatalog, .yanalytics, .ynews{
+                padding: 0px 10px 40px 10px;
+
+                .yb_st-item{
+                    max-width: 301px;
+                    max-height: 147px;
+                    margin-right: 11px;
+                    &:last-child{
+                        margin-right: 0px;
+                    }
+                    .yb-st_logo{
+                        img{
+                            width: 27px;
+                        }
+                    }
+                    .yb-st_title{
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: em(20);
+                        line-height: 23px;
                     }
                 }
             }
