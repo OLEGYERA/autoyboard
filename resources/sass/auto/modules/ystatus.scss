@@ -3,21 +3,19 @@
 
 .yb_count-status{
         .status_items{
-            margin-bottom: 10px;
+            margin-bottom: 29px;
             .count_number{
-                max-width: 130px;
                 font-family: $noto;
                 font-style: normal;
                 font-weight: bold;
-                font-size: em(38);
-                line-height: 52px;
+                font-size: em(36);
+                line-height: 49px;
                 text-align: center;
                 font-variant: small-caps;
                 color: #FFFFFF;
-                margin-bottom: 10px;
+                margin-bottom: 13px;
             }
             .count_title{
-                max-width: 150px;
                 font-family: $aleg;
                 font-style: normal;
                 font-weight: 500;
@@ -25,7 +23,6 @@
                 line-height: 26px;
                 text-align: center;
                 color: #FFFFFF;
-                margin-bottom: 10px;
                 &:last-child{
                     margin: 0;
                 }

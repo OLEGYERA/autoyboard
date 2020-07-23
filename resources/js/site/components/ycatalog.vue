@@ -47,7 +47,7 @@
                 </div>
                 <div class="yb-car_marks">
                     <div class="car_marks-title">
-                        <h3 class="marks_title">Марки</h3>
+                        <h3 class="marks_title">Популярные марки</h3>
                         <yexpanded :text_color="'blue'" :text="'Смотреть больше'" :color="'blue'"  ></yexpanded>
                     </div>
                     <div class="yb_list">
@@ -57,6 +57,16 @@
                                         <a class="marks" href="#">
                                             <img src="img/brands_logo/audi.png" alt="">
                                     </a>
+                                    </li>
+                                    <li class="mark_list">
+                                        <a class="marks" href="#">
+                                            <img src="img/brands_logo/audi.png" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="mark_list">
+                                        <a class="marks" href="#">
+                                            <img src="img/brands_logo/audi.png" alt="">
+                                        </a>
                                     </li>
                                     <li  class="mark_list">
                                         <a class="marks" href="#">

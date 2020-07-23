@@ -2092,8 +2092,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /***/ }),
 
@@ -2295,27 +2293,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2327,12 +2304,34 @@ __webpack_require__.r(__webpack_exports__);
       favorite: false,
       settings: {
         dots: true,
+        arrows: true,
         dotsClass: "slick-dots custom-dot-class",
-        edgeFriction: 0.35,
+        edgeFriction: 0,
         infinite: false,
-        speed: 500,
+        speed: 600,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 3,
+        nextArrow: '#gallery-next',
+        prevArrow: '#gallery-prev',
+        responsive: [{
+          breakpoint: 1920,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: false,
+            dots: true,
+            arrows: true
+          }
+        }, {
+          breakpoint: 945,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: false,
+            dots: true,
+            arrows: true
+          }
+        }]
       }
     };
   }
@@ -2382,6 +2381,16 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3268,25 +3277,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n.wrapper{\n    display: flex;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.slick-track{\n    display: flex;\n}\n", ""]);
 
 // exports
 
@@ -20919,36 +20909,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ybestoffers.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -21930,62 +21890,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "yanalitic" },
+    [
+      _c("ytopcontent", { attrs: { title: "Аналитика" } }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1)
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yanalitic" }, [
-      _c("div", { staticClass: "analitics_title" }, [
-        _c("h3", { staticClass: "title" }, [_vm._v("Аналитика")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yanalitics_nav" }, [
-        _c("ul", { staticClass: "ynavigation" }, [
-          _c("li", { staticClass: "nav_item", attrs: { tabindex: "0" } }, [
-            _vm._v("Лучшая цена")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav_item", attrs: { tabindex: "1" } }, [
-            _vm._v("Популярные авто")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav_item", attrs: { tabindex: "2" } }, [
-            _vm._v("Проверенные авто")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav_item", attrs: { tabindex: "3" } }, [
-            _vm._v("Поиск автомобилей")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav_item", attrs: { tabindex: "4" } }, [
-            _vm._v("Сравнение автомобилей")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "analitics_content" }, [
-        _c("div", { staticClass: "analitics_desc" }, [
-          _c("h3", { staticClass: "analitics_subtitle" }, [
-            _vm._v("Заголовок")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle_desc" }, [
-            _vm._v(
-              "\n                С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "yverify_btn" }, [_vm._v("Проверить")])
+    return _c("div", { staticClass: "yanalitics_nav" }, [
+      _c("ul", { staticClass: "ynavigation" }, [
+        _c("li", { staticClass: "nav_item", attrs: { tabindex: "0" } }, [
+          _vm._v("Лучшая цена")
         ]),
         _vm._v(" "),
-        _c("figure", { staticClass: "analitics_prev" }, [
-          _c("img", {
-            attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
-          })
+        _c("li", { staticClass: "nav_item", attrs: { tabindex: "1" } }, [
+          _vm._v("Популярные авто")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav_item", attrs: { tabindex: "2" } }, [
+          _vm._v("Проверенные авто")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav_item", attrs: { tabindex: "3" } }, [
+          _vm._v("Поиск автомобилей")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav_item", attrs: { tabindex: "4" } }, [
+          _vm._v("Сравнение автомобилей")
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "analitics_content" }, [
+      _c("div", { staticClass: "analitics_desc" }, [
+        _c("h3", { staticClass: "analitics_subtitle" }, [_vm._v("Заголовок")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "subtitle_desc" }, [
+          _vm._v(
+            "\n                С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "yverify_btn" }, [_vm._v("Проверить")])
+      ]),
+      _vm._v(" "),
+      _c("figure", { staticClass: "analitics_prev" }, [
+        _c("img", {
+          attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
+        })
       ])
     ])
   }
@@ -22040,7 +22007,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("button", { staticClass: "new_item" }, [
                     _vm._v(
-                      "\n                                NEW\n                            "
+                      "\n                            NEW\n                        "
                     )
                   ])
                 ]),
@@ -22078,7 +22045,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("button", { staticClass: "show_more" }, [
                       _vm._v(
-                        "\n                                    Подробнее\n                                    "
+                        "\n                                Подробнее\n                                "
                       ),
                       _c(
                         "svg",
@@ -22149,7 +22116,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("button", { staticClass: "new_item" }, [
                     _vm._v(
-                      "\n                                NEW\n                            "
+                      "\n                            NEW\n                        "
                     )
                   ])
                 ]),
@@ -22187,7 +22154,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("button", { staticClass: "show_more" }, [
                       _vm._v(
-                        "\n                                    Подробнее\n                                    "
+                        "\n                                Подробнее\n                                "
                       ),
                       _c(
                         "svg",
@@ -22258,7 +22225,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("button", { staticClass: "new_item" }, [
                     _vm._v(
-                      "\n                                NEW\n                            "
+                      "\n                            NEW\n                        "
                     )
                   ])
                 ]),
@@ -22296,7 +22263,334 @@ var render = function() {
                     _vm._v(" "),
                     _c("button", { staticClass: "show_more" }, [
                       _vm._v(
-                        "\n                                    Подробнее\n                                    "
+                        "\n                                Подробнее\n                                "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "arrow_right",
+                          staticStyle: { fill: "#000000" },
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            x: "0px",
+                            y: "0px",
+                            width: "40",
+                            height: "40",
+                            viewBox: "0 0 172 172"
+                          }
+                        },
+                        [
+                          _c(
+                            "g",
+                            {
+                              staticStyle: { "mix-blend-mode": "normal" },
+                              attrs: {
+                                fill: "none",
+                                "fill-rule": "nonzero",
+                                stroke: "none",
+                                "stroke-width": "1",
+                                "stroke-linecap": "butt",
+                                "stroke-linejoin": "miter",
+                                "stroke-miterlimit": "10",
+                                "stroke-dasharray": "",
+                                "stroke-dashoffset": "0",
+                                "font-family": "none",
+                                "font-weight": "none",
+                                "font-size": "none",
+                                "text-anchor": "none"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d: "M0,172v-172h172v172z",
+                                  fill: "none"
+                                }
+                              }),
+                              _c("g", { attrs: { fill: "#111e6c" } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "offer_item" }, [
+                _c("div", { staticClass: "yb-icon_check" }, [
+                  _c("button", { staticClass: "item_check" }, [
+                    _c("img", {
+                      attrs: { src: "img/system/icons/car_check.svg", alt: "" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "new_item" }, [
+                    _vm._v(
+                      "\n                            NEW\n                        "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "figure",
+                  { staticClass: "item_image" },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://imgctcf.aeplcdn.com/thumbs/p-nc-a-ver48/images/car-data/big/renault-kwid-default.jpg",
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_desc" }, [
+                  _c("h2", { staticClass: "item_name" }, [
+                    _vm._v("Mercedes-Benz E 220 2009")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sity-name_item" }, [
+                    _vm._v("Киев")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "price_more" }, [
+                    _c("span", { staticClass: "item_price" }, [
+                      _vm._v("8 200 $")
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                                Подробнее\n                                "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "arrow_right",
+                          staticStyle: { fill: "#000000" },
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            x: "0px",
+                            y: "0px",
+                            width: "40",
+                            height: "40",
+                            viewBox: "0 0 172 172"
+                          }
+                        },
+                        [
+                          _c(
+                            "g",
+                            {
+                              staticStyle: { "mix-blend-mode": "normal" },
+                              attrs: {
+                                fill: "none",
+                                "fill-rule": "nonzero",
+                                stroke: "none",
+                                "stroke-width": "1",
+                                "stroke-linecap": "butt",
+                                "stroke-linejoin": "miter",
+                                "stroke-miterlimit": "10",
+                                "stroke-dasharray": "",
+                                "stroke-dashoffset": "0",
+                                "font-family": "none",
+                                "font-weight": "none",
+                                "font-size": "none",
+                                "text-anchor": "none"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d: "M0,172v-172h172v172z",
+                                  fill: "none"
+                                }
+                              }),
+                              _c("g", { attrs: { fill: "#111e6c" } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "offer_item" }, [
+                _c("div", { staticClass: "yb-icon_check" }, [
+                  _c("button", { staticClass: "item_check" }, [
+                    _c("img", {
+                      attrs: { src: "img/system/icons/car_check.svg", alt: "" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "new_item" }, [
+                    _vm._v(
+                      "\n                            NEW\n                        "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "figure",
+                  { staticClass: "item_image" },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://imgctcf.aeplcdn.com/thumbs/p-nc-a-ver48/images/car-data/big/renault-kwid-default.jpg",
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_desc" }, [
+                  _c("h2", { staticClass: "item_name" }, [
+                    _vm._v("Mercedes-Benz E 220 2009")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sity-name_item" }, [
+                    _vm._v("Киев")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "price_more" }, [
+                    _c("span", { staticClass: "item_price" }, [
+                      _vm._v("8 200 $")
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                                Подробнее\n                                "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "arrow_right",
+                          staticStyle: { fill: "#000000" },
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            x: "0px",
+                            y: "0px",
+                            width: "40",
+                            height: "40",
+                            viewBox: "0 0 172 172"
+                          }
+                        },
+                        [
+                          _c(
+                            "g",
+                            {
+                              staticStyle: { "mix-blend-mode": "normal" },
+                              attrs: {
+                                fill: "none",
+                                "fill-rule": "nonzero",
+                                stroke: "none",
+                                "stroke-width": "1",
+                                "stroke-linecap": "butt",
+                                "stroke-linejoin": "miter",
+                                "stroke-miterlimit": "10",
+                                "stroke-dasharray": "",
+                                "stroke-dashoffset": "0",
+                                "font-family": "none",
+                                "font-weight": "none",
+                                "font-size": "none",
+                                "text-anchor": "none"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d: "M0,172v-172h172v172z",
+                                  fill: "none"
+                                }
+                              }),
+                              _c("g", { attrs: { fill: "#111e6c" } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "offer_item" }, [
+                _c("div", { staticClass: "yb-icon_check" }, [
+                  _c("button", { staticClass: "item_check" }, [
+                    _c("img", {
+                      attrs: { src: "img/system/icons/car_check.svg", alt: "" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "new_item" }, [
+                    _vm._v(
+                      "\n                            NEW\n                        "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "figure",
+                  { staticClass: "item_image" },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://imgctcf.aeplcdn.com/thumbs/p-nc-a-ver48/images/car-data/big/renault-kwid-default.jpg",
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_desc" }, [
+                  _c("h2", { staticClass: "item_name" }, [
+                    _vm._v("Mercedes-Benz E 220 2009")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sity-name_item" }, [
+                    _vm._v("Киев")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "price_more" }, [
+                    _c("span", { staticClass: "item_price" }, [
+                      _vm._v("8 200 $")
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                                Подробнее\n                                "
                       ),
                       _c(
                         "svg",
@@ -22462,7 +22756,9 @@ var render = function() {
               "div",
               { staticClass: "car_marks-title" },
               [
-                _c("h3", { staticClass: "marks_title" }, [_vm._v("Марки")]),
+                _c("h3", { staticClass: "marks_title" }, [
+                  _vm._v("Популярные марки")
+                ]),
                 _vm._v(" "),
                 _c("yexpanded", {
                   attrs: {
@@ -22567,6 +22863,18 @@ var staticRenderFns = [
     return _c("div", { staticClass: "yb_list" }, [
       _c("div", { staticClass: "yb_marks_list" }, [
         _c("ul", { staticClass: "marks-list_body" }, [
+          _c("li", { staticClass: "mark_list" }, [
+            _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/brands_logo/audi.png", alt: "" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "mark_list" }, [
+            _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/brands_logo/audi.png", alt: "" } })
+            ])
+          ]),
+          _vm._v(" "),
           _c("li", { staticClass: "mark_list" }, [
             _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
               _c("img", { attrs: { src: "img/brands_logo/audi.png", alt: "" } })
@@ -22858,7 +23166,7 @@ var render = function() {
                 attrs: {
                   d:
                     "M31.3028 3.81964C29.5427 1.91072 27.1277 0.859375 24.5021 0.859375C22.5395 0.859375 20.7421 1.47986 19.1598 2.70345C18.3613 3.32108 17.6379 4.07671 17 4.95866C16.3624 4.07697 15.6387 3.32108 14.84 2.70345C13.2579 1.47986 11.4605 0.859375 9.49791 0.859375C6.87227 0.859375 4.457 1.91072 2.69698 3.81964C0.957962 5.70625 0 8.28365 0 11.0774C0 13.9528 1.07158 16.5849 3.37219 19.361C5.43027 21.8443 8.3882 24.3651 11.8136 27.2841C12.9832 28.281 14.309 29.4109 15.6856 30.6146C16.0493 30.9331 16.516 31.1085 17 31.1085C17.4838 31.1085 17.9507 30.9331 18.3139 30.6151C19.6905 29.4112 21.0171 28.2807 22.1872 27.2834C25.6121 24.3649 28.57 21.8443 30.6281 19.3608C32.9287 16.5849 34 13.9528 34 11.0771C34 8.28365 33.042 5.70625 31.3028 3.81964Z",
-                  fill: "#DC211D"
+                  fill: "#0B3F8D"
                 }
               })
             ]
@@ -23311,7 +23619,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "ynews_item" }, [
       _c("div", { staticClass: "y_item-top" }, [
-        _c("div", { staticClass: "ynews_left" }, [
+        _c("div", { staticClass: "ynews_top" }, [
           _c("div", { staticClass: "news_decs" }, [
             _c("h2", { staticClass: "title" }, [
               _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
@@ -23333,7 +23641,7 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("figure", { staticClass: "left_img" }, [
+          _c("figure", { staticClass: "news_image" }, [
             _c("div", {
               staticClass: "background_style",
               staticStyle: {
@@ -23352,7 +23660,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "ynews_right" }, [
+        _c("div", { staticClass: "ynews_top" }, [
           _c("div", { staticClass: "news_decs" }, [
             _c("h2", { staticClass: "title" }, [
               _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
@@ -23374,7 +23682,7 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("figure", { staticClass: "right_img" }, [
+          _c("figure", { staticClass: "news_image" }, [
             _c("div", {
               staticClass: "background_style",
               staticStyle: {
@@ -47291,9 +47599,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ybestoffers.vue?vue&type=template&id=5ebce775& */ "./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775&");
 /* harmony import */ var _ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ybestoffers.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ybestoffers_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ybestoffers.vue?vue&type=style&index=0&lang=css& */ "./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -47301,7 +47607,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ybestoffers_vue_vue_type_template_id_5ebce775___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -47330,22 +47636,6 @@ component.options.__file = "resources/js/site/components/ybestoffers.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ybestoffers.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css& ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ybestoffers.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestoffers_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

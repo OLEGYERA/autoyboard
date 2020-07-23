@@ -21,8 +21,26 @@
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yanalitics.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yanalitics.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/yfavorite.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/yfavorite.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/_ysearch.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ysearch.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/topcontent.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/topcontent.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +260,8 @@
       <workItem from="1595314575701" duration="32868000" />
       <workItem from="1595365854172" duration="28000" />
       <workItem from="1595401510453" duration="30873000" />
-      <workItem from="1595438733365" duration="1467000" />
+      <workItem from="1595438733365" duration="1618000" />
+      <workItem from="1595489312391" duration="27748000" />
     </task>
     <servers />
   </component>
@@ -304,11 +323,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" width="580" height="728" key="find.popup/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1595251963618" />
-    <state x="443" y="167" key="run.anything.popup" timestamp="1594885237842">
+    <state x="443" y="167" key="run.anything.popup" timestamp="1595516751544">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-923" y="176" key="run.anything.popup/0.0.1366.728/-1366.0.1366.768@-1366.0.1366.768" timestamp="1594379475399" />
-    <state x="443" y="167" key="run.anything.popup/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594885237842" />
+    <state x="443" y="167" key="run.anything.popup/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1595516751544" />
     <state x="623" y="248" key="run.anything.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594224403015" />
     <state x="443" y="161" width="672" height="458" key="search.everywhere.popup" timestamp="1594388166751">
       <screen x="0" y="0" width="1366" height="728" />

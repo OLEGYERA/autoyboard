@@ -5,11 +5,12 @@
     display: flex;
     align-items: center;
     position: relative;
+    width: 48%;
     .search{
-        width: 530px;
+        width: 100%;
         background: #FFFFFF;
         border: 1px solid #E2E2E2;
-        border-radius: 5px;
+        border-radius: 12px;
         font-family: $aleg;
         font-style: normal;
         font-weight: normal;

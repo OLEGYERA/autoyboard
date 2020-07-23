@@ -50,7 +50,6 @@
             <div class="yb_container">
             <div class="yb-form_left">
                 <h3 class="form_title">Актуальные</h3>
-                <div class="yline"></div>
                 <yreguests></yreguests>
             </div>
                 <div class="yb_select-form">
@@ -134,6 +133,7 @@
                                 </a>
                             </div>
                     </div>
+                    <div class="footer_list">
                     <div class="yrepeat_catalog">
                         <h3 class="yrepeat_title">Каталог</h3>
                         <ul class="yrepeat_list">
@@ -244,6 +244,7 @@
                                 <a href="" class="step">Помощь по сайту</a>
                             </li>
                         </ul>
+                    </div>
                     </div>
                 </div>
 

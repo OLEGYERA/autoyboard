@@ -3,7 +3,7 @@
         <ytopcontent :title="'Новости'"></ytopcontent>
         <div class="ynews_item">
             <div class="y_item-top">
-                <div class="ynews_left">
+                <div class="ynews_top">
                     <div class="news_decs">
                         <h2 class="title">Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
                         <p class="desc">Компания Acura представила обновленный вариант компактного кроссовера</p>
@@ -12,12 +12,12 @@
                             <img src="img/system/icons/arrow_right.png" alt="">
                         </button>
                     </div>
-                    <figure class="left_img">
+                    <figure class="news_image">
                         <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
                         <img src="https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg" alt="">
                     </figure>
                 </div>
-                <div class="ynews_right">
+                <div class="ynews_top">
                     <div class="news_decs">
                         <h2 class="title">Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
                         <p class="desc">Компания Acura представила обновленный вариант компактного кроссовера CDX, который впервые обзавелся спорт-версией A-Spec</p>
@@ -26,7 +26,7 @@
                             <img src="img/system/icons/arrow_right.png" alt="">
                         </button>
                     </div>
-                    <figure class="right_img">
+                    <figure class="news_image">
                         <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
                         <img src="https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg" alt="">
                     </figure>

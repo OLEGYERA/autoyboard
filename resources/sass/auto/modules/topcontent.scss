@@ -5,15 +5,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 80px;
+    padding: 36px 0px 25px 0px;
     .top_title{
         position: relative;
         .title{
+            padding: 0px 0px 25px 0px;
+            margin: 0;
             font-family: $rale;
             font-style: normal;
             font-weight: 500;
-            font-size: em(40);
+            font-size: em(54);
             line-height: 63px;
             color: $titleblue;
             &:after{
@@ -34,7 +35,7 @@
             width: 50px;
             height: 50px;
             border-radius: 8px;
-            margin: 10px;
+
 
             i {
                 color: $admin-ashen;

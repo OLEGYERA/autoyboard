@@ -5,7 +5,7 @@
 .yb_form{
     display: flex;
     justify-content: space-around;
-    padding: 42px 35px 42px 35px;
+    padding: 52px 82px 51px 85px;
     width: 100%;
     height: 100%;
     .left_options{
@@ -15,7 +15,7 @@
             background: #F8F8F8;
             border-radius: 15px;
             position: relative;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             .yselect{
                 display: flex;
                 align-items: center;
@@ -76,7 +76,7 @@
 
     }
     .ysuccess_btn{
-        margin-top: 50px;
+        margin-top: 45px;
         display: flex;
         .success{
             background: linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
@@ -89,7 +89,7 @@
             line-height: 26px;
             text-align: center;
             color: #FFFFFF;
-            padding: 10px 60px 10px 60px;
+            padding: 12px 122px 12px 122px;
         }
     }
     .another_options{
