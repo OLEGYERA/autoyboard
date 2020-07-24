@@ -22828,7 +22828,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "yb-slide_type" }, [
       _c("div", { staticClass: "yb_clide-body" }, [
-        _c("figure", { staticClass: "slide" }, [
+        _c("figure", { staticClass: "slide small" }, [
           _c("img", { attrs: { src: "img/system/static/sedan.png", alt: "" } })
         ]),
         _vm._v(" "),
@@ -22836,7 +22836,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "yb_clide-body" }, [
-        _c("figure", { staticClass: "slide" }, [
+        _c("figure", { staticClass: "slide large" }, [
           _c("img", {
             attrs: { src: "img/system/static/crossover.png", alt: "" }
           })
@@ -22846,7 +22846,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "yb_clide-body" }, [
-        _c("figure", { staticClass: "slide" }, [
+        _c("figure", { staticClass: "slide small" }, [
           _c("img", {
             attrs: { src: "img/system/static/cabriolet.png", alt: "" }
           })
@@ -23123,6 +23123,7 @@ var render = function() {
         ? _c(
             "svg",
             {
+              staticClass: "heart_svg",
               attrs: {
                 width: "34",
                 height: "31",
@@ -23153,6 +23154,7 @@ var render = function() {
         : _c(
             "svg",
             {
+              staticClass: "heart_svg",
               attrs: {
                 width: "34",
                 height: "32",

@@ -26,19 +26,19 @@
                     </div>
                     <div class="yb-slide_type">
                         <div class="yb_clide-body">
-                            <figure class="slide">
+                            <figure class="slide small">
                                 <img src="img/system/static/sedan.png" alt="">
                             </figure>
                             <span class="body_name">Седан</span>
                         </div>
                         <div class="yb_clide-body">
-                            <figure class="slide">
+                            <figure class="slide large">
                                 <img src="img/system/static/crossover.png" alt="">
                             </figure>
                             <span class="body_name bold">Кроссовер</span>
                         </div>
                         <div class="yb_clide-body">
-                            <figure class="slide">
+                            <figure class="slide small">
                                 <img src="img/system/static/cabriolet.png" alt="">
                             </figure>
                             <span class="body_name">Кабриолет</span>

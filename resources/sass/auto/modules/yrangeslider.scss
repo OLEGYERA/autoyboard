@@ -2,16 +2,17 @@
 @import '../../vars';
 
 .yprice_container{
+    width: 100%;
     .input_change{
         display: flex;
         align-items: center;
         text-align: center;
         padding-bottom: 30px;
+        justify-content: space-around;
         .change{
-            max-width: 115px;
+            width: 40%;
             max-height: 40px;
             padding: 10px 0px 10px 14px;
-            margin-right: 20px;
             background: #FFFFFF;
             border: 2px solid #FFFFFF;
             box-sizing: border-box;
@@ -22,10 +23,6 @@
             font-size: em(16);
             line-height: 19px;
             color: rgba(199, 199, 199, 0.9);
-
-            &:last-child{
-                margin-right: 0px;
-            }
         }
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {

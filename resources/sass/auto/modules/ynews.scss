@@ -3,19 +3,23 @@
 
 
 .yb_auto_news{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     .ynews_item{
+        width: 100%;
         .y_item-top{
             display: flex;
             align-items: center;
             text-align: center;
             justify-content: center;
             padding-bottom: 20px;
+            width: 100%;
             .ynews_top{
                 position: relative;
                 border-radius: 17px;
                 overflow: hidden;
-                margin-right: 30px;
-                width: 40%;
+                width: 50%;
                 .news_image{
                     position: relative;
                     overflow: hidden;

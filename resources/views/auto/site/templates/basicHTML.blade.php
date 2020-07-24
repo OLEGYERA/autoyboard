@@ -111,7 +111,7 @@
     </main>
 
     <footer class="yfooter_content">
-                <div class="yrepeat_footer">
+
                     <div class="logo_social">
                         <div class="yb_logo_white">
                             <a href="#">
@@ -246,7 +246,7 @@
                         </ul>
                     </div>
                     </div>
-                </div>
+
 
     </footer>
 </div>
