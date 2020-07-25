@@ -2962,18 +2962,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /***/ }),
 
@@ -23620,8 +23608,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "ynews_item" }, [
-      _c("div", { staticClass: "y_item-top" }, [
-        _c("div", { staticClass: "ynews_top" }, [
+      _c("div", { staticClass: "y_item-left" }, [
+        _c("div", { staticClass: "ynews_left" }, [
           _c("div", { staticClass: "news_decs" }, [
             _c("h2", { staticClass: "title" }, [
               _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
@@ -23655,14 +23643,16 @@ var staticRenderFns = [
             _c("img", {
               attrs: {
                 src:
-                  "https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg",
+                  "https://cars.usnews.com/dims4/USNEWS/b8e7bb2/2147483647/resize/640x420%3E/format/jpeg/quality/85/?url=https%3A%2F%2Fcars.usnews.com%2Fstatic%2Fimages%2Farticle%2F201610%2F126171%2F2015_RDX_0109a_640x420.jpg",
                 alt: ""
               }
             })
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ynews_top" }, [
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "y_item_right" }, [
+        _c("div", { staticClass: "ynews_right" }, [
           _c("div", { staticClass: "news_decs" }, [
             _c("h2", { staticClass: "title" }, [
               _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
@@ -23670,7 +23660,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticClass: "desc" }, [
               _vm._v(
-                "Компания Acura представила обновленный вариант компактного кроссовера CDX, который впервые обзавелся спорт-версией A-Spec"
+                "Компания Acura представила обновленный вариант компактного кроссовера"
               )
             ]),
             _vm._v(" "),
@@ -23696,135 +23686,98 @@ var staticRenderFns = [
             _c("img", {
               attrs: {
                 src:
-                  "https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg",
-                alt: ""
-              }
-            })
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "y_item-bottom" }, [
-        _c("div", { staticClass: "bottom_item-news" }, [
-          _c("div", { staticClass: "news_decs" }, [
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "desc" }, [
-              _vm._v(
-                "Компания Acura представила обновленный вариант компактного кроссовера CDX, который впервые обзавелся спорт-версией A-Spec"
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "read_more" }, [
-              _vm._v(
-                "\n                        Читать дальше\n                        "
-              ),
-              _c("img", {
-                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("figure", { staticClass: "ynews_image" }, [
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              attrs: {
-                src:
-                  "https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg",
+                  "https://www.ford.com/cmslibs/content/dam/brand_ford/en_us/brand/legacy/nameplate/cars/20_FRD_MST_42360_32.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg",
                 alt: ""
               }
             })
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "bottom_item-news" }, [
-          _c("div", { staticClass: "news_decs" }, [
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+        _c("div", { staticClass: "ynews_right-block" }, [
+          _c("div", { staticClass: "item_news" }, [
+            _c("div", { staticClass: "news_decs" }, [
+              _c("h2", { staticClass: "title" }, [
+                _vm._v(
+                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "desc" }, [
+                _vm._v(
+                  "Компания Acura представила обновленный вариант компактного кроссовера"
+                )
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "read_more" }, [
+                _vm._v(
+                  "\n                        Читать дальше\n                        "
+                ),
+                _c("img", {
+                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+                })
+              ])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "desc" }, [
-              _vm._v(
-                "Компания Acura представила обновленный вариант компактного кроссовера CDX, который впервые обзавелся спорт-версией A-Spec"
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "read_more" }, [
-              _vm._v(
-                "\n                        Читать дальше\n                        "
-              ),
+            _c("figure", { staticClass: "news_image" }, [
+              _c("div", {
+                staticClass: "background_style",
+                staticStyle: {
+                  background:
+                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+                }
+              }),
+              _vm._v(" "),
               _c("img", {
-                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+                attrs: {
+                  src:
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnXDmd0w9tZ4dacXnYiXWDnFnPFjVbIsxYTA&usqp=CAU",
+                  alt: ""
+                }
               })
             ])
           ]),
           _vm._v(" "),
-          _c("figure", { staticClass: "ynews_image" }, [
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              attrs: {
-                src:
-                  "https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg",
-                alt: ""
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "bottom_item-news" }, [
-          _c("div", { staticClass: "news_decs" }, [
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+          _c("div", { staticClass: "item_news" }, [
+            _c("div", { staticClass: "news_decs" }, [
+              _c("h2", { staticClass: "title" }, [
+                _vm._v(
+                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "desc" }, [
+                _vm._v(
+                  "Компания Acura представила обновленный вариант компактного кроссовера"
+                )
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "read_more" }, [
+                _vm._v(
+                  "\n                        Читать дальше\n                        "
+                ),
+                _c("img", {
+                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+                })
+              ])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "desc" }, [
-              _vm._v(
-                "Компания Acura представила обновленный вариант компактного кроссовера CDX, который впервые обзавелся спорт-версией A-Spec"
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "read_more" }, [
-              _vm._v(
-                "\n                        Читать дальше\n                        "
-              ),
+            _c("figure", { staticClass: "news_image" }, [
+              _c("div", {
+                staticClass: "background_style",
+                staticStyle: {
+                  background:
+                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+                }
+              }),
+              _vm._v(" "),
               _c("img", {
-                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+                attrs: {
+                  src:
+                    "https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg",
+                  alt: ""
+                }
               })
             ])
-          ]),
-          _vm._v(" "),
-          _c("figure", { staticClass: "ynews_image" }, [
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              attrs: {
-                src:
-                  "https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg",
-                alt: ""
-              }
-            })
           ])
         ])
       ])
