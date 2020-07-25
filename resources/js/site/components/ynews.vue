@@ -14,7 +14,7 @@
                     </div>
                     <figure class="news_image">
                         <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
-                        <img src="https://cars.usnews.com/dims4/USNEWS/b8e7bb2/2147483647/resize/640x420%3E/format/jpeg/quality/85/?url=https%3A%2F%2Fcars.usnews.com%2Fstatic%2Fimages%2Farticle%2F201610%2F126171%2F2015_RDX_0109a_640x420.jpg" alt="">
+                        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9" alt="">
                     </figure>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <figure class="news_image">
                         <div class="background_style" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);"></div>
-                        <img src="https://www.ford.com/cmslibs/content/dam/brand_ford/en_us/brand/legacy/nameplate/cars/20_FRD_MST_42360_32.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="">
+                        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg" alt="">
                     </figure>
                 </div>
                 <div class="ynews_right-block">

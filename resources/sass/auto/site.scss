@@ -684,38 +684,6 @@
                 .analitics_desc{
                     max-width: 580px;
                 }
-                .ynews_item{
-                    display: flex;
-                    flex-flow: wrap;
-                    justify-content: center;
-                    .y_item-top{
-                        display: block;
-                        .ynews_left{
-                            margin-bottom: 15px;
-                        }
-                    }
-                    .y_item-bottom{
-                        display: block;
-                        .bottom_item-news{
-                            max-width: 475px;
-                            margin-bottom: 10px;
-                            .news_decs{
-                                padding: 0px 10px 20px 10px;
-                                    .title{
-                                        font-size: em(20);
-                                        margin-block-end: 0.60em;
-                                    }
-                                .desc{
-                                    font-size: em(16);
-                                }
-                            }
-                            &:last-child{
-                                margin-bottom: 0px;
-                            }
-                        }
-                    }
-                }
-
             }
         }
         .yfooter_content{

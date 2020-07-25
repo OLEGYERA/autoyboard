@@ -25,6 +25,7 @@
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +248,7 @@
       <workItem from="1595438733365" duration="1618000" />
       <workItem from="1595489312391" duration="27832000" />
       <workItem from="1595574225537" duration="25747000" />
-      <workItem from="1595671931444" duration="10363000" />
+      <workItem from="1595671931444" duration="13459000" />
     </task>
     <servers />
   </component>
