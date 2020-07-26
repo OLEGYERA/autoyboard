@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="{{asset('fonts/NotoSans/noto.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/Montserrat/montserrat.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
-    <script src="https://kit.fontawesome.com/806649822f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/solid.min.js" crossorigin="anonymous"></script>--}}
+{{--    <script src="https://kit.fontawesome.com/806649822f.js" crossorigin="anonymous"></script>--}}
 </head>
 <body>
 <div id="admin-panel">
-    <admin></amin>d
+    <admin></admin>
 </div>
 <script src="{{asset('js/admin.js')}}"></script>
 </body>

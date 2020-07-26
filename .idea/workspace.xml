@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasans.ttf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasans.woff" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasans.woff2" afterDir="false" />
@@ -190,6 +191,37 @@
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/LogSystem/Log.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/LogSystem/LogWriter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/Services/autoria/Lexeme.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/systems/ylocation/ylocation-visual.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/admin/modules/ylocation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/test.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/yboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/Kernel/Connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/Kernel/Connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/Kernel/Core.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/Kernel/Core.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auto/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auto/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/proxy/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/proxy/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/modules/systems/ytable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/modules/systems/ytable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/admin/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin/admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/admin/modules/ytable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin/modules/ytable.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,11 +354,22 @@
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/mobizon/mobizon-php" />
+<<<<<<< HEAD
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+=======
+      <path value="$PROJECT_DIR$/vendor/sabre/dav" />
+      <path value="$PROJECT_DIR$/vendor/sabre/xml" />
+      <path value="$PROJECT_DIR$/vendor/sabre/vobject" />
+      <path value="$PROJECT_DIR$/vendor/sabre/event" />
+      <path value="$PROJECT_DIR$/vendor/sabre/http" />
+      <path value="$PROJECT_DIR$/vendor/sabre/uri" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-webdav" />
+      <path value="$PROJECT_DIR$/vendor/pbmedia/laravel-webdav" />
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
     </include_path>
   </component>
   <component name="ProjectId" id="1bXdc1ikCQKPStHvxEaSYrYXhNQ" />
@@ -343,7 +386,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/auth/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Medpravda" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -361,6 +404,16 @@
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
       <recent name="$PROJECT_DIR$/public/img/marks_logo" />
     </key>
+<<<<<<< HEAD
+=======
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/admin/modules/systems/ycountry" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/modules/systems/navigation" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/modules/often" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/services" />
+    </key>
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -395,6 +448,7 @@
       <workItem from="1593673501221" duration="25687000" />
       <workItem from="1594019038278" duration="29024000" />
       <workItem from="1594112965944" duration="9529000" />
+<<<<<<< HEAD
       <workItem from="1594196999674" duration="29541000" />
       <workItem from="1594378497299" duration="17500000" />
       <workItem from="1594458663245" duration="17947000" />
@@ -414,6 +468,20 @@
       <workItem from="1595574225537" duration="25747000" />
       <workItem from="1595671931444" duration="13715000" />
       <workItem from="1595753573315" duration="1128000" />
+=======
+      <workItem from="1594196999674" duration="29896000" />
+      <workItem from="1594283756235" duration="24339000" />
+      <workItem from="1594363674514" duration="16354000" />
+      <workItem from="1594630275689" duration="676000" />
+      <workItem from="1594716231064" duration="7448000" />
+      <workItem from="1594887752363" duration="27004000" />
+      <workItem from="1594973575757" duration="25571000" />
+      <workItem from="1595245453146" duration="591000" />
+      <workItem from="1595325080278" duration="16858000" />
+      <workItem from="1595408356709" duration="24308000" />
+      <workItem from="1595489758196" duration="18803000" />
+      <workItem from="1595579472056" duration="19042000" />
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
     </task>
     <servers />
   </component>
@@ -436,16 +504,24 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
     <state x="494" y="233" width="522" height="258" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594730167842">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="494" y="233" width="522" height="258" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594730167842" />
     <state x="494" y="233" width="520" height="258" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1594468052429" />
     <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594198545201" />
+=======
+    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594305955848">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594305955848" />
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593517992266">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593517992266" />
+<<<<<<< HEAD
     <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594806066121">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -459,13 +535,20 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="379" y="26" key="#phpunit.xml/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1595410692047" />
+=======
+    <state x="693" y="298" width="526" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594909313287">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="693" y="298" width="526" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594909313287" />
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
     <state x="720" y="456" width="471" height="162" key="ComposerInitDialogKey" timestamp="1588806378734">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="720" y="456" width="471" height="162" key="ComposerInitDialogKey/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588806378734" />
-    <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl" timestamp="1593609059631">
+    <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl" timestamp="1595508663633">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+<<<<<<< HEAD
     <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593609059631" />
     <state x="184" y="0" key="SettingsEditor" timestamp="1594381605380">
       <screen x="0" y="0" width="1366" height="728" />
@@ -486,34 +569,59 @@
     </state>
     <state x="443" y="161" width="672" height="458" key="search.everywhere.popup/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594388166751" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594200269751" />
+=======
+    <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595508663633" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1594309131769">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594309131769" />
+    <state x="623" y="248" width="672" height="677" key="run.anything.popup" timestamp="1595340742790">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="248" width="672" height="677" key="run.anything.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595340742790" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1595425443707">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595425443707" />
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Controller.php</url>
-          <line>105</line>
+          <line>148</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Controller.php</url>
-          <line>63</line>
+          <line>106</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Controller.php</url>
-          <line>25</line>
+          <line>68</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Controller.php</url>
-          <line>90</line>
+          <line>133</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Controller.php</url>
-          <line>57</line>
+          <line>100</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/Services/autoria/LaunchController.php</url>
+          <line>19</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/AGGREGATOR/Services/autoria/LaunchController.php</url>
+          <line>18</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/STORE/modules/auth.js</url>

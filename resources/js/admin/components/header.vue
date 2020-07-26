@@ -1,6 +1,6 @@
 <template>
     <header class="yb-header">
-        <yinput></yinput>
+        <yinput :size="'l'"></yinput>
         <div class="yb-smart-helpers">
             <div class="notification">
                 <i class="far fa-bell"></i>
@@ -18,7 +18,6 @@
     import {mapGetters} from "vuex";
     export default {
         mounted() {
-            console.log(this.USER_DATA, 1232);
         },
         data: function(){
             return{

@@ -12,7 +12,6 @@
                 this.letters[0] = this.fname.substr(0, 1);
                 this.letters[1] = this.lname.substr(0, 1);
             }
-            console.log(this.letters);
         },
         data: function(){
             return{

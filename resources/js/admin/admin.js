@@ -12,13 +12,17 @@ import {store} from './services/store';
 
 Vue.component('yinput', require('./modules/htmls/yinput.vue').default);
 Vue.component('yavatar', require('./modules/htmls/yavatar.vue').default);
+Vue.component('yselector', require('./modules/htmls/yselector.vue').default);
+Vue.component('ybutton', require('./modules/htmls/ybutton.vue').default);
 
-Vue.component('ytabs', require('./modules/systems/ytabs.vue').default);
 
-// Vue.component('ycheck', require('../MODULES/ycheck.vue').default);
+Vue.component('ytable', require('./modules/systems/ytable.vue').default);
+Vue.component('ylocation-visual', require('./modules/systems/ylocation/ylocation-visual.vue').default);
 
-Vue.component('ynavigation', require('./components/navigation.vue').default);
+Vue.component('ynav', require('./modules/systems/navigation/ynav.vue').default);
 Vue.component('ynav-list', require('./modules/systems/navigation/ynav-list.vue').default);
+Vue.component('ytabs', require('./modules/systems/navigation/ytabs.vue').default);
+
 
 Vue.component('yheader', require('./components/header.vue').default);
 

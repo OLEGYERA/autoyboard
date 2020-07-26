@@ -10,16 +10,16 @@ const router = new VueRouter
     // mode: 'history',
     routes: [
         {path: '/', redirect: {name: 'aggregator'}},
-        {path: '/aggregator', component: C.Aggregator, name: 'aggregator', meta: {title: 'Агрегатор', icon: 'fas fa-atom'},
+        {path: '/aggregator', component: C.Aggregator, name: 'aggregator', meta: {title: 'Агрегатор', icon: 'fas fa-robot'},
             children: [
-                {path: '/', redirect: {name: 'agg_nucleus'}},
-                {path: 'nucleus', component: C.AggNucleus, name: 'agg_nucleus', meta: {title: 'Ядро'},
+                // {path: '/', redirect: {name: 'agg_nucleus'}},
+                {path: 'nucleus', component: C.AggNucleus, name: 'agg_nucleus', meta: {title: 'Ядро', icon: 'fas fa-atom'},
                     children: [
-                        {path: '/', redirect: {name: 'agg_nuc_proxy-list'}},
+                        // {path: '/', redirect: {name: 'agg_nuc_proxy-list'}},
                         {path: '/proxy', redirect: {name: 'agg_nuc_proxy-list'}},
-                        {path: 'proxy/list', component: C.AggNucProxyList, name: 'agg_nuc_proxy-list' , meta: {title: 'Proxy'}},
+                        {path: 'proxy/list', component: C.AggNucProxyList, name: 'agg_nuc_proxy-list' , meta: {title: 'Proxy', icon: 'fas fa-network-wired'}},
                         {path: 'proxy/edit', component: C.AggNucProxyEdit, name: 'agg_nuc_proxy-edit'},
-                        {path: 'user-agent/list', component: C.AggNucUserAgentEdit, name: 'agg_nuc_user_agent-list', meta: {title: 'User-Agent'}},
+                        {path: 'user-agent/list', component: C.AggNucUserAgentEdit, name: 'agg_nuc_user_agent-list', meta: {title: 'User-Agent', icon: 'fas fa-laptop-house'}},
                     ]
                 },
             ]

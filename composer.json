@@ -21,7 +21,8 @@
         "laravel/ui": "^2.0",
         "mobizon/mobizon-php": "^2.0",
         "nesbot/carbon": "^2.35",
-        "paquettg/php-html-parser": "^2.2"
+        "paquettg/php-html-parser": "^2.2",
+        "pbmedia/laravel-webdav": "^1.8"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

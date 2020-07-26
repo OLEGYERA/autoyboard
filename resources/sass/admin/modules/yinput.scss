@@ -18,21 +18,44 @@
     i{
         position: absolute;
         left: 30px;
+        color: $admin-ashen;
     }
 
-    &.lg{
-        height: 40px;
+    &.l{
+        height: 45px;
 
         i{
             font-size: em(18);
-            color: $admin-ashen;
         }
 
         input{
             font-family: $mont;
-            font-size: em(20);
+            font-size: em(18);
             font-weight: 400;
-            padding: 8px 20px 10px 60px;
+            padding: 10px 20px 10px 60px;
+            &::placeholder{
+                color: $admin-ashen;
+            }
+        }
+    }
+
+
+
+    /*Adaptivity*/
+    &.m{
+        height: 35px;
+
+        i{
+            left: 20px;
+            font-size: em(16);
+        }
+
+        input{
+            font-family: $mont;
+            font-size: em(16);
+            font-weight: 400;
+            padding: 6px 15px 8px 45px;
+            box-shadow: 0px 4px 4px rgba(82, 79, 255, 0.12), 0px -4px 4px rgba(82, 79, 255, 0.07);
             &::placeholder{
                 color: $admin-ashen;
             }

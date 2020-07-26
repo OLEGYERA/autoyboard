@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Kiev',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,12 +161,13 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Dirape\Token\TokenServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        /*
+         /*
          * Package Service Providers...
          */
         Ixudra\Curl\CurlServiceProvider::class,
+        Dirape\Token\TokenServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Pbmedia\FilesystemProviders\WebDAVServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -176,7 +177,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
     ],
 
     /*
