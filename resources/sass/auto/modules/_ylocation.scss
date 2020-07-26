@@ -1,12 +1,55 @@
 @import '../clear';
 @import '../../vars';
 
-.ylocations {
+.ylocation{
     display: flex;
     align-items: center;
     position: relative;
+    &.header{
+        .dropdown-input{
+            width: 100%;
+            font-family: $aleg;
+            font-style: normal;
+            font-weight: normal;
+            font-size: em(20);
+            line-height: 24px;
+            border: none;
+            outline: none;
+            color: rgba(34, 34, 34, 0.79);
+        }
+        .autocomplete-results{
+            font-family: $aleg;
+            background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            max-height: 180px;
+            overflow: auto;
+            width: 100%;
+            top: 45px;
+            z-index: 2;
+            scrollbar-width: none;
+            .autocomplete-result {
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                color: rgba(34, 34, 34, 0.79);
+            }
+            .autocomplete-result.is-active,
+            .autocomplete-result:hover {
+                background: linear-gradient(0deg, #0B3F8D, #0B3F8D), #FFFFFF;
+                color: #FFFFFF;
+            }
+            &::-webkit-scrollbar { width: 0px; }
+
+        }
+    }
 }
 .autocomplete {
     position: relative;
     width: 130px;
 }
+
+

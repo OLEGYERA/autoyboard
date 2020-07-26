@@ -29,8 +29,8 @@
             return{
                 min: 200,
                 max: 100000,
-                minPrice: 0,
-                maxPrice: 0,
+                minPrice: '',
+                maxPrice: '',
                 step: 500,
                 totalSteps: 0,
                 percentPerStep: 1,

@@ -1,0 +1,114 @@
+@import '../../vars';
+
+header.yb-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    position: fixed;
+    align-items: center;
+    padding: 0px 17%;
+    background-color: $body-bg;
+    box-shadow: 0px 4px 4px $light-shadow;
+
+    .yb-header-left{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        .yb-logo{
+            height: 30px;
+            margin-right: 40px;
+            img{
+                height: 100%;
+            }
+        }
+    }
+
+    .yb-header-right{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 40px;
+
+        .ysearch{
+            width: 60%;
+        }
+
+        .ylocation-box{
+            width: 160px;
+            display: flex;
+            position: relative;
+            i{
+                color: #0B3F8D;
+                font-size: em(22);
+                position: absolute;
+                padding-right: 10px;
+                z-index: 1;
+                left: 6px;
+
+            }
+            .ylocation{
+                input{
+                    padding-left: 30px;
+                    font-size: em(18);
+                    font-weight: 500;
+                    &::placeholder{
+                        color: $site-grey;
+                    }
+                }
+            }
+        }
+
+        .yb-favorite{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                color: $darkblue;
+                font-size: em(26);
+            }
+            .count{
+                font-size: em(18);
+                font-family: $aleg;
+                font-weight: 500;
+            }
+        }
+
+        .yb-lang-switcher{
+            display: flex;
+            align-items: center;
+            .ylang{
+                font-family: $aleg;
+                font-style: normal;
+                font-weight: 500;
+                font-size: em(18);
+                line-height: 22px;
+                padding: 0;
+                color: #C4C4C4;
+                &:focus{
+                    color: rgba(34, 34, 34, 0.82);
+                }
+                &:nth-child(1){
+                    position: relative;
+                    margin-right: 18px;
+                    &:after{
+                        content: '';
+                        top: -1px;
+                        right: -10px;
+                        width: 2px;
+                        height: 100%;
+                        background-color: #C4C4C4;
+                        position: absolute;
+                    }
+                }
+                &.active{
+                    color: $site-grey;
+                }
+            }
+        }
+    }
+}

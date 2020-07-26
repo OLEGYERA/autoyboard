@@ -218,13 +218,13 @@ module.exports = function xhrAdapter(config) {
       request = null;
     };
 
-    // Add xsrf header
+    // Add xsrf headers
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
       var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
 
-      // Add xsrf header
+      // Add xsrf headers
       var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
         cookies.read(config.xsrfCookieName) :
         undefined;
@@ -241,7 +241,7 @@ module.exports = function xhrAdapter(config) {
           // Remove Content-Type if data is undefined
           delete requestHeaders[key];
         } else {
-          // Otherwise add header to the request
+          // Otherwise add headers to the request
           request.setRequestHeader(key, val);
         }
       });
@@ -24250,7 +24250,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-header" }, [
+    return _c("div", { staticClass: "yb-headers" }, [
       _c("img", { attrs: { src: "/img/system/logos/logo.png", alt: "" } })
     ])
   },
@@ -24384,7 +24384,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-header" }, [
+    return _c("div", { staticClass: "yb-headers" }, [
       _c("img", { attrs: { src: "/img/system/logos/logo.png", alt: "" } })
     ])
   }
@@ -24572,7 +24572,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-header" }, [
+    return _c("div", { staticClass: "yb-headers" }, [
       _c("img", { attrs: { src: "/img/system/logos/logo.png", alt: "" } })
     ])
   },
@@ -24717,7 +24717,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-header" }, [
+    return _c("div", { staticClass: "yb-headers" }, [
       _c("img", { attrs: { src: "/img/system/logos/logo.png", alt: "" } })
     ])
   },
@@ -33471,7 +33471,7 @@ var namespaceMap = {
 
 var isHTMLTag = makeMap(
   'htmls,body,base,head,link,meta,style,title,' +
-  'address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
+  'address,article,aside,footer,headers,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
   'div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,' +
   'a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby,' +
   's,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,' +
@@ -37119,7 +37119,7 @@ var canBeLeftOpenTag = makeMap(
 var isNonPhrasingTag = makeMap(
   'address,article,aside,base,blockquote,body,caption,col,colgroup,dd,' +
   'details,dialog,div,dl,dt,fieldset,figcaption,figure,footer,form,' +
-  'h1,h2,h3,h4,h5,h6,head,header,hgroup,hr,htmls,legend,li,menuitem,meta,' +
+  'h1,h2,h3,h4,h5,h6,head,headers,hgroup,hr,htmls,legend,li,menuitem,meta,' +
   'optgroup,option,param,rp,rt,source,style,summary,tbody,td,tfoot,th,thead,' +
   'title,tr,track'
 );

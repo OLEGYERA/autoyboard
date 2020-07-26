@@ -25,7 +25,7 @@ class Connection extends Controller
 
     public function getPage($parseURL, $parsePROPS){
         $response = $this->createGateway($parseURL, $parsePROPS);
-        return ['status' => $response->status, 'header' => $response->headers, 'content' => $response->content];
+        return ['status' => $response->status, 'headers' => $response->headers, 'content' => $response->content];
     }
 
     private function createGateway($parse_url, $parse_props){

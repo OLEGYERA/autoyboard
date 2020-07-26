@@ -1,0 +1,33 @@
+@import '../../clear';
+@import '../../../vars';
+
+.ysearch{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 35px;
+    .search{
+        height: 100%;
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid $search-border;
+        border-radius: 8px;
+        font-family: $aleg;
+        font-weight: 500;
+        font-size: em(18);
+        text-transform: capitalize;
+        padding: 6px 40px 5px 25px;
+        color: $site-grey;
+        &::placeholder{
+            font-weight: 400;
+            color: #9c9c9c;
+        }
+    }
+    i{
+        position: absolute;
+        right: 15px;
+        font-size: em(18);
+        color: $lightgray;
+    }
+
+}

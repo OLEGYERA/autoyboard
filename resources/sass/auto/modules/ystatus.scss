@@ -1,34 +1,26 @@
-@import '../clear';
 @import '../../vars';
 
-.yb_count-status{
-        .status_items{
-            margin-bottom: 29px;
-            .count_number{
-                font-family: $noto;
-                font-style: normal;
-                font-weight: bold;
-                font-size: em(36);
-                line-height: 49px;
-                text-align: center;
-                font-variant: small-caps;
-                color: #FFFFFF;
-                margin-bottom: 13px;
-            }
-            .count_title{
-                font-family: $aleg;
-                font-style: normal;
-                font-weight: 500;
-                font-size: em(22);
-                line-height: 26px;
-                text-align: center;
-                color: #FFFFFF;
-                &:last-child{
-                    margin: 0;
-                }
+.ystatus{
+    .status_item{
+        margin-bottom: 35px;
+        .count_number{
+            font-family: $noto;
+            font-weight: 600;
+            font-size: em(30);
+            text-align: center;
+            color: #fff;
+            margin-bottom: 15px;
         }
+        .count_title{
+            font-family: $aleg;
+            font-weight: 500;
+            font-size: em(18);
+            line-height: 24px;
+            text-align: center;
+            color: #FFFFFF;
             &:last-child{
-                margin-bottom: 0;
+                margin: 0;
             }
         }
+    }
 }
