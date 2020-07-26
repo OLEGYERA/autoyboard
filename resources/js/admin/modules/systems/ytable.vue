@@ -23,8 +23,9 @@
                     class="ytable-col"
                     :class="col.size">
                     <span class="group" v-if="col.group">
-                        <span class="content" v-for="(group_item, key) in col.group">
-                            {{data[group_item]}}
+                        <span v-if="col.group == 'ip_address'" :class="[col.group]">
+                            <ylocation-visual :country_id="data.country" :city_id="data.city"></ylocation-visual>
+                            <span class="ip">{{data.ip}}</span>
                         </span>
                     </span>
                     <span class="content">{{data[col.name]}}</span>
@@ -53,6 +54,16 @@
         methods: {
             // ...mapMutations(['SET_USER_DATA']),
             ...mapActions(['GET_ALL_DATA']),
+            generateView(type, prop){
+                switch (type) {
+                    case 'ip_address':
+                        switch (prop) {
+                            case 'country':
+                                return '<ylocation></ylocation>';
+                        }
+                        break;
+                }
+            }
         },
         computed: {
             ...mapGetters(['ALL_DATA']),

@@ -55,6 +55,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'parser' => [
+            'driver' => 'local',
+            'root' => storage_path('parser'),
+            'url' => env('APP_URL').'/storage/parser',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -63,6 +70,13 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
+        ],
+
+        'webdav' => [
+            'driver'     => 'webdav',
+            'baseUri'    => 'https://nx12279.your-storageshare.de/remote.php/dav/files/Admin/',
+            'userName'   => 'Admin',
+            'password'   => 'iY59q4wWwsxBbLPC',
         ],
 
     ],

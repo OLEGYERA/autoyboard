@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Auto\PageController@start');
 
-Route::get('test', 'Controller@test');
+Route::get('/', 'Auto\PageController@start');
+Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
+
+Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
+
+
+Route::get('first_try', 'Controller@first_try');
 
 Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

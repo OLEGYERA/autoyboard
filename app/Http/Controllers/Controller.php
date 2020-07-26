@@ -19,8 +19,51 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
+    public function first_try(){
+        $response = Curl::to('https://auto.ria.com/legkovie/?page=1')
+            ->withTimeout(60)
+            ->withConnectTimeout(60)
+//            ->withProxy('93.190.44.51', 14523, 'https://', 'O9e5TwD', 'N5k6WhE')
+            ->withHeaders( array( 'User-Agent' => 'Mozilla/5.0 (Linux; Android 10; HRY-LX1 Build/HONORHRY-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.117 Mobile Safari/537.36 YaApp_Android/9.85 YaSearchBrowser/9.85') )
+            ->withResponseHeaders()
+            ->returnResponseObject()
+            ->get();
+
+
+
+        $tidy_config = array(
+            'clean' => true,
+            'output-xhtml' => true,
+            'show-body-only' => true,
+            'wrap' => 0,
+        );
+        $tidy = \tidy_parse_string( $response->content, $tidy_config, 'UTF8');
+//        dd($tidy);
+
+
+        $dom = new Dom;
+        $dom = $dom->loadStr($tidy);
+        $htmls = $dom->find('.ticket-item');
+
+        foreach($htmls as $html){
+            $link = $html->find('.address');
+            foreach ($link->getChildren() as $child){
+                echo $child->text . ' ';
+            }
+            echo '<br/>';
+
+
+//            outerHtml - "<a data-template-v="6" href="https://auto.ria.com/auto_audi_q7_27328890.html" class="address" title="Audi Q7 2017 в Одессе" target="_self"><span class="blue bold">Audi Q7 EXLUSIVE ABT</span> 2017</a> ◀"
+//            inner_html - <span class="blue bold">Audi Q7 EXLUSIVE ABT</span> 2017
+        }
+        dd($htmls);
+//        https://auto.ria.com/legkovie/?page=1
+    }
+
     public function test(){
         ini_set('max_execution_time', 180);
+
+        dd(123);
 
 //        $isset_brand->forceFill(['transport_type_array->as' => true]);
         $brands = Curl::to('https://automoto.ua/_block/auto-widget/search-form?includeFilters=false&q=&mark=&model=&category=8&price%5Bfrom%5D=&price%5Bto%5D=&year%5Bfrom%5D=&year%5Bto%5D=&engine_volume%5Bfrom%5D=&engine_volume%5Bto%5D=&mileage%5Bfrom%5D=&mileage%5Bto%5D=&country=&no_reseller=&bodyType=&exchange=&damaged=&customed=&with_photo=&new=')

@@ -33,6 +33,20 @@
         flex-direction: column;
         .ytable-row{
             padding: 20px 0;
+            .ytable-col{
+                .group{
+                    width: 100%;
+                    .ip_address{
+                        display: flex;
+                        align-items: center;
+                        .ip{
+                            font-size: em(16);
+                            margin-left: 10px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
         }
     }
 

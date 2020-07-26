@@ -17,6 +17,7 @@ Vue.component('ybutton', require('./modules/htmls/ybutton.vue').default);
 
 
 Vue.component('ytable', require('./modules/systems/ytable.vue').default);
+Vue.component('ylocation-visual', require('./modules/systems/ylocation/ylocation-visual.vue').default);
 
 Vue.component('ynav', require('./modules/systems/navigation/ynav.vue').default);
 Vue.component('ynav-list', require('./modules/systems/navigation/ynav-list.vue').default);

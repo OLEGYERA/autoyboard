@@ -103,6 +103,14 @@
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/mobizon/mobizon-php" />
+      <path value="$PROJECT_DIR$/vendor/sabre/dav" />
+      <path value="$PROJECT_DIR$/vendor/sabre/xml" />
+      <path value="$PROJECT_DIR$/vendor/sabre/vobject" />
+      <path value="$PROJECT_DIR$/vendor/sabre/event" />
+      <path value="$PROJECT_DIR$/vendor/sabre/http" />
+      <path value="$PROJECT_DIR$/vendor/sabre/uri" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-webdav" />
+      <path value="$PROJECT_DIR$/vendor/pbmedia/laravel-webdav" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

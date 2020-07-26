@@ -1,0 +1,22 @@
+@import '../../vars';
+@import '../../auto/clear';
+
+.ylocation-visual{
+    display: flex;
+    align-items: center;
+    figure.country{
+        width: 35px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        img{
+            width: 100%;
+        }
+    }
+    .city{
+        font-weight: 400;
+        font-size: em(16);
+    }
+}

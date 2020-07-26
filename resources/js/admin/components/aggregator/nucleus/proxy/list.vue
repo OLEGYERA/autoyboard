@@ -22,9 +22,7 @@
                     cols: [
                         {name: 'id', title: 'ID', size: 's'},
                         {name: 'status', title: 'Статаус', size: 'm'},
-                        {name: 'address', title: 'Адрес', size: 'l', group: [
-                            'country', 'city', 'ip'
-                        ]},
+                        {name: 'address', title: 'Адрес', size: 'l', group: 'ip_address'},
                         {name: 'ban', title: 'Бан-статус', size: 'm'},
                         {name: 'timeLife', title: 'Срок действия', size: 'l'},
                     ],
