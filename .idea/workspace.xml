@@ -20,11 +20,176 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasans.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasans.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasans.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansblack.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansblack.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansblack.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansblackitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansblackitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansblackitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansbold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansbold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansbold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansbolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansbolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansbolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansextrabold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansextrabold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansextrabold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansextrabolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansextrabolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansextrabolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasanslight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasanslight.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasanslight.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasanslightitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasanslightitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasanslightitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansmedium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansmedium.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansmedium.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansmediumitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansmediumitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansmediumitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansthin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansthin.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansthin.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansthinitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansthinitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/Alegreyasansthinitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/AlegreyaSans/alegreyasans.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/raleway.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblack.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblack.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblack.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblackitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblackitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayblackitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaybolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextrabolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralight.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralight.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralightitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralightitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayextralightitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylight.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylight.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylightitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylightitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaylightitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymedium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymedium.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymedium.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymediumitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymediumitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaymediumitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayregular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayregular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewayregular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibolditalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibolditalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaysemibolditalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythin.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythin.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythinitalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythinitalic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Raleway/ralewaythinitalic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/arrow_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/car_check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/heart_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/icons/heart_red.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/face_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/flat_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/insta_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/logo_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/med_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/telegram_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/travel_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/logos/yt_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/analitics_prev.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/audi_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/cabriolet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/crossover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/sedan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/system/static/vw_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report.20200713.151320.10524.0.001.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/carousel.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/topcontent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yanalitics.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ybestoffers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ybutton.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ycatalog.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ycats.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ycheckbox.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yexpanded.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yfavorite.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yform.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ylocation.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ymenu.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ynews.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yrangeslider.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/yreguests.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ysearch.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/components/ystatus.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/site/site.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ybutton.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ycats.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yexpanded.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ylocation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ymenu.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_yreguests.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/_ysearch.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/topcontent.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yanalitics.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ycatalog.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ycheckbox.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yfavorite.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yform.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ynews.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yrangeslider.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ystatus.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/site.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auto/site.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/yboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/auto/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auto/site.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yfavorite.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yfavorite.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/system/logos/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/system/logos/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/_clear.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auto/site/templates/basicHTML.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +413,7 @@
       <workItem from="1595489312391" duration="27832000" />
       <workItem from="1595574225537" duration="25747000" />
       <workItem from="1595671931444" duration="13715000" />
-      <workItem from="1595753573315" duration="755000" />
+      <workItem from="1595753573315" duration="1128000" />
     </task>
     <servers />
   </component>
