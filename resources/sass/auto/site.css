@@ -1,0 +1,12 @@
+body {
+  background: #FFFFFF;
+}
+
+body .yb-auto_header {
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+body .yb-auto_header .logo_auto-yb img {
+  width: 100px;
+}

@@ -1,39 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="33f27eb4-7c33-43fc-991b-944fe07adbe3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AuthUserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/admin.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/aggregator.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/nucleus.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/proxy/edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/proxy/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus/user-agent/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/header.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/navigation.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/htmls/yavatar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/htmls/yinput.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/systems/navigation/ynav-list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/modules/systems/ytabs.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/services/components.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/services/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/services/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/storage/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/admin/admin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/admin/modules/yavatar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/admin/modules/yinput.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/admin/modules/ytabs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Parser/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Parser/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_vars.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/ybestoffers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/modules/yfavorite.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/modules/yfavorite.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/auto/site.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auto/site.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,35 +157,44 @@
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/mobizon/mobizon-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1bXdc1ikCQKPStHvxEaSYrYXhNQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/auth/components" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\YBoard\autoyboard\resources\sass\auto\modules" />
+      <recent name="C:\OpenServer\domains\YBoard\autoyboard\resources\js\site\components" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/modules/often" />
+      <recent name="$PROJECT_DIR$/resources/js/admin/services" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/auth/components" />
       <recent name="$PROJECT_DIR$/resources/js/admin" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
       <recent name="$PROJECT_DIR$/public/img/marks_logo" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/admin/components/aggregator/nucleus" />
-      <recent name="$PROJECT_DIR$/resources/js/admin/modules/often" />
-      <recent name="$PROJECT_DIR$/resources/js/admin/services" />
-      <recent name="$PROJECT_DIR$/resources/sass/admin" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -202,9 +202,6 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="showServicesTree" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -234,25 +231,69 @@
       <workItem from="1594019038278" duration="29024000" />
       <workItem from="1594112965944" duration="9529000" />
       <workItem from="1594196999674" duration="29541000" />
+      <workItem from="1594378497299" duration="17500000" />
+      <workItem from="1594458663245" duration="17947000" />
+      <workItem from="1594627251036" duration="26265000" />
+      <workItem from="1594710032036" duration="29072000" />
+      <workItem from="1594796671934" duration="28163000" />
+      <workItem from="1594882658659" duration="28062000" />
+      <workItem from="1594969513126" duration="24132000" />
+      <workItem from="1595077495400" duration="5886000" />
+      <workItem from="1595083444937" duration="14000" />
+      <workItem from="1595228558838" duration="27915000" />
+      <workItem from="1595314575701" duration="32868000" />
+      <workItem from="1595365854172" duration="28000" />
+      <workItem from="1595401510453" duration="30873000" />
+      <workItem from="1595438733365" duration="1618000" />
+      <workItem from="1595489312391" duration="27832000" />
+      <workItem from="1595574225537" duration="25747000" />
+      <workItem from="1595671931444" duration="13715000" />
+      <workItem from="1595753573315" duration="755000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594198545201">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="494" y="233" width="522" height="258" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594730167842">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="494" y="233" width="522" height="258" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594730167842" />
+    <state x="494" y="233" width="520" height="258" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1594468052429" />
     <state x="695" y="346" width="522" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594198545201" />
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593517992266">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="713" y="113" width="478" height="841" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593517992266" />
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594806066121">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594806066121" />
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1594460630791" />
     <state x="693" y="298" width="526" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593097985317">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="693" y="298" width="526" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593097985317" />
+    <state x="379" y="26" key="#phpunit.xml" timestamp="1595410692047">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="26" key="#phpunit.xml/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1595410692047" />
     <state x="720" y="456" width="471" height="162" key="ComposerInitDialogKey" timestamp="1588806378734">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -261,13 +302,24 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="743" y="298" width="426" height="478" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593609059631" />
-    <state x="623" y="248" key="run.anything.popup" timestamp="1594224403015">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1594381605380">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594381605380" />
+    <state x="0" y="0" width="580" height="728" key="find.popup" timestamp="1595251963618">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="580" height="728" key="find.popup/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1595251963618" />
+    <state x="443" y="167" key="run.anything.popup" timestamp="1595516751544">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="-923" y="176" key="run.anything.popup/0.0.1366.728/-1366.0.1366.768@-1366.0.1366.768" timestamp="1594379475399" />
+    <state x="443" y="167" key="run.anything.popup/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1595516751544" />
     <state x="623" y="248" key="run.anything.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594224403015" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1594200269751">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="443" y="161" width="672" height="458" key="search.everywhere.popup" timestamp="1594388166751">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="443" y="161" width="672" height="458" key="search.everywhere.popup/0.0.1366.728/-1366.0.1366.768@0.0.1366.728" timestamp="1594388166751" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1594200269751" />
   </component>
   <component name="XDebuggerManager">

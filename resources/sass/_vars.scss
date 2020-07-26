@@ -1,10 +1,13 @@
 // Body
 $body-bg: #fff;
+$light-shadow: rgba(0, 0, 0, 0.1);
 
 //Fonts
 $fira: 'Fira Sans', sans-serif;
 $noto: 'Noto Sans', sans-serif;
 $mont: 'Montserrat', sans-serif;
+$aleg: 'Alegreya Sans', sans-serif;
+$rale: 'Raleway', sans-serif;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
@@ -13,13 +16,18 @@ $line-height-base: 1.6;
 
 // Colors
 $indigo: #6574cd;
-
+$titleblue: #111E6C;
+$light_blue: #0549CE;
 $pink: #f66d9b;
 $orange: #f6993f;
 $yellow: #ffed4a;
+$dark_yellow: #FDC80C;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+$darkblue: #0B3F8D;
+$lightgray: #737373;
 
 $green: #95E2B6;
 $dgreen: #2ECC71;

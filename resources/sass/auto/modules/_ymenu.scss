@@ -1,0 +1,35 @@
+@import '../clear';
+@import '../../vars';
+
+.ymenu{
+    display: flex;
+    align-items: center;
+        .ydots{
+            padding-right: 26px;
+            i{
+                color: $darkblue;
+                font-size: em(40);
+            }
+        }
+    .users_icon{
+        display: flex;
+        align-items: center;
+            .favorite_items{
+                padding-right: 26px;
+                i{
+                    font-size: em(50);
+                    color: $lightgray;
+                }
+            }
+            .user_room{
+                width: 50px;
+                height: 50px;
+                border: 2px solid $lightgray;
+                border-radius: 50%;
+                i{
+                    font-size: em(30);
+                    color: $lightgray;
+                }
+            }
+    }
+}

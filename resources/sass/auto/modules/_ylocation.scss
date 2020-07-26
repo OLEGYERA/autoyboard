@@ -1,0 +1,12 @@
+@import '../clear';
+@import '../../vars';
+
+.ylocations {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.autocomplete {
+    position: relative;
+    width: 130px;
+}
