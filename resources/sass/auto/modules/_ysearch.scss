@@ -1,0 +1,30 @@
+@import '../clear';
+@import '../../vars';
+
+.ysearch{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 48%;
+    .search{
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid #E2E2E2;
+        border-radius: 12px;
+        font-family: $aleg;
+        font-style: normal;
+        font-weight: normal;
+        font-size: em(20);
+        line-height: 25px;
+        text-transform: capitalize;
+        color: #CDCDCD;
+        padding: 13px 0px 13px 30px;
+    }
+    .fas{
+        position: absolute;
+        right: 15px;
+        font-size: em(25);
+        color: rgba(34, 34, 34, 0.59);
+    }
+
+}

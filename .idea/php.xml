@@ -103,6 +103,13 @@
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/mobizon/mobizon-php" />
+<<<<<<< HEAD
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+=======
       <path value="$PROJECT_DIR$/vendor/sabre/dav" />
       <path value="$PROJECT_DIR$/vendor/sabre/xml" />
       <path value="$PROJECT_DIR$/vendor/sabre/vobject" />
@@ -111,6 +118,7 @@
       <path value="$PROJECT_DIR$/vendor/sabre/uri" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem-webdav" />
       <path value="$PROJECT_DIR$/vendor/pbmedia/laravel-webdav" />
+>>>>>>> d3d9801f31294e08852901a7c54cfd411ef1220f
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

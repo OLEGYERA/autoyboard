@@ -38879,15 +38879,27 @@ var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
 
 /***/ }),
 
+/***/ "./resources/sass/auto/site.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/auto/site.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************!*\
-  !*** multi ./resources/js/admin/admin.js ./resources/sass/admin/admin.scss ***!
-  \*****************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** multi ./resources/js/admin/admin.js ./resources/sass/admin/admin.scss ./resources/sass/auto/site.scss ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
-module.exports = __webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
+__webpack_require__(/*! C:\OpenServer\domains\YBoard\autoyboard\resources\js\admin\admin.js */"./resources/js/admin/admin.js");
+__webpack_require__(/*! C:\OpenServer\domains\YBoard\autoyboard\resources\sass\admin\admin.scss */"./resources/sass/admin/admin.scss");
+module.exports = __webpack_require__(/*! C:\OpenServer\domains\YBoard\autoyboard\resources\sass\auto\site.scss */"./resources/sass/auto/site.scss");
 
 
 /***/ })

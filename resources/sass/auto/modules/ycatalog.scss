@@ -1,0 +1,268 @@
+@import '../clear';
+@import '../../vars';
+
+.ycatalog_block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .change_visible{
+        display: none;
+    }
+    .y-cat-bottom{
+        display: flex;
+        width: 100%;
+        border-radius: 35px;
+        box-shadow: 28px 28px 113px rgba(220, 222, 222, 0.17), -28px -28px 56px rgba(255, 255, 255, 0.9), 23px 20px 35px rgba(220, 222, 222, 0.11), inset -1px -1px 2px #DCDEDE, inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+        .cat_categories{
+            width: 28%;
+            background: linear-gradient(151.07deg, #FEFFFF -17.9%, #E6E8E8 100%);
+            .y-bt_title{
+                padding: 12% 17%;
+                .title{
+                    font-family: $rale;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: em(48);
+                    line-height: 56px;
+                    text-transform: capitalize;
+                    color: rgba(80, 83, 83, 0.92);
+                    margin: 0;
+                }
+            }
+            .cat_list-items{
+                .list_items{
+                    text-align: start;
+                    padding: 0;
+                    margin: 0;
+                    .cat_item{
+                        padding: 5% 0% 5% 18%;
+                        cursor: pointer;
+                        font-family: $mont;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: em(20);
+                        line-height: 24px;
+                        color: rgba(80, 83, 83, 0.92);
+                        &:focus {
+                            color: #FFFFFF;
+                            background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
+                            border-radius: 1px;
+                        }
+
+                    }
+                }
+            }
+        }
+        .type_body-marks{
+            width: 100%;
+            border-radius: 0px 35px 0px 0px;
+            overflow: hidden;
+            .car_body-type{
+                padding: 3.5%;
+                min-height: 570px;
+                background: linear-gradient(179.92deg, rgba(27, 27, 27, 0.63) -60.3%, rgba(27, 27, 27, 0.08) 103.54%), #0B3F8D;
+                .body-type_top{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-bottom: 4.6%;
+                    .white{
+                        color: #FFFFFF;
+                        .arrow{
+                            right: 15px;
+                        }
+                        :after{
+                            content: "";
+                            width: 20px;
+                            height: 2px;
+                            position: absolute;
+                            background: #FFFFFF;
+                            top: 20px;
+                            right: 40px;
+                        }
+                    }
+                    .type-top_title{
+                        margin: 0;
+                        font-family: $rale;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: em(36);
+                        line-height: 42px;
+                        color: #FFFFFF;
+                    }
+                }
+                .yb-slide_type{
+                    display: flex;
+                    justify-content: space-around;
+                    width: 100%;
+                        .yb_clide-body{
+                            .slide{
+                                overflow: hidden;
+                                margin: 0;
+                                width: 100%;
+                                max-width: 500px;
+                                img{
+                                    width: 100%;
+                                }
+                                &:nth-child(2){
+                                    max-width: 568px;
+                                }
+                            }
+                            .small{
+                                max-width: 140px;
+                                img{
+                                    max-height: 70px;
+                                }
+                            }
+                            .body_name{
+                                font-family: $mont;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 29px;
+                                color: #FFFFFF;
+                                font-size: em(24);
+                            }
+                            &:nth-child(2){
+                                font-size: em(36);
+                                line-height: 44px;
+                                max-width: 568px;
+                            }
+                        }
+                }
+            }
+            .yb-car_marks{
+                padding: 3.5%;
+                .car_marks-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-bottom: 3%;
+                        .marks_title{
+                            font-family: $rale;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: em(36);
+                            line-height: 42px;
+                            text-transform: capitalize;
+                            color: rgba(80, 83, 83, 0.92);
+                            margin: 0;
+                        }
+                    .blue{
+                        color: #072F6A;
+                        .arrow{
+                            right: 15px;
+                            g{
+                                fill: #fff;
+                            }
+                        }
+                        &:after{
+                            content: '';
+                            width: 20px;
+                            height: 2px;
+                            color: #FFFFFF;
+                            position: absolute;
+                            background: #072F6A;
+                            top: 20px;
+                            right: 40px;
+                        }
+                    }
+
+
+                        .eclipse{
+                            color: #072F6A;
+                        }
+
+
+
+                }
+                .yb_list{
+                    .yb_marks_list{
+                        .marks-list_body{
+                            display: flex;
+                            justify-content: space-between;
+                            flex-flow: wrap;
+                            margin: 0;
+                            padding: 0;
+                            .mark_list{
+                                width: 18%;
+                                height: 158px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background: conic-gradient(from 89.31deg at -60.22% 59.22%, #FFFFFF 0deg, #FFFFFF 266.25deg, #EEEEEE 346.88deg, #FFFFFF 360deg);
+                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
+                                border-radius: 14px;
+
+                                .marks{
+                                    overflow: hidden;
+                                    margin: 0;
+                                    max-width: 130px;
+                                    img{
+                                        width: 100%;
+                                    }
+                                }
+                                &:first-child{
+                                    margin-bottom: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1600px){
+    .ycatalog_block{
+        .y-cat-bottom{
+            .cat_categories{
+                .y-bt_title{
+                    .title{
+                        font-size: em(36);
+                    }
+                }
+                .cat_list-items{
+                    .list_items{
+                        .cat_item{
+
+                        }
+                    }
+                }
+            }
+            .type_body-marks{
+                .car_body-type{
+                    min-height: 460px;
+                    .body-type_top{
+                        .type-top_title{
+                            font-size: em(32);
+                        }
+                    }
+                    .yb-slide_type{
+                        .yb_clide-body{
+                            .slide{
+
+
+                            }
+                        }
+                    }
+                }
+                .yb-car_marks{
+                    .car_marks-title{
+                        .marks_title{
+                           font-size: em(32);
+                        }
+                    }
+                    .yb_list{
+                        .yb_marks_list{
+                            .marks-list_body{
+                                .mark_list{
+                                    height: 140px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
