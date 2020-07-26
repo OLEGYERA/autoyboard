@@ -216,7 +216,42 @@
         }
     }
 }
+@media only screen and (max-width: 1440px){
+    .ybestoffer{
+        .y-best_items{
+            .offer_item{
+                max-width: 320px;
+                .yb-icon_check{
+                    .item_check{
 
+                        img{
+
+                        }
+                    }
+                    .new_item{
+
+                    }
+                }
+                .item_desc{
+                    .item_name{
+                        font-size: em(20);
+                    }
+                    .sity-name_item{
+
+                    }
+                    .price_more{
+                        .item_price{
+
+                        }
+                        .show_more{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 @media only screen and (max-width: 945px){
     .y-best_items{
         .offer_item{
