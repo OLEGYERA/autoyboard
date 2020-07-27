@@ -1,27 +1,28 @@
 <template>
         <div class="autocomplete">
-            <div class="control icon-right">
-                <input type="text" class="input-dropdown"
-                       placeholder=""
-                       @input="onInput($event.target.value)"
-                       @blur="isOpened = false"
-                       @keyup.enter="select"
-                       @keyup.tab="select"
-                       @keydown.down="onDown"
-                       @keydown.up="onUp"
-                       @click="toggle"
-                       @keyup.esc="isOpen = false"
-                       ref="dropdown"
-                       v-model="search"
+                <input
+                    type="text"
+                    class="input-dropdown"
+                    @input="onInput($event.target.value)"
+                    @blur="isOpened = false"
+                    @keyup.enter="select"
+                    @keyup.tab="select"
+                    @keydown.down="onDown"
+                    @keydown.up="onUp"
+                    @click="toggle"
+                    @keyup.esc="isOpen = false"
+                    ref="dropdown"
+                    v-model="search"
+                    :placeholder="placeholder"
                 />
                 <i class="ynav-list-toggle fas"
                    @click="toggle"
-                   :class="{'fa-chevron-up' :isOpened, 'fa-chevron-down':  !isOpened}"></i>
-            </div>
-
+                   :class="{'fa-chevron-up' :isOpened, 'fa-chevron-down':  !isOpened}">
+                </i>
     <transition	name="fade" mode="in-out">
-        <ul class="options-list" v-show="isOpened">
+        <ul class="options-list"  ref="scrollContainer" v-show="isOpened">
             <li v-for="(option, i) in filteredItems"
+                ref="options"
                 @mouseenter="selected = i"
                 @mousedown="select"
                 v-if="search.length > 0"
@@ -29,7 +30,7 @@
                 {{ option.name }}
                 <slot name="item" :title="option"></slot>
             </li>
-            <div class="selected" v-if="search.length === 0">Не найдено</div>
+            <li class="selected" v-if="search.length === 0">Не найдено</li>
         </ul>
     </transition>
     </div>
@@ -37,18 +38,34 @@
 
 <script>
 export  default  {
-    props: ['options'],
+    props: ['options', 'placeholder'],
     data() {
         return {
             isOpened: false,
             selected: null,
             search: "",
+            results: []
+        }
+    },
+    computed: {
+        filteredItems() {
+            this.selected = null
+            if(this.$refs.scrollContainer){
+                this.$refs.scrollContainer.scrollTop = 0;
+            }
+
+            const condition = new RegExp(this.search, "i");
+            return this.options.filter(item => item.name.match(condition));
+
         }
     },
     methods: {
         onInput(value) {
             this.isOpened = !!value;
             this.selected = null;
+            this.onDown();
+            this.onUp()
+
         },
         select() {
             const selectedOption = this.filteredItems[this.selected];
@@ -56,41 +73,50 @@ export  default  {
             this.search = selectedOption.name;
             this.isOpened = false;
         },
-        onDown() {
+        onDown(ev) {
             if (!this.isOpened) {
                 return;
             }
             this.selected = (this.selected + 1) % this.filteredItems.length;
-        },
+            this.fixScrolling()
+            },
         onUp() {
             if (!this.isOpened) {
                 return;
             }
-
             this.selected =
                 this.selected - 1 < 0
                     ? this.filteredItems.length - 1
                     : this.selected - 1;
-        },
+            this.fixScrolling()
+            console.log(this.fixScrolling())
+            },
         toggle() {
             this.isOpened = !this.isOpened;
             if (this.isOpened) {
                 this.$refs.dropdown.focus();
             }
-        }
+        },
+        fixScrolling(){
+            const scroll = this.$refs.options[this.selected].scrollHeight;
+            this.$refs.scrollContainer.scrollTop = scroll * this.selected;
+            console.log(this.$refs.scrollContainer.scrollTop);
+            console.log(scroll * this.arrowCounter);
+        },
     },
-    computed: {
-        filteredItems() {
-            const condition = new RegExp(this.search, "i");
-            return this.options.filter(item => item.name.match(condition));
-        }
-    }
 }
 </script>
 
 <style scoped>
     .autocomplete {
-        width: 230px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .autocomplete:last-child{
+        margin-bottom: 0;
     }
     ul.options-list li.selected {
         background-color: #111E6C;
@@ -98,61 +124,47 @@ export  default  {
     }
 
     input.input-dropdown {
-        height: 32px;
         width: 100%;
-        color: black;
-        font-size: 16px;
-
-        padding-left: 8px;
-        border: none;
+        height: 42px;
+        padding: 10px 40px 10px 20px;
+        font-family: "Alegreya Sans", sans-serif;
+        font-weight: 500;
+        font-size: 1.125em;
+        color: rgba(34, 34, 34, 0.8);
+        border-radius: 10px;
+        border: 1px solid #E2E2E2;
     }
-
-    input.input-dropdown::-webkit-input-placeholder {
-        color: #fff;
-    }
-    .control {
-        position: relative;
-        display: flex;
-        margin-bottom: 0.1rem;
-        z-index: 10;
-    }
-
-    .control i {
-        top: 0;
-        border: none;
-        right: 15px;
-        color: black;
+    .autocomplete i {
         position: absolute;
+        right: 15px;
+        color: #C7C7C7;
 
     }
 
     ul.options-list {
-        list-style-type: none;
+        font-family: "Alegreya Sans", sans-serif;
+        background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
         position: absolute;
-        width: 100%;
         padding: 0;
-        top: 35px;
         margin: 0;
-        border: 1px solid #dbdbdb;
-        border-radius: 0 0 3px 3px;
-        max-height: 300px;
-        overflow-y: auto;
-        box-shadow: 0px 3px 6px 0px rgba(195, 195, 195, 0.76);
+        width: 100%;
+        max-height: 180px;
+        overflow: auto;
+        top: 50px;
+        z-index: 2;
     }
 
     ul.options-list li {
+        height: 30px;
         display: flex;
-        flex-direction: row-reverse;
+        justify-content: center;
         align-items: center;
-        justify-content: flex-end;
-        padding: 0.4rem;
-        border-bottom: 1px solid #eee;
-        color: #666;
-        background-color: #fff;
+        cursor: pointer;
+        color: rgba(34, 34, 34, 0.79);
         cursor: pointer;
         transition: 0.3s all ease;
     }
-    .icon-right i {
+    .control i {
         transition: 0.3s all ease;
     }
 

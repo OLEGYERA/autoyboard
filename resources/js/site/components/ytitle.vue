@@ -1,14 +1,12 @@
 <template>
-    <div class="y-best_top">
-        <div class="top_title">
-            <h3 class="title">{{title}}</h3>
-        </div>
+    <div class="ytitle">
+        <h2>{{title}}</h2>
         <div class="change_visible">
+            <button class="change_view active">
+                <i class="fas fa-th"></i>
+            </button>
             <button class="change_view">
                 <i class="fas fa-th-list"></i>
-            </button>
-            <button  class="change_view">
-                <i class="fas fa-th"></i>
             </button>
         </div>
     </div>

@@ -1,9 +1,9 @@
 <template>
     <div class="ybestoffer">
-        <ytopcontent :title="'Лучшие предложения'"></ytopcontent>
-        <div class="y-best_items">
+        <ytitle :title="'Лучшие предложения'"></ytitle>
+        <div class="ybest-items">
                 <VueSlickCarousel style="display: flex" v-bind="settings">
-                    <div class="offer_item">
+                    <div class="ybest-item">
                         <div class="yb-icon_check">
                             <button class="item_check">
                                 <img src="img/system/icons/car_check.svg" alt="">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="offer_item">
+                    <div class="ybest-item">
                         <div class="yb-icon_check">
                             <button class="item_check">
                                 <img src="img/system/icons/car_check.svg" alt="">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="offer_item">
+                    <div class="ybest-item">
                         <div class="yb-icon_check">
                             <button class="item_check">
                                 <img src="img/system/icons/car_check.svg" alt="">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="offer_item">
+                    <div class="ybest-item">
                         <div class="yb-icon_check">
                             <button class="item_check">
                                 <img src="img/system/icons/car_check.svg" alt="">
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="offer_item">
+                    <div class="ybest-item">
                         <div class="yb-icon_check">
                             <button class="item_check">
                                 <img src="img/system/icons/car_check.svg" alt="">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="offer_item">
+                    <div class="ybest-item">
                         <div class="yb-icon_check">
                             <button class="item_check">
                                 <img src="img/system/icons/car_check.svg" alt="">

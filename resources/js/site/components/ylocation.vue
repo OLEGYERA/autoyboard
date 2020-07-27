@@ -1,5 +1,5 @@
 <template>
-    <div :class="container">
+    <div class="ylocation" :class="container">
         <input
             :class="input_style"
             @input="onChange"
@@ -106,6 +106,8 @@
         },
         computed:{
             filterResults() {
+                this.arrowCounter = 0;
+                this.$refs.scrollContainer.scrollTop = 0;
                 this.results = this.items.filter((item) => {
                     return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
                 });
@@ -114,10 +116,9 @@
         },
 
         methods: {
-
             onChange() {
                 this.isOpen = true;
-                this.filterResults();
+                this.filterResults;
             },
             setResult(result) {
                 this.search = result;
@@ -147,8 +148,6 @@
                 this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
                 console.log(this.$refs.scrollContainer.scrollTop);
                 console.log(scroll * this.arrowCounter);
-
-
             },
 
             showAll() {

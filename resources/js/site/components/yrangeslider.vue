@@ -34,11 +34,11 @@
     import ZbRangeSlider from './ZbRangeSlider'
     export default {
         props:  ['min', 'max', ],
-
         data: function () {
             return {
                 instance: undefined,
                 step: 200,
+
 
             }
         },
@@ -56,6 +56,83 @@
     }
 
 </script>
+
+// data(){
+//     return{
+//         min: 200,
+//         max: 100000,
+//         minPrice: '',
+//         maxPrice: '',
+//         step: 500,
+//         totalSteps: 0,
+//         percentPerStep: 1,
+//         trackWidth: null,
+//         isDragging: false,
+//         pos: {
+//             curTrack: null
+//         }
+//     }
+// },
+// methods: {
+//     moveTrack(track, ev){
+//
+//         let percentInPx = this.getPercentInPx();
+//
+//         let trackX = Math.round(this.$refs._vpcTrack.getBoundingClientRect().left);
+//         let clientX = ev.clientX;
+//         let moveDiff = clientX-trackX;
+//
+//         let moveInPct = moveDiff / percentInPx
+//         // console.log(moveInPct)
+//
+//         if(moveInPct<1 || moveInPct>100) return;
+//         let value = ( Math.round(moveInPct / this.percentPerStep) * this.step ) + this.min;
+//         if(track==='track1'){
+//             if(value >= (this.maxPrice - this.step)) return;
+//             this.minPrice = value;
+//         }
+//
+//         if(track==='track2'){
+//             if(value <= (this.minPrice + this.step)) return;
+//             this.maxPrice = value;
+//         }
+//
+//         this.$refs[track].style.left = moveInPct + '%';
+//         this.setTrackHightlight()
+//
+//     },
+//     mousedown(ev, track){
+//
+//         if(this.isDragging) return;
+//         this.isDragging = true;
+//         this.pos.curTrack = track;
+//     },
+//
+//     touchstart(ev, track){
+//         this.mousedown(ev, track)
+//     },
+//
+//     mouseup(ev, track){
+//         if(!this.isDragging) return;
+//         this.isDragging = false
+//     },
+//
+//     touchend(ev, track){
+//         this.mouseup(ev, track)
+//     },
+//
+//     mousemove(ev, track){
+//         if(!this.isDragging) return;
+//         this.moveTrack(track, ev)
+//     },
+//
+//     touchmove(ev, track){
+//         this.mousemove(ev.changedTouches[0], track)
+//     },
+//
+//     valueToPercent(value){
+//         return ((value - this.min) / this.step) * this.percentPerStep
+//     },
 
 <style>
     .slider {
