@@ -12,25 +12,28 @@ class PageController extends Controller
 {
 
     public function start(){
-        echo '<img src="' . route('lol', ['alias' => 4841414515461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 484145461]) . '" />';
 
-        echo '<img src="' . route('lol', ['alias' => 484141451461]) . '" />';
+                return view('auto.site.templates.basicHTML');
 
-        echo '<img src="' . route('lol', ['alias' => 484141455461]) . '" />';
-
-        echo '<img src="' . route('lol', ['alias' => 484141455461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 48414145415461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 48411454515461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 48414154515461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 48414141461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 4841145461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 4854141445561]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 4841415154651]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 484144515461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 4841412515461]) . '" />';
-        echo '<img src="' . route('lol', ['alias' => 4841145154561]) . '" />';
-
+//        echo '<img src="' . route('lol', ['alias' => 4841414515461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 484145461]) . '" />';
+//
+//        echo '<img src="' . route('lol', ['alias' => 484141451461]) . '" />';
+//
+//        echo '<img src="' . route('lol', ['alias' => 484141455461]) . '" />';
+//
+//        echo '<img src="' . route('lol', ['alias' => 484141455461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 48414145415461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 48411454515461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 48414154515461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 48414141461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 4841145461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 4854141445561]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 4841415154651]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 484144515461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 4841412515461]) . '" />';
+//        echo '<img src="' . route('lol', ['alias' => 4841145154561]) . '" />';
+//
 
 
 
@@ -74,7 +77,6 @@ class PageController extends Controller
 //        file_put_contents('123.png', $img);
 //        imagepng('123.png');
 //        return asset('123.png');
-//        return view('auto.site.templates.basicHTML');
     }
 
 

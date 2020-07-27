@@ -108,6 +108,7 @@
         <section class="ynews">
             <ynews></ynews>
         </section>
+
     </main>
 
     <footer class="yfooter_content">

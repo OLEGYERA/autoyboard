@@ -64,7 +64,8 @@
             <div class="yprice_options">
                 <h3 class="ytitle_option">Цена</h3>
                 <div class="change_price">
-                    <yrange></yrange>
+                    <yrange  :min="min" :max="max" @update:min="value => min = value" @update:max="value => max = value"></yrange>
+                    <test :options="options"></test>
                 </div>
             </div>
             <div class="yresource_options">
@@ -89,9 +90,48 @@
         data: function(){
             return{
                 catStatus: false,
+                min: 0,
+                max: 100000,
+                options: [
+                    {
+                        id: 1,
+                        name: "Одесса",
+                    },
+                    {
+                        id: 2,
+                        name: "Киев",
+                    },
+                    {
+                        id: 3,
+                        name: "Харьков",
+                    },
+                    {
+                        id: 4,
+                        name: "Луцк",
+                    },
+                    {
+                        id: 5,
+                        name: "Запорожье",
+                    },
+                    {
+                        id: 6,
+                        name: "Полтава",
+                    },
+                    {
+                        id: 7,
+                        name: "Севастополь",
+                    },
+                    {
+                        id: 7,
+                        name: "Симферополь",
+                    },
+                ]
             }
         },
         methods: {
+            onOptionSelect(option) {
+                console.log(option);
+            },
             catSatusToggle(){
                 this.catStatus = !this.catStatus;
             },
