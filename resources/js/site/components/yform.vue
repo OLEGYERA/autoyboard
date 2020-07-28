@@ -2,29 +2,11 @@
     <div class="yform">
         <div class="left_options">
             <div class="selector-rows">
-                <div @click="catSatusToggle()" class="yinput_list" >
-                    <ylocation
-                        :container="'yselect'"
-                        :text="'Тип авто'"
-                        :drop_style="'ynav_drop'"
-                        :list_style="'y_nav_list'"
-                        :input_style="'select_form'">
-                    </ylocation>
-                    <i class="ynav-list-toggle fas" :class="catStatus ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
-                </div>
-                <div @click="catSatusToggle()" class="yinput_list" >
-                    <ylocation
-                        :container="'yselect'"
-                        :text="'Модель'"
-                        :drop_style="'ynav_drop'"
-                        :list_style="'y_nav_list'"
-                        :input_style="'select_form'">
-                    </ylocation>
-                    <i class="ynav-list-toggle fas" :class="catStatus ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
-                </div>
-                <test :placeholder="'Марка'" :options="options"></test>
-                <test :placeholder="'Тип кузова'" :options="options"></test>
-                <test :placeholder="'Регион'" :options="options"></test>
+                <yselect :placeholder="'Тип авто'" :options="options"></yselect>
+                <yselect :placeholder="'Модель'" :options="options"></yselect>
+                <yselect :placeholder="'Марка'" :options="options"></yselect>
+                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>
+                <yselect :placeholder="'Регион'" :options="options"></yselect>
             </div>
             <div class="yform-submit">
                 <button>Поиск</button>
@@ -37,9 +19,9 @@
                 <button class="change_type">Б/у</button>
             </div>
             <div class="yprice_options">
-                <h3 class="ytitle_option">Цена</h3>
+                <h3 class="ytitle_option">Цена, $</h3>
                 <div class="change_price">
-                    <yrange  :min="min" :max="max" @update:min="value => min = value" @update:max="value => max = value"></yrange>
+                    <yrange></yrange>
                 </div>
             </div>
             <div class="yresource_options">
@@ -64,40 +46,46 @@
         data: function(){
             return{
                 catStatus: false,
-                min: 0,
-                max: 100000,
                 options: [
                     {
                         id: 1,
                         name: "Одесса",
+                        lastname: "Одесская обл"
                     },
                     {
                         id: 2,
                         name: "Киев",
+                        lastname: "Киевская обл"
                     },
                     {
                         id: 3,
                         name: "Харьков",
+                        lastname: "Харьковская обл"
                     },
                     {
                         id: 4,
                         name: "Луцк",
+                        lastname: "Волынская обл"
                     },
                     {
                         id: 5,
                         name: "Запорожье",
+                        lastname: "Запорожская обл"
                     },
                     {
                         id: 6,
                         name: "Полтава",
+                        lastname: "Полставская обл"
                     },
                     {
                         id: 7,
                         name: "Севастополь",
+                        lastname: ""
                     },
                     {
                         id: 7,
                         name: "Симферополь",
+
                     },
                 ]
             }

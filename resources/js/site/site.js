@@ -21,7 +21,8 @@ Vue.component('yfavorite', require('./components/yfavorite').default);
 Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 
-Vue.component('test', require('./components/testslider').default);
+ Vue.component('yselect', require('./components/yselectsearch').default);
+
 
 
 Vue.component('carousel', require('./components/carousel').default);

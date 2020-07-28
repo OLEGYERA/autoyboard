@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "inputmask": "^5.0.4-beta.33",
+        "nouislider": "^14.6.0",
         "vue": "^2.6.11",
         "vue-router": "^3.3.4",
         "vue-slick-carousel": "^1.0.6",
