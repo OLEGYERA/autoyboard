@@ -1,11 +1,9 @@
 <template>
     <div class="ycatalog_block">
-        <ytopcontent :title="'Каталог'"></ytopcontent>
+        <ytitle :title="'Каталог'"></ytitle>
         <div class="y-cat-bottom">
             <div class="cat_categories">
-                <div class="y-bt_title">
                     <h3 class="title">Категории</h3>
-                </div>
                 <div class="cat_list-items">
                     <ul class="list_items">
                         <li  tabindex="0" class="cat_item">Легковые</li>

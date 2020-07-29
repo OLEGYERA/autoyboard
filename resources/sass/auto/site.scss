@@ -19,11 +19,11 @@
 @import 'modules/yform';
 @import 'modules/ycheckbox';
 @import 'modules/yrangeslider';
-//@import 'modules/ybestoffers';
-//@import 'modules/ycatalog';
-//@import 'modules/yfavorite';
-//@import 'modules/yanalitics';
-//@import 'modules/ynews';
+@import 'modules/ybestoffers';
+@import 'modules/ycatalog';
+@import 'modules/yfavorite';
+@import 'modules/yanalitics';
+@import 'modules/ynews';
 
 #yb-site{
     display: flex;
@@ -39,7 +39,7 @@
         width: 100%;
 
         .ycatalog{
-            padding: 0px 7.4% 50px 7.4%;
+            padding: 0px 17%;
             position: relative;
             width: 100%;
             &:after{
@@ -53,7 +53,7 @@
             }
         }
         .yanalytics{
-            padding: 0px 7.4% 50px 7.4%;
+            padding: 0px 17%;
             position: relative;
             width: 100%;
             &:after{
@@ -67,7 +67,7 @@
             }
         }
         .ynews{
-            padding: 0px 7.4% 50px 7.4%;
+            padding: 0px 17%;
             width: 100%;
         }
     }
@@ -124,7 +124,7 @@
                     .yrepeat_list{
                         padding: 0;
                         margin: 0;
-                        margin-top: 15px;
+                        margin-top: 10px;
                         .item_repeat{
                             text-align: start;
                             padding-bottom: 4px;
@@ -176,8 +176,7 @@
         }
     @media only screen and (max-width: 1600px){
         header.yb-header{
-            padding: 0px 14.4% 0px 14.4%;
-            height: 80px;
+
             .yb-header-left{
                 .yb-logo{
                     margin-right: 40px;
@@ -196,26 +195,25 @@
                 margin-left: 38px;
                 .ysearch{
                     .search{
-                        padding: 8px 0px 9px 20px;
-                        font-size: em(18);
+
                     }
                     .fas{
-                        font-size: em(18);
+
                     }
                 }
                 .ylocation{
                     .fas{
-                        font-size: em(22);
+
                     }
                     .ylocations{
-                        width: 120px;
+
                         .dropdown-input{
-                            font-size: em(18);
+
                         }
                     }
                     .yb-lang-switcher{
                         .ylang{
-                            font-size: em(18);
+
                         }
                     }
                 }
@@ -223,20 +221,19 @@
                     .ymenu{
                         .ydots{
                             .fas{
-                                font-size:em(30) ;
+
                             }
                         }
                         .users_icon{
                             .favorite_items{
                                 .far{
-                                    font-size: em(34);
+
                                 }
                             }
                             .user_room{
-                                width: 40px;
-                                height: 40px;
+
                                 .fas{
-                                    font-size: em(18);
+
                                 }
                             }
                         }

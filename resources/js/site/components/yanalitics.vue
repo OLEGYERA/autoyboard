@@ -1,6 +1,6 @@
 <template>
     <div class="yanalitic">
-        <ytopcontent :title="'Аналитика'"></ytopcontent>
+        <ytitle :title="'Аналитика'"></ytitle>
         <div class="yanalitics_nav">
             <ul class="ynavigation">
                 <li tabindex="0" class="nav_item">Лучшая цена</li>

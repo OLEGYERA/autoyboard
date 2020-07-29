@@ -1,12 +1,15 @@
 <template>
     <div class="yb_auto_news">
-        <ytopcontent :title="'Новости'"></ytopcontent>
+        <ytitle :title="'Новости'"></ytitle>
         <div class="ynews_item">
             <div class="y_item-left">
-                <div class="ynews_left">
+                <div
+                    @mouseover="isHovering = true"
+                    @mouseout="isHovering = false"
+                    class="ynews_left">
                     <div class="news_decs">
-                        <h2 class="title">Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                        <p class="desc">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                        <h2  class="title">Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
+                        <p :class="{'hovering': isHovering, 'desc': !isHovering}">Компания Acura представила обновленный вариант компактного кроссовера</p>
                         <button class="read_more">
                             Читать дальше
                             <img src="img/system/icons/arrow_right.png" alt="">
@@ -19,10 +22,13 @@
                 </div>
             </div>
             <div class="y_item_right">
-                <div class="ynews_right">
+                <div
+                     @mouseover="isHovering = true"
+                     @mouseout="isHovering = false"
+                     class="ynews_right">
                     <div class="news_decs">
                         <h2 class="title">Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                        <p class="desc">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                        <p :class="{'hovering': isHovering, 'desc': !isHovering}">Компания Acura представила обновленный вариант компактного кроссовера</p>
                         <button class="read_more">
                             Читать дальше
                             <img src="img/system/icons/arrow_right.png" alt="">
@@ -34,10 +40,13 @@
                     </figure>
                 </div>
                 <div class="ynews_right-block">
-                    <div class="item_news">
+                    <div
+                         @mouseover="isHovering = true"
+                         @mouseout="isHovering = false"
+                         class="item_news">
                          <div class="news_decs">
                         <h2 class="title">Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                        <p class="desc">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                        <p :class="{'hovering': isHovering, 'desc': !isHovering}">Компания Acura представила обновленный вариант компактного кроссовера</p>
                         <button class="read_more">
                             Читать дальше
                             <img src="img/system/icons/arrow_right.png" alt="">
@@ -48,10 +57,13 @@
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnXDmd0w9tZ4dacXnYiXWDnFnPFjVbIsxYTA&usqp=CAU" alt="">
                     </figure>
                     </div>
-                    <div class="item_news">
+                    <div
+                        @mouseover="isHovering = true"
+                        @mouseout="isHovering = false"
+                        class="item_news">
                          <div class="news_decs">
                         <h2 class="title">Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                        <p class="desc">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                        <p :class="{'hovering': isHovering, 'desc': !isHovering}">Компания Acura представила обновленный вариант компактного кроссовера</p>
                         <button class="read_more">
                             Читать дальше
                             <img src="img/system/icons/arrow_right.png" alt="">
@@ -72,5 +84,14 @@
 </template>
 
 <script>
+export default {
+    data(){
+        return{
+            isHovering: false
+        }
+    },
+    methods: {
 
+    }
+}
 </script>

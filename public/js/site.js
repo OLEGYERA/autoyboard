@@ -2300,6 +2300,15 @@ __webpack_require__.r(__webpack_exports__);
             dots: true,
             arrows: true
           }
+        }, {
+          breakpoint: 320,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: false,
+            dots: true,
+            arrows: true
+          }
         }]
       }
     };
@@ -2315,8 +2324,6 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-//
-//
 //
 //
 //
@@ -2763,9 +2770,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ynews.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -2839,6 +2848,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isHovering: false
+    };
+  },
+  methods: {}
+});
 
 /***/ }),
 
@@ -24522,7 +24551,7 @@ var render = function() {
     "div",
     { staticClass: "yanalitic" },
     [
-      _c("ytopcontent", { attrs: { title: "Аналитика" } }),
+      _c("ytitle", { attrs: { title: "Аналитика" } }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -25313,7 +25342,7 @@ var render = function() {
     "div",
     { staticClass: "ycatalog_block" },
     [
-      _c("ytopcontent", { attrs: { title: "Каталог" } }),
+      _c("ytitle", { attrs: { title: "Каталог" } }),
       _vm._v(" "),
       _c("div", { staticClass: "y-cat-bottom" }, [
         _vm._m(0),
@@ -25372,9 +25401,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "cat_categories" }, [
-      _c("div", { staticClass: "y-bt_title" }, [
-        _c("h3", { staticClass: "title" }, [_vm._v("Категории")])
-      ]),
+      _c("h3", { staticClass: "title" }, [_vm._v("Категории")]),
       _vm._v(" "),
       _c("div", { staticClass: "cat_list-items" }, [
         _c("ul", { staticClass: "list_items" }, [
@@ -25997,11 +26024,177 @@ var render = function() {
     "div",
     { staticClass: "yb_auto_news" },
     [
-      _c("ytopcontent", { attrs: { title: "Новости" } }),
+      _c("ytitle", { attrs: { title: "Новости" } }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "ynews_item" }, [
+        _c("div", { staticClass: "y_item-left" }, [
+          _c(
+            "div",
+            {
+              staticClass: "ynews_left",
+              on: {
+                mouseover: function($event) {
+                  _vm.isHovering = true
+                },
+                mouseout: function($event) {
+                  _vm.isHovering = false
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "news_decs" }, [
+                _c("h2", { staticClass: "title" }, [
+                  _vm._v(
+                    "Opel продолжает понемногу рассекречивать кроссовер Mokka"
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    class: { hovering: _vm.isHovering, desc: !_vm.isHovering }
+                  },
+                  [
+                    _vm._v(
+                      "Компания Acura представила обновленный вариант компактного кроссовера"
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "y_item_right" }, [
+          _c(
+            "div",
+            {
+              staticClass: "ynews_right",
+              on: {
+                mouseover: function($event) {
+                  _vm.isHovering = true
+                },
+                mouseout: function($event) {
+                  _vm.isHovering = false
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "news_decs" }, [
+                _c("h2", { staticClass: "title" }, [
+                  _vm._v(
+                    "Opel продолжает понемногу рассекречивать кроссовер Mokka"
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    class: { hovering: _vm.isHovering, desc: !_vm.isHovering }
+                  },
+                  [
+                    _vm._v(
+                      "Компания Acura представила обновленный вариант компактного кроссовера"
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(2)
+              ]),
+              _vm._v(" "),
+              _vm._m(3)
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "ynews_right-block" }, [
+            _c(
+              "div",
+              {
+                staticClass: "item_news",
+                on: {
+                  mouseover: function($event) {
+                    _vm.isHovering = true
+                  },
+                  mouseout: function($event) {
+                    _vm.isHovering = false
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "news_decs" }, [
+                  _c("h2", { staticClass: "title" }, [
+                    _vm._v(
+                      "Opel продолжает понемногу рассекречивать кроссовер Mokka"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      class: { hovering: _vm.isHovering, desc: !_vm.isHovering }
+                    },
+                    [
+                      _vm._v(
+                        "Компания Acura представила обновленный вариант компактного кроссовера"
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ]),
+                _vm._v(" "),
+                _vm._m(5)
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_news",
+                on: {
+                  mouseover: function($event) {
+                    _vm.isHovering = true
+                  },
+                  mouseout: function($event) {
+                    _vm.isHovering = false
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "news_decs" }, [
+                  _c("h2", { staticClass: "title" }, [
+                    _vm._v(
+                      "Opel продолжает понемногу рассекречивать кроссовер Mokka"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      class: { hovering: _vm.isHovering, desc: !_vm.isHovering }
+                    },
+                    [
+                      _vm._v(
+                        "Компания Acura представила обновленный вариант компактного кроссовера"
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ]),
+                _vm._v(" "),
+                _vm._m(7)
+              ]
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(8)
     ],
     1
   )
@@ -26011,180 +26204,132 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ynews_item" }, [
-      _c("div", { staticClass: "y_item-left" }, [
-        _c("div", { staticClass: "ynews_left" }, [
-          _c("div", { staticClass: "news_decs" }, [
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "desc" }, [
-              _vm._v(
-                "Компания Acura представила обновленный вариант компактного кроссовера"
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "read_more" }, [
-              _vm._v(
-                "\n                        Читать дальше\n                        "
-              ),
-              _c("img", {
-                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("figure", { staticClass: "news_image" }, [
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              attrs: {
-                src:
-                  "https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
-                alt: ""
-              }
-            })
-          ])
-        ])
-      ]),
+    return _c("button", { staticClass: "read_more" }, [
+      _vm._v(
+        "\n                        Читать дальше\n                        "
+      ),
+      _c("img", { attrs: { src: "img/system/icons/arrow_right.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "news_image" }, [
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "y_item_right" }, [
-        _c("div", { staticClass: "ynews_right" }, [
-          _c("div", { staticClass: "news_decs" }, [
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "desc" }, [
-              _vm._v(
-                "Компания Acura представила обновленный вариант компактного кроссовера"
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "read_more" }, [
-              _vm._v(
-                "\n                        Читать дальше\n                        "
-              ),
-              _c("img", {
-                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("figure", { staticClass: "news_image" }, [
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              attrs: {
-                src:
-                  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
-                alt: ""
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ynews_right-block" }, [
-          _c("div", { staticClass: "item_news" }, [
-            _c("div", { staticClass: "news_decs" }, [
-              _c("h2", { staticClass: "title" }, [
-                _vm._v(
-                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "desc" }, [
-                _vm._v(
-                  "Компания Acura представила обновленный вариант компактного кроссовера"
-                )
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "read_more" }, [
-                _vm._v(
-                  "\n                        Читать дальше\n                        "
-                ),
-                _c("img", {
-                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("figure", { staticClass: "news_image" }, [
-              _c("div", {
-                staticClass: "background_style",
-                staticStyle: {
-                  background:
-                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-                }
-              }),
-              _vm._v(" "),
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnXDmd0w9tZ4dacXnYiXWDnFnPFjVbIsxYTA&usqp=CAU",
-                  alt: ""
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_news" }, [
-            _c("div", { staticClass: "news_decs" }, [
-              _c("h2", { staticClass: "title" }, [
-                _vm._v(
-                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "desc" }, [
-                _vm._v(
-                  "Компания Acura представила обновленный вариант компактного кроссовера"
-                )
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "read_more" }, [
-                _vm._v(
-                  "\n                        Читать дальше\n                        "
-                ),
-                _c("img", {
-                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("figure", { staticClass: "news_image" }, [
-              _c("div", {
-                staticClass: "background_style",
-                staticStyle: {
-                  background:
-                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-                }
-              }),
-              _vm._v(" "),
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg",
-                  alt: ""
-                }
-              })
-            ])
-          ])
-        ])
-      ])
+      _c("img", {
+        attrs: {
+          src:
+            "https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "read_more" }, [
+      _vm._v(
+        "\n                        Читать дальше\n                        "
+      ),
+      _c("img", { attrs: { src: "img/system/icons/arrow_right.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "news_image" }, [
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      }),
+      _vm._v(" "),
+      _c("img", {
+        attrs: {
+          src:
+            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "read_more" }, [
+      _vm._v(
+        "\n                        Читать дальше\n                        "
+      ),
+      _c("img", { attrs: { src: "img/system/icons/arrow_right.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "news_image" }, [
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      }),
+      _vm._v(" "),
+      _c("img", {
+        attrs: {
+          src:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnXDmd0w9tZ4dacXnYiXWDnFnPFjVbIsxYTA&usqp=CAU",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "read_more" }, [
+      _vm._v(
+        "\n                        Читать дальше\n                        "
+      ),
+      _c("img", { attrs: { src: "img/system/icons/arrow_right.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "news_image" }, [
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      }),
+      _vm._v(" "),
+      _c("img", {
+        attrs: {
+          src:
+            "https://cdn.vox-cdn.com/thumbor/WiYWlj5FK_KGMOyvJEr3axdonVY=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/66946920/akrales_170324_1554_A_0028.0.0.jpg",
+          alt: ""
+        }
+      })
     ])
   },
   function() {
@@ -50589,9 +50734,7 @@ component.options.__file = "resources/js/site/components/ynews.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ynews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ynews.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ynews.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ynews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ynews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ynews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ynews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ynews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ynews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

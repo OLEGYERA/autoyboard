@@ -223,6 +223,16 @@ export default {
                             arrows: true,
                         }
                     },
+                    {
+                        breakpoint: 320,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: false,
+                            dots: true,
+                            arrows: true,
+                        }
+                    },
                 ]
 
             },
