@@ -2963,6 +2963,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['options', 'placeholder'],
   mounted: function mounted() {
@@ -2988,7 +2991,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var condition = new RegExp(this.search, "i");
-      return this.options.filter(function (item) {
+      this.results = this.options.filter(function (item) {
         return item.name.match(condition);
       });
     },
@@ -2997,26 +3000,35 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    onInput: function onInput(value) {
-      this.isOpened = !!value;
-      this.selected = null;
-      this.onDown();
-      this.onUp();
-    },
-    select: function select() {
-      var selectedOption = this.filteredItems[this.selected];
-      this.$emit("select-item", selectedOption);
-      this.search = selectedOption.name;
-      this.results = selectedOption.name;
+    setResult: function setResult(result) {
+      this.search = result.name;
+      this.results = result;
       this.isOpened = false;
       this.selected = null;
     },
-    onDown: function onDown(ev) {
+    onChange: function onChange() {
+      this.isOpened = true;
+      this.filteredItems;
+      console.log(this.isOpened);
+    },
+    select: function select() {
+      var searchName = this.results[this.selected];
+      this.search = searchName.name;
+      this.results = searchName.name;
+      this.selected = null;
+
+      if (this.results.length > 0) {
+        this.selected = null;
+      }
+
+      this.isOpened = false;
+    },
+    onDown: function onDown() {
       if (!this.isOpened) {
         return;
       }
 
-      this.selected = (this.selected + 1) % this.filteredItems.length;
+      this.selected = (this.selected + 1) % this.results.length;
       this.fixScrolling();
     },
     onUp: function onUp() {
@@ -3024,7 +3036,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      this.selected = this.selected - 1 < 0 ? this.filteredItems.length - 1 : this.selected - 1;
+      this.selected = this.selected - 1 < 0 ? this.results.length - 1 : this.selected - 1;
       this.fixScrolling();
     },
     toggle: function toggle() {
@@ -3033,6 +3045,8 @@ __webpack_require__.r(__webpack_exports__);
       if (this.isOpened) {
         this.$refs.dropdown.focus();
       }
+
+      console.log(this.isOpened);
     },
     fixScrolling: function fixScrolling() {
       var scroll = this.$refs.options[this.selected].scrollHeight;
@@ -3049,6 +3063,7 @@ __webpack_require__.r(__webpack_exports__);
     clearInput: function clearInput() {
       this.search = "";
       this.selected = null;
+      this.isOpened = true;
     }
   }
 });
@@ -26306,9 +26321,7 @@ var render = function() {
             }
             _vm.search = $event.target.value
           },
-          function($event) {
-            return _vm.onInput($event.target.value)
-          }
+          _vm.onChange
         ],
         blur: function($event) {
           _vm.isOpened = true
@@ -26365,7 +26378,7 @@ var render = function() {
             return _vm.onUp($event)
           }
         ],
-        click: _vm.toggle
+        click: _vm.onChange
       }
     }),
     _vm._v(" "),
@@ -26396,7 +26409,7 @@ var render = function() {
         ref: "scrollContainer",
         staticClass: "options-list"
       },
-      _vm._l(_vm.filteredItems, function(option, i) {
+      _vm._l(_vm.results, function(result, i) {
         return _c(
           "li",
           {
@@ -26407,18 +26420,14 @@ var render = function() {
               mouseenter: function($event) {
                 _vm.selected = i
               },
-              mousedown: _vm.select
+              click: function($event) {
+                return _vm.setResult(result)
+              }
             }
           },
           [
-            _vm._v(
-              "\n            " +
-                _vm._s(option.name) +
-                ", " +
-                _vm._s(option.lastname) +
-                "\n            "
-            ),
-            _vm._t("item", null, { title: option })
+            _vm._v("\n            " + _vm._s(result.name) + "\n            "),
+            _vm._t("item", null, { title: result })
           ],
           2
         )

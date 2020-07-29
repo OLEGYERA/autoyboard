@@ -3,40 +3,43 @@
                 <input
                     type="text"
                     class="input-dropdown"
-                    @input="onInput($event.target.value)"
+                    @input="onChange"
                     @blur="isOpened = true"
                     @keyup.enter="select"
                     @keyup.tab="select"
                     @keydown.down="onDown"
                     @keydown.up="onUp"
-                    @click="toggle"
+                    @click="onChange"
                     @keyup.esc="isOpen = false"
                     ref="dropdown"
                     v-model="search"
                     :placeholder="generatingPlaceholder"
                 />
-                <i @click="clearInput" v-if="search.length != 0 && isOpened" class="fas fa-times"></i>
+                <i v-if="search.length != 0 && isOpened"
+                   @click="clearInput"
+                   class="fas fa-times">
+                </i>
                 <i v-else-if="isOpened" class="fas fa-search"></i>
-                <i v-else  class="ynav-list-toggle fas"
+                <i v-else
                    @click="toggle"
+                   class="ynav-list-toggle fas"
                    :class="{'fa-chevron-up' :isOpened, 'fa-chevron-down':  !isOpened}">
                 </i>
 
 
         <ul class="options-list"  ref="scrollContainer" v-show="isOpened">
-            <li v-for="(option, i) in filteredItems"
+            <li v-for="(result, i) in results"
                 ref="options"
                 @mouseenter="selected = i"
-                @mousedown="select"
+                @click="setResult(result)"
                 :class="{'selected': i === selected}">
-                {{ option.name }}, {{option.lastname}}
-                <slot name="item" :title="option"></slot>
+                {{ result.name }}
+                <slot name="item" :title="result"></slot>
             </li>
         </ul>
-
     </div>
 </template>
-
+<!--@mousedown="select"-->
 <script>
 export  default  {
     props: ['options', 'placeholder'],
@@ -61,42 +64,45 @@ export  default  {
                 this.$refs.scrollContainer.scrollTop = 0;
             }
             const condition = new RegExp(this.search, "i");
-            return this.options.filter(item => item.name.match(condition));
+            this.results =  this.options.filter(item => item.name.match(condition));
         },
         generatingPlaceholder(){
             return this.isOpened ? 'Поиск...' : this.placeholder;
         }
     },
     methods: {
-        onInput(value) {
-
-            this.isOpened = !!value;
-            this.selected = null;
-            this.onDown();
-            this.onUp()
-        },
-        select() {
-            const selectedOption = this.filteredItems[this.selected];
-            this.$emit("select-item", selectedOption);
-            this.search = selectedOption.name;
-            this.results = selectedOption.name;
+        setResult(result) {
+            this.search = result.name;
+            this.results = result;
             this.isOpened = false;
             this.selected = null;
         },
-        onDown(ev) {
-            if (!this.isOpened) {
-                return;
+        onChange() {
+            this.isOpened = true;
+            this.filteredItems;
+            console.log(this.isOpened)
+        },
+
+        select() {
+            const searchName = this.results[this.selected];
+            this.search = searchName.name;
+            this.results = searchName.name;
+            this.selected = null;
+            if(this.results.length > 0){
+                this.selected = null
             }
-            this.selected = (this.selected + 1) % this.filteredItems.length;
+            this.isOpened = false;
+        },
+        onDown() {
+            if (!this.isOpened) { return; }
+            this.selected = (this.selected + 1) % this.results.length;
             this.fixScrolling()
             },
         onUp() {
-            if (!this.isOpened) {
-                return;
-            }
+            if (!this.isOpened) { return; }
             this.selected =
                 this.selected - 1 < 0
-                    ? this.filteredItems.length - 1
+                    ? this.results.length - 1
                     : this.selected - 1;
             this.fixScrolling()
             },
@@ -105,6 +111,7 @@ export  default  {
             if (this.isOpened) {
                 this.$refs.dropdown.focus();
             }
+            console.log(this.isOpened)
         },
         fixScrolling(){
             const scroll = this.$refs.options[this.selected].scrollHeight;
@@ -121,6 +128,7 @@ export  default  {
         clearInput(){
             this.search = "";
             this.selected = null;
+            this.isOpened = true;
         }
     },
 
