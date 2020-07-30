@@ -114,19 +114,26 @@
                 overflow: hidden;
                 margin: 0;
                 width: 100%;
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+
                 img{
                     width: 100%;
                 }
             }
             .item_desc{
-                padding: 20px 20px;
+                padding: 10px;
                 background: linear-gradient(159.72deg, #FFFFFF 0%, #FFFFFF 100%);
                 text-align: start;
                 border-radius: 0px 0px 15px 15px;
                 .item_name{
                         font-family: $mont;
                         font-weight: 500;
-                        font-size: em(22);
+                        font-size: em(17.6);
                         line-height: 142.5%;
                         color: #222222;
                         margin: 0;
@@ -135,7 +142,7 @@
                 .sity-name_item{
                     font-family: $mont;
                     font-weight: 500;
-                    font-size: em(20);
+                    font-size: em(18);
                     line-height: 24px;
                     color: rgba(34, 34, 34, 0.74);
 
@@ -150,7 +157,7 @@
                         color: $dgreen;
                         font-family: $mont;
                         font-weight: 600;
-                        font-size: em(24);
+                        font-size: em(20);
                         line-height: 34px;
                     }
                     .show_more{
@@ -159,7 +166,7 @@
                         color: $titleblue;
                         font-family: $mont;
                         font-weight: 500;
-                        font-size: em(18);
+                        font-size: em(16);
                         line-height: 24px;
                         .arrow_right{
                             margin-left: 10px;
@@ -188,24 +195,14 @@
             .slick-slider{
                 .ybest-item{
                     max-width: 300px;
-                    .yb-icon_check{
-                        .item_check{
-
-                            img{
-
-                            }
-                        }
-                        .new_item{
+                    .item_image{
+                        img{
 
                         }
                     }
                     .item_desc{
-
                         .item_name{
                             font-size: em(18);
-                        }
-                        .sity-name_item{
-
                         }
                         .price_more{
                             .item_price{
@@ -224,32 +221,46 @@
 @media only screen and (max-width: 1440px){
     .ybestoffer{
         .ybest-items{
-            .ybest-item{
-                max-width: 300px;
-                .yb-icon_check{
-                    .item_check{
-
+            .slick-slider{
+                .ybest-item{
+                    max-width: 320px;
+                    .yb-icon_check{
+                        flex-direction: column;
+                        .item_check{
+                                width: 40px;
+                                height: 40px;
+                                margin-right: 0px;
+                                margin-bottom: 10px;
+                            img{
+                                width: 22px;
+                            }
+                        }
+                        .new_item{
+                            width: 40px;
+                            height: 40px;
+                            font-size: em(14);
+                        }
+                    }
+                    .item_image{
                         img{
-
+                            min-width: 320px;
                         }
                     }
-                    .new_item{
+                    .item_desc{
 
-                    }
-                }
-                .item_desc{
-                    .item_name{
-                        font-size: em(20);
-                    }
-                    .sity-name_item{
-
-                    }
-                    .price_more{
-                        .item_price{
-
+                        .item_name{
+                            font-size: em(16);
                         }
-                        .show_more{
-
+                        .sity-name_item{
+                            font-size: em(16);
+                        }
+                        .price_more{
+                            .item_price{
+                                font-size: em(16);
+                            }
+                            .show_more{
+                                font-size: em(14);
+                            }
                         }
                     }
                 }
@@ -257,10 +268,137 @@
         }
     }
 }
-@media only screen and (max-width: 945px){
-    .y-best_items{
-        .offer_item{
 
+@media only screen and (max-width: 1330px){
+    .ybestoffer{
+        .ybest-items{
+            .slick-slider{
+                .ybest-item{
+                    max-width: 300px;
+                    .item_image{
+                        img{
+                            min-width: 320px;
+                        }
+                    }
+                    .item_desc{
+
+                        .item_name{
+
+                        }
+                        .sity-name_item{
+
+                        }
+                        .price_more{
+                            .item_price{
+
+                            }
+                            .show_more{
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    .ybestoffer{
+        .ybest-items{
+            .slick-slider{
+                .ybest-item{
+                    max-width: 280px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .ybestoffer{
+        .ybest-items{
+            width: 85%;
+            margin: 0 auto;
+            .slick-slider{
+                .slick-arrow{
+                    top: 40px;
+                }
+                .slick-prev{
+                    right: 70px;
+                    left: unset;
+                }
+                .slick-next{
+                    //top: 10%;
+                    //right: 20px;
+                }
+                .slick-list{
+                    .slick-track{
+
+                    }
+                }
+                .custom-dot-class{
+                    li{
+                        button{
+                            &:before{
+                            }
+                        }
+                    }
+                    .slick-active button:before{
+
+                    }
+                }
+                .ybest-item{
+                    min-width: 350px;
+                    .yb-icon_check{
+
+                        .item_check{
+                            width: 45px;
+                            height: 45px;
+                            img{
+                                width: 24px;
+                            }
+                        }
+                        .new_item{
+                            width: 45px;
+                            height: 45px;
+                            font-size: em(14);
+                        }
+                    }
+                    .item_image{
+
+
+                        img{
+                            min-height: 250px;
+                        }
+                    }
+                    .item_desc{
+                        padding: 22px 20px 20px 15px;
+                        .item_name{
+                            font-size: em(24);
+                        }
+                        .sity-name_item{
+                            font-size: em(18);
+
+
+                        }
+                        .price_more{
+
+                            .item_price{
+                                font-size: em(24);
+                            }
+                            .show_more{
+                                display: none;
+                                .arrow_right{
+
+                                }
+                            }
+                        }
+                    }
+                    &:last-child{
+                        margin-right: 0px;
+
+                    }
+                }
+            }
         }
     }
 }

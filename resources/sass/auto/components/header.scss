@@ -112,3 +112,117 @@ header.yb-header{
         }
     }
 }
+@media only screen and (max-width: 1500px){
+    header.yb-header{
+        padding: 0px 10%;
+    }
+
+}
+@media only screen and (max-width: 1440px){
+    header.yb-header{
+        .yb-header-left{
+            .yb-logo{
+                img{
+
+                }
+            }
+        }
+        .yb-header-right{
+            .ysearch{
+                width: 50%;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    header.yb-header {
+        padding: 0px 8%;
+    }
+
+}
+@media only screen and (max-width: 1330px){
+    header.yb-header{
+        padding: 0px 6%;
+        .yb-header-left{
+            .yb-logo{
+                img{
+
+                }
+            }
+        }
+        .yb-header-right{
+            .ysearch{
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    header.yb-header{
+        padding: 0px 3%;
+        .yb-header-left{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            .yb-logo{
+                height: 25px;
+                margin-right: 40px;
+
+            }
+            .ymenu{
+                .ymenu-visual{
+                    height: 30px;
+                    width: 180px;
+                    .vis-l{
+                        font-size: em(16);
+                    }
+                }
+            }
+        }
+
+        .yb-header-right{
+
+
+            .ysearch{
+
+            }
+
+            .ylocation-box{
+
+                i{
+
+
+                }
+                .ylocation{
+                    input{
+
+
+                    }
+                }
+            }
+
+            .yb-favorite{
+
+                i{
+
+                }
+                .count{
+
+                }
+            }
+
+            .yb-lang-switcher{
+
+                .ylang{
+
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    header.yb-header {
+        padding: 0px 2%;
+    }
+}

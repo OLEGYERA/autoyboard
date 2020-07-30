@@ -64,8 +64,26 @@
 
     }
 }
-
-
+@media only screen and (max-width: 1366px){
+    .yprice_container{
+        .input_change{
+            padding-bottom: 15px;
+            .change{
+                height: 38px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .yprice_container{
+        .input_change{
+            padding-bottom: 12px;
+            .change{
+                height: 35px;
+            }
+        }
+    }
+}
 
 
 

@@ -185,15 +185,16 @@
         .show_more{
             background: linear-gradient(0deg, #072F6A, #072F6A), #FFFFFF;
             box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
-            border-radius: 14px;
+            border-radius: 8px;
             font-family: $aleg;
-            font-style: normal;
             font-weight: bold;
-            font-size: em(22);
+            font-size: em(20);
             line-height: 26px;
             text-align: center;
             color: #FFFFFF;
-            padding: 18px 71px 18px 71px;
+            padding: 0px 15px;
+            height: 40px;
+            width: 200px;
         }
     }
 }
@@ -234,25 +235,61 @@
                         .news_decs{
                             padding: 0% 2% 4.2% 6%;
                             .title{
-                                font-size: em(16);
+                                font-size: em(14);
                                 margin: 5px 0px 5px 0px;
                             }
                             .desc{
-                                font-size: em(15);
+                                font-size: em(14);
                             }
                         }
                     }
                 }
             }
         }
-    }
-}
-@media only screen and (max-width: 1330px){
-    .yb_auto_news{
-        .ynews_item{
-            .y_item-left{
-
+        .ybtn_show_more{
+            .show_more{
+                padding: 1.5% 6%;
+                font-size: em(18);
             }
         }
+    }
+}
+@media only screen and (max-width: 1440px){
+    .yb_auto_news{
+        .ynews_item{
+            height: 360px;
+            .y_item-left{
+                .ynews_left{
+                    .news_decs{
+                        .title{
+                            font-size: em(18);
+                        }
+                    }
+                }
+            }
+            .y_item_right{
+                .ynews_right{
+                    height: 48%;
+                    .news_decs{
+                        .title{
+                            font-size: em(16);
+                        }
+                    }
+                }
+
+            }
+            .hovering{
+                font-size: em(14);
+            }
+
+        }
+        .ybtn_show_more{
+            margin-top: 60px;
+            .show_more{
+                height: 40px;
+                padding: 0% 15px;
+            }
+        }
+
     }
 }

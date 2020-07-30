@@ -9,7 +9,7 @@
     height: 50px;
     background: #FFFFFF;
     border-radius: 50%;
-    bottom: 170px;
+    bottom: 110px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -31,14 +31,27 @@
         }
     }
 }
-//@media only screen and (max-width: 1440px){
-//    .favorite{
-//        width: 40px;
-//        height: 40px;
-//        right: 30px;
-//        bottom: 135px;
-//        .heart_svg{
-//            width: 22px;
-//        }
-//    }
-//}
+@media only screen and (max-width: 1440px){
+    .favorite{
+        width: 40px;
+        height: 40px;
+        right: 20px;
+        bottom: 125px;
+        .heart_svg{
+            width: 18px;
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .favorite{
+        width: 40px;
+        height: 40px;
+        right: 20px;
+        bottom: 20px;
+        box-shadow: none;
+        .heart_svg{
+            width: 39px;
+            fill: $darkblue;
+        }
+    }
+}

@@ -37,11 +37,8 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-
+        overflow-x: hidden;
         .ycatalog{
-            padding: 0px 17%;
-            position: relative;
-            width: 100%;
             &:after{
                 content: '';
                 border: 1px solid rgba(0, 0, 0, 0.12);
@@ -53,9 +50,7 @@
             }
         }
         .yanalytics{
-            padding: 0px 17%;
-            position: relative;
-            width: 100%;
+
             &:after{
                 content: '';
                 border: 1px solid rgba(0, 0, 0, 0.12);
@@ -66,10 +61,7 @@
 
             }
         }
-        .ynews{
-            padding: 0px 17%;
-            width: 100%;
-        }
+
     }
     .yfooter_content{
         background: rgba(1, 21, 51, 0.92);
@@ -78,8 +70,10 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+        overflow-x: hidden;
+        align-items: center;
                         .logo_social{
-                            padding-top: 50px;
+                            width: 15%;
                             .yb_logo_white{
                                 display: flex;
                                 width: 53%;
@@ -175,195 +169,22 @@
             }
         }
     @media only screen and (max-width: 1600px){
-        header.yb-header{
-
-            .yb-header-left{
-                .yb-logo{
-                    margin-right: 40px;
-                    height: 30px;
-                }
-                .ycats{
-                    .ybutton{
-                        width: 180px;
-                        height: 45px;
-                        font-size: 16px;
+        .yfooter_content{
+            .logo_social{
+                .social_link{
+                    .social_logo{
+                        i{
+                            font-size: em(32);
+                        }
                     }
                 }
             }
-
-            .yb-header-right{
-                margin-left: 38px;
-                .ysearch{
-                    .search{
-
-                    }
-                    .fas{
-
-                    }
-                }
-                .ylocation{
-                    .fas{
-
-                    }
-                    .ylocations{
-
-                        .dropdown-input{
-
-                        }
-                    }
-                    .yb-lang-switcher{
-                        .ylang{
-
-                        }
-                    }
-                }
-                .yb_user-menu{
-                    .ymenu{
-                        .ydots{
-                            .fas{
-
-                            }
-                        }
-                        .users_icon{
-                            .favorite_items{
-                                .far{
-
-                                }
-                            }
-                            .user_room{
-
-                                .fas{
-
-                                }
-                            }
-                        }
-                    }
-                }
+            .footer_list{
+                width: 75%;
             }
         }
-        .yb_content{
-            .yform  {
-                padding: 0px 14.4% 25px 14.4%;
-                    .yb_container{
-                        min-height: 450px;
-                        .yb-form_left{
-                            .form_title{
-                                font-size: em(28);
-                            }
-                            .ybreguests{
-                                .yb-reguests-items{
-                                    .reg_item{
-                                        font-size: em(18);
-                                    }
-                                }
-                            }
-                    }
-                        .yb_select-form{
-                            .yb_form{
-                                padding: 3% 4%;
-                                .left_options{
-                                    overflow: hidden;
-                                    position: relative;
-                                    .yinput_list{
-                                        .yselect{
-                                            .select_form{
-
-                                            }
-                                        }
-                                        .ynav-list-toggle{
-                                            position: absolute;
-                                            right: 0;
-                                        }
-                                    }
-                                }
-                                .another_options{
-                                    .yoption_btn{
-                                        .change_type{
-                                            padding: 3% 5%;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .yb-form_right{
-                            .yb_ex-search{
-                                .arrow{
-                                    right: 10px;
-                                }
-                                .white{
-                                    font-size: em(16);
-                                    &:after{
-                                        top: 18px;
-                                        right: 37px;
-                                    }
-                                }
-                            }
-                            .yb-status{
-                                margin-top: 30px;
-                                .yb_count-status{
-                                    .status_items{
-                                        margin-bottom: 20px;
-                                        .count_number{
-                                            font-size: em(26);
-                                        }
-                                        .count_title{
-                                            font-size: em(18);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                }
-              .yb-slide_type{
-                  padding: 0px 60px 110px 60px;
-              }
-                .marks-list_body{
-                    padding: 0px 70px 40px 80px;
-                    .mark_list{
-                        margin: 8px;
-                        .marks{
-                            padding: 35px;
-                        }
-                    }
-                }
-                .nav_item{
-                    padding: 16px 22px 16px 22px;
-                    font-size: em(18);
-                    font-weight: 500;
-                    line-height: 22px;
-                }
-                .ynews_item{
-                    .ynews_left, .ynews_right{
-                        max-width: 700px;
-                    }
-                    .bottom_item-news{
-                        max-width: 500px;
-                        .news_decs{
-                            padding: 0px 20px 20px 20px;
-                        }
-                    }
-                }
-
-            }
-            .yb_sticker{
-                padding: 0px 14.4% 42px 14.4%;
-            }
-            .best_offers{
-                padding: 0px 14.4% 90px 14.4%;
-
-            }
-            .ycatalog, .yanalytics, .ynews{
-                padding: 0px 14.4% 50px 14.4%;
-            }
-        }
-
     }
     @media only screen and (max-width: 1440px){
-        header.yb-header{
-            .search{
-
-            }
-        }
         .yb_content{
             .yform, .yb_sticker, .best_offers, .ycatalog, .yanalytics, .ynews {
                 .yb_container{
@@ -372,7 +193,7 @@
                     }
                 }
                 .yb_st-item{
-                    max-width: 420px;
+
                 }
                 .yb-slide_type{
                     padding: 0px 60px 110px 60px;
@@ -479,9 +300,6 @@
     @media only screen and (max-width: 1330px){
         header.yb-header{
 
-            .search{
-                width: 250px;
-            }
         }
         .yb_content{
             .yform, .yb_sticker, .best_offers, .ycatalog, .yanalytics, .ynews {
@@ -583,473 +401,10 @@
             }
         }
     }
-    @media only screen and (max-width: 1024px){
-        header.yb-header{
-            padding: 0px 1.5% 0px 1.5%;
-            margin-bottom: 10px;
-            .yb-header-left{
-                .yb-logo{
-                    height: 26px;
-                    margin-right: 30px;
-                }
-                .ycats{
-                    .ybutton{
-                        width: 200px;
-                        height: 50px;
-                        font-size: em(20);
-                        justify-content: space-around;
-                    }
-                }
-            }
-            .yb-header-right{
-                .ysearch{
-                    .search{
-                        width: 200px;
-                        padding: 10px 0px 10px 20px;
-                        font-size: em(18);
-                        font-weight: 500;
-                    }
-                    .fas{
-                        font-size: em(18);
-                    }
-                }
-                .ylocation{
-                    .fas{
-                        font-size: em(22);
-                    }
-                    .ylocations{
-                        width: 120px;
-                    }
-                    .yb-lang-switcher{
-                        .ylang{
-                            font-size: em(18);
-                        }
-                    }
-                }
-                .yb_user-menu{
-                    .ymenu{
-                        .ydots{
-                            padding-right: 15px;
-                            i{
-                                font-size: 35px;
-                            }
-                        }
-                        .users_icon{
-                            .favorite_items{
-                                padding-right: 15px;
-                                i{
-                                    font-size: 35px;
-                                }
-                            }
-                            .user_room{
-                                width: 40px;
-                                height: 40px;
-                                i{
-                                    font-size: 20px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
 
-        }
-        .yb_content{
-            .yform, .yb_sticker, .best_offers, .ycatalog, .yanalytics, .ynews{
-                padding: 0px 1.5% 40px 1.5%;
-                justify-content: center;
-                .yb_container{
-                    .yb-form_left{
-                        max-width: 280px;
-                        padding: 33px 0px 0px 20px;
-                        .form_title{
-                            font-size: em(24);
-                            line-height: 28px;
-                            padding-bottom: 16px;
-                        }
-                        .ybreguests{
-                            .reg_item{
-                                padding: 0px 0px 25px 0px;
-                                font-size: em(16);
-                                &:nth-child(n+7){
-                                    display: none;
-                                }
-                            }
-                        }
-                    }
-                    .yb_select-form{
-                        max-width: 580px;
-                        left: 18%;
-                        top: 24px;
-                        .yb_form{
-                            padding: 20px 20px 20px 20px;
-                            .left_options{
-                                margin-right: 14px;
-                                .yinput_list{
-                                    margin-bottom: 10px;
-                                    &:last-child{
-                                        margin-bottom: 0px;
-                                    }
-                                    .yselect{
-                                        max-width:260px ;
-                                        .select_form{
-                                            padding: 12px 50px 12px 20px;
-                                            font-size: em(16);
-                                        }
-                                    }
-                                    .ynav-list-toggle{
-                                        margin-right: 0px;
-                                    }
-                                }
-                                .ysuccess_btn{
-                                    justify-content: center;
-                                    margin-top: 45px;
-                                    .success{
-                                        font-size: em(18);
-                                        padding: 8px 77px 8px 77px;
-                                    }
-                                }
-                            }
-                            .another_options{
-                                margin-right: 8px;
-                                .yoption_btn{
-                                    .change_type{
-                                        padding: 12px 15px 12px 15px;
-                                    }
-                                }
-                                .yprice_options{
-                                    .ytitle_option{
-                                        font-size: em(18);
-                                    }
-                                    .change_price{
-                                        padding: 12px 12px 30px 12px;
-                                        .yprice_container{
-                                            .input_change{
-                                                .change{
-                                                    margin-right: 10px;
-                                                    &:last-child{
-                                                        margin-right: 0px;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                .yresource_options{
-                                    padding: 15px 30px 25px 15px;
-                                    .change_resource{
-                                        .title_change{
-                                            font-size: em(16);
-                                            line-height: 19px;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .yb-form_right{
-                        max-width: 200px;
-                        padding: 64px 50px 0px 0px;
-                        .yb_ex-search{
-                            display: none;
-                        }
-                        .yb-status{
-                            .status_items{
-                                .count_number{
-                                    font-size: em(30);
-                                }
-                                .count_title{
-                                    font-weight: normal;
-                                    font-size: em(20);
-                                    line-height: 18px;
-                                }
-                            }
-                        }
-                    }
-                }
-                .yb_st-item{
-                    max-width: 310px;
-                    .yb-st_title{
-                        font-size: em(22);
-                        line-height: 27px;
-                        padding: 15px;
-                    }
-                }
-                .ybestoffer{
-                    .y-best_top{
-                        margin-bottom: 60px;
-                        .top_title{
-                            .title{
-                                font-size: em(38);
-                                line-height: 57px;
-                                margin-block-start: 20px;
-                                margin-block-end: 20px;
-                            }
-                        }
-                    }
-                    .y-best_items{
-                        .offer_item{
-                            .yb-icon_check{
-                                .item_check{
-                                    width: 50px;
-                                    height: 50px;
-                                    img{
-                                        width: 30px;
-                                    }
-                                }
-                                .new_item{
-                                    width: 50px;
-                                    height: 50px;
-                                    font-size: em(16);
-                                }
-                            }
-                            .item_image{
-                                .favorite{
-                                    width: 45px;
-                                    height: 45px;
-                                    svg{
-                                        width: 28px;
-                                    }
-                                }
-                            }
-                            .item_desc{
-                                padding: 20px 25px 20px 20px;
-                                .item_name{
-                                    font-size: em(20);
-                                }
-                                .price_more{
-                                    .item_price{
-                                        font-size: em(24);
-                                    }
-                                    .show_more{
-                                        font-size: em(18);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .ycatalog_block{
-                    .y-best_top{
-                        margin-bottom: 60px;
-                        .top_title{
-                            .title{
-                                font-size: em(38);
-                                line-height: 57px;
-                                margin-block-start: 20px;
-                                margin-block-end: 20px;
-                            }
-                        }
-                    }
-                    .y-cat-bottom{
-                        .cat_categories{
-                            .y-bt_title{
-                                padding: 40px 60px 15px 70px;
-                                .title{
-                                    font-size: em(46);
-                                    line-height: 50px;
-                                }
-                            }
-                        }
-                        .cat_item{
-                            padding: 12px 60px 12px 70px;
-                        }
-                        .type_body-marks{
-                            .car_body-type{
-                                .body-type_top{
-                                    padding: 45px 25px 35px 25px;
-                                    .type-top_title{
-                                        font-size: em(30);
-                                        font-weight: bold;
-                                    }
-                                    .yb_ex-search{
-                                        .ex_search{
-                                            font-size: em(20);
-                                        }
-                                    }
-                                }
-                                .yb-slide_type{
-                                    padding: 0px 45px 50px 45px;
-                                    .yb_clide-body{
-                                        .body_name{
-                                            font-size: em(20);
-                                        }
-                                        .bold{
-                                            font-size: em(18);
-                                        }
-                                    }
-                                }
-                            }
-                            .yb-car_marks{
-                                .car_marks-title{
-                                    padding: 40px 55px 40px 55px;
-                                }
-                                .yb_list{
-                                    .yb_marks_list{
-                                        .marks-list_body{
-                                            .mark_list{
-                                                .marks{
-                                                    padding: 15px;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .yanalitic{
-                    .analitics_title{
-                        .title{
-                            font-size: em(38);
-                            line-height: 57px;
-                            margin-block-start: 20px;
-                            margin-block-end: 20px;
-                        }
-                    }
-                    .yanalitics_nav{
-                        .ynavigation{
-                            .nav_item{
-                                padding: 12px 10px 12px 10px;
-                                font-size: em(18);
-                                font-weight: 500;
-                                line-height: 22px;
-                            }
-                        }
-                    }
-                    .analitics_content{
-                        padding-top: 68px;
-                        justify-content: space-around;
-                        align-items: center;
-                        .analitics_desc{
-                            max-width: 400px;
-                            .analitics_subtitle{
-                                font-size: em(46);
-                                line-height: 35px;
-                            }
-                            .subtitle_desc{
-                                font-size: em(22);
-                                line-height: 28px;
-                            }
-                        }
-                        .analitics_prev{
-                            max-width: 520px;
-                        }
-                    }
-                }
-                .yb_auto_news{
-                    .y-best_top{
-                        .top_title{
-                            .title{
-                                font-size: em(38);
-                                line-height: 57px;
-                                margin-block-start: 20px;
-                                margin-block-end: 20px;
-                            }
-                        }
-                    }
-                    .ynews_item{
-                        display: block;
-                        .y_item-top{
-                            display: flex;
-                            justify-content: space-between;
-                            .ynews_left, .ynews_right{
-                                max-width: 480px;
-                                margin-bottom: 0px;
-                                margin-right: 0px;
-
-                            }
-                        }
-                        .y_item-bottom{
-                            display: flex;
-                            .bottom_item-news{
-                                max-width: 320px;
-                                margin-bottom: 0px;
-                                min-height: 296px;
-                                .news_decs{
-                                    padding: 0px 0px 20px 15px;
-                                    .title{
-                                        line-height: 26px;
-                                        font-size: 20px;
-                                    }
-                                    .desc{
-                                        line-height: 20px;
-
-                                    }
-                                    .read_more{
-                                        margin-block-start: 0.4em;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-            }
-        }
-        .yfooter_content{
-            padding: 40px 20px 90px 20px;
-            .yrepeat_footer{
-                position: relative;
-                .logo_social{
-                    position: absolute;
-                    bottom: -50px;
-                    right: 40%;
-                    .yb_logo_white{
-                        justify-content: center;
-                        img{
-                            width: 126px;
-                        }
-                    }
-                    .social_link{
-                        margin-top: 20px;
-                        .social_logo{
-                            padding: 10px;
-                            &:last-child{
-                                padding: 10px;
-                            }
-                        }
-                    }
-                }
-                .yrepeat_catalog{
-                    .yrepeat_title{
-                        line-height: 23px;
-                    }
-                    .yrepeat_list{
-                        .item_repeat{
-                            a{
-                                line-height: 26px;
-                            }
-                        }
-                    }
-                }
-                .ysite_step{
-                    .yrepeat_title{
-                        font-size: em(20);
-                        max-width: 140px;
-                        text-align: start;
-                        line-height: 30px;
-
-                    }
-                    .site_step-list{
-                        .step_list{
-                            .step{
-                                font-weight: bold;
-                                font-size: 22px;
-                                line-height: 46px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
     @media only screen and (max-width: 945px){
         header.yb-header{
-            margin-bottom: 0px;
-            padding: 0px 1% 0px 1%;
-            height: 77px;
+
             .yb-header-left{
                 .yb-logo{
                     margin-right: 23px;
