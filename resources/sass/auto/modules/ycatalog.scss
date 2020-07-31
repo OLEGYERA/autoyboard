@@ -77,7 +77,7 @@
                     display: flex;
                     justify-content: space-around;
                     width: 100%;
-                        .yb_clide-body{
+                        .yb_slide-body{
                             text-align: center;
                             .slide{
                                 overflow: hidden;
@@ -128,7 +128,6 @@
                             margin: 0;
                         }
                 }
-                .yb_list{
                     .yb_marks_list{
                         .marks-list_body{
                             display: flex;
@@ -160,7 +159,7 @@
                             }
                         }
                     }
-                }
+
             }
         }
     }
@@ -170,42 +169,44 @@
         .y-cat-bottom{
             .cat_categories{
                     .title{
-                        font-size: em(32);
+                        font-size: em(28);
                         padding: 10% 0% 5% 18%;
                     }
-                .cat_list-items{
-                    .list_items{
-                        .cat_item{
-                            font-size: em(18);
-                        }
-                    }
-                }
             }
             .type_body-marks{
                 .car_body-type{
                     min-height: 420px;
                     .body-type_top{
                         .type-top_title{
-                            font-size: em(32);
+                            font-size: em(28);
+                        }
+                    }
+                    .yb-slide_type{
+                        .yb_slide-body{
+                            .slide{
+                            }
+                            .small{
+
+                            }
+                            .body_name{
+                                font-size: em(20);
+                            }
+                            .bold{
+                                font-size: em(28);
+                            }
                         }
                     }
                 }
                 .yb-car_marks{
                     .car_marks-title{
                         .marks_title{
-                           font-size: em(32);
+                           font-size: em(28);
                         }
                     }
-                    .yb_list{
-                        .yb_marks_list{
-                            .marks-list_body{
-                                .mark_list{
-                                    height: 120px;
-                                    .marks{
-                                        max-width: 100px;
-                                    }
-                                }
-                            }
+
+                    .yb_marks_list{
+                        .marks-list_body{
+
                         }
                     }
                 }
@@ -218,27 +219,31 @@
         .y-cat-bottom{
             .cat_categories{
                 .title{
-                    font-size: em(30);
+                    font-size: em(26);
                     padding: 10% 0% 5% 18%;
                 }
                 .cat_list-items{
                     .list_items{
                         .cat_item{
-                            font-size: em(16);
+                            font-size: em(15);
+                            padding: 3.5% 0% 3.5% 18%;
                         }
                     }
                 }
             }
             .type_body-marks{
                 .car_body-type{
-                    min-height: 400px;
+                    min-height: 385px;
                     .body-type_top{
                         .type-top_title{
-                            font-size: em(30);
+                            font-size: em(26);
                         }
                     }
                     .yb-slide_type{
-                        .yb_clide-body{
+                        .yb_slide-body{
+                            .large{
+                                max-width: 440px;
+                            }
                             .body_name{
                                 font-size: em(20);
                             }
@@ -251,19 +256,12 @@
                 .yb-car_marks{
                     .car_marks-title{
                         .marks_title{
-                            font-size: em(32);
+                            font-size: em(26);
                         }
                     }
-                    .yb_list{
-                        .yb_marks_list{
-                            .marks-list_body{
-                                .mark_list{
-                                    height: 120px;
-                                    .marks{
-                                        max-width: 100px;
-                                    }
-                                }
-                            }
+                    .yb_marks_list{
+                        .marks-list_body{
+
                         }
                     }
                 }
@@ -276,31 +274,31 @@
         .y-cat-bottom{
             .cat_categories{
                 .title{
-                    font-size: em(28);
+                    font-size: em(24);
                     padding: 5% 0% 5% 18%;
                 }
                 .cat_list-items{
                     .list_items{
                         .cat_item{
-                            font-size: em(16);
-                            padding: 3% 0% 3% 18%;
+                            font-size: em(15);
+                            padding: 2.8% 0% 2.8% 18%;
                         }
                     }
                 }
             }
             .type_body-marks{
                 .car_body-type{
-                    min-height: 345px;
-                    padding: 2.5%;
+                    min-height: 350px;
+                    padding: 2%;
                     .body-type_top{
                         .type-top_title{
-                            font-size: em(28);
+                            font-size: em(24);
                         }
                     }
                     .yb-slide_type{
-                        .yb_clide-body{
+                        .yb_slide-body{
                             .large{
-                                max-width: 400px;
+                                max-width: 380px;
                             }
                             .body_name{
                                 font-size: em(20);
@@ -312,25 +310,62 @@
                     }
                 }
                 .yb-car_marks{
-                    padding: 2.5%;
+                    padding: 2%;
                     .car_marks-title{
                         padding-bottom: 2%;
                         .marks_title{
-                            font-size: em(28);
+                            font-size: em(24);
                         }
                     }
-                    .yb_list{
-                        .yb_marks_list{
-                            .marks-list_body{
-                                .mark_list{
-                                    height: 100px;
-                                    .marks{
-                                        max-width: 80px;
-                                    }
+
+                    .yb_marks_list{
+                        .marks-list_body{
+                            .mark_list{
+                                height: 80px;
+                                width: 17%;
+                                .marks{
+                                    max-width: 60px;
+                                }
+                                &:first-child{
+                                    margin-bottom: 10px;
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1330px){
+    .ycatalog_block{
+        .y-cat-bottom{
+            .type_body-marks{
+                .car_body-type{
+                    min-height: 345px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    .ycatalog_block{
+        .y-cat-bottom{
+            .type_body-marks{
+                .car_body-type{
+                    min-height: 328px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px) {
+    .ycatalog_block {
+        .y-cat-bottom {
+            margin-bottom: 20px;
+            .type_body-marks{
+                .car_body-type{
+                    min-height: 320px;
                 }
             }
         }

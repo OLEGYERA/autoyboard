@@ -19,6 +19,7 @@
             font-weight: 500;
             font-size: em(18);
             color: $site-grey;
+            -moz-appearance: textfield;
             &::placeholder{
                 color: $site-grey;
             }

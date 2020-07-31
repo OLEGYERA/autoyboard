@@ -19,12 +19,14 @@
         }
         .autocomplete-results{
             font-family: $aleg;
-            background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
+            background: #FFFFFF;
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
+            border-radius: 5px;
             position: absolute;
             padding: 0;
             margin: 0;
-            max-height: 180px;
-            overflow: auto;
+            max-height: 125px;
+            overflow: hidden;
             width: 100%;
             top: 45px;
             z-index: 2;

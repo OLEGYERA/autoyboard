@@ -15,23 +15,43 @@
              .slick-arrow{
                  z-index: 2;
                  top: 55%;
+                 display: inline-block;
+                 position: absolute;
+                 width: 20px;
+                 height: 20px;
+                 background: transparent;
+                 text-indent: -9999px;
+                 border-top: 3px solid  #111E6C;
+                 border-left: 3px solid  #111E6C;
+                 transition: all .3s ease-in-out;
+                 text-decoration: none;
+                 color: transparent;
              }
              .slick-prev{
                  left: -3px;
+                 transform: rotate(-45deg);
                  &:before{
+                     content: '';
                      color: #111E6C;
                      font-size: 40px;
                      opacity: 1;
+                     position: absolute;
+                     top: 0;
+                     right: 0;
 
                  }
              }
              .slick-next{
                  right: 18px;
+                 transform: rotate(140deg);
                  &:before{
+                     content: '';
                      color: #111E6C;
                      font-size: 40px;
                      opacity: 1;
-
+                     position: absolute;
+                     top: 0;
+                     right: 0;
                  }
              }
              .slick-list{
@@ -195,6 +215,20 @@
             .slick-slider{
                 .ybest-item{
                     max-width: 300px;
+                        .yb-icon_check{
+                            .item_check{
+                                width: 45px;
+                                height: 45px;
+                                img{
+                                    width: 30px;
+                                }
+                            }
+                            .new_item{
+                                width: 45px;
+                                height: 45px;
+                                font-size: em(15);
+                            }
+                        }
                     .item_image{
                         img{
 
@@ -202,14 +236,14 @@
                     }
                     .item_desc{
                         .item_name{
-                            font-size: em(18);
+                            font-size: em(16.5);
                         }
                         .price_more{
                             .item_price{
-                                font-size: em(20);
+                                font-size: em(17.5);
                             }
                             .show_more{
-                                font-size: em(16);
+                                font-size: em(15);
                             }
                         }
                     }
@@ -223,7 +257,7 @@
         .ybest-items{
             .slick-slider{
                 .ybest-item{
-                    max-width: 320px;
+                    max-width: 280px;
                     .yb-icon_check{
                         flex-direction: column;
                         .item_check{
@@ -238,10 +272,11 @@
                         .new_item{
                             width: 40px;
                             height: 40px;
-                            font-size: em(14);
+                            font-size: em(12);
                         }
                     }
                     .item_image{
+                        height: 180px;
                         img{
                             min-width: 320px;
                         }
@@ -308,6 +343,14 @@
             .slick-slider{
                 .ybest-item{
                     max-width: 280px;
+                    .item_desc{
+                        .item_name{
+                            font-size: em(15);
+                        }
+                        .sity-name_item{
+                            font-size: em(15);
+                        }
+                    }
                 }
             }
         }
@@ -315,20 +358,47 @@
 }
 @media only screen and (max-width: 945px){
     .ybestoffer{
+        margin-bottom: 45px;
         .ybest-items{
             width: 85%;
             margin: 0 auto;
             .slick-slider{
                 .slick-arrow{
-                    top: 40px;
+                    top: 25px;
                 }
                 .slick-prev{
                     right: 70px;
                     left: unset;
+                    &:before{
+                        content: "";
+                        color: #111E6C;
+                        font-size: 40px;
+                        opacity: 1;
+                        position: absolute;
+                        top: -15px;
+                        right: -8px;
+                        background: rgba(219, 219, 219, 0.15);
+                        border-radius: 5px;
+                        width: 40px;
+                        height: 40px;
+
+                    }
                 }
                 .slick-next{
-                    //top: 10%;
-                    //right: 20px;
+                    &:before{
+                        content: "";
+                        color: #111E6C;
+                        font-size: 40px;
+                        opacity: 1;
+                        position: absolute;
+                        top: -15px;
+                        right: -8px;
+                        background: rgba(219, 219, 219, 0.15);
+                        border-radius: 5px;
+                        width: 40px;
+                        height: 40px;
+                        transform: rotate(-4deg);
+                    }
                 }
                 .slick-list{
                     .slick-track{
@@ -336,6 +406,8 @@
                     }
                 }
                 .custom-dot-class{
+                    bottom: -20px;
+                    width: 85%;
                     li{
                         button{
                             &:before{
@@ -364,14 +436,12 @@
                         }
                     }
                     .item_image{
-
-
+                        height: 180px;
                         img{
                             min-height: 250px;
                         }
                     }
                     .item_desc{
-                        padding: 22px 20px 20px 15px;
                         .item_name{
                             font-size: em(24);
                         }

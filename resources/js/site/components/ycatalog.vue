@@ -23,19 +23,19 @@
                         <yexpanded :text_color="'white'" :text="'Смотреть больше'"></yexpanded>
                     </div>
                     <div class="yb-slide_type">
-                        <div class="yb_clide-body">
+                        <div class="yb_slide-body">
                             <figure class="slide small">
                                 <img src="img/system/static/sedan.png" alt="">
                             </figure>
                             <span class="body_name">Седан</span>
                         </div>
-                        <div class="yb_clide-body">
+                        <div class="yb_slide-body">
                             <figure class="slide large">
                                 <img src="img/system/static/crossover.png" alt="">
                             </figure>
                             <span class="body_name bold">Кроссовер</span>
                         </div>
-                        <div class="yb_clide-body">
+                        <div class="yb_slide-body">
                             <figure class="slide small">
                                 <img src="img/system/static/cabriolet.png" alt="">
                             </figure>
@@ -48,7 +48,6 @@
                         <h3 class="marks_title">Популярные марки</h3>
                         <yexpanded :text_color="'blue'" :text="'Смотреть больше'" :color="'blue'"  ></yexpanded>
                     </div>
-                    <div class="yb_list">
                             <div class="yb_marks_list">
                                 <ul class="marks-list_body">
                                     <li class="mark_list">
@@ -103,7 +102,6 @@
                                     </li>
                                 </ul>
                             </div>
-                    </div>
                 </div>
             </div>
         </div>
