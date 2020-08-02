@@ -2891,6 +2891,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -36907,16 +36914,25 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "y-news_items" }, [
-      _c("article", [
+      _c("article", { staticClass: "news" }, [
         _c(
           "figure",
           {
+            staticClass: "news-image",
             staticStyle: {
               background:
                 "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
             }
           },
-          [_c("img", { attrs: { src: "", alt: "" } })]
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+                alt: ""
+              }
+            })
+          ]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "news_desc" }, [
@@ -36924,58 +36940,99 @@ var staticRenderFns = [
             _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
           ]),
           _vm._v(" "),
-          _c("p"),
+          _c("p", { staticClass: "hovering" }, [
+            _vm._v(
+              "Компания Acura представила обновленный вариант компактного кроссовера"
+            )
+          ]),
           _vm._v(" "),
           _c("button", { staticClass: "read_more" }, [
             _vm._v(
-              "-->\n                        Читать дальше\n                        "
+              "\n                        Читать дальше\n                        "
             ),
             _c("img", {
               attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
             })
           ])
-        ]),
-        _vm._v("\n                Left\n            ")
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "right_items" }, [
-        _c("article", [
-          _c(
-            "figure",
-            {
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-              }
-            },
-            [_c("img", { attrs: { src: "", alt: "" } })]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "news_desc" }, [
-            _c("h2", [
-              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
-            ]),
+        _c(
+          "article",
+          {
+            staticClass: "news",
+            staticStyle: {
+              background:
+                "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+            }
+          },
+          [
+            _c(
+              "figure",
+              {
+                staticClass: "news-image",
+                staticStyle: {
+                  background:
+                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+                }
+              },
+              [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+                    alt: ""
+                  }
+                })
+              ]
+            ),
             _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Компания Acura представила обновленный вариант компактного кроссовера"
-              )
+            _c("div", { staticClass: "news_desc" }, [
+              _c("h2", [
+                _vm._v(
+                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "hovering" }, [
+                _vm._v(
+                  "Компания Acura представила обновленный вариант компактного кроссовера"
+                )
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "read_more" }, [
+                _vm._v(
+                  "\n                            Читать дальше\n                            "
+                ),
+                _c("img", {
+                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+                })
+              ])
             ])
-          ]),
-          _vm._v("\n                    top right\n                ")
-        ]),
+          ]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "flex_bottom" }, [
-          _c("article", [
+          _c("article", { staticClass: "news" }, [
             _c(
               "figure",
               {
+                staticClass: "news-image",
                 staticStyle: {
                   background:
                     "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
                 }
               },
-              [_c("img", { attrs: { src: "", alt: "" } })]
+              [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+                    alt: ""
+                  }
+                })
+              ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "news_desc" }, [
@@ -36985,27 +37042,42 @@ var staticRenderFns = [
                 )
               ]),
               _vm._v(" "),
-              _c("p", [
+              _c("p", { staticClass: "hovering" }, [
                 _vm._v(
                   "Компания Acura представила обновленный вариант компактного кроссовера"
                 )
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "read_more" }, [
+                _vm._v(
+                  "\n                                Читать дальше\n                                "
+                ),
+                _c("img", {
+                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+                })
               ])
-            ]),
-            _vm._v(
-              "\n                        bottom right\n                    "
-            )
+            ])
           ]),
           _vm._v(" "),
-          _c("article", [
+          _c("article", { staticClass: "news" }, [
             _c(
               "figure",
               {
+                staticClass: "news-image",
                 staticStyle: {
                   background:
                     "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
                 }
               },
-              [_c("img", { attrs: { src: "", alt: "" } })]
+              [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+                    alt: ""
+                  }
+                })
+              ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "news_desc" }, [
@@ -37015,15 +37087,21 @@ var staticRenderFns = [
                 )
               ]),
               _vm._v(" "),
-              _c("p", [
+              _c("p", { staticClass: "hovering" }, [
                 _vm._v(
                   "Компания Acura представила обновленный вариант компактного кроссовера"
                 )
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "read_more" }, [
+                _vm._v(
+                  "\n                                Читать дальше\n                                "
+                ),
+                _c("img", {
+                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+                })
               ])
-            ]),
-            _vm._v(
-              "\n                        bottom right\n                    "
-            )
+            ])
           ])
         ])
       ])
