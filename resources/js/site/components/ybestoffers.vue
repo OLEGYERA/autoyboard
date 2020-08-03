@@ -220,6 +220,13 @@ export default {
                             slidesToScroll: 1,
                         }
                     },
+                    // {
+                    //     breakpoint: 601,
+                    //     settings: {
+                    //         slidesToShow: 1,
+                    //         slidesToScroll: 1,
+                    //     }
+                    // },
                 ]
             },
         }

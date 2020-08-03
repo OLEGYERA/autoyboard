@@ -2296,7 +2296,14 @@ __webpack_require__.r(__webpack_exports__);
             slidesToShow: 1,
             slidesToScroll: 1
           }
-        }]
+        } // {
+        //     breakpoint: 601,
+        //     settings: {
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1,
+        //     }
+        // },
+        ]
       }
     };
   }
@@ -3174,6 +3181,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ystickers.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ystickers.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  methods: {}
+});
 
 /***/ }),
 
@@ -36914,7 +36979,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "y-news_items" }, [
-      _c("article", { staticClass: "news" }, [
+      _c("article", { staticClass: "news none" }, [
         _c(
           "figure",
           {
@@ -37415,6 +37480,170 @@ var staticRenderFns = [
           _vm._v("\n           Проверено авто\n           по VIN-коду\n       ")
         ])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ystickers.vue?vue&type=template&id=1213b660&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ystickers.vue?vue&type=template&id=1213b660& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "ystickers" }, [
+    _c("button", { staticClass: "prev", on: { click: _vm.previous } }, [
+      _vm._v("Prev")
+    ]),
+    _vm._v(" "),
+    _c("div", { ref: "slide", staticClass: "yb-sticker" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "h4",
+        { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+        [_vm._v("Новая Audi TT RS")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { ref: "slide", staticClass: "yb-sticker" }, [
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%)"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _c(
+        "h4",
+        { staticClass: "yb-sticker_title", staticStyle: { color: "#1B1B1B" } },
+        [_vm._v("Новый Volkswagen Arteon ")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { ref: "slide", staticClass: "yb-sticker" }, [
+      _vm._m(4),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _c(
+        "h4",
+        { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+        [_vm._v("Новый Mercedes-Benz ")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("button", { staticClass: "next", on: { click: _vm.next } }, [
+      _vm._v("Next")
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-sticker_logo" }, [
+      _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
+      _vm._v(" "),
+      _c("img", { attrs: { src: "img/system/static/audi_logo.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "img-context" }, [
+      _c("img", {
+        attrs: {
+          src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-sticker_logo" }, [
+      _c("span", { staticClass: "brand_title" }, [_vm._v("Volkswagen")]),
+      _vm._v(" "),
+      _c("img", { attrs: { src: "img/system/static/vw_logo.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "img-context" }, [
+      _c("img", {
+        attrs: {
+          src: "https://carexpert.ru/img/foto600/vw/vwar001.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-sticker_logo" }, [
+      _c("span", { staticClass: "brand_title" }, [_vm._v("Mercedes-Benz")]),
+      _vm._v(" "),
+      _c("img", {
+        attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "img-context" }, [
+      _c("img", {
+        attrs: {
+          src: "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
+          alt: ""
+        }
+      })
     ])
   }
 ]
@@ -64984,6 +65213,76 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/site/components/ystickers.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/site/components/ystickers.vue ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ystickers_vue_vue_type_template_id_1213b660___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ystickers.vue?vue&type=template&id=1213b660& */ "./resources/js/site/components/ystickers.vue?vue&type=template&id=1213b660&");
+/* harmony import */ var _ystickers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ystickers.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ystickers.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ystickers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ystickers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ystickers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ystickers_vue_vue_type_template_id_1213b660___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ystickers_vue_vue_type_template_id_1213b660___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/ystickers.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ystickers.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/site/components/ystickers.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystickers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ystickers.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ystickers.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystickers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ystickers.vue?vue&type=template&id=1213b660&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/site/components/ystickers.vue?vue&type=template&id=1213b660& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ystickers_vue_vue_type_template_id_1213b660___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ystickers.vue?vue&type=template&id=1213b660& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ystickers.vue?vue&type=template&id=1213b660&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ystickers_vue_vue_type_template_id_1213b660___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ystickers_vue_vue_type_template_id_1213b660___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/site/components/ytitle.vue":
 /*!*************************************************!*\
   !*** ./resources/js/site/components/ytitle.vue ***!
@@ -65224,6 +65523,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfavorite', __webpack_requ
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yanalitics', __webpack_require__(/*! ./components/yanalitics */ "./resources/js/site/components/yanalitics.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynews', __webpack_require__(/*! ./components/ynews */ "./resources/js/site/components/ynews.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yselect', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('carousel', __webpack_require__(/*! ./components/carousel */ "./resources/js/site/components/carousel.vue")["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({}).$mount('#yb-site');
 

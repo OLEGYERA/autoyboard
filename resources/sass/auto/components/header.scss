@@ -224,5 +224,64 @@ header.yb-header{
 @media only screen and (max-width: 945px){
     header.yb-header {
         padding: 0px 2%;
+        .yb-header-right{
+            .ysearch{
+                .search{
+                    height: 35px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px){
+    header.yb-header{
+        .yb-header-left{
+            width: 100%;
+            justify-content: space-between;
+            .yb-logo{
+
+
+            }
+            .ymenu{
+                .ymenu-visual{
+
+                    .vis-l{
+
+                    }
+                }
+            }
+        }
+
+        .yb-header-right{
+            position: absolute;
+            width: 40%;
+            left: 23%;
+            margin-left: 0;
+            .ysearch{
+                width: 100%;
+            }
+
+            .ylocation-box{
+                display: none;
+                i{
+
+
+                }
+                .ylocation{
+                    input{
+
+
+                    }
+                }
+            }
+
+            .yb-favorite{
+                display: none;
+            }
+
+            .yb-lang-switcher{
+                display: none;
+            }
+        }
     }
 }

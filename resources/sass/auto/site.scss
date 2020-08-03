@@ -24,6 +24,7 @@
 @import 'modules/yfavorite';
 @import 'modules/yanalitics';
 @import 'modules/ynews';
+@import 'modules/ysticker';
 
 #yb-site{
     display: flex;
@@ -83,7 +84,6 @@
                             }
                                 .social_link{
                                     display: flex;
-                                    justify-content: center;
                                     align-items: center;
                                     .social_logo{
                                         padding: 30px 20px 0px 0px;
@@ -173,8 +173,12 @@
             .logo_social{
                 .social_link{
                     .social_logo{
+                        padding: 20px 20px 0px 0px;
                         i{
-                            font-size: em(32);
+                            font-size: em(28);
+                        }
+                        &:last-child{
+                            padding: 20px 20px 0px 0px;
                         }
                     }
                 }
@@ -229,14 +233,26 @@
         }
         .yfooter_content{
 
-            .yrepeat_footer{
+            .footer_list{
                 .yrepeat_catalog{
                     .yrepeat_title{
-                        font-size: em(20);
+                        font-size: em(18);
                     }
                     .yrepeat_list{
                         .item_repeat{
                             a{
+                                font-size: em(15);
+                            }
+                        }
+                    }
+                }
+                .ysite_step{
+                    .yrepeat_title{
+                        font-size: em(18);
+                    }
+                    .site_step-list{
+                        .step_list{
+                            .step{
                                 font-size: em(16);
                             }
                         }
@@ -296,6 +312,40 @@
                 }
             }
         }
+        .yfooter_content{
+                .logo_social{
+                    width: 18%;
+                    .yb_logo_white{
+                        width: 50%;
+                    }
+                }
+            .footer_list{
+                .yrepeat_catalog{
+                    .yrepeat_title{
+                        font-size: em(18);
+                    }
+                    .yrepeat_list{
+                        .item_repeat{
+                            a{
+
+                            }
+                        }
+                    }
+                }
+                .ysite_step{
+                    .yrepeat_title{
+
+                    }
+                    .site_step-list{
+                        .step_list{
+                            .step{
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     @media only screen and (max-width: 1330px){
         header.yb-header{
@@ -326,6 +376,9 @@
                 }
 
             }
+        }
+        .yfooter_content{
+            padding: 1.3% 5% 1.3% 4.6%;
         }
     }
     @media only screen and (max-width: 1280px){
@@ -401,97 +454,44 @@
             }
         }
     }
+    @media only screen and (max-width: 1024px){
+        .yfooter_content{
+            padding: 1.3% 2% 1.3% 2%;
+            .logo_social{
 
-    @media only screen and (max-width: 945px){
-        header.yb-header{
+                .yb_logo_white{
 
-            .yb-header-left{
-                .yb-logo{
-                    margin-right: 23px;
-                }
-                .ycats{
-                    .ybutton{
-                        width: 174px;
-                        height: 40px;
-                        font-size: em(18);
-                        line-height: 22px;
-                        justify-content: space-evenly;
-                        .ynav-list-toggle{
-                            font-size: em(10);
-                        }
-                    }
                 }
             }
-            .yb-header-right{
-                .ysearch{
-                    .search{
-                        border-radius: 12px;
-                        font-size: em(16);
-                        line-height: 19px;
-                        font-weight: 500;
-                        width: 323px;
-                        height: 40px;
+            .footer_list{
+                .yrepeat_catalog{
+                    .yrepeat_title{
+                        font-size: em(14);
                     }
-                    .fas{
-                        font-size: em(15);
-                    }
-                }
-                .ylocation{
-                    .fas{
-                        font-size: em(18);
-                    }
-                    .ylocations{
-                        width: 100px;
-                        .dropdown-input{
-                            font-size: em(18);
-                            line-height: 22px;
-                        }
-                        .autocomplete-results{
-                            max-height: 110px;
-                        }
-                    }
-                    .yb-lang-switcher{
-                        .ylang{
-                            font-size: em(15);
-                            line-height: 18px;
-                            &:nth-child(1):after{
-                                margin: 5px;
+                    .yrepeat_list{
+                        .item_repeat{
+                            a{
+                                font-size: em(13);
                             }
                         }
                     }
                 }
-                .yb_user-menu{
-                    .ymenu{
-                        flex-direction: row-reverse;
-                        .ydots{
-                            padding-right: 0px;
-                            .fas{
-                                font-size: em(23);
-                            }
-                        }
-                        .users_icon{
-                            .favorite_items{
-                                padding-right: 12px;
-                                .far{
-                                    font-size: em(30);
-                                }
-                            }
-                            .user_room{
-                                margin-right: 12px;
-                                width: 24px;
-                                height: 24px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                .fas{
-                                    font-size: em(13);
-                                }
+                .ysite_step{
+                    .yrepeat_title{
+                        font-size: em(14);
+                    }
+                    .site_step-list{
+                        .step_list{
+                            .step{
+                                font-size: em(14);
                             }
                         }
                     }
                 }
             }
         }
+    }
+    @media only screen and (max-width: 945px){
         .yb_content{
             .yform{
                 padding: 0px 0% 40px 0%;
@@ -554,11 +554,14 @@
             .logo_social{
                 width: 25%;
                 .yb_logo_white{
-                    width: 60%;
+                    width: 45%;
                 }
                 .social_link{
                     .social_logo{
                         padding: 20px 20px 0px 0px;
+                        i{
+                            font-size: em(26);
+                        }
                         &:last-child{
                             padding: 20px 20px 0px 0px;
                         }
@@ -566,30 +569,32 @@
                 }
             }
             .footer_list{
-                flex-wrap: wrap;
-                padding: 30px 100px 20px 70px;
+                flex-wrap: wrap-reverse;
+                padding: 30px 21% 20px 0%;
                 .yrepeat_catalog{
                     .yrepeat_title{
                         font-size: em(18);
                     }
                     .yrepeat_list{
+                        margin-top: 5px;
                         .item_repeat{
+                            padding-bottom: 0;
                             a{
                                 font-size: em(15);
                                 line-height: 26px;
                             }
                         }
                     }
-                    &:first-child{
-                        margin-bottom: 25px;
-                    }
                 }
                 .ysite_step{
+                    margin-bottom: 15px;
                     .yrepeat_title{
                         font-size: em(16);
                     }
                     .site_step-list{
+                        margin-top: 5px;
                         .step_list{
+                            padding-bottom: 0;
                             a{
                                 font-size: em(15);
                             }
@@ -604,5 +609,12 @@
 
 
 }
+@media only screen and (max-width: 768px){
+    .yfooter_content{
 
+        .footer_list{
+
+        }
+    }
+}
 

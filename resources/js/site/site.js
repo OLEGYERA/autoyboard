@@ -22,6 +22,7 @@ Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 
  Vue.component('yselect', require('./components/yselectsearch').default);
+Vue.component('ystickers', require('./components/ystickers').default);
 
 
 

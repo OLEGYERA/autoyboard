@@ -58,72 +58,77 @@
         margin: 30px 0 45px;
         display: flex;
         justify-content: space-between;
-        .yb-sticker{
+        .ystickers{
             display: flex;
-            text-align: center;
-            justify-content: center;
-            box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
-            border-radius: 10px;
-            width: 48.3%;
-            max-height: 215px;
-            position: relative;
-            overflow: hidden;
-            margin-right: 29px;
-            .yb-sticker_logo{
+            width: 100%;
+            .yb-sticker{
                 display: flex;
-                align-items: center;
-                position: absolute;
-                margin-top: 15px;
-                margin-left: 15px;
-                z-index: 2;
-                left: 0;
-                .brand_title{
-                    color: #fff;
-                    font-size: em(18);
-                    font-family: $aleg;
-                    font-weight: 500;
-                    margin-right: 10px;
-                }
-                img{
-                    width: 35px;
-                }
-            }
-
-            .background_style{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-
-            .img-context{
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
+                text-align: center;
                 justify-content: center;
-                margin: 0;
-                padding: 0;
-                img{
-                    width: 100%;
-                    margin: 0;
+                box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
+                border-radius: 10px;
+                width: 48.3%;
+                max-height: 215px;
+                position: relative;
+                overflow: hidden;
+                margin-right: 29px;
+                .yb-sticker_logo{
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    margin-top: 15px;
+                    margin-left: 15px;
+                    z-index: 2;
+                    left: 0;
+                    .brand_title{
+                        color: #fff;
+                        font-size: em(18);
+                        font-family: $aleg;
+                        font-weight: 500;
+                        margin-right: 10px;
+                    }
+                    img{
+                        width: 35px;
+                    }
                 }
-            }
 
-            .yb-sticker_title{
-                position: absolute;
-                font-family: $rale;
-                font-style: normal;
-                font-weight: 500;
-                bottom: 0;
-                font-size: em(24);
-                margin: 0;
-                padding: 30px;
-            }
+                .background_style{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
 
-            &:last-child{
-                margin-right: 0px;
+                .img-context{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+                    padding: 0;
+                    img{
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+
+                .yb-sticker_title{
+                    position: absolute;
+                    font-family: $rale;
+                    font-style: normal;
+                    font-weight: 500;
+                    bottom: 0;
+                    font-size: em(24);
+                    margin: 0;
+                    padding: 30px;
+                }
+
+                &:last-child{
+                    margin-right: 0px;
+                }
             }
         }
+
     }
 
     .yb-best_offers{
@@ -181,9 +186,10 @@
             }
         }
         .yb-stickers{
-            .yb-sticker{
-                .img-context{
-                    img{
+            .ystickers{
+                .yb-sticker{
+                    .img-context{
+                        img{
                         width: 120%;
 
                     }
@@ -193,6 +199,7 @@
                     font-weight: bold;
                 }
             }
+        }
         }
     }
 }
@@ -239,16 +246,18 @@
             }
         }
         .yb-stickers{
-            .yb-sticker{
-                max-height: 170px;
-                .img-context{
-                    img{
+            .ystickers{
+                .yb-sticker{
+                    max-height: 170px;
+                    .img-context{
+                        img{
 
 
+                        }
                     }
-                }
-                .yb-sticker_title{
-                    font-size: em(18);
+                    .yb-sticker_title{
+                        font-size: em(18);
+                    }
                 }
             }
         }
@@ -325,8 +334,10 @@
         }
         .yb-stickers{
             padding: 0px 6%;
-            .yb-sticker{
-                max-height: 180px;
+            .ystickers{
+                .yb-sticker{
+                    max-height: 180px;
+                }
             }
         }
         .yb-best_offers{
@@ -443,13 +454,115 @@
         .yb-stickers{
             padding: 0px 15px;
             margin: 15px 0 30px;
-            .yb-sticker{
-                margin-right: 12px;
-                max-height: 140px;
+            .ystickers{
+                .yb-sticker{
+                    margin-right: 12px;
+                    max-height: 140px;
+                }
             }
         }
         .yb-best_offers{
             padding: 0px 15px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px){
+    .yb-content{
+        .yb-first_screen{
+            .yb-form{
+                flex-direction: column;
+                position: inherit;
+                .yb-form_left{
+                    display: none;
+                }
+                .yform{
+                    position: inherit;
+                    width: 80%;
+                    margin: 0 auto;
+                    left: 0;
+                    margin-top: 22px;
+                }
+                .yb-form_right{
+                    width: 100%;
+                    margin-bottom: 0;
+                    padding: 0;
+                    .yexpended{
+                        display: none;
+                    }
+                    .ystatus{
+                        display: flex;
+                        justify-content: space-around;
+                        width: 80%;
+                        margin: 0 auto;
+                        padding: 25px 0;
+
+                        .status_item{
+                            margin-bottom: 0;
+                            .count_number{
+                                font-size: em(26);
+                            }
+                            .count_title{
+                                font-size: em(20);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .yb-stickers{
+            .ystickers{
+                .yb-sticker{
+                    .yb-sticker_logo{
+                        .brand_title{
+                            font-size: em(16);
+                        }
+                        img{
+                            width: 25px
+                        }
+                    }
+                    .yb-sticker_title{
+                        padding: 20px 0 20px;
+                        font-size: em(16);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .yb-content {
+        .yb-first_screen {
+            .yb-form {
+                .yform {
+                    width: 95%;
+                    margin-top: 30px;
+                }
+
+                .yb-form_right {
+                    .ystatus {
+                        display: flex;
+                        justify-content: space-around;
+                        width: 80%;
+                        margin: 0 auto;
+                        padding: 25px 0;
+
+                        .status_item {
+                            margin-bottom: 0;
+
+                            .count_number {
+                                font-size: em(26);
+                            }
+
+                            .count_title {
+                                font-size: em(20);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

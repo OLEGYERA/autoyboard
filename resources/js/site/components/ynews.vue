@@ -2,7 +2,7 @@
     <div class="yb_auto_news">
         <ytitle :title="'Новости'"></ytitle>
         <div class="y-news_items">
-            <article class="news">
+            <article class="news none">
                 <figure class="news-image" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);">
                     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg" alt="">
                 </figure>

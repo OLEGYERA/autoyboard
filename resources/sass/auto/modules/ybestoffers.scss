@@ -419,7 +419,7 @@
                     }
                 }
                 .ybest-item{
-                    min-width: 350px;
+                    max-width: 360px;
                     .yb-icon_check{
 
                         .item_check{
@@ -443,7 +443,7 @@
                     }
                     .item_desc{
                         .item_name{
-                            font-size: em(24);
+                            font-size: em(18);
                         }
                         .sity-name_item{
                             font-size: em(18);
@@ -451,9 +451,8 @@
 
                         }
                         .price_more{
-
                             .item_price{
-                                font-size: em(24);
+                                font-size: em(20);
                             }
                             .show_more{
                                 display: none;
@@ -466,6 +465,63 @@
                     &:last-child{
                         margin-right: 0px;
 
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px){
+    .ybestoffer{
+        .ybest-items{
+            .slick-slider{
+                .ybest-item{
+                    max-width: 300px;
+                    .item_desc{
+                        .item_name{
+
+                        }
+                        .sity-name_item{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .ybestoffer{
+        .ybest-items{
+            .slick-slider{
+                .ybest-item{
+                    max-width: 235px;
+                        .yb-icon_check{
+                            top: 10px;
+                            left: 10px;
+                            .item_check{
+                                width: 35px;
+                                height: 35px;
+                                margin-bottom: 5px;
+                            }
+                            .new_item{
+                                width: 35px;
+                                height: 35px;
+                                font-size: em(10);
+                            }
+                        }
+                    .item_desc{
+                        .item_name{
+                            font-size: em(15);
+                        }
+                        .sity-name_item{
+                            font-size: em(16);
+                        }
+                        .price_more{
+                            .item_price{
+                                font-size: em(18);
+                            }
+                        }
                     }
                 }
             }

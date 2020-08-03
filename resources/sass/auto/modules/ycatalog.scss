@@ -371,3 +371,52 @@
         }
     }
 }
+@media only screen and (max-width: 768px){
+    .ycatalog_block {
+        .y-cat-bottom {
+            .cat_categories{
+                .title{
+                    font-size: em(20);
+                    padding: 2% 0% 5% 18%;
+                }
+                .cat_list-items{
+                    .list_items{
+                        .cat_item{
+                            font-size: em(14);
+                            &:last-child{
+                                padding: 2.8% 0% 1.6% 18%;
+                            }
+                        }
+                    }
+                }
+            }
+            .type_body-marks{
+                .car_body-type{
+                    min-height: 295px;
+                    .body-type_top{
+                        .type-top_title{
+                            font-size: em(20);
+                        }
+                    }
+                }
+                .yb-car_marks{
+                    .car_marks-title{
+                        .marks_title{
+                            font-size: em(20);
+                        }
+                    }
+                    .yb_marks_list{
+                        .marks-list_body{
+                            .mark_list{
+                                height: 70px;
+                                .marks{
+                                    max-width: 50px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
