@@ -604,17 +604,27 @@
             }
         }
     }
-}
-@media only screen and (max-width: 945px){
+    @media only screen and (max-width: 600px){
+        .yb_content{
 
-
-}
-@media only screen and (max-width: 768px){
-    .yfooter_content{
-
-        .footer_list{
-
+        }
+        .yfooter_content{
+            padding: 0;
+            flex-direction: column-reverse;
+            .logo_social{
+                width: 30%;
+                margin-bottom: 30px;
+                .yb_logo_white{
+                    width: 55%;
+                }
+            }
+            .footer_list{
+                padding: 20px 0% 20px 0%;
+            }
         }
     }
 }
+
+
+
 

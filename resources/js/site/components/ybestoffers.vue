@@ -184,9 +184,10 @@
 
 
 <script>
-    // import VueSlickCarousel from  'vue-slick-carousel'
+
     import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
     import Slick from 'vue-slick';
+    // import "slick-carousel/slick/slick.css";
     // import '../../../../node_modules/slick-carousel/slick/slick.css'
 export default {
     components: { Slick },
@@ -203,11 +204,18 @@ export default {
                 dots: true,
                 arrows: true,
                 adaptiveHeight: true,
-                // mobileFirst: true,
                 ZIndex: 1000,
+                cssEase: 'linear',
                 responsive: [
                     {
                         breakpoint: 946,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 601,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2,
@@ -220,13 +228,6 @@ export default {
                             slidesToScroll: 1,
                         }
                     },
-                    // {
-                    //     breakpoint: 601,
-                    //     settings: {
-                    //         slidesToShow: 1,
-                    //         slidesToScroll: 1,
-                    //     }
-                    // },
                 ]
             },
         }

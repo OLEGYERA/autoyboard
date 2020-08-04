@@ -39,7 +39,6 @@
         </ul>
     </div>
 </template>
-<!--@mousedown="select"-->
 <script>
 export  default  {
     props: ['options', 'placeholder'],

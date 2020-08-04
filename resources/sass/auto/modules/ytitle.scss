@@ -92,3 +92,11 @@
         }
     }
 }
+@media only screen and (max-width: 600px){
+    .ytitle{
+        h2{
+            padding-bottom: 0px;
+            font-size: em(26);
+        }
+    }
+}

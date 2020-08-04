@@ -50,6 +50,9 @@
                 }
             }
         }
+        .ydrop_down{
+            display: none;
+        }
         .type_body-marks{
             width: 100%;
             border-radius: 0px 35px 0px 0px;
@@ -109,6 +112,9 @@
                             }
                         }
                 }
+            }
+            .show_more-btn{
+                display: none;
             }
             .yb-car_marks{
                 padding: 3.5%;
@@ -412,6 +418,182 @@
                                 .marks{
                                     max-width: 50px;
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .ycatalog_block{
+        .y-cat-bottom{
+            display: block;
+            border-radius: 0px;
+            .cat_categories{
+                display: none;
+            }
+            .ydrop_down{
+                width: 100%;
+                display: flex;
+                 .ydropdown{
+                    width: 100%;
+                    position: relative;
+                     .value {
+                         height: 70px;
+                         background: linear-gradient(173.92deg, #FEFFFF -24.96%, #E6E8E8 99.29%);
+                         box-shadow: -1px -1px 0px rgba(115, 115, 115, 0.09), 23px 20px 35px rgba(220, 222, 222, 0.02), -28px -28px 56px rgba(255, 255, 255, 0.9), 28px 28px 113px rgba(220, 222, 222, 0.17), inset -1px -1px 2px #DCDEDE;
+                         border-radius: 15px 15px 0px 0px;
+                         width: 100%;
+                         padding: 20px;
+                         font-family: $mont;
+                         font-weight: 500;
+                         font-size: em(24);
+                         line-height: 29px;
+                         color: $darkblue;
+                         border: none;
+                         scrollbar-width: none;
+                     }
+                     i{
+                         position: absolute;
+                         right: 15px;
+                         top: 30px;
+                         cursor: pointer;
+                         color: $darkblue;
+                     }
+                     .items{
+                         font-family: $aleg;
+                         background: linear-gradient(152.6deg, #FFFFFF 0%, #FFFFFF 100%);
+                         box-shadow: -2px 2px 4px rgba(164, 164, 164, 0.2), 2px -2px 4px rgba(164, 164, 164, 0.2), -2px -2px 4px rgba(255, 255, 255, 0.9), 2px 2px 5px rgba(164, 164, 164, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(164, 164, 164, 0.5);
+                         border-radius: 6px 6px 6px 6px;
+                         position: absolute;
+                         padding: 0;
+                         margin: 0;
+                         width: 100%;
+                         max-height: 175px;
+                         overflow: auto;
+                         top: 65px;
+                         z-index: 2;
+
+                         .item {
+                             position: relative;
+                             height: 35px;
+                             display: flex;
+                             align-items: center;
+                             padding: 0px 0px 0px 20px;
+                             cursor: pointer;
+                             color: rgba(34, 34, 34, 0.79);
+                             cursor: pointer;
+                             width: 100%;
+                             i{
+                                 position: absolute;
+                                 top: auto;
+                                 color: $dgreen;
+                             }
+                             &:after{
+                                 content: '';
+                                 position: absolute;
+                                 height: 1px;
+                                 bottom: 0;
+                                 left: 0;
+                                 width: 100%;
+                                 background: rgba(199, 199, 199, 0.33) ;
+                             }
+                         }
+                         .checked{
+                             border-left: 4px solid $darkblue;
+                             &:after{
+                                 height: 2px;
+                                 background: rgba(91, 91, 91, 0.13);
+                             }
+                         }
+                         &::-webkit-scrollbar {
+                             width: 5px;
+                             background: transparent;
+                         }
+                         &::-webkit-scrollbar-thumb {
+                             background: rgba(91, 91, 91, 0.79);
+                             border-radius: 68px;
+                             height: 20px;
+
+                         }
+                     }
+                }
+            }
+            .type_body-marks{
+                border-radius: 0;
+                .car_body-type{
+                    .body-type_top{
+                        .type-top_title{
+                            font-size: em(22);
+                        }
+                    }
+                }
+                .yshow_more-body{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    margin-top: 25px;
+                    .ymore_body{
+                        padding: 0% 5%;
+                        width: 180px;
+                        height: 35px;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(16);
+                        line-height: 22px;
+                        text-align: center;
+                        color: $darkblue;
+                        background: #FFFFFF;
+                        border: 2px solid $darkblue;
+                        box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.11);
+                        border-radius: 8px
+                    }
+                }
+                .yb-car_marks{
+                    padding: 25px 2% 2% 1%;
+                    .car_marks-title{
+                        padding-bottom: 25px;
+                        .marks_title{
+                            font-size: em(22);
+                        }
+                    }
+                    .yb_marks_list{
+                        .marks-list_body{
+                            .mark_list{
+                                height: 100px;
+                                width: 32%;
+                                margin-bottom: 10px;
+                                .marks{
+                                    max-width: 60px;
+                                }
+                                &:nth-child(-n+4){
+                                    display: none;
+                                }
+                            }
+                        }
+                        .yshow_more-marks{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100%;
+                            margin: 25px 0 30px 0;
+                            .ymore_marks{
+                                padding: 0% 5%;
+                                width: 180px;
+                                height: 35px;
+                                background: linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
+                                box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
+                                border-radius: 8px;
+                                font-family: $aleg;
+                                font-weight: 500;
+                                font-size: em(16);
+                                line-height: 22px;
+                                text-align: center;
+                                color: #FFFFFF;
+
                             }
                         }
                     }

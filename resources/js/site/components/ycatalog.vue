@@ -16,6 +16,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="ydrop_down">
+                <ydropdown></ydropdown>
+            </div>
             <div class="type_body-marks">
                 <div class="car_body-type">
                     <div class="body-type_top">
@@ -42,6 +45,9 @@
                             <span class="body_name">Кабриолет</span>
                         </div>
                     </div>
+                </div>
+                <div class="yshow_more-body">
+                    <button class="ymore_body">Смотреть еще</button>
                 </div>
                 <div class="yb-car_marks">
                     <div class="car_marks-title">
@@ -101,6 +107,9 @@
                                     </a>
                                     </li>
                                 </ul>
+                                <div class="yshow_more-marks">
+                                    <button class="ymore_marks">Смотреть еще</button>
+                                </div>
                             </div>
                 </div>
             </div>

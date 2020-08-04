@@ -220,3 +220,33 @@
 @media only screen and (max-width: 768px){
 
 }
+
+@media only screen and (max-width: 600px){
+    .yanalitic {
+        .yanalitics_nav {
+            display: none;
+        }
+        .analitics_content{
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+            .analitics_desc{
+                width: 100%;
+                .subtitle_desc{
+                    width: 80%;
+                    margin-bottom: 20px;
+                }
+                .yverify_btn{
+                    position: absolute;
+                    bottom: -55px;
+                    left: 33%;
+                    z-index: 2;
+
+                }
+            }
+            .analitics_prev{
+                width: 75%;
+            }
+        }
+    }
+}
