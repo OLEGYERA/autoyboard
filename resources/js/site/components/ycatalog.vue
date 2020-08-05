@@ -26,6 +26,7 @@
                         <yexpanded :text_color="'white'" :text="'Смотреть больше'"></yexpanded>
                     </div>
                     <div class="yb-slide_type">
+                        <Slick id="slick3" :options="slickOptions" ref="slick">
                         <div class="yb_slide-body">
                             <figure class="slide small">
                                 <img src="img/system/static/sedan.png" alt="">
@@ -44,6 +45,7 @@
                             </figure>
                             <span class="body_name">Кабриолет</span>
                         </div>
+                        </Slick>
                     </div>
                 </div>
                 <div class="yshow_more-body">
@@ -118,5 +120,34 @@
 </template>
 
 <script>
-
+    import Slick from "vue-slick";
+export default  {
+    components: {
+        Slick
+    },
+    data(){
+        return{
+            slickOptions: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                arrows: false,
+                dots: false,
+                speed: 600,
+                adaptiveHeight: false,
+                infinite: false,
+                responsive: [
+                    {
+                        breakpoint: 601,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: true,
+                            speed: 600,
+                        }
+                    }
+                ]
+            },
+        }
+    }
+}
 </script>

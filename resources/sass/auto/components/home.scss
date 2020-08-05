@@ -61,90 +61,74 @@
             width: 100%;
             display: flex;
             overflow: hidden;
-            .slick-slider{
-                width: 100%;
-                .slick-list{
+
+            .yb-sticker{
+                max-width: 400px;
+                display: flex !important;
+                text-align: center;
+                justify-content: center;
+                box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
+                border-radius: 10px;
+                max-height: 215px;
+                position: relative;
+                overflow: hidden;
+                margin-right: 29px;
+                .yb-sticker_logo{
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    margin-top: 15px;
+                    margin-left: 15px;
+                    z-index: 2;
+                    left: 0;
+                    .brand_title{
+                        color: #fff;
+                        font-size: em(18);
+                        font-family: $aleg;
+                        font-weight: 500;
+                        margin-right: 10px;
+                    }
+                    img{
+                        width: 35px;
+                    }
+                }
+                .background_style{
+                    position: absolute;
                     width: 100%;
-                        .slick-track{
-                            display: flex;
-                            .slick-slide{
-                                .yb-sticker{
-                                    max-width: 340px;
-                                }
-                            }
-                        }
+                    height: 100%;
+                }
+                .img-context{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+                    padding: 0;
+                    img{
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+                .yb-sticker_title{
+                    position: absolute;
+                    font-family: $rale;
+                    font-style: normal;
+                    font-weight: 500;
+                    bottom: 0;
+                    font-size: em(24);
+                    margin: 0;
+                    padding: 30px;
+                }
+                &:last-child{
+                    margin-right: 0px;
                 }
             }
-            //.yb-sticker{
-            //    display: flex;
-            //    text-align: center;
-            //    justify-content: center;
-            //    box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
-            //    border-radius: 10px;
-            //    width: 48.3%;
-            //    max-height: 215px;
-            //    position: relative;
-            //    overflow: hidden;
-            //    margin-right: 29px;
-            //    .yb-sticker_logo{
-            //        display: flex;
-            //        align-items: center;
-            //        position: absolute;
-            //        margin-top: 15px;
-            //        margin-left: 15px;
-            //        z-index: 2;
-            //        left: 0;
-            //        .brand_title{
-            //            color: #fff;
-            //            font-size: em(18);
-            //            font-family: $aleg;
-            //            font-weight: 500;
-            //            margin-right: 10px;
-            //        }
-            //        img{
-            //            width: 35px;
-            //        }
-            //    }
-            //
-            //    .background_style{
-            //        position: absolute;
-            //        width: 100%;
-            //        height: 100%;
-            //    }
-            //
-            //    .img-context{
-            //        width: 100%;
-            //        height: 100%;
-            //        display: flex;
-            //        align-items: center;
-            //        justify-content: center;
-            //        margin: 0;
-            //        padding: 0;
-            //        img{
-            //            width: 100%;
-            //            margin: 0;
-            //        }
-            //    }
-            //
-            //    .yb-sticker_title{
-            //        position: absolute;
-            //        font-family: $rale;
-            //        font-style: normal;
-            //        font-weight: 500;
-            //        bottom: 0;
-            //        font-size: em(24);
-            //        margin: 0;
-            //        padding: 30px;
-            //    }
-            //
-            //    &:last-child{
-            //        margin-right: 0px;
-            //    }
-            //}
         }
-
     }
-
+    .yb-stickers-mobile{
+        display: none;
+    }
     .yb-best_offers{
         box-shadow: 0px -2px 4px rgba(78, 78, 78, 0.15);
         padding-bottom: 40px;
@@ -159,11 +143,17 @@
         position: relative;
         width: 100%;
     }
+    .ymobilecatalog{
+        display: none;
+    }
 
     .yb-analytics{
         padding: 0px 17%;
         position: relative;
         width: 100%;
+    }
+    .ymobileanalitics{
+        display: none;
     }
 
     .yb-news{
@@ -202,18 +192,13 @@
         .yb-stickers{
             .ystickers{
                 .yb-sticker{
-                    .img-context{
-                        img{
-                        width: 120%;
-
+                    max-width: 340px;
+                    max-height: 190px;
+                    .yb-sticker_title{
+                        font-size: em(20);
                     }
                 }
-                .yb-sticker_title{
-                    font-size: em(20);
-                    font-weight: bold;
-                }
             }
-        }
         }
     }
 }
@@ -256,22 +241,6 @@
                     padding: 30px 25px 0 0;
                     margin-bottom: 15px;
                     width: 22%;
-                }
-            }
-        }
-        .yb-stickers{
-            .ystickers{
-                .yb-sticker{
-                    max-height: 170px;
-                    .img-context{
-                        img{
-
-
-                        }
-                    }
-                    .yb-sticker_title{
-                        font-size: em(18);
-                    }
                 }
             }
         }
@@ -340,11 +309,6 @@
     .yb-content{
         .yb-first_screen{
             padding: 0px 6%;
-            //.yb-form{
-            //    .yb-form_right{
-            //        width: 22%;
-            //    }
-            //}
         }
         .yb-stickers{
             padding: 0px 6%;
@@ -422,6 +386,15 @@
                     width: 53%;
                 }
             }
+            .ystickers{
+                .yb-sticker{
+                    max-width: 300px;
+                    max-height: 170px;
+                    .yb-sticker_title{
+                        font-size: em(18);
+                    }
+                }
+            }
         }
     }
 }
@@ -470,8 +443,11 @@
             margin: 15px 0 30px;
             .ystickers{
                 .yb-sticker{
-                    margin-right: 12px;
-                    max-height: 140px;
+                    max-width: 290px;
+                    max-height: 150px;
+                    .yb-sticker_title{
+                        font-size: em(16);
+                    }
                 }
             }
         }
@@ -528,6 +504,8 @@
         .yb-stickers{
             .ystickers{
                 .yb-sticker{
+                    max-width: 225px;
+                    max-height: 130px;
                     .yb-sticker_logo{
                         .brand_title{
                             font-size: em(16);
@@ -538,12 +516,23 @@
                     }
                     .yb-sticker_title{
                         padding: 20px 0 20px;
-                        font-size: em(16);
+                        font-size: em(16)!important;
                     }
                 }
             }
         }
+        .yb-analytics{
+            display: none;
+        }
+        .ymobileanalitics{
+            display: block;
+            position: relative;
+            width: 100%;
+            padding: 0px 15px;
+        }
     }
+
+
 }
 
 @media only screen and (max-width: 600px){
@@ -554,7 +543,6 @@
                     width: 95%;
                     margin-top: 30px;
                 }
-
                 .yb-form_right {
                     .ystatus {
                         display: flex;
@@ -578,8 +566,167 @@
                 }
             }
         }
+        .yb-stickers{
+            display: none;
+        }
+        .yb-stickers-mobile{
+            position: relative;
+            margin: 15px 0 35px;
+            padding: 0px 15px;
+            display: flex;
+            width: 100%;
+            .ystickers{
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                .slick-slider{
+                    width: 100%;
+                    .slick-arrow{
+                        z-index: 3;
+                        top: 40%;
+                        display: inline-block;
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        background: transparent;
+                        text-indent: -9999px;
+                        border-top: 3px solid  #FFFFFF;
+                        border-left: 3px solid  #FFFFFF;
+                        transition: all .3s ease-in-out;
+                        text-decoration: none;
+                        color: transparent;
+
+                    }
+                    .slick-prev{
+                        left: 40px;
+                        transform: rotate(-45deg);
+                        &:before{
+                            content: '';
+                            color: #111E6C;
+                            font-size: 40px;
+                            opacity: 1;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            box-shadow: 0px 4px 11px #FFFFFF;
+                        }
+                    }
+                    .slick-next{
+                        right: 40px;
+                        transform: rotate(140deg);
+                        &:before{
+                            content: '';
+                            color: #111E6C;
+                            font-size: 40px;
+                            opacity: 1;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            box-shadow: 0px 4px 11px #FFFFFF;
+                        }
+                    }
+                    .slick-list{
+                        .slick-track{
+                            display: flex;
+                            .slick-slide{
+                                .yb-sticker{
+                                    max-width: 100%;
+                                    min-height: 280px;
+                                    display: flex !important;
+                                    text-align: center;
+                                    justify-content: center;
+                                    box-shadow: 3px 3px 8px rgba(27, 27, 27, 0.61);
+                                    border-radius: 10px;
+                                    max-height: 215px;
+                                    position: relative;
+                                    overflow: hidden;
+                                    .yb-sticker_logo{
+                                        display: flex;
+                                        align-items: center;
+                                        position: absolute;
+                                        margin-top: 15px;
+                                        margin-left: 15px;
+                                        z-index: 2;
+                                        left: 0;
+                                        .brand_title{
+                                            font-size: em(22);
+                                            color: #fff;
+                                            font-size: em(18);
+                                            font-family: $aleg;
+                                            font-weight: 500;
+                                            margin-right: 10px;
+                                        }
+                                        img{
+                                            width: 40px
+                                        }
+                                    }
+                                    .background_style{
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                    .img-context{
+                                        width: 100%;
+                                        height: 100%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        margin: 0;
+                                        padding: 0;
+                                        img{
+                                            width: 100%;
+                                            margin: 0;
+                                        }
+                                    }
+                                    .yb-sticker_title{
+                                        text-shadow: 0px 4px 12px rgba(255, 255, 255, 0.76);
+                                        font-size: em(22);
+                                        position: absolute;
+                                        font-family: $rale;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        bottom: 0;
+                                        margin: 0;
+                                        padding: 30px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .yb-catalog{
+            display: none;
+        }
+        .ymobilecatalog{
+            padding: 0px 2.5%;
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+
     }
 }
 
+@media only screen and (max-width: 425px){
+    .yb-content{
+        .yb-first_screen {
+            .yb-form{
 
+                .yform{
+                    flex-direction: column-reverse;
+                    padding: 15px 30px 25px 30px;
+                    top: 20px;
+                    .left_options{
+                        width: 100%;
+                    }
+                    .another_options{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
 

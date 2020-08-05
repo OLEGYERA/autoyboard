@@ -26,5 +26,35 @@
 </template>
 
 <script>
+    import Slick from "vue-slick";
+    export default {
+        components:{Slick},
+        data(){
+            return{
+                slickOptions: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false,
+                    speed: 600,
+                    adaptiveHeight: true,
+                    infinite: false,
+                    cssEase: 'linear',
+                    responsive: [
+                        {
+                            breakpoint: 769,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                arrows: true,
+                                speed: 600,
+                                dots: false,
+                            }
+                        }
+                    ]
+                },
+            }
+        }
+    }
 
 </script>

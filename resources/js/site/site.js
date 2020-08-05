@@ -5,7 +5,11 @@ import Vue from 'vue';
 //modules
 Vue.component('ymenu', require('./modules/header/ymenu.vue').default);
 
-
+//mobile
+Vue.component('ymobilesticker', require('./components/ymobilesticker').default);
+Vue.component('ymobilecatalog', require('./components/ymobilecatalog').default);
+Vue.component('ymobileanalitics', require('./components/ymobileanalitics').default);
+//finish mobile
 
 Vue.component('ysearch', require('./modules/header/ysearch.vue').default);
 Vue.component('ylocation', require('./components/ylocation.vue').default);
@@ -22,11 +26,11 @@ Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 
  Vue.component('yselect', require('./components/yselectsearch').default);
-Vue.component('ystickers', require('./components/ystickers').default);
+
 Vue.component('ydropdown', require('./components/ydropdown').default);
 
 
-Vue.component('carousel', require('./components/carousel').default);
+Vue.component('ystickers', require('./components/ystickers').default);
 
 new Vue({
 

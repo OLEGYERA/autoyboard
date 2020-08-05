@@ -34,8 +34,10 @@
         </div>
     </section>
     <section class="yb-stickers">
-        <carousel></carousel>
-{{--        <ystickers></ystickers>--}}
+        <ystickers></ystickers>
+    </section>
+    <section class="yb-stickers-mobile">
+        <ymobilesticker></ymobilesticker>
     </section>
     <section class="yb-best_offers">
         <ybestoffer></ybestoffer>
@@ -44,9 +46,15 @@
     <section class="yb-catalog">
         <ycatalog></ycatalog>
     </section>
+    <section class="ymobilecatalog">
+        <ymobilecatalog></ymobilecatalog>
+    </section>
 
     <section class="yb-analytics">
         <yanalitics></yanalitics>
+    </section>
+    <section class="ymobileanalitics">
+        <ymobileanalitics></ymobileanalitics>
     </section>
 
     <section class="yb-news">
@@ -190,3 +198,4 @@
         </div>
     </div>
 </footer>
+

@@ -1899,10 +1899,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/carousel.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/carousel.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yanalitics.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yanalitics.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1936,31 +1936,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
- // import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1969,54 +1944,28 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       slickOptions: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        arrows: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
         dots: false,
         speed: 600,
-        // adaptiveHeight: true,
-        infinite: false
+        adaptiveHeight: true,
+        infinite: false,
+        cssEase: 'linear',
+        responsive: [{
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            speed: 600,
+            dots: false
+          }
+        }]
       }
     };
   }
 });
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yanalitics.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yanalitics.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /***/ }),
 
@@ -2253,7 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
             slidesToScroll: 2
           }
         }, {
-          breakpoint: 420,
+          breakpoint: 426,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
@@ -2270,9 +2219,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ycatalog.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
 //
 //
 //
@@ -2392,6 +2344,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      slickOptions: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false,
+        dots: false,
+        speed: 600,
+        adaptiveHeight: false,
+        infinite: false,
+        responsive: [{
+          breakpoint: 601,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            speed: 600
+          }
+        }]
+      }
+    };
+  }
+});
 
 /***/ }),
 
@@ -2786,6 +2768,321 @@ __webpack_require__.r(__webpack_exports__);
   },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.handleClickOutside);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobileanalitics.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ymobileanalitics.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      slickOptions: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: true,
+        speed: 600,
+        infinite: false,
+        dotsClass: "slick-dots custom-dot-class"
+      }
+    };
+  },
+  methods: {
+    click: function click() {
+      console.log('click');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilecatalog.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ymobilecatalog.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      slickOptions: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false,
+        dots: false,
+        speed: 600,
+        adaptiveHeight: false,
+        infinite: false,
+        responsive: [{
+          breakpoint: 601,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            speed: 600
+          }
+        }]
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilesticker.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ymobilesticker.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+ // import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      slickOptions: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: false,
+        speed: 600,
+        adaptiveHeight: true,
+        infinite: false,
+        responsive: [// {
+          //     breakpoint: 601,
+          //     settings: {
+          //         slidesToShow: 1,
+          //         slidesToScroll: 1,
+          //         arrows: true,
+          //         speed: 600,
+          //     }
+          // }
+        ]
+      }
+    };
   }
 });
 
@@ -3225,7 +3522,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
 //
 //
 //
@@ -3264,39 +3560,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
- // import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      slickOptions: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: true,
-        dots: false,
-        speed: 600,
-        infinite: false
-      }
-    };
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -35189,190 +35453,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/carousel.vue?vue&type=template&id=71dd9122&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/carousel.vue?vue&type=template&id=71dd9122& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "ystickers" },
-    [
-      _c(
-        "Slick",
-        { ref: "slick", attrs: { id: "slick1", options: _vm.slickOptions } },
-        [
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [
-                _vm._v("Mercedes-Benz")
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новый Mercedes-Benz ")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [
-                _vm._v("Volkswagen")
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/system/static/vw_logo.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://carexpert.ru/img/foto600/vw/vwar001.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#1B1B1B" }
-              },
-              [_vm._v("Новый Volkswagen Arteon ")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/system/static/audi_logo.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новая Audi TT RS")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/system/static/audi_logo.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новая Audi TT RS")]
-            )
-          ])
-        ]
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yanalitics.vue?vue&type=template&id=44676e28&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yanalitics.vue?vue&type=template&id=44676e28& ***!
@@ -36168,10 +36248,66 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(1)
+            _c(
+              "div",
+              { staticClass: "yb-slide_type" },
+              [
+                _c(
+                  "Slick",
+                  {
+                    ref: "slick",
+                    attrs: { id: "slick3", options: _vm.slickOptions }
+                  },
+                  [
+                    _c("div", { staticClass: "yb_slide-body" }, [
+                      _c("figure", { staticClass: "slide small" }, [
+                        _c("img", {
+                          attrs: { src: "img/system/static/sedan.png", alt: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "body_name" }, [
+                        _vm._v("Седан")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yb_slide-body" }, [
+                      _c("figure", { staticClass: "slide large" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/static/crossover.png",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "body_name bold" }, [
+                        _vm._v("Кроссовер")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yb_slide-body" }, [
+                      _c("figure", { staticClass: "slide small" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/static/cabriolet.png",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "body_name" }, [
+                        _vm._v("Кабриолет")
+                      ])
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "yb-car_marks" }, [
             _c(
@@ -36193,7 +36329,7 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ])
         ])
       ])
@@ -36239,40 +36375,6 @@ var staticRenderFns = [
             _vm._v("Прицепы")
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-slide_type" }, [
-      _c("div", { staticClass: "yb_slide-body" }, [
-        _c("figure", { staticClass: "slide small" }, [
-          _c("img", { attrs: { src: "img/system/static/sedan.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "body_name" }, [_vm._v("Седан")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb_slide-body" }, [
-        _c("figure", { staticClass: "slide large" }, [
-          _c("img", {
-            attrs: { src: "img/system/static/crossover.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "body_name bold" }, [_vm._v("Кроссовер")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb_slide-body" }, [
-        _c("figure", { staticClass: "slide small" }, [
-          _c("img", {
-            attrs: { src: "img/system/static/cabriolet.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "body_name" }, [_vm._v("Кабриолет")])
       ])
     ])
   },
@@ -36904,6 +37006,509 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobileanalitics.vue?vue&type=template&id=34ba1dec&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ymobileanalitics.vue?vue&type=template&id=34ba1dec& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "yanalitic" },
+    [
+      _c("ytitle", { attrs: { title: "Аналитика" } }),
+      _vm._v(" "),
+      _c(
+        "Slick",
+        { ref: "slick", attrs: { id: "slick5", options: _vm.slickOptions } },
+        [
+          _c("div", { staticClass: "analitics_content" }, [
+            _c("div", { staticClass: "analitics_desc" }, [
+              _c("h3", { staticClass: "analitics_subtitle" }, [
+                _vm._v("Проверенные авто")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "subtitle_desc" }, [
+                _vm._v(
+                  "\n                    С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "yverify_btn", on: { click: _vm.click } },
+                [_vm._v("Проверить")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("figure", { staticClass: "analitics_prev" }, [
+              _c("img", {
+                attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "analitics_content" }, [
+            _c("div", { staticClass: "analitics_desc" }, [
+              _c("h3", { staticClass: "analitics_subtitle" }, [
+                _vm._v("Цены на авто")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "subtitle_desc" }, [
+                _vm._v(
+                  "\n                    С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "yverify_btn", on: { click: _vm.click } },
+                [_vm._v("Проверить")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("figure", { staticClass: "analitics_prev" }, [
+              _c("img", {
+                attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
+              })
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilecatalog.vue?vue&type=template&id=d30d19a6&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ymobilecatalog.vue?vue&type=template&id=d30d19a6& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "ycatalog_block" },
+    [
+      _c("ytitle", { attrs: { title: "Каталог" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "y-cat-bottom" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "ydrop_down" }, [_c("ydropdown")], 1),
+        _vm._v(" "),
+        _c("div", { staticClass: "type_body-marks" }, [
+          _c("div", { staticClass: "car_body-type" }, [
+            _c(
+              "div",
+              { staticClass: "body-type_top" },
+              [
+                _c("h3", { staticClass: "type-top_title" }, [
+                  _vm._v("Популярные кузовы")
+                ]),
+                _vm._v(" "),
+                _c("yexpanded", {
+                  attrs: { text_color: "white", text: "Смотреть больше" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "yb-slide_type" },
+              [
+                _c(
+                  "Slick",
+                  {
+                    ref: "slick",
+                    attrs: { id: "slick3", options: _vm.slickOptions }
+                  },
+                  [
+                    _c("div", { staticClass: "yb_slide-body" }, [
+                      _c("figure", { staticClass: "slide small" }, [
+                        _c("img", {
+                          attrs: { src: "img/system/static/sedan.png", alt: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "body_name" }, [
+                        _vm._v("Седан")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yb_slide-body" }, [
+                      _c("figure", { staticClass: "slide large" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/static/crossover.png",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "body_name bold" }, [
+                        _vm._v("Кроссовер")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yb_slide-body" }, [
+                      _c("figure", { staticClass: "slide small" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/static/cabriolet.png",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "body_name" }, [
+                        _vm._v("Кабриолет")
+                      ])
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-car_marks" }, [
+            _c(
+              "div",
+              { staticClass: "car_marks-title" },
+              [
+                _c("h3", { staticClass: "marks_title" }, [
+                  _vm._v("Популярные марки")
+                ]),
+                _vm._v(" "),
+                _c("yexpanded", {
+                  attrs: {
+                    text_color: "blue",
+                    text: "Смотреть больше",
+                    color: "blue"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(2)
+          ])
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cat_categories" }, [
+      _c("h3", { staticClass: "title" }, [_vm._v("Категории")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cat_list-items" }, [
+        _c("ul", { staticClass: "list_items" }, [
+          _c("li", { staticClass: "cat_item", attrs: { tabindex: "0" } }, [
+            _vm._v("Легковые")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "cat_item", attrs: { tabindex: "1" } }, [
+            _vm._v("Мото")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "cat_item", attrs: { tabindex: "2" } }, [
+            _vm._v("Автобусы")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "cat_item", attrs: { tabindex: "3" } }, [
+            _vm._v("Водный")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "cat_item", attrs: { tabindex: "4" } }, [
+            _vm._v("Сельхозтехника")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "cat_item", attrs: { tabindex: "5" } }, [
+            _vm._v("Спецтехника")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "cat_item", attrs: { tabindex: "6" } }, [
+            _vm._v("Прицепы")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yshow_more-body" }, [
+      _c("button", { staticClass: "ymore_body" }, [_vm._v("Смотреть еще")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb_marks_list" }, [
+      _c("ul", { staticClass: "marks-list_body" }, [
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", { attrs: { src: "img/brands_logo/audi.png", alt: "" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", { attrs: { src: "img/brands_logo/audi.png", alt: "" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", { attrs: { src: "img/brands_logo/audi.png", alt: "" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", { attrs: { src: "img/brands_logo/acura.png", alt: "" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", { attrs: { src: "img/brands_logo/austin.png", alt: "" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", { attrs: { src: "img/brands_logo/dacia.png", alt: "" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "img/brands_logo/maserati.png", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", { attrs: { src: "img/brands_logo/kia.png", alt: "" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mark_list" }, [
+          _c("a", { staticClass: "marks", attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "img/brands_logo/peugeot.png", alt: "" }
+            })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yshow_more-marks" }, [
+        _c("button", { staticClass: "ymore_marks" }, [_vm._v("Смотреть еще")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilesticker.vue?vue&type=template&id=31adea51&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ymobilesticker.vue?vue&type=template&id=31adea51& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "ystickers" },
+    [
+      _c(
+        "Slick",
+        { ref: "slick", attrs: { id: "slick1", options: _vm.slickOptions } },
+        [
+          _c("div", { staticClass: "yb-sticker" }, [
+            _c("div", { staticClass: "yb-sticker_logo" }, [
+              _c("span", { staticClass: "brand_title" }, [
+                _vm._v("Mercedes-Benz")
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
+              }
+            }),
+            _vm._v(" "),
+            _c("figure", { staticClass: "img-context" }, [
+              _c("img", {
+                attrs: {
+                  src:
+                    "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "h4",
+              {
+                staticClass: "yb-sticker_title",
+                staticStyle: { color: "#fff" }
+              },
+              [_vm._v("Новый Mercedes-Benz ")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-sticker" }, [
+            _c("div", { staticClass: "yb-sticker_logo" }, [
+              _c("span", { staticClass: "brand_title" }, [
+                _vm._v("Volkswagen")
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                attrs: { src: "img/system/static/vw_logo.png", alt: "" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%)"
+              }
+            }),
+            _vm._v(" "),
+            _c("figure", { staticClass: "img-context" }, [
+              _c("img", {
+                attrs: {
+                  src: "https://carexpert.ru/img/foto600/vw/vwar001.jpg",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "h4",
+              {
+                staticClass: "yb-sticker_title",
+                staticStyle: { color: "#1B1B1B" }
+              },
+              [_vm._v("Новый Volkswagen Arteon ")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-sticker" }, [
+            _c("div", { staticClass: "yb-sticker_logo" }, [
+              _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
+              _vm._v(" "),
+              _c("img", {
+                attrs: { src: "img/system/static/audi_logo.png", alt: "" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "background_style",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
+              }
+            }),
+            _vm._v(" "),
+            _c("figure", { staticClass: "img-context" }, [
+              _c("img", {
+                attrs: {
+                  src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "h4",
+              {
+                staticClass: "yb-sticker_title",
+                staticStyle: { color: "#fff" }
+              },
+              [_vm._v("Новая Audi TT RS")]
+            )
+          ])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ynews.vue?vue&type=template&id=18e7cb4d&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ynews.vue?vue&type=template&id=18e7cb4d& ***!
@@ -37463,172 +38068,119 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "ystickers" },
-    [
-      _c(
-        "Slick",
-        { ref: "slick", attrs: { id: "slick1", options: _vm.slickOptions } },
-        [
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/system/static/audi_logo.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новая Audi TT RS")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [
-                _vm._v("Volkswagen")
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/system/static/vw_logo.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://carexpert.ru/img/foto600/vw/vwar001.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#1B1B1B" }
-              },
-              [_vm._v("Новый Volkswagen Arteon ")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [
-                _vm._v("Mercedes-Benz")
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новый Mercedes-Benz ")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-sticker" }, [
-            _c("div", { staticClass: "yb-sticker_logo" }, [
-              _c("span", { staticClass: "brand_title" }, [
-                _vm._v("Mercedes-Benz")
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "background_style",
-              staticStyle: {
-                background:
-                  "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
-              }
-            }),
-            _vm._v(" "),
-            _c("figure", { staticClass: "img-context" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новый Mercedes-Benz ")]
-            )
-          ])
-        ]
-      )
-    ],
-    1
-  )
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ystickers" }, [
+      _c("div", { staticClass: "yb-sticker" }, [
+        _c("div", { staticClass: "yb-sticker_logo" }, [
+          _c("span", { staticClass: "brand_title" }, [_vm._v("Mercedes-Benz")]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "background_style",
+          staticStyle: {
+            background:
+              "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
+          }
+        }),
+        _vm._v(" "),
+        _c("figure", { staticClass: "img-context" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "h4",
+          { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+          [_vm._v("Новый Mercedes-Benz ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-sticker" }, [
+        _c("div", { staticClass: "yb-sticker_logo" }, [
+          _c("span", { staticClass: "brand_title" }, [_vm._v("Volkswagen")]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: { src: "img/system/static/vw_logo.png", alt: "" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "background_style",
+          staticStyle: {
+            background:
+              "linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%)"
+          }
+        }),
+        _vm._v(" "),
+        _c("figure", { staticClass: "img-context" }, [
+          _c("img", {
+            attrs: {
+              src: "https://carexpert.ru/img/foto600/vw/vwar001.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "h4",
+          {
+            staticClass: "yb-sticker_title",
+            staticStyle: { color: "#1B1B1B" }
+          },
+          [_vm._v("Новый Volkswagen Arteon ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-sticker" }, [
+        _c("div", { staticClass: "yb-sticker_logo" }, [
+          _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: { src: "img/system/static/audi_logo.png", alt: "" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "background_style",
+          staticStyle: {
+            background:
+              "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
+          }
+        }),
+        _vm._v(" "),
+        _c("figure", { staticClass: "img-context" }, [
+          _c("img", {
+            attrs: {
+              src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "h4",
+          { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+          [_vm._v("Новая Audi TT RS")]
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -53221,88 +53773,18 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/site/components/carousel.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/site/components/carousel.vue ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _carousel_vue_vue_type_template_id_71dd9122___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./carousel.vue?vue&type=template&id=71dd9122& */ "./resources/js/site/components/carousel.vue?vue&type=template&id=71dd9122&");
-/* harmony import */ var _carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel.vue?vue&type=script&lang=js& */ "./resources/js/site/components/carousel.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _carousel_vue_vue_type_template_id_71dd9122___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _carousel_vue_vue_type_template_id_71dd9122___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/site/components/carousel.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/site/components/carousel.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/site/components/carousel.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./carousel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/carousel.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/site/components/carousel.vue?vue&type=template&id=71dd9122&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/site/components/carousel.vue?vue&type=template&id=71dd9122& ***!
-  \**********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_template_id_71dd9122___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./carousel.vue?vue&type=template&id=71dd9122& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/carousel.vue?vue&type=template&id=71dd9122&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_template_id_71dd9122___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_template_id_71dd9122___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/site/components/yanalitics.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/site/components/yanalitics.vue ***!
   \*****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _yanalitics_vue_vue_type_template_id_44676e28___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yanalitics.vue?vue&type=template&id=44676e28& */ "./resources/js/site/components/yanalitics.vue?vue&type=template&id=44676e28&");
 /* harmony import */ var _yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yanalitics.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yanalitics.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -53332,15 +53814,13 @@ component.options.__file = "resources/js/site/components/yanalitics.vue"
 /*!******************************************************************************!*\
   !*** ./resources/js/site/components/yanalitics.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yanalitics.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yanalitics.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -53435,15 +53915,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./resources/js/site/components/ycatalog.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ycatalog_vue_vue_type_template_id_710948e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ycatalog.vue?vue&type=template&id=710948e2& */ "./resources/js/site/components/ycatalog.vue?vue&type=template&id=710948e2&");
 /* harmony import */ var _ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ycatalog.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ycatalog.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -53473,15 +53952,13 @@ component.options.__file = "resources/js/site/components/ycatalog.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/site/components/ycatalog.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ycatalog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ycatalog.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -53576,15 +54053,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/site/components/ydropdown.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ydropdown_vue_vue_type_template_id_45e396ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ydropdown.vue?vue&type=template&id=45e396ea& */ "./resources/js/site/components/ydropdown.vue?vue&type=template&id=45e396ea&");
 /* harmony import */ var _ydropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ydropdown.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ydropdown.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ydropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ydropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -53614,7 +54090,7 @@ component.options.__file = "resources/js/site/components/ydropdown.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/site/components/ydropdown.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53913,6 +54389,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ylocation_vue_vue_type_template_id_6b801e2f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ylocation_vue_vue_type_template_id_6b801e2f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobileanalitics.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/site/components/ymobileanalitics.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ymobileanalitics_vue_vue_type_template_id_34ba1dec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ymobileanalitics.vue?vue&type=template&id=34ba1dec& */ "./resources/js/site/components/ymobileanalitics.vue?vue&type=template&id=34ba1dec&");
+/* harmony import */ var _ymobileanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ymobileanalitics.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ymobileanalitics.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ymobileanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ymobileanalitics_vue_vue_type_template_id_34ba1dec___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ymobileanalitics_vue_vue_type_template_id_34ba1dec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/ymobileanalitics.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobileanalitics.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/site/components/ymobileanalitics.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobileanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ymobileanalitics.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobileanalitics.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobileanalitics_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobileanalitics.vue?vue&type=template&id=34ba1dec&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/site/components/ymobileanalitics.vue?vue&type=template&id=34ba1dec& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobileanalitics_vue_vue_type_template_id_34ba1dec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ymobileanalitics.vue?vue&type=template&id=34ba1dec& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobileanalitics.vue?vue&type=template&id=34ba1dec&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobileanalitics_vue_vue_type_template_id_34ba1dec___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobileanalitics_vue_vue_type_template_id_34ba1dec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobilecatalog.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/site/components/ymobilecatalog.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ymobilecatalog_vue_vue_type_template_id_d30d19a6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ymobilecatalog.vue?vue&type=template&id=d30d19a6& */ "./resources/js/site/components/ymobilecatalog.vue?vue&type=template&id=d30d19a6&");
+/* harmony import */ var _ymobilecatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ymobilecatalog.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ymobilecatalog.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ymobilecatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ymobilecatalog_vue_vue_type_template_id_d30d19a6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ymobilecatalog_vue_vue_type_template_id_d30d19a6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/ymobilecatalog.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobilecatalog.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/site/components/ymobilecatalog.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilecatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ymobilecatalog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilecatalog.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilecatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobilecatalog.vue?vue&type=template&id=d30d19a6&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/site/components/ymobilecatalog.vue?vue&type=template&id=d30d19a6& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilecatalog_vue_vue_type_template_id_d30d19a6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ymobilecatalog.vue?vue&type=template&id=d30d19a6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilecatalog.vue?vue&type=template&id=d30d19a6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilecatalog_vue_vue_type_template_id_d30d19a6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilecatalog_vue_vue_type_template_id_d30d19a6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobilesticker.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/site/components/ymobilesticker.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ymobilesticker_vue_vue_type_template_id_31adea51___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ymobilesticker.vue?vue&type=template&id=31adea51& */ "./resources/js/site/components/ymobilesticker.vue?vue&type=template&id=31adea51&");
+/* harmony import */ var _ymobilesticker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ymobilesticker.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ymobilesticker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ymobilesticker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ymobilesticker_vue_vue_type_template_id_31adea51___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ymobilesticker_vue_vue_type_template_id_31adea51___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/ymobilesticker.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobilesticker.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/site/components/ymobilesticker.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilesticker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ymobilesticker.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilesticker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilesticker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ymobilesticker.vue?vue&type=template&id=31adea51&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/site/components/ymobilesticker.vue?vue&type=template&id=31adea51& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilesticker_vue_vue_type_template_id_31adea51___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ymobilesticker.vue?vue&type=template&id=31adea51& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ymobilesticker.vue?vue&type=template&id=31adea51&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilesticker_vue_vue_type_template_id_31adea51___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ymobilesticker_vue_vue_type_template_id_31adea51___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -54491,7 +55174,12 @@ __webpack_require__(/*! ../bootstrap.js */ "./resources/js/bootstrap.js");
 
  //modules
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymenu', __webpack_require__(/*! ./modules/header/ymenu.vue */ "./resources/js/site/modules/header/ymenu.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymenu', __webpack_require__(/*! ./modules/header/ymenu.vue */ "./resources/js/site/modules/header/ymenu.vue")["default"]); //mobile
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilesticker', __webpack_require__(/*! ./components/ymobilesticker */ "./resources/js/site/components/ymobilesticker.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilecatalog', __webpack_require__(/*! ./components/ymobilecatalog */ "./resources/js/site/components/ymobilecatalog.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobileanalitics', __webpack_require__(/*! ./components/ymobileanalitics */ "./resources/js/site/components/ymobileanalitics.vue")["default"]); //finish mobile
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ysearch', __webpack_require__(/*! ./modules/header/ysearch.vue */ "./resources/js/site/modules/header/ysearch.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ylocation', __webpack_require__(/*! ./components/ylocation.vue */ "./resources/js/site/components/ylocation.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystatus', __webpack_require__(/*! ./components/ystatus */ "./resources/js/site/components/ystatus.vue")["default"]);
@@ -54506,9 +55194,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfavorite', __webpack_requ
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yanalitics', __webpack_require__(/*! ./components/yanalitics */ "./resources/js/site/components/yanalitics.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynews', __webpack_require__(/*! ./components/ynews */ "./resources/js/site/components/ynews.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yselect', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdown', __webpack_require__(/*! ./components/ydropdown */ "./resources/js/site/components/ydropdown.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('carousel', __webpack_require__(/*! ./components/carousel */ "./resources/js/site/components/carousel.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({}).$mount('#yb-site');
 
 /***/ }),
