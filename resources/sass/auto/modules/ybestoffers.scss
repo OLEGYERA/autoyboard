@@ -536,3 +536,77 @@
         }
     }
 }
+@media only screen and (max-width: 425px){
+    .ybestoffer{
+        .ybest-items{
+            .slick-slider{
+                .slick-list{
+                    .slick-track{
+                        .slick-slide{
+                            .ybest-item{
+                                max-width: 390px;
+                                .yb-icon_check{
+                                    .item_check{
+                                        width: 45px;
+                                        height: 45px;
+                                        img{
+                                            width: 30px;
+                                        }
+                                    }
+                                    .new_item{
+                                        width: 45px;
+                                        height: 45px;
+                                        font-size: em(14);
+                                    }
+                                }
+                                .item_desc{
+                                    .item_name{
+                                        font-size: em(18);
+                                    }
+                                    .sity-name_item{
+                                        font-size: em(18);
+                                    }
+                                    .item_price{
+                                        font-size: em(24);
+                                        font-weight: 500;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .ybestoffer{
+        .ybest-items{
+            .slick-slider{
+                .slick-list{
+                    .slick-track{
+                        .slick-slide{
+                            .ybest-item{
+                                max-width: 290px;
+                                .yb-icon_check{
+                                    .item_check{
+                                        width: 40px;
+                                        height: 40px;
+                                        img{
+                                            width: 25px;
+                                        }
+                                    }
+                                    .new_item{
+                                        width: 40px;
+                                        height: 40px;
+                                        font-size: em(12);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

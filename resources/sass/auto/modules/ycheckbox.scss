@@ -131,3 +131,25 @@
         margin-bottom: 5px;
     }
 }
+
+@media only screen and (max-width: 425px){
+    .change_resource{
+        .title_change{
+            font-size: em(16);
+        }
+        .ios7-switch{
+            input:checked + span:after {
+                left: 16px;
+            }
+            span{
+                width: 30px;
+                height: 17px;
+                &:after{
+                    width: 12px;
+                    height: 12px;
+                    top: 1.2px;
+                }
+            }
+        }
+    }
+}

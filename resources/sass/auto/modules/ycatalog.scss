@@ -106,7 +106,7 @@
                                         .small{
                                             min-width: 140px;
                                             img{
-                                                max-height: 70px;
+                                                max-height: 110px;
                                             }
                                         }
                                         .body_name{
@@ -475,6 +475,18 @@
                                             .large{
                                                 min-width: 330px;
                                             }
+                                            .bold{
+                                                font-size: em(22);
+                                            }
+                                            .body_name{
+                                                font-size: em(18);
+                                            }
+                                            .small{
+                                                height: 70px;
+                                                img{
+                                                    max-height: 90px;
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -507,7 +519,7 @@
     .ycatalog_block{
         .y-cat-bottom{
             display: block;
-            border-radius: 0px;
+            border-radius: 35px 35px 0 0;
             .cat_categories{
                 display: none;
             }
@@ -669,6 +681,9 @@
                                                     max-height: 100%;
                                                 }
                                             }
+                                            .small{
+                                                height: 180px;
+                                            }
                                             .body_name{
                                                 font-size: em(24);
                                             }
@@ -721,7 +736,7 @@
                                 .marks{
                                     max-width: 60px;
                                 }
-                                &:nth-child(-n+4){
+                                &:nth-child(n+7){
                                     display: none;
                                 }
                             }
@@ -747,6 +762,84 @@
                                 color: #FFFFFF;
 
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .ycatalog_block{
+        .y-cat-bottom{
+            .ydrop_down{
+                .ydropdown{
+                    .value{
+                        font-size: em(20);
+                    }
+                }
+            }
+            .type_body-marks{
+                .car_body-type{
+                    padding: 25px 15px 25px 15px;
+                    border-radius: 0px 0px 15px 15px;
+                    .body-type_top{
+                        .type-top_title{
+                            font-size: em(20);
+                        }
+                    }
+                    .yb-slide_type{
+                        #slick3{
+                            .slick-arrow{
+                                top: 88%;
+                                width: 20px;
+                                height: 20px;
+                            }
+                            .slick-next{
+                                right: 50px;
+                            }
+                            .slick-prev{
+                                left: 50px;
+                            }
+                            .slick-list{
+                                .slick-track{
+                                    .slick-slide{
+                                        .yb_slide-body{
+                                            .body_name{
+                                                font-size: em(20);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .yb-car_marks{
+                    .car_marks-title{
+                        .marks_title{
+                            font-size: em(20);
+                            font-weight: 500;
+                        }
+                    }
+                    .yb_marks_list{
+                        .marks-list_body{
+                            .mark_list{
+                                height: 80px;
+                                width: 30.8%;
+                                &:nth-child(n+7){
+                                    display: flex;
+                                }
+                                &:last-child{
+                                    display: none;
+                                }
+                                &:first-child{
+                                    margin-bottom: 7px;
+                                }
+                            }
+                        }
+                        .yshow_more-marks{
+                            margin: 15px 0 30px 0;
                         }
                     }
                 }

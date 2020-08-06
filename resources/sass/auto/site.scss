@@ -549,9 +549,10 @@
             }
         }
         .yfooter_content{
-            padding: 0% 0% 0% 6.6%;
+            padding: 2.3% 3% 3.3% 3%;
+            flex-direction: column-reverse;
             .logo_social{
-                width: 25%;
+                width: 20%;
                 .yb_logo_white{
                     width: 45%;
                 }
@@ -568,8 +569,7 @@
                 }
             }
             .footer_list{
-                flex-wrap: wrap-reverse;
-                padding: 30px 21% 20px 0%;
+                width: 100%;
                 .yrepeat_catalog{
                     .yrepeat_title{
                         font-size: em(18);
@@ -603,27 +603,79 @@
             }
         }
     }
+    @media only screen and (max-width: 768px){
+        .yb_content{
+
+        }
+        .yfooter_content{
+            padding: 2.3% 2% 3.3% 2%;
+            .footer_list{
+               .yrepeat_catalog{
+                   .yrepeat_title{
+                       font-size: em(15);
+                   }
+                   .yrepeat_list{
+                       .item_repeat{
+                           a{
+                               font-size: em(13);
+                           }
+                       }
+                   }
+               }
+                .ysite_step{
+                    .yrepeat_title{
+                        font-size: em(15);
+                    }
+                    .site_step-list{
+                        .step_list{
+                            .step{
+                                font-size: em(14);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     @media only screen and (max-width: 600px){
         .yb_content{
 
         }
         .yfooter_content{
-            padding: 0;
+            padding: 30px;
             flex-direction: column-reverse;
             .logo_social{
                 width: 30%;
-                margin-bottom: 30px;
                 .yb_logo_white{
                     width: 55%;
                 }
             }
             .footer_list{
-                padding: 20px 0% 20px 0%;
+                flex-flow: wrap;
+                flex-direction: row-reverse;
+                .yrepeat_catalog{
+                    min-width: 140px;
+                    margin-bottom: 20px;
+                    .yrepeat_title{
+                        font-size: em(18);
+                    }
+                    .yrepeat_list{
+                        .item_repeat{
+                            a{
+                                font-size: em(14);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
 
 
-
+@media only screen and (max-width: 425px){
+    #yb-site{
+        padding-top: 50px;
+    }
+}
 

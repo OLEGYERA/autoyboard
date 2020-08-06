@@ -285,3 +285,24 @@ header.yb-header{
         }
     }
 }
+@media only screen and (max-width: 425px){
+    header.yb-header{
+        height: 50px;
+        padding: 0px 4%;
+        .yb-header-left{
+            .yb-logo{
+                height: 18px;
+            }
+            .ymenu{
+                .ymenu-visual{
+                    width: 160px;
+                }
+            }
+        }
+        .yb-header-right{
+            .ysearch{
+                display: none;
+            }
+        }
+    }
+}

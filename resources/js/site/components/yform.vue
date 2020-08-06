@@ -1,5 +1,43 @@
 <template>
-    <div class="yform">
+    <div class="yform mobile" v-if="mobile">
+        <div class="another_options">
+            <div class="yoption_btn">
+                <button class="change_type active">Все</button>
+                <button class="change_type">Новые</button>
+                <button class="change_type">Б/у</button>
+            </div>
+            <div class="selector-rows">
+                <yselect :placeholder="'Тип авто'" :options="options"></yselect>
+                <yselect :placeholder="'Модель'" :options="options"></yselect>
+                <yselect :placeholder="'Марка'" :options="options"></yselect>
+                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>
+                <yselect :placeholder="'Регион'" :options="options"></yselect>
+            </div>
+            <div class="yprice_options">
+                <h3 class="ytitle_option">Цена, $</h3>
+                <div class="change_price">
+                    <yrange></yrange>
+                </div>
+            </div>
+            <div class="yresource_options">
+                <ycheckbox
+                    :text="'Поиск со всех ресурсов'">
+                </ycheckbox>
+                <ycheckbox
+                    :text="'Провереные'">
+                </ycheckbox>
+                <ycheckbox
+                    :text="'С фото'">
+                </ycheckbox>
+            </div>
+        </div>
+        <div class="left_options">
+            <div class="yform-submit">
+                <button>Поиск</button>
+            </div>
+        </div>
+    </div>
+    <div class="yform"  v-else>
         <div class="left_options">
             <div class="selector-rows">
                 <yselect :placeholder="'Тип авто'" :options="options"></yselect>
@@ -37,6 +75,7 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -45,6 +84,7 @@
         props: [],
         data: function(){
             return{
+                mobile: false,
                 catStatus: false,
                 options: [
                     {
@@ -90,6 +130,13 @@
                 ]
             }
         },
+        created() {
+            window.addEventListener('resize', this.onResize);
+            this.onResize();
+        },
+        destroyed() {
+            window.removeEventListener('resize', this.onResize)
+        },
         methods: {
             onOptionSelect(option) {
                 console.log(option);
@@ -103,11 +150,13 @@
                     this.maxPrice = this.minPrice
                     this.minPrice = temp
                 }
+            },
+            onResize() {
+                this.mobile = window.innerWidth <= 425;
             }
         },
-        watch: {
 
-        }
+
     }
 
 </script>

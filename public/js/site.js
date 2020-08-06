@@ -2205,7 +2205,8 @@ __webpack_require__.r(__webpack_exports__);
           breakpoint: 426,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            arrows: false
           }
         }]
       }
@@ -2576,10 +2577,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [],
   data: function data() {
     return {
+      mobile: false,
       catStatus: false,
       options: [{
         id: 1,
@@ -2615,6 +2656,13 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
+  created: function created() {
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener('resize', this.onResize);
+  },
   methods: {
     onOptionSelect: function onOptionSelect(option) {
       console.log(option);
@@ -2628,9 +2676,11 @@ __webpack_require__.r(__webpack_exports__);
         this.maxPrice = this.minPrice;
         this.minPrice = temp;
       }
+    },
+    onResize: function onResize() {
+      this.mobile = window.innerWidth <= 425;
     }
-  },
-  watch: {}
+  }
 });
 
 /***/ }),
@@ -2783,6 +2833,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -36460,7 +36520,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "yshow_more-marks" }, [
-        _c("button", { staticClass: "ymore_marks" }, [_vm._v("Смотреть еще")])
+        _c("button", { staticClass: "ymore_marks" }, [_vm._v("Все марки")])
       ])
     ])
   }
@@ -36783,63 +36843,139 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "yform" }, [
-    _c("div", { staticClass: "left_options" }, [
-      _c(
-        "div",
-        { staticClass: "selector-rows" },
-        [
-          _c("yselect", {
-            attrs: { placeholder: "Тип авто", options: _vm.options }
-          }),
+  return _vm.mobile
+    ? _c("div", { staticClass: "yform mobile" }, [
+        _c("div", { staticClass: "another_options" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("yselect", {
-            attrs: { placeholder: "Модель", options: _vm.options }
-          }),
+          _c(
+            "div",
+            { staticClass: "selector-rows" },
+            [
+              _c("yselect", {
+                attrs: { placeholder: "Тип авто", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Модель", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Марка", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Тип кузова", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Регион", options: _vm.options }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("yselect", {
-            attrs: { placeholder: "Марка", options: _vm.options }
-          }),
+          _c("div", { staticClass: "yprice_options" }, [
+            _c("h3", { staticClass: "ytitle_option" }, [_vm._v("Цена, $")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "change_price" }, [_c("yrange")], 1)
+          ]),
           _vm._v(" "),
-          _c("yselect", {
-            attrs: { placeholder: "Тип кузова", options: _vm.options }
-          }),
-          _vm._v(" "),
-          _c("yselect", {
-            attrs: { placeholder: "Регион", options: _vm.options }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(0)
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "another_options" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", { staticClass: "yprice_options" }, [
-        _c("h3", { staticClass: "ytitle_option" }, [_vm._v("Цена, $")]),
+          _c(
+            "div",
+            { staticClass: "yresource_options" },
+            [
+              _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
+              _vm._v(" "),
+              _c("ycheckbox", { attrs: { text: "Провереные" } }),
+              _vm._v(" "),
+              _c("ycheckbox", { attrs: { text: "С фото" } })
+            ],
+            1
+          )
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "change_price" }, [_c("yrange")], 1)
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "yresource_options" },
-        [
-          _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
+        _vm._m(1)
+      ])
+    : _c("div", { staticClass: "yform" }, [
+        _c("div", { staticClass: "left_options" }, [
+          _c(
+            "div",
+            { staticClass: "selector-rows" },
+            [
+              _c("yselect", {
+                attrs: { placeholder: "Тип авто", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Модель", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Марка", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Тип кузова", options: _vm.options }
+              }),
+              _vm._v(" "),
+              _c("yselect", {
+                attrs: { placeholder: "Регион", options: _vm.options }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("ycheckbox", { attrs: { text: "Провереные" } }),
+          _vm._m(2)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "another_options" }, [
+          _vm._m(3),
           _vm._v(" "),
-          _c("ycheckbox", { attrs: { text: "С фото" } })
-        ],
-        1
-      )
-    ])
-  ])
+          _c("div", { staticClass: "yprice_options" }, [
+            _c("h3", { staticClass: "ytitle_option" }, [_vm._v("Цена, $")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "change_price" }, [_c("yrange")], 1)
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "yresource_options" },
+            [
+              _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
+              _vm._v(" "),
+              _c("ycheckbox", { attrs: { text: "Провереные" } }),
+              _vm._v(" "),
+              _c("ycheckbox", { attrs: { text: "С фото" } })
+            ],
+            1
+          )
+        ])
+      ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_btn" }, [
+      _c("button", { staticClass: "change_type active" }, [_vm._v("Все")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left_options" }, [
+      _c("div", { staticClass: "yform-submit" }, [
+        _c("button", [_vm._v("Поиск")])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -37041,19 +37177,27 @@ var render = function() {
                 _vm._v(
                   "\n                    С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n                "
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "yverify_btn", on: { click: _vm.click } },
-                [_vm._v("Проверить")]
-              )
+              ])
             ]),
             _vm._v(" "),
             _c("figure", { staticClass: "analitics_prev" }, [
               _c("img", {
                 attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
               })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "analitics_desc mobile" }, [
+              _c("h3", { staticClass: "analitics_subtitle" }, [
+                _vm._v("Проверенные авто")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yverify" }, [
+              _c(
+                "button",
+                { staticClass: "yverify_btn", on: { click: _vm.click } },
+                [_vm._v("Проверить")]
+              )
             ])
           ]),
           _vm._v(" "),
@@ -37067,19 +37211,27 @@ var render = function() {
                 _vm._v(
                   "\n                    С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n                "
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "yverify_btn", on: { click: _vm.click } },
-                [_vm._v("Проверить")]
-              )
+              ])
             ]),
             _vm._v(" "),
             _c("figure", { staticClass: "analitics_prev" }, [
               _c("img", {
                 attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
               })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "analitics_desc mobile" }, [
+              _c("h3", { staticClass: "analitics_subtitle " }, [
+                _vm._v("Проверенные авто")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yverify" }, [
+              _c(
+                "button",
+                { staticClass: "yverify_btn", on: { click: _vm.click } },
+                [_vm._v("Проверить")]
+              )
             ])
           ])
         ]

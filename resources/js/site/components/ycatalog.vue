@@ -110,7 +110,7 @@
                                     </li>
                                 </ul>
                                 <div class="yshow_more-marks">
-                                    <button class="ymore_marks">Смотреть еще</button>
+                                    <button class="ymore_marks">Все марки</button>
                                 </div>
                             </div>
                 </div>

@@ -96,6 +96,9 @@
                 width: 100%;
             }
         }
+        .mobile{
+            display: none;
+        }
     }
 }
 @media only screen and (max-width: 1600px){
@@ -218,9 +221,10 @@
 }
 @media only screen and (max-width: 768px){
     .yanalitic {
+        position: relative;
         .slick-slider{
             width: 100%;
-            position: relative;
+            margin-bottom: 0px;
             .slick-arrow{
                 z-index: 2;
                 top: 55%;
@@ -230,11 +234,127 @@
                 height: 20px;
                 background: transparent;
                 text-indent: -9999px;
-                border-top: 3px solid  #111E6C;
-                border-left: 3px solid  #111E6C;
+                border-top: 2px solid  #111E6C;
+                border-left: 2px solid  #111E6C;
                 transition: all .3s ease-in-out;
                 text-decoration: none;
                 color: transparent;
+            }
+            .slick-prev{
+                left: 20px;
+                transform: rotate(-45deg);
+                &:before{
+                    content: '';
+                    color: #111E6C;
+                    font-size: 40px;
+                    opacity: 1;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                }
+            }
+            .slick-next{
+                right: 20px;
+                transform: rotate(140deg);
+                &:before{
+                    content: '';
+                    color: #111E6C;
+                    font-size: 40px;
+                    opacity: 1;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+            .slick-list{
+                overflow: hidden;
+                width: 100%;
+                .slick-track{
+                    display: flex;
+                    .slick-slide{
+                        position: relative;
+                        .analitics_content{
+                            flex-direction: column;
+                            align-items: center;
+                            margin: 0px 0 0px;
+                            .analitics_desc{
+                                width: 100%;
+                                .subtitle_desc{
+                                    width: 80%;
+                                    margin-bottom: 20px;
+                                }
+                            }
+                            .analitics_prev{
+                                width: 70%;
+                                margin: 0 auto;
+                            }
+                            .yverify{
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                .yverify_btn{
+                                    width: 180px;
+                                    height: 35px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-family: $aleg;
+                                    font-weight: 500;
+                                    line-height: 26px;
+                                    padding: 0px 15px;
+                                    background: linear-gradient(0deg, #072F6A, #072F6A), #FFFFFF;
+                                    box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
+                                    border-radius: 8px;
+                                    color: #fff;
+                                    margin-top: 30px;
+                                    font-size: em(16);
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            .slick-dots{
+                bottom: -15px;
+                li{
+                    display: inline-block;
+                    margin: 0 10px;
+                    button{
+                        width: 9px;
+                        height: 9px;
+                        background: #FCFCFC;
+                        border: 2px solid $titleblue;
+                        border-radius: 50%;
+                        &:before{
+                            font-size: 0px;
+                            line-height: 22px;
+                        }
+                    }
+                }
+                .slick-active button:before{
+                    color: $titleblue;
+                    opacity: 1 ;
+                    font-size: 15px;
+                    line-height: 0;
+                    top: 9px;
+                    left: -3px;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 425px){
+    .yanalitic {
+        .slick-slider{
+            width: 100%;
+            position: relative;
+            .slick-arrow{
+                top: 73%;
             }
             .slick-prev{
                 left: 10px;
@@ -270,27 +390,28 @@
                     display: flex;
                     .slick-slide{
                         .analitics_content{
-                            flex-direction: column;
-                            position: relative;
-                            align-items: center;
-                            margin: 0px 0 65px;
+                            padding: 0 38px 0 50px;
                             .analitics_desc{
-                                width: 100%;
-                                .subtitle_desc{
-                                    width: 80%;
-                                    margin-bottom: 20px;
-                                }
+                                display: none;
                                 .yverify_btn{
                                     position: absolute;
-                                    bottom: -55px;
-                                    left: 37%;
+                                    bottom: 35px;
+                                    left: 15%;
                                     z-index: 2;
 
                                 }
                             }
                             .analitics_prev{
-                                width: 70%;
-                                margin: 0 auto;
+                                width: 100%;
+                            }
+                            .mobile{
+                                display: flex;
+                                margin-top: 25px;
+                                .analitics_subtitle{
+                                    text-align: center;
+                                    color: $darkblue;
+                                    font-size: em(18);
+                                }
                             }
                         }
                     }
@@ -326,20 +447,14 @@
         }
     }
 }
-
-@media only screen and (max-width: 600px){
-    .yanalitic{
-        .slick-slider{
+@media only screen and (max-width: 375px){
+    .yanalitic {
+        .slick-slider {
             width: 100%;
-            .slick-list{
-                width: 100%;
-                .slick-track{
-                    display: flex;
-                    .slick-slide{
-                        display: flex;
-                        justify-content: center;
-                    }
-                }
+            position: relative;
+
+            .slick-arrow {
+                top: 70%;
             }
         }
     }
