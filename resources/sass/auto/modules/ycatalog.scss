@@ -465,6 +465,11 @@
             .type_body-marks{
                 .car_body-type{
                     min-height: 295px;
+                    .body-type_top{
+                        .type-top_title{
+                            font-size: em(20);
+                        }
+                    }
                     .yb-slide_type{
                         #slick3{
                             .slick-list{

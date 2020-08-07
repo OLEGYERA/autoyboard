@@ -347,7 +347,15 @@
     }
 }
 
-
+@media only screen and (max-width: 475px){
+    .yanalitic{
+        .slick-slider{
+            .slick-arrow{
+                top: 60%;
+            }
+        }
+    }
+}
 @media only screen and (max-width: 425px){
     .yanalitic {
         .slick-slider{
@@ -452,9 +460,17 @@
         .slick-slider {
             width: 100%;
             position: relative;
-
             .slick-arrow {
                 top: 70%;
+            }
+            .slick-list{
+                .slick-track{
+                    .slick-slide{
+                        .analitics_content{
+                            padding: 0 32px 0 32px;
+                        }
+                    }
+                }
             }
         }
     }

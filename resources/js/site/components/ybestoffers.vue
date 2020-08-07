@@ -199,7 +199,7 @@ export default {
                 slidesToScroll: 3,
                 dotsClass: "slick-dots custom-dot-class",
                 edgeFriction: 0,
-                infinite: false,
+                infinite: true,
                 speed: 600,
                 dots: true,
                 arrows: true,
@@ -219,6 +219,13 @@ export default {
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 476,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
                         }
                     },
                     {

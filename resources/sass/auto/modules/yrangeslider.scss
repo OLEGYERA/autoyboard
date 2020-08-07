@@ -85,6 +85,26 @@
         }
     }
 }
+@media only screen and (max-width: 425px){
+    .yprice_container{
+        width: 80%;
+        margin: 0 auto;
+        .input_change{
+            justify-content: space-between;
+            padding-bottom: 20px;
+            .change{
+                width: 110px;
+                height: 40px;
+                font-size: em(16);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .yprice_container{
+        width: 90%;
+    }
+}
 
 
 

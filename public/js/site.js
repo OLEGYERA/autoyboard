@@ -2182,7 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
         slidesToScroll: 3,
         dotsClass: "slick-dots custom-dot-class",
         edgeFriction: 0,
-        infinite: false,
+        infinite: true,
         speed: 600,
         dots: true,
         arrows: true,
@@ -2200,6 +2200,12 @@ __webpack_require__.r(__webpack_exports__);
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2
+          }
+        }, {
+          breakpoint: 476,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
           }
         }, {
           breakpoint: 426,
