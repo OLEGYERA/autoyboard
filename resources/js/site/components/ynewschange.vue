@@ -22,7 +22,7 @@
                 </figure>
                 <div class="news_desc">
                     <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                    <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                    <p>Компания Acura представила обновленный вариант компактного кроссовера</p>
                     <button class="read_more">
                         Читать дальше
                         <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@
                 </figure>
                 <div class="news_desc">
                     <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                    <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                    <p>Компания Acura представила обновленный вариант компактного кроссовера</p>
                     <button class="read_more">
                         Читать дальше
                         <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@
                 </figure>
                 <div class="news_desc">
                     <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                    <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                    <p>Компания Acura представила обновленный вариант компактного кроссовера</p>
                     <button class="read_more">
                         Читать дальше
                         <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +69,7 @@
                 </figure>
                 <div class="news_desc">
                     <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                    <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                    <p>Компания Acura представила обновленный вариант компактного кроссовера</p>
                     <button class="read_more">
                         Читать дальше
                         <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +84,7 @@
                 </figure>
                 <div class="news_desc">
                     <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>
-                    <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>
+                    <p >Компания Acura представила обновленный вариант компактного кроссовера</p>
                     <button class="read_more">
                         Читать дальше
                         <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
