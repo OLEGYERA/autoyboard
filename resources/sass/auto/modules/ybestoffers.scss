@@ -202,6 +202,72 @@
             }
         }
     }
+    .ychangeoffers{
+        .ybest-items{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            .ybest-items_flex{
+                width: 48%;
+                .ybest-item{
+                    display: flex;
+                    max-width: 100% !important;
+                    border-radius: 0px 15px 15px 0px;
+                    margin-bottom: 30px;
+                    overflow: hidden;
+                    .yb-icon_check{
+                        top: 10px;
+                        left: 10px;
+                        .item_check{
+                            margin-right: 15px;
+                            width: 40px;
+                            height: 40px;
+                            img{
+                                width: 25px;
+                            }
+                        }
+                        .new_item{
+                            width: 40px;
+                            height: 40px;
+                            font-size: em(12);
+                        }
+                    }
+                    .item_image{
+                        width: 45%;
+                        border-radius: 15px 0px 0px 15px;
+                        img{
+                        }
+                        .favorite{
+                            bottom: 15px;
+                            background: none;
+                            box-shadow: none;
+                            .heart_svg{
+                                width: 30px;
+                            }
+                        }
+                    }
+                    .item_desc{
+                        padding: 20px;
+                        width: 55%;
+                        border-radius: 0;
+                        .item_name{
+                            margin-bottom: 15px;
+                        }
+                        .price_more{
+                            display: block;
+                            margin-top: 15px;
+                            .item_price{
+                                font-size: em(22);
+                            }
+                            .show_more{
+                                margin-top: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .slick-slide{
@@ -245,6 +311,22 @@
                             .show_more{
                                 font-size: em(15);
                             }
+                        }
+                    }
+                }
+            }
+        }
+        .ychangeoffers{
+            .ybest-items{
+                .ybest-items_flex{
+                    .ybest-item{
+                        .item_image{
+                            img{
+                                width: 120%;
+                            }
+                        }
+                        .item_desc{
+                            padding: 15px;
                         }
                     }
                 }
@@ -349,6 +431,30 @@
                         }
                         .sity-name_item{
                             font-size: em(15);
+                        }
+                    }
+                }
+            }
+        }
+        .ychangeoffers{
+            .ybest-items{
+                .ybest-items_flex{
+                    .ybest-item{
+                        .item_image{
+                            img{
+                                width: 125%;
+                            }
+                            .favorite{
+                                bottom: 25px;
+                            }
+                        }
+                        .item_desc{
+                            .item_name{
+                                font-size: em(16);
+                            }
+                            .price_more{
+
+                            }
                         }
                     }
                 }
@@ -481,26 +587,24 @@
         }
     }
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 667px){
     .ybestoffer{
         .ybest-items{
             .slick-slider{
                 .ybest-item{
-                    max-width: 225px;
-                        .yb-icon_check{
-                            top: 10px;
-                            left: 10px;
-                            .item_check{
-                                width: 35px;
-                                height: 35px;
-                                margin-bottom: 5px;
-                            }
-                            .new_item{
-                                width: 35px;
-                                height: 35px;
-                                font-size: em(10);
-                            }
+                    max-width: 250px;
+                    .yb-icon_check{
+                        .item_check{
+                            width: 35px;
+                            height: 35px;
+                            margin-bottom: 5px;
                         }
+                        .new_item{
+                            width: 35px;
+                            height: 35px;
+                            font-size: em(10);
+                        }
+                    }
                     .item_desc{
                         .item_name{
                             font-size: em(14);
@@ -515,7 +619,24 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .ybestoffer{
+        .ybest-items{
+            width: 100%;
+            .slick-slider{
+                .ybest-item{
+                    max-width: 260px;
+                        .yb-icon_check{
+                            top: 10px;
+                            left: 10px;
+                        }
+                }
                 .custom-dot-class{
+                    width: 100%;
                     li{
                         button{
                             width: 9px;

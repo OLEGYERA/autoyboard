@@ -12,6 +12,7 @@
 @import 'modules/ylocation';
 
 
+
 @import 'modules/yselectsearch';
 @import 'modules/yexpanded';
 @import 'modules/ytitle';
@@ -667,7 +668,7 @@
             }
         }
     }
-    @media only screen and (max-width: 375px){
+    @media only screen and (max-width: 393px){
         .yfooter_content{
             padding: 25px 20px;
             .logo_social{

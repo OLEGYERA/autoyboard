@@ -534,8 +534,32 @@
             margin-bottom: 30px;
         }
     }
-
-
+}
+@media only screen and (max-width: 667px){
+    .yb-content{
+        .yb-stickers{
+            .ystickers{
+                .yb-sticker{
+                    margin-right: 15px;
+                    max-width: 200px;
+                    max-height: 130px;
+                    .yb-sticker_logo{
+                        .brand_title{
+                            font-size: em(15);
+                        }
+                    }
+                    .img-context{
+                        img{
+                            width: 120%;
+                        }
+                    }
+                    .yb-sticker_title{
+                        font-size: em(15)!important;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 600px){

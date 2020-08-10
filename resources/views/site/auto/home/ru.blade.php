@@ -42,7 +42,6 @@
     <section class="yb-best_offers">
         <ybestoffer></ybestoffer>
     </section>
-
     <section class="yb-catalog">
         <ycatalog></ycatalog>
     </section>

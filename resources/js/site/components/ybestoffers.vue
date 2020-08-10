@@ -1,7 +1,10 @@
 <template>
     <div class="ybestoffer">
-        <ytitle :title="'Лучшие предложения'"></ytitle>
-        <div class="ybest-items">
+        <ytitle
+            :title="'Лучшие предложения'"
+            @getStatus="changeStatus">
+        </ytitle>
+        <div v-if="status || windowWidth < 946" class="ybest-items">
                 <Slick ref="slick" :options="slickOptions">
                     <div class="ybest-item">
                         <div class="yb-icon_check">
@@ -179,21 +182,27 @@
                     </div>
                 </Slick>
         </div>
+        <div v-else class="ychangeoffers">
+            <ychangeoffers></ychangeoffers>
+        </div>
+        <slot></slot>
     </div>
 </template>
 
 
 <script>
-
     import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
     import Slick from 'vue-slick';
-    // import "slick-carousel/slick/slick.css";
-    // import '../../../../node_modules/slick-carousel/slick/slick.css'
 export default {
     components: { Slick },
+    mounted () {
+        window.addEventListener('resize', this.onResize)
+    },
     data() {
         return {
             favorite: false,
+            windowWidth: 0,
+            status: false,
             slickOptions: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
@@ -239,6 +248,14 @@ export default {
                 ]
             },
         }
+    },
+    methods:{
+        changeStatus(s){
+            this.status = s;
+        },
+        onResize(event) {
+            this.windowWidth = document.documentElement.clientWidth;
+        },
     }
 }
 </script>

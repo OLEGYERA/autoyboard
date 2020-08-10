@@ -35,6 +35,7 @@
         data(){
             return{
                 isOpen: false,
+                result: [],
                 value: 'Легковые',
                 items: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы',]
             }
@@ -43,6 +44,7 @@
             setItem(item) {
                 this.value = item
                 this.isOpen = false
+                this.result = item
             },
         },
         handleClickOutside(evt){

@@ -7,7 +7,7 @@
                    <span></span>
                    <span></span>
                </div>
-                Меню: Авто
+                <span class="ymenu-title">Меню: Авто</span>
             </div>
             <div class="vis-r">
                 <i class="fas fa-chevron-down"></i>

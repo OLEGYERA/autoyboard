@@ -16,7 +16,7 @@
                     <h3 class="analitics_subtitle">Проверенные авто</h3>
                 </div>
                 <div class="yverify">
-                    <button @click="click" class="yverify_btn">Проверить</button>
+                    <button  class="yverify_btn">Проверить</button>
                 </div>
             </div>
             <div class="analitics_content">
@@ -33,7 +33,7 @@
                     <h3 class="analitics_subtitle ">Проверенные авто</h3>
                 </div>
                 <div class="yverify">
-                    <button @click="click" class="yverify_btn">Проверить</button>
+                    <button class="yverify_btn">Проверить</button>
                 </div>
             </div>
         </Slick>
@@ -60,9 +60,6 @@
         },
 
         methods: {
-            click(){
-                console.log('click')
-            },
 
         }
     }

@@ -2166,17 +2166,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
- // import "slick-carousel/slick/slick.css";
-// import '../../../../node_modules/slick-carousel/slick/slick.css'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Slick: vue_slick__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  mounted: function mounted() {
+    window.addEventListener('resize', this.onResize);
+  },
   data: function data() {
     return {
       favorite: false,
+      windowWidth: 0,
+      status: false,
       slickOptions: {
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -2216,6 +2226,215 @@ __webpack_require__.r(__webpack_exports__);
           }
         }]
       }
+    };
+  },
+  methods: {
+    changeStatus: function changeStatus(s) {
+      this.status = s;
+    },
+    onResize: function onResize(event) {
+      this.windowWidth = document.documentElement.clientWidth;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestofferschange.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestofferschange.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      favorite: false
     };
   }
 });
@@ -2454,6 +2673,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isOpen: false,
+      result: [],
       value: 'Легковые',
       items: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы']
     };
@@ -2462,6 +2682,7 @@ __webpack_require__.r(__webpack_exports__);
     setItem: function setItem(item) {
       this.value = item;
       this.isOpen = false;
+      this.result = item;
     }
   },
   handleClickOutside: function handleClickOutside(evt) {
@@ -2899,11 +3120,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  methods: {
-    click: function click() {
-      console.log('click');
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -3238,76 +3455,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      hover_id: null
+  mounted: function mounted() {
+    var _this = this;
+
+    window.onresize = function (event) {
+      _this.ynewsWidth = window.innerWidth;
+      console.log(_this.ynewsWidth, 'news');
     };
   },
-  methods: {}
+  data: function data() {
+    return {
+      ynewsWidth: window.innerWidth,
+      status: false
+    };
+  },
+  methods: {
+    changeStatus: function changeStatus(s) {
+      this.status = s;
+    }
+  }
 });
 
 /***/ }),
@@ -3653,8 +3820,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title']
+  props: ['title'],
+  data: function data() {
+    return {
+      changeVisible: false
+    };
+  },
+  watch: {
+    changeVisible: function changeVisible(to) {
+      this.$emit('getStatus', to);
+    }
+  }
 });
 
 /***/ }),
@@ -35626,645 +35811,1357 @@ var render = function() {
     "div",
     { staticClass: "ybestoffer" },
     [
-      _c("ytitle", { attrs: { title: "Лучшие предложения" } }),
+      _c("ytitle", {
+        attrs: { title: "Лучшие предложения" },
+        on: { getStatus: _vm.changeStatus }
+      }),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ybest-items" },
-        [
-          _c("Slick", { ref: "slick", attrs: { options: _vm.slickOptions } }, [
-            _c("div", { staticClass: "ybest-item" }, [
-              _c("div", { staticClass: "yb-icon_check" }, [
-                _c("button", { staticClass: "item_check" }, [
-                  _c("img", {
-                    attrs: { src: "img/system/icons/car_check.svg", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "new_item" }, [
-                  _vm._v(
-                    "\n                            NEW\n                        "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
+      _vm.status || _vm.windowWidth < 946
+        ? _c(
+            "div",
+            { staticClass: "ybest-items" },
+            [
               _c(
-                "figure",
-                { staticClass: "item_image" },
+                "Slick",
+                { ref: "slick", attrs: { options: _vm.slickOptions } },
                 [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_desc" }, [
-                _c("h2", { staticClass: "item_name" }, [
-                  _vm._v("Mercedes-Benz E 220 2009")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "price_more" }, [
-                  _c("span", { staticClass: "item_price" }, [
-                    _vm._v("8 200 $")
+                  _c("div", { staticClass: "ybest-item" }, [
+                    _c("div", { staticClass: "yb-icon_check" }, [
+                      _c("button", { staticClass: "item_check" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/icons/car_check.svg",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "new_item" }, [
+                        _vm._v(
+                          "\n                            NEW\n                        "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "figure",
+                      { staticClass: "item_image" },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "item_desc" }, [
+                      _c("h2", { staticClass: "item_name" }, [
+                        _vm._v("Mercedes-Benz E 220 2009")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "sity-name_item" }, [
+                        _vm._v("Киев")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price_more" }, [
+                        _c("span", { staticClass: "item_price" }, [
+                          _vm._v("8 200 $")
+                        ]),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "show_more" }, [
+                          _vm._v(
+                            "\n                                Подробнее\n                                "
+                          ),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "arrow_right",
+                              staticStyle: { fill: "#000000" },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                x: "0px",
+                                y: "0px",
+                                width: "40",
+                                height: "40",
+                                viewBox: "0 0 172 172"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                {
+                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  attrs: {
+                                    fill: "none",
+                                    "fill-rule": "nonzero",
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    "stroke-linecap": "butt",
+                                    "stroke-linejoin": "miter",
+                                    "stroke-miterlimit": "10",
+                                    "stroke-dasharray": "",
+                                    "stroke-dashoffset": "0",
+                                    "font-family": "none",
+                                    "font-weight": "none",
+                                    "font-size": "none",
+                                    "text-anchor": "none"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0,172v-172h172v172z",
+                                      fill: "none"
+                                    }
+                                  }),
+                                  _c("g", { attrs: { fill: "#111e6c" } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("button", { staticClass: "show_more" }, [
-                    _vm._v(
-                      "\n                                Подробнее\n                                "
-                    ),
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "arrow_right",
-                        staticStyle: { fill: "#000000" },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          x: "0px",
-                          y: "0px",
-                          width: "40",
-                          height: "40",
-                          viewBox: "0 0 172 172"
-                        }
-                      },
-                      [
-                        _c(
-                          "g",
-                          {
-                            staticStyle: { "mix-blend-mode": "normal" },
-                            attrs: {
-                              fill: "none",
-                              "fill-rule": "nonzero",
-                              stroke: "none",
-                              "stroke-width": "1",
-                              "stroke-linecap": "butt",
-                              "stroke-linejoin": "miter",
-                              "stroke-miterlimit": "10",
-                              "stroke-dasharray": "",
-                              "stroke-dashoffset": "0",
-                              "font-family": "none",
-                              "font-weight": "none",
-                              "font-size": "none",
-                              "text-anchor": "none"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                            }),
-                            _c("g", { attrs: { fill: "#111e6c" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                                }
-                              })
-                            ])
-                          ]
+                  _c("div", { staticClass: "ybest-item" }, [
+                    _c("div", { staticClass: "yb-icon_check" }, [
+                      _c("button", { staticClass: "item_check" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/icons/car_check.svg",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "new_item" }, [
+                        _vm._v(
+                          "\n                            NEW\n                        "
                         )
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ybest-item" }, [
-              _c("div", { staticClass: "yb-icon_check" }, [
-                _c("button", { staticClass: "item_check" }, [
-                  _c("img", {
-                    attrs: { src: "img/system/icons/car_check.svg", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "new_item" }, [
-                  _vm._v(
-                    "\n                            NEW\n                        "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "figure",
-                { staticClass: "item_image" },
-                [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_desc" }, [
-                _c("h2", { staticClass: "item_name" }, [
-                  _vm._v("Mercedes-Benz E 220 2009")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "price_more" }, [
-                  _c("span", { staticClass: "item_price" }, [
-                    _vm._v("8 200 $")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "figure",
+                      { staticClass: "item_image" },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "item_desc" }, [
+                      _c("h2", { staticClass: "item_name" }, [
+                        _vm._v("Mercedes-Benz E 220 2009")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "sity-name_item" }, [
+                        _vm._v("Киев")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price_more" }, [
+                        _c("span", { staticClass: "item_price" }, [
+                          _vm._v("8 200 $")
+                        ]),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "show_more" }, [
+                          _vm._v(
+                            "\n                                Подробнее\n                                "
+                          ),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "arrow_right",
+                              staticStyle: { fill: "#000000" },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                x: "0px",
+                                y: "0px",
+                                width: "40",
+                                height: "40",
+                                viewBox: "0 0 172 172"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                {
+                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  attrs: {
+                                    fill: "none",
+                                    "fill-rule": "nonzero",
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    "stroke-linecap": "butt",
+                                    "stroke-linejoin": "miter",
+                                    "stroke-miterlimit": "10",
+                                    "stroke-dasharray": "",
+                                    "stroke-dashoffset": "0",
+                                    "font-family": "none",
+                                    "font-weight": "none",
+                                    "font-size": "none",
+                                    "text-anchor": "none"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0,172v-172h172v172z",
+                                      fill: "none"
+                                    }
+                                  }),
+                                  _c("g", { attrs: { fill: "#111e6c" } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("button", { staticClass: "show_more" }, [
-                    _vm._v(
-                      "\n                                Подробнее\n                                "
-                    ),
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "arrow_right",
-                        staticStyle: { fill: "#000000" },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          x: "0px",
-                          y: "0px",
-                          width: "40",
-                          height: "40",
-                          viewBox: "0 0 172 172"
-                        }
-                      },
-                      [
-                        _c(
-                          "g",
-                          {
-                            staticStyle: { "mix-blend-mode": "normal" },
-                            attrs: {
-                              fill: "none",
-                              "fill-rule": "nonzero",
-                              stroke: "none",
-                              "stroke-width": "1",
-                              "stroke-linecap": "butt",
-                              "stroke-linejoin": "miter",
-                              "stroke-miterlimit": "10",
-                              "stroke-dasharray": "",
-                              "stroke-dashoffset": "0",
-                              "font-family": "none",
-                              "font-weight": "none",
-                              "font-size": "none",
-                              "text-anchor": "none"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                            }),
-                            _c("g", { attrs: { fill: "#111e6c" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                                }
-                              })
-                            ])
-                          ]
+                  _c("div", { staticClass: "ybest-item" }, [
+                    _c("div", { staticClass: "yb-icon_check" }, [
+                      _c("button", { staticClass: "item_check" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/icons/car_check.svg",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "new_item" }, [
+                        _vm._v(
+                          "\n                            NEW\n                        "
                         )
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ybest-item" }, [
-              _c("div", { staticClass: "yb-icon_check" }, [
-                _c("button", { staticClass: "item_check" }, [
-                  _c("img", {
-                    attrs: { src: "img/system/icons/car_check.svg", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "new_item" }, [
-                  _vm._v(
-                    "\n                            NEW\n                        "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "figure",
-                { staticClass: "item_image" },
-                [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_desc" }, [
-                _c("h2", { staticClass: "item_name" }, [
-                  _vm._v("Mercedes-Benz E 220 2009")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "price_more" }, [
-                  _c("span", { staticClass: "item_price" }, [
-                    _vm._v("8 200 $")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "figure",
+                      { staticClass: "item_image" },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "item_desc" }, [
+                      _c("h2", { staticClass: "item_name" }, [
+                        _vm._v("Mercedes-Benz E 220 2009")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "sity-name_item" }, [
+                        _vm._v("Киев")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price_more" }, [
+                        _c("span", { staticClass: "item_price" }, [
+                          _vm._v("8 200 $")
+                        ]),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "show_more" }, [
+                          _vm._v(
+                            "\n                                Подробнее\n                                "
+                          ),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "arrow_right",
+                              staticStyle: { fill: "#000000" },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                x: "0px",
+                                y: "0px",
+                                width: "40",
+                                height: "40",
+                                viewBox: "0 0 172 172"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                {
+                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  attrs: {
+                                    fill: "none",
+                                    "fill-rule": "nonzero",
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    "stroke-linecap": "butt",
+                                    "stroke-linejoin": "miter",
+                                    "stroke-miterlimit": "10",
+                                    "stroke-dasharray": "",
+                                    "stroke-dashoffset": "0",
+                                    "font-family": "none",
+                                    "font-weight": "none",
+                                    "font-size": "none",
+                                    "text-anchor": "none"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0,172v-172h172v172z",
+                                      fill: "none"
+                                    }
+                                  }),
+                                  _c("g", { attrs: { fill: "#111e6c" } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("button", { staticClass: "show_more" }, [
-                    _vm._v(
-                      "\n                                Подробнее\n                                "
-                    ),
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "arrow_right",
-                        staticStyle: { fill: "#000000" },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          x: "0px",
-                          y: "0px",
-                          width: "40",
-                          height: "40",
-                          viewBox: "0 0 172 172"
-                        }
-                      },
-                      [
-                        _c(
-                          "g",
-                          {
-                            staticStyle: { "mix-blend-mode": "normal" },
-                            attrs: {
-                              fill: "none",
-                              "fill-rule": "nonzero",
-                              stroke: "none",
-                              "stroke-width": "1",
-                              "stroke-linecap": "butt",
-                              "stroke-linejoin": "miter",
-                              "stroke-miterlimit": "10",
-                              "stroke-dasharray": "",
-                              "stroke-dashoffset": "0",
-                              "font-family": "none",
-                              "font-weight": "none",
-                              "font-size": "none",
-                              "text-anchor": "none"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                            }),
-                            _c("g", { attrs: { fill: "#111e6c" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                                }
-                              })
-                            ])
-                          ]
+                  _c("div", { staticClass: "ybest-item" }, [
+                    _c("div", { staticClass: "yb-icon_check" }, [
+                      _c("button", { staticClass: "item_check" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/icons/car_check.svg",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "new_item" }, [
+                        _vm._v(
+                          "\n                            NEW\n                        "
                         )
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ybest-item" }, [
-              _c("div", { staticClass: "yb-icon_check" }, [
-                _c("button", { staticClass: "item_check" }, [
-                  _c("img", {
-                    attrs: { src: "img/system/icons/car_check.svg", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "new_item" }, [
-                  _vm._v(
-                    "\n                            NEW\n                        "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "figure",
-                { staticClass: "item_image" },
-                [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_desc" }, [
-                _c("h2", { staticClass: "item_name" }, [
-                  _vm._v("Mercedes-Benz E 220 2009")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "price_more" }, [
-                  _c("span", { staticClass: "item_price" }, [
-                    _vm._v("8 200 $")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "figure",
+                      { staticClass: "item_image" },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "item_desc" }, [
+                      _c("h2", { staticClass: "item_name" }, [
+                        _vm._v("Mercedes-Benz E 220 2009")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "sity-name_item" }, [
+                        _vm._v("Киев")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price_more" }, [
+                        _c("span", { staticClass: "item_price" }, [
+                          _vm._v("8 200 $")
+                        ]),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "show_more" }, [
+                          _vm._v(
+                            "\n                                Подробнее\n                                "
+                          ),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "arrow_right",
+                              staticStyle: { fill: "#000000" },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                x: "0px",
+                                y: "0px",
+                                width: "40",
+                                height: "40",
+                                viewBox: "0 0 172 172"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                {
+                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  attrs: {
+                                    fill: "none",
+                                    "fill-rule": "nonzero",
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    "stroke-linecap": "butt",
+                                    "stroke-linejoin": "miter",
+                                    "stroke-miterlimit": "10",
+                                    "stroke-dasharray": "",
+                                    "stroke-dashoffset": "0",
+                                    "font-family": "none",
+                                    "font-weight": "none",
+                                    "font-size": "none",
+                                    "text-anchor": "none"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0,172v-172h172v172z",
+                                      fill: "none"
+                                    }
+                                  }),
+                                  _c("g", { attrs: { fill: "#111e6c" } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("button", { staticClass: "show_more" }, [
-                    _vm._v(
-                      "\n                                Подробнее\n                                "
-                    ),
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "arrow_right",
-                        staticStyle: { fill: "#000000" },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          x: "0px",
-                          y: "0px",
-                          width: "40",
-                          height: "40",
-                          viewBox: "0 0 172 172"
-                        }
-                      },
-                      [
-                        _c(
-                          "g",
-                          {
-                            staticStyle: { "mix-blend-mode": "normal" },
-                            attrs: {
-                              fill: "none",
-                              "fill-rule": "nonzero",
-                              stroke: "none",
-                              "stroke-width": "1",
-                              "stroke-linecap": "butt",
-                              "stroke-linejoin": "miter",
-                              "stroke-miterlimit": "10",
-                              "stroke-dasharray": "",
-                              "stroke-dashoffset": "0",
-                              "font-family": "none",
-                              "font-weight": "none",
-                              "font-size": "none",
-                              "text-anchor": "none"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                            }),
-                            _c("g", { attrs: { fill: "#111e6c" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                                }
-                              })
-                            ])
-                          ]
+                  _c("div", { staticClass: "ybest-item" }, [
+                    _c("div", { staticClass: "yb-icon_check" }, [
+                      _c("button", { staticClass: "item_check" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/icons/car_check.svg",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "new_item" }, [
+                        _vm._v(
+                          "\n                            NEW\n                        "
                         )
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ybest-item" }, [
-              _c("div", { staticClass: "yb-icon_check" }, [
-                _c("button", { staticClass: "item_check" }, [
-                  _c("img", {
-                    attrs: { src: "img/system/icons/car_check.svg", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "new_item" }, [
-                  _vm._v(
-                    "\n                            NEW\n                        "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "figure",
-                { staticClass: "item_image" },
-                [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://insurance-guidelines.com/wp-content/uploads/2019/03/car-rental.jpeg",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_desc" }, [
-                _c("h2", { staticClass: "item_name" }, [
-                  _vm._v("Mercedes-Benz E 220 2009")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "price_more" }, [
-                  _c("span", { staticClass: "item_price" }, [
-                    _vm._v("8 200 $")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "figure",
+                      { staticClass: "item_image" },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://insurance-guidelines.com/wp-content/uploads/2019/03/car-rental.jpeg",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "item_desc" }, [
+                      _c("h2", { staticClass: "item_name" }, [
+                        _vm._v("Mercedes-Benz E 220 2009")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "sity-name_item" }, [
+                        _vm._v("Киев")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price_more" }, [
+                        _c("span", { staticClass: "item_price" }, [
+                          _vm._v("8 200 $")
+                        ]),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "show_more" }, [
+                          _vm._v(
+                            "\n                                Подробнее\n                                "
+                          ),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "arrow_right",
+                              staticStyle: { fill: "#000000" },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                x: "0px",
+                                y: "0px",
+                                width: "40",
+                                height: "40",
+                                viewBox: "0 0 172 172"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                {
+                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  attrs: {
+                                    fill: "none",
+                                    "fill-rule": "nonzero",
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    "stroke-linecap": "butt",
+                                    "stroke-linejoin": "miter",
+                                    "stroke-miterlimit": "10",
+                                    "stroke-dasharray": "",
+                                    "stroke-dashoffset": "0",
+                                    "font-family": "none",
+                                    "font-weight": "none",
+                                    "font-size": "none",
+                                    "text-anchor": "none"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0,172v-172h172v172z",
+                                      fill: "none"
+                                    }
+                                  }),
+                                  _c("g", { attrs: { fill: "#111e6c" } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("button", { staticClass: "show_more" }, [
-                    _vm._v(
-                      "\n                                Подробнее\n                                "
-                    ),
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "arrow_right",
-                        staticStyle: { fill: "#000000" },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          x: "0px",
-                          y: "0px",
-                          width: "40",
-                          height: "40",
-                          viewBox: "0 0 172 172"
-                        }
-                      },
-                      [
-                        _c(
-                          "g",
-                          {
-                            staticStyle: { "mix-blend-mode": "normal" },
-                            attrs: {
-                              fill: "none",
-                              "fill-rule": "nonzero",
-                              stroke: "none",
-                              "stroke-width": "1",
-                              "stroke-linecap": "butt",
-                              "stroke-linejoin": "miter",
-                              "stroke-miterlimit": "10",
-                              "stroke-dasharray": "",
-                              "stroke-dashoffset": "0",
-                              "font-family": "none",
-                              "font-weight": "none",
-                              "font-size": "none",
-                              "text-anchor": "none"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                            }),
-                            _c("g", { attrs: { fill: "#111e6c" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                                }
-                              })
-                            ])
-                          ]
+                  _c("div", { staticClass: "ybest-item" }, [
+                    _c("div", { staticClass: "yb-icon_check" }, [
+                      _c("button", { staticClass: "item_check" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "img/system/icons/car_check.svg",
+                            alt: ""
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "new_item" }, [
+                        _vm._v(
+                          "\n                            NEW\n                        "
                         )
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ybest-item" }, [
-              _c("div", { staticClass: "yb-icon_check" }, [
-                _c("button", { staticClass: "item_check" }, [
-                  _c("img", {
-                    attrs: { src: "img/system/icons/car_check.svg", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "new_item" }, [
-                  _vm._v(
-                    "\n                            NEW\n                        "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "figure",
-                { staticClass: "item_image" },
-                [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://autoworld.files.wordpress.com/2010/01/peugeot-sr1-concept-car-img_1.jpg",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("yfavorite", { attrs: { favorite: _vm.favorite } })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_desc" }, [
-                _c("h2", { staticClass: "item_name" }, [
-                  _vm._v("Mercedes-Benz E 220 2009")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "price_more" }, [
-                  _c("span", { staticClass: "item_price" }, [
-                    _vm._v("8 200 $")
-                  ]),
-                  _vm._v(" "),
-                  _c("button", { staticClass: "show_more" }, [
-                    _vm._v(
-                      "\n                                Подробнее\n                                "
-                    ),
+                      ])
+                    ]),
+                    _vm._v(" "),
                     _c(
-                      "svg",
-                      {
-                        staticClass: "arrow_right",
-                        staticStyle: { fill: "#000000" },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          x: "0px",
-                          y: "0px",
-                          width: "40",
-                          height: "40",
-                          viewBox: "0 0 172 172"
-                        }
-                      },
+                      "figure",
+                      { staticClass: "item_image" },
                       [
-                        _c(
-                          "g",
-                          {
-                            staticStyle: { "mix-blend-mode": "normal" },
-                            attrs: {
-                              fill: "none",
-                              "fill-rule": "nonzero",
-                              stroke: "none",
-                              "stroke-width": "1",
-                              "stroke-linecap": "butt",
-                              "stroke-linejoin": "miter",
-                              "stroke-miterlimit": "10",
-                              "stroke-dasharray": "",
-                              "stroke-dashoffset": "0",
-                              "font-family": "none",
-                              "font-weight": "none",
-                              "font-size": "none",
-                              "text-anchor": "none"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                            }),
-                            _c("g", { attrs: { fill: "#111e6c" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
-                                }
-                              })
-                            ])
-                          ]
-                        )
-                      ]
-                    )
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://autoworld.files.wordpress.com/2010/01/peugeot-sr1-concept-car-img_1.jpg",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "item_desc" }, [
+                      _c("h2", { staticClass: "item_name" }, [
+                        _vm._v("Mercedes-Benz E 220 2009")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "sity-name_item" }, [
+                        _vm._v("Киев")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price_more" }, [
+                        _c("span", { staticClass: "item_price" }, [
+                          _vm._v("8 200 $")
+                        ]),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "show_more" }, [
+                          _vm._v(
+                            "\n                                Подробнее\n                                "
+                          ),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "arrow_right",
+                              staticStyle: { fill: "#000000" },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                x: "0px",
+                                y: "0px",
+                                width: "40",
+                                height: "40",
+                                viewBox: "0 0 172 172"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                {
+                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  attrs: {
+                                    fill: "none",
+                                    "fill-rule": "nonzero",
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    "stroke-linecap": "butt",
+                                    "stroke-linejoin": "miter",
+                                    "stroke-miterlimit": "10",
+                                    "stroke-dasharray": "",
+                                    "stroke-dashoffset": "0",
+                                    "font-family": "none",
+                                    "font-weight": "none",
+                                    "font-size": "none",
+                                    "text-anchor": "none"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0,172v-172h172v172z",
+                                      fill: "none"
+                                    }
+                                  }),
+                                  _c("g", { attrs: { fill: "#111e6c" } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
                   ])
-                ])
-              ])
-            ])
-          ])
-        ],
-        1
-      )
+                ]
+              )
+            ],
+            1
+          )
+        : _c("div", { staticClass: "ychangeoffers" }, [_c("ychangeoffers")], 1),
+      _vm._v(" "),
+      _vm._t("default")
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestofferschange.vue?vue&type=template&id=39ccc965&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestofferschange.vue?vue&type=template&id=39ccc965& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "ybest-items" }, [
+    _c("div", { staticClass: "ybest-items_flex" }, [
+      _c("div", { staticClass: "ybest-item" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "figure",
+          { staticClass: "item_image" },
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ybest-item" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "figure",
+          { staticClass: "item_image" },
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ybest-item" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "figure",
+          { staticClass: "item_image" },
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "ybest-items_flex" }, [
+      _c("div", { staticClass: "ybest-item" }, [
+        _vm._m(3),
+        _vm._v(" "),
+        _c(
+          "figure",
+          { staticClass: "item_image" },
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ybest-item" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c(
+          "figure",
+          { staticClass: "item_image" },
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ybest-item" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _c(
+          "figure",
+          { staticClass: "item_image" },
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("yfavorite", { attrs: { favorite: _vm.favorite } })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_desc" }, [
+          _c("h2", { staticClass: "item_name" }, [
+            _vm._v("Mercedes-Benz E 220 2009")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sity-name_item" }, [_vm._v("Киев")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "price_more" }, [
+            _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "show_more" }, [
+              _vm._v(
+                "\n                        Подробнее\n                        "
+              ),
+              _c(
+                "svg",
+                {
+                  staticClass: "arrow_right",
+                  staticStyle: { fill: "#000000" },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    x: "0px",
+                    y: "0px",
+                    width: "40",
+                    height: "40",
+                    viewBox: "0 0 172 172"
+                  }
+                },
+                [
+                  _c(
+                    "g",
+                    {
+                      staticStyle: { "mix-blend-mode": "normal" },
+                      attrs: {
+                        fill: "none",
+                        "fill-rule": "nonzero",
+                        stroke: "none",
+                        "stroke-width": "1",
+                        "stroke-linecap": "butt",
+                        "stroke-linejoin": "miter",
+                        "stroke-miterlimit": "10",
+                        "stroke-dasharray": "",
+                        "stroke-dashoffset": "0",
+                        "font-family": "none",
+                        "font-weight": "none",
+                        "font-size": "none",
+                        "text-anchor": "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                      }),
+                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-icon_check" }, [
+      _c("button", { staticClass: "item_check" }, [
+        _c("img", { attrs: { src: "img/system/icons/car_check.svg", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "new_item" }, [
+        _vm._v("\n                    NEW\n                ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37199,11 +38096,9 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "yverify" }, [
-              _c(
-                "button",
-                { staticClass: "yverify_btn", on: { click: _vm.click } },
-                [_vm._v("Проверить")]
-              )
+              _c("button", { staticClass: "yverify_btn" }, [
+                _vm._v("Проверить")
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -37233,11 +38128,9 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "yverify" }, [
-              _c(
-                "button",
-                { staticClass: "yverify_btn", on: { click: _vm.click } },
-                [_vm._v("Проверить")]
-              )
+              _c("button", { staticClass: "yverify_btn" }, [
+                _vm._v("Проверить")
+              ])
             ])
           ])
         ]
@@ -37686,11 +38579,26 @@ var render = function() {
     "div",
     { staticClass: "yb_auto_news" },
     [
-      _c("ytitle", { attrs: { title: "Новости" } }),
+      _c(
+        "ytitle",
+        { attrs: { title: "Новости" }, on: { getStatus: _vm.changeStatus } },
+        [_vm._v("\n    >\n    ")]
+      ),
       _vm._v(" "),
-      _vm._m(0),
+      _vm.status || _vm.ynewsWidth < 946
+        ? _c("div", { staticClass: "y-news_items" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        : _c(
+            "div",
+            { staticClass: "ychange-news_item" },
+            [_c("ynewschange")],
+            1
+          ),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(2)
     ],
     1
   )
@@ -37700,27 +38608,271 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "y-news_items" }, [
-      _c("article", { staticClass: "news none" }, [
-        _c(
-          "figure",
-          {
-            staticClass: "news-image",
-            staticStyle: {
-              background:
-                "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+    return _c("article", { staticClass: "news none" }, [
+      _c(
+        "figure",
+        {
+          staticClass: "news-image",
+          staticStyle: {
+            background:
+              "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+          }
+        },
+        [
+          _c("img", {
+            attrs: {
+              src:
+                "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+              alt: ""
             }
-          },
-          [
-            _c("img", {
-              attrs: {
-                src:
-                  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
-                alt: ""
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "news_desc" }, [
+        _c("h2", [
+          _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "hovering" }, [
+          _vm._v(
+            "Компания Acura представила обновленный вариант компактного кроссовера"
+          )
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "read_more" }, [
+          _vm._v("\n                    Читать дальше\n                    "),
+          _c("img", {
+            attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+          })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "right_items" }, [
+      _c(
+        "article",
+        {
+          staticClass: "news",
+          staticStyle: {
+            background:
+              "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+          }
+        },
+        [
+          _c(
+            "figure",
+            {
+              staticClass: "news-image",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
               }
-            })
-          ]
-        ),
+            },
+            [
+              _c("img", {
+                attrs: {
+                  src:
+                    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+                  alt: ""
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "news_desc" }, [
+            _c("h2", [
+              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "hovering" }, [
+              _vm._v(
+                "Компания Acura представила обновленный вариант компактного кроссовера"
+              )
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "read_more" }, [
+              _vm._v(
+                "\n                        Читать дальше\n                        "
+              ),
+              _c("img", {
+                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+              })
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex_bottom" }, [
+        _c("article", { staticClass: "news" }, [
+          _c(
+            "figure",
+            {
+              staticClass: "news-image",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+              }
+            },
+            [
+              _c("img", {
+                attrs: {
+                  src:
+                    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+                  alt: ""
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "news_desc" }, [
+            _c("h2", [
+              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "hovering" }, [
+              _vm._v(
+                "Компания Acura представила обновленный вариант компактного кроссовера"
+              )
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "read_more" }, [
+              _vm._v(
+                "\n                            Читать дальше\n                            "
+              ),
+              _c("img", {
+                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("article", { staticClass: "news" }, [
+          _c(
+            "figure",
+            {
+              staticClass: "news-image",
+              staticStyle: {
+                background:
+                  "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+              }
+            },
+            [
+              _c("img", {
+                attrs: {
+                  src:
+                    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+                  alt: ""
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "news_desc" }, [
+            _c("h2", [
+              _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "hovering" }, [
+              _vm._v(
+                "Компания Acura представила обновленный вариант компактного кроссовера"
+              )
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "read_more" }, [
+              _vm._v(
+                "\n                            Читать дальше\n                            "
+              ),
+              _c("img", {
+                attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+              })
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ybtn_show_more" }, [
+      _c("button", { staticClass: "show_more" }, [_vm._v("Смотреть еще")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ynewschange.vue?vue&type=template&id=15792986&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ynewschange.vue?vue&type=template&id=15792986& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "y-news_items" }, [
+    _c("div", { staticClass: "items_flex" }, [
+      _c("article", { staticClass: "news none" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "news_desc" }, [
+          _c("h2", [
+            _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Компания Acura представила обновленный вариант компактного кроссовера"
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "read_more" }, [
+            _vm._v(
+              "\n                        Читать дальше\n                        "
+            ),
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "54",
+                  height: "8",
+                  viewBox: "0 0 54 8",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                    fill: "#0B3F8D"
+                  }
+                })
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("article", { staticClass: "news none" }, [
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "news_desc" }, [
           _c("h2", [
@@ -37737,170 +38889,351 @@ var staticRenderFns = [
             _vm._v(
               "\n                        Читать дальше\n                        "
             ),
-            _c("img", {
-              attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-            })
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "54",
+                  height: "8",
+                  viewBox: "0 0 54 8",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                    fill: "#0B3F8D"
+                  }
+                })
+              ]
+            )
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "right_items" }, [
-        _c(
-          "article",
-          {
-            staticClass: "news",
-            staticStyle: {
-              background:
-                "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-            }
-          },
-          [
-            _c(
-              "figure",
-              {
-                staticClass: "news-image",
-                staticStyle: {
-                  background:
-                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
-                    alt: ""
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "news_desc" }, [
-              _c("h2", [
-                _vm._v(
-                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "hovering" }, [
-                _vm._v(
-                  "Компания Acura представила обновленный вариант компактного кроссовера"
-                )
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "read_more" }, [
-                _vm._v(
-                  "\n                            Читать дальше\n                            "
-                ),
-                _c("img", {
-                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-                })
-              ])
-            ])
-          ]
-        ),
+      _c("article", { staticClass: "news none" }, [
+        _vm._m(2),
         _vm._v(" "),
-        _c("div", { staticClass: "flex_bottom" }, [
-          _c("article", { staticClass: "news" }, [
-            _c(
-              "figure",
-              {
-                staticClass: "news-image",
-                staticStyle: {
-                  background:
-                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
-                    alt: ""
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "news_desc" }, [
-              _c("h2", [
-                _vm._v(
-                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "hovering" }, [
-                _vm._v(
-                  "Компания Acura представила обновленный вариант компактного кроссовера"
-                )
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "read_more" }, [
-                _vm._v(
-                  "\n                                Читать дальше\n                                "
-                ),
-                _c("img", {
-                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
-                })
-              ])
-            ])
+        _c("div", { staticClass: "news_desc" }, [
+          _c("h2", [
+            _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
           ]),
           _vm._v(" "),
-          _c("article", { staticClass: "news" }, [
+          _c("p", { staticClass: "hovering" }, [
+            _vm._v(
+              "Компания Acura представила обновленный вариант компактного кроссовера"
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "read_more" }, [
+            _vm._v(
+              "\n                        Читать дальше\n                        "
+            ),
             _c(
-              "figure",
+              "svg",
               {
-                staticClass: "news-image",
-                staticStyle: {
-                  background:
-                    "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+                attrs: {
+                  width: "54",
+                  height: "8",
+                  viewBox: "0 0 54 8",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
                 }
               },
               [
-                _c("img", {
+                _c("path", {
                   attrs: {
-                    src:
-                      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
-                    alt: ""
+                    d:
+                      "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                    fill: "#0B3F8D"
                   }
                 })
               ]
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "items_flex" }, [
+      _c("article", { staticClass: "news none" }, [
+        _vm._m(3),
+        _vm._v(" "),
+        _c("div", { staticClass: "news_desc" }, [
+          _c("h2", [
+            _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "hovering" }, [
+            _vm._v(
+              "Компания Acura представила обновленный вариант компактного кроссовера"
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "read_more" }, [
+            _vm._v(
+              "\n                        Читать дальше\n                        "
             ),
-            _vm._v(" "),
-            _c("div", { staticClass: "news_desc" }, [
-              _c("h2", [
-                _vm._v(
-                  "Opel продолжает понемногу рассекречивать кроссовер Mokka"
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "hovering" }, [
-                _vm._v(
-                  "Компания Acura представила обновленный вариант компактного кроссовера"
-                )
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "read_more" }, [
-                _vm._v(
-                  "\n                                Читать дальше\n                                "
-                ),
-                _c("img", {
-                  attrs: { src: "img/system/icons/arrow_right.png", alt: "" }
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "54",
+                  height: "8",
+                  viewBox: "0 0 54 8",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                    fill: "#0B3F8D"
+                  }
                 })
-              ])
-            ])
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("article", { staticClass: "news none" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "news_desc" }, [
+          _c("h2", [
+            _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "hovering" }, [
+            _vm._v(
+              "Компания Acura представила обновленный вариант компактного кроссовера"
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "read_more" }, [
+            _vm._v(
+              "\n                        Читать дальше\n                        "
+            ),
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "54",
+                  height: "8",
+                  viewBox: "0 0 54 8",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                    fill: "#0B3F8D"
+                  }
+                })
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("article", { staticClass: "news none" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _c("div", { staticClass: "news_desc" }, [
+          _c("h2", [
+            _vm._v("Opel продолжает понемногу рассекречивать кроссовер Mokka")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "hovering" }, [
+            _vm._v(
+              "Компания Acura представила обновленный вариант компактного кроссовера"
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "read_more" }, [
+            _vm._v(
+              "\n                        Читать дальше\n                        "
+            ),
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "54",
+                  height: "8",
+                  viewBox: "0 0 54 8",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                    fill: "#0B3F8D"
+                  }
+                })
+              ]
+            )
           ])
         ])
       ])
     ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "figure",
+      {
+        staticClass: "news-image",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      },
+      [
+        _c("img", {
+          attrs: {
+            src:
+              "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+            alt: ""
+          }
+        })
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ybtn_show_more" }, [
-      _c("button", { staticClass: "show_more" }, [_vm._v("Смотреть еще")])
-    ])
+    return _c(
+      "figure",
+      {
+        staticClass: "news-image",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      },
+      [
+        _c("img", {
+          attrs: {
+            src:
+              "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+            alt: ""
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "figure",
+      {
+        staticClass: "news-image",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      },
+      [
+        _c("img", {
+          attrs: {
+            src:
+              "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+            alt: ""
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "figure",
+      {
+        staticClass: "news-image",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      },
+      [
+        _c("img", {
+          attrs: {
+            src:
+              "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+            alt: ""
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "figure",
+      {
+        staticClass: "news-image",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      },
+      [
+        _c("img", {
+          attrs: {
+            src:
+              "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+            alt: ""
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "figure",
+      {
+        staticClass: "news-image",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%)"
+        }
+      },
+      [
+        _c("img", {
+          attrs: {
+            src:
+              "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+            alt: ""
+          }
+        })
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -38363,25 +39696,38 @@ var render = function() {
   return _c("div", { staticClass: "ytitle" }, [
     _c("h2", [_vm._v(_vm._s(_vm.title))]),
     _vm._v(" "),
-    _vm._m(0)
+    _c("div", { staticClass: "change_visible" }, [
+      _c(
+        "button",
+        {
+          staticClass: "change_view ",
+          class: { active: _vm.changeVisible == false },
+          on: {
+            click: function($event) {
+              _vm.changeVisible = false
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-th" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "change_view",
+          class: { active: _vm.changeVisible },
+          on: {
+            click: function($event) {
+              _vm.changeVisible = true
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-th-list" })]
+      )
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "change_visible" }, [
-      _c("button", { staticClass: "change_view active" }, [
-        _c("i", { staticClass: "fas fa-th" })
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "change_view" }, [
-        _c("i", { staticClass: "fas fa-th-list" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38420,7 +39766,8 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("span")
           ]),
-          _vm._v("\n            Меню: Авто\n        ")
+          _vm._v(" "),
+          _c("span", { staticClass: "ymenu-title" }, [_vm._v("Меню: Авто")])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "vis-r" }, [
@@ -54069,6 +55416,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/site/components/ybestofferschange.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/site/components/ybestofferschange.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ybestofferschange_vue_vue_type_template_id_39ccc965___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ybestofferschange.vue?vue&type=template&id=39ccc965& */ "./resources/js/site/components/ybestofferschange.vue?vue&type=template&id=39ccc965&");
+/* harmony import */ var _ybestofferschange_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ybestofferschange.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ybestofferschange.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ybestofferschange_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ybestofferschange_vue_vue_type_template_id_39ccc965___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ybestofferschange_vue_vue_type_template_id_39ccc965___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/ybestofferschange.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ybestofferschange.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/site/components/ybestofferschange.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestofferschange_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ybestofferschange.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestofferschange.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestofferschange_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ybestofferschange.vue?vue&type=template&id=39ccc965&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/site/components/ybestofferschange.vue?vue&type=template&id=39ccc965& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestofferschange_vue_vue_type_template_id_39ccc965___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ybestofferschange.vue?vue&type=template&id=39ccc965& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestofferschange.vue?vue&type=template&id=39ccc965&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestofferschange_vue_vue_type_template_id_39ccc965___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ybestofferschange_vue_vue_type_template_id_39ccc965___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/site/components/ycatalog.vue":
 /*!***************************************************!*\
   !*** ./resources/js/site/components/ycatalog.vue ***!
@@ -54828,6 +56244,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/site/components/ynewschange.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/site/components/ynewschange.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ynewschange_vue_vue_type_template_id_15792986___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ynewschange.vue?vue&type=template&id=15792986& */ "./resources/js/site/components/ynewschange.vue?vue&type=template&id=15792986&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _ynewschange_vue_vue_type_template_id_15792986___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ynewschange_vue_vue_type_template_id_15792986___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/ynewschange.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/ynewschange.vue?vue&type=template&id=15792986&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/site/components/ynewschange.vue?vue&type=template&id=15792986& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ynewschange_vue_vue_type_template_id_15792986___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ynewschange.vue?vue&type=template&id=15792986& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ynewschange.vue?vue&type=template&id=15792986&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ynewschange_vue_vue_type_template_id_15792986___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ynewschange_vue_vue_type_template_id_15792986___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/site/components/yrangeslider.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/site/components/yrangeslider.vue ***!
@@ -55337,6 +56806,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymenu', __webpack_require_
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilesticker', __webpack_require__(/*! ./components/ymobilesticker */ "./resources/js/site/components/ymobilesticker.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilecatalog', __webpack_require__(/*! ./components/ymobilecatalog */ "./resources/js/site/components/ymobilecatalog.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobileanalitics', __webpack_require__(/*! ./components/ymobileanalitics */ "./resources/js/site/components/ymobileanalitics.vue")["default"]); //finish mobile
+//change visible
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ychangeoffers', __webpack_require__(/*! ./components/ybestofferschange */ "./resources/js/site/components/ybestofferschange.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynewschange', __webpack_require__(/*! ./components/ynewschange */ "./resources/js/site/components/ynewschange.vue")["default"]); //finish change visible
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ysearch', __webpack_require__(/*! ./modules/header/ysearch.vue */ "./resources/js/site/modules/header/ysearch.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ylocation', __webpack_require__(/*! ./components/ylocation.vue */ "./resources/js/site/components/ylocation.vue")["default"]);

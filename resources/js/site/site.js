@@ -10,6 +10,10 @@ Vue.component('ymobilesticker', require('./components/ymobilesticker').default);
 Vue.component('ymobilecatalog', require('./components/ymobilecatalog').default);
 Vue.component('ymobileanalitics', require('./components/ymobileanalitics').default);
 //finish mobile
+//change visible
+Vue.component('ychangeoffers', require('./components/ybestofferschange').default);
+Vue.component('ynewschange', require('./components/ynewschange').default);
+//finish change visible
 
 Vue.component('ysearch', require('./modules/header/ysearch.vue').default);
 Vue.component('ylocation', require('./components/ylocation.vue').default);

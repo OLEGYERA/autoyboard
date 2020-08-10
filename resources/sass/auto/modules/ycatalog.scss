@@ -799,6 +799,8 @@
                                 top: 88%;
                                 width: 20px;
                                 height: 20px;
+                                border-top: 2px solid #FFFFFF;
+                                border-left: 2px solid #FFFFFF;
                             }
                             .slick-next{
                                 right: 50px;
@@ -845,6 +847,62 @@
                         }
                         .yshow_more-marks{
                             margin: 15px 0 30px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 320px){
+    .ycatalog_block{
+        .y-cat-bottom{
+            .ydrop_down{
+                .ydropdown{
+                    .value{
+                        font-size: em(20);
+                    }
+                }
+            }
+            .type_body-marks{
+                .car_body-type{
+                    padding: 25px 15px 25px 15px;
+                    border-radius: 0px 0px 15px 15px;
+                    .body-type_top{
+                        .type-top_title{
+                            font-size: em(20);
+                        }
+                    }
+                    .yb-slide_type{
+                        #slick3{
+                            .slick-next{
+                                right: 30px;
+                            }
+                            .slick-prev{
+                                left: 30px;
+                            }
+                            .slick-list{
+                                .slick-track{
+                                    .slick-slide{
+                                        width: 100% !important;
+                                        .yb_slide-body{
+                                            .slide{
+                                                min-width: 260px !important;
+                                            }
+                                            .large{
+                                                height: 180px;
+                                                img{
+                                                    height: 90%;
+                                                }
+
+                                            }
+                                            .body_name{
+                                                font-size: em(20);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
