@@ -16,6 +16,12 @@ class PageController extends BasicController
         return $this->renderBasic();
     }
 
+    public function filter(){
+
+        $this->content = view('site.auto.filter.ru')->render();
+        return $this->renderBasic();
+    }
+
 
 
     public function generateURL(){

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'Site\Auto\PageController@start');
+Route::get('/filter', 'Site\Auto\PageController@filter')->name('filter');
+
 Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
 
 Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');

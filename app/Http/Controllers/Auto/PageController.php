@@ -48,6 +48,9 @@ class PageController extends Controller
 
     }
 
+    public function filter(){
+        return view('auto.site.templates.basicHTML');
+    }
 
 
     public function generateURL(){

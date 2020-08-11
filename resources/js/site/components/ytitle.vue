@@ -31,6 +31,7 @@ export default{
     watch: {
         changeVisible(to){
             this.$emit('getStatus', to)
+            console.log(this.changeVisible)
         },
     }
 }

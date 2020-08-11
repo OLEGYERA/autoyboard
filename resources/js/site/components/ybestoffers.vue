@@ -185,7 +185,6 @@
         <div v-else class="ychangeoffers">
             <ychangeoffers></ychangeoffers>
         </div>
-        <slot></slot>
     </div>
 </template>
 
@@ -197,6 +196,7 @@ export default {
     components: { Slick },
     mounted () {
         window.addEventListener('resize', this.onResize)
+        this.onResize();
     },
     data() {
         return {
