@@ -1,7 +1,6 @@
 <template>
     <vuescroll :ops="ops">
     <div class="yfilter">
-
     <div class="yfilterform">
         <div class="yoption_btn">
             <button class="change_type active">Все</button>
@@ -60,7 +59,7 @@
                 </div>
         </div>
         <div class="yb-confirm_btn">
-            <button></button>
+            <button>Поиск</button>
         </div>
     </div>
 

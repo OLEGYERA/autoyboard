@@ -1,0 +1,470 @@
+@import '../clear';
+@import '../../vars';
+
+.ycardfilter{
+    position: relative;
+    .yfiltered_car{
+        display: flex;
+        position: absolute;
+        top: -80px;
+        width: 100%;
+        justify-content: space-between;
+        .ydrop_down{
+            display: flex;
+            align-items: center;
+            width: 50%;
+            .ydropdownfilter{
+                width: 130px;
+                height: 35px;
+                margin-right: 15px;
+                &:last-child{
+                    width: 205px;
+                    height: 35px;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    .mobile{
+        display: none;
+    }
+    .ycard_filter{
+        width: 100%;
+        .ycard{
+            display: flex;
+            width: 100%;
+            position: relative;
+            background: #FFFFFF;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.13), 0px 2px 6px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.44);
+            border-radius: 15px 15px 15px 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            .yb-icon_check{
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                .item_check{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                    background: $light_blue;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.65);
+                    svg{
+                        width: 25px;
+                    }
+                }
+                .new_item{
+                    font-family: $mont;
+                    font-weight: bold;
+                    font-size: em(12);
+                    line-height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: $dark_yellow;
+                    color: #FFFFFF;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.65);
+                }
+            }
+            .ycard_image{
+                width: 40%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                img{
+                    width: 145%;
+                }
+            }
+            .ycard-desc{
+                width: 60%;
+                padding: 25px 20px;
+                .ycard_name-price{
+                    width: 100%;
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                    h2{
+                        color: $darkgray-filter;
+                        font-family: $mont;
+                        font-weight: 600;
+                        font-size: em(18);
+                        line-height: 142.5%;
+                        margin: 0;
+                    }
+                    .yprice{
+                        color: $dgreen;
+                        font-family: $mont;
+                        font-weight: 500;
+                        font-size: em(22);
+                        line-height: 29px;
+                    }
+                }
+                .ycard-relation{
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(16);
+                    line-height: 19px;
+                    color: rgba(0, 0, 0, 0.8);
+                    margin: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .yequipment_car{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 20px 0px;
+                    .yequipment_item{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        svg{
+                            width: 25px;
+                        }
+                        span{
+                            font-size: em(12);
+                            font-family: $mont;
+                            font-weight: 500;
+                            line-height: 28px;
+                            color: #000000;
+                        }
+                    }
+                }
+                .show_more{
+                    font-family: $mont;
+                    font-weight: 500;
+                    font-size: em(14);
+                    line-height: 20px;
+                    color: $darkblue;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    svg{
+                        margin-left: 10px;
+                    }
+                }
+                .ydate_added-favorite{
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    position: relative;
+                    .ydate{
+                        font-family: $noto;
+                        font-weight: 500;
+                        font-size: em(12);
+                        line-height: 19px;
+                        color: $crumbsgray;
+                    }
+                    .favorite{
+                        bottom: 0;
+                        right: 0;
+                        background: none;
+                        box-shadow: none;
+                        svg{
+                            width: 30px;
+                            fill: $crumbsgray;
+                        }
+                    }
+                }
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    .change{
+        .ycard_reverse{
+            display: flex;
+            width: 100%;
+            .ycard{
+                display: block;
+                margin-right: 10px;
+                .ycard_image{
+                    width: 100%;
+                    height: 200px;
+                    img{
+                        width: 120%;
+                    }
+                }
+                .ycard-desc{
+                    width: 100%;
+                    padding: 10px 15px;
+                    .ycard_name-price{
+                        h2{
+                            font-size: em(16);
+                        }
+                        .yprice{
+                            font-size: em(18);
+                        }
+                    }
+                    .ycard-relation{
+                        display: none;
+                    }
+                    .yequipment_car{
+                        margin-top: 10px;
+                        margin-bottom: 0;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        .yequipment_item{
+                            margin-bottom: 10px;
+                            flex-direction: inherit;
+                            margin-right: 5px;
+                            svg{
+                                width: 20px;
+                            }
+                            span{
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+                &:last-child{
+                    margin-right: 0;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1600px){
+    .ycardfilter{
+        .yfiltered_car{
+            top: -70px;
+        }
+        .ycard_filter{
+            .ycard{
+                .ycard_image{
+
+                }
+                .ycard-desc{
+                    padding: 15px 10px;
+                    .ycard_name-price{
+                        h2{
+                            font-size: em(16);
+                        }
+                        .yprice{
+                            font-size: em(20);
+                        }
+                    }
+                    .yequipment_car{
+                        margin: 10px 0px;
+                        .yequipment_item{
+                            svg{
+                                width: 20px;
+                            }
+                            span{
+                                font-size: em(10);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .change{
+            .ycard_reverse{
+                .ycard{
+                    .ycard-desc{
+                        padding: 10px 10px;
+                        .ycard_name-price{
+                            h2{
+                                font-size: em(13);
+                            }
+                            .yprice{
+                                font-size: em(16);
+                            }
+                        }
+                        .yequipment_car{
+                            .yequipment_item{
+                                span{
+                                    margin-left: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1440px){
+    .ycardfilter{
+        .ycard_filter{
+            .ycard{
+                .ycard-desc{
+                    padding: 15px 15px;
+                    .yequipment_car{
+                        margin: 15px 0px;
+                        .yequipment_item{
+                            svg{
+                                width: 20px;
+                            }
+                            span{
+                                font-size: em(12);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .ycardfilter{
+        .ycard_filter{
+            .ycard{
+               .ycard_image{
+                   img{
+                       width: 150%;
+                   }
+               }
+            }
+        }
+        .change{
+            .ycard_reverse{
+                .ycard{
+                    .ycard-desc{
+                        .yequipment_car{
+                            justify-content: space-evenly;
+                            .yequipment_item{
+                                span{
+                                    font-size: em(15);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1330px){
+    .ycardfilter{
+        .ycard_filter{
+            .ycard{
+                .ycard-desc{
+                    padding: 10px 15px;
+                    .yequipment_car{
+                        margin: 20px 0;
+                    }
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 1024px){
+    .ycardfilter{
+        .ycard_filter{
+            .ycard{
+                .ycard-desc{
+                    padding: 8px 10px;
+                    .ycard_name-price{
+                        h2{
+                            font-size: em(14);
+                        }
+                    }
+                    .yequipment_car{
+                        margin: 10px 0;
+                        .yequipment_item{
+                            span{
+                                font-size: em(10);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 945px){
+    .ycardfilter{
+        .ycard_filter{
+           display: none;
+        }
+        .mobile{
+           display: block;
+            .ycard{
+                .ycard_image{
+                    img{
+                        width: 140%;
+                    }
+                }
+                .ycard-desc{
+                    padding: 20px 25px;
+                    h2{
+                        font-family: $mont;
+                        font-weight: 500;
+                        font-size: em(24);
+                        line-height: 142.5%;
+                        color: #222222;
+                        margin: 0;
+                        margin-bottom: 10px;
+                    }
+                    .yprice_city_name{
+                        display: flex;
+                        align-items: center;
+                        .yprice{
+                            font-family: $mont;
+                            font-weight: 500;
+                            font-size: em(22);
+                            line-height: 27px;
+                            color: $dgreen;
+                            margin-right: 10px;
+                        }
+                        .city-name{
+                            color: $crumbsgray;
+                            font-family: $mont;
+                            font-weight: 500;
+                            font-size: em(18);
+                            line-height: 22px;
+                        }
+                    }
+                    .yequipment_car{
+                        width: 80%;
+                        margin: 10px 0 20px;
+                        .yequipment_item{
+                            flex-direction: inherit;
+                            svg{
+                                width: 25px;
+                                margin-right: 10px;
+                            }
+                            span{
+                                font-family: $mont;
+                                font-weight: 500;
+                                font-size: em(16);
+                                line-height: 28px;
+                                color: #000000;
+                            }
+                        }
+                    }
+                    .ydate_added-favorite{
+                        .favorite{
+                            .heart_svg{
+                                width: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
