@@ -3655,16 +3655,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     window.addEventListener('resize', this.onResize);
     this.onResize();
+    document.addEventListener('click', this.handleClickOutside);
+  },
+  destroyed: function destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
   },
   data: function data() {
     return {
+      sortByOpen: false,
+      itemSort: [],
       windowWidth: 0,
       status: false,
-      left: ['За месяц', 'За месяц', 'За месяц', 'За месяц', 'За месяц', 'За месяц'],
+      left: ['По рейтингу', 'По к-ву просмотров', 'По цене', 'По дате добавления', 'За месяц', 'За неделю'],
       right: ['По дате добавления', 'По дате добавления', 'По дате добавления', 'По дате добавления']
     };
   },
@@ -3674,6 +3702,24 @@ __webpack_require__.r(__webpack_exports__);
     },
     onResize: function onResize(event) {
       this.windowWidth = document.documentElement.clientWidth;
+    },
+    openSortBy: function openSortBy() {
+      this.sortByOpen = true;
+      console.log("sortOpen");
+    },
+    setItem: function setItem(item) {
+      this.itemSort = item;
+      this.sortByOpen = false;
+    },
+    handleClickOutside: function handleClickOutside(evt) {
+      if (!this.$el.contains(evt.target)) {
+        this.sortByOpen = false;
+      }
+    }
+  },
+  computed: {
+    filterSortItems: function filterSortItems() {
+      return this.left;
     }
   }
 });
@@ -3922,11 +3968,11 @@ __webpack_require__.r(__webpack_exports__);
       this.value = item;
       this.isOpen = false;
       this.result = item;
-    }
-  },
-  handleClickOutside: function handleClickOutside(evt) {
-    if (!this.$el.contains(evt.target)) {
-      this.isOpen = false;
+    },
+    handleClickOutside: function handleClickOutside(evt) {
+      if (!this.$el.contains(evt.target)) {
+        this.isOpen = false;
+      }
     }
   },
   computed: {
@@ -4063,6 +4109,140 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _yselectsearch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yselectsearch */ "./resources/js/site/components/yselectsearch.vue");
+/* harmony import */ var _ydropdownfilter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ydropdownfilter */ "./resources/js/site/components/ydropdownfilter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Ydropdownfilter: _ydropdownfilter__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Yselectsearch: _yselectsearch__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterform.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterform.vue?vue&type=script&lang=js& ***!
@@ -4074,6 +4254,48 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38707,6 +38929,53 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
+    _c("div", { staticClass: "yfiltered_card-mobile" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "filter y-sort_by", on: { click: _vm.openSortBy } },
+        [_c("i", { staticClass: "fas fa-exchange-alt" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.sortByOpen,
+              expression: "sortByOpen"
+            }
+          ],
+          staticClass: "yitems_sort-by"
+        },
+        _vm._l(_vm.filterSortItems, function(item, key) {
+          return _c(
+            "div",
+            {
+              key: key,
+              staticClass: "item_sort-by",
+              class: { checked: _vm.itemSort == item },
+              on: {
+                click: function($event) {
+                  return _vm.setItem(item)
+                }
+              }
+            },
+            [
+              _vm._v("\n                " + _vm._s(item) + "\n            "),
+              _vm.itemSort == item
+                ? _c("i", { staticClass: "fas fa-check" })
+                : _vm._e()
+            ]
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "ycard_filter mobile" }, [
       _c("div", { staticClass: "ycard" }, [
         _c("div", { staticClass: "yb-icon_check" }, [
@@ -38762,12 +39031,12 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(2),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -39023,12 +39292,12 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(3),
+          _vm._m(4),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -39284,12 +39553,12 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(4),
+        _vm._m(5),
         _vm._v(" "),
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(5),
+          _vm._m(6),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -39545,12 +39814,12 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(6),
+        _vm._m(7),
         _vm._v(" "),
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(7),
+          _vm._m(8),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -39806,12 +40075,12 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(8),
+        _vm._m(9),
         _vm._v(" "),
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(9),
+          _vm._m(10),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -40070,10 +40339,10 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(10),
+            _vm._m(11),
             _vm._v(" "),
             _c("div", { staticClass: "ycard-desc" }, [
-              _vm._m(11),
+              _vm._m(12),
               _vm._v(" "),
               _c("p", { staticClass: "ycard-relation" }, [
                 _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -40383,10 +40652,10 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(12),
+            _vm._m(13),
             _vm._v(" "),
             _c("div", { staticClass: "ycard-desc" }, [
-              _vm._m(13),
+              _vm._m(14),
               _vm._v(" "),
               _c("p", { staticClass: "ycard-relation" }, [
                 _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -40696,10 +40965,10 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(14),
+            _vm._m(15),
             _vm._v(" "),
             _c("div", { staticClass: "ycard-desc" }, [
-              _vm._m(15),
+              _vm._m(16),
               _vm._v(" "),
               _c("p", { staticClass: "ycard-relation" }, [
                 _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -41009,10 +41278,10 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(16),
+            _vm._m(17),
             _vm._v(" "),
             _c("div", { staticClass: "ycard-desc" }, [
-              _vm._m(17),
+              _vm._m(18),
               _vm._v(" "),
               _c("p", { staticClass: "ycard-relation" }, [
                 _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -41324,10 +41593,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(18),
+              _vm._m(19),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(19),
+                _vm._m(20),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -41641,10 +41910,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(20),
+              _vm._m(21),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(21),
+                _vm._m(22),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -41960,10 +42229,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(22),
+              _vm._m(23),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(23),
+                _vm._m(24),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -42277,10 +42546,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(24),
+              _vm._m(25),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(25),
+                _vm._m(26),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -42596,10 +42865,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(26),
+              _vm._m(27),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(27),
+                _vm._m(28),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -42913,10 +43182,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(28),
+              _vm._m(29),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(29),
+                _vm._m(30),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -43180,6 +43449,14 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "filter yopen_filter" }, [
+      _c("i", { staticClass: "fas fa-filter" })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44199,6 +44476,291 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "yfilterextended" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "ybexpanded_search" }, [
+      _c("h1", { staticClass: "ytitle-exp" }, [_vm._v("Расширенный поиск")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-carsearch_items" }, [
+        _c("div", { staticClass: "yoptions_items" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "ycheckbox_options" },
+            [
+              _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
+              _vm._v(" "),
+              _c("ycheckbox", { attrs: { text: "Провереные" } }),
+              _vm._v(" "),
+              _c("ycheckbox", { attrs: { text: "С фото" } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "y-transport_options" },
+            [
+              _c("h2", [_vm._v("Тип транспорта")]),
+              _vm._v(" "),
+              _c("ydropdown"),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Тип кузова")]),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("h4", [_vm._v("Страна производитель")]),
+              _vm._v(" "),
+              _c("ydropdown")
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ymarcks_items" }, [_vm._v("2")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ymodel-years_items" }, [_vm._v("3")])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yfilter_selected-item" }, [
+      _c("div", { staticClass: "yb-items_selected" }, [
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-chevron-down" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_btn" }, [
+      _c("button", { staticClass: "change_type active" }, [_vm._v("Все")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-checked_type" }, [
+      _c("div", { staticClass: "yl-vis checkbox" }, [
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check1", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check1" } },
+            [_vm._v("Универсал")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check2", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check2" } },
+            [_vm._v("Кроссовер")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check3", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check3" } },
+            [_vm._v("Минивэн")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check4", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check4" } },
+            [_vm._v("Лифтбек")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check5", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check5" } },
+            [_vm._v("Хэтчбек")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check6", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check6" } },
+            [_vm._v("Кабриолет")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yr-vis checkbox" }, [
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check7", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check7" } },
+            [_vm._v("Седан")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check8", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check8" } },
+            [_vm._v("Купе")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check9", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check9" } },
+            [_vm._v("Пикап")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check10", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check10" } },
+            [_vm._v("Ростер")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check11", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check11" } },
+            [_vm._v("Лимузин")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_checkbox" }, [
+          _c("input", {
+            staticClass: "ycheck",
+            attrs: { id: "check12", type: "checkbox" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "y-body_name", attrs: { for: "check12" } },
+            [_vm._v("Другой")]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterform.vue?vue&type=template&id=3935a294&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterform.vue?vue&type=template&id=3935a294& ***!
@@ -44300,6 +44862,26 @@ var render = function() {
             _vm._v(" "),
             _c("yselect", {
               attrs: { placeholder: "Коробка передач", options: _vm.options }
+            }),
+            _vm._v(" "),
+            _c("yselect", {
+              attrs: { placeholder: "Коробка передач", options: _vm.options }
+            }),
+            _vm._v(" "),
+            _c("yselect", {
+              attrs: { placeholder: "Коробка передач", options: _vm.options }
+            }),
+            _vm._v(" "),
+            _c("yselect", {
+              attrs: { placeholder: "Коробка передач", options: _vm.options }
+            }),
+            _vm._v(" "),
+            _c("yselect", {
+              attrs: { placeholder: "Коробка передач", options: _vm.options }
+            }),
+            _vm._v(" "),
+            _c("yselect", {
+              attrs: { placeholder: "Коробка передач", options: _vm.options }
             })
           ],
           1
@@ -44309,68 +44891,151 @@ var render = function() {
           _c("h3", { staticClass: "color_title" }, [_vm._v("Цвет")]),
           _vm._v(" "),
           _c("div", { staticClass: "ycheck_color" }, [
-            _c("input", {
-              staticStyle: { "background-color": "red" },
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#742D05" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#FFCB11" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "rgba(80, 83, 83, 0.92)" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#FFFFFF" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#000000" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            })
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#0B3F8D" },
+                attrs: { for: "" }
+              })
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "ycheck_color" }, [
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#5100B8" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#E30000" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#1D8D0B" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#0066FF" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            }),
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#FFF504" },
+                attrs: { for: "" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox" },
-              on: { click: _vm.check }
-            })
+            _c("div", { staticClass: "ylabel_visible" }, [
+              _c("input", {
+                attrs: { type: "checkbox" },
+                on: { click: _vm.check }
+              }),
+              _vm._v(" "),
+              _c("label", {
+                staticStyle: { "background-color": "#FF007A" },
+                attrs: { for: "" }
+              })
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -67356,15 +68021,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/site/components/ycardfilter.vue ***!
   \******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ycardfilter_vue_vue_type_template_id_6d5cf1fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ycardfilter.vue?vue&type=template&id=6d5cf1fc& */ "./resources/js/site/components/ycardfilter.vue?vue&type=template&id=6d5cf1fc&");
 /* harmony import */ var _ycardfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ycardfilter.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ycardfilter.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ycardfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ycardfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -67394,7 +68058,7 @@ component.options.__file = "resources/js/site/components/ycardfilter.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/site/components/ycardfilter.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67633,15 +68297,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************************!*\
   !*** ./resources/js/site/components/ydropdownfilter.vue ***!
   \**********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ydropdownfilter_vue_vue_type_template_id_350bfc7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ydropdownfilter.vue?vue&type=template&id=350bfc7a& */ "./resources/js/site/components/ydropdownfilter.vue?vue&type=template&id=350bfc7a&");
 /* harmony import */ var _ydropdownfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ydropdownfilter.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ydropdownfilter.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ydropdownfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ydropdownfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -67671,7 +68334,7 @@ component.options.__file = "resources/js/site/components/ydropdownfilter.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/site/components/ydropdownfilter.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67832,6 +68495,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfavorite_vue_vue_type_template_id_e36606d4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfavorite_vue_vue_type_template_id_e36606d4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfilterextended.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/site/components/yfilterextended.vue ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yfilterextended.vue?vue&type=template&id=4a7de0aa& */ "./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&");
+/* harmony import */ var _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yfilterextended.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/yfilterextended.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfilterextended.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfilterextended.vue?vue&type=template&id=4a7de0aa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -68903,6 +69636,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynews', __webpack_require_
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yselect', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdown', __webpack_require__(/*! ./components/ydropdown */ "./resources/js/site/components/ydropdown.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfilterextended', __webpack_require__(/*! ./components/yfilterextended */ "./resources/js/site/components/yfilterextended.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfilterform', __webpack_require__(/*! ./components/yfilterform */ "./resources/js/site/components/yfilterform.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycardfilter', __webpack_require__(/*! ./components/ycardfilter */ "./resources/js/site/components/ycardfilter.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdowfilter', __webpack_require__(/*! ./components/ydropdownfilter */ "./resources/js/site/components/ydropdownfilter.vue")["default"]);

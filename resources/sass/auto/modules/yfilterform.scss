@@ -80,7 +80,7 @@
             margin: 10px 0 20px;
             border-radius: 12px;
             border: 1px solid #E2E2E2;
-            padding: 10px 20px 20px 10px;
+            padding: 10px 10px 20px 10px;
             .color_title{
                 font-family: $aleg;
                 font-weight: 500;
@@ -96,21 +96,24 @@
                 align-items: center;
                 justify-content: space-between;
                 margin-bottom: 10px;
-                //    input{
-                //        position: relative;
-                //        display: flex;
-                //        align-items: center;
-                //        justify-content: center;
-                //        cursor: pointer;
-                //        //&:after{
-                //        //    content: '';
-                //        //    position: absolute;
-                //        //    border-radius: 50%;
-                //        //    background-color: red;
-                //        //    height: 23px;
-                //        //    width: 23px;
-                //        //}
-                //}
+                .ylabel_visible{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    input{
+                        position: absolute;
+                        z-index: 2;
+                        opacity: 0;
+                    }
+                    label{
+                        width: 23px;
+                        height: 23px;
+                        border: 1px solid #D6D6D6;
+                        border-radius: 50%;
+                        position: relative;
+
+                    }
+                }
                 &:last-child{
                     margin-bottom: 0;
                 }
@@ -138,5 +141,9 @@
             }
         }
     }
+}
+
+@media only screen and (max-width:768px){
+
 }
 

@@ -1,0 +1,244 @@
+@import '../clear';
+@import '../../vars';
+
+.yfilterextended{
+    width: 100%;
+    .yfilter_selected-item{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 37px 0 33px;
+        padding: 15px 60px 15px 30px;
+        background: #FFFFFF;
+        box-shadow: -8px 8px 16px rgba(216, 216, 216, 0.2), 8px -8px 16px rgba(216, 216, 216, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.9), 8px 8px 20px rgba(216, 216, 216, 0.13), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(216, 216, 216, 0.5);
+        border-radius: 12px;
+        .yb-items_selected{
+            display: flex;
+            align-items: center;
+            .item_selected{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 110px;
+                height: 34px;
+                margin-right: 5px;
+                background: linear-gradient(0deg, rgba(11, 63, 141, 0.04), rgba(11, 63, 141, 0.04));
+                border: 1px solid rgba(11, 63, 141, 0.79);
+                box-sizing: border-box;
+                border-radius: 8px;
+                span{
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(15);
+                    line-height: 18px;
+                    color: $darkblue;
+                }
+                i{
+                    color: $darkblue;
+                    font-size: em(14);
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    .ybexpanded_search{
+        background: #FFFFFF;
+        box-shadow: 0px 4px 64px rgba(105, 105, 105, 0.19);
+        border-radius: 13px;
+        width: 100%;
+        padding: 30px 25px;
+        .ytitle-exp{
+            font-family: $rale;
+            font-weight: 500;
+            font-size: em(36);
+            line-height: 42px;
+            color: rgba(0, 0, 0, 0.87);
+            margin: 0;
+            margin-bottom: 25px;
+        }
+        .yb-carsearch_items{
+            position: relative;
+            display: flex;
+            .yoptions_items{
+                width: 20%;
+                margin-bottom: 25px;
+                .yoption_btn{
+                    display: flex;
+                    border: 1px solid #E2E2E2;
+                    border-radius: 10px 10px 0px 0px;
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    width: 100%;
+                    .change_type{
+                        width: 100%;
+                        height: 42px;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(15);
+                        line-height: 18px;
+                        &.active{
+                            background: #0B3F8D;
+                            color: #FFFEFE;
+                        }
+                    }
+                }
+                .ycheckbox_options{
+                    border: 1px solid #E2E2E2;
+                    border-radius: 10px;
+                    padding: 15px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+                .y-transport_options{
+                    h2{
+                        color: $filtergray;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        margin: 0;
+                        margin-bottom: 5px;
+                    }
+                    .ydropdown{
+                        width: 100%;
+                        height: 40px;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: 15px;
+                        padding: 10px 15px 10px 20px;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        color: rgba(34, 34, 34, 0.8);
+                        border-radius: 10px;
+                        border: 1px solid #E2E2E2;
+                        .value{
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(18);
+                            line-height: 22px;
+                        }
+                        i{
+                            color: $filtergray;
+                        }
+                        .items{
+                            position: absolute;
+                            scrollbar-width: none;
+                            max-height: 140px;
+                            overflow: scroll;
+                            overflow-x: hidden;
+                            top: 45px;
+                            left: 0;
+                            width: 100%;
+                            background: #FFFFFF;
+                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                            border-radius: 3px;
+                            .item{
+                                font-family: $aleg;
+                                font-weight: normal;
+                                height: 35px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                font-size: 18px;
+                                line-height: 22px;
+                                padding: 0px 0px 0px 20px;
+                                cursor: pointer;
+                                color: rgba(0, 0, 0, 0.83);
+                                i{
+                                    position: absolute;
+                                    top: auto;
+                                    color: $dgreen;
+                                    right: 8px;
+                                    font-size: em(12);
+                                }
+                                &:after{
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    background: rgba(199, 199, 199, 0.33) ;
+                                }
+                            }
+                            .checked{
+                                border-left: 4px solid $darkblue;
+                                &:after{
+                                    height: 2px;
+                                    background: rgba(91, 91, 91, 0.13);
+                                }
+                            }
+                            &::-webkit-scrollbar { width: 0px; }
+                        }
+                    }
+                    h3{
+                        color: $filtergray;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        margin: 0;
+                        margin-bottom: 10px;
+                    }
+                    .yb-checked_type{
+                        display: flex;
+                        width: 100%;
+                        margin-bottom: 18px;
+                        .yl-vis{
+                            margin-right: 30px;
+                        }
+                        .checkbox{
+                            width: 100%;
+                            .yvis_checkbox{
+                                margin-bottom: 5px;
+                                .ycheck{
+                                    width: 12px;
+                                    height: 12px;
+                                    background: #FFFFFF;
+                                    border: 1px solid rgba(196, 196, 196, 0.7);
+                                }
+                                .y-body_name{
+                                    font-family: $aleg;
+                                    font-weight: normal;
+                                    font-size: em(16);
+                                    line-height: 19px;
+                                    color: $filercheckbox;
+                                }
+                            }
+                        }
+                    }
+                    h4{
+                        color: $filtergray;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        margin: 0;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+            .ymarcks_items{
+                width: 35%;
+            }
+            .ymodel-years_items{
+                width: 40%;
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #E7E7E7;
+            }
+        }
+    }
+}

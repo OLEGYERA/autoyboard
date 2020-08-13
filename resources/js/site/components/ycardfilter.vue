@@ -9,6 +9,28 @@
                 <ytitle @getStatus="changeStatus"></ytitle>
             </div>
         </div>
+        <div class="yfiltered_card-mobile">
+            <button
+                class="filter yopen_filter">
+                <i class="fas fa-filter"></i>
+            </button>
+            <button
+                @click="openSortBy"
+                class="filter y-sort_by">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+            <div class="yitems_sort-by" v-show="sortByOpen">
+                <div class="item_sort-by"
+                     :class="{'checked' : itemSort == item}"
+                     v-for="(item, key) in filterSortItems"
+                     :key="key"
+                     @click="setItem(item)"
+                >
+                    {{item}}
+                <i v-if="itemSort == item" class="fas fa-check"></i>
+                </div>
+            </div>
+        </div>
         <div class="ycard_filter mobile">
             <div class="ycard">
                 <div class="yb-icon_check">
@@ -1208,12 +1230,18 @@
         mounted () {
             window.addEventListener('resize', this.onResize)
             this.onResize();
+            document.addEventListener('click', this.handleClickOutside)
+        },
+        destroyed() {
+            document.removeEventListener('click', this.handleClickOutside)
         },
         data(){
             return{
+                sortByOpen: false,
+                itemSort: [],
                 windowWidth: 0,
                 status: false,
-                left: ['За месяц','За месяц','За месяц','За месяц','За месяц','За месяц',],
+                left: ['По рейтингу','По к-ву просмотров','По цене','По дате добавления','За месяц','За неделю',],
                 right: ['По дате добавления','По дате добавления','По дате добавления','По дате добавления',]
             }
         },
@@ -1223,6 +1251,24 @@
             },
             onResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
+            },
+            openSortBy(){
+                this.sortByOpen = true
+                console.log("sortOpen")
+            },
+            setItem(item) {
+                this.itemSort = item
+                this.sortByOpen = false
+            },
+            handleClickOutside(evt){
+                if (!this.$el.contains(evt.target)) {
+                    this.sortByOpen = false;
+                }
+            },
+        },
+        computed:{
+            filterSortItems(){
+                return this.left
             },
         }
     }

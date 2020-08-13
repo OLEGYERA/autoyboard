@@ -46,12 +46,13 @@
                 this.isOpen = false
                 this.result = item
             },
+            handleClickOutside(evt){
+                if (!this.$el.contains(evt.target)) {
+                    this.isOpen = false;
+                }
+            },
         },
-        handleClickOutside(evt){
-            if (!this.$el.contains(evt.target)) {
-                this.isOpen = false;
-            }
-        },
+
         computed: {
             filteredItems() {
                 return this.items

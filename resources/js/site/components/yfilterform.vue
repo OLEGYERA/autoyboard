@@ -38,31 +38,73 @@
             <yselect :placeholder="'Топливо'" :options="options"></yselect>
             <yselect :placeholder="'Тип привода'" :options="options"></yselect>
             <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
+            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
+            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
+            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
+            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
+
+            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
+
         </div>
         <div class="yselect-car_colors">
             <h3 class="color_title">Цвет</h3>
                 <div class="ycheck_color">
-                    <input style="background-color: red" class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
+                    <div class="ylabel_visible">
+                        <input  class="" @click="check" type="checkbox">
+                        <label style="background-color: #742D05"  for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #FFCB11" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #FFFFFF" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #000000" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #0B3F8D" for=""></label>
+                    </div>
                 </div>
                 <div class="ycheck_color">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
-                    <input class="" @click="check" type="checkbox">
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #5100B8" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #E30000" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #1D8D0B" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #0066FF" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #FFF504" for=""></label>
+                    </div>
+                    <div class="ylabel_visible">
+                        <input class="" @click="check" type="checkbox">
+                        <label style="background-color: #FF007A" for=""></label>
+                    </div>
                 </div>
         </div>
         <div class="yb-confirm_btn">
             <button>Поиск</button>
         </div>
     </div>
-
     </div>
     </vuescroll>
 </template>
