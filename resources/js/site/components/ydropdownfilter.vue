@@ -4,7 +4,7 @@
             class="value"
             @blur="isOpen = true"
             v-model="value"
-            @click="isOpen = !isOpen">{{value}}</div>
+            @click="isOpen = !isOpen">{{staticItem || value}}</div>
         <i
             class="ynav-list-toggle fas"
             :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}">
@@ -51,11 +51,17 @@
                 this.isOpen = false;
             }
         },
+
         computed: {
             filteredItems() {
                 return this.items
 
-            }
+            },
+            staticItem(){
+                if(this.value == ""){
+                    return this.items[0]
+                }
+            },
         },
     }
 </script>

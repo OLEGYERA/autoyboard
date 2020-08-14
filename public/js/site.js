@@ -3948,7 +3948,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [],
+  props: ['items', 'placeholder'],
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
   },
@@ -3959,15 +3959,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isOpen: false,
       result: [],
-      value: 'Легковые',
-      items: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы']
+      value: ''
     };
   },
   methods: {
     setItem: function setItem(item) {
       this.value = item;
-      this.isOpen = false;
       this.result = item;
+      this.isOpen = false;
     },
     handleClickOutside: function handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
@@ -3978,6 +3977,13 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     filteredItems: function filteredItems() {
       return this.items;
+    },
+    generatingPlaceholder: function generatingPlaceholder() {
+      if (this.value == "") {
+        return this.placeholder;
+      } else {
+        return this.value;
+      }
     }
   }
 });
@@ -4048,6 +4054,11 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     filteredItems: function filteredItems() {
       return this.items;
+    },
+    staticItem: function staticItem() {
+      if (this.value == "") {
+        return this.items[0];
+      }
     }
   }
 });
@@ -4118,8 +4129,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _yselectsearch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yselectsearch */ "./resources/js/site/components/yselectsearch.vue");
-/* harmony import */ var _ydropdownfilter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ydropdownfilter */ "./resources/js/site/components/ydropdownfilter.vue");
 //
 //
 //
@@ -4232,12 +4241,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Ydropdownfilter: _ydropdownfilter__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Yselectsearch: _yselectsearch__WEBPACK_IMPORTED_MODULE_0__["default"]
+  data: function data() {
+    return {
+      countryName: ["Китай", "США", "Япония", "Германия", "Индия", "ЮжнаяКорея", "Мексика", "Бразилия", "Испания", "Таиланд"],
+      cars: [{
+        id: 1,
+        name: "Ford"
+      }, {
+        id: 2,
+        name: "Toyota"
+      }, {
+        id: 3,
+        name: "Fiat"
+      }, {
+        id: 4,
+        name: "Mazda"
+      }],
+      typeCars: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы'],
+      years: ['2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', ' 1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984', '1983', '1982', '1981', '1980', '1979', '1978', '1977', '1976', '1975', '1974', '1973', '1972', '1971', '1970', '1969', '1968', '1967', '1966', '1965', '1964', '1963', '1962', '1961', '1960', '1959', '1958', '1957', '1956', '1955', '1954', '1953', '1952', '1951', '1950', '1949', '1948', '1947', '1946', '1945', '1944', '1943', '1942', '1941', '1940', '1939', '1938', '1937', '1936', '1935', '1934', '1933', '1932', '1931', '1930', '1929', '1928', '1927', '1926', '1925', '1924', '1923', '1922', '1921', '1920', '1919', '1918', '1917', '1916', '1915', '1914', '1913', '1912', '1911', '1910', '1909', '1908', '1907', '1906', '1905', '1904', '1903', '1902', '1901', '1900']
+    };
   }
 });
 
@@ -44165,7 +44211,7 @@ var render = function() {
           expression: "value"
         }
       },
-      [_vm._v(_vm._s(_vm.value))]
+      [_vm._v(_vm._s(_vm.generatingPlaceholder || _vm.placeholder))]
     ),
     _vm._v(" "),
     _c("i", {
@@ -44254,7 +44300,7 @@ var render = function() {
           expression: "value"
         }
       },
-      [_vm._v(_vm._s(_vm.value))]
+      [_vm._v(_vm._s(_vm.staticItem || _vm.value))]
     ),
     _vm._v(" "),
     _c("i", {
@@ -44520,7 +44566,7 @@ var render = function() {
             [
               _c("h2", [_vm._v("Тип транспорта")]),
               _vm._v(" "),
-              _c("ydropdown"),
+              _c("ydropdown", { attrs: { items: _vm.typeCars } }),
               _vm._v(" "),
               _c("h3", [_vm._v("Тип кузова")]),
               _vm._v(" "),
@@ -44528,15 +44574,69 @@ var render = function() {
               _vm._v(" "),
               _c("h4", [_vm._v("Страна производитель")]),
               _vm._v(" "),
-              _c("ydropdown")
+              _c("ydropdown", {
+                attrs: {
+                  placeholder: "Выберите страну",
+                  items: _vm.countryName
+                }
+              })
             ],
             1
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "ymarcks_items" }, [_vm._v("2")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ymodel-years_items" }, [_vm._v("3")])
+        _c("div", { staticClass: "add-cars_items" }, [
+          _c("div", { staticClass: "yflex_car-item" }, [
+            _c(
+              "div",
+              { staticClass: "ycars-item marks" },
+              [
+                _c("h2", [_vm._v("Марка")]),
+                _vm._v(" "),
+                _c("yselect", {
+                  attrs: { placeholder: "Выберите марку", options: _vm.cars }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ycars-item model" },
+              [
+                _c("h2", [_vm._v("Модель")]),
+                _vm._v(" "),
+                _c("yselect", {
+                  attrs: { placeholder: "Выберите модель", options: _vm.cars }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "ycars-item years" }, [
+              _c("h2", [_vm._v("Год")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "ydrop_down-years" },
+                [
+                  _c("ydropdown", {
+                    attrs: { placeholder: "От", items: _vm.years }
+                  }),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "До", items: _vm.years }
+                  })
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "yadded-car-item" }, [
+            _vm._v("Добавить марку")
+          ])
+        ])
       ])
     ])
   ])
@@ -68504,15 +68604,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************************!*\
   !*** ./resources/js/site/components/yfilterextended.vue ***!
   \**********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yfilterextended.vue?vue&type=template&id=4a7de0aa& */ "./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&");
 /* harmony import */ var _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yfilterextended.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -68542,7 +68641,7 @@ component.options.__file = "resources/js/site/components/yfilterextended.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

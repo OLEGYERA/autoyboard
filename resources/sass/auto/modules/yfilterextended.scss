@@ -60,11 +60,12 @@
             margin-bottom: 25px;
         }
         .yb-carsearch_items{
+            width: 100%;
             position: relative;
             display: flex;
             .yoptions_items{
-                width: 20%;
-                margin-bottom: 25px;
+                width: 19.3%;
+                margin: 0 30px 25px 0;
                 .yoption_btn{
                     display: flex;
                     border: 1px solid #E2E2E2;
@@ -109,12 +110,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-                        margin-bottom: 15px;
                         padding: 10px 15px 10px 20px;
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        color: rgba(34, 34, 34, 0.8);
                         border-radius: 10px;
                         border: 1px solid #E2E2E2;
                         .value{
@@ -122,6 +118,7 @@
                             font-weight: normal;
                             font-size: em(18);
                             line-height: 22px;
+                            color: #696969;
                         }
                         i{
                             color: $filtergray;
@@ -145,7 +142,7 @@
                                 position: relative;
                                 display: flex;
                                 align-items: center;
-                                font-size: 18px;
+                                font-size: em(18);
                                 line-height: 22px;
                                 padding: 0px 0px 0px 20px;
                                 cursor: pointer;
@@ -185,6 +182,7 @@
                         line-height: 22px;
                         margin: 0;
                         margin-bottom: 10px;
+                        margin-top: 15px;
                     }
                     .yb-checked_type{
                         display: flex;
@@ -224,11 +222,127 @@
                     }
                 }
             }
-            .ymarcks_items{
-                width: 35%;
-            }
-            .ymodel-years_items{
-                width: 40%;
+            .add-cars_items{
+                width: 73%;
+                .yflex_car-item{
+                    width: 100%;
+                    display: flex;
+                    margin-bottom: 15px;
+                    .ycars-item{
+                        margin-right: 20px;
+                        width: 31.8%;
+                        h2{
+                            font-family: $aleg;
+                            font-weight: 500;
+                            font-size: em(18);
+                            line-height: 22px;
+                            color: $filtergray;
+                            margin: 0;
+                            margin-bottom: 5px;
+                        }
+                        .autocomplete{
+                            height: 40px;
+                            .input-dropdown{
+                                font-size: em(16);
+                                font-weight: normal;
+                                line-height: 19px;
+                                color: #696969;
+                            }
+                        }
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                    }
+                    .years{
+                        width: 26.9%;
+                        .ydrop_down-years{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .ydropdown{
+                                width: 45%;
+                                height: 40px;
+                                padding: 10px 15px 10px 20px;
+                                border-radius: 10px;
+                                border: 1px solid #E2E2E2;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                .value{
+                                    font-family: $aleg;
+                                    font-weight: normal;
+                                    font-size: em(16);
+                                    line-height: 19px;
+                                    color: #696969;
+                                }
+                                i{
+                                    color: $filtergray;
+                                }
+                                .items{
+                                    width: 100%;
+                                    background: #FFFFFF;
+                                    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
+                                    border-radius: 5px;
+                                    position: absolute;
+                                    padding: 0;
+                                    margin: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    max-height: 140px;
+                                    overflow: auto;
+                                    top: 45px;
+                                    z-index: 2;
+                                    .item{
+                                        display: flex;
+                                        align-items: center;
+                                        font-family: $aleg;
+                                        font-weight: normal;
+                                        font-size: em(16);
+                                        line-height: 19px;
+                                        color: #696969;
+                                        height: 35px;
+                                        position: relative;
+                                        padding: 0px 0px 0px 20px;
+                                        cursor: pointer;
+                                        i{
+                                            position: absolute;
+                                            top: auto;
+                                            color: $dgreen;
+                                            right: 8px;
+                                            font-size: em(12);
+                                        }
+                                        &:after{
+                                            content: '';
+                                            position: absolute;
+                                            height: 1px;
+                                            bottom: 0;
+                                            left: 0;
+                                            width: 100%;
+                                            background: rgba(199, 199, 199, 0.33) ;
+                                        }
+                                    }
+                                    .checked{
+                                        border-left: 4px solid $darkblue;
+                                        &:after{
+                                            height: 2px;
+                                            background: rgba(91, 91, 91, 0.13);
+                                        }
+                                    }
+                                    &::-webkit-scrollbar { width: 0px; }
+                                }
+                            }
+                        }
+                    }
+                }
+                .yadded-car-item{
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(15);
+                    line-height: 18px;
+                    color: $darkblue;
+                    margin-bottom: 15px;
+                }
             }
             &:after{
                 content: '';

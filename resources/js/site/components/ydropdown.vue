@@ -1,10 +1,10 @@
 <template>
-    <div class="ydropdown">
+    <div  class="ydropdown">
     <div
         class="value"
         @blur="isOpen = true"
         v-model="value"
-        @click="isOpen = !isOpen">{{value}}</div>
+        @click="isOpen = !isOpen">{{generatingPlaceholder || placeholder}}</div>
         <i
            class="ynav-list-toggle fas"
            :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}">
@@ -25,9 +25,10 @@
 </template>
 <script>
     export default{
-        props: [],
+        props: ['items', 'placeholder'],
         mounted() {
             document.addEventListener('click', this.handleClickOutside)
+
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)
@@ -36,15 +37,14 @@
             return{
                 isOpen: false,
                 result: [],
-                value: 'Легковые',
-                items: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы',]
+                value: '',
             }
         },
         methods: {
             setItem(item) {
                 this.value = item
-                this.isOpen = false
                 this.result = item
+                this.isOpen = false
             },
             handleClickOutside(evt){
                 if (!this.$el.contains(evt.target)) {
@@ -56,7 +56,14 @@
         computed: {
             filteredItems() {
                 return this.items
-            }
+            },
+            generatingPlaceholder(){
+                if(this.value == ""){
+                    return this.placeholder
+                }else {
+                    return this.value
+                }
+            },
         },
     }
 </script>
