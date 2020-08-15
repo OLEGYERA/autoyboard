@@ -13,6 +13,9 @@
                 @change="updateSlider"
                 type="number"
                 placeholder="До">
+<!--            <div class="currency_change">-->
+<!--                <ydropdown :items="currency"></ydropdown>-->
+<!--            </div>-->
         </div>
         <div id="slider" ref="slider"></div>
     </div>
@@ -24,6 +27,7 @@
     export default{
         data() {
             return{
+                currency: [ '$', '₴', '€' ],
                 minRange: null,
                 maxRange: null,
                 slider: {

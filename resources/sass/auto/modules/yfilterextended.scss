@@ -121,7 +121,7 @@
                             color: #696969;
                         }
                         i{
-                            color: $filtergray;
+                            color: #C7C7C7;
                         }
                         .items{
                             position: absolute;
@@ -277,7 +277,7 @@
                                     color: #696969;
                                 }
                                 i{
-                                    color: $filtergray;
+                                    color: #C7C7C7;
                                 }
                                 .items{
                                     width: 100%;
@@ -335,6 +335,21 @@
                         }
                     }
                 }
+                .remove{
+                    position: relative;
+                    .yremove_car-items{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: absolute;
+                        right: 0;
+                        top: 33px;
+                        i{
+                            color: $darkblue;
+                            font-size: 25px;
+                        }
+                    }
+                }
                 .yadded-car-item{
                     font-family: $aleg;
                     font-weight: 500;
@@ -342,6 +357,90 @@
                     line-height: 18px;
                     color: $darkblue;
                     margin-bottom: 15px;
+                }
+                .yexclude_country-car{
+                    width: 31.8%;
+                    margin-bottom: 10px;
+                    h2{
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        color: $filtergray;
+                        margin: 0;
+                        margin-bottom: 5px;
+                    }
+                    .ydropdown{
+                        width: 100%;
+                        height: 40px;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 10px 15px 10px 20px;
+                        border-radius: 10px;
+                        border: 1px solid #E2E2E2;
+                        .value{
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(18);
+                            line-height: 22px;
+                            color: #696969;
+                        }
+                        i{
+                            color: #C7C7C7;
+                        }
+                        .items{
+                            position: absolute;
+                            scrollbar-width: none;
+                            max-height: 140px;
+                            overflow: scroll;
+                            overflow-x: hidden;
+                            top: 45px;
+                            left: 0;
+                            width: 100%;
+                            background: #FFFFFF;
+                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                            border-radius: 3px;
+                            .item{
+                                font-family: $aleg;
+                                font-weight: normal;
+                                height: 35px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                font-size: em(18);
+                                line-height: 22px;
+                                padding: 0px 0px 0px 20px;
+                                cursor: pointer;
+                                color: rgba(0, 0, 0, 0.83);
+                                i{
+                                    position: absolute;
+                                    top: auto;
+                                    color: $dgreen;
+                                    right: 8px;
+                                    font-size: em(12);
+                                }
+                                &:after{
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    background: rgba(199, 199, 199, 0.33) ;
+                                }
+                            }
+                            .checked{
+                                border-left: 4px solid $darkblue;
+                                &:after{
+                                    height: 2px;
+                                    background: rgba(91, 91, 91, 0.13);
+                                }
+                            }
+                            &::-webkit-scrollbar { width: 0px; }
+                        }
+                    }
                 }
             }
             &:after{
@@ -352,6 +451,137 @@
                 width: 100%;
                 height: 1px;
                 background-color: #E7E7E7;
+            }
+        }
+        .yb-carsearch_price-items{
+            display: flex;
+            width: 100%;
+            position: relative;
+            justify-content: space-between;
+            padding: 15px 0 25px;
+            .ychange_price-container{
+                width: 28%;
+                h2{
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(22);
+                    line-height: 26px;
+                    color: rgba(91, 91, 91, 0.9);
+                    margin: 0 0 15px;
+                }
+                .yrange_slider-container{
+                    border: 1px solid #E2E2E2;
+                    border-radius: 10px;
+                    padding: 25px 15px;
+                    width: 100%;
+                   .yprice_container{
+                       margin-bottom: 20px;
+                   }
+                }
+            }
+            .yreg_container{
+                width: 70%;
+                h2{
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(22);
+                    line-height: 26px;
+                    color: rgba(91, 91, 91, 0.9);
+                    margin: 0 0 15px;
+                }
+                .autocomplete{
+                    margin-bottom: 15px;
+                    width: 40%;
+                }
+                .yreg-checkbox{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    .yflex_dir{
+                        display: flex;
+                        width: 65%;
+                        justify-content: space-between;
+                        .yside_country{
+                            h2{
+                                font-family: $aleg;
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: em(18);
+                                line-height: 22px;
+                                color: rgba(46, 46, 46, 0.76);
+                            }
+                            .yside_check{
+                                display: flex;
+                                .y-check{
+                                    margin-right: 17px;
+                                    .central{
+                                        display: flex;
+                                        margin-bottom: 5px;
+                                        input{
+                                            width: 12px;
+                                            height: 12px;
+                                            background: #FFFFFF;
+                                            border: 1px solid rgba(196, 196, 196, 0.7);
+                                            border-radius: 1px;
+                                        }
+                                        label{
+                                            font-family: $aleg;
+                                            font-weight: normal;
+                                            font-size: em(16);
+                                            line-height: 19px;
+                                            color: $filercheckbox;
+                                            margin-left: 5px;
+                                        }
+                                        &:last-child{
+                                            margin-bottom: 0;
+                                        }
+                                    }
+                                    &:last-child{
+                                        margin-right: 0;
+                                    }
+                                }
+                            }
+                        }
+                        &:last-child{
+                            width: 33%;
+                        }
+                    }
+                }
+            }s
+
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #E7E7E7;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1600px){
+    .yfilterextended{
+        .yfilter_selected-item{
+
+        }
+        .ybexpanded_search{
+            .yb-carsearch_price-items{
+                .yreg_container{
+                    .yreg-checkbox{
+                        display: block;
+                        .yflex_dir{
+                            width: 100%;
+                            .yside_country{
+                                .yside_check{
+
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

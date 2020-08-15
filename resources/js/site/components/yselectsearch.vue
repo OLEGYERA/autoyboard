@@ -33,7 +33,7 @@
                 @mouseenter="selected = i"
                 @click="setResult(result)"
                 :class="{'selected': i === selected}">
-                {{ result.name }}
+                {{ result.name || result }}
                 <slot name="item" :title="result"></slot>
             </li>
         </ul>

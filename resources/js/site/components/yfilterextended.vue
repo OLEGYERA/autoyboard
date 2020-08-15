@@ -125,9 +125,214 @@
                             </div>
                         </div>
                     </div>
+                    <div class="yflex_car-item remove">
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="years"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="years"></ydropdown>
+                            </div>
+                        </div>
+                        <button class="yremove_car-items">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
                     <button class="yadded-car-item">Добавить марку</button>
+                    <div class="yflex_car-item exclude">
+                        <div class="ycars-item marks">
+                            <h2>Исключить марку</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="years"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="years"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="yadded-car-item exclude">Добавить марку</button>
+                    <div class="yexclude_country-car">
+                        <h2>Исключить страну</h2>
+                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                    </div>
+                    <button class="yadded-car-item exclude_counry">Добавить страну</button>
                 </div>
-<!--                <div class="ymodel-years_items">3</div>-->
+            </div>
+            <div class="yb-carsearch_price-items">
+                <div class="ychange_price-container">
+                    <h2>Цена</h2>
+                    <div class="yrange_slider-container">
+                        <yrange></yrange>
+                        <ycheckbox
+                            :text="'Возможен торг'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на автомобиль'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на недвижимость'">
+                        </ycheckbox>
+                    </div>
+                </div>
+                <div class="yreg_container">
+                    <h2>Регион</h2>
+                    <yselect :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                    <div class="yreg-checkbox">
+                        <div class="yflex_dir">
+                            <div class="yside_country">
+                                <h2>Центральная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Киевская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Полтавская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Винницкая</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Житомирская</label>
+                                        </div>
+                                    </div>
+                                    <div class="y-check">
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Сумская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Черкасская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Черниговская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Кировоградская</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yside_country">
+                                <h2>Западная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Львовская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Волынская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Закарпатская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Ровенская</label>
+                                        </div>
+                                    </div>
+                                    <div class="y-check">
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Ивано-Франковская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Тернопольская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Хмельницкая</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input type="checkbox">
+                                            <label for="">Черновицкая</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="yflex_dir">
+                            <div class="yside_country">
+                                <h2>Восточная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Харьковская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Донецкая</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Запорожская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Луганская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Днепропетровская</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yside_country">
+                                <h2>Южная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Херсконская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Николаевская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input type="checkbox">
+                                            <label for="">Одесская</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -137,6 +342,68 @@
     export default {
         data(){
             return{
+                ukSityName:[
+                    {name: 'Поляна', id: 1},
+                    {name: 'Славское', id: 2},
+                    {name: 'Тернополь', id: 3},
+                    {name: 'Трускавец', id: 4 },
+                    {name: 'Хмельницкий', id: 5},
+                    {name: 'Чайковка', id:6 },
+                    {name: 'Чубинское,', id: 7},
+                    {name: 'Шаян', id:8 },
+                    {name: 'Шешоры', id: 9},
+                    {name: 'Яремче', id:10 },
+                    {name: 'Петровское', id: 11},
+                    {name: 'Приморское', id: 12},
+                    {name: 'Черновцы', id: 13},
+                    {name: 'Днепропетровск', id: 14},
+                    {name: 'Донецк', id:15 },
+                    {name: 'Ивано-Франковск', id:16 },
+                    {name: 'Каменец-Подольский', id: 17},
+                    {name: 'Харьков', id: 18},
+                    {name: 'Херсон', id:19 },
+                    {name: 'Киев', id: 20},
+                    {name: 'Кривой Рог', id: 30},
+                    {name: 'Луганск', id: 31 },
+                    {name: 'Львов', id:32 },
+                    {name: 'Николаев', id:33 },
+                    {name: 'Одесса', id:34},
+                    {name: 'Полтава', id:35 },
+                    {name: 'Сумы', id: 36},
+                    {name: 'Ужгород', id: 37},
+                    {name: 'Запорожье', id:38 },
+                    {name: 'Винница', id:39 },
+                    {name: 'Черкассы', id:40 },
+                    {name: 'Чернигов', id:41 },
+                    {name: 'Ильичевск', id:42 },
+                    {name: 'Луцк', id:43},
+                    {name: 'Малехов', id: 44},
+                    {name: 'Микуличин', id: 45},
+                    {name: 'Ровно', id: 46},
+                    {name: 'Стрый', id: 47},
+                    {name: 'Ахтырка', id: 48},
+                    {name: 'Белогородка', id: 49},
+                    {name: 'Бердянск', id:50 },
+                    {name: 'Борисполь', id:51 },
+                    {name: 'Бояны', id:52 },
+                    {name: 'Бровары', id: 53},
+                    {name: 'Буковель', id: 54},
+                    {name: 'Бурлачья Балка', id: 55},
+                    {name: 'Верховина', id: 56},
+                    {name: 'Винники', id:57 },
+                    {name: 'Жденево', id:58 },
+                    {name: 'Житомир', id:59 },
+                    {name: 'Жовтневое', id: 60},
+                    {name: 'Затока', id: 61},
+                    {name: 'Кировоград', id:62 },
+                    {name: 'Коблево', id: 63},
+                    {name: 'Козин', id: 64},
+                    {name: 'Колоденка', id: 65},
+                    {name: 'Коропово', id: 66},
+                    {name: 'Кременчуг', id: 67},
+                    {name: 'Макеевка', id: 68},
+                    {name: 'Мукачево', id: 69},
+                ],
                 countryName: ["Китай",
                             "США",
                             "Япония",

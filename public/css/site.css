@@ -2846,7 +2846,7 @@ span.yb-gradient {
 }
 
 .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown i {
-  color: rgba(46, 46, 46, 0.76);
+  color: #C7C7C7;
 }
 
 .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items {
@@ -3033,7 +3033,7 @@ span.yb-gradient {
 }
 
 .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown i {
-  color: rgba(46, 46, 46, 0.76);
+  color: #C7C7C7;
 }
 
 .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items {
@@ -3097,6 +3097,24 @@ span.yb-gradient {
   width: 0px;
 }
 
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove {
+  position: relative;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 33px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items i {
+  color: #0B3F8D;
+  font-size: 25px;
+}
+
 .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yadded-car-item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -3104,6 +3122,104 @@ span.yb-gradient {
   line-height: 18px;
   color: #0B3F8D;
   margin-bottom: 15px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car {
+  width: 31.8%;
+  margin-bottom: 10px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car h2 {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 22px;
+  color: rgba(46, 46, 46, 0.76);
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #E2E2E2;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .value {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1.125em;
+  line-height: 22px;
+  color: #696969;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown i {
+  color: #C7C7C7;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items {
+  position: absolute;
+  scrollbar-width: none;
+  max-height: 140px;
+  overflow: scroll;
+  overflow-x: hidden;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+  border-radius: 3px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  height: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 1.125em;
+  line-height: 22px;
+  padding: 0px 0px 0px 20px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.83);
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item i {
+  position: absolute;
+  top: auto;
+  color: #2ECC71;
+  right: 8px;
+  font-size: 0.75em;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(199, 199, 199, 0.33);
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .checked {
+  border-left: 4px solid #0B3F8D;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .checked:after {
+  height: 2px;
+  background: rgba(91, 91, 91, 0.13);
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items::-webkit-scrollbar {
+  width: 0px;
 }
 
 .yfilterextended .ybexpanded_search .yb-carsearch_items:after {
@@ -3114,6 +3230,139 @@ span.yb-gradient {
   width: 100%;
   height: 1px;
   background-color: #E7E7E7;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  padding: 15px 0 25px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container {
+  width: 28%;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container h2 {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.375em;
+  line-height: 26px;
+  color: rgba(91, 91, 91, 0.9);
+  margin: 0 0 15px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
+  border: 1px solid #E2E2E2;
+  border-radius: 10px;
+  padding: 25px 15px;
+  width: 100%;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container {
+  margin-bottom: 20px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container {
+  width: 70%;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container h2 {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.375em;
+  line-height: 26px;
+  color: rgba(91, 91, 91, 0.9);
+  margin: 0 0 15px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .autocomplete {
+  margin-bottom: 15px;
+  width: 40%;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+  display: flex;
+  width: 65%;
+  justify-content: space-between;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country h2 {
+  font-family: "Alegreya Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 22px;
+  color: rgba(46, 46, 46, 0.76);
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check {
+  display: flex;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check {
+  margin-right: 17px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central input {
+  width: 12px;
+  height: 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(196, 196, 196, 0.7);
+  border-radius: 1px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central label {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 19px;
+  color: #696969;
+  margin-left: 5px;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central:last-child {
+  margin-bottom: 0;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check:last-child {
+  margin-right: 0;
+}
+
+.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
+  width: 33%;
+}
+
+s .yfilterextended .ybexpanded_search .yb-carsearch_price-items:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #E7E7E7;
+}
+
+@media only screen and (max-width: 1600px) {
+  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox {
+    display: block;
+  }
+
+  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+    width: 100%;
+  }
 }
 
 .ymenu .ymenu-visual {
