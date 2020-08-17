@@ -7,7 +7,9 @@
         @click="isOpen = !isOpen">{{generatingPlaceholder || placeholder}}</div>
         <i
            class="ynav-list-toggle fas"
-           :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}">
+           :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}"
+           @click="isOpen = !isOpen"
+        >
         </i>
         <div class="items" v-show="isOpen">
             <div class="item"
@@ -27,7 +29,7 @@
     export default{
         props: ['items', 'placeholder'],
         mounted() {
-            document.addEventListener('click', this.handleClickOutside)
+            document.addEventListener('click', this.handleClickOutside);
 
         },
         destroyed() {
@@ -58,9 +60,12 @@
                 return this.items
             },
             generatingPlaceholder(){
-                if(this.value == ""){
+                if(this.value === ""){
                     return this.placeholder
-                }else {
+                }else if(this.value === "" && this.placeholder === ''){
+                    return this.items[0]
+                }
+                else {
                     return this.value
                 }
             },

@@ -3692,8 +3692,8 @@ __webpack_require__.r(__webpack_exports__);
       itemSort: [],
       windowWidth: 0,
       status: false,
-      left: ['По рейтингу', 'По к-ву просмотров', 'По цене', 'По дате добавления', 'За месяц', 'За неделю'],
-      right: ['По дате добавления', 'По дате добавления', 'По дате добавления', 'По дате добавления']
+      left: ['Обычная', 'По рейтингу', 'По к-ву просмотров', 'По цене', 'По дате добавления', 'Пробег, по взрастанию', 'Пробег, по убыванию'],
+      right: ['Все', 'За час', 'За 3 часа', 'За 6 часов', 'За 12 часов', 'За сегодня', 'За сутки', 'За Неделю']
     };
   },
   methods: {
@@ -3947,6 +3947,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['items', 'placeholder'],
   mounted: function mounted() {
@@ -3979,8 +3981,10 @@ __webpack_require__.r(__webpack_exports__);
       return this.items;
     },
     generatingPlaceholder: function generatingPlaceholder() {
-      if (this.value == "") {
+      if (this.value === "") {
         return this.placeholder;
+      } else if (this.value === "" && this.placeholder === '') {
+        return this.items[0];
       } else {
         return this.value;
       }
@@ -4469,9 +4473,1042 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    window.addEventListener('resize', this.showMobile);
+    this.showMobile();
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener('resize', this.showMobile);
+  },
   data: function data() {
     return {
+      mobile: false,
+      colorOpen: false,
+      isOpened: false,
+      test: ['100'],
+      test2: ['200'],
+      fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин'],
+      transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная'],
+      typeofdrive: ['Задний привод', 'Передний привод', 'Полный привод'],
       ukSityName: [{
         name: 'Поляна',
         id: 1
@@ -4670,6 +5707,11 @@ __webpack_require__.r(__webpack_exports__);
       typeCars: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы'],
       years: ['2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', ' 1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984', '1983', '1982', '1981', '1980', '1979', '1978', '1977', '1976', '1975', '1974', '1973', '1972', '1971', '1970', '1969', '1968', '1967', '1966', '1965', '1964', '1963', '1962', '1961', '1960', '1959', '1958', '1957', '1956', '1955', '1954', '1953', '1952', '1951', '1950', '1949', '1948', '1947', '1946', '1945', '1944', '1943', '1942', '1941', '1940', '1939', '1938', '1937', '1936', '1935', '1934', '1933', '1932', '1931', '1930', '1929', '1928', '1927', '1926', '1925', '1924', '1923', '1922', '1921', '1920', '1919', '1918', '1917', '1916', '1915', '1914', '1913', '1912', '1911', '1910', '1909', '1908', '1907', '1906', '1905', '1904', '1903', '1902', '1901', '1900']
     };
+  },
+  methods: {
+    showMobile: function showMobile() {
+      this.mobile = window.innerWidth <= 946;
+    }
   }
 });
 
@@ -44606,7 +45648,12 @@ var render = function() {
     _vm._v(" "),
     _c("i", {
       staticClass: "ynav-list-toggle fas",
-      class: { "fa-chevron-up": _vm.isOpen, "fa-chevron-down": !_vm.isOpen }
+      class: { "fa-chevron-up": _vm.isOpen, "fa-chevron-down": !_vm.isOpen },
+      on: {
+        click: function($event) {
+          _vm.isOpen = !_vm.isOpen
+        }
+      }
     }),
     _vm._v(" "),
     _c(
@@ -44930,265 +45977,1236 @@ var render = function() {
   return _c("div", { staticClass: "yfilterextended" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "ybexpanded_search" }, [
-      _c("h1", { staticClass: "ytitle-exp" }, [_vm._v("Расширенный поиск")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-carsearch_items" }, [
-        _c("div", { staticClass: "yoptions_items" }, [
-          _vm._m(1),
+    _vm.mobile
+      ? _c("div", { staticClass: "ybexpanded_search show_mobile" }, [
+          _c("h1", { staticClass: "ytitle-exp" }, [
+            _vm._v("Расширенный поиск")
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "ycheckbox_options" },
-            [
-              _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
-              _vm._v(" "),
-              _c("ycheckbox", { attrs: { text: "Провереные" } }),
-              _vm._v(" "),
-              _c("ycheckbox", { attrs: { text: "С фото" } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "y-transport_options" },
-            [
-              _c("h2", [_vm._v("Тип транспорта")]),
-              _vm._v(" "),
-              _c("ydropdown", { attrs: { items: _vm.typeCars } }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Тип кузова")]),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _c("h4", [_vm._v("Страна производитель")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: {
-                  placeholder: "Выберите страну",
-                  items: _vm.countryName
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "add-cars_items" }, [
-          _c("div", { staticClass: "yflex_car-item" }, [
-            _c(
-              "div",
-              { staticClass: "ycars-item marks" },
-              [
-                _c("h2", [_vm._v("Марка")]),
-                _vm._v(" "),
-                _c("yselect", {
-                  attrs: { placeholder: "Выберите марку", options: _vm.cars }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ycars-item model" },
-              [
-                _c("h2", [_vm._v("Модель")]),
-                _vm._v(" "),
-                _c("yselect", {
-                  attrs: { placeholder: "Выберите модель", options: _vm.cars }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "ycars-item years" }, [
-              _c("h2", [_vm._v("Год")]),
-              _vm._v(" "),
+          _c("div", { staticClass: "yb-carsearch_items" }, [
+            _c("div", { staticClass: "yoptions_items" }, [
               _c(
                 "div",
-                { staticClass: "ydrop_down-years" },
+                { staticClass: "yoptions_items_mobile" },
                 [
-                  _c("ydropdown", {
-                    attrs: { placeholder: "От", items: _vm.years }
-                  }),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ycheckbox_options" },
+                    [
+                      _c("ycheckbox", {
+                        attrs: { text: "Поиск со всех ресурсов" }
+                      }),
+                      _vm._v(" "),
+                      _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                      _vm._v(" "),
+                      _c("ycheckbox", { attrs: { text: "С фото" } })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("h4", [_vm._v("Страна производитель")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "До", items: _vm.years }
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    }
                   })
                 ],
                 1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yflex_car-item remove" }, [
-            _c(
-              "div",
-              { staticClass: "ycars-item marks" },
-              [
-                _c("h2", [_vm._v("Марка")]),
-                _vm._v(" "),
-                _c("yselect", {
-                  attrs: { placeholder: "Выберите марку", options: _vm.cars }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ycars-item model" },
-              [
-                _c("h2", [_vm._v("Модель")]),
-                _vm._v(" "),
-                _c("yselect", {
-                  attrs: { placeholder: "Выберите модель", options: _vm.cars }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "ycars-item years" }, [
-              _c("h2", [_vm._v("Год")]),
+              ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "ydrop_down-years" },
+                { staticClass: "y-transport_options" },
                 [
-                  _c("ydropdown", {
-                    attrs: { placeholder: "От", items: _vm.years }
-                  }),
+                  _c("h2", [_vm._v("Тип транспорта")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.typeCars } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(2)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "add-cars_items" }, [
+              _c("div", { staticClass: "yflex_car-item" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Марка")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.years }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.years }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item remove" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Марка")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.years }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.years }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(3)
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item exclude" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Исключить марку")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.years }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.years }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item exclude" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yexclude_country-car" },
+                [
+                  _c("h2", [_vm._v("Исключить страну")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "До", items: _vm.years }
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item exclude_counry" }, [
+                _vm._v("Добавить страну")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-carsearch_price-items" }, [
+            _c("div", { staticClass: "ychange_price-container" }, [
+              _c("h2", [_vm._v("Цена")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yrange_slider-container" },
+                [
+                  _c("yrange"),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "Возможен торг" } }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на автомобиль" }
+                  }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на недвижимость" }
                   })
                 ],
                 1
               )
             ]),
             _vm._v(" "),
-            _vm._m(3)
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "yadded-car-item" }, [
-            _vm._v("Добавить марку")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yflex_car-item exclude" }, [
             _c(
               "div",
-              { staticClass: "ycars-item marks" },
+              { staticClass: "yreg_container" },
               [
-                _c("h2", [_vm._v("Исключить марку")]),
+                _c("h2", [_vm._v("Регион")]),
                 _vm._v(" "),
                 _c("yselect", {
-                  attrs: { placeholder: "Выберите марку", options: _vm.cars }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ycars-item model" },
-              [
-                _c("h2", [_vm._v("Модель")]),
+                  attrs: {
+                    placeholder: "Выберите город",
+                    options: _vm.ukSityName
+                  }
+                }),
                 _vm._v(" "),
-                _c("yselect", {
-                  attrs: { placeholder: "Выберите модель", options: _vm.cars }
-                })
+                _vm._m(4)
               ],
               1
-            ),
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-condition_cars" }, [
+            _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _c("div", { staticClass: "ycars-item years" }, [
-              _c("h2", [_vm._v("Год")]),
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "yb-status_checked-items" }, [
+              _c("h2", [_vm._v("Пригнан из")]),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "ydrop_down-years" },
+                { staticClass: "yb-select_items" },
                 [
                   _c("ydropdown", {
-                    attrs: { placeholder: "От", items: _vm.years }
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    }
                   }),
                   _vm._v(" "),
-                  _c("ydropdown", {
-                    attrs: { placeholder: "До", items: _vm.years }
-                  })
+                  _vm._m(6)
                 ],
                 1
               )
             ])
           ]),
           _vm._v(" "),
-          _c("button", { staticClass: "yadded-car-item exclude" }, [
-            _vm._v("Добавить марку")
+          _c("div", { staticClass: "yb-specifications_cars" }, [
+            _c("h2", [_vm._v("Технические характеристики")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yselect_specifications" }, [
+              _c(
+                "div",
+                { staticClass: "vis_l-specifications" },
+                [
+                  _c("h2", [_vm._v("Топливо")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.fuel } }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("КПП")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.transmission } }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Тип привода")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.typeofdrive } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_c-specifications y-double" }, [
+                _c("h3", [_vm._v("Росход топлива, л./100 км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Объём, л.")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Мощность")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_r-specifications y-double" }, [
+                _c("h3", [_vm._v("Пробег, тыс.км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество дверей")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество мест")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "youther_specifications" }, [
+              _c("h3", [_vm._v("Цвет")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_outher" }, [
+                _c("div", { staticClass: "yvis_outher-left" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _vm._m(8),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ycolor_more",
+                      on: {
+                        click: function($event) {
+                          _vm.colorOpen = !_vm.colorOpen
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fas",
+                        class: {
+                          "fa-chevron-up": _vm.colorOpen,
+                          "fa-chevron-down": !_vm.colorOpen
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yvis_outher-right" }, [
+                  _c("div", { staticClass: "youther_visl-btn" }, [
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Безопасность\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Комфорт\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Мультимедия\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Прочее\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(9)
+                ])
+              ])
+            ])
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "yexclude_country-car" },
-            [
-              _c("h2", [_vm._v("Исключить страну")]),
+          _c("div", { staticClass: "yspecification_results" }, [
+            _c("h3", [_vm._v("Результаты поиска")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yvisual_results" }, [
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Сортировка")]),
+                  _vm._v(" "),
+                  _c("ydropdown"),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Период подачи")]),
+                  _vm._v(" "),
+                  _c("ydropdown")
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("ydropdown", {
-                attrs: {
-                  placeholder: "Выберите страну",
-                  items: _vm.countryName
-                }
-              })
-            ],
-            1
-          ),
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Актуальность")]),
+                  _vm._v(" "),
+                  _c("ydropdown"),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Показывать")]),
+                  _vm._v(" "),
+                  _c("ydropdown")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(10)
+            ])
+          ]),
           _vm._v(" "),
-          _c("button", { staticClass: "yadded-car-item exclude_counry" }, [
-            _vm._v("Добавить страну")
-          ])
+          _vm._m(11)
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-carsearch_price-items" }, [
-        _c("div", { staticClass: "ychange_price-container" }, [
-          _c("h2", [_vm._v("Цена")]),
+      : _c("div", { staticClass: "ybexpanded_search" }, [
+          _c("h1", { staticClass: "ytitle-exp" }, [
+            _vm._v("Расширенный поиск")
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "yrange_slider-container" },
-            [
-              _c("yrange"),
+          _c("div", { staticClass: "yb-carsearch_items" }, [
+            _c("div", { staticClass: "yoptions_items" }, [
+              _vm._m(12),
               _vm._v(" "),
-              _c("ycheckbox", { attrs: { text: "Возможен торг" } }),
+              _c(
+                "div",
+                { staticClass: "ycheckbox_options" },
+                [
+                  _c("ycheckbox", {
+                    attrs: { text: "Поиск со всех ресурсов" }
+                  }),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "С фото" } })
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("ycheckbox", {
-                attrs: { text: "Возможен обмен на автомобиль" }
-              }),
-              _vm._v(" "),
-              _c("ycheckbox", {
-                attrs: { text: "Возможен обмен на недвижимость" }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "yreg_container" },
-          [
-            _c("h2", [_vm._v("Регион")]),
+              _c(
+                "div",
+                { staticClass: "y-transport_options" },
+                [
+                  _c("h2", [_vm._v("Тип транспорта")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.typeCars } }),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Тип кузова")]),
+                  _vm._v(" "),
+                  _vm._m(13),
+                  _vm._v(" "),
+                  _c("h4", [_vm._v("Страна производитель")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
             _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Выберите город", options: _vm.ukSityName }
-            }),
+            _c("div", { staticClass: "add-cars_items" }, [
+              _c("div", { staticClass: "yflex_car-item" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Марка")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.years }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.years }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item remove" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Марка")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.years }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.years }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(14)
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item exclude" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Исключить марку")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.years }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.years }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item exclude" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yexclude_country-car" },
+                [
+                  _c("h2", [_vm._v("Исключить страну")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item exclude_counry" }, [
+                _vm._v("Добавить страну")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-carsearch_price-items" }, [
+            _c("div", { staticClass: "ychange_price-container" }, [
+              _c("h2", [_vm._v("Цена")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yrange_slider-container" },
+                [
+                  _c("yrange"),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "Возможен торг" } }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на автомобиль" }
+                  }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на недвижимость" }
+                  })
+                ],
+                1
+              )
+            ]),
             _vm._v(" "),
-            _vm._m(4)
-          ],
-          1
-        )
-      ])
-    ])
+            _c(
+              "div",
+              { staticClass: "yreg_container" },
+              [
+                _c("h2", [_vm._v("Регион")]),
+                _vm._v(" "),
+                _c("yselect", {
+                  attrs: {
+                    placeholder: "Выберите город",
+                    options: _vm.ukSityName
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(15)
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-condition_cars" }, [
+            _c("h2", [_vm._v("Состояние")]),
+            _vm._v(" "),
+            _vm._m(16),
+            _vm._v(" "),
+            _c("div", { staticClass: "yb-status_checked-items" }, [
+              _c("h2", [_vm._v("Пригнан из")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb-select_items" },
+                [
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(17)
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-specifications_cars" }, [
+            _c("h2", [_vm._v("Технические характеристики")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yselect_specifications" }, [
+              _c(
+                "div",
+                { staticClass: "vis_l-specifications" },
+                [
+                  _c("h2", [_vm._v("Топливо")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.fuel } }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("КПП")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.transmission } }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Тип привода")]),
+                  _vm._v(" "),
+                  _c("ydropdown", { attrs: { items: _vm.typeofdrive } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_c-specifications y-double" }, [
+                _c("h3", [_vm._v("Росход топлива, л./100 км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Объём, л.")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Мощность")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_r-specifications y-double" }, [
+                _c("h3", [_vm._v("Пробег, тыс.км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество дверей")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество мест")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "youther_specifications" }, [
+              _c("h3", [_vm._v("Цвет")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_outher" }, [
+                _c("div", { staticClass: "yvis_outher-left" }, [
+                  _vm._m(18),
+                  _vm._v(" "),
+                  _vm._m(19),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ycolor_more",
+                      on: {
+                        click: function($event) {
+                          _vm.colorOpen = !_vm.colorOpen
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fas",
+                        class: {
+                          "fa-chevron-up": _vm.colorOpen,
+                          "fa-chevron-down": !_vm.colorOpen
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yvis_outher-right" }, [
+                  _c("div", { staticClass: "youther_visl-btn" }, [
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Безопасность\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Комфорт\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Мультимедия\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.isOpened = !_vm.isOpened
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Прочее\n                                "
+                        ),
+                        _c("i", {
+                          staticClass: "fas ",
+                          class: {
+                            "fa-angle-right": _vm.isOpened,
+                            "fa-angle-left": !_vm.isOpened
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(20)
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yspecification_results" }, [
+            _c("h3", [_vm._v("Результаты поиска")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yvisual_results" }, [
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Сортировка")]),
+                  _vm._v(" "),
+                  _c("ydropdown"),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Период подачи")]),
+                  _vm._v(" "),
+                  _c("ydropdown")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Актуальность")]),
+                  _vm._v(" "),
+                  _c("ydropdown"),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Показывать")]),
+                  _vm._v(" "),
+                  _c("ydropdown")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(21)
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(22)
+        ])
   ])
 }
 var staticRenderFns = [
@@ -45224,6 +47242,867 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("i", { staticClass: "fas fa-chevron-down" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_btn" }, [
+      _c("button", { staticClass: "change_type active" }, [_vm._v("Все")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ychecked_options-mobile" }, [
+      _c("h3", [_vm._v("Тип кузова")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-checked_type" }, [
+        _c("div", { staticClass: "yl-vis checkbox" }, [
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check1", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check1" } },
+              [_vm._v("Универсал")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check2", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check2" } },
+              [_vm._v("Кроссовер")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check3", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check3" } },
+              [_vm._v("Минивэн")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check4", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check4" } },
+              [_vm._v("Лифтбек")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check5", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check5" } },
+              [_vm._v("Хэтчбек")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check6", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check6" } },
+              [_vm._v("Кабриолет")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yr-vis checkbox" }, [
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check7", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check7" } },
+              [_vm._v("Седан")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check8", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check8" } },
+              [_vm._v("Купе")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check9", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check9" } },
+              [_vm._v("Пикап")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check10", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check10" } },
+              [_vm._v("Ростер")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check11", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check11" } },
+              [_vm._v("Лимузин")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yvis_checkbox" }, [
+            _c("input", {
+              staticClass: "ycheck",
+              attrs: { id: "check12", type: "checkbox" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "y-body_name", attrs: { for: "check12" } },
+              [_vm._v("Другой")]
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "yremove_car-items" }, [
+      _c("i", { staticClass: "fas fa-trash-alt" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yreg-checkbox" }, [
+      _c("div", { staticClass: "yflex_dir" }, [
+        _c("div", { staticClass: "yside_country" }, [
+          _c("h2", [_vm._v("Центральная Украина")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yside_check" }, [
+            _c("div", { staticClass: "y-check " }, [
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "kievskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "kievskaya" } }, [
+                  _vm._v("Киевская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "poltavskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "poltavskaya" } }, [
+                  _vm._v("Полтавская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "vinnitskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "vinnitskaya" } }, [
+                  _vm._v("Винницкая")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", {
+                  attrs: { id: "zhytomyrskaya", type: "checkbox" }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "zhytomyrskaya" } }, [
+                  _vm._v("Житомирская")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "y-check" }, [
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", { attrs: { id: "sumskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "sumskaya" } }, [_vm._v("Сумская")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", { attrs: { id: "cherkasy", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "cherkasy" } }, [
+                  _vm._v("Черкасская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", {
+                  attrs: { id: "chernihivskaya", type: "checkbox" }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "chernihivskaya" } }, [
+                  _vm._v("Черниговская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", { attrs: { id: "kirovograd", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "kirovograd" } }, [
+                  _vm._v("Кировоградская")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yside_country" }, [
+          _c("h2", [_vm._v("Западная Украина")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yside_check" }, [
+            _c("div", { staticClass: "y-check " }, [
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "lvivskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "lvivskaya" } }, [
+                  _vm._v("Львовская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "volynskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "volynskaya" } }, [
+                  _vm._v("Волынская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "karpaty", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "karpaty" } }, [
+                  _vm._v("Закарпатская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "rovenskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "rovenskaya" } }, [
+                  _vm._v("Ровенская")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "y-check" }, [
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", { attrs: { id: "franyk", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "franyk" } }, [
+                  _vm._v("Ивано-Франковская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", { attrs: { id: "ternopil", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "ternopil" } }, [
+                  _vm._v("Тернопольская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", { attrs: { id: "chmelnyk", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "chmelnyk" } }, [
+                  _vm._v("Хмельницкая")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check_vis_r central" }, [
+                _c("input", { attrs: { id: "chernivtsi", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "chernivtsi" } }, [
+                  _vm._v("Черновицкая")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yflex_dir" }, [
+        _c("div", { staticClass: "yside_country" }, [
+          _c("h2", [_vm._v("Восточная Украина")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yside_check" }, [
+            _c("div", { staticClass: "y-check " }, [
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "charkov", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "charkov" } }, [
+                  _vm._v("Харьковская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "donetsk", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "donetsk" } }, [_vm._v("Донецкая")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", {
+                  attrs: { id: "zaporizhzhya", type: "checkbox" }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "zaporizhzhya" } }, [
+                  _vm._v("Запорожская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "lugansk", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "lugansk" } }, [
+                  _vm._v("Луганская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", {
+                  attrs: { id: "dnepropetrovskaya", type: "checkbox" }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "dnepropetrovskaya" } }, [
+                  _vm._v("Днепропетровская")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yside_country" }, [
+          _c("h2", [_vm._v("Южная Украина")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yside_check" }, [
+            _c("div", { staticClass: "y-check " }, [
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "hersonskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "hersonskaya" } }, [
+                  _vm._v("Херсонская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", {
+                  attrs: { id: "nykolaevskaya", type: "checkbox" }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "nykolaevskaya" } }, [
+                  _vm._v("Николаевская")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "check-vis_l central" }, [
+                _c("input", { attrs: { id: "odesskaya", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "odesskaya" } }, [
+                  _vm._v("Одесская")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-status_car-items" }, [
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Авто не в Украине")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("В кредите")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Нерастаможеные")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Конфискат")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("После ДТП")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Не на ходу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Продавец")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: "btn_s large active" }, [
+            _vm._v("Частное лицо")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-cheked_items" }, [
+      _c("div", { staticClass: "ycheked vis_l" }, [
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "1", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "1" } }, [_vm._v("Гаражное хранение")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "2", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "2" } }, [
+            _vm._v("Индивидуальная комплектация")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "3", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "4", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_c" }, [
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "5", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "5" } }, [_vm._v("Первая регистрация")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "6", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "6" } }, [_vm._v("Первый владелец")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "7", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "7" } }, [_vm._v("Пригоню под заказ")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "8", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "8" } }, [_vm._v("Сервисная книжка")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_r" }, [
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "9", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "9" } }, [
+            _vm._v("Ручное управление для инвалдов")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "10", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycheck_color" }, [
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#742D05" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFCB11" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "rgba(80, 83, 83, 0.92)" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFFFFF" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#000000" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#0B3F8D" },
+          attrs: { for: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycheck_color" }, [
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#5100B8" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#E30000" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#1D8D0B" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#0066FF" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFF504" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FF007A" },
+          attrs: { for: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "youther_visr-options" }, [
+      _c("div", { staticClass: "ycars_options" }, [
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "abd", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "abd" } }, [_vm._v("ABD")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "esp", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "esp" } }, [_vm._v("ESP")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "light", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "light" } }, [_vm._v("Галогенные фары")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "immobilizer", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "immobilizer" } }, [
+            _vm._v("Иммобилайзер")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycars_options" }, [
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "abs", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "abs" } }, [_vm._v("ABS")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "bag", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "bag" } }, [
+            _vm._v("Подушка безопасности")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "signaling", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "signaling" } }, [_vm._v("Сигнализация")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "armored", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "armored" } }, [
+            _vm._v("Бронированный автомобиль")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycars_options" }, [
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "lock", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "lock" } }, [_vm._v("Замок на КПП")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "suspension", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "suspension" } }, [
+            _vm._v("Пневмоподвеска")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "servo_wheel", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "servo_wheel" } }, [_vm._v("Серворуль")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "central_lock", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "central_lock" } }, [
+            _vm._v("Центральный замок")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yseach_card-id" }, [
+      _c("h3", [_vm._v("Поиск по ID")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "y_seach-id",
+        attrs: { type: "text", placeholder: "Введите ID объявления" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ysearch_results" }, [
+      _c("h2", [_vm._v("Вы ищите:")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-repeat_selected" }, [
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb-count_result" }, [
+          _vm._v(" Найдено 178 978 авто")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "yclear_form" }, [
+        _vm._v("Сбросить все фильтры")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "y_form-search" }, [
+        _c("button", [_vm._v("Поиск")])
+      ])
     ])
   },
   function() {
@@ -45424,53 +48303,71 @@ var staticRenderFns = [
           _c("div", { staticClass: "yside_check" }, [
             _c("div", { staticClass: "y-check " }, [
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "kievskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Киевская")])
+                _c("label", { attrs: { for: "kievskaya" } }, [
+                  _vm._v("Киевская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "poltavskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Полтавская")])
+                _c("label", { attrs: { for: "poltavskaya" } }, [
+                  _vm._v("Полтавская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "vinnitskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Винницкая")])
+                _c("label", { attrs: { for: "vinnitskaya" } }, [
+                  _vm._v("Винницкая")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", {
+                  attrs: { id: "zhytomyrskaya", type: "checkbox" }
+                }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Житомирская")])
+                _c("label", { attrs: { for: "zhytomyrskaya" } }, [
+                  _vm._v("Житомирская")
+                ])
               ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "y-check" }, [
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "sumskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Сумская")])
+                _c("label", { attrs: { for: "sumskaya" } }, [_vm._v("Сумская")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "cherkasy", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Черкасская")])
+                _c("label", { attrs: { for: "cherkasy" } }, [
+                  _vm._v("Черкасская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", {
+                  attrs: { id: "chernihivskaya", type: "checkbox" }
+                }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Черниговская")])
+                _c("label", { attrs: { for: "chernihivskaya" } }, [
+                  _vm._v("Черниговская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "kirovograd", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Кировоградская")])
+                _c("label", { attrs: { for: "kirovograd" } }, [
+                  _vm._v("Кировоградская")
+                ])
               ])
             ])
           ])
@@ -45482,55 +48379,69 @@ var staticRenderFns = [
           _c("div", { staticClass: "yside_check" }, [
             _c("div", { staticClass: "y-check " }, [
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "lvivskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Львовская")])
+                _c("label", { attrs: { for: "lvivskaya" } }, [
+                  _vm._v("Львовская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "volynskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Волынская")])
+                _c("label", { attrs: { for: "volynskaya" } }, [
+                  _vm._v("Волынская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "karpaty", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Закарпатская")])
+                _c("label", { attrs: { for: "karpaty" } }, [
+                  _vm._v("Закарпатская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "rovenskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Ровенская")])
+                _c("label", { attrs: { for: "rovenskaya" } }, [
+                  _vm._v("Ровенская")
+                ])
               ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "y-check" }, [
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "franyk", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [
+                _c("label", { attrs: { for: "franyk" } }, [
                   _vm._v("Ивано-Франковская")
                 ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "ternopil", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Тернопольская")])
+                _c("label", { attrs: { for: "ternopil" } }, [
+                  _vm._v("Тернопольская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "chmelnyk", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Хмельницкая")])
+                _c("label", { attrs: { for: "chmelnyk" } }, [
+                  _vm._v("Хмельницкая")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "chernivtsi", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Черновицкая")])
+                _c("label", { attrs: { for: "chernivtsi" } }, [
+                  _vm._v("Черновицкая")
+                ])
               ])
             ])
           ])
@@ -45544,33 +48455,43 @@ var staticRenderFns = [
           _c("div", { staticClass: "yside_check" }, [
             _c("div", { staticClass: "y-check " }, [
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "charkov", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Харьковская")])
+                _c("label", { attrs: { for: "charkov" } }, [
+                  _vm._v("Харьковская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "donetsk", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Донецкая")])
+                _c("label", { attrs: { for: "donetsk" } }, [_vm._v("Донецкая")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", {
+                  attrs: { id: "zaporizhzhya", type: "checkbox" }
+                }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Запорожская")])
+                _c("label", { attrs: { for: "zaporizhzhya" } }, [
+                  _vm._v("Запорожская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "lugansk", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Луганская")])
+                _c("label", { attrs: { for: "lugansk" } }, [
+                  _vm._v("Луганская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", {
+                  attrs: { id: "dnepropetrovskaya", type: "checkbox" }
+                }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [
+                _c("label", { attrs: { for: "dnepropetrovskaya" } }, [
                   _vm._v("Днепропетровская")
                 ])
               ])
@@ -45584,25 +48505,460 @@ var staticRenderFns = [
           _c("div", { staticClass: "yside_check" }, [
             _c("div", { staticClass: "y-check " }, [
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "hersonskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Херсконская")])
+                _c("label", { attrs: { for: "hersonskaya" } }, [
+                  _vm._v("Херсонская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", {
+                  attrs: { id: "nykolaevskaya", type: "checkbox" }
+                }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Николаевская")])
+                _c("label", { attrs: { for: "nykolaevskaya" } }, [
+                  _vm._v("Николаевская")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { type: "checkbox" } }),
+                _c("input", { attrs: { id: "odesskaya", type: "checkbox" } }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "" } }, [_vm._v("Одесская")])
+                _c("label", { attrs: { for: "odesskaya" } }, [
+                  _vm._v("Одесская")
+                ])
               ])
             ])
           ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-status_car-items" }, [
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Авто не в Украине")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("В кредите")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Нерастаможеные")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Конфискат")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("После ДТП")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Не на ходу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Продавец")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: "btn_s large active" }, [
+            _vm._v("Частное лицо")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-cheked_items" }, [
+      _c("div", { staticClass: "ycheked vis_l" }, [
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "1", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "1" } }, [_vm._v("Гаражное хранение")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "2", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "2" } }, [
+            _vm._v("Индивидуальная комплектация")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "3", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "4", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_c" }, [
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "5", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "5" } }, [_vm._v("Первая регистрация")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "6", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "6" } }, [_vm._v("Первый владелец")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "7", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "7" } }, [_vm._v("Пригоню под заказ")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "8", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "8" } }, [_vm._v("Сервисная книжка")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_r" }, [
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "9", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "9" } }, [
+            _vm._v("Ручное управление для инвалдов")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "10", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycheck_color" }, [
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#742D05" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFCB11" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "rgba(80, 83, 83, 0.92)" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFFFFF" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#000000" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#0B3F8D" },
+          attrs: { for: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycheck_color" }, [
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#5100B8" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#E30000" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#1D8D0B" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#0066FF" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFF504" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FF007A" },
+          attrs: { for: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "youther_visr-options" }, [
+      _c("div", { staticClass: "ycars_options" }, [
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "abd", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "abd" } }, [_vm._v("ABD")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "esp", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "esp" } }, [_vm._v("ESP")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "light", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "light" } }, [_vm._v("Галогенные фары")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "immobilizer", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "immobilizer" } }, [
+            _vm._v("Иммобилайзер")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycars_options" }, [
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "abs", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "abs" } }, [_vm._v("ABS")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "bag", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "bag" } }, [
+            _vm._v("Подушка безопасности")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "signaling", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "signaling" } }, [_vm._v("Сигнализация")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "armored", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "armored" } }, [
+            _vm._v("Бронированный автомобиль")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycars_options" }, [
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "lock", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "lock" } }, [_vm._v("Замок на КПП")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "suspension", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "suspension" } }, [
+            _vm._v("Пневмоподвеска")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "servo_wheel", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "servo_wheel" } }, [_vm._v("Серворуль")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yoption" }, [
+          _c("input", { attrs: { id: "central_lock", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "central_lock" } }, [
+            _vm._v("Центральный замок")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yseach_card-id" }, [
+      _c("h3", [_vm._v("Поиск по ID")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "y_seach-id",
+        attrs: { type: "text", placeholder: "Введите ID объявления" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ysearch_results" }, [
+      _c("h2", [_vm._v("Вы ищите:")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-repeat_selected" }, [
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb-count_result" }, [
+          _vm._v(" Найдено 178 978 авто")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "yclear_form" }, [
+        _vm._v("Сбросить все фильтры")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "y_form-search" }, [
+        _c("button", [_vm._v("Поиск")])
       ])
     ])
   }
@@ -68877,14 +72233,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/site/components/ycardfilter.vue ***!
   \******************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ycardfilter_vue_vue_type_template_id_6d5cf1fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ycardfilter.vue?vue&type=template&id=6d5cf1fc& */ "./resources/js/site/components/ycardfilter.vue?vue&type=template&id=6d5cf1fc&");
 /* harmony import */ var _ycardfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ycardfilter.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ycardfilter.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ycardfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ycardfilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -68914,7 +72271,7 @@ component.options.__file = "resources/js/site/components/ycardfilter.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/site/components/ycardfilter.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

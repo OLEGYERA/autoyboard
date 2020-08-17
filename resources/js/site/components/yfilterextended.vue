@@ -21,7 +21,675 @@
             </div>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="ybexpanded_search">
+        <div  v-if="mobile" class="ybexpanded_search show_mobile">
+            <h1 class="ytitle-exp">Расширенный поиск</h1>
+            <div class="yb-carsearch_items">
+                <div class="yoptions_items">
+                    <div class="yoptions_items_mobile">
+                    <div class="yoption_btn">
+                        <button class="change_type active">Все</button>
+                        <button class="change_type">Новые</button>
+                        <button class="change_type">Б/у</button>
+                    </div>
+                    <div class="ycheckbox_options">
+                        <ycheckbox
+                            :text="'Поиск со всех ресурсов'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Провереные'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'С фото'">
+                        </ycheckbox>
+                    </div>
+                    <h4>Страна производитель</h4>
+                    <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                    </div>
+                    <div class="y-transport_options">
+                        <h2>Тип транспорта</h2>
+                        <ydropdown  :items="typeCars"></ydropdown>
+                    </div>
+                    <div class="ychecked_options-mobile">
+                        <h3>Тип кузова</h3>
+                        <div class="yb-checked_type">
+                            <div class="yl-vis checkbox">
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check1" type="checkbox">
+                                    <label class="y-body_name" for="check1">Универсал</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check2"  type="checkbox">
+                                    <label class="y-body_name" for="check2">Кроссовер</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check3" type="checkbox">
+                                    <label class="y-body_name" for="check3">Минивэн</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check4" type="checkbox">
+                                    <label class="y-body_name" for="check4">Лифтбек</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check5" type="checkbox">
+                                    <label class="y-body_name" for="check5">Хэтчбек</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check6" type="checkbox">
+                                    <label class="y-body_name" for="check6">Кабриолет</label>
+                                </div>
+                            </div>
+                            <div class="yr-vis checkbox">
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check7" type="checkbox">
+                                    <label class="y-body_name" for="check7">Седан</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check8" type="checkbox">
+                                    <label class="y-body_name" for="check8">Купе</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check9" type="checkbox">
+                                    <label class="y-body_name" for="check9">Пикап</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check10" type="checkbox">
+                                    <label class="y-body_name" for="check10">Ростер</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check11" type="checkbox">
+                                    <label class="y-body_name" for="check11">Лимузин</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check12" type="checkbox">
+                                    <label class="y-body_name" for="check12">Другой</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-cars_items">
+                    <div class="yflex_car-item">
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="years"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="years"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yflex_car-item remove">
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="years"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="years"></ydropdown>
+                            </div>
+                        </div>
+                        <button class="yremove_car-items">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <button class="yadded-car-item">Добавить марку</button>
+                    <div class="yflex_car-item exclude">
+                        <div class="ycars-item marks">
+                            <h2>Исключить марку</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="years"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="years"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="yadded-car-item exclude">Добавить марку</button>
+                    <div class="yexclude_country-car">
+                        <h2>Исключить страну</h2>
+                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                    </div>
+                    <button class="yadded-car-item exclude_counry">Добавить страну</button>
+                </div>
+            </div>
+            <div class="yb-carsearch_price-items">
+                <div class="ychange_price-container">
+                    <h2>Цена</h2>
+                    <div class="yrange_slider-container">
+                        <yrange></yrange>
+                        <ycheckbox
+                            :text="'Возможен торг'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на автомобиль'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на недвижимость'">
+                        </ycheckbox>
+                    </div>
+                </div>
+                <div class="yreg_container">
+                    <h2>Регион</h2>
+                    <yselect :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                    <div class="yreg-checkbox">
+                        <div class="yflex_dir">
+                            <div class="yside_country">
+                                <h2>Центральная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input id="kievskaya" type="checkbox">
+                                            <label for="kievskaya">Киевская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="poltavskaya" type="checkbox">
+                                            <label for="poltavskaya">Полтавская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="vinnitskaya" type="checkbox">
+                                            <label for="vinnitskaya">Винницкая</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="zhytomyrskaya" type="checkbox">
+                                            <label for="zhytomyrskaya">Житомирская</label>
+                                        </div>
+                                    </div>
+                                    <div class="y-check">
+                                        <div class="check_vis_r central">
+                                            <input id="sumskaya" type="checkbox">
+                                            <label for="sumskaya">Сумская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input id="cherkasy" type="checkbox">
+                                            <label for="cherkasy">Черкасская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input id="chernihivskaya" type="checkbox">
+                                            <label for="chernihivskaya">Черниговская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input id="kirovograd" type="checkbox">
+                                            <label for="kirovograd">Кировоградская</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yside_country">
+                                <h2>Западная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input id="lvivskaya" type="checkbox">
+                                            <label for="lvivskaya">Львовская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="volynskaya" type="checkbox">
+                                            <label for="volynskaya">Волынская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="karpaty" type="checkbox">
+                                            <label for="karpaty">Закарпатская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="rovenskaya" type="checkbox">
+                                            <label for="rovenskaya">Ровенская</label>
+                                        </div>
+                                    </div>
+                                    <div class="y-check">
+                                        <div class="check_vis_r central">
+                                            <input id="franyk" type="checkbox">
+                                            <label for="franyk">Ивано-Франковская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input id="ternopil" type="checkbox">
+                                            <label for="ternopil">Тернопольская</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input id="chmelnyk" type="checkbox">
+                                            <label for="chmelnyk">Хмельницкая</label>
+                                        </div>
+                                        <div class="check_vis_r central">
+                                            <input id="chernivtsi" type="checkbox">
+                                            <label for="chernivtsi">Черновицкая</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="yflex_dir">
+                            <div class="yside_country">
+                                <h2>Восточная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input id="charkov" type="checkbox">
+                                            <label for="charkov">Харьковская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="donetsk" type="checkbox">
+                                            <label for="donetsk">Донецкая</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="zaporizhzhya" type="checkbox">
+                                            <label for="zaporizhzhya">Запорожская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="lugansk" type="checkbox">
+                                            <label for="lugansk">Луганская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="dnepropetrovskaya" type="checkbox">
+                                            <label for="dnepropetrovskaya">Днепропетровская</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yside_country">
+                                <h2>Южная Украина</h2>
+                                <div class="yside_check">
+                                    <div class="y-check ">
+                                        <div class="check-vis_l central">
+                                            <input id="hersonskaya" type="checkbox">
+                                            <label for="hersonskaya">Херсонская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="nykolaevskaya" type="checkbox">
+                                            <label for="nykolaevskaya">Николаевская</label>
+                                        </div>
+                                        <div class="check-vis_l central">
+                                            <input id="odesskaya" type="checkbox">
+                                            <label for="odesskaya">Одесская</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-condition_cars">
+                <h2>Состояние</h2>
+                <div class="yb-status_car-items">
+                    <div class="status_items">
+                        <h2>Авто не в Украине</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>В кредите</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Нерастаможеные</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Конфискат</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>После ДТП</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Не на ходу</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Продавец</h2>
+                        <div class="change_vis-btn">
+                            <button class="btn_s large active">Частное лицо</button>
+                            <button class=" btn_s ">Компания</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="yb-status_checked-items">
+                    <h2>Пригнан из</h2>
+                    <div class="yb-select_items">
+                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <div class="yb-cheked_items">
+                            <div class="ycheked vis_l">
+                                <div class="yvis_l checkbox">
+                                    <input id="1" type="checkbox">
+                                    <label for="1">Гаражное хранение</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="2" type="checkbox">
+                                    <label for="2">Индивидуальная комплектация</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="3" type="checkbox">
+                                    <label for="3">Не бит</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="4" type="checkbox">
+                                    <label for="4">Не крашен</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_c">
+                                <div class="yvis_c checkbox">
+                                    <input id="5" type="checkbox">
+                                    <label for="5">Первая регистрация</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="6" type="checkbox">
+                                    <label for="6">Первый владелец</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="7" type="checkbox">
+                                    <label for="7">Пригоню под заказ</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="8" type="checkbox">
+                                    <label for="8">Сервисная книжка</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_r">
+                                <div class="yvis_r checkbox">
+                                    <input id="9" type="checkbox">
+                                    <label for="9">Ручное управление для инвалдов</label>
+                                </div>
+                                <div class="yvis_r checkbox">
+                                    <input id="10" type="checkbox">
+                                    <label for="10">Требует ремонта</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-specifications_cars">
+                <h2>Технические характеристики</h2>
+                <div class="yselect_specifications">
+                    <div class="vis_l-specifications">
+                        <h2>Топливо</h2>
+                        <ydropdown :items="fuel"></ydropdown>
+                        <h2>КПП</h2>
+                        <ydropdown :items="transmission"></ydropdown>
+                        <h2>Тип привода</h2>
+                        <ydropdown :items="typeofdrive"></ydropdown>
+                    </div>
+                    <div class="vis_c-specifications y-double">
+                        <h3>Росход топлива, л./100 км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Объём, л.</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Мощность</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                    <div class="vis_r-specifications y-double">
+                        <h3>Пробег, тыс.км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество дверей</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество мест</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="youther_specifications">
+                    <h3>Цвет</h3>
+                    <div class="yvis_outher">
+                        <div class="yvis_outher-left">
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input  class=""  type="checkbox">
+                                    <label style="background-color: #742D05"  for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #FFCB11" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FFFFFF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #000000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #0B3F8D" for=""></label>
+                                </div>
+                            </div>
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #5100B8" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #E30000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #1D8D0B" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #0066FF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FFF504" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FF007A" for=""></label>
+                                </div>
+                            </div>
+                            <button @click="colorOpen = !colorOpen" class="ycolor_more">
+                                <i class="fas"
+                                   :class="{'fa-chevron-up' : colorOpen, 'fa-chevron-down':  !colorOpen}"></i>
+                            </button>
+                        </div>
+                        <div class="yvis_outher-right">
+                            <div class="youther_visl-btn">
+                                <button @click="isOpened =  !isOpened">
+                                    Безопасность
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"
+                                    ></i>
+                                </button>
+                                <button @click="isOpened =  !isOpened">
+                                    Комфорт
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
+                                </button>
+                                <button @click="isOpened =  !isOpened">
+                                    Мультимедия
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
+                                </button>
+                                <button @click="isOpened =  !isOpened">
+                                    Прочее
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
+                                </button>
+                            </div>
+                            <div class="youther_visr-options">
+                                <div class="ycars_options">
+                                    <div class="yoption">
+                                        <input id="abd" type="checkbox">
+                                        <label for="abd">ABD</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="esp" type="checkbox">
+                                        <label for="esp">ESP</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="light" type="checkbox">
+                                        <label for="light">Галогенные фары</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="immobilizer" type="checkbox">
+                                        <label for="immobilizer">Иммобилайзер</label>
+                                    </div>
+                                </div>
+                                <div class="ycars_options">
+                                    <div class="yoption">
+                                        <input id="abs" type="checkbox">
+                                        <label for="abs">ABS</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="bag" type="checkbox">
+                                        <label for="bag">Подушка безопасности</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="signaling" type="checkbox">
+                                        <label for="signaling">Сигнализация</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="armored" type="checkbox">
+                                        <label for="armored">Бронированный автомобиль</label>
+                                    </div>
+                                </div>
+                                <div class="ycars_options">
+                                    <div class="yoption">
+                                        <input id="lock" type="checkbox">
+                                        <label for="lock">Замок на КПП</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="suspension" type="checkbox">
+                                        <label for="suspension">Пневмоподвеска</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="servo_wheel" type="checkbox">
+                                        <label for="servo_wheel">Серворуль</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="central_lock" type="checkbox">
+                                        <label for="central_lock">Центральный замок</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yspecification_results">
+                <h3>Результаты поиска</h3>
+                <div class="yvisual_results">
+                    <div class="yvis_res-select">
+                        <h2>Сортировка</h2>
+                        <ydropdown></ydropdown>
+                        <h2>Период подачи</h2>
+                        <ydropdown></ydropdown>
+                    </div>
+                    <div class="yvis_res-select">
+                        <h2>Актуальность</h2>
+                        <ydropdown></ydropdown>
+                        <h2>Показывать</h2>
+                        <ydropdown></ydropdown>
+                    </div>
+                    <div class="yseach_card-id">
+                        <h3>Поиск по ID</h3>
+                        <input
+                            class="y_seach-id"
+                            type="text"
+                            placeholder="Введите ID объявления"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="ysearch_results">
+                <h2>Вы ищите:</h2>
+                <div class="yb-repeat_selected">
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="yb-count_result"> Найдено 178 978 авто</div>
+                </div>
+                <button class="yclear_form">Сбросить все фильтры</button>
+                <div class="y_form-search">
+                    <button>Поиск</button>
+                </div>
+            </div>
+        </div>
+        <div v-else class="ybexpanded_search">
             <h1 class="ytitle-exp">Расширенный поиск</h1>
             <div class="yb-carsearch_items">
                 <div class="yoptions_items">
@@ -43,7 +711,7 @@
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
-                        <ydropdown :items="typeCars"></ydropdown>
+                        <ydropdown  :items="typeCars"></ydropdown>
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
@@ -205,38 +873,38 @@
                                 <div class="yside_check">
                                     <div class="y-check ">
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Киевская</label>
+                                            <input id="kievskaya" type="checkbox">
+                                            <label for="kievskaya">Киевская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Полтавская</label>
+                                            <input id="poltavskaya" type="checkbox">
+                                            <label for="poltavskaya">Полтавская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Винницкая</label>
+                                            <input id="vinnitskaya" type="checkbox">
+                                            <label for="vinnitskaya">Винницкая</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Житомирская</label>
+                                            <input id="zhytomyrskaya" type="checkbox">
+                                            <label for="zhytomyrskaya">Житомирская</label>
                                         </div>
                                     </div>
                                     <div class="y-check">
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Сумская</label>
+                                            <input id="sumskaya" type="checkbox">
+                                            <label for="sumskaya">Сумская</label>
                                         </div>
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Черкасская</label>
+                                            <input id="cherkasy" type="checkbox">
+                                            <label for="cherkasy">Черкасская</label>
                                         </div>
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Черниговская</label>
+                                            <input id="chernihivskaya" type="checkbox">
+                                            <label for="chernihivskaya">Черниговская</label>
                                         </div>
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Кировоградская</label>
+                                            <input id="kirovograd" type="checkbox">
+                                            <label for="kirovograd">Кировоградская</label>
                                         </div>
                                     </div>
                                 </div>
@@ -246,38 +914,38 @@
                                 <div class="yside_check">
                                     <div class="y-check ">
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Львовская</label>
+                                            <input id="lvivskaya" type="checkbox">
+                                            <label for="lvivskaya">Львовская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Волынская</label>
+                                            <input id="volynskaya" type="checkbox">
+                                            <label for="volynskaya">Волынская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Закарпатская</label>
+                                            <input id="karpaty" type="checkbox">
+                                            <label for="karpaty">Закарпатская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Ровенская</label>
+                                            <input id="rovenskaya" type="checkbox">
+                                            <label for="rovenskaya">Ровенская</label>
                                         </div>
                                     </div>
                                     <div class="y-check">
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Ивано-Франковская</label>
+                                            <input id="franyk" type="checkbox">
+                                            <label for="franyk">Ивано-Франковская</label>
                                         </div>
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Тернопольская</label>
+                                            <input id="ternopil" type="checkbox">
+                                            <label for="ternopil">Тернопольская</label>
                                         </div>
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Хмельницкая</label>
+                                            <input id="chmelnyk" type="checkbox">
+                                            <label for="chmelnyk">Хмельницкая</label>
                                         </div>
                                         <div class="check_vis_r central">
-                                            <input type="checkbox">
-                                            <label for="">Черновицкая</label>
+                                            <input id="chernivtsi" type="checkbox">
+                                            <label for="chernivtsi">Черновицкая</label>
                                         </div>
                                     </div>
                                 </div>
@@ -289,24 +957,24 @@
                                 <div class="yside_check">
                                     <div class="y-check ">
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Харьковская</label>
+                                            <input id="charkov" type="checkbox">
+                                            <label for="charkov">Харьковская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Донецкая</label>
+                                            <input id="donetsk" type="checkbox">
+                                            <label for="donetsk">Донецкая</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Запорожская</label>
+                                            <input id="zaporizhzhya" type="checkbox">
+                                            <label for="zaporizhzhya">Запорожская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Луганская</label>
+                                            <input id="lugansk" type="checkbox">
+                                            <label for="lugansk">Луганская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Днепропетровская</label>
+                                            <input id="dnepropetrovskaya" type="checkbox">
+                                            <label for="dnepropetrovskaya">Днепропетровская</label>
                                         </div>
                                     </div>
                                 </div>
@@ -316,16 +984,16 @@
                                 <div class="yside_check">
                                     <div class="y-check ">
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Херсконская</label>
+                                            <input id="hersonskaya" type="checkbox">
+                                            <label for="hersonskaya">Херсонская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Николаевская</label>
+                                            <input id="nykolaevskaya" type="checkbox">
+                                            <label for="nykolaevskaya">Николаевская</label>
                                         </div>
                                         <div class="check-vis_l central">
-                                            <input type="checkbox">
-                                            <label for="">Одесская</label>
+                                            <input id="odesskaya" type="checkbox">
+                                            <label for="odesskaya">Одесская</label>
                                         </div>
                                     </div>
                                 </div>
@@ -334,14 +1002,379 @@
                     </div>
                 </div>
             </div>
+            <div class="yb-condition_cars">
+                <h2>Состояние</h2>
+                <div class="yb-status_car-items">
+                    <div class="status_items">
+                        <h2>Авто не в Украине</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>В кредите</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Нерастаможеные</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Конфискат</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>После ДТП</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Не на ходу</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Продавец</h2>
+                        <div class="change_vis-btn">
+                            <button class="btn_s large active">Частное лицо</button>
+                            <button class=" btn_s ">Компания</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="yb-status_checked-items">
+                        <h2>Пригнан из</h2>
+                    <div class="yb-select_items">
+                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <div class="yb-cheked_items">
+                            <div class="ycheked vis_l">
+                                <div class="yvis_l checkbox">
+                                    <input id="1" type="checkbox">
+                                    <label for="1">Гаражное хранение</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="2" type="checkbox">
+                                    <label for="2">Индивидуальная комплектация</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="3" type="checkbox">
+                                    <label for="3">Не бит</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="4" type="checkbox">
+                                    <label for="4">Не крашен</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_c">
+                                <div class="yvis_c checkbox">
+                                    <input id="5" type="checkbox">
+                                    <label for="5">Первая регистрация</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="6" type="checkbox">
+                                    <label for="6">Первый владелец</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="7" type="checkbox">
+                                    <label for="7">Пригоню под заказ</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="8" type="checkbox">
+                                    <label for="8">Сервисная книжка</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_r">
+                                <div class="yvis_r checkbox">
+                                    <input id="9" type="checkbox">
+                                    <label for="9">Ручное управление для инвалдов</label>
+                                </div>
+                                <div class="yvis_r checkbox">
+                                    <input id="10" type="checkbox">
+                                    <label for="10">Требует ремонта</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-specifications_cars">
+                <h2>Технические характеристики</h2>
+                <div class="yselect_specifications">
+                    <div class="vis_l-specifications">
+                        <h2>Топливо</h2>
+                        <ydropdown :items="fuel"></ydropdown>
+                        <h2>КПП</h2>
+                        <ydropdown :items="transmission"></ydropdown>
+                        <h2>Тип привода</h2>
+                        <ydropdown :items="typeofdrive"></ydropdown>
+                    </div>
+                    <div class="vis_c-specifications y-double">
+                        <h3>Росход топлива, л./100 км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Объём, л.</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Мощность</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                    <div class="vis_r-specifications y-double">
+                        <h3>Пробег, тыс.км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество дверей</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество мест</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="youther_specifications">
+                    <h3>Цвет</h3>
+                    <div class="yvis_outher">
+                        <div class="yvis_outher-left">
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input  class=""  type="checkbox">
+                                    <label style="background-color: #742D05"  for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #FFCB11" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FFFFFF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #000000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #0B3F8D" for=""></label>
+                                </div>
+                            </div>
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #5100B8" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #E30000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #1D8D0B" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #0066FF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FFF504" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FF007A" for=""></label>
+                                </div>
+                            </div>
+                            <button @click="colorOpen = !colorOpen" class="ycolor_more">
+                                <i class="fas"
+                                   :class="{'fa-chevron-up' : colorOpen, 'fa-chevron-down':  !colorOpen}"></i>
+                            </button>
+                        </div>
+                        <div class="yvis_outher-right">
+                            <div class="youther_visl-btn">
+                                <button @click="isOpened =  !isOpened">
+                                    Безопасность
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"
+                                    ></i>
+                                </button>
+                                <button @click="isOpened =  !isOpened">
+                                    Комфорт
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
+                                </button>
+                                <button @click="isOpened =  !isOpened">
+                                    Мультимедия
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
+                                </button>
+                                <button @click="isOpened =  !isOpened">
+                                    Прочее
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
+                                </button>
+                            </div>
+                            <div class="youther_visr-options">
+                                <div class="ycars_options">
+                                    <div class="yoption">
+                                        <input id="abd" type="checkbox">
+                                        <label for="abd">ABD</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="esp" type="checkbox">
+                                        <label for="esp">ESP</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="light" type="checkbox">
+                                        <label for="light">Галогенные фары</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="immobilizer" type="checkbox">
+                                        <label for="immobilizer">Иммобилайзер</label>
+                                    </div>
+                                </div>
+                                <div class="ycars_options">
+                                    <div class="yoption">
+                                        <input id="abs" type="checkbox">
+                                        <label for="abs">ABS</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="bag" type="checkbox">
+                                        <label for="bag">Подушка безопасности</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="signaling" type="checkbox">
+                                        <label for="signaling">Сигнализация</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="armored" type="checkbox">
+                                        <label for="armored">Бронированный автомобиль</label>
+                                    </div>
+                                </div>
+                                <div class="ycars_options">
+                                    <div class="yoption">
+                                        <input id="lock" type="checkbox">
+                                        <label for="lock">Замок на КПП</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="suspension" type="checkbox">
+                                        <label for="suspension">Пневмоподвеска</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="servo_wheel" type="checkbox">
+                                        <label for="servo_wheel">Серворуль</label>
+                                    </div>
+                                    <div class="yoption">
+                                        <input id="central_lock" type="checkbox">
+                                        <label for="central_lock">Центральный замок</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yspecification_results">
+                <h3>Результаты поиска</h3>
+                <div class="yvisual_results">
+                    <div class="yvis_res-select">
+                        <h2>Сортировка</h2>
+                        <ydropdown></ydropdown>
+                        <h2>Период подачи</h2>
+                        <ydropdown></ydropdown>
+                    </div>
+                    <div class="yvis_res-select">
+                        <h2>Актуальность</h2>
+                        <ydropdown></ydropdown>
+                        <h2>Показывать</h2>
+                        <ydropdown></ydropdown>
+                    </div>
+                    <div class="yseach_card-id">
+                        <h3>Поиск по ID</h3>
+                            <input
+                                class="y_seach-id"
+                                type="text"
+                                placeholder="Введите ID объявления"
+                            />
+                    </div>
+                </div>
+            </div>
+            <div class="ysearch_results">
+                <h2>Вы ищите:</h2>
+                <div class="yb-repeat_selected">
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="yb-count_result"> Найдено 178 978 авто</div>
+                </div>
+                <button class="yclear_form">Сбросить все фильтры</button>
+                <div class="y_form-search">
+                    <button>Поиск</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        created() {
+            window.addEventListener('resize', this.showMobile);
+            this.showMobile();
+        },
+        destroyed() {
+            window.removeEventListener('resize', this.showMobile)
+        },
         data(){
             return{
+                mobile: false,
+                colorOpen: false,
+                isOpened: false,
+                test: ['100'],
+                test2: ['200'],
+                fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин'] ,
+                transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная' ],
+                typeofdrive: ['Задний привод', 'Передний привод', 'Полный привод'],
                 ukSityName:[
                     {name: 'Поляна', id: 1},
                     {name: 'Славское', id: 2},
@@ -435,6 +1468,12 @@
                 typeCars: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы',],
                 years: ['2020' , '2019' , '2018' , '2017' , '2016' , '2015' , '2014' , '2013' , '2012' , '2011' , '2010' , '2009' , '2008' , '2007' , '2006' , '2005' , '2004' , '2003' , '2002' , '2001', '2000', '1999',  '1998', ' 1997', '1996', '1995',  '1994',  '1993',  '1992' , '1991',  '1990' , '1989' , '1988' , '1987' , '1986' , '1985' , '1984' , '1983' , '1982' , '1981' , '1980' , '1979' , '1978' , '1977' , '1976' , '1975' , '1974' , '1973' , '1972' , '1971' , '1970' , '1969' , '1968' , '1967' , '1966' , '1965' , '1964' , '1963' , '1962' , '1961' , '1960' , '1959' , '1958' , '1957' , '1956' , '1955' , '1954' , '1953' , '1952' , '1951' , '1950' ,'1949' , '1948' , '1947' , '1946' , '1945' , '1944' , '1943' , '1942' , '1941' , '1940' , '1939' , '1938' , '1937' , '1936' , '1935' , '1934' , '1933' , '1932' , '1931' , '1930' , '1929' , '1928' , '1927' , '1926' , '1925' , '1924' , '1923' , '1922' , '1921' , '1920', '1919' , '1918' , '1917' , '1916' ,'1915' , '1914' , '1913' , '1912' , '1911' , '1910' , '1909' , '1908' , '1907' , '1906' , '1905' , '1904' , '1903' , '1902',  '1901','1900']
             }
+        },
+        methods: {
+            showMobile() {
+                this.mobile = window.innerWidth <= 946;
+            }
         }
+
     }
 </script>

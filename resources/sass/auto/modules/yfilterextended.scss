@@ -64,7 +64,7 @@
             position: relative;
             display: flex;
             .yoptions_items{
-                width: 19.3%;
+                width: 22%;
                 margin: 0 30px 25px 0;
                 .yoption_btn{
                     display: flex;
@@ -113,6 +113,7 @@
                         padding: 10px 15px 10px 20px;
                         border-radius: 10px;
                         border: 1px solid #E2E2E2;
+                        cursor: pointer;
                         .value{
                             font-family: $aleg;
                             font-weight: normal;
@@ -135,6 +136,7 @@
                             background: #FFFFFF;
                             box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
                             border-radius: 3px;
+                            z-index: 2;
                             .item{
                                 font-family: $aleg;
                                 font-weight: normal;
@@ -242,6 +244,7 @@
                         }
                         .autocomplete{
                             height: 40px;
+                            cursor: pointer;
                             .input-dropdown{
                                 font-size: em(16);
                                 font-weight: normal;
@@ -269,6 +272,7 @@
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-between;
+                                cursor: pointer;
                                 .value{
                                     font-family: $aleg;
                                     font-weight: normal;
@@ -380,6 +384,7 @@
                         padding: 10px 15px 10px 20px;
                         border-radius: 10px;
                         border: 1px solid #E2E2E2;
+                        cursor: pointer;
                         .value{
                             font-family: $aleg;
                             font-weight: normal;
@@ -402,6 +407,7 @@
                             background: #FFFFFF;
                             box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
                             border-radius: 3px;
+                            z-index: 2;
                             .item{
                                 font-family: $aleg;
                                 font-weight: normal;
@@ -547,7 +553,7 @@
                         }
                     }
                 }
-            }s
+            }
 
             &:after{
                 content: '';
@@ -557,6 +563,740 @@
                 width: 100%;
                 height: 1px;
                 background-color: #E7E7E7;
+            }
+        }
+        .yb-condition_cars{
+            position: relative;
+            width: 100%;
+            padding-bottom: 15px;
+            h2{
+                margin: 15px 0 15px;
+                font-family: $aleg;
+                font-weight: 500;
+                font-size: em(22);
+                line-height: 26px;
+                color: $darkblue;
+            }
+            .yb-status_car-items{
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+                .status_items{
+                    margin-right: 20px;
+                  h2{
+                      font-family: $aleg;
+                      font-weight: 500;
+                      font-size: em(18);
+                      line-height: 22px;
+                      color: rgba(24, 23, 23, 0.76);
+                      margin: 0 0 10px;
+                  }
+                    .change_vis-btn{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .btn_s{
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(16);
+                            line-height: 19px;
+                            color: rgba(46, 46, 46, 0.76);
+                            margin-right: 5px;
+                            &.active{
+                                color: $darkblue;
+                                padding: 5% 2%;
+                                width: 87px;
+                                height: 38px;
+                                background: #FFFFFF;
+                                border: 1px solid $darkblue;
+                                border-radius: 6px;
+                            }
+                            &:last-child{
+                                margin-right: 0px;
+                            }
+                        }
+                        .large{
+                            width: 103px!important;
+                        }
+                    }
+                    &:last-child{
+                        margin-right: 0;
+                    }
+
+                }
+            }
+            .yb-status_checked-items{
+                width: 100%;
+                h2{
+                    margin: 0 0 5px;
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(18);
+                    line-height: 22px;
+                    color: rgba(24, 23, 23, 0.76);
+                }
+                .yb-select_items{
+                    display: flex;
+                    width: 100%;
+                    .ydropdown{
+                        width: 24.5%;
+                        height: 40px;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 10px 15px 10px 20px;
+                        border-radius: 10px;
+                        border: 1px solid #E2E2E2;
+                        cursor: pointer;
+                        margin-right: 20px;
+                        .value{
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(16);
+                            line-height: 19px;
+                            color: #696969;
+                        }
+                        i{
+                            color: #C7C7C7;
+                        }
+                        .items{
+                            position: absolute;
+                            scrollbar-width: none;
+                            max-height: 140px;
+                            overflow: scroll;
+                            overflow-x: hidden;
+                            top: 45px;
+                            left: 0;
+                            width: 100%;
+                            background: #FFFFFF;
+                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                            border-radius: 3px;
+                            z-index: 2;
+                            .item{
+                                font-family: $aleg;
+                                font-weight: normal;
+                                height: 35px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                font-size: em(16);
+                                line-height: 22px;
+                                padding: 0px 0px 0px 20px;
+                                cursor: pointer;
+                                color: rgba(0, 0, 0, 0.83);
+                                i{
+                                    position: absolute;
+                                    top: auto;
+                                    color: $dgreen;
+                                    right: 8px;
+                                    font-size: em(12);
+                                }
+                                &:after{
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    background: rgba(199, 199, 199, 0.33) ;
+                                }
+                            }
+                            .checked{
+                                border-left: 4px solid $darkblue;
+                                &:after{
+                                    height: 2px;
+                                    background: rgba(91, 91, 91, 0.13);
+                                }
+                            }
+                            &::-webkit-scrollbar { width: 0px; }
+                        }
+                    }
+                    .yb-cheked_items{
+                        display: flex;
+                        //width: 55%;
+                        justify-content: space-between;
+                        .ycheked{
+                            margin-right: 12px;
+                           .checkbox{
+                               display: flex;
+                               margin-bottom: 5px;
+                               input{
+                                   width: 12px;
+                                   height: 12px;
+                               }
+                               label{
+                                   font-family: $aleg;
+                                   font-weight: normal;
+                                   font-size: em(16);
+                                   line-height: 19px;
+                                   color: $filercheckbox;
+                               }
+                               &:last-child{
+                                   margin-bottom: 0;
+                               }
+                           }
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #E7E7E7;
+            }
+        }
+        .yb-specifications_cars{
+            position: relative;
+            width: 100%;
+            padding: 15px 0 20px;
+            h2{
+                font-family: $aleg;
+                font-weight: 500;
+                font-size: em(22);
+                line-height: 26px;
+                color: $darkblue;
+                margin: 0 0 15px;
+            }
+            .yselect_specifications{
+                display: flex;
+                width: 100%;
+                .vis_l-specifications{
+                    width: 24.5%;
+                    margin-right: 20px;
+                    h2{
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        color: rgba(46, 46, 46, 0.76);
+                        margin: 0 0 5px;
+                    }
+                    .ydropdown{
+                        width: 100%;
+                        height: 40px;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 10px 15px 10px 20px;
+                        border-radius: 10px;
+                        border: 1px solid #E2E2E2;
+                        cursor: pointer;
+                        margin-bottom: 15px;
+                        .value{
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(18);
+                            line-height: 22px;
+                            color: #696969;
+                        }
+                        i{
+                            color: #C7C7C7;
+                        }
+                        .items{
+                            position: absolute;
+                            scrollbar-width: none;
+                            max-height: 140px;
+                            overflow: scroll;
+                            overflow-x: hidden;
+                            top: 45px;
+                            left: 0;
+                            width: 100%;
+                            background: #FFFFFF;
+                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                            border-radius: 3px;
+                            z-index: 2;
+                            .item{
+                                font-family: $aleg;
+                                font-weight: normal;
+                                height: 35px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                font-size: em(18);
+                                line-height: 22px;
+                                padding: 0px 0px 0px 20px;
+                                cursor: pointer;
+                                color: rgba(0, 0, 0, 0.83);
+                                i{
+                                    position: absolute;
+                                    top: auto;
+                                    color: $dgreen;
+                                    right: 8px;
+                                    font-size: em(12);
+                                }
+                                &:after{
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    background: rgba(199, 199, 199, 0.33) ;
+                                }
+                            }
+                            .checked{
+                                border-left: 4px solid $darkblue;
+                                &:after{
+                                    height: 2px;
+                                    background: rgba(91, 91, 91, 0.13);
+                                }
+                            }
+                            &::-webkit-scrollbar { width: 0px; }
+                        }
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                .y-double{
+                    width: 20.7%;
+                    margin-right: 20px;
+                    h3{
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        color: rgba(46, 46, 46, 0.76);
+                        margin: 15px 0 5px;
+                        &:first-child{
+                            margin: 0 0 5px;
+                        }
+                    }
+                    .ydouble_dropdown{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .ydropdown{
+                            width: 48%;
+                            height: 40px;
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 10px 15px 10px 20px;
+                            border-radius: 10px;
+                            border: 1px solid #E2E2E2;
+                            cursor: pointer;
+                            .value{
+                                font-family: $aleg;
+                                font-weight: normal;
+                                font-size: em(16);
+                                line-height: 22px;
+                                color: #696969;
+                            }
+                            i{
+                                color: #C7C7C7;
+                            }
+                            .items{
+                                position: absolute;
+                                scrollbar-width: none;
+                                max-height: 140px;
+                                overflow: scroll;
+                                overflow-x: hidden;
+                                top: 45px;
+                                left: 0;
+                                width: 100%;
+                                background: #FFFFFF;
+                                box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                                border-radius: 3px;
+                                z-index: 2;
+                                .item{
+                                    font-family: $aleg;
+                                    font-weight: normal;
+                                    height: 35px;
+                                    position: relative;
+                                    display: flex;
+                                    align-items: center;
+                                    font-size: em(16);
+                                    line-height: 22px;
+                                    padding: 0px 0px 0px 20px;
+                                    cursor: pointer;
+                                    color: rgba(0, 0, 0, 0.83);
+                                    i{
+                                        position: absolute;
+                                        top: auto;
+                                        color: $dgreen;
+                                        right: 8px;
+                                        font-size: em(12);
+                                    }
+                                    &:after{
+                                        content: '';
+                                        position: absolute;
+                                        height: 1px;
+                                        bottom: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        background: rgba(199, 199, 199, 0.33) ;
+                                    }
+                                }
+                                .checked{
+                                    border-left: 4px solid $darkblue;
+                                    &:after{
+                                        height: 2px;
+                                        background: rgba(91, 91, 91, 0.13);
+                                    }
+                                }
+                                &::-webkit-scrollbar { width: 0px; }
+                            }
+                        }
+                    }
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                }
+
+            }
+            .youther_specifications{
+                width: 100%;
+                h3{
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(18);
+                    line-height: 22px;
+                    color: #5B5B5B;
+                    margin: 15px 0 10px;
+                }
+                .yvis_outher{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    .yvis_outher-left{
+                        width: 20%;
+                        border-radius: 12px;
+                        border: 1px solid #E2E2E2;
+                        padding: 15px 10px 10px 10px;
+                        text-align: center;
+                        .ycheck_color{
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            margin-bottom: 10px;
+                            .ylabel_visible{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                input{
+                                    position: absolute;
+                                    z-index: 2;
+                                    opacity: 0;
+                                }
+                                label{
+                                    width: 23px;
+                                    height: 23px;
+                                    border: 1px solid #D6D6D6;
+                                    border-radius: 50%;
+                                    position: relative;
+
+                                }
+                            }
+                            &:last-child{
+                                margin-bottom: 0;
+                            }
+                        }
+                        .ycolor_more{
+                            i{
+                                color: $darkblue;
+                            }
+                        }
+                    }
+                    .yvis_outher-right{
+                        width: 75%;
+                        display: flex;
+                        justify-content: space-between;
+                        .youther_visl-btn{
+                            width: 15%;
+                            margin-right: 20px;
+                            button{
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                font-family: $aleg;
+                                font-weight: 500;
+                                font-size: em(18);
+                                line-height: 22px;
+                                color: $darkblue;
+                                margin-bottom: 10px;
+                                i{
+                                    color: $darkblue;
+                                }
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                        .youther_visr-options{
+                            display: flex;
+                            width: 80%;
+                            .ycars_options{
+                                margin-right: 22px;
+                                .yoption{
+                                    display: flex;
+                                    margin-bottom: 5px;
+                                    input{
+                                        width: 12px;
+                                        height: 12px;
+                                        margin-right: 5px;
+                                    }
+                                    label{
+                                        font-family: $aleg;
+                                        font-weight: normal;
+                                        font-size: em(16);
+                                        line-height: 19px;
+                                        color: $filercheckbox;
+                                    }
+                                    &:last-child{
+                                        margin-bottom: 0;
+                                    }
+                                }
+                                &:last-child{
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #E7E7E7;
+            }
+        }
+        .yspecification_results{
+            padding: 15px 0 25px;
+            width: 100%;
+            position: relative;
+            h3{
+                font-family: $aleg;
+                font-weight: 500;
+                font-size: em(22);
+                line-height: 26px;
+                color: $darkblue;
+                margin:  0 ;
+            }
+            .yvisual_results{
+                display: flex;
+                width: 100%;
+                .yvis_res-select{
+                    width: 24.5%;
+                    margin-right: 20px;
+                    h2{
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        color: rgba(24, 23, 23, 0.76);
+                        margin: 15px 0 6px;
+                    }
+                    .ydropdown{
+                        width: 100%;
+                        height: 40px;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 10px 15px 10px 20px;
+                        border-radius: 10px;
+                        border: 2px solid $darkblue;
+                        cursor: pointer;
+                        .value{
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(16);
+                            line-height: 22px;
+                            color: #696969;
+                        }
+                        i{
+                            color: $darkblue;
+                        }
+                        .items{
+                            position: absolute;
+                            scrollbar-width: none;
+                            max-height: 140px;
+                            overflow: scroll;
+                            overflow-x: hidden;
+                            top: 45px;
+                            left: 0;
+                            width: 100%;
+                            background: #FFFFFF;
+                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                            border-radius: 3px;
+                            z-index: 2;
+                            .item{
+                                font-family: $aleg;
+                                font-weight: normal;
+                                height: 35px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                font-size: em(16);
+                                line-height: 22px;
+                                padding: 0px 0px 0px 20px;
+                                cursor: pointer;
+                                color: rgba(0, 0, 0, 0.83);
+                                i{
+                                    position: absolute;
+                                    top: auto;
+                                    color: $dgreen;
+                                    right: 8px;
+                                    font-size: em(12);
+                                }
+                                &:after{
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    background: rgba(199, 199, 199, 0.33) ;
+                                }
+                            }
+                            .checked{
+                                border-left: 4px solid $darkblue;
+                                &:after{
+                                    height: 2px;
+                                    background: rgba(91, 91, 91, 0.13);
+                                }
+                            }
+                            &::-webkit-scrollbar { width: 0px; }
+                        }
+                    }
+                }
+                .yseach_card-id{
+                    width: 24.5%;
+                    h3{
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 22px;
+                        color: rgba(24, 23, 23, 0.76);
+                        margin: 15px 0 6px;
+                    }
+                    .y_seach-id{
+                        width: 100%;
+                        padding: 10px 15px 10px 20px;
+                        font-family: $aleg;
+                        font-weight: normal;
+                        font-size: em(16);
+                        line-height: 19px;
+                        color: #C7C7C7;
+                        background: #FFFFFF;
+                        border: 2px solid #717171;
+                        border-radius: 15px;
+                        &::placeholder{
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(16);
+                            color: #C7C7C7;
+                        }
+                    }
+                }
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #E7E7E7;
+            }
+        }
+        .ysearch_results{
+            width: 100%;
+            padding: 15px 0 40px;
+            h2{
+                font-family: $aleg;
+                font-weight: 500;
+                font-size: em(22);
+                line-height: 26px;
+                color: $darkblue;
+                margin: 0 0 15px;
+            }
+            .yb-repeat_selected{
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                flex-wrap: wrap;
+                .item_selected{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    width: 110px;
+                    height: 34px;
+                    margin-right: 5px;
+                    background: linear-gradient(0deg, rgba(11, 63, 141, 0.04), rgba(11, 63, 141, 0.04));
+                    border: 1px solid rgba(11, 63, 141, 0.79);
+                    box-sizing: border-box;
+                    border-radius: 8px;
+                    span{
+                        font-family: $aleg;
+                        font-weight: normal;
+                        font-size: em(15);
+                        line-height: 18px;
+                        color: $darkblue;
+                    }
+                    i{
+                        color: $darkblue;
+                        font-size: em(14);
+                    }
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                }
+                .yb-count_result{
+                    margin-left: 20px;
+                    font-family: $noto;
+                    font-weight: 500;
+                    font-size: em(16);
+                    line-height: 22px;
+                    color: rgba(24, 23, 23, 0.76);
+                }
+            }
+            .yclear_form{
+                font-family: $aleg;
+                font-weight: normal;
+                font-size: em(14);
+                line-height: 17px;
+                text-decoration-line: underline;
+                color: $darkblue;
+                margin-bottom: 30px;
+            }
+            .y_form-search{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                button{
+                    width: 270px;
+                    height: 58px;
+                    background: $darkblue;
+                    box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
+                    border-radius: 14px;
+                    font-family: $aleg;
+                    font-weight: bold;
+                    font-size: em(22);
+                    line-height: 26px;
+                    text-align: center;
+                    color: #FFFFFF;
+                }
             }
         }
     }
@@ -575,13 +1315,119 @@
                         .yflex_dir{
                             width: 100%;
                             .yside_country{
+                                width: 45%;
                                 .yside_check{
+                                    width: 100%;
+                                    justify-content: space-between;
+                                }
+                            }
+                            &:first-child{
+                                margin-bottom: 15px;
+                            }
+                            &:last-child{
+                                width: 45%;
 
+                            }
+                        }
+                    }
+                }
+            }
+            .yb-condition_cars{
+                .yb-status_car-items{
+                    margin-bottom: 0px;
+                    .status_items{
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    .yfilterextended{
+        .ybexpanded_search{
+            .yb-carsearch_items{
+                justify-content: space-between;
+                .yoptions_items{
+                    width: 24%;
+                }
+                .add-cars_items{
+                    width: 75%;
+                    .yflex_car-item{
+                        .ycars-item {
+                            .ydrop_down-years{
+                                .ydropdown{
+                                    padding: 10px 10px 10px 10px;
                                 }
                             }
                         }
                     }
                 }
+            }
+            .yb-carsearch_price-items{
+                .ychange_price-container{
+                    width: 30%;
+                }
+                .yreg_container{
+                    width: 69%;
+                }
+            }
+           .yb-specifications_cars{
+               .youther_specifications{
+                   .yvis_outher{
+                       .yvis_outher-left{
+                           width: 23%;
+                       }
+                       .yvis_outher-right{
+                           .youther_visl-btn{
+                               width: 17%;
+                               margin-right: 0;
+                           }
+                       }
+                   }
+               }
+           }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .yfilterextended{
+        .show_mobile{
+            .ytitle-exp{
+                font-size: em(24);
+                line-height: 28px;
+
+            }
+            .yb-carsearch_items{
+                display: block;
+                .yoptions_items{
+                    width: 100%;
+                    display: flex;
+                    .yoptions_items_mobile{
+                        width: 27%;
+                        margin-right: 25px;
+                    }
+                    .y-transport_options{
+                        width: 27%;
+                        margin-right: 25px;
+                    }
+                    .ychecked_options-mobile{
+                        width: 24%;
+                        h3{
+                            font-family: $aleg;
+                            font-weight: 500;
+                            font-size: 18px;
+                            line-height: 22px;
+                            margin: 0 0 10px;
+                            color: rgba(46, 46, 46, 0.76);
+                        }
+                        .yb-checked_type{
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+
             }
         }
     }
