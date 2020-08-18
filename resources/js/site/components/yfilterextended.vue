@@ -21,29 +21,522 @@
             </div>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div  v-if="mobile" class="ybexpanded_search show_mobile">
+        <div  v-if="windowWidth <= 601" class="ybexpanded_search show_mobile">
             <h1 class="ytitle-exp">Расширенный поиск</h1>
             <div class="yb-carsearch_items">
                 <div class="yoptions_items">
                     <div class="yoptions_items_mobile">
-                    <div class="yoption_btn">
-                        <button class="change_type active">Все</button>
-                        <button class="change_type">Новые</button>
-                        <button class="change_type">Б/у</button>
+                        <div class="yoption_btn">
+                            <button class="change_type active">Все</button>
+                            <button class="change_type">Новые</button>
+                            <button class="change_type">Б/у</button>
+                        </div>
+                        <div class="ycheckbox_options">
+                            <ycheckbox
+                                :text="'Поиск со всех ресурсов'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'Провереные'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'С фото'">
+                            </ycheckbox>
+                        </div>
+                        <div class="y-transport_options">
+                            <h2>Тип транспорта</h2>
+                            <ydropdown  :items="typeCars"></ydropdown>
+                        </div>
                     </div>
-                    <div class="ycheckbox_options">
+                    <div class="ychecked_options-mobile">
+                        <h3>Тип кузова</h3>
+                        <div class="yb-checked_type">
+                            <div class="yl-vis checkbox">
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check1" type="checkbox">
+                                    <label class="y-body_name" for="check1">Универсал</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check2"  type="checkbox">
+                                    <label class="y-body_name" for="check2">Кроссовер</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check3" type="checkbox">
+                                    <label class="y-body_name" for="check3">Минивэн</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check4" type="checkbox">
+                                    <label class="y-body_name" for="check4">Лифтбек</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check5" type="checkbox">
+                                    <label class="y-body_name" for="check5">Хэтчбек</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check6" type="checkbox">
+                                    <label class="y-body_name" for="check6">Кабриолет</label>
+                                </div>
+                            </div>
+                            <div class="yr-vis checkbox">
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check7" type="checkbox">
+                                    <label class="y-body_name" for="check7">Седан</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check8" type="checkbox">
+                                    <label class="y-body_name" for="check8">Купе</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check9" type="checkbox">
+                                    <label class="y-body_name" for="check9">Пикап</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check10" type="checkbox">
+                                    <label class="y-body_name" for="check10">Ростер</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check11" type="checkbox">
+                                    <label class="y-body_name" for="check11">Лимузин</label>
+                                </div>
+                                <div class="yvis_checkbox">
+                                    <input class="ycheck" id="check12" type="checkbox">
+                                    <label class="y-body_name" for="check12">Другой</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>Страна производитель</h4>
+                <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                <div class="add-cars_items">
+                    <div class="yflex_car-item">
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="years"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="years"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="y-cut_added-item">
+                        <button class="car-items_btn y-added ">Добавить марку</button>
+                        <button class="car-items_btn y-сut">Исключить марку</button>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-carsearch_price-items">
+                <div class="ychange_price-container">
+                    <h2>Цена</h2>
+                    <div class="yrange_slider-container">
+                        <yrange></yrange>
                         <ycheckbox
-                            :text="'Поиск со всех ресурсов'">
+                            :text="'Возможен торг'">
                         </ycheckbox>
                         <ycheckbox
-                            :text="'Провереные'">
+                            :text="'Возможен обмен на автомобиль'">
                         </ycheckbox>
                         <ycheckbox
-                            :text="'С фото'">
+                            :text="'Возможен обмен на недвижимость'">
                         </ycheckbox>
                     </div>
-                    <h4>Страна производитель</h4>
-                    <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                </div>
+                <div class="yreg_container">
+                    <h2>Регион</h2>
+                    <yselect :placeholder="'Выберите область'" :options="ukSityName"></yselect>
+                    <yselect :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                </div>
+            </div>
+            <div class="yb-condition_cars">
+                <h2>Состояние</h2>
+                <div class="yb-status_car-items">
+                    <div class="status_items">
+                        <h2>Авто не в Украине</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>В кредите</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Нерастаможеные</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Конфискат</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>После ДТП</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Не на ходу</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Продавец</h2>
+                        <div class="change_vis-btn">
+                            <button class="btn_s large active">Частное лицо</button>
+                            <button class=" btn_s ">Компания</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="yb-status_checked-items">
+                    <h2>Пригнан из</h2>
+                    <div class="yb-select_items">
+                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <div class="yb-cheked_items">
+                            <div class="ycheked vis_l">
+                                <div class="yvis_l checkbox">
+                                    <input id="1" type="checkbox">
+                                    <label for="1">Гаражное хранение</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="2" type="checkbox">
+                                    <label for="2">Индивидуальная комплектация</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="3" type="checkbox">
+                                    <label for="3">Не бит</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="4" type="checkbox">
+                                    <label for="4">Не крашен</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="10" type="checkbox">
+                                    <label for="10">Требует ремонта</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_c">
+                                <div class="yvis_c checkbox">
+                                    <input id="5" type="checkbox">
+                                    <label for="5">Первая регистрация</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="6" type="checkbox">
+                                    <label for="6">Первый владелец</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="7" type="checkbox">
+                                    <label for="7">Пригоню под заказ</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="8" type="checkbox">
+                                    <label for="8">Сервисная книжка</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="9" type="checkbox">
+                                    <label for="9">Ручное управление для инвалдов</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-specifications_cars">
+                <h2>Технические характеристики</h2>
+                <div class="yselect_specifications">
+                    <div class="vis_l-specifications">
+                        <h2>Топливо</h2>
+                        <ydropdown :items="fuel"></ydropdown>
+                        <h2>КПП</h2>
+                        <ydropdown :items="transmission"></ydropdown>
+                        <h2>Тип привода</h2>
+                        <ydropdown :items="typeofdrive"></ydropdown>
+                    </div>
+                    <div class="vis_c-specifications y-double">
+                        <h3>Росход топлива, л./100 км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Объём, л.</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Мощность</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="yselect_specifications vis_mobile">
+                    <div class="vis_r-specifications y-double">
+                        <h3>Пробег, тыс.км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество дверей</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество мест</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                    <div class="youther_specifications">
+                        <h3>Цвет</h3>
+                        <div class="yvis_outher">
+                            <div class="yvis_outher-left">
+                                <div class="ycheck_color">
+                                    <div class="ylabel_visible">
+                                        <input  class=""  type="checkbox">
+                                        <label style="background-color: #742D05"  for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class=""  type="checkbox">
+                                        <label style="background-color: #FFCB11" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class=""  type="checkbox">
+                                        <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" type="checkbox">
+                                        <label style="background-color: #FFFFFF" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" type="checkbox">
+                                        <label style="background-color: #000000" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" type="checkbox">
+                                        <label style="background-color: #0B3F8D" for=""></label>
+                                    </div>
+                                </div>
+                                <div class="ycheck_color">
+                                    <div class="ylabel_visible">
+                                        <input class=""  type="checkbox">
+                                        <label style="background-color: #5100B8" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class=""  type="checkbox">
+                                        <label style="background-color: #E30000" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" type="checkbox">
+                                        <label style="background-color: #1D8D0B" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class=""  type="checkbox">
+                                        <label style="background-color: #0066FF" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" type="checkbox">
+                                        <label style="background-color: #FFF504" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" type="checkbox">
+                                        <label style="background-color: #FF007A" for=""></label>
+                                    </div>
+                                </div>
+                                <button @click="colorOpen = !colorOpen" class="ycolor_more">
+                                    <i class="fas"
+                                       :class="{'fa-chevron-up' : colorOpen, 'fa-chevron-down':  !colorOpen}"></i>
+                                </button>
+                            </div>
+                            <div class="yvis_outher-right">
+                                <div class="youther_visl-btn">
+                                    <button @click="isOpened =  !isOpened">
+                                        Безопасность
+                                        <i class="fas "
+                                           :class="{'fa-chevron-up' : isOpened, 'fa-chevron-down':  !isOpened}"
+                                        ></i>
+                                    </button>
+                                    <button @click="isOpened =  !isOpened">
+                                        Комфорт
+                                        <i class="fas "
+                                           :class="{'fa-chevron-up' : isOpened, 'fa-chevron-down':  !isOpened}"></i>
+                                    </button>
+                                    <button @click="isOpened =  !isOpened">
+                                        Мультимедия
+                                        <i class="fas "
+                                           :class="{'fa-chevron-up' : isOpened, 'fa-chevron-down':  !isOpened}"></i>
+                                    </button>
+                                    <button @click="isOpened =  !isOpened">
+                                        Прочее
+                                        <i class="fas "
+                                           :class="{'fa-chevron-up' : isOpened, 'fa-chevron-down':  !isOpened}"></i>
+                                    </button>
+                                </div>
+                                <div v-show="isOpened" class="youther_visr-options">
+                                    <div class="yflex_vis_options">
+                                        <div class="ycars_options">
+                                            <div class="yoption">
+                                                <input id="abd" type="checkbox">
+                                                <label for="abd">ABD</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="esp" type="checkbox">
+                                                <label for="esp">ESP</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="light" type="checkbox">
+                                                <label for="light">Галогенные фары</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="immobilizer" type="checkbox">
+                                                <label for="immobilizer">Иммобилайзер</label>
+                                            </div>
+                                        </div>
+                                        <div class="ycars_options">
+                                            <div class="yoption">
+                                                <input id="abs" type="checkbox">
+                                                <label for="abs">ABS</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="bag" type="checkbox">
+                                                <label for="bag">Подушка безопасности</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="signaling" type="checkbox">
+                                                <label for="signaling">Сигнализация</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="armored" type="checkbox">
+                                                <label for="armored">Бронированный автомобиль</label>
+                                            </div>
+                                        </div>
+                                        <div class="ycars_options">
+                                            <div class="yoption">
+                                                <input id="lock" type="checkbox">
+                                                <label for="lock">Замок на КПП</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="suspension" type="checkbox">
+                                                <label for="suspension">Пневмоподвеска</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="servo_wheel" type="checkbox">
+                                                <label for="servo_wheel">Серворуль</label>
+                                            </div>
+                                            <div class="yoption">
+                                                <input id="central_lock" type="checkbox">
+                                                <label for="central_lock">Центральный замок</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-chevron-up" @click="isOpened = !isOpened"
+                                    >
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="yspecification_results">
+                <h3>Результаты поиска</h3>
+                <div class="yvisual_results">
+                    <div class="yvis_res-select">
+                        <h2>Сортировка</h2>
+                        <ydropdown></ydropdown>
+                        <h2>Период подачи</h2>
+                        <ydropdown></ydropdown>
+                    </div>
+                    <div class="yvis_res-select">
+                        <h2>Актуальность</h2>
+                        <ydropdown></ydropdown>
+                        <h2>Показывать</h2>
+                        <ydropdown></ydropdown>
+                    </div>
+                    <div class="yseach_card-id">
+                        <h3>Поиск по ID</h3>
+                        <input
+                            class="y_seach-id"
+                            type="text"
+                            placeholder="Введите ID объявления"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="ysearch_results">
+                <h2>Вы ищите:</h2>
+                <div class="yb-repeat_selected">
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <button class="yclear_form">Сбросить все фильтры</button>
+                <div class="yb-count_result"> Найдено 178 978 авто</div>
+                <div class="y_form-search">
+                    <button>Поиск</button>
+                </div>
+            </div>
+        </div>
+        <div  v-else-if="windowWidth <= 946" class="ybexpanded_search show_tablet">
+            <h1 class="ytitle-exp">Расширенный поиск</h1>
+            <div class="yb-carsearch_items">
+                <div class="yoptions_items">
+                    <div class="yoptions_items_mobile">
+                        <div class="yoption_btn">
+                            <button class="change_type active">Все</button>
+                            <button class="change_type">Новые</button>
+                            <button class="change_type">Б/у</button>
+                        </div>
+                        <div class="ycheckbox_options">
+                            <ycheckbox
+                                :text="'Поиск со всех ресурсов'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'Провереные'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'С фото'">
+                            </ycheckbox>
+                        </div>
+                        <h4>Страна производитель</h4>
+                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
@@ -1358,16 +1851,17 @@
 
 <script>
     export default {
-        created() {
-            window.addEventListener('resize', this.showMobile);
-            this.showMobile();
+        mounted () {
+            document.addEventListener('click', this.clickOutside);
+            window.addEventListener('resize', this.changeResize)
+            this.changeResize();
         },
         destroyed() {
-            window.removeEventListener('resize', this.showMobile)
+            document.removeEventListener('click', this.clickOutside)
         },
         data(){
             return{
-                mobile: false,
+                windowWidth: 0,
                 colorOpen: false,
                 isOpened: false,
                 test: ['100'],
@@ -1470,9 +1964,15 @@
             }
         },
         methods: {
-            showMobile() {
-                this.mobile = window.innerWidth <= 946;
-            }
+            changeResize(event) {
+                this.windowWidth = document.documentElement.clientWidth;
+                console.log(this.windowWidth)
+            },
+            clickOutside(evt){
+                if (!this.$el.contains(evt.target)) {
+                    this.isOpened = false;
+                }
+            },
         }
 
     }

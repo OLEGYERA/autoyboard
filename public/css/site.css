@@ -4094,6 +4094,7 @@ span.yb-gradient {
 
 .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id {
   width: 100%;
+  height: 40px;
   padding: 10px 15px 10px 20px;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
@@ -4102,7 +4103,7 @@ span.yb-gradient {
   color: #C7C7C7;
   background: #FFFFFF;
   border: 2px solid #717171;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::-moz-placeholder {
@@ -4306,9 +4307,277 @@ span.yb-gradient {
 }
 
 @media only screen and (max-width: 945px) {
+  .yfilterextended .show_tablet {
+    padding: 25px 15px;
+  }
+
+  .yfilterextended .show_tablet .ytitle-exp {
+    font-size: 1.5em;
+    line-height: 28px;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items {
+    display: block;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items {
+    width: 100%;
+    display: flex;
+    margin: 0 30px 15px 0;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
+    width: 27%;
+    margin-right: 25px;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ycheckbox_options .change_resource .title_change {
+    font-size: 1em;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile h4 {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.125em;
+    line-height: 22px;
+    margin: 15px 0 5px;
+    color: rgba(46, 46, 46, 0.76);
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #E2E2E2;
+    cursor: pointer;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .value {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    font-size: 1.125em;
+    line-height: 22px;
+    color: #696969;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown i {
+    color: #C7C7C7;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items {
+    position: absolute;
+    scrollbar-width: none;
+    max-height: 140px;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+    border-radius: 3px;
+    z-index: 2;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    height: 35px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1.125em;
+    line-height: 22px;
+    padding: 0px 0px 0px 20px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.83);
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item i {
+    position: absolute;
+    top: auto;
+    color: #2ECC71;
+    right: 8px;
+    font-size: 0.75em;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(199, 199, 199, 0.33);
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .checked {
+    border-left: 4px solid #0B3F8D;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .checked:after {
+    height: 2px;
+    background: rgba(91, 91, 91, 0.13);
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .y-transport_options {
+    width: 27%;
+    margin-right: 25px;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
+    width: 24%;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile h3 {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 10px;
+    color: rgba(46, 46, 46, 0.76);
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .ycheck {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .y-body_name {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 19px;
+    color: #696969;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .add-cars_items {
+    width: 100%;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox {
+    display: flex;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country {
+    width: 100%;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country:first-child {
+    margin-bottom: 20px;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .yselect_specifications .vis_l-specifications {
+    width: 33.7%;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .yselect_specifications .y-double {
+    width: 28.2%;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options:last-child {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
+    margin-right: 15px;
+    width: 32%;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .y-transport_options {
+    margin-right: 15px;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
+    width: 32%;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+    width: 60%;
+  }
+
+  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
+    width: 35%;
+  }
+
+  .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items {
+    display: block;
+  }
+
+  .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+    width: 30%;
+    margin-right: 0px;
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
+    width: 100%;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left {
+    width: 30%;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right {
+    width: 100%;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+    width: 20%;
+  }
+
+  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+    width: 75%;
+  }
+
+  .yfilterextended .show_tablet .yspecification_results .yvisual_results .yvis_res-select {
+    width: 30%;
+    margin-right: 15px;
+  }
+
+  .yfilterextended .show_tablet .yspecification_results .yvisual_results .yseach_card-id {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .yfilterextended .show_mobile {
+    padding: 25px 10px;
+    width: 100%;
+  }
+
   .yfilterextended .show_mobile .ytitle-exp {
     font-size: 1.5em;
     line-height: 28px;
+    margin: 0 0 18px;
   }
 
   .yfilterextended .show_mobile .yb-carsearch_items {
@@ -4318,34 +4587,464 @@ span.yb-gradient {
   .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items {
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    margin: 0;
   }
 
   .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
-    width: 27%;
-    margin-right: 25px;
-  }
-
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .y-transport_options {
-    width: 27%;
-    margin-right: 25px;
+    width: 50%;
   }
 
   .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
-    width: 24%;
+    width: 44%;
   }
 
   .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile h3 {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.125em;
     line-height: 22px;
-    margin: 0 0 10px;
     color: rgba(46, 46, 46, 0.76);
+    margin: 0 0 10px;
   }
 
   .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .ycheck {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .y-body_name {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 19px;
+    color: #696969;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items h4 {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.125em;
+    line-height: 22px;
+    color: rgba(46, 46, 46, 0.76);
+    margin: 0 0 5px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown {
+    width: 50%;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #E2E2E2;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .value {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    font-size: 1.125em;
+    line-height: 22px;
+    color: #696969;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown i {
+    color: #C7C7C7;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .items {
+    position: absolute;
+    scrollbar-width: none;
+    max-height: 140px;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+    border-radius: 3px;
+    z-index: 2;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .items .item {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    height: 35px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1.125em;
+    line-height: 22px;
+    padding: 0px 0px 0px 20px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.83);
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .items .item i {
+    position: absolute;
+    top: auto;
+    color: #2ECC71;
+    right: 8px;
+    font-size: 0.75em;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .items .item:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(199, 199, 199, 0.33);
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .items .checked {
+    border-left: 4px solid #0B3F8D;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .items .checked:after {
+    height: 2px;
+    background: rgba(91, 91, 91, 0.13);
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .items::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .yflex_car-item {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item h2 {
+    margin: 15px 0 5px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown {
+    padding: 10px 15px 10px 20px;
+    margin-bottom: 0;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .y-cut_added-item {
+    display: block;
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .y-cut_added-item .car-items_btn {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 0.9375em;
+    line-height: 18px;
+    color: #0B3F8D;
+    margin-bottom: 10px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .y-cut_added-item .car-items_btn:last-child {
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .ychange_price-container {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .yreg_container {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .yreg_container h2 {
+    margin: 10px 0 15px;
+    color: #0B3F8D;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .yreg_container .autocomplete {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .yreg_container .autocomplete:last-child {
+    margin-bottom: 0;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+    width: 50%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
+    width: 90%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .vis_l-specifications {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .vis_c-specifications {
+    width: 45%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile {
+    width: 100%;
+    margin-top: 15px;
+    position: relative;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .y-double {
+    width: 45%;
+    margin-right: 0;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications {
+    width: 45%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications h3 {
+    margin: 0px 0 10px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-left {
+    width: 100%;
+    padding: 15px 20px 10px 20px;
+    margin-bottom: 10px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn button i {
+    font-size: 0.875em;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+    flex-direction: column;
+    text-align: center;
+    height: 150px;
+    padding: 20px 5px;
+    position: absolute;
+    z-index: 2;
+    bottom: -160px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+    border-radius: 3px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options .ycars_options {
+    margin-right: 0;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options i {
+    margin-top: 15px;
+    color: #0B3F8D;
+    font-size: 1.125em;
+  }
+
+  .yfilterextended .show_mobile .yspecification_results .yvisual_results {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yvis_res-select {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yseach_card-id {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yclear_form {
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yb-count_result {
+    margin-bottom: 25px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.125em;
+    line-height: 22px;
+    color: rgba(24, 23, 23, 0.76);
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .yfilterextended .show_mobile {
+    padding: 25px 10px;
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .ytitle-exp {
+    font-size: 1.5em;
+    line-height: 28px;
+    margin: 0 0 18px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type {
+    width: 70%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .ychange_price-container {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .yreg_container {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+    width: 60%;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked {
+    margin-right: 0;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .vis_l {
+    margin-bottom: 5px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .vis_l-specifications {
+    width: 100%;
+    margin: 0 0 15px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .y-double {
+    width: 70%;
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .y-double {
+    width: 70%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-left {
+    width: 70%;
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+    height: auto;
+    padding: 20px 15px;
+    bottom: -65px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options .ycars_options .yoption {
+    margin-bottom: 10px;
+  }
+
+  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yvis_res-select {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yseach_card-id {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yclear_form {
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yb-count_result {
+    margin-bottom: 25px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.125em;
+    line-height: 22px;
+    color: rgba(24, 23, 23, 0.76);
   }
 }
 
