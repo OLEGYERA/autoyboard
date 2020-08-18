@@ -2110,3 +2110,102 @@
         }
     }
 }
+@media only screen and (max-width: 320px){
+    .yfilterextended{
+        .show_mobile{
+            .yb-condition_cars{
+                .yb-status_car-items{
+                    .status_items{
+                        margin-right: 10px;
+                        h2{
+                            font-size: em(16);
+                        }
+                        .change_vis-btn{
+                            .btn_s{
+                                font-size: em(15);
+                                &.active{
+                                    width: 75px;
+                                    height: 35px;
+                                    font-size: em(15);
+                                }
+                            }
+                        }
+                    }
+                }
+                .yb-status_checked-items{
+                    .yb-select_items{
+                        .ydropdown{
+                            width: 70%;
+                        }
+                    }
+                }
+            }
+            .yb-specifications_cars{
+                .yselect_specifications{
+                    .y-double{
+                        width: 90%;
+                    }
+                }
+                .vis_mobile{
+                    .y-double{
+                        width: 90%;
+                    }
+                    .youther_specifications{
+                        .yvis_outher{
+                            .yvis_outher-left{
+                                width: 90%;
+                                margin-bottom: 15px;
+                            }
+                            .yvis_outher-right{
+                                width: 100%;
+                                .youther_visl-btn{
+                                    width: 50%;
+                                }
+                                .youther_visr-options{
+                                    height: auto;
+                                    padding: 20px 15px;
+                                    bottom: -65px;
+                                    .yflex_vis_options{
+                                        flex-direction: column;
+                                        .ycars_options{
+                                            .yoption{
+                                                margin-bottom: 10px;
+                                            }
+                                        }
+                                    }
+                                }   }
+                        }
+                    }
+                }
+            }
+            .yspecification_results{
+                .yvisual_results{
+                    .yvis_res-select{
+                        width: 100%;
+                    }
+                    .yseach_card-id{
+                        width: 100%;
+                    }
+                }
+            }
+            .ysearch_results{
+                .yb-repeat_selected{
+                    .item_selected{
+
+                    }
+                }
+                .yclear_form{
+                    margin-bottom: 15px;
+                }
+                .yb-count_result{
+                    margin-bottom: 25px;
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(18);
+                    line-height: 22px;
+                    color: rgba(24, 23, 23, 0.76);
+                }
+            }
+        }
+    }
+}

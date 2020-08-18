@@ -5048,6 +5048,86 @@ span.yb-gradient {
   }
 }
 
+@media only screen and (max-width: 320px) {
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items {
+    margin-right: 10px;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items h2 {
+    font-size: 1em;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s {
+    font-size: 0.9375em;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s.active {
+    width: 75px;
+    height: 35px;
+    font-size: 0.9375em;
+  }
+
+  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+    width: 70%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .y-double {
+    width: 90%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .y-double {
+    width: 90%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-left {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+    width: 50%;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+    height: auto;
+    padding: 20px 15px;
+    bottom: -65px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options {
+    flex-direction: column;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options .ycars_options .yoption {
+    margin-bottom: 10px;
+  }
+
+  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yvis_res-select {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yseach_card-id {
+    width: 100%;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yclear_form {
+    margin-bottom: 15px;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yb-count_result {
+    margin-bottom: 25px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.125em;
+    line-height: 22px;
+    color: rgba(24, 23, 23, 0.76);
+  }
+}
+
 .ymenu .ymenu-visual {
   display: flex;
   align-items: center;
