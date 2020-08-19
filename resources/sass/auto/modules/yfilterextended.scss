@@ -6,6 +6,7 @@
     .yfilter_selected-item{
         width: 100%;
         display: flex;
+        position: relative;
         justify-content: space-between;
         align-items: center;
         margin: 37px 0 33px;
@@ -19,8 +20,9 @@
             .item_selected{
                 display: flex;
                 align-items: center;
-                justify-content: space-evenly;
-                width: 110px;
+                justify-content: space-between;
+                width: auto;
+                padding: 0 6%;
                 height: 34px;
                 margin-right: 5px;
                 background: linear-gradient(0deg, rgba(11, 63, 141, 0.04), rgba(11, 63, 141, 0.04));
@@ -33,15 +35,37 @@
                     font-size: em(15);
                     line-height: 18px;
                     color: $darkblue;
+                    white-space: nowrap;
                 }
                 i{
                     color: $darkblue;
                     font-size: em(14);
+                    cursor: pointer;
+                    margin-left: 10px;
                 }
                 &:last-child{
                     margin-right: 0;
                 }
             }
+        }
+        i{
+            cursor: pointer;
+        }
+        .show-drop_down{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: -155px;
+            left: 0;
+            height: auto;
+            z-index: 2;
+                .yb-items_selected{
+                    flex-wrap: wrap;
+                    .item_selected{
+                        margin-bottom: 10px;
+                        padding: 0 2%;
+                    }
+                }
         }
     }
     .ybexpanded_search{
@@ -117,7 +141,7 @@
                         .value{
                             font-family: $aleg;
                             font-weight: normal;
-                            font-size: em(18);
+                            font-size: em(16);
                             line-height: 22px;
                             color: #696969;
                         }
@@ -144,7 +168,7 @@
                                 position: relative;
                                 display: flex;
                                 align-items: center;
-                                font-size: em(18);
+                                font-size: em(16);
                                 line-height: 22px;
                                 padding: 0px 0px 0px 20px;
                                 cursor: pointer;
@@ -153,7 +177,7 @@
                                     position: absolute;
                                     top: auto;
                                     color: $dgreen;
-                                    right: 8px;
+                                    right: 16px;
                                     font-size: em(12);
                                 }
                                 &:after{
@@ -168,6 +192,7 @@
                             }
                             .checked{
                                 border-left: 4px solid $darkblue;
+                                padding: 10px 15px 10px 20px;
                                 &:after{
                                     height: 2px;
                                     background: rgba(91, 91, 91, 0.13);
@@ -313,7 +338,7 @@
                                             position: absolute;
                                             top: auto;
                                             color: $dgreen;
-                                            right: 8px;
+                                            right: 16px;
                                             font-size: em(12);
                                         }
                                         &:after{
@@ -388,7 +413,7 @@
                         .value{
                             font-family: $aleg;
                             font-weight: normal;
-                            font-size: em(18);
+                            font-size: em(16);
                             line-height: 22px;
                             color: #696969;
                         }
@@ -424,7 +449,7 @@
                                     position: absolute;
                                     top: auto;
                                     color: $dgreen;
-                                    right: 8px;
+                                    right: 16px;
                                     font-size: em(12);
                                 }
                                 &:after{
@@ -690,7 +715,7 @@
                                     position: absolute;
                                     top: auto;
                                     color: $dgreen;
-                                    right: 8px;
+                                    right: 16px;
                                     font-size: em(12);
                                 }
                                 &:after{
@@ -715,13 +740,13 @@
                     }
                     .yb-cheked_items{
                         display: flex;
-                        //width: 55%;
                         justify-content: space-between;
                         .ycheked{
                             margin-right: 12px;
                            .checkbox{
                                display: flex;
                                margin-bottom: 5px;
+                               cursor: pointer;
                                input{
                                    width: 12px;
                                    height: 12px;
@@ -796,7 +821,7 @@
                         .value{
                             font-family: $aleg;
                             font-weight: normal;
-                            font-size: em(18);
+                            font-size: em(16);
                             line-height: 22px;
                             color: #696969;
                         }
@@ -832,7 +857,7 @@
                                     position: absolute;
                                     top: auto;
                                     color: $dgreen;
-                                    right: 8px;
+                                    right: 16px;
                                     font-size: em(12);
                                 }
                                 &:after{
@@ -927,7 +952,7 @@
                                         position: absolute;
                                         top: auto;
                                         color: $dgreen;
-                                        right: 8px;
+                                        right: 16px;
                                         font-size: em(12);
                                     }
                                     &:after{
@@ -957,7 +982,7 @@
                 }
 
             }
-            .youther_specifications{
+            .yother_specifications{
                 width: 100%;
                 h3{
                     font-family: $aleg;
@@ -967,11 +992,11 @@
                     color: #5B5B5B;
                     margin: 15px 0 10px;
                 }
-                .yvis_outher{
+                .yvis_other{
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
-                    .yvis_outher-left{
+                    .yvis_other-left{
                         width: 20%;
                         border-radius: 12px;
                         border: 1px solid #E2E2E2;
@@ -1011,11 +1036,11 @@
                             }
                         }
                     }
-                    .yvis_outher-right{
+                    .yvis_other-right{
                         width: 75%;
                         display: flex;
                         justify-content: space-between;
-                        .youther_visl-btn{
+                        .yother_visl-btn{
                             width: 15%;
                             margin-right: 20px;
                             button{
@@ -1037,7 +1062,7 @@
                                 }
                             }
                         }
-                        .youther_visr-options{
+                        .yother_visr-options{
                             display: flex;
                             width: 80%;
                             .ycars_options{
@@ -1045,6 +1070,7 @@
                                 .yoption{
                                     display: flex;
                                     margin-bottom: 5px;
+                                    cursor: pointer;
                                     input{
                                         width: 12px;
                                         height: 12px;
@@ -1155,7 +1181,7 @@
                                     position: absolute;
                                     top: auto;
                                     color: $dgreen;
-                                    right: 8px;
+                                    right: 16px;
                                     font-size: em(12);
                                 }
                                 &:after{
@@ -1305,9 +1331,6 @@
 
 @media only screen and (max-width: 1600px){
     .yfilterextended{
-        .yfilter_selected-item{
-
-        }
         .ybexpanded_search{
             .yb-carsearch_price-items{
                 .yreg_container{
@@ -1374,13 +1397,13 @@
                 }
             }
            .yb-specifications_cars{
-               .youther_specifications{
-                   .yvis_outher{
-                       .yvis_outher-left{
+               .yother_specifications{
+                   .yvis_other{
+                       .yvis_other-left{
                            width: 23%;
                        }
-                       .yvis_outher-right{
-                           .youther_visl-btn{
+                       .yvis_other-right{
+                           .yother_visl-btn{
                                width: 17%;
                                margin-right: 0;
                            }
@@ -1438,7 +1461,7 @@
                             .value{
                                 font-family: $aleg;
                                 font-weight: normal;
-                                font-size: em(18);
+                                font-size: em(16);
                                 line-height: 22px;
                                 color: #696969;
                             }
@@ -1474,7 +1497,7 @@
                                         position: absolute;
                                         top: auto;
                                         color: $dgreen;
-                                        right: 8px;
+                                        right: 16px;
                                         font-size: em(12);
                                     }
                                     &:after{
@@ -1567,10 +1590,10 @@
                         width: 28.2%;
                     }
                 }
-                .youther_specifications{
-                    .yvis_outher{
-                        .yvis_outher-right{
-                            .youther_visr-options{
+                .yother_specifications{
+                    .yvis_other{
+                        .yvis_other-right{
+                            .yother_visr-options{
                                 .ycars_options{
                                     &:last-child{
                                         display: none;
@@ -1586,6 +1609,12 @@
 }
 @media only screen and (max-width: 768px){
     .yfilterextended {
+        .yfilter_selected-item{
+            .show-drop_down{
+                bottom: -200px;
+                padding: 15px 20px 15px 20px;
+            }
+        }
         .show_tablet{
             .yb-carsearch_items{
                 .yoptions_items{
@@ -1632,20 +1661,20 @@
                 }
             }
             .yb-specifications_cars{
-                .youther_specifications{
-                    .yvis_outher{
+                .yother_specifications{
+                    .yvis_other{
                         flex-direction: column;
-                        .yvis_outher-left{
+                        .yvis_other-left{
                             width: 30%;
                             padding: 15px;
                             margin-bottom: 15px;
                         }
-                        .yvis_outher-right{
+                        .yvis_other-right{
                             width: 100%;
-                            .youther_visl-btn{
+                            .yother_visl-btn{
                                 width: 20%;
                             }
-                            .youther_visr-options{
+                            .yother_visr-options{
                                 width: 75%;
                             }
                         }
@@ -1668,6 +1697,18 @@
 }
 @media only screen and (max-width: 600px){
     .yfilterextended{
+        .yfilter_selected-item{
+            .yb-items_selected{
+                .item_selected{
+                    &:last-child{
+                        display: none;
+                    }
+                }
+            }
+            .show-drop_down{
+                bottom: -200px;
+            }
+        }
         .show_mobile{
             padding: 25px 10px;
             width: 100%;
@@ -1742,7 +1783,7 @@
                     .value{
                         font-family: $aleg;
                         font-weight: normal;
-                        font-size: em(18);
+                        font-size: em(16);
                         line-height: 22px;
                         color: #696969;
                     }
@@ -1778,7 +1819,7 @@
                                 position: absolute;
                                 top: auto;
                                 color: $dgreen;
-                                right: 8px;
+                                right: 16px;
                                 font-size: em(12);
                             }
                             &:after{
@@ -1822,9 +1863,11 @@
                         }
                     }
                     .y-cut_added-item{
-                        display: block;
+                        display: flex;
+                        flex-direction: column;
                         width: 100%;
                         .car-items_btn{
+                            text-align: left;
                             font-family: $aleg;
                             font-weight: 500;
                             font-size: em(15);
@@ -1893,29 +1936,52 @@
                         width: 45%;
                         margin-right: 0;
                     }
-                    .youther_specifications{
+                    .yother_specifications{
                         width: 45%;
                         h3{
                             margin: 0px 0 10px;
                         }
-                        .yvis_outher{
+                        .yvis_other{
                             flex-direction: column;
-                            .yvis_outher-left{
+                            .yvis_other-left{
                                 width: 100%;
                                 padding: 15px 20px 10px 20px;
                                 margin-bottom: 10px;
                             }
-                            .yvis_outher-right{
+                            .yvis_other-right{
                                 width: 100%;
-                                .youther_visl-btn{
+                                .yother_visl-btn{
                                     width: 50%;
-                                    button{
-                                        i{
-                                            font-size: em(14);
+                                    .yb_list-options{
+                                        button{
+                                            i{
+                                                font-size: em(14);
+                                            }
+                                        }
+                                        .yoption{
+                                            display: flex;
+                                            margin-bottom: 5px;
+                                            cursor: pointer;
+                                            input{
+                                                width: 12px;
+                                                height: 12px;
+                                                margin-right: 5px;
+                                            }
+                                            label{
+                                                font-family: $aleg;
+                                                font-weight: normal;
+                                                font-size: em(16);
+                                                line-height: 19px;
+                                                color: $filercheckbox;
+                                            }
+                                            &:last-child{
+                                                margin-bottom: 0;
+                                            }
                                         }
                                     }
+
                                 }
-                                .youther_visr-options{
+                                .yother_visr-options{
                                     flex-direction: column;
                                     text-align: center;
                                     height: 150px;
@@ -1978,6 +2044,19 @@
 
 @media only screen and (max-width: 425px){
     .yfilterextended{
+        .yfilter_selected-item{
+            padding: 15px 30px 15px 30px;
+            .yb-items_selected{
+                .item_selected{
+                    &:nth-child(3){
+                        display: none;
+                    }
+                }
+            }
+            .show-drop_down{
+                bottom: -245px;
+            }
+        }
         .show_mobile{
             padding: 25px 10px;
             width: 100%;
@@ -2050,19 +2129,19 @@
                     .y-double{
                         width: 70%;
                     }
-                    .youther_specifications{
+                    .yother_specifications{
                         width: 100%;
-                        .yvis_outher{
-                            .yvis_outher-left{
+                        .yvis_other{
+                            .yvis_other-left{
                                 width: 70%;
                                 margin-bottom: 15px;
                             }
-                            .yvis_outher-right{
+                            .yvis_other-right{
                                 width: 100%;
-                                .youther_visl-btn{
+                                .yother_visl-btn{
                                     width: 50%;
                                 }
-                                .youther_visr-options{
+                                .yother_visr-options{
                                     height: auto;
                                     padding: 20px 15px;
                                     bottom: -65px;
@@ -2092,7 +2171,7 @@
             .ysearch_results{
                 .yb-repeat_selected{
                     .item_selected{
-
+                        margin-bottom: 5px;
                     }
                 }
                 .yclear_form{
@@ -2112,7 +2191,32 @@
 }
 @media only screen and (max-width: 320px){
     .yfilterextended{
+        .yfilter_selected-item{
+            .yb-items_selected{
+                .item_selected{
+                    padding: 0 10%;
+                    &:nth-child(2){
+                        display: none;
+                    }
+                }
+            }
+            .show-drop_down{
+                bottom: -285px;
+            }
+        }
         .show_mobile{
+            .yb-carsearch_price-items{
+                .ychange_price-container{
+                    .yrange_slider-container{
+                        padding: 25px 5px;
+                        .change_resource{
+                            .title_change{
+                                font-size: em(14);
+                            }
+                        }
+                    }
+                }
+            }
             .yb-condition_cars{
                 .yb-status_car-items{
                     .status_items{
@@ -2150,18 +2254,18 @@
                     .y-double{
                         width: 90%;
                     }
-                    .youther_specifications{
-                        .yvis_outher{
-                            .yvis_outher-left{
+                    .yother_specifications{
+                        .yvis_other{
+                            .yvis_other-left{
                                 width: 90%;
                                 margin-bottom: 15px;
                             }
-                            .yvis_outher-right{
+                            .yvis_other-right{
                                 width: 100%;
-                                .youther_visl-btn{
+                                .yother_visl-btn{
                                     width: 50%;
                                 }
-                                .youther_visr-options{
+                                .yother_visr-options{
                                     height: auto;
                                     padding: 20px 15px;
                                     bottom: -65px;
@@ -2191,7 +2295,9 @@
             .ysearch_results{
                 .yb-repeat_selected{
                     .item_selected{
-
+                        &:last-child{
+                            display: none;
+                        }
                     }
                 }
                 .yclear_form{

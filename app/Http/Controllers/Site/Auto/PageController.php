@@ -22,6 +22,12 @@ class PageController extends BasicController
         return $this->renderBasic();
     }
 
+    public function card(){
+
+        $this->content = view('site.auto.card.ru')->render();
+        return $this->renderBasic();
+    }
+
 
 
     public function generateURL(){

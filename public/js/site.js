@@ -3983,8 +3983,6 @@ __webpack_require__.r(__webpack_exports__);
     generatingPlaceholder: function generatingPlaceholder() {
       if (this.value === "") {
         return this.placeholder;
-      } else if (this.value === "" && this.placeholder === '') {
-        return this.items[0];
       } else {
         return this.value;
       }
@@ -5974,16 +5972,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
@@ -5995,11 +5983,30 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      showSelected: false,
+      isOpened: false,
       windowWidth: 0,
       colorOpen: false,
-      isOpened: false,
+      otherShowID: null,
       test: ['100'],
       test2: ['200'],
+      accordionItems: [{
+        title: 'Безопасность',
+        items: 'Бронированный автомобиль'
+      }, {
+        title: 'Комфорт',
+        items: 'Подогрев сидений'
+      }, {
+        title: 'Мультимедия',
+        items: 'Мультируль'
+      }, {
+        title: 'Прочее',
+        items: 'Мультируль'
+      }],
+      isActual: ['Все', 'Скрыть проданные', 'Только проданнные'],
+      amountShow: ['По 10', 'По 20', 'По 30', 'По 50', 'По 100'],
+      sortBy: ['Обычная', 'От дешевых к дорогим', 'От дорогих к дешевым', 'Дата добавления', 'Год выпуска, по возрастанию', 'Год выпуска, по убыванию', 'Пробег, по возрастанию', 'Пробег, по убыванию'],
+      deliveryPeriod: ['Все', 'За час', 'За 3 часа', 'За 6 часов', 'За 12 часов', 'За сегодня', 'За сутки', 'За 2 дня', 'За 3 дня', 'За неделю', 'За месяц', 'За 3 месяца'],
       fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин'],
       transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная'],
       typeofdrive: ['Задний привод', 'Передний привод', 'Полный привод'],
@@ -6209,7 +6216,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     clickOutside: function clickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
-        this.isOpened = false;
+        this.otherShowID = null;
       }
     }
   }
@@ -46475,7 +46482,34 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "yfilterextended" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "yfilter_selected-item" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("i", {
+        staticClass: "fas fa-chevron-down",
+        on: {
+          click: function($event) {
+            _vm.showSelected = !_vm.showSelected
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showSelected,
+              expression: "showSelected"
+            }
+          ],
+          staticClass: "yfilter_selected-item show-drop_down"
+        },
+        [_vm._m(1)]
+      )
+    ]),
     _vm._v(" "),
     _vm.windowWidth <= 601
       ? _c("div", { staticClass: "ybexpanded_search show_mobile" }, [
@@ -46489,7 +46523,7 @@ var render = function() {
             [
               _c("div", { staticClass: "yoptions_items" }, [
                 _c("div", { staticClass: "yoptions_items_mobile" }, [
-                  _vm._m(1),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -46512,13 +46546,18 @@ var render = function() {
                     [
                       _c("h2", [_vm._v("Тип транспорта")]),
                       _vm._v(" "),
-                      _c("ydropdown", { attrs: { items: _vm.typeCars } })
+                      _c("ydropdown", {
+                        attrs: {
+                          placeholder: "Не выбрано",
+                          items: _vm.typeCars
+                        }
+                      })
                     ],
                     1
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _vm._m(3)
               ]),
               _vm._v(" "),
               _c("h4", [_vm._v("Страна производитель")]),
@@ -46584,7 +46623,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(4)
               ])
             ],
             1
@@ -46641,7 +46680,7 @@ var render = function() {
           _c("div", { staticClass: "yb-condition_cars" }, [
             _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _vm._m(4),
+            _vm._m(5),
             _vm._v(" "),
             _c("div", { staticClass: "yb-status_checked-items" }, [
               _c("h2", [_vm._v("Пригнан из")]),
@@ -46657,7 +46696,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _vm._m(6)
                 ],
                 1
               )
@@ -46674,15 +46713,24 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Топливо")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.fuel } }),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("КПП")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.transmission } }),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transmission
+                    }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Тип привода")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.typeofdrive } })
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.typeofdrive }
+                  })
                 ],
                 1
               ),
@@ -46795,14 +46843,14 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "youther_specifications" }, [
+              _c("div", { staticClass: "yother_specifications" }, [
                 _c("h3", [_vm._v("Цвет")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "yvis_outher" }, [
-                  _c("div", { staticClass: "yvis_outher-left" }, [
-                    _vm._m(6),
-                    _vm._v(" "),
+                _c("div", { staticClass: "yvis_other" }, [
+                  _c("div", { staticClass: "yvis_other-left" }, [
                     _vm._m(7),
+                    _vm._v(" "),
+                    _vm._m(8),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -46826,126 +46874,55 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "yvis_outher-right" }, [
-                    _c("div", { staticClass: "youther_visl-btn" }, [
-                      _c(
-                        "button",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.isOpened = !_vm.isOpened
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                    Безопасность\n                                    "
-                          ),
-                          _c("i", {
-                            staticClass: "fas ",
-                            class: {
-                              "fa-chevron-up": _vm.isOpened,
-                              "fa-chevron-down": !_vm.isOpened
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.isOpened = !_vm.isOpened
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                    Комфорт\n                                    "
-                          ),
-                          _c("i", {
-                            staticClass: "fas ",
-                            class: {
-                              "fa-chevron-up": _vm.isOpened,
-                              "fa-chevron-down": !_vm.isOpened
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.isOpened = !_vm.isOpened
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                    Мультимедия\n                                    "
-                          ),
-                          _c("i", {
-                            staticClass: "fas ",
-                            class: {
-                              "fa-chevron-up": _vm.isOpened,
-                              "fa-chevron-down": !_vm.isOpened
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.isOpened = !_vm.isOpened
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                    Прочее\n                                    "
-                          ),
-                          _c("i", {
-                            staticClass: "fas ",
-                            class: {
-                              "fa-chevron-up": _vm.isOpened,
-                              "fa-chevron-down": !_vm.isOpened
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
+                  _c("div", { staticClass: "yvis_other-right" }, [
                     _c(
                       "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.isOpened,
-                            expression: "isOpened"
-                          }
-                        ],
-                        staticClass: "youther_visr-options"
-                      },
-                      [
-                        _vm._m(8),
-                        _vm._v(" "),
-                        _c("i", {
-                          staticClass: "fas fa-chevron-up",
-                          on: {
-                            click: function($event) {
-                              _vm.isOpened = !_vm.isOpened
-                            }
-                          }
-                        })
-                      ]
+                      { staticClass: "yother_visl-btn" },
+                      _vm._l(_vm.accordionItems, function(accordion, idx) {
+                        return _c(
+                          "li",
+                          { key: idx, staticClass: "yb_list-options" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                on: {
+                                  click: function($event) {
+                                    _vm.otherShowID = idx
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(accordion.title) +
+                                    "\n                                        "
+                                ),
+                                _c("i", {
+                                  staticClass: "fas ",
+                                  class: {
+                                    "fa-chevron-up": _vm.otherShowID == idx,
+                                    "fa-chevron-down": _vm.otherShowID != idx
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.otherShowID == idx
+                              ? _c("div", { staticClass: "yoption" }, [
+                                  _c("input", {
+                                    attrs: { id: "abd", type: "checkbox" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("label", { attrs: { for: "abd" } }, [
+                                    _vm._v(_vm._s(accordion.items))
+                                  ])
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      }),
+                      0
                     )
                   ])
                 ])
@@ -46963,11 +46940,18 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Сортировка")]),
                   _vm._v(" "),
-                  _c("ydropdown"),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.sortBy }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Период подачи")]),
                   _vm._v(" "),
-                  _c("ydropdown")
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.deliveryPeriod
+                    }
+                  })
                 ],
                 1
               ),
@@ -46978,11 +46962,15 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Актуальность")]),
                   _vm._v(" "),
-                  _c("ydropdown"),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.isActual }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Показывать")]),
                   _vm._v(" "),
-                  _c("ydropdown")
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.amountShow }
+                  })
                 ],
                 1
               ),
@@ -47040,7 +47028,9 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Тип транспорта")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.typeCars } })
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.typeCars }
+                  })
                 ],
                 1
               ),
@@ -47319,15 +47309,24 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Топливо")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.fuel } }),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("КПП")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.transmission } }),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transmission
+                    }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Тип привода")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.typeofdrive } })
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.typeofdrive }
+                  })
                 ],
                 1
               ),
@@ -47439,11 +47438,11 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "youther_specifications" }, [
+            _c("div", { staticClass: "yother_specifications" }, [
               _c("h3", [_vm._v("Цвет")]),
               _vm._v(" "),
-              _c("div", { staticClass: "yvis_outher" }, [
-                _c("div", { staticClass: "yvis_outher-left" }, [
+              _c("div", { staticClass: "yvis_other" }, [
+                _c("div", { staticClass: "yvis_other-left" }, [
                   _vm._m(17),
                   _vm._v(" "),
                   _vm._m(18),
@@ -47470,8 +47469,8 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "yvis_outher-right" }, [
-                  _c("div", { staticClass: "youther_visl-btn" }, [
+                _c("div", { staticClass: "yvis_other-right" }, [
+                  _c("div", { staticClass: "yother_visl-btn" }, [
                     _c(
                       "button",
                       {
@@ -47581,11 +47580,18 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Сортировка")]),
                   _vm._v(" "),
-                  _c("ydropdown"),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.sortBy }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Период подачи")]),
                   _vm._v(" "),
-                  _c("ydropdown")
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.deliveryPeriod
+                    }
+                  })
                 ],
                 1
               ),
@@ -47596,11 +47602,15 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Актуальность")]),
                   _vm._v(" "),
-                  _c("ydropdown"),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.isActual }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Показывать")]),
                   _vm._v(" "),
-                  _c("ydropdown")
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.amountShow }
+                  })
                 ],
                 1
               ),
@@ -47641,7 +47651,9 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Тип транспорта")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.typeCars } }),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.typeCars }
+                  }),
                   _vm._v(" "),
                   _c("h3", [_vm._v("Тип кузова")]),
                   _vm._v(" "),
@@ -47931,15 +47943,24 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Топливо")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.fuel } }),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("КПП")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.transmission } }),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transmission
+                    }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Тип привода")]),
                   _vm._v(" "),
-                  _c("ydropdown", { attrs: { items: _vm.typeofdrive } })
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.typeofdrive }
+                  })
                 ],
                 1
               ),
@@ -48051,11 +48072,11 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "youther_specifications" }, [
+            _c("div", { staticClass: "yother_specifications" }, [
               _c("h3", [_vm._v("Цвет")]),
               _vm._v(" "),
-              _c("div", { staticClass: "yvis_outher" }, [
-                _c("div", { staticClass: "yvis_outher-left" }, [
+              _c("div", { staticClass: "yvis_other" }, [
+                _c("div", { staticClass: "yvis_other-left" }, [
                   _vm._m(28),
                   _vm._v(" "),
                   _vm._m(29),
@@ -48082,8 +48103,8 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "yvis_outher-right" }, [
-                  _c("div", { staticClass: "youther_visl-btn" }, [
+                _c("div", { staticClass: "yvis_other-right" }, [
+                  _c("div", { staticClass: "yother_visl-btn" }, [
                     _c(
                       "button",
                       {
@@ -48193,11 +48214,18 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Сортировка")]),
                   _vm._v(" "),
-                  _c("ydropdown"),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.sortBy }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Период подачи")]),
                   _vm._v(" "),
-                  _c("ydropdown")
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.deliveryPeriod
+                    }
+                  })
                 ],
                 1
               ),
@@ -48208,11 +48236,15 @@ var render = function() {
                 [
                   _c("h2", [_vm._v("Актуальность")]),
                   _vm._v(" "),
-                  _c("ydropdown"),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.isActual }
+                  }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Показывать")]),
                   _vm._v(" "),
-                  _c("ydropdown")
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.amountShow }
+                  })
                 ],
                 1
               ),
@@ -48230,34 +48262,114 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yfilter_selected-item" }, [
-      _c("div", { staticClass: "yb-items_selected" }, [
-        _c("div", { staticClass: "item_selected" }, [
-          _c("span", [_vm._v("Легковые")]),
-          _vm._v(" "),
-          _c("i", { staticClass: "fas fa-times" })
-        ]),
+    return _c("div", { staticClass: "yb-items_selected" }, [
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
         _vm._v(" "),
-        _c("div", { staticClass: "item_selected" }, [
-          _c("span", [_vm._v("Легковые")]),
-          _vm._v(" "),
-          _c("i", { staticClass: "fas fa-times" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item_selected" }, [
-          _c("span", [_vm._v("Легковые")]),
-          _vm._v(" "),
-          _c("i", { staticClass: "fas fa-times" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item_selected" }, [
-          _c("span", [_vm._v("Легковые")]),
-          _vm._v(" "),
-          _c("i", { staticClass: "fas fa-times" })
-        ])
+        _c("i", { staticClass: "fas fa-times" })
       ]),
       _vm._v(" "),
-      _c("i", { staticClass: "fas fa-chevron-down" })
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Киевская обл")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-items_selected" }, [
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Возможен торг")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item_selected" }, [
+        _c("span", [_vm._v("Легковые")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-times" })
+      ])
     ])
   },
   function() {
@@ -48725,100 +48837,6 @@ var staticRenderFns = [
           staticStyle: { "background-color": "#FF007A" },
           attrs: { for: "" }
         })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yflex_vis_options" }, [
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "abd", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "abd" } }, [_vm._v("ABD")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "esp", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "esp" } }, [_vm._v("ESP")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "light", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "light" } }, [_vm._v("Галогенные фары")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "immobilizer", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "immobilizer" } }, [
-            _vm._v("Иммобилайзер")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "abs", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "abs" } }, [_vm._v("ABS")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "bag", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "bag" } }, [
-            _vm._v("Подушка безопасности")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "signaling", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "signaling" } }, [_vm._v("Сигнализация")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "armored", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "armored" } }, [
-            _vm._v("Бронированный автомобиль")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "lock", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "lock" } }, [_vm._v("Замок на КПП")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "suspension", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "suspension" } }, [
-            _vm._v("Пневмоподвеска")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "servo_wheel", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "servo_wheel" } }, [_vm._v("Серворуль")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "central_lock", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "central_lock" } }, [
-            _vm._v("Центральный замок")
-          ])
-        ])
       ])
     ])
   },
@@ -49593,7 +49611,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "youther_visr-options" }, [
+    return _c("div", { staticClass: "yother_visr-options" }, [
       _c("div", { staticClass: "ycars_options" }, [
         _c("div", { staticClass: "yoption" }, [
           _c("input", { attrs: { id: "abd", type: "checkbox" } }),
@@ -50450,7 +50468,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "youther_visr-options" }, [
+    return _c("div", { staticClass: "yother_visr-options" }, [
       _c("div", { staticClass: "ycars_options" }, [
         _c("div", { staticClass: "yoption" }, [
           _c("input", { attrs: { id: "abd", type: "checkbox" } }),

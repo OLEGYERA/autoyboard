@@ -62,8 +62,6 @@
             generatingPlaceholder(){
                 if(this.value === ""){
                     return this.placeholder
-                }else if(this.value === "" && this.placeholder === ''){
-                    return this.items[0]
                 }
                 else {
                     return this.value

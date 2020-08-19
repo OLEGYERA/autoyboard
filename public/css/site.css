@@ -2711,6 +2711,7 @@ span.yb-gradient {
 .yfilterextended .yfilter_selected-item {
   width: 100%;
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   margin: 37px 0 33px;
@@ -2728,8 +2729,9 @@ span.yb-gradient {
 .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 110px;
+  justify-content: space-between;
+  width: auto;
+  padding: 0 6%;
   height: 34px;
   margin-right: 5px;
   background: linear-gradient(0deg, rgba(11, 63, 141, 0.04), rgba(11, 63, 141, 0.04));
@@ -2744,15 +2746,41 @@ span.yb-gradient {
   font-size: 0.9375em;
   line-height: 18px;
   color: #0B3F8D;
+  white-space: nowrap;
 }
 
 .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected i {
   color: #0B3F8D;
   font-size: 0.875em;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:last-child {
   margin-right: 0;
+}
+
+.yfilterextended .yfilter_selected-item i {
+  cursor: pointer;
+}
+
+.yfilterextended .yfilter_selected-item .show-drop_down {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -155px;
+  left: 0;
+  height: auto;
+  z-index: 2;
+}
+
+.yfilterextended .yfilter_selected-item .show-drop_down .yb-items_selected {
+  flex-wrap: wrap;
+}
+
+.yfilterextended .yfilter_selected-item .show-drop_down .yb-items_selected .item_selected {
+  margin-bottom: 10px;
+  padding: 0 2%;
 }
 
 .yfilterextended .ybexpanded_search {
@@ -2841,7 +2869,7 @@ span.yb-gradient {
 .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 22px;
   color: #696969;
 }
@@ -2872,7 +2900,7 @@ span.yb-gradient {
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 22px;
   padding: 0px 0px 0px 20px;
   cursor: pointer;
@@ -2883,7 +2911,7 @@ span.yb-gradient {
   position: absolute;
   top: auto;
   color: #2ECC71;
-  right: 8px;
+  right: 16px;
   font-size: 0.75em;
 }
 
@@ -2899,6 +2927,7 @@ span.yb-gradient {
 
 .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
+  padding: 10px 15px 10px 20px;
 }
 
 .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .checked:after {
@@ -3074,7 +3103,7 @@ span.yb-gradient {
   position: absolute;
   top: auto;
   color: #2ECC71;
-  right: 8px;
+  right: 16px;
   font-size: 0.75em;
 }
 
@@ -3159,7 +3188,7 @@ span.yb-gradient {
 .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 22px;
   color: #696969;
 }
@@ -3201,7 +3230,7 @@ span.yb-gradient {
   position: absolute;
   top: auto;
   color: #2ECC71;
-  right: 8px;
+  right: 16px;
   font-size: 0.75em;
 }
 
@@ -3510,7 +3539,7 @@ span.yb-gradient {
   position: absolute;
   top: auto;
   color: #2ECC71;
-  right: 8px;
+  right: 16px;
   font-size: 0.75em;
 }
 
@@ -3549,6 +3578,7 @@ span.yb-gradient {
 .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox {
   display: flex;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox input {
@@ -3633,7 +3663,7 @@ span.yb-gradient {
 .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 22px;
   color: #696969;
 }
@@ -3675,7 +3705,7 @@ span.yb-gradient {
   position: absolute;
   top: auto;
   color: #2ECC71;
-  right: 8px;
+  right: 16px;
   font-size: 0.75em;
 }
 
@@ -3788,7 +3818,7 @@ span.yb-gradient {
   position: absolute;
   top: auto;
   color: #2ECC71;
-  right: 8px;
+  right: 16px;
   font-size: 0.75em;
 }
 
@@ -3819,11 +3849,11 @@ span.yb-gradient {
   margin-right: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications {
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications h3 {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications h3 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -3832,13 +3862,13 @@ span.yb-gradient {
   margin: 15px 0 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
   width: 20%;
   border-radius: 12px;
   border: 1px solid #E2E2E2;
@@ -3846,7 +3876,7 @@ span.yb-gradient {
   text-align: center;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left .ycheck_color {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color {
   width: 100%;
   display: flex;
   align-items: center;
@@ -3854,19 +3884,19 @@ span.yb-gradient {
   margin-bottom: 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left .ycheck_color .ylabel_visible {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left .ycheck_color .ylabel_visible input {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible input {
   position: absolute;
   z-index: 2;
   opacity: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left .ycheck_color .ylabel_visible label {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible label {
   width: 23px;
   height: 23px;
   border: 1px solid #D6D6D6;
@@ -3874,26 +3904,26 @@ span.yb-gradient {
   position: relative;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left .ycheck_color:last-child {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left .ycolor_more i {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycolor_more i {
   color: #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right {
   width: 75%;
   display: flex;
   justify-content: space-between;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
   width: 15%;
   margin-right: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn button {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -3906,35 +3936,36 @@ span.yb-gradient {
   margin-bottom: 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn button i {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button i {
   color: #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn button:last-child {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
   display: flex;
   width: 80%;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options {
   margin-right: 22px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options .yoption {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption {
   display: flex;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options .yoption input {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption input {
   width: 12px;
   height: 12px;
   margin-right: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options .yoption label {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption label {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3942,11 +3973,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options .yoption:last-child {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options:last-child {
+.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options:last-child {
   margin-right: 0;
 }
 
@@ -4052,7 +4083,7 @@ span.yb-gradient {
   position: absolute;
   top: auto;
   color: #2ECC71;
-  right: 8px;
+  right: 16px;
   font-size: 0.75em;
 }
 
@@ -4296,11 +4327,11 @@ span.yb-gradient {
     width: 69%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left {
+  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
     width: 23%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 17%;
     margin-right: 0;
   }
@@ -4360,7 +4391,7 @@ span.yb-gradient {
   .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .value {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: normal;
-    font-size: 1.125em;
+    font-size: 1em;
     line-height: 22px;
     color: #696969;
   }
@@ -4402,7 +4433,7 @@ span.yb-gradient {
     position: absolute;
     top: auto;
     color: #2ECC71;
-    right: 8px;
+    right: 16px;
     font-size: 0.75em;
   }
 
@@ -4495,12 +4526,17 @@ span.yb-gradient {
     width: 28.2%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .ycars_options:last-child {
+  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options:last-child {
     display: none;
   }
 }
 
 @media only screen and (max-width: 768px) {
+  .yfilterextended .yfilter_selected-item .show-drop_down {
+    bottom: -200px;
+    padding: 15px 20px 15px 20px;
+  }
+
   .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
     margin-right: 15px;
     width: 32%;
@@ -4536,25 +4572,25 @@ span.yb-gradient {
     width: 100%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher {
+  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other {
     flex-direction: column;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-left {
+  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
     width: 30%;
     padding: 15px;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right {
+  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right {
     width: 100%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 20%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
     width: 75%;
   }
 
@@ -4569,6 +4605,14 @@ span.yb-gradient {
 }
 
 @media only screen and (max-width: 600px) {
+  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:last-child {
+    display: none;
+  }
+
+  .yfilterextended .yfilter_selected-item .show-drop_down {
+    bottom: -200px;
+  }
+
   .yfilterextended .show_mobile {
     padding: 25px 10px;
     width: 100%;
@@ -4654,7 +4698,7 @@ span.yb-gradient {
   .yfilterextended .show_mobile .yb-carsearch_items .ydropdown .value {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: normal;
-    font-size: 1.125em;
+    font-size: 1em;
     line-height: 22px;
     color: #696969;
   }
@@ -4696,7 +4740,7 @@ span.yb-gradient {
     position: absolute;
     top: auto;
     color: #2ECC71;
-    right: 8px;
+    right: 16px;
     font-size: 0.75em;
   }
 
@@ -4746,11 +4790,13 @@ span.yb-gradient {
   }
 
   .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .y-cut_added-item {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
   .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items .y-cut_added-item .car-items_btn {
+    text-align: left;
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;
     font-size: 0.9375em;
@@ -4828,37 +4874,61 @@ span.yb-gradient {
     margin-right: 0;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications {
     width: 45%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications h3 {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications h3 {
     margin: 0px 0 10px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other {
     flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-left {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
     width: 100%;
     padding: 15px 20px 10px 20px;
     margin-bottom: 10px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 50%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn button i {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options button i {
     font-size: 0.875em;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption {
+    display: flex;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption input {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption label {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 19px;
+    color: #696969;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption:last-child {
+    margin-bottom: 0;
+  }
+
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
     flex-direction: column;
     text-align: center;
     height: 150px;
@@ -4873,17 +4943,17 @@ span.yb-gradient {
     border-radius: 3px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options {
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options .ycars_options {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options .ycars_options {
     margin-right: 0;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options i {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options i {
     margin-top: 15px;
     color: #0B3F8D;
     font-size: 1.125em;
@@ -4916,6 +4986,18 @@ span.yb-gradient {
 }
 
 @media only screen and (max-width: 425px) {
+  .yfilterextended .yfilter_selected-item {
+    padding: 15px 30px 15px 30px;
+  }
+
+  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:nth-child(3) {
+    display: none;
+  }
+
+  .yfilterextended .yfilter_selected-item .show-drop_down {
+    bottom: -245px;
+  }
+
   .yfilterextended .show_mobile {
     padding: 25px 10px;
     width: 100%;
@@ -4995,34 +5077,34 @@ span.yb-gradient {
     width: 70%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-left {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
     width: 70%;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 50%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
     height: auto;
     padding: 20px 15px;
     bottom: -65px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options {
     flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options .ycars_options .yoption {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options .ycars_options .yoption {
     margin-bottom: 10px;
   }
 
@@ -5032,6 +5114,10 @@ span.yb-gradient {
 
   .yfilterextended .show_mobile .yspecification_results .yvisual_results .yseach_card-id {
     width: 100%;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yb-repeat_selected .item_selected {
+    margin-bottom: 5px;
   }
 
   .yfilterextended .show_mobile .ysearch_results .yclear_form {
@@ -5049,6 +5135,26 @@ span.yb-gradient {
 }
 
 @media only screen and (max-width: 320px) {
+  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
+    padding: 0 10%;
+  }
+
+  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:nth-child(2) {
+    display: none;
+  }
+
+  .yfilterextended .yfilter_selected-item .show-drop_down {
+    bottom: -285px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
+    padding: 25px 5px;
+  }
+
+  .yfilterextended .show_mobile .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .change_resource .title_change {
+    font-size: 0.875em;
+  }
+
   .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items {
     margin-right: 10px;
   }
@@ -5079,30 +5185,30 @@ span.yb-gradient {
     width: 90%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-left {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
     width: 90%;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visl-btn {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 50%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
     height: auto;
     padding: 20px 15px;
     bottom: -65px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options {
     flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .youther_specifications .yvis_outher .yvis_outher-right .youther_visr-options .yflex_vis_options .ycars_options .yoption {
+  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options .ycars_options .yoption {
     margin-bottom: 10px;
   }
 
@@ -5112,6 +5218,10 @@ span.yb-gradient {
 
   .yfilterextended .show_mobile .yspecification_results .yvisual_results .yseach_card-id {
     width: 100%;
+  }
+
+  .yfilterextended .show_mobile .ysearch_results .yb-repeat_selected .item_selected:last-child {
+    display: none;
   }
 
   .yfilterextended .show_mobile .ysearch_results .yclear_form {
