@@ -1177,7 +1177,7 @@
             <div class="yb-carsearch_items">
                 <div class="yoptions_items">
                     <div class="yoption_btn">
-                        <button class="change_type active">Все</button>
+                        <button  class="change_type active">Все</button>
                         <button class="change_type">Новые</button>
                         <button class="change_type">Б/у</button>
                     </div>
@@ -1795,9 +1795,9 @@
                     </div>
                     <div class="yvis_res-select">
                         <h2>Актуальность</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="isActual"></ydropdown>
+                        <ydropdown  :placeholder="'Не выбрано'" :items="isActual"></ydropdown>
                         <h2>Показывать</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="amountShow" ></ydropdown>
+                        <ydropdown  :placeholder="'Не выбрано'" :items="amountShow" ></ydropdown>
                     </div>
                     <div class="yseach_card-id">
                         <h3>Поиск по ID</h3>

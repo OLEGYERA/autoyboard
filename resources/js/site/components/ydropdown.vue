@@ -3,7 +3,7 @@
     <div
         class="value"
         @blur="isOpen = true"
-        v-model="value"
+        v-model="itemSelected"
         @click="isOpen = !isOpen">{{generatingPlaceholder || placeholder}}</div>
         <i
            class="ynav-list-toggle fas"
@@ -13,21 +13,20 @@
         </i>
         <div class="items" v-show="isOpen">
             <div class="item"
-                 :class="{'checked' : value == item}"
+                 :class="{'checked' : itemSelected == item}"
                  v-for="(item, key) in filteredItems"
                  :key="key"
                  @click="setItem(item)"
             >
                 {{ item }}
-                <i v-if="value == item" class="fas fa-check"></i>
+                <i v-if="itemSelected == item" class="fas fa-check"></i>
             </div>
-
         </div>
     </div>
 </template>
 <script>
     export default{
-        props: ['items', 'placeholder'],
+        props: ['items', 'placeholder', ],
         mounted() {
             document.addEventListener('click', this.handleClickOutside);
 
@@ -37,14 +36,14 @@
         },
         data(){
             return{
+                itemSelected: null,
                 isOpen: false,
                 result: [],
-                value: '',
             }
         },
         methods: {
             setItem(item) {
-                this.value = item
+                this.itemSelected = item
                 this.result = item
                 this.isOpen = false
             },
@@ -60,11 +59,11 @@
                 return this.items
             },
             generatingPlaceholder(){
-                if(this.value === ""){
+                if(this.itemSelected === null){
                     return this.placeholder
                 }
                 else {
-                    return this.value
+                    return this.itemSelected
                 }
             },
         },

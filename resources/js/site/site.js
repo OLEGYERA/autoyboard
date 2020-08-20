@@ -36,6 +36,8 @@ Vue.component('ydropdown', require('./components/ydropdown').default);
 
 Vue.component('ystickers', require('./components/ystickers').default);
 
+Vue.component('ycardauto', require('./components/ycardauto').default);
+
 
 Vue.component('yfilterextended', require('./components/yfilterextended').default);
 Vue.component('yfilterform', require('./components/yfilterform').default);

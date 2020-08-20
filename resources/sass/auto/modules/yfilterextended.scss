@@ -440,7 +440,7 @@
                                 position: relative;
                                 display: flex;
                                 align-items: center;
-                                font-size: em(18);
+                                font-size: em(16);
                                 line-height: 22px;
                                 padding: 0px 0px 0px 20px;
                                 cursor: pointer;
@@ -507,6 +507,89 @@
                     width: 100%;
                    .yprice_container{
                        margin-bottom: 20px;
+                       .input_change{
+                           .change{
+                               width: 30%;
+                               height: 40px;
+                           }
+                           .currency_change{
+                               display: flex;
+                               width: 25%;
+                               .ydropdown{
+                                   width: 100%;
+                                   height: 40px;
+                                   position: relative;
+                                   display: flex;
+                                   align-items: center;
+                                   justify-content: space-between;
+                                   padding: 10px 15px 10px 20px;
+                                   border-radius: 10px;
+                                   border: 1px solid #E2E2E2;
+                                   cursor: pointer;
+                                   .value{
+                                       font-family: $aleg;
+                                       font-weight: normal;
+                                       font-size: em(16);
+                                       line-height: 19px;
+                                       color: #696969;
+                                   }
+                                   i{
+                                       color: #C7C7C7;
+                                   }
+                                   .items{
+                                       position: absolute;
+                                       scrollbar-width: none;
+                                       max-height: 140px;
+                                       overflow: scroll;
+                                       overflow-x: hidden;
+                                       top: 45px;
+                                       left: 0;
+                                       width: 100%;
+                                       background: #FFFFFF;
+                                       box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                                       border-radius: 3px;
+                                       z-index: 2;
+                                       .item{
+                                           font-family: $aleg;
+                                           font-weight: normal;
+                                           height: 35px;
+                                           position: relative;
+                                           display: flex;
+                                           align-items: center;
+                                           font-size: em(16);
+                                           line-height: 22px;
+                                           padding: 0px 0px 0px 15px;
+                                           cursor: pointer;
+                                           color: rgba(0, 0, 0, 0.83);
+                                           i{
+                                               position: absolute;
+                                               top: auto;
+                                               color: $dgreen;
+                                               right: 16px;
+                                               font-size: em(12);
+                                           }
+                                           &:after{
+                                               content: '';
+                                               position: absolute;
+                                               height: 1px;
+                                               bottom: 0;
+                                               left: 0;
+                                               width: 100%;
+                                               background: rgba(199, 199, 199, 0.33) ;
+                                           }
+                                       }
+                                       .checked{
+                                           border-left: 4px solid $darkblue;
+                                           &:after{
+                                               height: 2px;
+                                               background: rgba(91, 91, 91, 0.13);
+                                           }
+                                       }
+                                       &::-webkit-scrollbar { width: 0px; }
+                                   }
+                               }
+                           }
+                       }
                    }
                 }
             }
@@ -848,7 +931,7 @@
                                 position: relative;
                                 display: flex;
                                 align-items: center;
-                                font-size: em(18);
+                                font-size: em(16);
                                 line-height: 22px;
                                 padding: 0px 0px 0px 20px;
                                 cursor: pointer;
@@ -1333,6 +1416,19 @@
     .yfilterextended{
         .ybexpanded_search{
             .yb-carsearch_price-items{
+                .ychange_price-container{
+                    .yrange_slider-container{
+                        .yprice_container{
+                            .input_change{
+                                .currency_change{
+                                    .ydropdown{
+                                        padding: 10px 10px 10px 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 .yreg_container{
                     .yreg-checkbox{
                         display: block;
@@ -1488,7 +1584,7 @@
                                     position: relative;
                                     display: flex;
                                     align-items: center;
-                                    font-size: em(18);
+                                    font-size: em(16);
                                     line-height: 22px;
                                     padding: 0px 0px 0px 20px;
                                     cursor: pointer;
@@ -1563,7 +1659,16 @@
             }
             .yb-carsearch_price-items{
                 .ychange_price-container{
-
+                    .yrange_slider-container{
+                        padding: 25px 10px;
+                        .yprice_container{
+                            .input_change{
+                                .change{
+                                    width: 32%;
+                                }
+                            }
+                        }
+                    }
                 }
                 .yreg_container{
                     .yreg-checkbox{
@@ -1632,12 +1737,23 @@
             }
             .yb-carsearch_price-items{
                 .ychange_price-container{
-
+                    width: 38%;
                 }
                 .yreg_container{
+                    width: 61%;
                     .yreg-checkbox{
                         .yflex_dir{
                             width: 60%;
+                            .yside_country{
+                                h2{
+                                    font-size: em(16);
+                                }
+                                .yside_check{
+                                    .y-check{
+                                        font-size: em(14);
+                                    }
+                                }
+                            }
                             &:last-child{
                                 width: 35%;
                             }
@@ -1810,7 +1926,7 @@
                             position: relative;
                             display: flex;
                             align-items: center;
-                            font-size: em(18);
+                            font-size: em(16);
                             line-height: 22px;
                             padding: 0px 0px 0px 20px;
                             cursor: pointer;
@@ -1951,9 +2067,10 @@
                             .yvis_other-right{
                                 width: 100%;
                                 .yother_visl-btn{
-                                    width: 50%;
+                                    width: 100%;
                                     .yb_list-options{
                                         button{
+                                            width: 50%;
                                             i{
                                                 font-size: em(14);
                                             }
@@ -1973,9 +2090,6 @@
                                                 font-size: em(16);
                                                 line-height: 19px;
                                                 color: $filercheckbox;
-                                            }
-                                            &:last-child{
-                                                margin-bottom: 0;
                                             }
                                         }
                                     }
@@ -2137,10 +2251,6 @@
                                 margin-bottom: 15px;
                             }
                             .yvis_other-right{
-                                width: 100%;
-                                .yother_visl-btn{
-                                    width: 50%;
-                                }
                                 .yother_visr-options{
                                     height: auto;
                                     padding: 20px 15px;
@@ -2260,24 +2370,6 @@
                                 width: 90%;
                                 margin-bottom: 15px;
                             }
-                            .yvis_other-right{
-                                width: 100%;
-                                .yother_visl-btn{
-                                    width: 50%;
-                                }
-                                .yother_visr-options{
-                                    height: auto;
-                                    padding: 20px 15px;
-                                    bottom: -65px;
-                                    .yflex_vis_options{
-                                        flex-direction: column;
-                                        .ycars_options{
-                                            .yoption{
-                                                margin-bottom: 10px;
-                                            }
-                                        }
-                                    }
-                                }   }
                         }
                     }
                 }

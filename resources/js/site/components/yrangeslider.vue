@@ -13,9 +13,9 @@
                 @change="updateSlider"
                 type="number"
                 placeholder="До">
-<!--            <div class="currency_change">-->
-<!--                <ydropdown :items="currency"></ydropdown>-->
-<!--            </div>-->
+            <div class="currency_change">
+                <ydropdown :items="currency"></ydropdown>
+            </div>
         </div>
         <div id="slider" ref="slider"></div>
     </div>
