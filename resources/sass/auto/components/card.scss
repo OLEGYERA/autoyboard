@@ -58,6 +58,7 @@
                     font-size: em(48);
                     line-height: 68px;
                     color: #222222;
+                    padding: 0;
                 }
                 .y-visl_items{
                     background: #FFFFFF;
@@ -98,10 +99,7 @@
                                 border-radius: 50%;
                                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.65);
                             }
-                            .new{
-                                background-color: $dark_yellow;
-                                margin-right: 10px;
-                            }
+
                             .check{
                                 background: #0549CE;
                             }
@@ -265,7 +263,7 @@
                                     .white{
                                         .arrow{
                                             right: 7px;
-                                            width: 35px;
+                                            width: 25px;
                                         }
                                         .eclipse{
                                             font-size: em(24);
@@ -282,7 +280,6 @@
                             width: 90%;
                             tr{
                                 display: flex;
-                                align-items: center;
                                 margin-bottom: 15px;
                                 .y-check_icon{
                                     margin-right: 15px;
@@ -292,6 +289,8 @@
                                     }
                                 }
                                 .y-check_title{
+                                    display: flex;
+                                    align-items: center;
                                     width: 35%;
                                     text-align: start;
                                     font-family: $mont;
@@ -301,6 +300,8 @@
                                     color: #000000;
                                 }
                                 .y-check_desc{
+                                    display: flex;
+                                    align-items: center;
                                     text-align: start;
                                     width: 60%;
                                     font-family: $aleg;
@@ -348,11 +349,22 @@
                         }
                     }
                 }
+                h3{
+                    margin: 32px 0 25px;
+                    padding-left: 15px;
+                    font-family: $rale;
+                    font-weight: 500;
+                    font-size: em(36);
+                    line-height: 42px;
+                    text-transform: capitalize;
+                    color: #000000;
+                }
 
             }
             .yb_auto_vis-r{
                 width: 35%;
                 background: #FFFFFF;
+                margin-top: 100px;
                .yvis_item-car{
                    background: #FFFFFF;
                    width: 100%;
@@ -390,6 +402,9 @@
                        .favorite{
                            position: inherit;
                            box-shadow: none;
+                           svg{
+                               width: 40px;
+                           }
                        }
                    }
                    .yvis-car_options{
@@ -401,14 +416,15 @@
                            justify-content: space-between;
                            padding: 15px 0 15px;
                            position: relative;
+                           svg{
+                               margin-right: 15px;
+                               width: 10%;
+                           }
                            .yoption_name{
-                               width: 45%;
+                               width: 85%;
                                display: flex;
                                align-items: center;
                                justify-content: space-between;
-                               svg{
-
-                               }
                                h2{
                                    font-family: $mont;
                                    font-weight: 500;
@@ -417,13 +433,13 @@
                                    color: #999E9F;
                                    margin: 0;
                                }
-                           }
-                           .y-option{
-                               font-family: $mont;
-                               font-weight: 600;
-                               font-size: em(18);
-                               line-height: 28px;
-                               color: #414242;
+                               .y-option{
+                                   font-family: $mont;
+                                   font-weight: 600;
+                                   font-size: em(18);
+                                   line-height: 28px;
+                                   color: #414242;
+                               }
                            }
                            &:after{
                                content: '';
@@ -467,16 +483,434 @@
                         }
                    }
                }
+                .yb_go_to{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 90%;
+                    margin: 0 auto;
+                    margin-bottom: 40px;
+                    padding: 6% 10%;
+                    font-family: $aleg;
+                    font-weight: bold;
+                    font-size: em(18);
+                    line-height: 22px;
+                    text-align: center;
+                    color: #FFFFFF;
+                    background: linear-gradient(180deg, rgba(34, 34, 34, 0.18) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
+                    box-shadow: 0px 4px 8px rgba(8, 34, 73, 0.16);
+                    border-radius: 15px;
+                    .yexpended{
+                        .white{
+                            .arrow{
+                                right: 7px;
+                                width: 25px;
+                            }
+                            .eclipse{
+                                font-size: em(24);
+                                &:after{
+                                    left: 20px;
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
                 .commercial{
-                    //background-color: red;
-                    //height: 400px;
+                    width: 100%;
+                    height: 480px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    max-height: 610px;
+                    position: relative;
+                    text-align: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    h3{
+                        width: 100%;
+                        font-family: $rale;
+                        font-weight: 600;
+                        position: absolute;
+                        font-size: em(38);
+                        line-height: 56px;
+                        color: #FFFFFF;
+                        padding: 0;
+                        bottom: 0;
+                        margin: 0;
+                        margin-bottom: 45px;
+                    }
 
-                    /* or 200% */
-
-
-                    color: #414242;
                 }
             }
         }
+    }
+    .yb-options{
+        width: 90%;
+        padding: 40px 60px;
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0px 4px 4px rgba(238, 238, 238, 0.25);
+        border-radius: 47px;
+        .yb-technical_info{
+            .yb-vis_info{
+                width: 100%;
+                .y-info_row{
+                    display: flex;
+                    position: relative;
+                    align-items: center;
+                    width: 100%;
+                    justify-content: space-between;
+                    padding-bottom: 15px;
+
+                    .vis_l{
+                        width: 35%;
+                    }
+                    .vis_r{
+                        width: 55%;
+                    }
+                    .y-info_title{
+                        span{
+                            text-align: start;
+                            font-family: $mont;
+                            font-weight: 500;
+                            font-size: em(22);
+                            line-height: 142.5%;
+                            color: $darkblue;
+                        }
+                    }
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                        background-color: rgba(199, 199, 199, 0.27);
+                    }
+                }
+                .y-info_column{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    .vis_l{
+                        width: 35%;
+                    }
+                    .vis_r{
+                        width: 55%;
+                    }
+                    .y-items_info{
+                        .yvis_items_column{
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 15px 0 0;
+                            .y_item-label{
+                                font-family: $mont;
+                                font-weight: 600;
+                                font-size: em(16);
+                                line-height: 28px;
+                                color: #000000;
+                            }
+                            .y_item{
+                                width: 30%;
+                                display: flex;
+                                align-items: center;
+                                text-align: start;
+                                font-family: $noto;
+                                font-weight: normal;
+                                font-size: em(16);
+                                line-height: 19px;
+                                color: #414242;
+                            }
+                            &:last-child{
+                                margin: 15px 0 15px;
+                            }
+                        }
+                    }
+                }
+            }
+            //.vis-l{
+            //    width: 30%;
+            //}
+            //.vis-r{
+            //    width: 60%;
+            //}
+            //.y-info_tech{
+            //    .y-title_info{
+            //        margin-bottom: 30px;
+            //        th{
+            //            text-align: start;
+            //            font-family: $mont;
+            //            font-weight: 500;
+            //            font-size: em(22);
+            //            line-height: 142.5%;
+            //            color: $darkblue;
+            //        }
+            //    }
+            //    tr{
+            //        .y-info_label{
+            //            font-family: $mont;
+            //            font-weight: 600;
+            //            font-size: em(16);
+            //            line-height: 28px;
+            //            color: #000000;
+            //        }
+            //        .y-info_item{
+            //            font-family: $noto;
+            //            font-weight: normal;
+            //            font-size: em(14);
+            //            line-height: 19px;
+            //            color: #414242;
+            //        }
+            //    }
+            //}
+        }
+    }
+    h3{
+        padding-left: 30px;
+        margin: 35px 0 25px;
+        font-family: $rale;
+        font-weight: 500;
+        font-size: em(36);
+        line-height: 42px;
+        text-transform: capitalize;
+        color: #000000;
+    }
+    .configuration{
+        .yb-technical_info{
+            .yb-vis_info{
+                .y-info_column{
+                    .vis_l{
+                        width: 50%;
+                    }
+                    .vis_r{
+                        width: 45%;
+                    }
+                    .y-items_info{
+                        .yvis_items_column{
+                            .y_item-label{
+
+                            }
+                            .y_item{
+                                width: 50%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1600px){
+    .yb-card_content{
+        .yb-card_auto{
+            .yb_auto-item{
+                .yb_auto_vis-l{
+                    .y-auto_name{
+                        font-size: em(36);
+                        margin: 0 0 25px;
+                    }
+                    .y-visl_items{
+                        .y-image_large{
+                            .yb-icon_check{
+                                .icon{
+                                    width: 45px;
+                                    height: 45px;
+                                }
+                                .check{
+                                    svg{
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                }
+                            }
+                            .yb-count_increase-img{
+
+                            }
+                        }
+                        .y-auto_options{
+                            .yb_verified_car{
+                                h2{
+                                    font-size: em(18);
+                                }
+                                .y-vin_code{
+                                    font-size: em(14);
+                                    height: 30px;
+                                    svg{
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                }
+                                .y_verified{
+                                    padding: 0 15px 0 15px;
+                                    font-size: em(14);
+                                    .yexpended{
+                                        .white{
+                                            .eclipse{
+                                                padding-left: 25px;
+                                                &:after{
+                                                    left: 10px;
+                                                    width: 15px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .y_check_item-car{
+                                width: 100%;
+                                tr{
+                                    .y-check_icon{
+                                        i{
+                                            font-size: em(18);
+                                        }
+                                    }
+                                    .y-check_desc{
+                                        font-size: em(16);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .yb_auto_vis-r{
+                    margin-top: 90px;
+                    .yvis_item-car{
+                        .vis_car-price{
+                            padding: 20px 15px 20px 15px;
+                            .yb-price_car{
+                                .price_vis{
+                                    font-size: em(16);
+                                    &.active{
+                                        font-size: em(22);
+                                    }
+                                }
+                            }
+                        }
+                        .yvis-car_options{
+                            .y-car_option{
+                                .yoption_name{
+
+                                }
+                                .y-option{
+
+                                }
+                            }
+                        }
+                        .yb-additional_car-opt{
+                            padding: 0 25px 25px 15px;
+                        }
+                    }
+                    .yb_go_to{
+                        padding: 7% 7%;
+                        font-size: em(18);
+                    }
+                    .commercial{
+                        height: 400px;
+                        h3{
+                            font-size: em(28);
+                            margin-bottom: 35px;
+                        }
+                    }
+                }
+            }
+        }
+        .yb-options{
+            width: 100%;
+            .yb-technical_info{
+                .yb-vis_info{
+                    .y-info_column{
+                        .y-items_info{
+                            .vis_l{
+                                width: 40%;
+                            }
+                            .vis_r{
+                                width: 60%;
+                            }
+                            .yvis_items_column{
+                                .y_item-label{
+                                    font-size: em(14);
+                                }
+                                .y_item{
+                                    font-size: em(14);
+                                    width: 35%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .configuration{
+            .yb-technical_info{
+                .yb-vis_info{
+                    .y-info_row{
+                        .vis_l{
+
+                        }
+                        .vis_r{
+                            width: 45%;
+                        }
+                    }
+                    .y-info_column{
+                        .y-items_info{
+                            .yvis_items_column{
+                                .y_item-label{
+
+                                }
+                                .y_item{
+                                    width: 50%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1500px){
+    .yb-card_content{
+        padding: 0px 10%;
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yb-card_content{
+        padding: 0px 8%;
+    }
+}
+@media only screen and (max-width: 1330px){
+    .yb-card_content{
+        padding: 0px 6%;
+    }
+}
+@media only screen and (max-width: 1024px){
+    .yb-card_content{
+        padding: 0px 2.5%;
+        .yb-card_auto{
+            .yb_auto-item{
+                .yb_auto_vis-l{
+
+                }
+                .yb_auto_vis-r{
+                    .yvis_item-car{
+                        .vis_car-price{
+                            .yb-price_car{
+                                width: 75%;
+                            }
+                        }
+                        .yb-additional_car-opt{
+                            padding: 0 10px 20px 10px;
+                        }
+                    }
+                    .yb_go_to{
+                        padding: 6% 4%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .yb-card_content{
+        padding: 0px 15px;
     }
 }
