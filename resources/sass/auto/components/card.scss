@@ -283,6 +283,7 @@
                                 margin-bottom: 15px;
                                 .y-check_icon{
                                     margin-right: 15px;
+                                    display: flex;
                                     i{
                                         color: $dgreen;
                                         font-size: em(25);
@@ -290,7 +291,6 @@
                                 }
                                 .y-check_title{
                                     display: flex;
-                                    align-items: center;
                                     width: 35%;
                                     text-align: start;
                                     font-family: $mont;
@@ -888,7 +888,36 @@
         .yb-card_auto{
             .yb_auto-item{
                 .yb_auto_vis-l{
-
+                    .y-visl_items{
+                        .y-auto_options{
+                            .yb_verified_car{
+                                h2{
+                                    font-size: em(16);
+                                }
+                                .y-vin_code{
+                                    padding: 0 8px 0 4px;
+                                }
+                                .y_verified{
+                                    .yexpended{
+                                        .white{
+                                            .arrow{
+                                                right: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .y_check_item-car{
+                                tr{
+                                    .y-check_icon{
+                                    }
+                                    .y-check_title{
+                                        width: 40%;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 .yb_auto_vis-r{
                     .yvis_item-car{
@@ -906,6 +935,9 @@
                     }
                 }
             }
+        }
+        .yb-options{
+            padding: 25px 35px;
         }
     }
 }

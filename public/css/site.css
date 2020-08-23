@@ -5662,6 +5662,7 @@ span.yb-gradient {
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_icon {
   margin-right: 15px;
+  display: flex;
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_icon i {
@@ -5671,7 +5672,6 @@ span.yb-gradient {
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
   display: flex;
-  align-items: center;
   width: 35%;
   text-align: start;
   font-family: "Montserrat", sans-serif;
@@ -6205,6 +6205,22 @@ span.yb-gradient {
     padding: 0px 2.5%;
   }
 
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car h2 {
+    font-size: 1em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y-vin_code {
+    padding: 0 8px 0 4px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y_verified .yexpended .white .arrow {
+    right: 5px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
+    width: 40%;
+  }
+
   .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price .yb-price_car {
     width: 75%;
   }
@@ -6215,6 +6231,10 @@ span.yb-gradient {
 
   .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yb_go_to {
     padding: 6% 4%;
+  }
+
+  .yb-card_content .yb-options {
+    padding: 25px 35px;
   }
 }
 
