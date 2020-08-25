@@ -14,6 +14,10 @@
                 <a href="#"  class="yb-crumbs_name active">Легковые</a>
             </span>
             </div>
+            <button class="yb_come-back">
+                <i class="fas fa-angle-left"></i>
+                Назад
+            </button>
             <button class="ynext_card-auto">
                 Следующий автомобиль
                 <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,21 +25,29 @@
                 </svg>
             </button>
         </div>
+        <div class="yb_status-bar">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect width="48" height="48" fill="url(#pattern0)"/>
+                <defs>
+                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0" transform="scale(0.0208333)"/>
+                    </pattern>
+                    <image id="image0" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADr0lEQVRoge2ZTYhVdRjGf+85c+494yiDjib0AdUqEqLUhYhzr5pUWEGbgRa2LkEwokUtIjIq0UFduGnTQqKNkEVkHwg6c2msKBuJplYSOY7ZEGEzc++ZO3fO62L8OIre/8c5Qy3uAxcOd57/+zzPff8v53/OQAcddLAoUEV0KN6rw6U3/msvztARunU4/kiHyrrwid9WRRZDq/CiOhQ/ABwFXXfLX44QNV+SjTSK1Cs0gJ4qDSDB+6DL70AZQ3RAKs2xojQLCaAnu+8l1AOoDljQ6yD7WZm8K2to5tXOFUBHWEEr3o3qq8ASx+WjpLwuW2a/zOPBK4DW4gdJdSfwIrAsjwFgFNV9LG1+Kuupuy42BtDjlFm6ZAWkDwMVVJ8DHvFxakADOInyOWHwIxqeo2/6smmbmQMMlVMb3iIhleps2I4QWBRpFWTGB0ZtmwAzBRjxhBi1bQJMFeDEEzptYnSZi8hF0PtcpXcPruGfqQiAvt45Dr7yi2sJQCdMDHMHVP/wUCbqSq9fl6K0DbMNJDBqmwMEeAUoRXr9OhvGCRY/nkUHfANkO6BtmG1x3kSwGGL5yUc56rphuuTbgVTOmijmAD3JD3jcC27ugFeAlO7kjIlkDHD1fPKzq3rWdOQXYEw28K+JZHMfAOFbV/Xstil1+cyAfm/DsguQymlX+fwzIAUGaEXHgXkX+dwzkMpXNjSrALJt6m8Epy7knIEzsiX53YZo1wGAlKMuDrKmI+cZ0I9tmdbnfD2xrI+oOQ7Ejm5ckUJwv1QbxpsYOHRgYRvJMX9ftkJ8bWserE6jWcwPQvA8Fp27MBnzWW01AjzTf4l7ViW2IodcHDk/Kupw+QuUp0y81w4/xMTkwm67e1XC3l2/2ZQfpTK7VgTrobEf4mtIgz1gFpiaiW573Raqe1zMg0cA2dw4jeiHJt6O7eP09rTo7WmxY/u4Teka1eYnzn5cFwDoiZ7VRPO/tnmF6IoW6FqpNp3PXO5bCJBtM5eAl33W3hYq7/mYB88AAFJNjoB+4Ls+g2H+St7y9pFHWUfoZq78DfCYZ4k/CcN1sqlufHi/E7w7ACAbaSDRk4DP6/LLSPp0HvOQMwCAVKYnaQVPAOccltVReVYqc8YnLhNyBwCQxxsXCMN+0O8s6BcJgq2yOakVoV1IAADZVJ9gplltO9jKWcJgg/Q3bILa6RZVKAs9Fb+A6CBw19WvWigHKc2++b/+H1kWWmM5Wn4H1UcJdKf0zxlfkXTQQQfuuAJ5Jy9oVaJtcgAAAABJRU5ErkJggg=="/>
+                </defs>
+            </svg>
+            <span>
+                Объявления Hyundai Sonata 2016 г. удалено и не принимает участие в поиске!
+            </span>
+        </div>
         <ycardauto></ycardauto>
     </section>
+        <h3>Технические характеристики</h3>
     <section class="yb-options specifications ">
             <div class="yb-technical_info">
                 <div class="yb-vis_info">
-                    <div class="y-info_row">
-                        <div class="y-info_title vis_l">
-                            <span>Габариты и масса</span>
-                        </div>
-                        <div class="y-info_title vis_r">
-                            <span>Двигатель</span>
-                        </div>
-                    </div>
                     <div class="y-info_column">
                         <div class="y-items_info vis_l">
+                            <span class="option_name">Габариты и масса</span>
                             <div class="yvis_items_column">
                                 <span class="y_item-label">Длина, мм</span>
                                 <span class="y_item">4939</span>
@@ -54,6 +66,7 @@
                             </div>
                         </div>
                         <div class="y-items_info vis_r">
+                            <span class="option_name">Двигатель</span>
                             <div class="yvis_items_column">
                                 <span class="y_item-label">Расположение</span>
                                 <span class="y_item">Спереди(продольно)</span>
@@ -82,16 +95,9 @@
                     </div>
                 </div>
                 <div class="yb-vis_info">
-                    <div class="y-info_row">
-                        <div class="y-info_title vis_l">
-                            <span>Кузов</span>
-                        </div>
-                        <div class="y-info_title vis_r">
-                            <span>Трансмиссия</span>
-                        </div>
-                    </div>
                     <div class="y-info_column">
                         <div class="y-items_info vis_l">
+                            <span class="option_name">Кузов</span>
                             <div class="yvis_items_column">
                                 <span class="y_item-label">Количество дверей</span>
                                 <span class="y_item">4</span>
@@ -106,6 +112,7 @@
                             </div>
                         </div>
                         <div class="y-items_info vis_r">
+                            <span class="option_name">Трансмиссия</span>
                             <div class="yvis_items_column">
                                 <span class="y_item-label">Коробка передач</span>
                                 <span class="y_item">Автомат</span>
@@ -122,22 +129,16 @@
                     </div>
                 </div>
                 <div class="yb-vis_info">
-                    <div class="y-info_row">
-                        <div class="y-info_title vis_l">
-                            <span>Рулевое управление</span>
-                        </div>
-                        <div class="y-info_title vis_r">
-                            <span>Мультимедия</span>
-                        </div>
-                    </div>
                     <div class="y-info_column">
                         <div class="y-items_info vis_l">
+                            <span class="option_name">Рулевое управление</span>
                             <div class="yvis_items_column">
                                 <span class="y_item-label">Усилитель руля</span>
                                 <span class="y_item">Электроусилитель</span>
                             </div>
                         </div>
                         <div class="y-items_info vis_r">
+                            <span class="option_name">Мультимедия</span>
                             <div class="yvis_items_column">
                                 <span class="y_item-label">Дисплей, дюйм</span>
                                 <span class="y_item">Есть</span>
@@ -145,22 +146,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="y_more-flex">
+                    <button class="y-more_config">
+                        Читать больше
+                    </button>
+                </div>
             </div>
     </section>
-    <h3>Опции комплектации</h3>
+        <h3>Опции комплектации</h3>
     <section class="yb-options configuration ">
         <div class="yb-technical_info">
             <div class="yb-vis_info">
-                <div class="y-info_row">
-                    <div class="y-info_title vis_l">
-                        <span>Интерьер</span>
-                    </div>
-                    <div class="y-info_title vis_r">
-                        <span>Экстерьер</span>
-                    </div>
-                </div>
                 <div class="y-info_column">
                     <div class="y-items_info vis_l">
+                        <span class="option_name">Интерьер</span>
                         <div class="yvis_items_column">
                             <span class="y_item-label">Отделка салона</span>
                             <span class="y_item">Пластик, Кожа, Отделка Alcantara </span>
@@ -179,6 +178,7 @@
                         </div>
                     </div>
                     <div class="y-items_info vis_r">
+                        <span class="option_name">Экстерьер</span>
                         <div class="yvis_items_column">
                             <span class="y_item-label">Диски</span>
                             <span class="y_item">Легкосплавные</span>
@@ -203,16 +203,9 @@
                 </div>
             </div>
             <div class="yb-vis_info">
-                <div class="y-info_row">
-                    <div class="y-info_title vis_l">
-                        <span>Комфорт</span>
-                    </div>
-                    <div class="y-info_title vis_r">
-                        <span>Безопасность</span>
-                    </div>
-                </div>
                 <div class="y-info_column">
                     <div class="y-items_info vis_l">
+                        <span class="option_name">Комфорт</span>
                         <div class="yvis_items_column">
                             <span class="y_item-label">Климатконтроль</span>
                             <span class="y_item">Четырехзонный</span>
@@ -235,6 +228,7 @@
                         </div>
                     </div>
                     <div class="y-items_info vis_r">
+                        <span class="option_name">Безопасность</span>
                         <div class="yvis_items_column">
                             <span class="y_item-label">Замки</span>
                             <span class="y_item">Центральный замок</span>
@@ -255,5 +249,9 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="yb_more-offers">
+        <h2 class="offers_title">Смотрите также</h2>
+        <ybestoffer></ybestoffer>
     </section>
 </main>

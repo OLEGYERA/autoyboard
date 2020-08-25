@@ -3,7 +3,11 @@
         <div class="yb_auto_vis-l">
             <h3 class="y-auto_name">Mercedes-Benz E 220</h3>
             <div class="y-visl_items">
-                <figure class="y-image_large">
+                <span v-if="soldCar" class="yb_sold-car">Продано</span>
+                <figure
+                    :class="{'blur' : soldCar}"
+                    v-if="!withPhotos"
+                    class="y-image_large">
                     <div class="yb-icon_check">
                         <div class="icon check">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +23,10 @@
                             </svg>
                         </div>
                     </div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8OdbOEcflNQYrFIjTsRhWMjGU5RbrQQ-6KA&usqp=CAU" alt="">
+                    <div :class="{'yb-sold_carout' : soldCar}"></div>
+                    <div  class="yb-without_photos">
+                    </div>
+                    <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     <div class="yb-count_increase-img">
                         <div class="yb_count-img">
                             <i class="far fa-image"></i>
@@ -34,30 +41,42 @@
                         </div>
                     </div>
                 </figure>
-                <div class="y-auto_options">
+                <figure v-if="withPhotos" class="y-image_large without_photos">
+                    <img src="../../../../public/img/system/static/withoutPhoto.png" alt="">
+                    <h2>Без фото</h2>
+                </figure>
+                <div
+                    v-if="!withPhotos"
+                    :class="{'blur' : soldCar}"
+                    class="y_vis-image ">
                     <ul class="y-image_small">
                         <li class="y-item_image">
                             <figure class="y-small">
+                                <div :class="{'yb-sold_carout' : soldCar}"></div>
                                 <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
                             </figure>
                         </li>
                         <li class="y-item_image">
                             <figure class="y-small">
+                                <div :class="{'yb-sold_carout' : soldCar}"></div>
                                 <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
                             </figure>
                         </li>
                         <li class="y-item_image">
                             <figure class="y-small">
+                                <div :class="{'yb-sold_carout' : soldCar}"></div>
                                 <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
                             </figure>
                         </li>
                         <li class="y-item_image">
                             <figure class="y-small">
+                                <div :class="{'yb-sold_carout' : soldCar}"></div>
                                 <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
                             </figure>
                         </li>
                         <li class="y-item_image">
                             <figure class="y-small">
+                                <div :class="{'yb-sold_carout' : soldCar}"></div>
                                 <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
                             </figure>
                         </li>
@@ -74,35 +93,50 @@
                         </i>
                     </button>
                     <ul v-if="openImage" class="y-image_small is_show">
-                        <li class="y-item_image">
-                            <figure class="y-small">
-                                <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
-                            </figure>
-                        </li>
-                        <li class="y-item_image">
-                            <figure class="y-small">
-                                <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
-                            </figure>
-                        </li>
-                        <li class="y-item_image">
-                            <figure class="y-small">
-                                <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
-                            </figure>
-                        </li>
-                        <li class="y-item_image">
-                            <figure class="y-small">
-                                <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
-                            </figure>
-                        </li>
-                        <li class="y-item_image">
-                            <figure class="y-small">
-                                <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
-                            </figure>
-                        </li>
-                    </ul>
+                    <li class="y-item_image">
+                        <figure class="y-small">
+                            <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
+                        </figure>
+                    </li>
+                    <li class="y-item_image">
+                        <figure class="y-small">
+                            <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
+                        </figure>
+                    </li>
+                    <li class="y-item_image">
+                        <figure class="y-small">
+                            <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
+                        </figure>
+                    </li>
+                    <li class="y-item_image">
+                        <figure class="y-small">
+                            <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
+                        </figure>
+                    </li>
+                    <li class="y-item_image">
+                        <figure class="y-small">
+                            <img src="https://thumbor.forbes.com/thumbor/300x0/https%3A%2F%2Fblogs-images.forbes.com%2Finvestopedia%2Ffiles%2F2011%2F02%2F300px-Front_left_of_car.jpg" alt="">
+                        </figure>
+                    </li>
+                </ul>
+                </div>
+                <div class="y-auto_options">
                     <div class="yb_verified_car">
-                        <h2>Проверено по реестрам МВД</h2>
-                        <span class="y-vin_code">
+                        <div v-if="verifiedCar" class="yb_disable-verified">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="48" height="48" fill="url(#pattern0)"/>
+                                <defs>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0" transform="scale(0.0208333)"/>
+                                    </pattern>
+                                    <image id="image0" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADr0lEQVRoge2ZTYhVdRjGf+85c+494yiDjib0AdUqEqLUhYhzr5pUWEGbgRa2LkEwokUtIjIq0UFduGnTQqKNkEVkHwg6c2msKBuJplYSOY7ZEGEzc++ZO3fO62L8OIre/8c5Qy3uAxcOd57/+zzPff8v53/OQAcddLAoUEV0KN6rw6U3/msvztARunU4/kiHyrrwid9WRRZDq/CiOhQ/ABwFXXfLX44QNV+SjTSK1Cs0gJ4qDSDB+6DL70AZQ3RAKs2xojQLCaAnu+8l1AOoDljQ6yD7WZm8K2to5tXOFUBHWEEr3o3qq8ASx+WjpLwuW2a/zOPBK4DW4gdJdSfwIrAsjwFgFNV9LG1+Kuupuy42BtDjlFm6ZAWkDwMVVJ8DHvFxakADOInyOWHwIxqeo2/6smmbmQMMlVMb3iIhleps2I4QWBRpFWTGB0ZtmwAzBRjxhBi1bQJMFeDEEzptYnSZi8hF0PtcpXcPruGfqQiAvt45Dr7yi2sJQCdMDHMHVP/wUCbqSq9fl6K0DbMNJDBqmwMEeAUoRXr9OhvGCRY/nkUHfANkO6BtmG1x3kSwGGL5yUc56rphuuTbgVTOmijmAD3JD3jcC27ugFeAlO7kjIlkDHD1fPKzq3rWdOQXYEw28K+JZHMfAOFbV/Xstil1+cyAfm/DsguQymlX+fwzIAUGaEXHgXkX+dwzkMpXNjSrALJt6m8Epy7knIEzsiX53YZo1wGAlKMuDrKmI+cZ0I9tmdbnfD2xrI+oOQ7Ejm5ckUJwv1QbxpsYOHRgYRvJMX9ftkJ8bWserE6jWcwPQvA8Fp27MBnzWW01AjzTf4l7ViW2IodcHDk/Kupw+QuUp0y81w4/xMTkwm67e1XC3l2/2ZQfpTK7VgTrobEf4mtIgz1gFpiaiW573Raqe1zMg0cA2dw4jeiHJt6O7eP09rTo7WmxY/u4Teka1eYnzn5cFwDoiZ7VRPO/tnmF6IoW6FqpNp3PXO5bCJBtM5eAl33W3hYq7/mYB88AAFJNjoB+4Ls+g2H+St7y9pFHWUfoZq78DfCYZ4k/CcN1sqlufHi/E7w7ACAbaSDRk4DP6/LLSPp0HvOQMwCAVKYnaQVPAOccltVReVYqc8YnLhNyBwCQxxsXCMN+0O8s6BcJgq2yOakVoV1IAADZVJ9gplltO9jKWcJgg/Q3bILa6RZVKAs9Fb+A6CBw19WvWigHKc2++b/+H1kWWmM5Wn4H1UcJdKf0zxlfkXTQQQfuuAJ5Jy9oVaJtcgAAAABJRU5ErkJggg=="/>
+                                </defs>
+                            </svg>
+                            <span>Продавец отказался предоставить VIN-код для проверки</span>
+                        </div>
+                        <div v-else class="yb_verified_content">
+                            <h2>Проверено по реестрам МВД</h2>
+                            <span class="y-vin_code">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0)">
                                     <path d="M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z" fill="#0B3F8D"/>
@@ -116,6 +150,7 @@
                             </svg>
                             5YJSA1E4хFFхххх17
                         </span>
+                        </div>
                         <button class="y_verified">
                             Проверить авто
                             <yexpanded  :text_color="'white'"  :color="'white'"></yexpanded>
@@ -160,17 +195,23 @@
                     </table>
                 </div>
             </div>
-            <h3>Технические характеристики</h3>
         </div>
         <div class="yb_auto_vis-r">
             <div class="yvis_item-car">
                 <div class="vis_car-price">
-                    <div class="yb-price_car">
+                    <span class="car_name">Mercedes-Benz E 220</span>
+                    <div class="yb_flex-price">
+                        <div class="yb-price_car">
                             <span class="price_vis active">8 200 $</span>
                             <span class="price_vis ">10 200 $</span>
                             <span class="price_vis ">898 200 $</span>
                         </div>
-                    <yfavorite></yfavorite>
+                        <yfavorite></yfavorite>
+                    </div>
+                    <button class="price_monitoring">
+                        Мониториг цен на авто
+                    </button>
+
                 </div>
                 <div class="yvis-car_options">
                     <div class="y-car_option">
@@ -282,7 +323,10 @@
 export default {
     data(){
         return{
-            openImage: false
+            openImage: false,
+            verifiedCar: false,
+            withPhotos: false,
+            soldCar: false
         }
     }
 
