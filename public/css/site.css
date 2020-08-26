@@ -5590,7 +5590,7 @@ span.yb-gradient {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0px 6px 8px rgba(11, 63, 141, 0.26), 0px 2px 5px #000000, 0px 2px 31px rgba(220, 222, 222, 0.24), -28px -28px 65px rgba(255, 255, 255, 0.9), 28px 28px 87px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
+  box-shadow: 0px 6px 8px rgba(11, 63, 141, 0.26), 0px 2px 5px #000000, 0px 2px 31px rgba(220, 222, 222, 0.24), 1px -11px 0px rgba(255, 255, 255, 0.9), 7px 2px 2px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), linear-gradient(143.75deg, #EEEEEE -35.55%, rgba(255, 255, 255, 0.97) 85.88%);
   width: 100%;
   padding-top: 40px;
@@ -5789,22 +5789,12 @@ span.yb-gradient {
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car {
-  width: 90%;
+  width: 100%;
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr {
   display: flex;
   margin-bottom: 15px;
-}
-
-.yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_icon {
-  margin-right: 15px;
-  display: flex;
-}
-
-.yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_icon i {
-  color: #2ECC71;
-  font-size: 1.5625em;
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
@@ -5816,6 +5806,12 @@ span.yb-gradient {
   font-size: 1.125em;
   line-height: 28px;
   color: #000000;
+}
+
+.yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title i {
+  color: #2ECC71;
+  font-size: 1.25em;
+  margin-right: 15px;
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_desc {
@@ -5932,6 +5928,7 @@ span.yb-gradient {
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .favorite svg {
   width: 40px;
+  fill: #C7C7C7;
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price .price_monitoring {
@@ -6092,6 +6089,10 @@ span.yb-gradient {
   bottom: 0;
   margin: 0;
   margin-bottom: 45px;
+}
+
+.yb-card_content .yb-card_auto .mobile_vis {
+  display: none;
 }
 
 .yb-card_content h3 {
@@ -6276,15 +6277,16 @@ span.yb-gradient {
     width: 15px;
   }
 
-  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car {
-    width: 100%;
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
+    width: 40%;
   }
 
-  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_icon i {
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title i {
     font-size: 1.125em;
   }
 
   .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_desc {
+    width: 50%;
     font-size: 1em;
   }
 
@@ -6416,7 +6418,11 @@ span.yb-gradient {
   }
 
   .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
-    width: 40%;
+    width: 50%;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title i {
+    font-size: 1.125em;
   }
 
   .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car {
@@ -6462,7 +6468,7 @@ span.yb-gradient {
   .yb-card_content .yb-card_auto .yb-bread_next-card .yb_come-back i {
     margin-right: 7px;
     color: #0B3F8D;
-    font-size: 18px;
+    font-size: 1.25em;
   }
 
   .yb-card_content .yb-card_auto .yb-bread_next-card .ynext_card-auto {
@@ -6540,7 +6546,7 @@ span.yb-gradient {
     margin-bottom: 25px;
   }
 
-  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_icon i {
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title i {
     font-size: 0.9375em;
   }
 
@@ -6658,23 +6664,584 @@ span.yb-gradient {
 
   .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info {
     width: 100%;
+    position: relative;
   }
 
-  .yb-card_content .yb-options .yb-technical_info .y_more-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info:after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(199, 199, 199, 0.27);
+  }
+
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column:after {
+    content: "";
+    height: 0;
+  }
+
+  .yb-card_content .yb_more-offers .offers_title {
+    top: 0;
+  }
+
+  .yb-card_content .yb_more-offers .ybestoffer .ybest-items {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .yb-card_content .yb-card_auto .yb_status-bar {
+    margin-bottom: 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar svg {
+    width: 25px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar span {
+    font-size: 1em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .yb_sold-car {
+    top: 10%;
+    font-size: 38px;
+    padding: 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-icon_check .icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-icon_check .icon svg {
+    width: 25px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img {
+    height: 40px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img i {
+    font-size: 1.25em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img .yb_count {
+    font-size: 0.9375em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img .yb_count .count {
+    font-size: 0.9375em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options {
+    padding: 0 0 70px 20px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_verified_content {
+    width: 90%;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
+    font-size: 1em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price .car_name {
+    font-size: 1.125em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car {
+    width: 90%;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .favorite {
+    right: 10px;
+    top: 5px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .yb-additional_car-opt .yadditional_i {
     width: 100%;
   }
 
-  .yb-card_content .yb-options .yb-technical_info .y_more-flex .y-more_config {
-    font-family: "Alegreya Sans", sans-serif;
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yb_go_to {
+    padding: 6% 3%;
+    font-size: 0.9375em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yb_go_to .yexpended .white .arrow {
+    right: 5px;
+    width: 20px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yb_go_to .yexpended .white .eclipse {
+    font-size: 1.5625em;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yb_go_to .yexpended .white .eclipse:after {
+    left: -5px;
+    width: 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .commercial {
+    display: none;
+  }
+
+  .yb-card_content .yb-card_auto .mobile_vis {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 20px;
+    width: 64%;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 610px;
+    position: relative;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+  }
+
+  .yb-card_content .yb-card_auto .mobile_vis h3 {
+    width: 100%;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    position: absolute;
+    font-size: 1.625em;
+    line-height: 38px;
+    color: #FFFFFF;
+    padding: 0;
+    bottom: 0;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info {
+    width: 70%;
+  }
+
+  .yb-card_content .yb_more-offers .offers_title {
+    top: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .yb-card_content .yb-card_auto .yb-bread_next-card {
+    margin: 10px 0 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar span {
+    font-size: 0.875em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l {
+    width: 100%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items {
+    box-shadow: none;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_sold-car {
+    top: 5%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos {
+    margin: 0;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price {
+    padding: 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .car_name {
+    font-size: 1.25em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price {
+    width: 100%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car {
+    width: 45%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car .price_vis {
+    font-size: 0.9375em;
+    line-height: 20px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car .price_vis.active {
+    font-size: 1.5em;
+    line-height: 29px;
     font-weight: 500;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .price_monitoring {
     font-size: 1em;
     line-height: 19px;
-    -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
-    color: #165ABF;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options {
+    padding: 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option .yoption_name {
+    width: 90%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option .yoption_name h2 {
+    font-size: 1.125em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option .yoption_name .y-option {
+    font-size: 1.125em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option:first-child {
+    padding: 0 0 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yb-additional_car-opt .yadditional_i {
+    flex-direction: inherit;
+    width: 90%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yb-additional_car-opt .yadditional_i .yvis_item:first-child {
+    margin-bottom: 0;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to {
+    width: 95%;
+    padding: 4% 22%;
+    font-size: 1.125em;
+    line-height: 22px;
+    margin-bottom: 35px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to .yexpended {
+    display: flex;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to .yexpended .white .arrow {
+    right: 13px;
+    width: 25px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to .yexpended .white .eclipse {
+    font-size: 2.375em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to .yexpended .white .eclipse:after {
+    left: -10px;
+    width: 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car {
+    margin: 0 0 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_disable-verified {
+    width: 95%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_disable-verified span {
+    font-size: 1.25em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_verified_content .y-vin_code svg {
+    width: 32px;
+    height: 35px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y_verified {
+    line-height: 19px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y_verified .yexpended {
+    display: flex;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
+    font-size: 1.125em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_desc {
+    font-size: 1.125em;
+    line-height: 22px;
+  }
+
+  .yb-card_content .yb-card_auto .mobile_vis {
+    display: none;
+  }
+
+  .yb-card_content .yb-options {
+    padding: 25px 25px;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info {
+    width: 100%;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info {
+    margin-top: 10px;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info .yvis_items_column .y_item-label {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .yb-card_content .yb-card_auto .yb-bread_next-card {
+    display: none;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar {
+    margin: 15px 0 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar svg {
+    margin-right: 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar span {
+    line-height: 18px;
+    font-size: 0.625em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos {
+    padding: 30px 0 30px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos h2 {
+    margin: 25px 0 0 0;
+    font-size: 1.875em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_sold-car {
+    top: 3%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car {
+    width: 65%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .favorite {
+    top: 15px;
+    right: 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yb-additional_car-opt .yadditional_i {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to {
+    padding: 3% 10%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options {
+    padding: 0 0 70px 0;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_verified_content {
+    width: 100%;
+    align-items: center;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y_verified {
+    bottom: 30px;
+    left: 55px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_disable-verified {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_disable-verified svg {
+    width: 40px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_disable-verified span {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr {
+    flex-direction: column;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
+    width: 70%;
+    align-items: center;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_desc {
+    width: 90%;
+    padding-left: 35px;
+  }
+
+  .yb-card_content h3 {
+    font-size: 1.5em;
+    line-height: 28px;
+    padding-left: 0;
+  }
+
+  .yb-card_content .yb-options {
+    padding: 25px 10px;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info .option_name {
+    font-size: 1.25em;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info .yvis_items_column .y_item-label {
+    font-size: 0.9375em;
+    width: 50%;
+    overflow-wrap: break-word;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info .yvis_items_column .y_item {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .yb-card_content .yb-card_auto .yb_status-bar {
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar svg {
+    height: 25px;
+    margin-right: 0;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_sold-car {
+    padding: 10px;
+    font-size: 30px;
+    top: 2%;
+    line-height: 56px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos {
+    padding: 25px 0 25px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos h2 {
+    margin: 20px 0 0 0;
+    font-size: 1.375em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car {
+    width: 80%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option svg {
+    width: 32px;
+    height: 32px;
+    margin-right: 14px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option .yoption_name h2 {
+    font-size: 1em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .yvis-car_options .y-car_option .yoption_name .y-option {
+    font-size: 0.9375em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 1em;
+    line-height: 19px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to .yexpended {
+    display: none;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y_verified {
+    left: 60px;
+    padding: 0 55px 0 55px;
+    height: 43px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y_verified .yexpended {
+    display: none;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_disable-verified span {
+    font-size: 0.875em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .y_check_item-car tr .y-check_title {
+    width: 100%;
+  }
+
+  .yb-card_content .yb-options .yb-technical_info .yb-vis_info .y-info_column .y-items_info .yvis_items_column .y_item {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .yb-card_content .yb-card_auto .yb_status-bar {
+    padding-bottom: 5px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar svg {
+    height: 20px;
+  }
+
+  .yb-card_content .yb-card_auto .yb_status-bar span {
+    font-size: 0.5625em;
+    line-height: 14px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-icon_check {
+    top: 10px;
+    left: 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-icon_check .icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-icon_check .icon svg {
+    width: 20px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos {
+    padding: 20px 0 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yvis_item-car .vis_car-price .yb_flex-price .yb-price_car {
+    width: 95%;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .y_verified {
+    left: 40px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-auto_options .yb_verified_car .yb_disable-verified span {
+    font-size: 0.75em;
   }
 }
 
