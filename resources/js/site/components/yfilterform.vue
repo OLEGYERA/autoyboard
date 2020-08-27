@@ -19,13 +19,13 @@
             </ycheckbox>
         </div>
         <div class="y-selector_rows">
-            <yselect :placeholder="'Тип авто'" :options="options"></yselect>
+            <ydropdowfilter :placeholder="'Тип авто'" :items="typeCars"></ydropdowfilter>
             <yselect :placeholder="'Модель'" :options="options"></yselect>
             <yselect :placeholder="'Марка'" :options="options"></yselect>
             <div class="yb-add_marks">
-                <button class="yadd_mark" @click="repeat++">Добавить марку</button>
+                <button class="yadd_mark" >Добавить марку</button>
             </div>
-            <yselect :placeholder="'Тип кузова'" :options="options"></yselect>
+            <ydropdowfilter :placeholder="'Тип кузова'" :items="bodyType"></ydropdowfilter>
             <yselect :placeholder="'Регион'" :options="options"></yselect>
         </div>
         <div class="yprice_options">
@@ -35,16 +35,9 @@
             </div>
         </div>
         <div class="y-selector_rows">
-            <yselect :placeholder="'Топливо'" :options="options"></yselect>
-            <yselect :placeholder="'Тип привода'" :options="options"></yselect>
-            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
-            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
-            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
-            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
-            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
-
-            <yselect :placeholder="'Коробка передач'" :options="options"></yselect>
-
+            <ydropdowfilter :placeholder="'Топливо'" :items="fuel"></ydropdowfilter>
+            <ydropdowfilter :placeholder="'Тип привода'" :items="typeofdrive"></ydropdowfilter>
+            <ydropdowfilter :placeholder="'Коробка передач'" :items="transmission"></ydropdowfilter>
         </div>
         <div class="yselect-car_colors">
             <h3 class="color_title">Цвет</h3>
@@ -115,6 +108,11 @@
         components: {vuescroll},
         data(){
             return{
+                transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная', 'Типтроник' ],
+                typeofdrive: ['Задний привод', 'Передний привод', 'Полный привод'],
+                bodyType:['Универсал','Седан','Хэтчбек','Минивен','Внедорожник','Купе', 'Пикап','Кабриолет','Лимузин'],
+                typeCars: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы',],
+                fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин', 'Газ метан', 'Газ пропан-бутан',] ,
                 options: [
                     {
                         id: 1,

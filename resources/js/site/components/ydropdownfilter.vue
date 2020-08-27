@@ -17,7 +17,12 @@
                  @click="setItem(item)"
             >
                 {{ item }}
-                <i v-if="value == item" class="fas fa-check"></i>
+                <i
+                    @click="isOpen = !isOpen"
+                    v-if="value == item"
+                    class="fas fa-check"
+                >
+                </i>
             </div>
 
         </div>

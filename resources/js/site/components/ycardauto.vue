@@ -1,5 +1,57 @@
 <template>
     <div v-if="windowWidth > 600" class="yb_auto-item">
+        <div v-if="showSlider" class="yb_fullpage-visual">
+            <div class="yb_slide-header">
+                <div class="yb-slide_left">
+                    <h2 class="yb_car-name">Mercedes-Benz E 220</h2>
+                    <div class="yb_header-price">
+                        <span class="yb_price-car">8 200 $ </span>
+                        <div class="yb_location-car"> Киев </div>
+                    </div>
+                </div>
+                <i
+                   @click="showSlider = false"
+                   class="fas fa-times">
+                </i>
+            </div>
+<!--            <div class="y-slider_top">-->
+                <div class="y-slider_top">
+                    <ul class="slides" :style="{left:-width*current+'px'}">
+                        <li v-for="(slide,i) in slides">
+                            <img :src="slide" alt="">
+                        </li>
+                    </ul>
+                    <a class="prev" href="#" @click.prevent="prevSlide">&#x25C0;</a>
+                    <a class="next" href="#" @click.prevent="nextSlide">&#x25B6;</a>
+                </div>
+<!--            </div>-->
+            <div class="y-slider_bottom">
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+                <figure class="yb_slide-small">
+                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
+                </figure>
+            </div>
+        </div>
         <div class="yb_auto_vis-l">
             <h3 class="y-auto_name">Mercedes-Benz E 220</h3>
             <div class="y-visl_items">
@@ -36,9 +88,9 @@
                                 <span class="count">9</span>
                             </div>
                         </div>
-                        <div class="yb-increase">
+                        <button @click="showSlider = true" class="yb-increase">
                             <i class="fas fa-search-plus"></i>
-                        </div>
+                        </button>
                     </div>
                 </figure>
                 <figure v-if="withPhotos" class="y-image_large without_photos">
@@ -583,7 +635,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -592,9 +643,25 @@ export default {
     mounted () {
         window.addEventListener('resize', this.onResize)
         this.onResize();
+
+    },
+    updated() {
+        this.scrollY()
     },
     data(){
         return{
+            slides: [
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+            ],
+            current: 0,
+            width: 1000,
+            timer: 0,
+
+            showSlider: true,
             windowWidth: 0,
             openImage: false,
             verifiedCar: true,
@@ -607,6 +674,36 @@ export default {
             this.windowWidth = document.documentElement.clientWidth;
             console.log(this.windowWidth)
         },
+        scrollY(){
+            if(this.showSlider == true){
+                document.body.classList.add('scroll-disallowed');
+            }else{
+                document.body.classList.remove('scroll-disallowed');
+            }
+        },
+
+        nextSlide: function() {
+            this.current++;
+            if (this.current >= this.slides.length)
+                this.current = 0;
+            this.resetPlay();
+        },
+        prevSlide: function() {
+            this.current--;
+            if (this.current < 0)
+                this.current = this.slides.length - 1;
+            this.resetPlay();
+        },
+        selectSlide: function(i) {
+            this.current = i;
+            this.resetPlay();
+        },
+        resetPlay: function() {
+            clearInterval(this.timer);
+        },
     },
+
 }
 </script>
+
+

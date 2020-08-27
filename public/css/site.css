@@ -1651,6 +1651,59 @@ span.yb-gradient {
   width: 100%;
 }
 
+.yfilter .yfilterform .y-selector_rows .ydropdownfilter {
+  width: 100%;
+  height: 34px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 10px 40px 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #E2E2E2;
+  position: relative;
+  background: none;
+  box-shadow: none;
+  margin-bottom: 5px;
+}
+
+.yfilter .yfilterform .y-selector_rows .ydropdownfilter .value {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.875em;
+  color: rgba(34, 34, 34, 0.8);
+}
+
+.yfilter .yfilterform .y-selector_rows .ydropdownfilter i {
+  position: absolute;
+  right: 15px;
+  color: #C7C7C7;
+}
+
+.yfilter .yfilterform .y-selector_rows .ydropdownfilter .items {
+  left: 0;
+  overflow: auto;
+  max-height: 140px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.yfilter .yfilterform .y-selector_rows .ydropdownfilter .items .item {
+  color: rgba(34, 34, 34, 0.79);
+}
+
+.yfilter .yfilterform .y-selector_rows .ydropdownfilter .items .item i {
+  position: absolute;
+  top: auto;
+  color: #2ECC71;
+  right: 8px;
+}
+
 .yfilter .yfilterform .y-selector_rows .autocomplete {
   margin-bottom: 5px;
 }
@@ -1834,19 +1887,25 @@ span.yb-gradient {
 .ycardfilter .yfiltered_car .ydrop_down {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 80%;
 }
 
 .ycardfilter .yfiltered_car .ydrop_down .ydropdownfilter {
-  width: 130px;
+  padding: 2% 4%;
   height: 35px;
+  width: 145px;
   margin-right: 15px;
 }
 
 .ycardfilter .yfiltered_car .ydrop_down .ydropdownfilter:last-child {
-  width: 205px;
+  padding: 2% 5%;
   height: 35px;
+  width: 225px;
   margin-right: 0;
+}
+
+.ycardfilter .yfiltered_car .ydrop_down .ydropdownfilter:last-child .items .item {
+  padding: 0 0 0 12%;
 }
 
 .ycardfilter .yfiltered_card-mobile {
@@ -2581,26 +2640,29 @@ span.yb-gradient {
   border-radius: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: relative;
+  cursor: pointer;
 }
 
 .ydropdownfilter .value {
   color: #0B3F8D;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 22px;
 }
 
 .ydropdownfilter i {
   color: #0B3F8D;
+  margin-left: 10px;
 }
 
 .ydropdownfilter .items {
   position: absolute;
   top: 38px;
   width: 100%;
+  left: 0;
   z-index: 2;
   background: #FFFFFF;
   box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
@@ -5334,10 +5396,12 @@ span.yb-gradient {
 .yb-card_content {
   padding: 0px 17%;
   width: 100%;
+  position: relative;
 }
 
 .yb-card_content .yb-card_auto {
   width: 100%;
+  position: relative;
 }
 
 .yb-card_content .yb-card_auto .yb-bread_next-card {
@@ -6089,6 +6153,144 @@ span.yb-gradient {
   bottom: 0;
   margin: 0;
   margin-bottom: 45px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #010E22;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px 20px 35px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-header .yb-slide_left .yb_car-name {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 2.25em;
+  line-height: 142.5%;
+  color: #FFFFFF;
+  margin: 0 0 25px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-header .yb-slide_left .yb_header-price {
+  display: flex;
+  align-items: center;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-header .yb-slide_left .yb_header-price .yb_price-car {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.75em;
+  line-height: 44px;
+  color: #2ECC71;
+  margin-right: 24px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-header .yb-slide_left .yb_header-price .yb_location-car {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.375em;
+  line-height: 29px;
+  color: #FFFFFF;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-header i {
+  color: #FFFFFF;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top {
+  margin: 0 auto;
+  padding: 0;
+  width: 1000px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .slides {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: table;
+  position: absolute;
+  top: 0;
+  transition: left 800ms;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .slides li {
+  list-style-type: none;
+  display: table-cell;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .slides li img {
+  width: 1000px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .prev,
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .next {
+  text-decoration: none;
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+  font-size: 42px;
+  top: 43%;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .prev {
+  left: 20px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .next {
+  right: 20px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-large {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-large img {
+  width: 60%;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 100px 30px 100px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .yb_slide-small {
+  position: relative;
+  overflow: hidden;
+  width: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .yb_slide-small img {
+  width: 100%;
 }
 
 .yb-card_content .yb-card_auto .mobile_vis {
@@ -11185,6 +11387,10 @@ span.yb-gradient {
   .yb_auto_news .y-news_items .ynews-top .right_items .flex_bottom .news {
     height: 215px;
   }
+}
+
+.scroll-disallowed {
+  overflow-y: hidden;
 }
 
 #yb-site {

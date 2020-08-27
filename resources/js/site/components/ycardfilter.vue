@@ -2,8 +2,8 @@
     <div class="ycardfilter">
         <div class="yfiltered_car">
             <div class="ydrop_down">
-                <ydropdowfilter :items="left"></ydropdowfilter>
                 <ydropdowfilter :items="right"></ydropdowfilter>
+                <ydropdowfilter :items="left"></ydropdowfilter>
             </div>
             <div class="ychange_visible">
                 <ytitle @getStatus="changeStatus"></ytitle>

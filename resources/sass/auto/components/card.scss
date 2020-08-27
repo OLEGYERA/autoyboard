@@ -3,8 +3,10 @@
 .yb-card_content{
     padding: 0px 17%;
     width: 100%;
+    position: relative;
     .yb-card_auto{
         width: 100%;
+        position: relative;
         .yb-bread_next-card{
             width: 100%;
             display: flex;
@@ -664,6 +666,133 @@
                         margin-bottom: 45px;
                     }
 
+                }
+            }
+        }
+        .yb_fullpage-visual{
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            background: #010E22;
+            .yb_slide-header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px 25px 20px 35px;
+                .yb-slide_left{
+                    .yb_car-name{
+                        font-family: $rale;
+                        font-weight: 600;
+                        font-size: em(36);
+                        line-height: 142.5%;
+                        color: #FFFFFF;
+                        margin: 0 0 25px;
+                    }
+                    .yb_header-price{
+                        display: flex;
+                        align-items: center;
+                        .yb_price-car{
+                            font-family: $mont;
+                            font-weight: 600;
+                            font-size: em(28);
+                            line-height: 44px;
+                            color: $dgreen;
+                            margin-right: 24px;
+                        }
+                        .yb_location-car{
+                            font-family: $mont;
+                            font-weight: 500;
+                            font-size: em(22);
+                            line-height: 29px;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+                i{
+                    color: #FFFFFF;
+                    font-size: em(40);
+                    cursor: pointer;
+                }
+            }
+            //.y-slider_top{
+                //width: 80%;
+                //margin: 0 auto;
+                //position: relative;
+                //overflow: hidden;
+                .y-slider_top {
+                    margin: 0 auto;
+                    padding: 0;
+                    width: 1000px;
+                    height: 600px;
+                    position: relative;
+                    overflow: hidden;
+                    .slides {
+                        width: 100%;
+                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                        display: table;
+                        position: absolute;
+                        top: 0;
+                        transition: left 800ms;
+                        li {
+                            list-style-type: none;
+                            display: table-cell;
+                            img{
+                                width: 1000px;
+                            }
+                        }
+                    }
+                    .prev,
+                    .next{
+                        text-decoration: none;
+                        color: #fff;
+                        position: absolute;
+                        z-index: 1;
+                        font-size: 42px;
+                        top: 43%;
+                        text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+                    }
+                    .prev{
+                        left: 20px;
+                    }
+                    .next{
+                        right: 20px;
+                    }
+                }
+                .yb_slide-large{
+                    display: block;
+                    position: relative;
+                    overflow: hidden;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    img{
+                        width: 60%;
+                    }
+                }
+            //}
+            .y-slider_bottom{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 20px 100px 30px 100px;
+                .yb_slide-small{
+                    position: relative;
+                    overflow: hidden;
+                    width: 12%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+                    padding: 0;
+                    border-radius: 8px;
+                    img{
+                        width: 100%;
+                    }
                 }
             }
         }

@@ -3039,13 +3039,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     window.addEventListener('resize', this.onResize);
     this.onResize();
   },
+  updated: function updated() {
+    this.scrollY();
+  },
   data: function data() {
     return {
+      slides: ['https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg', 'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg', 'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg', 'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg', 'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg'],
+      current: 0,
+      width: 1000,
+      timer: 0,
+      showSlider: true,
       windowWidth: 0,
       openImage: false,
       verifiedCar: true,
@@ -3057,6 +3116,30 @@ __webpack_require__.r(__webpack_exports__);
     onResize: function onResize(event) {
       this.windowWidth = document.documentElement.clientWidth;
       console.log(this.windowWidth);
+    },
+    scrollY: function scrollY() {
+      if (this.showSlider == true) {
+        document.body.classList.add('scroll-disallowed');
+      } else {
+        document.body.classList.remove('scroll-disallowed');
+      }
+    },
+    nextSlide: function nextSlide() {
+      this.current++;
+      if (this.current >= this.slides.length) this.current = 0;
+      this.resetPlay();
+    },
+    prevSlide: function prevSlide() {
+      this.current--;
+      if (this.current < 0) this.current = this.slides.length - 1;
+      this.resetPlay();
+    },
+    selectSlide: function selectSlide(i) {
+      this.current = i;
+      this.resetPlay();
+    },
+    resetPlay: function resetPlay() {
+      clearInterval(this.timer);
     }
   }
 });
@@ -4622,6 +4705,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6628,8 +6716,8 @@ __webpack_require__.r(__webpack_exports__);
       amountShow: ['По 10', 'По 20', 'По 30', 'По 50', 'По 100'],
       sortBy: ['Обычная', 'От дешевых к дорогим', 'От дорогих к дешевым', 'Дата добавления', 'Год выпуска, по возрастанию', 'Год выпуска, по убыванию', 'Пробег, по возрастанию', 'Пробег, по убыванию'],
       deliveryPeriod: ['Все', 'За час', 'За 3 часа', 'За 6 часов', 'За 12 часов', 'За сегодня', 'За сутки', 'За 2 дня', 'За 3 дня', 'За неделю', 'За месяц', 'За 3 месяца'],
-      fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин'],
-      transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная'],
+      fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин', 'Газ метан', 'Газ пропан-бутан'],
+      transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная', 'Типтроник'],
       typeofdrive: ['Задний привод', 'Передний привод', 'Полный привод'],
       ukSityName: [{
         name: 'Поляна',
@@ -6960,13 +7048,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -6974,6 +7055,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная', 'Типтроник'],
+      typeofdrive: ['Задний привод', 'Передний привод', 'Полный привод'],
+      bodyType: ['Универсал', 'Седан', 'Хэтчбек', 'Минивен', 'Внедорожник', 'Купе', 'Пикап', 'Кабриолет', 'Лимузин'],
+      typeCars: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы'],
+      fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин', 'Газ метан', 'Газ пропан-бутан'],
       options: [{
         id: 1,
         name: "Одесса",
@@ -41516,6 +41602,71 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.windowWidth > 600
     ? _c("div", { staticClass: "yb_auto-item" }, [
+        _vm.showSlider
+          ? _c("div", { staticClass: "yb_fullpage-visual" }, [
+              _c("div", { staticClass: "yb_slide-header" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-times",
+                  on: {
+                    click: function($event) {
+                      _vm.showSlider = false
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "y-slider_top" }, [
+                _c(
+                  "ul",
+                  {
+                    staticClass: "slides",
+                    style: { left: -_vm.width * _vm.current + "px" }
+                  },
+                  _vm._l(_vm.slides, function(slide, i) {
+                    return _c("li", [
+                      _c("img", { attrs: { src: slide, alt: "" } })
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "prev",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.prevSlide($event)
+                      }
+                    }
+                  },
+                  [_vm._v("◀")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "next",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.nextSlide($event)
+                      }
+                    }
+                  },
+                  [_vm._v("▶")]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _c("div", { staticClass: "yb_auto_vis-l" }, [
           _c("h3", { staticClass: "y-auto_name" }, [
             _vm._v("Mercedes-Benz E 220")
@@ -41595,7 +41746,22 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _c("div", { staticClass: "yb-count_increase-img" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "yb-increase",
+                          on: {
+                            click: function($event) {
+                              _vm.showSlider = true
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fas fa-search-plus" })]
+                      )
+                    ])
                   ]
                 )
               : _vm._e(),
@@ -41712,7 +41878,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                    Смотреть все фото\n                    "
+                          "\n                        Смотреть все фото\n                        "
                         ),
                         _c("i", {
                           staticClass: "fas",
@@ -41731,15 +41897,15 @@ var render = function() {
                     _vm._v(" "),
                     _vm.openImage
                       ? _c("ul", { staticClass: "y-image_small is_show" }, [
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _vm._m(2),
-                          _vm._v(" "),
                           _vm._m(3),
                           _vm._v(" "),
                           _vm._m(4),
                           _vm._v(" "),
-                          _vm._m(5)
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _vm._m(6),
+                          _vm._v(" "),
+                          _vm._m(7)
                         ])
                       : _vm._e()
                   ]
@@ -41798,7 +41964,7 @@ var render = function() {
                           ]
                         ),
                         _vm._v(
-                          "\n                        5YJSA1E4хFFхххх17\n                    "
+                          "\n                            5YJSA1E4хFFхххх17\n                        "
                         )
                       ])
                     ])
@@ -41870,7 +42036,7 @@ var render = function() {
                   { staticClass: "y_verified" },
                   [
                     _vm._v(
-                      "\n                        Проверить авто\n                        "
+                      "\n                            Проверить авто\n                            "
                     ),
                     _c("yexpanded", {
                       attrs: { text_color: "white", color: "white" }
@@ -41880,7 +42046,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(6)
+              _vm._m(8)
             ])
           ])
         ]),
@@ -41895,13 +42061,13 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "yb_flex-price" },
-                [_vm._m(7), _vm._v(" "), _c("yfavorite")],
+                [_vm._m(9), _vm._v(" "), _c("yfavorite")],
                 1
               ),
               _vm._v(" "),
               _c("button", { staticClass: "price_monitoring" }, [
                 _vm._v(
-                  "\n                    Мониториг цен на авто\n                "
+                  "\n                        Мониториг цен на авто\n                    "
                 )
               ])
             ]),
@@ -41946,7 +42112,7 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(8)
+                _vm._m(10)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "y-car_option" }, [
@@ -41972,7 +42138,7 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(9)
+                _vm._m(11)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "y-car_option" }, [
@@ -42030,7 +42196,7 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(10)
+                _vm._m(12)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "y-car_option" }, [
@@ -42080,7 +42246,7 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(11)
+                _vm._m(13)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "y-car_option" }, [
@@ -42122,7 +42288,7 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(12)
+                _vm._m(14)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "y-car_option" }, [
@@ -42172,18 +42338,20 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(13)
+                _vm._m(15)
               ])
             ]),
             _vm._v(" "),
-            _vm._m(14)
+            _vm._m(16)
           ]),
           _vm._v(" "),
           _c(
             "button",
             { staticClass: "yb_go_to" },
             [
-              _vm._v("\n            Перейти на сайт объявления\n            "),
+              _vm._v(
+                "\n                Перейти на сайт объявления\n                "
+              ),
               _c("yexpanded", {
                 attrs: { text_color: "white", color: "white" }
               })
@@ -42191,7 +42359,7 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(15)
+          _vm._m(17)
         ])
       ])
     : _c("div", { staticClass: "yb_auto-item yb-visible_mobile" }, [
@@ -42270,7 +42438,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._m(16)
+                    _vm._m(18)
                   ]
                 )
               : _vm._e(),
@@ -42298,13 +42466,13 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "yb_flex-price" },
-                    [_vm._m(17), _vm._v(" "), _c("yfavorite")],
+                    [_vm._m(19), _vm._v(" "), _c("yfavorite")],
                     1
                   ),
                   _vm._v(" "),
                   _c("button", { staticClass: "price_monitoring" }, [
                     _vm._v(
-                      "\n                            Мониториг цен на авто\n                        "
+                      "\n                                Мониториг цен на авто\n                            "
                     )
                   ])
                 ]),
@@ -42349,7 +42517,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(18)
+                    _vm._m(20)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "y-car_option" }, [
@@ -42375,7 +42543,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(19)
+                    _vm._m(21)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "y-car_option" }, [
@@ -42433,7 +42601,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(20)
+                    _vm._m(22)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "y-car_option" }, [
@@ -42483,7 +42651,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(21)
+                    _vm._m(23)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "y-car_option" }, [
@@ -42525,7 +42693,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(22)
+                    _vm._m(24)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "y-car_option" }, [
@@ -42575,11 +42743,11 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(23)
+                    _vm._m(25)
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(24)
+                _vm._m(26)
               ]),
               _vm._v(" "),
               _c(
@@ -42587,7 +42755,7 @@ var render = function() {
                 { staticClass: "yb_go_to" },
                 [
                   _vm._v(
-                    "\n                    Перейти на сайт объявления\n                    "
+                    "\n                        Перейти на сайт объявления\n                        "
                   ),
                   _c("yexpanded", {
                     attrs: { text_color: "white", color: "white" }
@@ -42649,7 +42817,7 @@ var render = function() {
                           ]
                         ),
                         _vm._v(
-                          "\n                        5YJSA1E4хFFхххх17\n                    "
+                          "\n                            5YJSA1E4хFFхххх17\n                        "
                         )
                       ])
                     ])
@@ -42721,7 +42889,7 @@ var render = function() {
                   { staticClass: "y_verified" },
                   [
                     _vm._v(
-                      "\n                        Проверить авто\n                        "
+                      "\n                            Проверить авто\n                            "
                     ),
                     _c("yexpanded", {
                       attrs: { text_color: "white", color: "white" }
@@ -42731,7 +42899,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(25)
+              _vm._m(27)
             ])
           ])
         ])
@@ -42742,21 +42910,115 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-count_increase-img" }, [
-      _c("div", { staticClass: "yb_count-img" }, [
-        _c("i", { staticClass: "far fa-image" }),
+    return _c("div", { staticClass: "yb-slide_left" }, [
+      _c("h2", { staticClass: "yb_car-name" }, [_vm._v("Mercedes-Benz E 220")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb_header-price" }, [
+        _c("span", { staticClass: "yb_price-car" }, [_vm._v("8 200 $ ")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yb_count" }, [
-          _c("span", { staticClass: "count" }, [_vm._v("1")]),
-          _vm._v(
-            "\n                            из\n                            "
-          ),
-          _c("span", { staticClass: "count" }, [_vm._v("9")])
-        ])
+        _c("div", { staticClass: "yb_location-car" }, [_vm._v(" Киев ")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "y-slider_bottom" }, [
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "yb-increase" }, [
-        _c("i", { staticClass: "fas fa-search-plus" })
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("figure", { staticClass: "yb_slide-small" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg",
+            alt: ""
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb_count-img" }, [
+      _c("i", { staticClass: "far fa-image" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb_count" }, [
+        _c("span", { staticClass: "count" }, [_vm._v("1")]),
+        _vm._v(
+          "\n                                из\n                                "
+        ),
+        _c("span", { staticClass: "count" }, [_vm._v("9")])
       ])
     ])
   },
@@ -42849,7 +43111,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Марка, модель, год\n                        "
+            "\n                                Марка, модель, год\n                            "
           )
         ]),
         _vm._v(" "),
@@ -42862,7 +43124,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                        Двигатель\n                        "
+            "\n                            Двигатель\n                            "
           )
         ]),
         _vm._v(" "),
@@ -42872,7 +43134,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
-          _vm._v("\n                            Цвет\n                        ")
+          _vm._v(
+            "\n                                Цвет\n                            "
+          )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "y-check_desc" }, [_vm._v("Серый")])
@@ -42882,7 +43146,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            В розыске\n                        "
+            "\n                                В розыске\n                            "
           )
         ]),
         _vm._v(" "),
@@ -42893,7 +43157,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Пробег проверен\n                        "
+            "\n                                Пробег проверен\n                            "
           )
         ]),
         _vm._v(" "),
@@ -42908,7 +43172,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Пробег от продавца\n                        "
+            "\n                                Пробег от продавца\n                            "
           )
         ]),
         _vm._v(" "),
@@ -42919,7 +43183,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Последняя операция\n                        "
+            "\n                                Последняя операция\n                            "
           )
         ]),
         _vm._v(" "),
@@ -43066,7 +43330,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "yb_count" }, [
           _c("span", { staticClass: "count" }, [_vm._v("1")]),
           _vm._v(
-            "\n                            из\n                            "
+            "\n                                из\n                                "
           ),
           _c("span", { staticClass: "count" }, [_vm._v("9")])
         ])
@@ -43196,7 +43460,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Марка, модель, год\n                        "
+            "\n                                Марка, модель, год\n                            "
           )
         ]),
         _vm._v(" "),
@@ -43209,7 +43473,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Двигатель\n                        "
+            "\n                                Двигатель\n                            "
           )
         ]),
         _vm._v(" "),
@@ -43219,7 +43483,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
-          _vm._v("\n                            Цвет\n                        ")
+          _vm._v(
+            "\n                                Цвет\n                            "
+          )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "y-check_desc" }, [_vm._v("Серый")])
@@ -43229,7 +43495,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            В розыске\n                        "
+            "\n                                В розыске\n                            "
           )
         ]),
         _vm._v(" "),
@@ -43240,7 +43506,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Пробег проверен\n                        "
+            "\n                                Пробег проверен\n                            "
           )
         ]),
         _vm._v(" "),
@@ -43255,7 +43521,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Пробег от продавца\n                        "
+            "\n                                Пробег от продавца\n                            "
           )
         ]),
         _vm._v(" "),
@@ -43266,7 +43532,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "y-check_title" }, [
           _c("i", { staticClass: "fas fa-check" }),
           _vm._v(
-            "\n                            Последняя операция\n                        "
+            "\n                                Последняя операция\n                            "
           )
         ]),
         _vm._v(" "),
@@ -43304,9 +43570,9 @@ var render = function() {
         "div",
         { staticClass: "ydrop_down" },
         [
-          _c("ydropdowfilter", { attrs: { items: _vm.left } }),
+          _c("ydropdowfilter", { attrs: { items: _vm.right } }),
           _vm._v(" "),
-          _c("ydropdowfilter", { attrs: { items: _vm.right } })
+          _c("ydropdowfilter", { attrs: { items: _vm.left } })
         ],
         1
       ),
@@ -48686,7 +48952,14 @@ var render = function() {
           [
             _vm._v("\n            " + _vm._s(item) + "\n            "),
             _vm.value == item
-              ? _c("i", { staticClass: "fas fa-check" })
+              ? _c("i", {
+                  staticClass: "fas fa-check",
+                  on: {
+                    click: function($event) {
+                      _vm.isOpen = !_vm.isOpen
+                    }
+                  }
+                })
               : _vm._e()
           ]
         )
@@ -53072,8 +53345,8 @@ var render = function() {
           "div",
           { staticClass: "y-selector_rows" },
           [
-            _c("yselect", {
-              attrs: { placeholder: "Тип авто", options: _vm.options }
+            _c("ydropdowfilter", {
+              attrs: { placeholder: "Тип авто", items: _vm.typeCars }
             }),
             _vm._v(" "),
             _c("yselect", {
@@ -53085,22 +53358,13 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("div", { staticClass: "yb-add_marks" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "yadd_mark",
-                  on: {
-                    click: function($event) {
-                      _vm.repeat++
-                    }
-                  }
-                },
-                [_vm._v("Добавить марку")]
-              )
+              _c("button", { staticClass: "yadd_mark" }, [
+                _vm._v("Добавить марку")
+              ])
             ]),
             _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Тип кузова", options: _vm.options }
+            _c("ydropdowfilter", {
+              attrs: { placeholder: "Тип кузова", items: _vm.bodyType }
             }),
             _vm._v(" "),
             _c("yselect", {
@@ -53120,36 +53384,16 @@ var render = function() {
           "div",
           { staticClass: "y-selector_rows" },
           [
-            _c("yselect", {
-              attrs: { placeholder: "Топливо", options: _vm.options }
+            _c("ydropdowfilter", {
+              attrs: { placeholder: "Топливо", items: _vm.fuel }
             }),
             _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Тип привода", options: _vm.options }
+            _c("ydropdowfilter", {
+              attrs: { placeholder: "Тип привода", items: _vm.typeofdrive }
             }),
             _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Коробка передач", options: _vm.options }
-            }),
-            _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Коробка передач", options: _vm.options }
-            }),
-            _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Коробка передач", options: _vm.options }
-            }),
-            _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Коробка передач", options: _vm.options }
-            }),
-            _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Коробка передач", options: _vm.options }
-            }),
-            _vm._v(" "),
-            _c("yselect", {
-              attrs: { placeholder: "Коробка передач", options: _vm.options }
+            _c("ydropdowfilter", {
+              attrs: { placeholder: "Коробка передач", items: _vm.transmission }
             })
           ],
           1
@@ -76311,14 +76555,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/site/components/ycardauto.vue ***!
   \****************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ycardauto_vue_vue_type_template_id_46f58b8e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ycardauto.vue?vue&type=template&id=46f58b8e& */ "./resources/js/site/components/ycardauto.vue?vue&type=template&id=46f58b8e&");
 /* harmony import */ var _ycardauto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ycardauto.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ycardauto.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ycardauto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ycardauto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -76348,7 +76593,7 @@ component.options.__file = "resources/js/site/components/ycardauto.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/site/components/ycardauto.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

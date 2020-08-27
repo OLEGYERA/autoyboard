@@ -12,15 +12,22 @@
         .ydrop_down{
             display: flex;
             align-items: center;
-            width: 50%;
+            width: 80%;
             .ydropdownfilter{
-                width: 130px;
+                padding: 2% 4%;
                 height: 35px;
+                width: 145px;
                 margin-right: 15px;
                 &:last-child{
-                    width: 205px;
+                    padding: 2% 5%;
                     height: 35px;
+                    width: 225px;
                     margin-right: 0;
+                    .items{
+                        .item{
+                            padding: 0 0 0 12%;
+                        }
+                    }
                 }
             }
         }
