@@ -14,42 +14,51 @@
                    class="fas fa-times">
                 </i>
             </div>
-<!--            <div class="y-slider_top">-->
                 <div class="y-slider_top">
-                    <ul class="slides" :style="{left:-width*current+'px'}">
-                        <li v-for="(slide,i) in slides">
-                            <img :src="slide" alt="">
+                    <ul class="yb_slider-large">
+                        <li v-for="(banner, index) in bannerList" :key="index" :class="{ active_img: index === currentIndex }">
+                            <img :src="banner" :alt="index">
                         </li>
                     </ul>
-                    <a class="prev" href="#" @click.prevent="prevSlide">&#x25C0;</a>
-                    <a class="next" href="#" @click.prevent="nextSlide">&#x25B6;</a>
+                    <button @click="roll('prev')" class="yb_prev-img slide_arrow ">
+                        <svg width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
+                        </svg>
+                    </button>
+                    <button @click="roll('next')" class="yb_next-img  slide_arrow ">
+                        <svg width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
+                        </svg>
+                    </button>
                 </div>
-<!--            </div>-->
             <div class="y-slider_bottom">
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
-                <figure class="yb_slide-small">
-                    <img src="https://www.drivespark.com/images/2020-05/bmw-8-series-gran-coupe-exterior-11.jpg" alt="">
-                </figure>
+                <button v-if="currentIndex > 0" @click="swipeLeft" class="yb_prev-img slide_arrow ">
+                    <svg width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
+                    </svg>
+                </button>
+                    <ul ref="content" class="yb_slide-small">
+                        <li
+                            v-for="(banner, index) in bannerList"
+                            :key="index"
+                            :class="{ active_img: index === currentIndex }"
+                        >
+                            <img :src="banner" :alt="index">
+                            <div
+                                v-if="index === currentIndex"
+                                :class="{'insert_shadow' : index === currentIndex  }"
+                                class="yb_count_index">
+                                <span class="yb_index" >{{currentIndex + 1}}</span>
+                                    из
+                                <span class="yb_length">{{bannerList.length}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                <button @click="swipeRight" class="yb_next-img  slide_arrow ">
+                    <svg width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
+                    </svg>
+                </button>
             </div>
         </div>
         <div class="yb_auto_vis-l">
@@ -650,16 +659,18 @@ export default {
     },
     data(){
         return{
-            slides: [
+            bannerList: [
+                'http://placekitten.com/400/300?image=1',
                 'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
-                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
-                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
-                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
-                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'http://placekitten.com/400/300?image=4',
+                'http://placekitten.com/400/300?image=3',
+                'http://placekitten.com/400/300?image=3',
+                'https://wiki.zr.ru/images/thumb/8/83/SkodaFelicia.jpg/300px-SkodaFelicia.jpg',
+                'https://wiki.zr.ru/images/thumb/8/83/SkodaFelicia.jpg/300px-SkodaFelicia.jpg',
+                'http://placekitten.com/400/300?image=3',
+                'https://thumbor.forbes.com/thumbor/300x225/https://blogs-images.forbes.com/investopedia/files/2011/02/300px-Front_left_of_car.jpg?width=960',
             ],
-            current: 0,
-            width: 1000,
-            timer: 0,
+            currentIndex: 0,
 
             showSlider: true,
             windowWidth: 0,
@@ -681,29 +692,69 @@ export default {
                 document.body.classList.remove('scroll-disallowed');
             }
         },
+        addIndex() {
+            let newIndex = this.currentIndex + 1;
+            this.currentIndex = newIndex === this.bannerList.length ? 0 : newIndex;
+        },
+        roll: function (direction) {
+            let diff = direction === "prev" ? -1 : 1;
+            this.currentIndex = this.getTargetIndex(diff);
+            const content = this.$refs.content;
+            let length = this.bannerList.length;
+            let index = this.currentIndex + diff;
+            if (this.currentIndex == 7) {
+                this.scrollTo(content, 300, 800)
+            }
+            if (index === length) {
+                this.scrollTo(content, -500, 800);
+            }
+        },
+        getTargetIndex(diff) {
+            let length = this.bannerList.length;
+            let index = this.currentIndex + diff;
+            if (index === -1) {
+                return length - 1;
+            }
+            if (index === length) {
+                return 0;
+            }
+            return index;
+        },
+        swipeLeft() {
+            const content = this.$refs.content;
+            console.log(content)
+            this.scrollTo(content, -300, 800);
+        },
+        swipeRight() {
+            const content = this.$refs.content;
+            console.log(content)
+            this.scrollTo(content, 300, 800);
+        },
 
-        nextSlide: function() {
-            this.current++;
-            if (this.current >= this.slides.length)
-                this.current = 0;
-            this.resetPlay();
-        },
-        prevSlide: function() {
-            this.current--;
-            if (this.current < 0)
-                this.current = this.slides.length - 1;
-            this.resetPlay();
-        },
-        selectSlide: function(i) {
-            this.current = i;
-            this.resetPlay();
-        },
-        resetPlay: function() {
-            clearInterval(this.timer);
+        scrollTo(element, scrollPixels, duration) {
+            const scrollPos = element.scrollLeft;
+            if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
+            {
+                const startTime =
+                    "now" in window.performance
+                        ? performance.now()
+                        : new Date().getTime();
+
+                function scroll(timestamp) {
+                    const timeElapsed = timestamp - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    //Set the scrolleft
+                    element.scrollLeft = scrollPos + scrollPixels * progress;
+                    if (timeElapsed < duration) {
+                        window.requestAnimationFrame(scroll);
+                    } else {
+                        return;
+                    }
+                }
+                window.requestAnimationFrame(scroll);
+            }
         },
     },
-
 }
 </script>
-
 
