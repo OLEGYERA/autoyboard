@@ -25,20 +25,21 @@
                             <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                         </svg>
                     </button>
-                    <button @click="roll('next')" class="yb_next-img  slide_arrow ">
+                    <button  @click="roll('next')" class="yb_next-img  slide_arrow ">
                         <svg width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
                         </svg>
                     </button>
                 </div>
             <div class="y-slider_bottom">
-                <button v-if="currentIndex > 0" @click="swipeLeft" class="yb_prev-img slide_arrow ">
+                <button v-if="currentIndex > 0 && this.bannerList.length > 7 " @click="swipeLeft" class="yb_prev-img slide_arrow ">
                     <svg width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                     </svg>
                 </button>
                     <ul ref="content" class="yb_slide-small">
                         <li
+                            @click="activateImage(index)"
                             v-for="(banner, index) in bannerList"
                             :key="index"
                             :class="{ active_img: index === currentIndex }"
@@ -54,7 +55,7 @@
                             </div>
                         </li>
                     </ul>
-                <button @click="swipeRight" class="yb_next-img  slide_arrow ">
+                <button v-if="this.bannerList.length > 7" @click="swipeRight" class="yb_next-img  slide_arrow ">
                     <svg width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
                     </svg>
@@ -652,7 +653,6 @@ export default {
     mounted () {
         window.addEventListener('resize', this.onResize)
         this.onResize();
-
     },
     updated() {
         this.scrollY()
@@ -663,21 +663,32 @@ export default {
                 'http://placekitten.com/400/300?image=1',
                 'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
                 'http://placekitten.com/400/300?image=4',
+                 'http://placekitten.com/400/300?image=3',
+                 'http://placekitten.com/400/300?image=3',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'http://placekitten.com/400/300?image=3',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'https://thumbor.forbes.com/thumbor/300x225/https://blogs-images.forbes.com/investopedia/files/2011/02/300px-Front_left_of_car.jpg?width=960',
+                'http://placekitten.com/400/300?image=1',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
+                'http://placekitten.com/400/300?image=4',
                 'http://placekitten.com/400/300?image=3',
                 'http://placekitten.com/400/300?image=3',
-                'https://wiki.zr.ru/images/thumb/8/83/SkodaFelicia.jpg/300px-SkodaFelicia.jpg',
-                'https://wiki.zr.ru/images/thumb/8/83/SkodaFelicia.jpg/300px-SkodaFelicia.jpg',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
                 'http://placekitten.com/400/300?image=3',
+                'https://cdn.riastatic.com/photosnewr/auto/new_auto_storage/skoda_octavia__898682-620x465x70.jpg',
                 'https://thumbor.forbes.com/thumbor/300x225/https://blogs-images.forbes.com/investopedia/files/2011/02/300px-Front_left_of_car.jpg?width=960',
             ],
             currentIndex: 0,
+            shift_step: 0,
 
             showSlider: true,
             windowWidth: 0,
             openImage: false,
             verifiedCar: true,
             withPhotos: false,
-            soldCar: false
+            soldCar: false,
+            refuseScroll: false
         }
     },
     methods: {
@@ -692,42 +703,87 @@ export default {
                 document.body.classList.remove('scroll-disallowed');
             }
         },
-        addIndex() {
-            let newIndex = this.currentIndex + 1;
-            this.currentIndex = newIndex === this.bannerList.length ? 0 : newIndex;
+        activateImage(imageIndex) {
+            this.currentIndex = imageIndex;
         },
         roll: function (direction) {
-            let diff = direction === "prev" ? -1 : 1;
-            this.currentIndex = this.getTargetIndex(diff);
-            const content = this.$refs.content;
-            let length = this.bannerList.length;
-            let index = this.currentIndex + diff;
-            if (this.currentIndex == 7) {
-                this.scrollTo(content, 300, 800)
+            let l = this.bannerList.length,
+                shift = direction === "prev" ? -1 : 1,
+                step = 7,
+                img_w = 243.6;
+
+            this.currentIndex += shift;
+            let i = this.currentIndex;
+
+            if(direction === "prev"){
+                if((i)%step == 0 || (i)%step == (step - 1)) this.shift_step -= 1;
             }
-            if (index === length) {
-                this.scrollTo(content, -500, 800);
+            else{
+                if((i)%step == 0) this.shift_step += 1;
+                console.log( this.shift_step)
             }
+            if(this.shift_step == 1){
+                this.scrollTo(this.$refs.content, img_w*step, 500);
+                this.shift_step = 0
+            }
+
+
+
+            console.log('первый шаг',this.shift_step, 'текущий индекс', i, 'индекс +1', i + 1);
+
+            // this.scrollTo(this.$refs.content, direction === "prev" ? -(img_w*step) : img_w*step, 500)
+
+
+
+
+
+            // event catcher
+            if(i > l){
+                this.currentIndex = 0;
+                i = 1;
+            }
+            else if(i < 1){
+                i = l;
+                this.currentIndex = i - 1;
+            }
+
+
+            // console.log(direction, l, i)
+            // let diff = direction === "prev" ? -1 : 1;
+            // this.currentIndex = this.getTargetIndex(diff);
+            // const content = this.$refs.content;
+            // let length = this.bannerList.length;
+            // let index = this.currentIndex + diff;
+            // console.log(length, index, index > length)
+            // if (this.currentIndex == 7) {
+            //     this.scrollTo(content, 700, 800)
+            // }
+            //
+            // if (this.refuseScroll && index == 1){
+            //     this.scrollTo(content, -1000, 800);
+            // }
+
         },
         getTargetIndex(diff) {
             let length = this.bannerList.length;
             let index = this.currentIndex + diff;
             if (index === -1) {
-                return length - 1;
+                return length - 1
             }
             if (index === length) {
+                this.refuseScroll = true;
                 return 0;
+            }else{
+                this.refuseScroll = false;
             }
             return index;
         },
         swipeLeft() {
             const content = this.$refs.content;
-            console.log(content)
             this.scrollTo(content, -300, 800);
         },
         swipeRight() {
             const content = this.$refs.content;
-            console.log(content)
             this.scrollTo(content, 300, 800);
         },
 
@@ -743,7 +799,6 @@ export default {
                 function scroll(timestamp) {
                     const timeElapsed = timestamp - startTime;
                     const progress = Math.min(timeElapsed / duration, 1);
-                    //Set the scrolleft
                     element.scrollLeft = scrollPos + scrollPixels * progress;
                     if (timeElapsed < duration) {
                         window.requestAnimationFrame(scroll);
@@ -754,6 +809,7 @@ export default {
                 window.requestAnimationFrame(scroll);
             }
         },
+
     },
 }
 </script>
