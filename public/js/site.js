@@ -2615,16 +2615,24 @@ __webpack_require__.r(__webpack_exports__);
         this.shift_step = 0;
       }
 
+      if (i === l) {
+        console.log('текущий', i);
+        console.log('длина', l);
+        this.scrollTo(this.$refs.content, -img_w * step * 2, 500);
+        this.currentIndex = 0;
+      }
+
       console.log('первый шаг', this.shift_step, 'текущий индекс', i, 'индекс +1', i + 1); // this.scrollTo(this.$refs.content, direction === "prev" ? -(img_w*step) : img_w*step, 500)
       // event catcher
-
-      if (i > l) {
-        this.currentIndex = 0;
-        i = 1;
-      } else if (i < 1) {
-        i = l;
-        this.currentIndex = i - 1;
-      } // console.log(direction, l, i)
+      // if(i > l){
+      //     this.currentIndex = 0;
+      //     i = 1;
+      // }
+      // else if(i < 1){
+      //     i = l;
+      //     this.currentIndex = i - 1;
+      // }
+      // console.log(direction, l, i)
       // let diff = direction === "prev" ? -1 : 1;
       // this.currentIndex = this.getTargetIndex(diff);
       // const content = this.$refs.content;
@@ -2638,7 +2646,6 @@ __webpack_require__.r(__webpack_exports__);
       // if (this.refuseScroll && index == 1){
       //     this.scrollTo(content, -1000, 800);
       // }
-
     },
     getTargetIndex: function getTargetIndex(diff) {
       var length = this.bannerList.length;

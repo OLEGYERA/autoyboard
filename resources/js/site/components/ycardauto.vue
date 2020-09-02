@@ -726,6 +726,12 @@ export default {
                 this.scrollTo(this.$refs.content, img_w*step, 500);
                 this.shift_step = 0
             }
+            if(i === l){
+                console.log('текущий',i)
+                console.log('длина',l)
+                this.scrollTo(this.$refs.content, -img_w*step*2, 500);
+                this.currentIndex = 0
+            }
 
 
 
@@ -738,14 +744,14 @@ export default {
 
 
             // event catcher
-            if(i > l){
-                this.currentIndex = 0;
-                i = 1;
-            }
-            else if(i < 1){
-                i = l;
-                this.currentIndex = i - 1;
-            }
+            // if(i > l){
+            //     this.currentIndex = 0;
+            //     i = 1;
+            // }
+            // else if(i < 1){
+            //     i = l;
+            //     this.currentIndex = i - 1;
+            // }
 
 
             // console.log(direction, l, i)
