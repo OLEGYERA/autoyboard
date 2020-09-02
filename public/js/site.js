@@ -2562,6 +2562,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     window.addEventListener('resize', this.onResize);
     this.onResize();
+    console.log(this.currentIndex);
+    console.log(this.shift_step);
   },
   updated: function updated() {
     this.scrollY();
@@ -2620,6 +2622,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log('длина', l);
         this.scrollTo(this.$refs.content, -img_w * step * 2, 500);
         this.currentIndex = 0;
+        this.shift_step = 0;
+        i = 0;
+      } // if(this.shift_step === -1){
+      //     this.scrollTo(this.$refs.content, -img_w*step, 500);
+      // }
+
+
+      if (this.shift_step === 0 && i === -1) {
+        this.scrollTo(this.$refs.content, img_w * step * 2, 500);
+        return this.currentIndex = l - 1;
       }
 
       console.log('первый шаг', this.shift_step, 'текущий индекс', i, 'индекс +1', i + 1); // this.scrollTo(this.$refs.content, direction === "prev" ? -(img_w*step) : img_w*step, 500)

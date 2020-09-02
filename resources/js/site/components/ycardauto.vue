@@ -14,7 +14,7 @@
                    class="fas fa-times">
                 </i>
             </div>
-                <div class="y-slider_top">
+            <div class="y-slider_top">
                     <ul class="yb_slider-large">
                         <li v-for="(banner, index) in bannerList" :key="index" :class="{ active_img: index === currentIndex }">
                             <img :src="banner" :alt="index">
@@ -653,6 +653,8 @@ export default {
     mounted () {
         window.addEventListener('resize', this.onResize)
         this.onResize();
+        console.log(this.currentIndex)
+        console.log(this.shift_step)
     },
     updated() {
         this.scrollY()
@@ -681,6 +683,7 @@ export default {
             ],
             currentIndex: 0,
             shift_step: 0,
+
 
             showSlider: true,
             windowWidth: 0,
@@ -711,7 +714,6 @@ export default {
                 shift = direction === "prev" ? -1 : 1,
                 step = 7,
                 img_w = 243.6;
-
             this.currentIndex += shift;
             let i = this.currentIndex;
 
@@ -731,7 +733,19 @@ export default {
                 console.log('длина',l)
                 this.scrollTo(this.$refs.content, -img_w*step*2, 500);
                 this.currentIndex = 0
+                this.shift_step = 0
+                i = 0
             }
+            // if(this.shift_step === -1){
+            //     this.scrollTo(this.$refs.content, -img_w*step, 500);
+            // }
+            if (this.shift_step === 0 && i === -1) {
+                this.scrollTo(this.$refs.content, img_w*step*2, 500);
+                return this.currentIndex = l - 1
+            }
+
+
+
 
 
 
