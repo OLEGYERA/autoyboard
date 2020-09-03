@@ -6215,27 +6215,10 @@ span.yb-gradient {
   width: 40%;
   position: relative;
   overflow: hidden;
-}
-
-.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .yb_slider-large {
-  width: 100%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .yb_slider-large li {
-  width: 100%;
-  display: none;
-}
-
-.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .yb_slider-large li.active_img {
-  width: 100%;
-  display: block;
-}
-
-.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .yb_slider-large li.active_img img {
-  width: 100%;
+  padding-bottom: 30%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_top .slide_arrow {
@@ -6257,7 +6240,7 @@ span.yb-gradient {
   position: relative;
   overflow: hidden;
   justify-content: space-between;
-  padding: 20px 100px 30px 100px;
+  padding: 20px 100px 0px 100px;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .slide_arrow {
@@ -6281,25 +6264,24 @@ span.yb-gradient {
   position: relative;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   overflow: hidden;
   padding: 0;
   margin: 0;
   align-items: center;
-  justify-content: space-between;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .yb_slide-small li {
-  flex: 0 0 auto;
-  width: 13%;
+  width: 6%;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
+  margin: 10px;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .yb_slide-small li img {
@@ -6331,6 +6313,10 @@ span.yb-gradient {
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .yb_slide-small li .insert_shadow {
   box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
+}
+
+.yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .yb_slide-small li:first-child {
+  margin-bottom: 10px;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-slider_bottom .yb_slide-small img {

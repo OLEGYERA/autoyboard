@@ -724,23 +724,27 @@
                     width: 40%;
                     position: relative;
                     overflow: hidden;
-                    .yb_slider-large{
-                        width: 100%;
-                        list-style-type: none;
-                        margin: 0;
-                        padding: 0;
-                        li{
-                            width: 100%;
-                            display: none;
-                            &.active_img{
-                                width: 100%;
-                                display: block;
-                                img{
-                                    width: 100%;
-                                }
-                            }
-                        }
-                    }
+                    padding-bottom: 30%;
+                    background-size: cover;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    //.yb_slider-large{
+                    //    width: 100%;
+                    //    list-style-type: none;
+                    //    margin: 0;
+                    //    padding: 0;
+                    //    li{
+                    //        width: 100%;
+                    //        display: none;
+                    //        &.active_img{
+                    //            width: 100%;
+                    //            display: block;
+                    //            img{
+                    //                width: 100%;
+                    //            }
+                    //        }
+                    //    }
+                    //}
                     .slide_arrow{
                         position: absolute;
                         top: 50%;
@@ -758,7 +762,7 @@
                 position: relative;
                 overflow: hidden;
                 justify-content: space-between;
-                padding: 20px 100px 30px 100px;
+                padding: 20px 100px 0px 100px;
                 .slide_arrow{
                     position: absolute;
                     top: 35%;
@@ -776,23 +780,22 @@
                     position: relative;
                     width: 100%;
                     display: flex;
+                    flex-wrap: wrap;
                     overflow: hidden;
                     padding: 0;
                     margin: 0;
                     align-items: center;
-                    justify-content: space-between;
                     scrollbar-width: none;
                     -webkit-overflow-scrolling: touch;
                     li{
-                        flex: 0 0 auto;
-                        width: 13%;
+                        width: 6%;
                         border-radius: 8px;
                         overflow: hidden;
                         position: relative;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        margin-right: 20px;
+                        margin: 10px;
                         img{
                             width: 100%;
                         }
@@ -818,6 +821,9 @@
                         }
                         .insert_shadow{
                             box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
+                        }
+                        &:first-child{
+                            margin-bottom: 10px;
                         }
                     }
                     img{

@@ -37,6 +37,7 @@ import Vue from 'vue';
 // Vue.component('ystickers', require('./components/ystickers').default);
 
 Vue.component('ycardauto', require('./components/ycardauto').default);
+Vue.component('test', require('./components/testSliderFull').default);
 
 
 // Vue.component('yfilterextended', require('./components/yfilterextended').default);
