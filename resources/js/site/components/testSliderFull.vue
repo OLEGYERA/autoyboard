@@ -1,15 +1,17 @@
 <template>
-    <div class="Carousel">
+    <div class="yb-full_carousel">
+        <figure>
+            <img class="currImg" :src="imgList[currImgIdx]" @click="lightboxActive=true"/>
+        </figure>
         <div class="lightbox" v-show="lightboxActive" @click.self="lightboxActive=false; currLightboxImg = currImgIdx">
-            <img :src="imgList[currLightboxImg]"/>
+            <figure>
+                <img :src="imgList[currLightboxImg]"/>
+            </figure>
             <div class="prev" @click="goToImg(currLightboxImg-1)"></div>
             <div class="next" @click="goToImg(currLightboxImg+1)"></div>
         </div>
-        <img class="currImg" :src="imgList[currImgIdx]" @click="lightboxActive=true"/>
         <transition-group class="CROP" :name="transition_name" tag="div">
-
             <div class="Carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide == i" :key="i">
-
                 <div class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{CURR: item == imgList[currImgIdx]}">
                     <img :src="item"/>
                 </div>
@@ -86,188 +88,12 @@
                 currLightboxImg: 15
             }
         },
-        watch: {
-            currImgIdx(newVal) {
-                this.currLightboxImg = newVal
-            }
-        },
-        computed: {
-            arrImage() {
-                return Array
-                    .from({ length: Math.ceil(this.imgList.length / this.imgShow) }, (v, i) =>
-                        this.imgList.slice(i * this.imgShow, i * this.imgShow + this.imgShow)
-                    );
-                console.log( 'длина', this.imgList.length)
-                console.log('размер',this.imgShow)
-                console.log('длина / размер',this.imgList.length / this.imgShow)
 
-            }
-        },
-        mounted () {
 
-            console.log('функиция',this.arrImage)
-            console.log( 'длина', this.imgList.length)
-            console.log('размер',this.imgShow)
-            console.log('длина / размер',this.imgList.length / this.imgShow)
-        },
+
         methods: {
-            prev() {
-                this.transition_name = "slide_prev";
-                this.currSlide = this.currSlide == 0 ? this.arrImage.length - 1 : this.currSlide-1;
-            },
-            next() {
-                this.transition_name = "slide_next";
-                this.currSlide = this.currSlide == this.arrImage.length - 1 ? 0 : this.currSlide+1;
-            },
-            goToImg(n) {
-                this.currLightboxImg = n<0 ? this.imgList.length-1 : n%this.imgList.length;
-            },
-            goToChunk(idx) {
-                this.transition_name = (idx < this.currSlide) ? "slide_prev" : "slide_next";
-                this.currSlide = idx;
-            }
+
         }
     }
 </script>
-<style scoped>
 
-    .CROP {
-        height: 96px;
-        overflow: hidden;
-        width: 100%;
-        padding: 8px 0;
-    }
-    .Carousel {
-        margin: auto;
-        width: 60%;
-        text-align: center;
-    }
-    .Carousel_chunk {
-        display: -webkit-box;
-        display: flex;
-        -webkit-box-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        align-items: center;
-    }
-    .Carousel .currImg {
-        cursor: pointer;
-        width: 100%;
-        max-height: 600px;
-    }
-    .chunk_item {
-        height: 80px;
-        margin: 2px;
-        padding: 2px;
-        border: 1px solid transparent;
-        cursor: pointer;
-    }
-    .chunk_item:hover {
-        border: 1px solid #2196f3;
-    }
-    .chunk_item.CURR {
-        background: #ffd700;
-        outline: 2px solid #000;
-        border-color: transparent;
-    }
-    .chunk_item img {
-        display: inline-block;
-        height: 100%;
-    }
-    .Carousel-controls {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        display: -webkit-box;
-        display: flex;
-        -webkit-box-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        align-items: center;
-    }
-    .Carousel-controls_dot,
-    .Carousel-controls svg {
-        cursor: pointer;
-    }
-    .Carousel-controls svg:hover {
-        fill: #ff0;
-    }
-    .Carousel-controls_dot {
-        border-radius: 50%;
-        width: 1.2rem;
-        line-height: 1.2rem;
-        text-align: center;
-        font-family: sans-serif;
-        font-size: 0.5em;
-        background: #FFFF;
-        color: black;
-    }
-    .Carousel-controls_dot:hover {
-        -webkit-transform: scale(1.4, 1.4);
-        transform: scale(1.4, 1.4);
-    }
-    .Carousel-controls_dot.CURR {
-        cursor: none;
-        background-color: #0B3F8D;
-        color: #ffffff;
-        font-weight: bold;
-        -webkit-transform: scale(1.4, 1.4);
-        transform: scale(1.4, 1.4);
-    }
-    .slide_next-enter-active,
-    .slide_prev-enter-active {
-        -webkit-transition: -webkit-transform 0.3s;
-        transition: -webkit-transform 0.3s;
-        transition: transform 0.3s;
-        transition: transform 0.3s, -webkit-transform 0.3s;
-    }
-    .slide_next-enter {
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-    }
-    .slide_prev-enter {
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);
-    }
-    .lightbox {
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #616574 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 10 10' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke='gold'><line x1='4' y1='4' x2='6' y2='6' /><line x1='6' y1='4' x2='4' y2='6' /></svg>") top right no-repeat;
-        display: -webkit-box;
-        display: flex;
-    }
-    .lightbox img {
-        cursor: default;
-        margin: auto;
-        width: 60%;
-        max-height: 100%;
-    }
-    .prev,
-    .next {
-        position: absolute;
-        top: 50%;
-        width: 40px;
-        height: 60px;
-        margin: -30px 4% 0;
-        background: #444 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='gold' d='M6,2 L4,5 L6,8'/></svg>") center/cover no-repeat;
-    }
-    .prev:hover,
-    .next:hover {
-        background-color: #222;
-    }
-    .next {
-        right: 0;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='gold' d='M4,2 L6,5 L4,8'/></svg>");
-    }
-
-</style>
