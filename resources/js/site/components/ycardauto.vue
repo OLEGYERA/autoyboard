@@ -14,32 +14,38 @@
                    class="fas fa-times">
                 </i>
             </div>
-            <div class="yb-full_box" v-show="fullboxActive" @click.self="fullboxActive=false; currLightboxImg = currImgIdx">
-                <i
-                    @click="fullboxActive=false"
-                    class="fas fa-times">
-                </i>
-                <figure class="yb-box_image">
-                    <img :src="imgList[currLightboxImg]"/>
-                </figure>
-                <div class="yb_control-arrow">
-                    <svg class="yb_prev" @click="goToImg(currLightboxImg-1)" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
-                    </svg>
-                    <svg class="yb_next" @click="goToImg(currLightboxImg+1)" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-                        <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
-                    </svg>
-                </div>
-            </div>
+<!--            <div class="yb-full_box" v-show="fullboxActive" @click.self="fullboxActive=false; currLightboxImg = currImgIdx">-->
+<!--                <i-->
+<!--                    @click="fullboxActive=false"-->
+<!--                    class="fas fa-times">-->
+<!--                </i>-->
+<!--                <figure class="yb-box_image">-->
+<!--                    <img :src="imgList[currLightboxImg]"/>-->
+<!--                </figure>-->
+<!--                <div class="yb_control-arrow">-->
+<!--                    <svg class="yb_prev" @click="goToImg(currLightboxImg-1)" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                        <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>-->
+<!--                    </svg>-->
+<!--                    <svg class="yb_next" @click="goToImg(currLightboxImg+1)" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">&ndash;&gt;-->
+<!--                        <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>-->
+<!--                    </svg>-->
+<!--                </div>-->
+<!--            </div>-->
                 <figure class="y-current_img">
                     <i class="fas fa-search-plus" @click="fullboxActive=true"></i>
                     <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true"/>
+                        <svg class="yb_prev" @click="goToImg(currImgIdx-1)" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
+                        </svg>
+                        <svg class="yb_next" @click="goToImg(currImgIdx+1)" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                            <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
+                        </svg>
                 </figure>
                 <div class="yb-carousel_vis">
                     <svg class="y_vis-controls prev" @click="prev" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                     </svg>
-                    <transition-group class="yb-full_carousel" :name="transition_name" tag="div">
+                    <transition-group ref="scrollTo" class="yb-full_carousel" :name="transition_name" tag="div">
                         <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide == i" :key="i">
                             <li class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{active_item: item == imgList[currImgIdx]}">
                                 <img  :src="item"/>
@@ -604,11 +610,11 @@ export default {
     mounted () {
         window.addEventListener('resize', this.onResize)
         this.onResize();
+        this.arrImgForEach()
         document.addEventListener("keydown", (event) => {
             if (event.which == 37) this.prev()
             if (event.which == 39) this.next()
         });
-
     },
     updated() {
         this.scrollY();
@@ -618,11 +624,13 @@ export default {
             return Array
                 .from({ length: Math.ceil(this.imgList.length / this.imgShow) }, (v, i) =>
                     this.imgList.slice(i * this.imgShow, i * this.imgShow + this.imgShow));
-        }
+        },
     },
     data(){
         return{
             //start slider fullPage
+            test: 0,
+
             imgShow: 6,
             imgList : [
                 'https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/large-2479-s-classsaloon.jpg',
@@ -673,7 +681,7 @@ export default {
             fullboxActive: false,
             currLightboxImg: 0,
             //end slider fullPage
-            showSlider: false,
+            showSlider: true,
             windowWidth: 0,
             openImage: false,
             verifiedCar: true,
@@ -703,11 +711,30 @@ export default {
             this.currSlide = this.currSlide == this.arrImage.length - 1 ? 0 : this.currSlide+1;
         },
         goToImg(n) {
-            this.currLightboxImg = n<0 ? this.imgList.length-1 : n%this.imgList.length;
+            // this.currLightboxImg = n<0 ? this.imgList.length-1 : n%this.imgList.length;
+            this.currImgIdx = n<0 ? this.imgList.length-1 : n%this.imgList.length;
+            this.arrImgForEach()
         },
         goToChunk(idx) {
             this.transition_name = (idx < this.currSlide) ? "slide_prev" : "slide_next";
             this.currSlide = idx;
+        },
+        arrImgForEach(){
+            // this.arrImage.forEach(function(item, index, arr){
+            //     item.forEach((i, indx) =>{
+            //         if(this.currLightboxImg > indx -1){
+            //             console.log(this.currLightboxImg > indx -1)
+            //         }
+            //     })
+            // })
+            let len = this.arrImage.forEach((item, index, arr) => {
+                item.forEach((i, indx) => {
+                    if(i.length === this.imgShow){
+
+                    }
+                })
+
+            })
         },
     },
     watch: {
