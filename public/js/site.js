@@ -3122,7 +3122,6 @@ __webpack_require__.r(__webpack_exports__);
 
     window.addEventListener('resize', this.onResize);
     this.onResize();
-    this.arrImgForEach();
     document.addEventListener("keydown", function (event) {
       if (event.which == 37) _this.prev();
       if (event.which == 39) _this.next();
@@ -3161,7 +3160,7 @@ __webpack_require__.r(__webpack_exports__);
       withPhotos: true,
       soldCar: false,
       refuseScroll: false
-    };
+    }; ///if !((currImgIdx+1) %imgShow)
   },
   methods: {
     onResize: function onResize(event) {
@@ -3183,30 +3182,24 @@ __webpack_require__.r(__webpack_exports__);
       this.transition_name = "slide_next";
       this.currSlide = this.currSlide == this.arrImage.length - 1 ? 0 : this.currSlide + 1;
     },
+    nextImage: function nextImage(n) {
+      this.currImgIdx = n % this.imgList.length;
+    },
+    prevImage: function prevImage(n) {
+      this.currImgIdx = n < 0;
+    },
     goToImg: function goToImg(n) {
       // this.currLightboxImg = n<0 ? this.imgList.length-1 : n%this.imgList.length;
       this.currImgIdx = n < 0 ? this.imgList.length - 1 : n % this.imgList.length;
-      this.arrImgForEach();
+      console.log(n);
+
+      if (!(this.currImgIdx % this.imgShow)) {
+        this.next();
+      }
     },
     goToChunk: function goToChunk(idx) {
       this.transition_name = idx < this.currSlide ? "slide_prev" : "slide_next";
       this.currSlide = idx;
-    },
-    arrImgForEach: function arrImgForEach() {
-      var _this3 = this;
-
-      // this.arrImage.forEach(function(item, index, arr){
-      //     item.forEach((i, indx) =>{
-      //         if(this.currLightboxImg > indx -1){
-      //             console.log(this.currLightboxImg > indx -1)
-      //         }
-      //     })
-      // })
-      var len = this.arrImage.forEach(function (item, index, arr) {
-        item.forEach(function (i, indx) {
-          if (i.length === _this3.imgShow) {}
-        });
-      });
     }
   },
   watch: {

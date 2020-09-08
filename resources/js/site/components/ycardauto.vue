@@ -610,7 +610,6 @@ export default {
     mounted () {
         window.addEventListener('resize', this.onResize)
         this.onResize();
-        this.arrImgForEach()
         document.addEventListener("keydown", (event) => {
             if (event.which == 37) this.prev()
             if (event.which == 39) this.next()
@@ -689,6 +688,7 @@ export default {
             soldCar: false,
             refuseScroll: false
         }
+        ///if !((currImgIdx+1) %imgShow)
     },
     methods: {
         onResize(event) {
@@ -710,31 +710,25 @@ export default {
             this.transition_name = "slide_next";
             this.currSlide = this.currSlide == this.arrImage.length - 1 ? 0 : this.currSlide+1;
         },
+        nextImage(n){
+
+             this.currImgIdx = n%this.imgList.length
+
+        },
+        prevImage(n){
+            this.currImgIdx = n<0
+        },
         goToImg(n) {
             // this.currLightboxImg = n<0 ? this.imgList.length-1 : n%this.imgList.length;
             this.currImgIdx = n<0 ? this.imgList.length-1 : n%this.imgList.length;
-            this.arrImgForEach()
+            console.log(n)
+            if (!((this.currImgIdx) %this.imgShow)){
+                this.next()
+            }
         },
         goToChunk(idx) {
             this.transition_name = (idx < this.currSlide) ? "slide_prev" : "slide_next";
             this.currSlide = idx;
-        },
-        arrImgForEach(){
-            // this.arrImage.forEach(function(item, index, arr){
-            //     item.forEach((i, indx) =>{
-            //         if(this.currLightboxImg > indx -1){
-            //             console.log(this.currLightboxImg > indx -1)
-            //         }
-            //     })
-            // })
-            let len = this.arrImage.forEach((item, index, arr) => {
-                item.forEach((i, indx) => {
-                    if(i.length === this.imgShow){
-
-                    }
-                })
-
-            })
         },
     },
     watch: {
