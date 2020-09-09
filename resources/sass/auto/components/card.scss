@@ -787,14 +787,6 @@
                     justify-content: center;
                     position: relative;
                     overflow: hidden;
-                    i{
-                        color: #FFFFFF;
-                        font-size: em(30);
-                        cursor: pointer;
-                        position: absolute;
-                        top: 30px;
-                        right: 30px;
-                    }
                     img{
                         width: 100%;
                         height: auto;
@@ -803,10 +795,12 @@
                         .yb_prev{
                             position: absolute;
                             left: 0px;
+                            cursor: pointer;
                         }
                         .yb_next{
                             position: absolute;
                             right: 0px;
+                            cursor: pointer;
                         }
                 }
                 .yb-carousel_vis{
@@ -819,6 +813,7 @@
                     .y_vis-controls{
                         position: absolute;
                         z-index: 2;
+                        cursor: pointer;
                     }
                     .prev{
                         left: -80px;
@@ -880,22 +875,23 @@
                             }
                         }
                     }
+                    //transition to slides
                     .slide_next-enter-active,
                     .slide_prev-enter-active {
-                        //transition to slides
-                        -webkit-transition: -webkit-transform 0.3s;
-                        transition: -webkit-transform 0.3s;
-                        transition: transform 0.3s;
-                        transition: transform 0.3s, -webkit-transform 0.3s;
-                        &.slide_next{
-                            -webkit-transform: translateX(100%);
-                            transform: translateX(100%);
-                        }
-                        &.slide_prev{
-                            -webkit-transform: translateX(-100%);
-                            transform: translateX(-100%);
-                        }
+                        -webkit-transition: -webkit-transform 0.8s;
+                        transition: -webkit-transform 0.8s;
+                        transition: transform 0.8s;
+                        transition: transform 0.8s, -webkit-transform 0.8s;
                     }
+                    .slide_next-enter {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                    }
+                    .slide_prev-enter {
+                        -webkit-transform: translateX(-100%);
+                        transform: translateX(-100%);
+                    }
+                    //end transition
                 }
                 .yb_carousel-controls{
                     -webkit-user-select: none;
