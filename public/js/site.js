@@ -3086,6 +3086,7 @@ __webpack_require__.r(__webpack_exports__);
     onResize: function onResize(event) {
       this.windowWidth = document.documentElement.clientWidth;
       console.log(this.windowWidth);
+      if (this.windowWidth === 1024) this.imgShow = 4;
     },
     scrollY: function scrollY() {
       if (this.showSlider == true) {
@@ -8254,9 +8255,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/modules/header/ymenu.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -8275,6 +8278,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      showMenu: false
+    };
+  }
+});
 
 /***/ }),
 
@@ -8298,7 +8338,176 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      showResItems: false,
+      lastReguest: true,
+      testAray: ['Ауди', 'ауди а3', 'ауди ТТ', 'фольксваген', 'тойота аурис', 'королла киев', 'тесла битая'],
+      search: ''
+    };
+  },
+  methods: {
+    setSearch: function setSearch(index) {},
+    highlight: function highlight() {
+      if (!this.search) {
+        return this.testAray;
+      }
+
+      return this.testAray.replace(new RegExp(this.search, "gi"), function (match) {
+        return '<span class="highlightText">' + match + '</span>';
+      });
+    }
+  },
+  computed: {
+    filterSearch: function filterSearch() {
+      var _this = this;
+
+      return this.testAray.filter(function (item) {
+        return item.indexOf(_this.search) > -1;
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -55617,29 +55826,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass: "ymenu",
+      on: {
+        click: function($event) {
+          _vm.showMenu = true
+        }
+      }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      (_vm.showMenu = true)
+        ? _c("div", { staticClass: "ydrop-menu_vis" }, [_vm._m(1)])
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ymenu" }, [
-      _c("div", { staticClass: "ymenu-visual" }, [
-        _c("div", { staticClass: "vis-l" }, [
-          _c("div", { staticClass: "vis-burger" }, [
-            _c("span"),
-            _vm._v(" "),
-            _c("span"),
-            _vm._v(" "),
-            _c("span")
-          ]),
+    return _c("div", { staticClass: "ymenu-visual" }, [
+      _c("div", { staticClass: "vis-l" }, [
+        _c("div", { staticClass: "vis-burger" }, [
+          _c("span"),
           _vm._v(" "),
-          _c("span", { staticClass: "ymenu-title" }, [_vm._v("Меню: Авто")])
+          _c("span"),
+          _vm._v(" "),
+          _c("span")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "vis-r" }, [
-          _c("i", { staticClass: "fas fa-chevron-down" })
+        _c("span", { staticClass: "ymenu-title" }, [_vm._v("Меню: Авто")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "vis-r" }, [
+        _c("i", { staticClass: "fas fa-chevron-down" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb_menu-collumn" }, [
+      _c("ul", { staticClass: "y-menu-collumn_items" }, [
+        _c("li", { staticClass: "y-collumn_item active" }, [
+          _vm._v("Ремонт авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Услуги для авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Поиск авто и автотоваров\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item active" }, [
+          _vm._v("Услуги для авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Ремонт авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Ремонт авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v(" Поиск авто и автотоваров\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item active" }, [
+          _vm._v("Поиск авто и автотоваров\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
         ])
       ])
     ])
@@ -55666,20 +55938,352 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "ysearch" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.search,
+          expression: "search"
+        }
+      ],
+      staticClass: "search",
+      attrs: { type: "text", placeholder: "Поиск" },
+      domProps: { value: _vm.search },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.search = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("i", { staticClass: " fas fa-search" }),
+    _vm._v(" "),
+    _vm.search.length > 0
+      ? _c(
+          "ul",
+          { staticClass: "ysearch_items-list" },
+          [
+            _vm._l(_vm.filterSearch, function(item, index) {
+              return _c("li", { staticClass: "ysearch_item" }, [
+                _vm._v("\n                " + _vm._s(item) + "\n            ")
+              ])
+            }),
+            _vm._v(" "),
+            _c("button", { staticClass: "ysearch_expanded" }, [
+              _vm._v("\n                Расширеный поиск\n                "),
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "54",
+                    height: "8",
+                    viewBox: "0 0 54 8",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              )
+            ])
+          ],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.showResItems
+      ? _c("div", { staticClass: "ysearch_items-res" }, [
+          _c("div", { staticClass: "yb-last_requests" }, [
+            _vm._v(
+              "\n                Недавние поисковые запросы\n                "
+            ),
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "12",
+                  height: "12",
+                  viewBox: "0 0 12 12",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.lastReguest = false
+                  }
+                }
+              },
+              [
+                _c("circle", {
+                  attrs: { cx: "6", cy: "6", r: "6", fill: "#0B3F8D" }
+                }),
+                _vm._v(" "),
+                _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z",
+                      fill: "white"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("defs", [
+                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                    _c("rect", {
+                      attrs: {
+                        width: "6",
+                        height: "6",
+                        fill: "white",
+                        transform: "translate(3 3)"
+                      }
+                    })
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm.lastReguest
+            ? _c("ul", { staticClass: "yb-requests_items" }, [
+                _c("li", { staticClass: "yb-requests_item" }, [
+                  _vm._v("audi ")
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "yb-requests_item" }, [
+                  _vm._v("автомобили б/у")
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "yb-requests_item" }, [
+                  _vm._v("audi Киев")
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "yb-requests_item" }, [
+                  _vm._v("автомобили б/у")
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "yb-requests_item" }, [_vm._v("audi ")])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("h2", { staticClass: "yb_best-title" }, [
+            _vm._v("Лучшие предложения")
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ysearch" }, [
-      _c("input", {
-        staticClass: "search",
-        attrs: { type: "text", placeholder: "Поиск" }
-      }),
+    return _c("div", { staticClass: "yb_best-offers" }, [
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ]),
       _vm._v(" "),
-      _c("i", { staticClass: " fas fa-search" })
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-offer_item" }, [
+        _c("figure", { staticClass: "yb-offer_img" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_item-desc" }, [
+          _c("h2", { staticClass: "yb-item_name" }, [
+            _vm._v(" Mercedes-Benz E 220,2009")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-item_location price" }, [
+            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
+          ])
+        ])
+      ])
     ])
   }
 ]
@@ -78029,9 +78633,7 @@ component.options.__file = "resources/js/site/modules/header/ymenu.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ymenu.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/modules/header/ymenu.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

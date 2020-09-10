@@ -671,6 +671,7 @@ export default {
         onResize(event) {
             this.windowWidth = document.documentElement.clientWidth;
             console.log(this.windowWidth)
+            if(this.windowWidth === 1024) this.imgShow = 4
         },
         scrollY(){
             if(this.showSlider == true){

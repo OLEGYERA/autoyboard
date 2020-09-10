@@ -778,8 +778,9 @@
                 }
             }
                 .y-current_img{
-                    width: 45%;
-                    height: 550px;
+                    width: 50%;
+                    max-height: 540px;
+                    height: 100%;
                     display: flex;
                     align-items: center;
                     margin: 0 auto;
@@ -789,7 +790,6 @@
                     overflow: hidden;
                     img{
                         width: 100%;
-                        height: auto;
                         object-fit: cover;
                     }
                         .yb_prev{
@@ -869,7 +869,6 @@
                                 }
                                 img{
                                     width: 100%;
-                                    height: 100%;
                                     object-fit: cover;
                                 }
                             }
@@ -1074,14 +1073,29 @@
         .yb-card_auto{
             .yb_auto-item{
                 .yb_fullpage-visual{
-                    .yb-full_box{
-
-                    }
-                    .yb_vis_full{
-                        .y-current_img{
-
+                    .yb_slide-header{
+                        .yb-slide_left{
+                            .yb_car-name{
+                                font-size: em(32);
+                            }
+                            .yb_header-price{
+                                .yb_price-car{
+                                    font-size: em(26);
+                                }
+                                .yb_location-car{
+                                    font-size: em(20);
+                                }
+                            }
                         }
                     }
+                        .y-current_img{
+                            max-height: 475px;
+                        }
+                        .yb-carousel_vis{
+                            .yb-full_carousel{
+                                height: 100px;
+                            }
+                        }
                 }
                 .yb_auto_vis-l{
                     .y-auto_name{
@@ -1264,6 +1278,32 @@
     .yb-card_content{
         .yb-card_auto{
             .yb_auto-item{
+                .yb_fullpage-visual{
+                    .yb_slide-header{
+                        .yb-slide_left{
+                            .yb_car-name{
+                                font-size: em(30);
+                            }
+                            .yb_header-price{
+                                .yb_price-car{
+                                    font-size: em(24);
+                                }
+                                .yb_location-car{
+                                    font-size: em(18);
+                                }
+                            }
+                        }
+                    }
+                    .y-current_img{
+                        //max-height:360px;
+                    }
+                    .yb-carousel_vis{
+                        padding: 10px 0px 0;
+                        .yb-full_carousel{
+                            height: 100px;
+                        }
+                    }
+                }
                 .yb_auto_vis-l{
                     .y-visl_items{
                         .y-auto_options{
@@ -1328,6 +1368,37 @@
         padding: 0px 2.5%;
         .yb-card_auto{
             .yb_auto-item{
+                .yb_fullpage-visual{
+                    .yb_slide-header{
+                        .yb-slide_left{
+                            .yb_car-name{
+                                font-size: em(26);
+                            }
+                            .yb_header-price{
+                                .yb_price-car{
+                                    font-size: em(22);
+                                }
+                                .yb_location-car{
+                                    font-size: em(18);
+                                }
+                            }
+                        }
+                    }
+                    .y-current_img{
+                        max-height: 420px;
+                        width: 60%;
+                    }
+                    .yb-carousel_vis{
+                        .yb-full_carousel{
+                            height: 100px;
+                            .yb-carousel_chunk{
+                                .chunk_item{
+                                    width: 24%;
+                                }
+                            }
+                        }
+                    }
+                }
                 .yb_auto_vis-l{
                     .y-visl_items{
                         .yb_sold-car{
