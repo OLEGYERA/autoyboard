@@ -8308,11 +8308,102 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    document.addEventListener('click', this.handleClickOutside);
+  },
+  destroyed: function destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
+  },
   data: function data() {
     return {
       showMenu: false
     };
+  },
+  methods: {
+    handleClickOutside: function handleClickOutside(evt) {
+      if (!this.$el.contains(evt.target)) {
+        this.showMenu = false;
+      }
+    }
   }
 });
 
@@ -55837,10 +55928,30 @@ var render = function() {
       }
     },
     [
-      _vm._m(0),
+      _c("div", { staticClass: "ymenu-visual" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "vis-r" }, [
+          _c("i", {
+            staticClass: "fas",
+            class: {
+              "fa-chevron-up": _vm.showMenu,
+              "fa-chevron-down": !_vm.showMenu
+            }
+          })
+        ])
+      ]),
       _vm._v(" "),
-      (_vm.showMenu = true)
-        ? _c("div", { staticClass: "ydrop-menu_vis" }, [_vm._m(1)])
+      _vm.showMenu
+        ? _c("div", { staticClass: "ydrop-menu_vis" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4)
+          ])
         : _vm._e()
     ]
   )
@@ -55850,29 +55961,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ymenu-visual" }, [
-      _c("div", { staticClass: "vis-l" }, [
-        _c("div", { staticClass: "vis-burger" }, [
-          _c("span"),
-          _vm._v(" "),
-          _c("span"),
-          _vm._v(" "),
-          _c("span")
-        ]),
+    return _c("div", { staticClass: "vis-l" }, [
+      _c("div", { staticClass: "vis-burger" }, [
+        _c("span"),
         _vm._v(" "),
-        _c("span", { staticClass: "ymenu-title" }, [_vm._v("Меню: Авто")])
+        _c("span"),
+        _vm._v(" "),
+        _c("span")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "vis-r" }, [
-        _c("i", { staticClass: "fas fa-chevron-down" })
-      ])
+      _c("span", { staticClass: "ymenu-title" }, [_vm._v("Меню: Авто")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_menu-collumn" }, [
+    return _c("div", { staticClass: "yb_menu-collumn first_choice" }, [
       _c("ul", { staticClass: "y-menu-collumn_items" }, [
         _c("li", { staticClass: "y-collumn_item active" }, [
           _vm._v("Ремонт авто\n                    "),
@@ -55889,7 +55994,103 @@ var staticRenderFns = [
           _c("i", { staticClass: "fas fa-angle-right" })
         ]),
         _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item " }, [
+          _vm._v("Услуги для авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Ремонт авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Ремонт авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v(" Поиск авто и автотоваров\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item " }, [
+          _vm._v("Поиск авто и автотоваров\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
+      _c("ul", { staticClass: "y-menu-collumn_items" }, [
+        _c("li", { staticClass: "y-collumn_item " }, [
+          _vm._v("Каталог СТО\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Каталог авторазборок\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Автозапчасти\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
         _c("li", { staticClass: "y-collumn_item active" }, [
+          _vm._v(" Стол заказа запчастей\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Ремонт авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Автозапчасти\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v(" Поиск авто и автотоваров\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item " }, [
+          _vm._v("Каталог авторазборок\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
+      _c("ul", { staticClass: "y-menu-collumn_items" }, [
+        _c("li", { staticClass: "y-collumn_item " }, [
+          _vm._v("Ремонт авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Услуги для авто\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Поиск авто и автотоваров\n                    "),
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item " }, [
           _vm._v("Услуги для авто\n                    "),
           _c("i", { staticClass: "fas fa-angle-right" })
         ]),
@@ -55912,6 +56113,46 @@ var staticRenderFns = [
         _c("li", { staticClass: "y-collumn_item active" }, [
           _vm._v("Поиск авто и автотоваров\n                    "),
           _c("i", { staticClass: "fas fa-angle-right" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
+      _c("ul", { staticClass: "y-menu-collumn_items" }, [
+        _c("li", { staticClass: "y-collumn_item " }, [
+          _vm._v("Ремонт авто\n                ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item active" }, [
+          _vm._v("Услуги для авто\n                ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Поиск авто и автотоваров\n                ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item " }, [
+          _vm._v("Услуги для авто\n                ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Ремонт авто\n                ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Ремонт авто\n                ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v(" Поиск авто и автотоваров\n                ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "y-collumn_item" }, [
+          _vm._v("Поиск авто и автотоваров\n                ")
         ])
       ])
     ])
@@ -78589,15 +78830,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/site/modules/header/ymenu.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ymenu_vue_vue_type_template_id_1fc601d0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ymenu.vue?vue&type=template&id=1fc601d0& */ "./resources/js/site/modules/header/ymenu.vue?vue&type=template&id=1fc601d0&");
 /* harmony import */ var _ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ymenu.vue?vue&type=script&lang=js& */ "./resources/js/site/modules/header/ymenu.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ymenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -78627,7 +78867,7 @@ component.options.__file = "resources/js/site/modules/header/ymenu.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/site/modules/header/ymenu.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

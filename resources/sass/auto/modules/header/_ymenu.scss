@@ -46,14 +46,16 @@
         }
     }
     .ydrop-menu_vis{
-        width: 1090px;
+        width: 1170px;
+        left: -40px;
         position: absolute;
         background: #FFFFFF;
         box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.35), 3px -2px 4px rgba(11, 63, 141, 0.4), -2px 3px 5px rgba(11, 63, 141, 0.54);
         border-radius: 8px;
-        top: 50px;
+        top: 45px;
         display: flex;
         .yb_menu-collumn{
+            position: relative;
             .y-menu-collumn_items{
                 padding: 0;
                 margin: 0;
@@ -91,16 +93,139 @@
                         margin-bottom: 0;
                     }
                 }
-                &:after{
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                    height: 100%;
-                    content: '';
-                    width: 1px;
-                    background: #C7C7C7;;
+            }
+            &:after{
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                content: '';
+                width: 1px;
+                background: #C7C7C7;
+            }
+            &:last-child::after{
+                content: '';
+                background: none;
+            }
+        }
+        .second_choice{
+            .y-menu-collumn_items{
+                .y-collumn_item{
+                    color: #2A2C2D;
                 }
             }
         }
     }
 }
+@media only screen and (max-width: 1600px){
+    .ymenu{
+        .ydrop-menu_vis{
+            width: 1055px;
+            left: -137px;
+            .yb_menu-collumn{
+                .y-menu-collumn_items{
+                    .y-collumn_item{
+                        font-size: em(16);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1440px){
+    .ymenu{
+        .ydrop-menu_vis{
+            left: -40px;
+        }
+    }
+}
+@media only screen and (max-width: 1330px){
+    .ymenu{
+        .ydrop-menu_vis{
+            width: 1072px;
+        }
+    }
+}
+@media only screen and (max-width: 1280px){
+    .ymenu{
+        .ydrop-menu_vis{
+            width: 1028px;
+            .yb_menu-collumn{
+                .y-menu-collumn_items{
+                    .y-collumn_item{
+                        font-size: em(15);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    .ymenu{
+        .ydrop-menu_vis{
+            left: -125px;
+            width: 970px;
+            .yb_menu-collumn{
+                .y-menu-collumn_items{
+                    .y-collumn_item{
+                        font-size: em(14);
+                        height: 25px;
+                        line-height: 19px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .ymenu{
+        .ydrop-menu_vis{
+            width: 915px;
+            .yb_menu-collumn{
+                .y-menu-collumn_items{
+                    .y-collumn_item{
+                        font-size: em(13);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px){
+    .ymenu{
+        .ydrop-menu_vis{
+            left: auto;
+            right: 0;
+            width: 740px;
+            .yb_menu-collumn{
+                .y-menu-collumn_items{
+                    padding: 15px 10px 15px 0;
+                    margin-left: 10px;
+                    .y-collumn_item{
+                        padding: 0 5px 0 5px;
+                        font-size: em(12);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .ymenu{
+        .ydrop-menu_vis{
+            width: 575px;
+            .yb_menu-collumn{
+                .y-menu-collumn_items{
+                    margin-left: 5px;
+                    padding: 10px 5px 10px 0;
+                    .y-collumn_item{
+                        font-size: em(10);
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
