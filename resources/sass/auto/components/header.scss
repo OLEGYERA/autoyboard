@@ -40,14 +40,15 @@ header.yb-header{
 
         .ylocation-box{
             width: 160px;
+            align-items: center;
             display: flex;
             position: relative;
             i{
                 color: #0B3F8D;
-                font-size: em(22);
+                font-size: em(18);
                 position: absolute;
                 padding-right: 10px;
-                z-index: 1;
+                z-index: 4;
                 left: 6px;
 
             }
