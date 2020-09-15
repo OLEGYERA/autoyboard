@@ -6,6 +6,7 @@
     align-items: center;
     position: relative;
     z-index: 2;
+    width: 100%;
     &.header{
         .dropdown-input{
             width: 100%;
@@ -13,39 +14,48 @@
             font-style: normal;
             height: 35px;
             font-weight: normal;
-            font-size: em(20);
-            line-height: 24px;
-            background: #F9F9FA;
-            box-shadow: 1px 3px 8px 1px rgba(52, 110, 197, 0.28);
+            line-height: 18px;
+            color: rgba(98, 109, 117, 0.65);
+            font-size: em(15);
+            background: #FFFFFF;
             border-radius: 8px;
             z-index: 4;
             border: none;
             outline: none;
-            color: rgba(34, 34, 34, 0.79);
+            &:focus{
+                background: #F9F9FA;
+                box-shadow: 1px 3px 8px 1px rgba(52, 110, 197, 0.28);
         }
+    }
+    .ytop_results{
+        font-family: $aleg;
+        background: #FFFFFF;
+        box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        max-height: 330px;
+        overflow: hidden;
+        width: 110%;
+        top: -6px;
+        padding-top: 55px;
+        left: -14px;
+        z-index: 1;
+        scrollbar-width: none;
         .autocomplete-results{
-            font-family: $aleg;
-            background: #FFFFFF;
-            box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 8px;
-            position: absolute;
-            padding: 0;
-            margin: 0;
-            max-height: 180px;
             overflow: hidden;
-            width: 110%;
-            top: -10px;
-            padding-top: 45px;
-            left: -9px;
-            z-index: 1;
-            scrollbar-width: none;
             .autocomplete-result {
+                font-family: $aleg;
+                font-weight: normal;
                 height: 30px;
                 display: flex;
                 padding-left: 15px;
                 align-items: center;
                 cursor: pointer;
-                color: rgba(34, 34, 34, 0.79);
+                font-size: em(16);
+                line-height: 19px;
+                color: #5B5B5B;
             }
             .autocomplete-result.is-active,
             .autocomplete-result:hover {
@@ -57,9 +67,10 @@
         }
     }
 }
+}
 .autocomplete {
-    position: relative;
-    width: 130px;
+position: relative;
+width: 130px;
 }
 
 

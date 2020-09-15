@@ -13,7 +13,7 @@
             <i class="fas fa-map-marker-alt"></i>
             <ylocation
                 :container="'header'"
-                :text="'Вся Украина'"
+                :text="'Введите город...'"
                 :list_style="'autocomplete-result'"
                 :drop_style="'autocomplete-results'"
                 :input_style="'dropdown-input'">
@@ -24,6 +24,7 @@
             <button class="ylang active">RU</button>
         </div>
         <div class="yb-favorite">
+            <span class="yb_count_items">1</span>
             <i class="far fa-heart"></i>
         </div>
     </div>

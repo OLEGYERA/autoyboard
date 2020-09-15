@@ -35,11 +35,11 @@ header.yb-header{
         margin-left: 40px;
 
         .ysearch{
-            width: 60%;
+            width: 40%;
         }
 
         .ylocation-box{
-            width: 160px;
+            width: 300px;
             align-items: center;
             display: flex;
             position: relative;
@@ -68,14 +68,27 @@ header.yb-header{
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
             i{
                 color: $darkblue;
                 font-size: em(26);
             }
-            .count{
-                font-size: em(18);
-                font-family: $aleg;
-                font-weight: 500;
+            .yb_count_items{
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                width: 13px;
+                height: 13px;
+                background: #F00C0C;
+                font-family: $noto;
+                font-weight: 600;
+                font-size: em(8);
+                line-height: 11px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #FFFFFF;
+                border-radius: 50%;
             }
         }
 
@@ -113,6 +126,16 @@ header.yb-header{
         }
     }
 }
+@media only screen and (max-width: 1600px){
+    header.yb-header{
+        .yb-header-right{
+            .ylocation-box{
+                width: 240px;
+            }
+        }
+    }
+
+}
 @media only screen and (max-width: 1500px){
     header.yb-header{
         padding: 0px 10%;
@@ -130,7 +153,7 @@ header.yb-header{
         }
         .yb-header-right{
             .ysearch{
-                width: 50%;
+                width: 45%;
             }
         }
     }
@@ -183,17 +206,13 @@ header.yb-header{
         }
 
         .yb-header-right{
-
-
             .ysearch{
-
+                width: 35%;
             }
 
             .ylocation-box{
-
+                width: 230px;
                 i{
-
-
                 }
                 .ylocation{
                     input{
@@ -226,10 +245,14 @@ header.yb-header{
     header.yb-header {
         padding: 0px 2%;
         .yb-header-right{
+            margin-left: 20px;
             .ysearch{
                 .search{
                     height: 35px;
                 }
+            }
+            .ylocation-box{
+                width: 210px;
             }
         }
     }

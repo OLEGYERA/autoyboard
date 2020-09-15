@@ -7328,7 +7328,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
   data: function data() {
@@ -54060,40 +54059,49 @@ var render = function() {
           }
         ],
         ref: "scrollContainer",
-        class: _vm.drop_style,
-        attrs: { id: "autocomplete-results" }
+        staticClass: "ytop_results"
       },
       [
-        _vm._l(_vm.results, function(result, i) {
-          return _vm.results.length > 0
-            ? _c(
-                "div",
-                {
-                  key: i,
-                  ref: "options",
-                  refInFor: true,
-                  class: [
-                    _vm.list_style,
-                    { "is-active": i === _vm.arrowCounter }
-                  ],
-                  on: {
-                    click: function($event) {
-                      return _vm.setResult(result)
-                    }
-                  }
-                },
-                [_vm._v("\n            " + _vm._s(result) + "\n        ")]
-              )
-            : _vm._e()
-        }),
-        _vm._v(" "),
-        _vm.results.length === 0
-          ? _c("div", { staticClass: "autocomplete-result" }, [
-              _vm._v("Не найдено")
-            ])
-          : _vm._e()
-      ],
-      2
+        _c(
+          "div",
+          { class: _vm.drop_style, attrs: { id: "autocomplete-results" } },
+          [
+            _vm._l(_vm.results, function(result, i) {
+              return _vm.results.length > 0
+                ? _c(
+                    "div",
+                    {
+                      key: i,
+                      ref: "options",
+                      refInFor: true,
+                      class: [
+                        _vm.list_style,
+                        { "is-active": i === _vm.arrowCounter }
+                      ],
+                      on: {
+                        click: function($event) {
+                          return _vm.setResult(result)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                " + _vm._s(result) + "\n            "
+                      )
+                    ]
+                  )
+                : _vm._e()
+            }),
+            _vm._v(" "),
+            _vm.results.length === 0
+              ? _c("div", { staticClass: "autocomplete-result" }, [
+                  _vm._v("Не найдено")
+                ])
+              : _vm._e()
+          ],
+          2
+        )
+      ]
     )
   ])
 }
@@ -79032,8 +79040,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({}).$mount('#yb-site');
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\OpenServer\domains\YBoard\autoyboard\resources\js\site\site.js */"./resources/js/site/site.js");
-module.exports = __webpack_require__(/*! C:\OpenServer\domains\YBoard\autoyboard\resources\sass\auto\site.scss */"./resources/sass/auto/site.scss");
+__webpack_require__(/*! D:\OSPanel\domains\Yboard\autoyboard\resources\js\site\site.js */"./resources/js/site/site.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\Yboard\autoyboard\resources\sass\auto\site.scss */"./resources/sass/auto/site.scss");
 
 
 /***/ })

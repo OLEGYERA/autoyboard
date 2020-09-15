@@ -12,23 +12,22 @@
             :placeholder="text"
             type="text"
         />
-        <div
-            id="autocomplete-results"
-            v-show="isOpen"
-            ref="scrollContainer"
-            :class="drop_style">
-
+        <div v-show="isOpen"  ref="scrollContainer" class="ytop_results">
             <div
-                ref="options"
-                v-for="(result, i) in results"
-                :key="i"
-                v-if="results.length > 0"
-                @click="setResult(result)"
-                :class="[list_style, {'is-active': i === arrowCounter}]"
-            >
-                {{result}}
+                id="autocomplete-results"
+                :class="drop_style">
+                <div
+                    ref="options"
+                    v-for="(result, i) in results"
+                    :key="i"
+                    v-if="results.length > 0"
+                    @click="setResult(result)"
+                    :class="[list_style, {'is-active': i === arrowCounter}]"
+                >
+                    {{result}}
+                </div>
+                <div class="autocomplete-result" v-if="results.length === 0">Не найдено</div>
             </div>
-            <div class="autocomplete-result" v-if="results.length === 0">Не найдено</div>
         </div>
     </div>
 </template>
