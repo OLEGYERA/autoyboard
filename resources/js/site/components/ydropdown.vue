@@ -14,7 +14,7 @@
         <div class="items" v-show="isOpen">
             <div class="item"
                  :class="{'checked' : itemSelected == item}"
-                 v-for="(item, key) in filteredItems"
+                 v-for="(item, key) in testItem"
                  :key="key"
                  @click="setItem(item)"
             >
@@ -39,6 +39,7 @@
                 itemSelected: null,
                 isOpen: false,
                 result: [],
+                testItem:['По цене','По дате добавление', 'По цене','По дате добавление', 'По цене',]
             }
         },
         methods: {

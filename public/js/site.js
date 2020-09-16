@@ -4653,7 +4653,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       itemSelected: null,
       isOpen: false,
-      result: []
+      result: [],
+      testItem: ['По цене', 'По дате добавление', 'По цене', 'По дате добавление', 'По цене']
     };
   },
   methods: {
@@ -49071,7 +49072,7 @@ var render = function() {
         ],
         staticClass: "items"
       },
-      _vm._l(_vm.filteredItems, function(item, key) {
+      _vm._l(_vm.testItem, function(item, key) {
         return _c(
           "div",
           {

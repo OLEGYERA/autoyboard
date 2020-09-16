@@ -2,7 +2,7 @@
     <div class="yb_bread-links">
         <ul class="yb_links-items">
             <li class="yb_links-item">
-                <a class="active_bread"  href="#">Главная</a>
+                <a   href="#">Главная</a>
                 <i class="fas fa-angle-right"></i>
             </li>
             <li class="yb_links-item">
@@ -20,7 +20,7 @@
             </svg>
             Удалить всё
         </button>
-        <ydropdowfilter></ydropdowfilter>
+        <ydropdown :placeholder="'Сортировать по'"></ydropdown>
     </div>
     <div class="yb-row_items">
         <div class="yb_favorite-item">
