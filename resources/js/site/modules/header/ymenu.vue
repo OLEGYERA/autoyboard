@@ -1,5 +1,5 @@
 <template>
-    <div @click="showMenu = true" class="ymenu">
+    <div @click="showMenu = !showMenu" class="ymenu">
         <div class="ymenu-visual">
             <div class="vis-l">
                <div class="vis-burger">

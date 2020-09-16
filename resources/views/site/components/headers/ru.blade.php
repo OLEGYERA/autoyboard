@@ -13,7 +13,7 @@
             <i class="fas fa-map-marker-alt"></i>
             <ylocation
                 :container="'header'"
-                :text="'Введите город...'"
+                :text="'Вся Украина'"
                 :list_style="'autocomplete-result'"
                 :drop_style="'autocomplete-results'"
                 :input_style="'dropdown-input'">

@@ -93,11 +93,11 @@ header.yb-header .yb-header-right {
 }
 
 header.yb-header .yb-header-right .ysearch {
-  width: 40%;
+  width: 50%;
 }
 
 header.yb-header .yb-header-right .ylocation-box {
-  width: 300px;
+  width: 260px;
   align-items: center;
   display: flex;
   position: relative;
@@ -8961,6 +8961,7 @@ span.yb-gradient {
   width: 110%;
   top: -6px;
   padding-top: 55px;
+  padding-right: 20px;
   left: -14px;
   z-index: 1;
   scrollbar-width: none;

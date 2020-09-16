@@ -3073,7 +3073,7 @@ __webpack_require__.r(__webpack_exports__);
       currImgIdx: 0,
       transition_name: "slide_next",
       //end slider fullPage
-      showSlider: true,
+      showSlider: false,
       windowWidth: 0,
       openImage: false,
       verifiedCar: true,
@@ -7295,6 +7295,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
+/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -7329,10 +7331,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    vuescroll: vuescroll__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
   props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
   data: function data() {
     return {
+      ops: {
+        vuescroll: {
+          mode: 'native',
+          sizeStrategy: 'percent',
+          detectResize: true
+        },
+        scrollPanel: {
+          initialScrollY: false,
+          initialScrollX: false,
+          scrollingX: true,
+          scrollingY: true,
+          speed: 600,
+          easing: undefined,
+          verticalNativeBarPos: 'right'
+        },
+        rail: {
+          background: 'rgba(229, 229, 229, 0.51)',
+          opacity: 0,
+          size: '7px',
+          specifyBorderRadius: false,
+          gutterOfEnds: null,
+          gutterOfSide: '2px',
+          keepShow: false
+        },
+        bar: {
+          showDelay: 500,
+          onlyShowBarOnScroll: false,
+          keepShow: true,
+          background: '#0B3F8D',
+          opacity: 1,
+          hoverStyle: false,
+          specifyBorderRadius: false,
+          minSize: 0.3,
+          size: '7px',
+          disable: false
+        }
+      },
       isOpen: false,
       results: [],
       search: '',
@@ -54063,46 +54109,51 @@ var render = function() {
         staticClass: "ytop_results"
       },
       [
-        _c(
-          "div",
-          { class: _vm.drop_style, attrs: { id: "autocomplete-results" } },
-          [
-            _vm._l(_vm.results, function(result, i) {
-              return _vm.results.length > 0
-                ? _c(
-                    "div",
-                    {
-                      key: i,
-                      ref: "options",
-                      refInFor: true,
-                      class: [
-                        _vm.list_style,
-                        { "is-active": i === _vm.arrowCounter }
-                      ],
-                      on: {
-                        click: function($event) {
-                          return _vm.setResult(result)
+        _c("vuescroll", { attrs: { ops: _vm.ops } }, [
+          _c(
+            "div",
+            { class: _vm.drop_style, attrs: { id: "autocomplete-results" } },
+            [
+              _vm._l(_vm.results, function(result, i) {
+                return _vm.results.length > 0
+                  ? _c(
+                      "div",
+                      {
+                        key: i,
+                        ref: "options",
+                        refInFor: true,
+                        class: [
+                          _vm.list_style,
+                          { "is-active": i === _vm.arrowCounter }
+                        ],
+                        on: {
+                          click: function($event) {
+                            return _vm.setResult(result)
+                          }
                         }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                " + _vm._s(result) + "\n            "
-                      )
-                    ]
-                  )
+                      },
+                      [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(result) +
+                            "\n                "
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              }),
+              _vm._v(" "),
+              _vm.results.length === 0
+                ? _c("div", { staticClass: "autocomplete-result" }, [
+                    _vm._v("Не найдено")
+                  ])
                 : _vm._e()
-            }),
-            _vm._v(" "),
-            _vm.results.length === 0
-              ? _c("div", { staticClass: "autocomplete-result" }, [
-                  _vm._v("Не найдено")
-                ])
-              : _vm._e()
-          ],
-          2
-        )
-      ]
+            ],
+            2
+          )
+        ])
+      ],
+      1
     )
   ])
 }
@@ -55932,7 +55983,7 @@ var render = function() {
       staticClass: "ymenu",
       on: {
         click: function($event) {
-          _vm.showMenu = true
+          _vm.showMenu = !_vm.showMenu
         }
       }
     },

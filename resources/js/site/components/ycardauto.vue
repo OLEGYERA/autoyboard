@@ -658,7 +658,7 @@ export default {
             currImgIdx: 0,
             transition_name: "slide_next",
             //end slider fullPage
-            showSlider: true,
+            showSlider: false,
             windowWidth: 0,
             openImage: false,
             verifiedCar: true,
