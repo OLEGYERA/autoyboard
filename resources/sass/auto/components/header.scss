@@ -182,6 +182,9 @@ header.yb-header{
 @media only screen and (max-width: 1600px){
     header.yb-header{
         .yb-header-right{
+            .ysearch{
+                width: 40%;
+            }
             .ylocation-box{
                 width: 240px;
             }

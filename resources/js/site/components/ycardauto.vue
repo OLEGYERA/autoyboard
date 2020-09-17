@@ -1,7 +1,7 @@
 <template>
     <div v-if="windowWidth > 600" class="yb_auto-item">
         <div v-if="showSlider" class="yb_fullpage-visual">
-            <div class="yb_slide-header">
+            <div  class="yb_slide-header">
                 <div class="yb-slide_left">
                     <h2 class="yb_car-name">Mercedes-Benz E 220</h2>
                     <div class="yb_header-price">
@@ -14,7 +14,13 @@
                    class="fas fa-times">
                 </i>
             </div>
-                <figure class="y-current_img">
+                <figure
+                    @touchstart="touchStart",
+                    @touchmove="touchMove",
+                    @touchend="touchEnd",
+
+                         class="y-current_img"
+                >
                     <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true"/>
                         <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
@@ -53,7 +59,7 @@
                 <span v-if="soldCar" class="yb_sold-car">Продано</span>
                 <figure
                     :class="{'blur' : soldCar}"
-                    v-if="withPhotos"
+                    v-if="withPhotos === true"
                     class="y-image_large">
                     <div v-if="verifiedCar" class="yb-icon_check">
                         <div class="icon check">
@@ -71,8 +77,6 @@
                         </div>
                     </div>
                     <div :class="{'yb-sold_carout' : soldCar}"></div>
-                    <div  class="yb-without_photos">
-                    </div>
                     <img :src="imgList[currImgIdx]" alt="">
                     <div class="yb-count_increase-img">
                         <div class="yb_count-img">
@@ -88,20 +92,18 @@
                         </button>
                     </div>
                 </figure>
-                <figure v-if="!withPhotos" class="y-image_large without_photos">
+                <figure v-if="withPhotos === false" class="y-image_large without_photos">
                     <img src="../../../../public/img/system/static/withoutPhoto.png" alt="">
                     <h2>Без фото</h2>
                 </figure>
-                <div
+                <div class="y_vis-image "
                     v-if="withPhotos"
                     :class="{'blur' : soldCar}"
-                    class="y_vis-image ">
+                >
                     <ul class="y-image_small" >
                         <li class="y-item_image" v-for="(item, i) in imgList.slice(0, 5)" @click="currImgIdx = i">
-<!--                            <figure class="y-small">-->
-                                <div :class="{'yb-sold_carout' : soldCar}"></div>
-                                <img :src="item" alt="">
-<!--                            </figure>-->
+                            <div :class="{'yb-sold_carout' : soldCar}"></div>
+                            <img :src="item" alt="">
                         </li>
                     </ul>
                     <button
@@ -333,14 +335,64 @@
         </div>
     </div>
     <div v-else class="yb_auto-item yb-visible_mobile">
+        <div v-if="showSlider" class="yb_fullpage-visual">
+            <div class="yb_slide-header">
+                <div class="yb-slide_left">
+                    <h2 class="yb_car-name">Mercedes-Benz E 220</h2>
+                    <div class="yb_header-price">
+                        <span class="yb_price-car">8 200 $ </span>
+                        <div class="yb_location-car"> Киев </div>
+                    </div>
+                </div>
+                <i
+                    @click="showSlider = false"
+                    class="fas fa-times">
+                </i>
+            </div>
+            <figure class="y-current_img">
+                <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true"/>
+                <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
+                </svg>
+                <svg class="yb_next" @click="nextImage" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                    <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
+                </svg>
+            </figure>
+            <div class="yb_count-image">
+                {{currImgIdx + 1}}<span>/</span>{{imgList.length}}
+            </div>
+            <div class="yb-carousel_vis">
+                <svg class="y_vis-controls prev" @click="prevChunk" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
+                </svg>
+                <transition-group ref="scrollTo" class="yb-full_carousel" :name="transition_name" tag="div">
+                    <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide == i" :key="i">
+                        <li class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{active_item: item == imgList[currImgIdx]}">
+                            <img  :src="item"/>
+                            <div v-if="item == imgList[currImgIdx]" class="yb_count-img">
+                                <span>{{currImgIdx + 1}}</span>
+                                из
+                                <span>{{imgList.length}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </transition-group>
+                <svg class="y_vis-controls next" @click="nextChunk" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                    <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="yb_carousel-controls">
+                <div class="yb_controls_dot" v-for="(dot, i) in arrImage" :class="{active_dot : currSlide == i}" @click="goToChunk(i)">{{i+1}}</div>
+            </div>
+        </div>
         <div class="yb_auto_vis-l">
             <div class="y-visl_items">
                 <span v-if="soldCar" class="yb_sold-car">Продано</span>
                 <figure
                     :class="{'blur' : soldCar}"
-                    v-if="!withPhotos"
+                    v-if="withPhotos === true"
                     class="y-image_large">
-                    <div class="yb-icon_check">
+                    <div v-if="verifiedCar" class="yb-icon_check">
                         <div class="icon check">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0)">
@@ -356,24 +408,22 @@
                         </div>
                     </div>
                     <div :class="{'yb-sold_carout' : soldCar}"></div>
-                    <div  class="yb-without_photos">
-                    </div>
-                    <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    <img :src="imgList[currImgIdx]" alt="">
                     <div class="yb-count_increase-img">
                         <div class="yb_count-img">
                             <i class="far fa-image"></i>
                             <div class="yb_count">
-                                <span class="count">1</span>
+                                <span class="count">{{currImgIdx + 1}}</span>
                                 из
-                                <span class="count">9</span>
+                                <span class="count">{{imgList.length}}</span>
                             </div>
                         </div>
-                        <div class="yb-increase">
+                        <button @click="showSlider = true" class="yb-increase">
                             <i class="fas fa-search-plus"></i>
-                        </div>
+                        </button>
                     </div>
                 </figure>
-                <figure v-if="withPhotos" class="y-image_large without_photos">
+                <figure v-if="withPhotos === false" class="y-image_large without_photos">
                     <img src="../../../../public/img/system/static/withoutPhoto.png" alt="">
                     <h2>Без фото</h2>
                 </figure>
@@ -590,6 +640,9 @@
 <script>
 export default {
     mounted () {
+        // this.$el.addEventListener('touchstart', event => this.touchstart(event));
+        // this.$el.addEventListener('touchmove', event => this.touchmove(event));
+        // this.$el.addEventListener('touchend', () => this.touchend());
         window.addEventListener('resize', this.onResize)
         this.onResize();
         document.addEventListener("keydown", (event) => {
@@ -599,6 +652,8 @@ export default {
     },
     updated() {
         this.scrollY();
+        this.onResize();
+
     },
     computed: {
         arrImage() {
@@ -657,8 +712,12 @@ export default {
             currSlide: 0,
             currImgIdx: 0,
             transition_name: "slide_next",
+            touch: {
+                startX: 0,
+                endX: 0
+            }, // obj from touch slider in mobile visible
             //end slider fullPage
-            showSlider: false,
+            showSlider: true,
             windowWidth: 0,
             openImage: false,
             verifiedCar: true,
@@ -668,10 +727,25 @@ export default {
         }
     },
     methods: {
+        touchStart(event) {
+            this.touch.startX = event.touches[0].clientX;
+            this.touch.endX = 0;
+        },
+        touchMove(event) {
+            this.touch.endX = event.touches[0].clientX;
+        },
+        touchEnd() {
+            if(!this.touch.endX || Math.abs(this.touch.endX - this.touch.startX) < 20)
+                return;
+
+            if(this.touch.endX < this.touch.startX)
+                this.nextImage()
+            else
+                this.prevImage()
+        },
         onResize(event) {
             this.windowWidth = document.documentElement.clientWidth;
-            console.log(this.windowWidth)
-            if(this.windowWidth === 1024) this.imgShow = 4
+            if(this.windowWidth <= 1024) this.imgShow = 4;
         },
         scrollY(){
             if(this.showSlider == true){

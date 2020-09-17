@@ -27,25 +27,23 @@
                 box-shadow: 1px 3px 8px 1px rgba(52, 110, 197, 0.28);
         }
     }
-    .ytop_results{
-        font-family: $aleg;
-        background: #FFFFFF;
-        box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 8px;
-        position: absolute;
-        padding: 0;
-        margin: 0;
-        max-height: 330px;
-        overflow: hidden;
-        width: 110%;
-        top: -6px;
-        padding-top: 55px;
-        padding-right: 20px;
-        left: -14px;
-        z-index: 1;
-        scrollbar-width: none;
         .autocomplete-results{
+            font-family: $aleg;
+            background: #FFFFFF;
+            box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 8px;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            max-height: 330px;
             overflow: hidden;
+            width: 110%;
+            top: -6px;
+            padding-top: 55px;
+            padding-right: 20px;
+            left: -14px;
+            z-index: 1;
+            scrollbar-width: none;
             .autocomplete-result {
                 font-family: $aleg;
                 font-weight: normal;
@@ -64,10 +62,8 @@
                 color: #FFFFFF;
             }
             &::-webkit-scrollbar { width: 0px; }
-
         }
     }
-}
 }
 .autocomplete {
 position: relative;
