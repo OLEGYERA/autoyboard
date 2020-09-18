@@ -206,7 +206,6 @@
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                width: 87px;
                                 background: rgba(0, 0, 0, 0.85);
                                 opacity: 0.6;
                                 border-radius: 12px;
@@ -1888,6 +1887,16 @@
                     width: 100%;
                     .y-visl_items{
                         box-shadow: none;
+                        .y-image_large{
+                            .yb-count_increase-img{
+                                .yb-increase{
+                                    height: 40px;
+                                    i{
+                                        font-size: em(24);
+                                    }
+                                }
+                            }
+                        }
                         .yb_sold-car{
                             top: 5%;
                         }
@@ -2133,6 +2142,25 @@
                 }
                 .yb_auto_vis-l{
                     .y-visl_items{
+                        .y-image_large{
+                            .yb-count_increase-img{
+                                padding: 0 15px;
+                                .yb_count-img{
+                                    padding: 7px 10px;
+                                    i{
+                                        font-size: em(16);
+                                    }
+                                    .yb_count{
+                                        font-size: em(12);
+                                    }
+                                }
+                                .yb-increase{
+                                    i{
+
+                                    }
+                                }
+                            }
+                        }
                         .without_photos{
                             padding: 30px 0 30px;
                             h2{
@@ -2402,6 +2430,27 @@
                                     height: 35px;
                                     svg{
                                         width: 20px;
+                                    }
+                                }
+                            }
+                            .yb-count_increase-img{
+                                padding: 0 10px;
+                                margin: 0 0 10px;
+                                .yb_count-img{
+                                    height: 35px;
+                                    padding: 7px 10px;
+                                    i{
+                                        font-size: em(16);
+                                    }
+                                    .yb_count{
+                                        font-size: em(12);
+                                    }
+                                }
+                                .yb-increase{
+                                    height: 35px;
+                                    padding: 10px 15px;
+                                    i{
+                                        font-size: em(16);
                                     }
                                 }
                             }

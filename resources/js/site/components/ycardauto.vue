@@ -14,14 +14,8 @@
                    class="fas fa-times">
                 </i>
             </div>
-                <figure
-                    @touchstart="touchStart",
-                    @touchmove="touchMove",
-                    @touchend="touchEnd",
-
-                         class="y-current_img"
-                >
-                    <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true"/>
+                <figure class="y-current_img">
+                    <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true" alt=""/>
                         <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                         </svg>
@@ -34,10 +28,10 @@
                         <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                     </svg>
                     <transition-group ref="scrollTo" class="yb-full_carousel" :name="transition_name" tag="div">
-                        <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide == i" :key="i">
-                            <li class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{active_item: item == imgList[currImgIdx]}">
-                                <img  :src="item"/>
-                                <div v-if="item == imgList[currImgIdx]" class="yb_count-img">
+                        <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide === i" :key="i">
+                            <li class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{active_item: item === imgList[currImgIdx]}">
+                                <img  :src="item" alt=""/>
+                                <div v-if="item === imgList[currImgIdx]" class="yb_count-img">
                                     <span>{{currImgIdx + 1}}</span>
                                     из
                                     <span>{{imgList.length}}</span>
@@ -50,7 +44,7 @@
                     </svg>
                 </div>
                 <div class="yb_carousel-controls">
-                    <div class="yb_controls_dot" v-for="(dot, i) in arrImage" :class="{active_dot : currSlide == i}" @click="goToChunk(i)">{{i+1}}</div>
+                    <div class="yb_controls_dot" v-for="(dot, i) in arrImage" :class="{active_dot : currSlide === i}" @click="goToChunk(i)">{{i+1}}</div>
                 </div>
             </div>
         <div class="yb_auto_vis-l">
@@ -349,8 +343,12 @@
                     class="fas fa-times">
                 </i>
             </div>
-            <figure class="y-current_img">
-                <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true"/>
+            <figure class="y-current_img"
+                    @touchstart="touchStart"
+                    @touchmove="touchMove"
+                    @touchend="touchEnd"
+            >
+                <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true" alt=""/>
                 <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                 </svg>
@@ -366,10 +364,10 @@
                     <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                 </svg>
                 <transition-group ref="scrollTo" class="yb-full_carousel" :name="transition_name" tag="div">
-                    <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide == i" :key="i">
-                        <li class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{active_item: item == imgList[currImgIdx]}">
-                            <img  :src="item"/>
-                            <div v-if="item == imgList[currImgIdx]" class="yb_count-img">
+                    <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide === i" :key="i">
+                        <li class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{active_item: item === imgList[currImgIdx]}">
+                            <img  :src="item" alt=""/>
+                            <div v-if="item === imgList[currImgIdx]" class="yb_count-img">
                                 <span>{{currImgIdx + 1}}</span>
                                 из
                                 <span>{{imgList.length}}</span>
@@ -382,7 +380,7 @@
                 </svg>
             </div>
             <div class="yb_carousel-controls">
-                <div class="yb_controls_dot" v-for="(dot, i) in arrImage" :class="{active_dot : currSlide == i}" @click="goToChunk(i)">{{i+1}}</div>
+                <div class="yb_controls_dot" v-for="(dot, i) in arrImage" :class="{active_dot : currSlide === i}" @click="goToChunk(i)">{{i+1}}</div>
             </div>
         </div>
         <div class="yb_auto_vis-l">
@@ -646,8 +644,8 @@ export default {
         window.addEventListener('resize', this.onResize)
         this.onResize();
         document.addEventListener("keydown", (event) => {
-            if (event.which == 37) this.prevChunk()
-            if (event.which == 39) this.nextChunk()
+            if (event.which === 37) this.prevChunk()
+            if (event.which === 39) this.nextChunk()
         });
     },
     updated() {
@@ -743,12 +741,12 @@ export default {
             else
                 this.prevImage()
         },
-        onResize(event) {
+        onResize() {
             this.windowWidth = document.documentElement.clientWidth;
             if(this.windowWidth <= 1024) this.imgShow = 4;
         },
         scrollY(){
-            if(this.showSlider == true){
+            if(this.showSlider === true){
                 document.body.classList.add('scroll-disallowed');
             }else{
                 document.body.classList.remove('scroll-disallowed');
@@ -760,11 +758,11 @@ export default {
         },
         prevChunk() {
             this.transition_name = "slide_prev";
-            this.currSlide = this.currSlide == 0 ? this.arrImage.length - 1 : this.currSlide-1;
+            this.currSlide = this.currSlide === 0 ? this.arrImage.length - 1 : this.currSlide-1;
         },
         nextChunk() {
             this.transition_name = "slide_next";
-            this.currSlide = this.currSlide == this.arrImage.length - 1 ? 0 : this.currSlide+1;
+            this.currSlide = this.currSlide === this.arrImage.length - 1 ? 0 : this.currSlide+1;
         },
         prevImage(){
             this.currImgIdx = ( this.currImgIdx-1 >= 0 ? this.currImgIdx-1 : this.imgList.length-1 )

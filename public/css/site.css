@@ -5734,7 +5734,6 @@ span.yb-gradient {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 87px;
   background: rgba(0, 0, 0, 0.85);
   opacity: 0.6;
   border-radius: 12px;
@@ -7361,6 +7360,14 @@ span.yb-gradient {
     box-shadow: none;
   }
 
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb-increase {
+    height: 40px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb-increase i {
+    font-size: 1.5em;
+  }
+
   .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_sold-car {
     top: 5%;
   }
@@ -7602,6 +7609,22 @@ span.yb-gradient {
     font-size: 1.875em;
   }
 
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img {
+    padding: 0 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img {
+    padding: 7px 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img i {
+    font-size: 1em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img .yb_count {
+    font-size: 0.75em;
+  }
+
   .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos {
     padding: 30px 0 30px;
   }
@@ -7833,6 +7856,33 @@ span.yb-gradient {
 
   .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-icon_check .icon svg {
     width: 20px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img {
+    padding: 0 10px;
+    margin: 0 0 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img {
+    height: 35px;
+    padding: 7px 10px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img i {
+    font-size: 1em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb_count-img .yb_count {
+    font-size: 0.75em;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb-increase {
+    height: 35px;
+    padding: 10px 15px;
+  }
+
+  .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img .yb-increase i {
+    font-size: 1em;
   }
 
   .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .without_photos {
