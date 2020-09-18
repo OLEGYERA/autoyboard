@@ -651,7 +651,6 @@ export default {
     updated() {
         this.scrollY();
         this.onResize();
-
     },
     computed: {
         arrImage() {
@@ -715,7 +714,7 @@ export default {
                 endX: 0
             }, // obj from touch slider in mobile visible
             //end slider fullPage
-            showSlider: true,
+            showSlider: false,
             windowWidth: 0,
             openImage: false,
             verifiedCar: true,

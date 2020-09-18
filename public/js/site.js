@@ -3130,7 +3130,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       // obj from touch slider in mobile visible
       //end slider fullPage
-      showSlider: true,
+      showSlider: false,
       windowWidth: 0,
       openImage: false,
       verifiedCar: true,

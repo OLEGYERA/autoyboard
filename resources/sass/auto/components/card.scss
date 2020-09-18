@@ -1764,6 +1764,12 @@
                                         }
                                     }
                                 }
+                                .yb-increase{
+                                    height: 40px;
+                                    i{
+                                        font-size: em(26);
+                                    }
+                                }
                             }
                         }
                         .y-auto_options{
@@ -1793,7 +1799,7 @@
                             }
                             .yb_flex-price{
                                 .yb-price_car{
-                                    width: 90%;
+                                    width: 95%;
                                 }
                                 .favorite{
                                     right: 10px;
@@ -1875,7 +1881,7 @@
     .yb-card_content{
         .yb-card_auto{
             .yb-bread_next-card{
-                margin: 10px 0 10px;
+                margin: 10px 0 15px;
             }
             .yb_status-bar{
                 span{
@@ -1889,8 +1895,16 @@
                         box-shadow: none;
                         .y-image_large{
                             .yb-count_increase-img{
+                                padding: 0 10px;
+                                margin: 0 0 5px;
+                                .yb_count-img{
+                                    height: 35px;
+                                    .yb_count{
+                                        font-size: em(14);
+                                    }
+                                }
                                 .yb-increase{
-                                    height: 40px;
+                                    height: 35px;
                                     i{
                                         font-size: em(24);
                                     }
@@ -2144,7 +2158,6 @@
                     .y-visl_items{
                         .y-image_large{
                             .yb-count_increase-img{
-                                padding: 0 15px;
                                 .yb_count-img{
                                     padding: 7px 10px;
                                     i{
@@ -2434,11 +2447,8 @@
                                 }
                             }
                             .yb-count_increase-img{
-                                padding: 0 10px;
-                                margin: 0 0 10px;
                                 .yb_count-img{
-                                    height: 35px;
-                                    padding: 7px 10px;
+                                    height: 30px;
                                     i{
                                         font-size: em(16);
                                     }
@@ -2447,8 +2457,7 @@
                                     }
                                 }
                                 .yb-increase{
-                                    height: 35px;
-                                    padding: 10px 15px;
+                                    height: 30px;
                                     i{
                                         font-size: em(16);
                                     }
