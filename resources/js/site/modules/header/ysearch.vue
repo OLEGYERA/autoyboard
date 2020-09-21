@@ -8,7 +8,7 @@
             placeholder="Поиск"
             v-model="search"
         />
-        <i class=" fas fa-search"></i>
+        <i @click="toggle = true" class=" fas fa-search"></i>
 <!--        drop down when search by text-->
         <ul v-if="search.length > 0" class="ysearch_items-list">
             <li

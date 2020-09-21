@@ -56697,7 +56697,14 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("i", { staticClass: " fas fa-search" }),
+    _c("i", {
+      staticClass: " fas fa-search",
+      on: {
+        click: function($event) {
+          _vm.toggle = true
+        }
+      }
+    }),
     _vm._v(" "),
     _vm.search.length > 0
       ? _c(

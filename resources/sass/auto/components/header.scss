@@ -10,9 +10,9 @@ header.yb-header{
     z-index: 9;
     position: fixed;
     align-items: center;
-    padding: 0px 17%;
+    padding: 0 17%;
     background-color: $body-bg;
-    box-shadow: 0px 4px 4px $light-shadow;
+    box-shadow: 0 4px 4px $light-shadow;
 
     .yb-header-left{
         display: flex;
@@ -203,7 +203,7 @@ header.yb-header{
 }
 @media only screen and (max-width: 1500px){
     header.yb-header{
-        padding: 0px 10%;
+        padding: 0 10%;
     }
 
 }
@@ -225,13 +225,13 @@ header.yb-header{
 }
 @media only screen and (max-width: 1366px){
     header.yb-header {
-        padding: 0px 8%;
+        padding: 0 8%;
     }
 
 }
 @media only screen and (max-width: 1330px){
     header.yb-header{
-        padding: 0px 6%;
+        padding: 0 6%;
         .yb-header-left{
             .yb-logo{
                 img{
@@ -249,7 +249,7 @@ header.yb-header{
 
 @media only screen and (max-width: 1024px){
     header.yb-header{
-        padding: 0px 3%;
+        padding: 0 3%;
         .yb-header-left{
             display: flex;
             align-items: center;
@@ -308,7 +308,7 @@ header.yb-header{
 }
 @media only screen and (max-width: 945px){
     header.yb-header {
-        padding: 0px 2%;
+        padding: 0 2%;
         .yb-header-right{
             margin-left: 20px;
             .ysearch{
@@ -331,23 +331,18 @@ header.yb-header{
 
 
             }
-            .ymenu{
-                .ymenu-visual{
-
-                    .vis-l{
-
-                    }
-                }
-            }
         }
-
         .yb-header-right{
             position: absolute;
-            width: 40%;
-            left: 23%;
+            width: 50%;
+            left: 18%;
+            justify-content: center;
             margin-left: 0;
             .ysearch{
-                width: 100%;
+                width: 75%;
+                &.search_long{
+                    width: 100%;
+                }
             }
 
             .ylocation-box{
@@ -374,7 +369,7 @@ header.yb-header{
         }
     }
 }
-@media only screen and (max-width: 475px){
+@media only screen and (max-width: 600px){
     header.yb-header{
         .yb-header-left{
             .ymenu{
@@ -394,8 +389,74 @@ header.yb-header{
             }
         }
         .yb-header-right{
+            justify-content: flex-end;
+            width: 65%;
+            left: 20%;
             .ysearch{
-                display: none;
+                .search{
+                    display: none;
+                }
+                .ysearch_items-res{
+                    max-height: 475px;
+                    .yb-last_requests{
+                        font-size: em(14);
+                    }
+                    .yb-requests_items{
+                        .yb-requests_item{
+                            font-size: em(12);
+                            line-height: 16px;
+                        }
+                    }
+                    .yb_best-title{
+                        font-size: em(16);
+                        margin: 0 0 10px 0;
+                    }
+                    .yb_best-offers{
+                        .yb-offer_item{
+                            width: 100%;
+                            .yb-offer_img{
+                                width: 50%;
+                            }
+                            .yb_item-desc{
+                                padding: 5px 10px 5px 10px;
+                                .yb-item_name{
+                                    font-size: em(10);
+                                }
+                                .yb-item_location{
+                                    .yb-loc{
+                                        font-size: em(10);
+                                    }
+                                    .yb-price{
+                                        font-size: em(10);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .search_long{
+                .focus{
+                    display: flex;
+                }
+                i{
+                    font-size: em(16);
+                    color:  rgba(34, 34, 34, 0.59);
+                }
+            }
+            i{
+                color: $darkblue;
+                font-weight: 600;
+                font-size: em(24);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 475px){
+    header.yb-header{
+        .yb-header-right{
+            .ysearch{
+
             }
         }
     }
@@ -404,7 +465,7 @@ header.yb-header{
 @media only screen and (max-width: 425px){
     header.yb-header{
         height: 50px;
-        padding: 0px 4%;
+        padding: 0 4%;
         .yb-header-left{
             .yb-logo{
                 height: 18px;
