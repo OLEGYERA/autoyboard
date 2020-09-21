@@ -6477,7 +6477,7 @@ span.yb-gradient {
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .yb-carousel_vis .slide_next-enter-active,
 .yb-card_content .yb-card_auto .yb_fullpage-visual .yb-carousel_vis .slide_prev-enter-active {
-  transition: transform 0.8s;
+  transition: transform 0.5s;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .yb-carousel_vis .slide_next-enter {
