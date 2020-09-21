@@ -2,16 +2,19 @@
     <div class="ysearch">
         <input
             class="search"
+            :class="{'focus' : toggle === true}"
+            @focus="blurInput = true, toggle = true"
             type="text"
             placeholder="Поиск"
             v-model="search"
         />
         <i class=" fas fa-search"></i>
-<!--        drop down when seaech by text-->
+<!--        drop down when search by text-->
         <ul v-if="search.length > 0" class="ysearch_items-list">
             <li
                 v-for="(item, index) in filterSearch"
                 class="ysearch_item"
+                :key="index"
             >
                 {{item}}
             </li>
@@ -23,7 +26,7 @@
             </button>
         </ul>
 <!--        drop down when search with bestOffer card and last search-->
-        <div v-if="showResItems" class="ysearch_items-res">
+        <div v-if="toggle"  class="ysearch_items-res">
             <div class="yb-last_requests">
                 Недавние поисковые запросы
                 <svg @click="lastReguest = false" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,11 +152,11 @@
 </template>
 
 <script>
-
 export default {
     data(){
         return{
-            showResItems: false,
+            blurInput: false,
+            toggle: false,
             lastReguest: true,
             testAray:[
                 'Ауди',
@@ -168,23 +171,32 @@ export default {
         }
     },
     methods: {
-        setSearch(index){
-
-        },
-        highlight() {
-            if(!this.search) {
-                return this.testAray;
+        handleClickOutside(evt) {
+            if (!this.$el.contains(evt.target)) {
+                this.toggle = false;
             }
-            return this.testAray.replace(new RegExp(this.search, "gi"), match => {
-                return '<span class="highlightText">' + match + '</span>';
-            });
         },
+    },
+    mounted() {
+        document.addEventListener('click', this.handleClickOutside)
+    },
+    destroyed() {
+        document.removeEventListener('click', this.handleClickOutside)
     },
     computed: {
         filterSearch(){
             return this.testAray.filter(item => {
                 return item.indexOf(this.search) > - 1
             })
+        }
+    },
+    watch: {
+        toggle: function (to) {
+            to ? $('.ylocation-box').addClass('search_hide') : $('.ylocation-box').removeClass('search_hide');
+            to ? $('.ysearch').addClass('search_long') : $('.ysearch').removeClass('search_long');
+        },
+        mutableValue(to){
+            this.searchEngine();
         }
     }
 

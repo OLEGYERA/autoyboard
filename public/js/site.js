@@ -3091,9 +3091,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    // this.$el.addEventListener('touchstart', event => this.touchstart(event));
-    // this.$el.addEventListener('touchmove', event => this.touchmove(event));
-    // this.$el.addEventListener('touchend', () => this.touchend());
     window.addEventListener('resize', this.onResize);
     this.onResize();
     document.addEventListener("keydown", function (event) {
@@ -7399,6 +7396,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -7407,48 +7406,11 @@ __webpack_require__.r(__webpack_exports__);
   props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
   data: function data() {
     return {
-      ops: {
-        vuescroll: {
-          mode: 'native',
-          sizeStrategy: 'percent',
-          detectResize: true
-        },
-        scrollPanel: {
-          initialScrollY: false,
-          initialScrollX: false,
-          scrollingX: true,
-          scrollingY: true,
-          speed: 600,
-          easing: undefined,
-          verticalNativeBarPos: 'right'
-        },
-        rail: {
-          background: 'rgba(229, 229, 229, 0.51)',
-          opacity: 0,
-          size: '7px',
-          specifyBorderRadius: false,
-          gutterOfEnds: null,
-          gutterOfSide: '2px',
-          keepShow: false
-        },
-        bar: {
-          showDelay: 500,
-          onlyShowBarOnScroll: false,
-          keepShow: true,
-          background: '#0B3F8D',
-          opacity: 1,
-          hoverStyle: false,
-          specifyBorderRadius: false,
-          minSize: 0.3,
-          size: '7px',
-          disable: false
-        }
-      },
       isOpen: false,
       results: [],
       search: '',
       arrowCounter: 0,
-      items: ['Поляна', 'Славское', 'Тернополь', 'Трускавец', 'Хмельницкий', 'Чайковка', 'Чубинское', 'Шаян', 'Шешоры', 'Яремче', 'Петровское', 'Приморское', 'Черновцы', 'Днепропетровск', 'Донецк', 'Ивано-Франковск', 'Каменец-Подольский', 'Харьков', 'Херсон', 'Киев', 'Кривой Рог', 'Луганск', 'Львов', 'Николаев', 'Одесса', 'Полтава', 'Сумы', 'Ужгород', 'Запорожье', 'Винница', 'Черкассы', 'Чернигов', 'Ильичевск', 'Луцк', 'Малехов', 'Микуличин', 'Ровно', 'Стрый', 'Ахтырка', 'Белогородка', 'Бердянск', 'Борисполь', 'Бояны', 'Бровары', 'Буковель', 'Бурлачья Балка', 'Верховина', 'Винники', 'Жденево', 'Житомир', 'Жовтневое', 'Затока', 'Кировоград', 'Коблево', 'Козин', 'Колоденка', 'Коропово', 'Кременчуг', 'Макеевка', 'Мукачево']
+      items: ['Ивано-Франковская область', 'Днепропетровская область', 'Поляна', 'Славское', 'Тернополь', 'Трускавец', 'Хмельницкий', 'Чайковка', 'Чубинское', 'Шаян', 'Шешоры', 'Яремче', 'Петровское', 'Приморское', 'Черновцы', 'Днепропетровск', 'Донецк', 'Ивано-Франковск', 'Каменец-Подольский', 'Харьков', 'Херсон', 'Киев', 'Кривой Рог', 'Луганск', 'Львов', 'Николаев', 'Одесса', 'Полтава', 'Сумы', 'Ужгород', 'Запорожье', 'Винница', 'Черкассы', 'Чернигов', 'Ильичевск', 'Луцк', 'Малехов', 'Микуличин', 'Ровно', 'Стрый', 'Ахтырка', 'Белогородка', 'Бердянск', 'Борисполь', 'Бояны', 'Бровары', 'Буковель', 'Бурлачья Балка', 'Верховина', 'Винники', 'Жденево', 'Житомир', 'Жовтневое', 'Затока', 'Кировоград', 'Коблево', 'Козин', 'Колоденка', 'Коропово', 'Кременчуг', 'Макеевка', 'Мукачево']
     };
   },
   computed: {
@@ -8791,26 +8753,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      showResItems: false,
+      blurInput: false,
+      toggle: false,
       lastReguest: true,
       testAray: ['Ауди', 'ауди а3', 'ауди ТТ', 'фольксваген', 'тойота аурис', 'королла киев', 'тесла битая'],
       search: ''
     };
   },
   methods: {
-    setSearch: function setSearch(index) {},
-    highlight: function highlight() {
-      if (!this.search) {
-        return this.testAray;
+    handleClickOutside: function handleClickOutside(evt) {
+      if (!this.$el.contains(evt.target)) {
+        this.toggle = false;
       }
-
-      return this.testAray.replace(new RegExp(this.search, "gi"), function (match) {
-        return '<span class="highlightText">' + match + '</span>';
-      });
     }
+  },
+  mounted: function mounted() {
+    document.addEventListener('click', this.handleClickOutside);
+  },
+  destroyed: function destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
   },
   computed: {
     filterSearch: function filterSearch() {
@@ -8819,6 +8786,15 @@ __webpack_require__.r(__webpack_exports__);
       return this.testAray.filter(function (item) {
         return item.indexOf(_this.search) > -1;
       });
+    }
+  },
+  watch: {
+    toggle: function toggle(to) {
+      to ? $('.ylocation-box').addClass('search_hide') : $('.ylocation-box').removeClass('search_hide');
+      to ? $('.ysearch').addClass('search_long') : $('.ysearch').removeClass('search_long');
+    },
+    mutableValue: function mutableValue(to) {
+      this.searchEngine();
     }
   }
 });
@@ -42130,12 +42106,7 @@ var render = function() {
               _c("figure", { staticClass: "y-current_img" }, [
                 _c("img", {
                   staticClass: "currImg",
-                  attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.fullboxActive = true
-                    }
-                  }
+                  attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" }
                 }),
                 _vm._v(" "),
                 _c(
@@ -43018,12 +42989,7 @@ var render = function() {
                 [
                   _c("img", {
                     staticClass: "currImg",
-                    attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" },
-                    on: {
-                      click: function($event) {
-                        _vm.fullboxActive = true
-                      }
-                    }
+                    attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" }
                   }),
                   _vm._v(" "),
                   _c(
@@ -54536,36 +54502,39 @@ var render = function() {
         attrs: { id: "autocomplete-results" }
       },
       [
-        _vm._l(_vm.results, function(result, i) {
-          return _vm.results.length > 0
-            ? _c(
-                "div",
-                {
-                  key: i,
-                  ref: "options",
-                  refInFor: true,
-                  class: [
-                    _vm.list_style,
-                    { "is-active": i === _vm.arrowCounter }
-                  ],
-                  on: {
-                    click: function($event) {
-                      return _vm.setResult(result)
+        _c(
+          "div",
+          _vm._l(_vm.results, function(result, i) {
+            return _vm.results.length > 0
+              ? _c(
+                  "div",
+                  {
+                    key: i,
+                    ref: "options",
+                    refInFor: true,
+                    class: [
+                      _vm.list_style,
+                      { "is-active": i === _vm.arrowCounter }
+                    ],
+                    on: {
+                      click: function($event) {
+                        return _vm.setResult(result)
+                      }
                     }
-                  }
-                },
-                [_vm._v("\n            " + _vm._s(result) + "\n        ")]
-              )
-            : _vm._e()
-        }),
+                  },
+                  [_vm._v("\n            " + _vm._s(result) + "\n        ")]
+                )
+              : _vm._e()
+          }),
+          0
+        ),
         _vm._v(" "),
         _vm.results.length === 0
           ? _c("div", { staticClass: "autocomplete-result" }, [
               _vm._v("Не найдено")
             ])
           : _vm._e()
-      ],
-      2
+      ]
     )
   ])
 }
@@ -56712,9 +56681,13 @@ var render = function() {
         }
       ],
       staticClass: "search",
+      class: { focus: _vm.toggle === true },
       attrs: { type: "text", placeholder: "Поиск" },
       domProps: { value: _vm.search },
       on: {
+        focus: function($event) {
+          ;(_vm.blurInput = true), (_vm.toggle = true)
+        },
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -56732,7 +56705,7 @@ var render = function() {
           { staticClass: "ysearch_items-list" },
           [
             _vm._l(_vm.filterSearch, function(item, index) {
-              return _c("li", { staticClass: "ysearch_item" }, [
+              return _c("li", { key: index, staticClass: "ysearch_item" }, [
                 _vm._v("\n                " + _vm._s(item) + "\n            ")
               ])
             }),
@@ -56766,7 +56739,7 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm.showResItems
+    _vm.toggle
       ? _c("div", { staticClass: "ysearch_items-res" }, [
           _c("div", { staticClass: "yb-last_requests" }, [
             _vm._v(

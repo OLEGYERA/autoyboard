@@ -1,7 +1,7 @@
 @import '../../vars';
 
 .yb-card_content{
-    padding: 0px 17%;
+    padding: 0 17%;
     width: 100%;
     position: relative;
     .yb-card_auto{
@@ -88,7 +88,7 @@
                 .y-visl_items{
                     background: #FFFFFF;
                     box-shadow: -3px -3px 6px rgba(210, 210, 210, 0.21), 3px 3px 6px rgba(186, 186, 186, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
-                    border-radius: 0px 0px 47px 47px;
+                    border-radius: 0 0 47px 47px;
                     width: 100%;
                     align-items: center;
                     display: flex;
@@ -110,7 +110,7 @@
                         text-align: center;
                         text-transform: uppercase;
                         color: #DF0905;
-                        text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.39);
+                        text-shadow: 0 4px 4px rgba(255, 255, 255, 0.39);
                         z-index: 2;
                     }
                     .y-image_large{
@@ -146,7 +146,7 @@
                                 width: 60px;
                                 height: 60px;
                                 border-radius: 50%;
-                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.65);
+                                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
                             }
 
                             .check{
@@ -167,7 +167,6 @@
                         .yb-count_increase-img{
                             width: 100%;
                             justify-content: space-between;
-                            width: 100%;
                             display: flex;
                             position: absolute;
                             bottom: 0;
@@ -224,7 +223,7 @@
                         align-items: center;
                         flex-direction: column;
                         justify-content: center;
-                        box-shadow: 0px 6px 8px rgba(11, 63, 141, 0.26), 0px 2px 5px #000000, 0px 2px 31px rgba(220, 222, 222, 0.24), 1px -11px 0px rgba(255, 255, 255, 0.9), 7px 2px 2px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
+                        box-shadow: 0 6px 8px rgba(11, 63, 141, 0.26), 0 2px 5px #000000, 0 2px 31px rgba(220, 222, 222, 0.24), 1px -11px 0px rgba(255, 255, 255, 0.9), 7px 2px 2px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
                         background: linear-gradient(0deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), linear-gradient(143.75deg, #EEEEEE -35.55%, rgba(255, 255, 255, 0.97) 85.88%);
                         width: 100%;
                         padding-top: 40px;
@@ -480,9 +479,8 @@
                .yvis_item-car{
                    background: #FFFFFF;
                    width: 100%;
-                   background: #FFFFFF;
                    box-shadow: -3px -3px 6px rgba(192, 192, 192, 0.2), 3px 3px 6px rgba(192, 192, 192, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), 3px -3px 8px rgba(192, 192, 192, 0.54), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
-                   border-radius: 0px 0px 15px 15px;
+                   border-radius: 0 0 15px 15px;
                    .vis_car-price{
                        width: 100%;
                        background: #FFFFFF;
@@ -618,8 +616,7 @@
                     align-items: center;
                     justify-content: space-between;
                     width: 90%;
-                    margin: 0 auto;
-                    margin-bottom: 40px;
+                    margin: 0 auto 40px auto;
                     padding: 6% 10%;
                     font-family: $aleg;
                     font-weight: bold;
@@ -628,7 +625,7 @@
                     text-align: center;
                     color: #FFFFFF;
                     background: linear-gradient(180deg, rgba(34, 34, 34, 0.18) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
-                    box-shadow: 0px 4px 8px rgba(8, 34, 73, 0.16);
+                    box-shadow: 0 4px 8px rgba(8, 34, 73, 0.16);
                     border-radius: 15px;
                     .yexpended{
                         .white{
@@ -685,7 +682,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 15px 35px 0px 35px;
+                padding: 15px 35px 0 35px;
                 .yb-slide_left{
                     .yb_car-name{
                         font-family: $rale;
@@ -788,12 +785,12 @@
                     }
                         .yb_prev{
                             position: absolute;
-                            left: 0px;
+                            left: 0;
                             cursor: pointer;
                         }
                         .yb_next{
                             position: absolute;
-                            right: 0px;
+                            right: 0;
                             cursor: pointer;
                         }
                 }
@@ -801,7 +798,7 @@
                     position: relative;
                     width: 60%;
                     margin: 0 auto;
-                    padding: 20px 0px 0;
+                    padding: 20px 0 0;
                     display: flex;
                     align-items: center;
                     .y_vis-controls{
@@ -945,7 +942,7 @@
         width: 90%;
         padding: 40px 60px;
         background: rgba(255, 255, 255, 0.04);
-        box-shadow: 0px 4px 4px rgba(238, 238, 238, 0.25);
+        box-shadow: 0 4px 4px rgba(238, 238, 238, 0.25);
         border-radius: 47px;
         .yb-technical_info{
             .yb-vis_info{
@@ -1265,7 +1262,7 @@
 }
 @media only screen and (max-width: 1500px){
     .yb-card_content{
-        padding: 0px 10%;
+        padding: 0 10%;
     }
 }
 @media only screen and (max-width: 1440px){
@@ -1292,7 +1289,7 @@
                         //max-height:360px;
                     }
                     .yb-carousel_vis{
-                        padding: 10px 0px 0;
+                        padding: 10px 0 0;
                         .yb-full_carousel{
                             height: 100px;
                         }
@@ -1323,12 +1320,12 @@
 }
 @media only screen and (max-width: 1366px){
     .yb-card_content{
-        padding: 0px 8%;
+        padding: 0 8%;
     }
 }
 @media only screen and (max-width: 1330px){
     .yb-card_content{
-        padding: 0px 6%;
+        padding: 0 6%;
     }
 }
 @media only screen and (max-width: 1280px){
@@ -1359,7 +1356,7 @@
 }
 @media only screen and (max-width: 1024px){
     .yb-card_content{
-        padding: 0px 2.5%;
+        padding: 0 2.5%;
         .yb-card_auto{
             .yb_auto-item{
                 .yb_fullpage-visual{
@@ -1462,7 +1459,7 @@
 }
 @media only screen and (max-width: 945px){
     .yb-card_content{
-        padding: 0px 15px;
+        padding: 0 15px;
         .yb-card_auto{
             .yb-bread_next-card{
                 margin: 15px 0 15px;
@@ -1984,7 +1981,7 @@
                                 padding: 4% 22%;
                                 font-size: em(18);
                                 line-height: 22px;
-                                margin-bottom: 35px;
+                                margin: 0 auto 35px auto;
                                 .yexpended{
                                     display: flex;
                                     .white{
@@ -2043,7 +2040,7 @@
                 }
                 .yb_fullpage-visual{
                     .yb_slide-header{
-                        padding: 15px 25px 0px 25px;
+                        padding: 15px 25px 0 25px;
                         .yb-slide_left{
                             .yb_car-name{
                                 font-size: em(28);

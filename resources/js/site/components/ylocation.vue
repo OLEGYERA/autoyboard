@@ -18,6 +18,7 @@
             id="autocomplete-results"
             :class="drop_style"
         >
+            <div>
             <div
                 ref="options"
                 v-for="(result, i) in results"
@@ -27,6 +28,7 @@
                 :class="[list_style, {'is-active': i === arrowCounter}]"
             >
                 {{result}}
+            </div>
             </div>
             <div class="autocomplete-result" v-if="results.length === 0">Не найдено</div>
         </div>
@@ -40,48 +42,11 @@ import vuescroll from "vuescroll";
             props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
         data() {
             return {
-                ops: {
-                    vuescroll: {
-                        mode: 'native',
-                        sizeStrategy: 'percent',
-                        detectResize: true
-                    },
-                    scrollPanel: {
-                        initialScrollY: false,
-                        initialScrollX: false,
-                        scrollingX: true,
-                        scrollingY: true,
-                        speed: 600,
-                        easing: undefined,
-                        verticalNativeBarPos: 'right'
-                    },
-                    rail: {
-                        background: 'rgba(229, 229, 229, 0.51)',
-                        opacity: 0,
-                        size: '7px',
-                        specifyBorderRadius: false,
-                        gutterOfEnds: null,
-                        gutterOfSide: '2px',
-                        keepShow: false
-                    },
-                    bar: {
-                        showDelay: 500,
-                        onlyShowBarOnScroll: false,
-                        keepShow: true,
-                        background: '#0B3F8D',
-                        opacity: 1,
-                        hoverStyle: false,
-                        specifyBorderRadius: false,
-                        minSize: 0.3,
-                        size: '7px',
-                        disable: false
-                    }
-                },
                 isOpen: false,
                 results: [],
                 search: '',
                 arrowCounter: 0,
-                items: ['Поляна', 'Славское',
+                items: ['Ивано-Франковская область','Днепропетровская область','Поляна', 'Славское',
                     'Тернополь',
                     'Трускавец',
                     'Хмельницкий',

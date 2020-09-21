@@ -6,6 +6,7 @@
     align-items: center;
     position: relative;
     height: 35px;
+
     .search{
         height: 100%;
         width: 100%;
@@ -22,7 +23,7 @@
             font-weight: 400;
             color: #9c9c9c;
         }
-        &:focus{
+        &.focus{
             box-shadow: 0px -2px 6px rgba(52, 110, 197, 0.37);
         }
     }
@@ -135,14 +136,16 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+        padding-right: 120px;
         .yb-offer_item{
             display: flex;
             border-radius: 15px;
-            width: 210px;
+            width: 260px;
             margin-bottom: 10px;
             overflow: hidden;
+            box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
             .yb-offer_img{
-                width: 50%;
+                width: 35%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -153,7 +156,7 @@
                 }
             }
             .yb_item-desc{
-                padding: 6px;
+                padding: 10px 18px 10px 14px;
                 background: linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 100%);
                 box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
                 .yb-item_name{
@@ -199,13 +202,14 @@
                 }
             }
             .yb_best-offers{
+                padding-right: 30px;
                 .yb-offer_item{
-                    width: 180px;
+                    width: 245px;
                     .yb-offer_img{
-                        width: 60%;
+                        width: 35%;
                     }
                     .yb_item-desc{
-                        padding: 4px;
+                        padding:13px 10px 5px 12px;
                         .yb-item_name{
                             margin: 0;
                         }
@@ -232,9 +236,8 @@
                     padding: 0 12px;
                 }
             }
-            .yb_best-offers{
+            .yb_best-offers{    padding-right: 70px;
                 .yb-offer_item{
-                    width: 170px;
                     .yb-offer_img{
                     }
                     .yb_item-desc{
@@ -263,8 +266,7 @@
             }
             .yb_best-offers{
                 .yb-offer_item{
-                    width: 160px;
-                    .yb-offer_img{
+                    .yb-offer_img{    width: 30%;
                     }
                     .yb_item-desc{
                         .yb-item_name{
@@ -286,10 +288,11 @@
 @media only screen and (max-width: 1024px){
     .ysearch{
         .ysearch_items-res{
-            .yb_best-offers{
+            .yb_best-offers{    padding-right: 30px;
                 .yb-offer_item{
-                    width: 130px;
-                    .yb_item-desc{
+                    width:210px;.yb-offer_img{
+                    width: 35%;}
+                    .yb_item-desc{    padding: 10px 15px 5px 12px;
                         .yb-item_name{
                             font-size: em(8);
                         }
@@ -308,23 +311,23 @@
 
                 }
             }
-            .yb_best-offers{
+            .yb_best-offers{    padding-right: 0;
                 .yb-offer_item{
                     width: 100%;
                     .yb-offer_img{
-                        width: 30%;
+                        width: 32%;
                     }
                     .yb_item-desc{
-                        padding: 5px 10px 5px 10px;
+                        padding: 10px 33px 10px 25px;
                         .yb-item_name{
-                            font-size: em(10);
+                            font-size: em(17);margin: 0 0 10px 0;
                         }
                         .yb-item_location{
                             .yb-loc{
-                                font-size: em(10);
+                                font-size: em(16);
                             }
                             .yb-price{
-                                font-size: em(10);
+                                font-size: em(16);
                             }
                         }
                     }

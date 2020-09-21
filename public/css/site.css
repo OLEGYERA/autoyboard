@@ -77,7 +77,7 @@ header.yb-header .yb-header-left {
 
 header.yb-header .yb-header-left .yb-logo {
   height: 30px;
-  margin-right: 40px;
+  margin-right: 35px;
 }
 
 header.yb-header .yb-header-left .yb-logo img {
@@ -89,11 +89,15 @@ header.yb-header .yb-header-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 40px;
+  margin-left: 35px;
 }
 
 header.yb-header .yb-header-right .ysearch {
-  width: 50%;
+  width: 55%;
+}
+
+header.yb-header .yb-header-right .ysearch.search_long {
+  width: 80%;
 }
 
 header.yb-header .yb-header-right .ylocation-box {
@@ -132,6 +136,10 @@ header.yb-header .yb-header-right .ylocation-box .ylocation input::-ms-input-pla
 
 header.yb-header .yb-header-right .ylocation-box .ylocation input::placeholder {
   color: rgba(34, 34, 34, 0.8);
+}
+
+header.yb-header .yb-header-right .ylocation-box.search_hide {
+  display: none;
 }
 
 header.yb-header .yb-header-right .yb-favorite {
@@ -262,6 +270,10 @@ header.yb-header .yb-header-right .yb-lang-switcher .ylang.active {
 @media only screen and (max-width: 1600px) {
   header.yb-header .yb-header-right .ysearch {
     width: 40%;
+  }
+
+  header.yb-header .yb-header-right .ysearch.search_long {
+    width: 80%;
   }
 
   header.yb-header .yb-header-right .ylocation-box {
@@ -5491,7 +5503,7 @@ span.yb-gradient {
 }
 
 .yb-card_content {
-  padding: 0px 17%;
+  padding: 0 17%;
   width: 100%;
   position: relative;
 }
@@ -5599,7 +5611,7 @@ span.yb-gradient {
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items {
   background: #FFFFFF;
   box-shadow: -3px -3px 6px rgba(210, 210, 210, 0.21), 3px 3px 6px rgba(186, 186, 186, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
-  border-radius: 0px 0px 47px 47px;
+  border-radius: 0 0 47px 47px;
   width: 100%;
   align-items: center;
   display: flex;
@@ -5625,7 +5637,7 @@ span.yb-gradient {
   text-align: center;
   text-transform: uppercase;
   color: #DF0905;
-  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.39);
+  text-shadow: 0 4px 4px rgba(255, 255, 255, 0.39);
   z-index: 2;
 }
 
@@ -5668,7 +5680,7 @@ span.yb-gradient {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-icon_check .check {
@@ -5690,7 +5702,6 @@ span.yb-gradient {
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .y-image_large .yb-count_increase-img {
   width: 100%;
   justify-content: space-between;
-  width: 100%;
   display: flex;
   position: absolute;
   bottom: 0;
@@ -5752,7 +5763,7 @@ span.yb-gradient {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0px 6px 8px rgba(11, 63, 141, 0.26), 0px 2px 5px #000000, 0px 2px 31px rgba(220, 222, 222, 0.24), 1px -11px 0px rgba(255, 255, 255, 0.9), 7px 2px 2px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
+  box-shadow: 0 6px 8px rgba(11, 63, 141, 0.26), 0 2px 5px #000000, 0 2px 31px rgba(220, 222, 222, 0.24), 1px -11px 0px rgba(255, 255, 255, 0.9), 7px 2px 2px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), linear-gradient(143.75deg, #EEEEEE -35.55%, rgba(255, 255, 255, 0.97) 85.88%);
   width: 100%;
   padding-top: 40px;
@@ -6041,9 +6052,8 @@ span.yb-gradient {
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car {
   background: #FFFFFF;
   width: 100%;
-  background: #FFFFFF;
   box-shadow: -3px -3px 6px rgba(192, 192, 192, 0.2), 3px 3px 6px rgba(192, 192, 192, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), 3px -3px 8px rgba(192, 192, 192, 0.54), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0 0 15px 15px;
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-r .yvis_item-car .vis_car-price {
@@ -6203,8 +6213,7 @@ span.yb-gradient {
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  margin: 0 auto;
-  margin-bottom: 40px;
+  margin: 0 auto 40px auto;
   padding: 6% 10%;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: bold;
@@ -6213,7 +6222,7 @@ span.yb-gradient {
   text-align: center;
   color: #FFFFFF;
   background: linear-gradient(180deg, rgba(34, 34, 34, 0.18) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
-  box-shadow: 0px 4px 8px rgba(8, 34, 73, 0.16);
+  box-shadow: 0 4px 8px rgba(8, 34, 73, 0.16);
   border-radius: 15px;
 }
 
@@ -6271,7 +6280,7 @@ span.yb-gradient {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 35px 0px 35px;
+  padding: 15px 35px 0 35px;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .yb_slide-header .yb-slide_left .yb_car-name {
@@ -6381,13 +6390,13 @@ span.yb-gradient {
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-current_img .yb_prev {
   position: absolute;
-  left: 0px;
+  left: 0;
   cursor: pointer;
 }
 
 .yb-card_content .yb-card_auto .yb_fullpage-visual .y-current_img .yb_next {
   position: absolute;
-  right: 0px;
+  right: 0;
   cursor: pointer;
 }
 
@@ -6395,7 +6404,7 @@ span.yb-gradient {
   position: relative;
   width: 60%;
   margin: 0 auto;
-  padding: 20px 0px 0;
+  padding: 20px 0 0;
   display: flex;
   align-items: center;
 }
@@ -6544,7 +6553,7 @@ span.yb-gradient {
   width: 90%;
   padding: 40px 60px;
   background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0px 4px 4px rgba(238, 238, 238, 0.25);
+  box-shadow: 0 4px 4px rgba(238, 238, 238, 0.25);
   border-radius: 47px;
 }
 
@@ -6806,7 +6815,7 @@ span.yb-gradient {
 
 @media only screen and (max-width: 1500px) {
   .yb-card_content {
-    padding: 0px 10%;
+    padding: 0 10%;
   }
 }
 
@@ -6824,7 +6833,7 @@ span.yb-gradient {
   }
 
   .yb-card_content .yb-card_auto .yb_auto-item .yb_fullpage-visual .yb-carousel_vis {
-    padding: 10px 0px 0;
+    padding: 10px 0 0;
   }
 
   .yb-card_content .yb-card_auto .yb_auto-item .yb_fullpage-visual .yb-carousel_vis .yb-full_carousel {
@@ -6846,13 +6855,13 @@ span.yb-gradient {
 
 @media only screen and (max-width: 1366px) {
   .yb-card_content {
-    padding: 0px 8%;
+    padding: 0 8%;
   }
 }
 
 @media only screen and (max-width: 1330px) {
   .yb-card_content {
-    padding: 0px 6%;
+    padding: 0 6%;
   }
 }
 
@@ -6868,7 +6877,7 @@ span.yb-gradient {
 
 @media only screen and (max-width: 1024px) {
   .yb-card_content {
-    padding: 0px 2.5%;
+    padding: 0 2.5%;
   }
 
   .yb-card_content .yb-card_auto .yb_auto-item .yb_fullpage-visual .yb_slide-header .yb-slide_left .yb_car-name {
@@ -6943,7 +6952,7 @@ span.yb-gradient {
 
 @media only screen and (max-width: 945px) {
   .yb-card_content {
-    padding: 0px 15px;
+    padding: 0 15px;
   }
 
   .yb-card_content .yb-card_auto .yb-bread_next-card {
@@ -7473,7 +7482,7 @@ span.yb-gradient {
     padding: 4% 22%;
     font-size: 1.125em;
     line-height: 22px;
-    margin-bottom: 35px;
+    margin: 0 auto 35px auto;
   }
 
   .yb-card_content .yb-card_auto .yb-visible_mobile .yb_auto_vis-l .y-visl_items .yb_auto_vis-r .yb_go_to .yexpended {
@@ -7529,7 +7538,7 @@ span.yb-gradient {
   }
 
   .yb-card_content .yb-card_auto .yb-visible_mobile .yb_fullpage-visual .yb_slide-header {
-    padding: 15px 25px 0px 25px;
+    padding: 15px 25px 0 25px;
   }
 
   .yb-card_content .yb-card_auto .yb-visible_mobile .yb_fullpage-visual .yb_slide-header .yb-slide_left .yb_car-name {
@@ -8416,7 +8425,7 @@ span.yb-gradient {
   justify-content: space-between;
   color: #fff;
   height: 35px;
-  width: 200px;
+  width: 180px;
   padding: 0px 15px;
   border-radius: 8px;
   background-color: #0B3F8D;
@@ -8720,7 +8729,7 @@ span.yb-gradient {
   color: #9c9c9c;
 }
 
-.ysearch .search:focus {
+.ysearch .search.focus {
   box-shadow: 0px -2px 6px rgba(52, 110, 197, 0.37);
 }
 
@@ -8844,18 +8853,20 @@ span.yb-gradient {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-right: 120px;
 }
 
 .ysearch .yb_best-offers .yb-offer_item {
   display: flex;
   border-radius: 15px;
-  width: 210px;
+  width: 260px;
   margin-bottom: 10px;
   overflow: hidden;
+  box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
 }
 
 .ysearch .yb_best-offers .yb-offer_item .yb-offer_img {
-  width: 50%;
+  width: 35%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8868,7 +8879,7 @@ span.yb-gradient {
 }
 
 .ysearch .yb_best-offers .yb-offer_item .yb_item-desc {
-  padding: 6px;
+  padding: 10px 18px 10px 14px;
   background: linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 100%);
   box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
 }
@@ -8915,16 +8926,20 @@ span.yb-gradient {
     line-height: 18px;
   }
 
+  .ysearch .ysearch_items-res .yb_best-offers {
+    padding-right: 30px;
+  }
+
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item {
-    width: 180px;
+    width: 245px;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb-offer_img {
-    width: 60%;
+    width: 35%;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc {
-    padding: 4px;
+    padding: 13px 10px 5px 12px;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc .yb-item_name {
@@ -8938,20 +8953,32 @@ span.yb-gradient {
     padding: 0 12px;
   }
 
-  .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item {
-    width: 170px;
+  .ysearch .ysearch_items-res .yb_best-offers {
+    padding-right: 70px;
   }
 }
 
 @media only screen and (max-width: 1280px) {
-  .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item {
-    width: 160px;
+  .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb-offer_img {
+    width: 30%;
   }
 }
 
 @media only screen and (max-width: 1024px) {
+  .ysearch .ysearch_items-res .yb_best-offers {
+    padding-right: 30px;
+  }
+
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item {
-    width: 130px;
+    width: 210px;
+  }
+
+  .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb-offer_img {
+    width: 35%;
+  }
+
+  .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc {
+    padding: 10px 15px 5px 12px;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc .yb-item_name {
@@ -8964,28 +8991,33 @@ span.yb-gradient {
     overflow: scroll;
   }
 
+  .ysearch .ysearch_items-res .yb_best-offers {
+    padding-right: 0;
+  }
+
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item {
     width: 100%;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb-offer_img {
-    width: 30%;
+    width: 32%;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc {
-    padding: 5px 10px 5px 10px;
+    padding: 10px 33px 10px 25px;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc .yb-item_name {
-    font-size: 0.625em;
+    font-size: 1.0625em;
+    margin: 0 0 10px 0;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc .yb-item_location .yb-loc {
-    font-size: 0.625em;
+    font-size: 1em;
   }
 
   .ysearch .ysearch_items-res .yb_best-offers .yb-offer_item .yb_item-desc .yb-item_location .yb-price {
-    font-size: 0.625em;
+    font-size: 1em;
   }
 }
 
@@ -9124,14 +9156,12 @@ span.yb-gradient {
   box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   position: absolute;
-  padding: 0;
+  padding: 55px 0 0 0;
   margin: 0;
   max-height: 330px;
   overflow: hidden;
   width: 110%;
   top: -6px;
-  padding-top: 55px;
-  padding-right: 20px;
   left: -14px;
   z-index: 1;
   scrollbar-width: none;
@@ -9157,7 +9187,7 @@ span.yb-gradient {
 }
 
 .ylocation.header .autocomplete-results::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
 }
 
 .autocomplete {

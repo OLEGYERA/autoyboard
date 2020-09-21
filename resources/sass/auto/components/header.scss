@@ -20,7 +20,7 @@ header.yb-header{
         justify-content: space-evenly;
         .yb-logo{
             height: 30px;
-            margin-right: 40px;
+            margin-right: 35px;
             img{
                 height: 100%;
             }
@@ -32,10 +32,13 @@ header.yb-header{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-left: 40px;
+        margin-left: 35px;
 
         .ysearch{
-            width: 50%;
+            width: 55%;
+            &.search_long{
+                width: 80%;
+            }
         }
 
         .ylocation-box{
@@ -61,6 +64,9 @@ header.yb-header{
                         color: $site-grey;
                     }
                 }
+            }
+            &.search_hide{
+                display: none;
             }
         }
 
@@ -184,6 +190,9 @@ header.yb-header{
         .yb-header-right{
             .ysearch{
                 width: 40%;
+                &.search_long{
+                    width: 80%;
+                }
             }
             .ylocation-box{
                 width: 240px;

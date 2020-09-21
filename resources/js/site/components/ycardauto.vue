@@ -15,7 +15,7 @@
                 </i>
             </div>
                 <figure class="y-current_img">
-                    <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true" alt=""/>
+                    <img class="currImg" :src="imgList[currImgIdx]"  alt=""/>
                         <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                         </svg>
@@ -348,7 +348,7 @@
                     @touchmove="touchMove"
                     @touchend="touchEnd"
             >
-                <img class="currImg" :src="imgList[currImgIdx]" @click="fullboxActive=true" alt=""/>
+                <img class="currImg" :src="imgList[currImgIdx]"  alt=""/>
                 <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
                 </svg>
@@ -638,9 +638,6 @@
 <script>
 export default {
     mounted () {
-        // this.$el.addEventListener('touchstart', event => this.touchstart(event));
-        // this.$el.addEventListener('touchmove', event => this.touchmove(event));
-        // this.$el.addEventListener('touchend', () => this.touchend());
         window.addEventListener('resize', this.onResize)
         this.onResize();
         document.addEventListener("keydown", (event) => {
