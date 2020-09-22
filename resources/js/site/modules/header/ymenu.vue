@@ -15,7 +15,7 @@
                     class="fas"></i>
             </div>
         </div>
-        <div v-if="showMenu && windowWidth > 600" class="ydrop-menu_vis">
+        <div @click.stop v-if="showMenu && windowWidth > 768" class="ydrop-menu_vis">
             <div class="yb_menu-collumn first_choice">
                 <ul class="y-menu-collumn_items">
                     <li class="y-collumn_item active">Ремонт авто
@@ -121,7 +121,7 @@
                 </ul>
             </div>
         </div>
-        <div v-else-if="showMenu && windowWidth <= 600" class="ydrop-menu_vis mobile">
+        <div @click.stop v-else-if="showMenu && windowWidth <= 768" class="ydrop-menu_vis mobile">
             <div class="yb_menu-collumn first_choice">
                 <ul class="y-menu-collumn_items">
                     <li class="y-collumn_item active">Ремонт авто
@@ -235,6 +235,7 @@
         mounted() {
             document.addEventListener('click', this.handleClickOutside)
             this.onResize();
+            console.log(this.windowWidth)
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)
@@ -251,10 +252,11 @@
                     this.showMenu = false;
                 }
             },
-            onResize(event) {
+            onResize() {
                 this.windowWidth = document.documentElement.clientWidth;
                 console.log(this.windowWidth)
             },
-        }
+
+        },
     }
 </script>

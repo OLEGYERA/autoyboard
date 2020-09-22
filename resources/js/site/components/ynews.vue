@@ -108,6 +108,9 @@ export default {
         window.addEventListener('resize', this.onResize)
         this.onResize();
     },
+    updated() {
+        this.onResize();
+    },
     data(){
         return{
             ynewsWidth: window.innerWidth,

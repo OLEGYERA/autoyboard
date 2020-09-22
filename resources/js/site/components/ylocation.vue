@@ -18,7 +18,6 @@
             id="autocomplete-results"
             :class="drop_style"
         >
-            <div>
             <div
                 ref="options"
                 v-for="(result, i) in results"
@@ -28,7 +27,6 @@
                 :class="[list_style, {'is-active': i === arrowCounter}]"
             >
                 {{result}}
-            </div>
             </div>
             <div class="autocomplete-result" v-if="results.length === 0">Не найдено</div>
         </div>
@@ -182,7 +180,17 @@ import vuescroll from "vuescroll";
                     this.results = val;
                     this.isLoading = false;
                 }
-            }
+            },
+            isOpen: function (to) {
+                to ? $('.ylocation-box').addClass('loc_long') : $('.ylocation-box').removeClass('loc_long');
+                to ? $('.list-toggle').addClass('arrow_hide') : $('.list-toggle').removeClass('arrow_hide');
+                to ? $('.yb-lang-switcher').addClass('leng_hide') : $('.yb-lang-switcher').removeClass('leng_hide');
+                if(this.results !== []){
+                    $('.list-toggle').addClass('arrow_hide')
+                }else{
+                    $('.list-toggle').removeClass('arrow_hide');
+                }
+            },
         },
         mounted() {
             document.addEventListener('click', this.handleClickOutside)
@@ -191,4 +199,5 @@ import vuescroll from "vuescroll";
             document.removeEventListener('click', this.handleClickOutside)
         }
     }
+
 </script>

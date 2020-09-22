@@ -202,8 +202,11 @@
                     line-height: 18px;
                 }
             }
+            .yb_best-title{
+                margin: 0 0 15px 0;
+            }
             .yb_best-offers{
-                padding-right: 30px;
+                padding-right: 0;
                 .yb-offer_item{
                     width: 245px;
                     .yb-offer_img{
@@ -212,7 +215,7 @@
                     .yb_item-desc{
                         padding:13px 10px 5px 12px;
                         .yb-item_name{
-                            margin: 0;
+                            margin: 0 0 5px 0;
                         }
                         .yb-item_location{
                             .yb-loc{
@@ -237,7 +240,8 @@
                     padding: 0 12px;
                 }
             }
-            .yb_best-offers{    padding-right: 70px;
+            .yb_best-offers{
+                padding-right: 70px;
                 .yb-offer_item{
                     .yb-offer_img{
                     }
@@ -347,10 +351,15 @@
                         width: 35%;
                     }
                     .yb_item-desc{
-                        padding: 10px 15px 10px 15px;
+                        padding: 20px 15px 20px 15px;
                         .yb-item_name{
-                            font-size: em(14);
+                            font-size: em(22);
                             margin: 0 0 10px 0;
+                        }
+                        .yb-item_location {
+                            .yb-price{
+                                font-size: em(20);
+                            }
                         }
                     }
                 }

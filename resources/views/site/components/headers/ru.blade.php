@@ -10,7 +10,7 @@
     <div class="yb-header-right">
         <ysearch></ysearch>
         <div  class="ylocation-box">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="loc_icon fas fa-map-marker-alt"></i>
             <ylocation
                 :container="'header'"
                 :text="'Вся Украина'"
@@ -18,6 +18,10 @@
                 :drop_style="'autocomplete-results'"
                 :input_style="'dropdown-input'">
             </ylocation>
+            <i
+                class="list-toggle fas fa-chevron-down"
+            >
+            </i>
         </div>
         <div  class="yb-lang-switcher">
             <button class="ylang">UA</button>

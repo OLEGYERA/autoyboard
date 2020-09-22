@@ -7396,8 +7396,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -7483,6 +7481,17 @@ __webpack_require__.r(__webpack_exports__);
       if (val.length !== oldValue.length) {
         this.results = val;
         this.isLoading = false;
+      }
+    },
+    isOpen: function isOpen(to) {
+      to ? $('.ylocation-box').addClass('loc_long') : $('.ylocation-box').removeClass('loc_long');
+      to ? $('.list-toggle').addClass('arrow_hide') : $('.list-toggle').removeClass('arrow_hide');
+      to ? $('.yb-lang-switcher').addClass('leng_hide') : $('.yb-lang-switcher').removeClass('leng_hide');
+
+      if (this.results !== []) {
+        $('.list-toggle').addClass('arrow_hide');
+      } else {
+        $('.list-toggle').removeClass('arrow_hide');
       }
     }
   },
@@ -7933,6 +7942,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     window.addEventListener('resize', this.onResize);
+    this.onResize();
+  },
+  updated: function updated() {
     this.onResize();
   },
   data: function data() {
@@ -8569,6 +8581,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
     this.onResize();
+    console.log(this.windowWidth);
   },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.handleClickOutside);
@@ -8585,7 +8598,7 @@ __webpack_require__.r(__webpack_exports__);
         this.showMenu = false;
       }
     },
-    onResize: function onResize(event) {
+    onResize: function onResize() {
       this.windowWidth = document.documentElement.clientWidth;
       console.log(this.windowWidth);
     }
@@ -54502,39 +54515,36 @@ var render = function() {
         attrs: { id: "autocomplete-results" }
       },
       [
-        _c(
-          "div",
-          _vm._l(_vm.results, function(result, i) {
-            return _vm.results.length > 0
-              ? _c(
-                  "div",
-                  {
-                    key: i,
-                    ref: "options",
-                    refInFor: true,
-                    class: [
-                      _vm.list_style,
-                      { "is-active": i === _vm.arrowCounter }
-                    ],
-                    on: {
-                      click: function($event) {
-                        return _vm.setResult(result)
-                      }
+        _vm._l(_vm.results, function(result, i) {
+          return _vm.results.length > 0
+            ? _c(
+                "div",
+                {
+                  key: i,
+                  ref: "options",
+                  refInFor: true,
+                  class: [
+                    _vm.list_style,
+                    { "is-active": i === _vm.arrowCounter }
+                  ],
+                  on: {
+                    click: function($event) {
+                      return _vm.setResult(result)
                     }
-                  },
-                  [_vm._v("\n            " + _vm._s(result) + "\n        ")]
-                )
-              : _vm._e()
-          }),
-          0
-        ),
+                  }
+                },
+                [_vm._v("\n            " + _vm._s(result) + "\n        ")]
+              )
+            : _vm._e()
+        }),
         _vm._v(" "),
         _vm.results.length === 0
           ? _c("div", { staticClass: "autocomplete-result" }, [
               _vm._v("Не найдено")
             ])
           : _vm._e()
-      ]
+      ],
+      2
     )
   ])
 }
@@ -56383,18 +56393,40 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm.showMenu && _vm.windowWidth > 600
-        ? _c("div", { staticClass: "ydrop-menu_vis" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _vm._m(3),
-            _vm._v(" "),
-            _vm._m(4)
-          ])
-        : _vm.showMenu && _vm.windowWidth <= 600
-        ? _c("div", { staticClass: "ydrop-menu_vis mobile" }, [_vm._m(5)])
+      _vm.showMenu && _vm.windowWidth > 768
+        ? _c(
+            "div",
+            {
+              staticClass: "ydrop-menu_vis",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                }
+              }
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _vm._m(4)
+            ]
+          )
+        : _vm.showMenu && _vm.windowWidth <= 768
+        ? _c(
+            "div",
+            {
+              staticClass: "ydrop-menu_vis mobile",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                }
+              }
+            },
+            [_vm._m(5)]
+          )
         : _vm._e()
     ]
   )
@@ -56701,7 +56733,7 @@ var render = function() {
       staticClass: " fas fa-search",
       on: {
         click: function($event) {
-          _vm.toggle = true
+          _vm.toggle = !_vm.toggle
         }
       }
     }),
