@@ -46,17 +46,16 @@
         }
     }
     .ydrop-menu_vis{
-        width: 1135px;
-        left: 0px;
         position: absolute;
         background: #FFFFFF;
         box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.35), 3px -2px 4px rgba(11, 63, 141, 0.4), -2px 3px 5px rgba(11, 63, 141, 0.54);
         border-radius: 8px;
-        top: 45px;
         display: flex;
+        top: 45px;
+        left: 0;
+        width: max-content;
         .yb_menu-collumn{
             position: relative;
-            width: 290px;
             .y-menu-collumn_items{
                 padding: 0;
                 margin: 0;
@@ -108,9 +107,6 @@
                 content: '';
                 background: none;
             }
-            &:last-child{
-                width: 255px;
-            }
         }
         .second_choice{
             .y-menu-collumn_items{
@@ -123,9 +119,8 @@
 }
 @media only screen and (max-width: 1600px){
     .ymenu{
+        position: initial;
         .ydrop-menu_vis{
-            width: 1055px;
-            left: -137px;
             .yb_menu-collumn{
                 .y-menu-collumn_items{
                     .y-collumn_item{
@@ -139,21 +134,18 @@
 @media only screen and (max-width: 1440px){
     .ymenu{
         .ydrop-menu_vis{
-            left: -40px;
         }
     }
 }
 @media only screen and (max-width: 1330px){
     .ymenu{
         .ydrop-menu_vis{
-            width: 1072px;
         }
     }
 }
 @media only screen and (max-width: 1280px){
     .ymenu{
         .ydrop-menu_vis{
-            width: 1028px;
             .yb_menu-collumn{
                 .y-menu-collumn_items{
                     .y-collumn_item{
@@ -167,10 +159,9 @@
 @media only screen and (max-width: 1024px){
     .ymenu{
         .ydrop-menu_vis{
-            left: -125px;
-            width: 970px;
             .yb_menu-collumn{
                 .y-menu-collumn_items{
+                    padding: 15px 15px 15px 0;
                     .y-collumn_item{
                         font-size: em(14);
                         height: 25px;
@@ -184,7 +175,6 @@
 @media only screen and (max-width: 945px){
     .ymenu{
         .ydrop-menu_vis{
-            width: 915px;
             .yb_menu-collumn{
                 .y-menu-collumn_items{
                     .y-collumn_item{
@@ -199,15 +189,123 @@
     .ymenu{
         .ydrop-menu_vis{
             &.mobile{
-                left: 0;
-                width: 740px;
-                .yb_menu-collumn{
-                    .y-menu-collumn_items{
-                        padding: 15px 10px 15px 0;
-                        margin-left: 10px;
-                        .y-collumn_item{
-                            padding: 0 5px 0 5px;
-                            font-size: em(12);
+                flex-direction: column;
+                overflow: hidden;
+                .yheader_item-menu{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 10px 10px 0 10px;
+                    width: 250px;
+                    .ylocation-box{
+                        display: flex;
+                        align-items: center;
+                        width: 125px;
+                        .ylocation {
+                            .dropdown-input {
+                                padding-left: 30px;
+                            }
+                        }
+                        .loc_icon{
+                            color: $darkblue;
+                            font-size: 1.125em;
+                            position: absolute;
+                            padding-right: 10px;
+                            left: 15px;
+                            z-index: 3;
+                        }
+                        .list-toggle{
+                            color: rgba(91, 91, 91, 0.54);
+                            font-size: em(14);
+                            &.arrow_hide{
+                                display: none;
+                            }
+                        }
+                        &.loc_long{
+                            width: 250px;
+                            .ylocation{
+                                .autocomplete-results{
+                                    margin: 50px 0 0 0;
+                                }
+                            }
+                        }
+                    }
+                    .yb-lang-switcher{
+                        &.yvis_menu{
+                            display: flex;
+                            align-items: center;
+                            .ylang{
+                                font-family: $aleg;
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: em(18);
+                                line-height: 22px;
+                                padding: 0;
+                                color: #C4C4C4;
+                                &:focus{
+                                    color: rgba(34, 34, 34, 0.82);
+                                }
+                                &:nth-child(1){
+                                    position: relative;
+                                    margin-right: 18px;
+                                    &:after{
+                                        content: '';
+                                        top: -1px;
+                                        right: -10px;
+                                        width: 2px;
+                                        height: 100%;
+                                        background-color: #C4C4C4;
+                                        position: absolute;
+                                    }
+                                }
+                                &.active{
+                                    color: $site-grey;
+                                }
+                            }
+                            &.leng_hide{
+                                display: none;
+                            }
+                        }
+
+                    }
+                }
+                .ymenu_item-row{
+                    display: flex;
+                    .yb_menu-collumn{
+                        .y-menu-collumn_items{
+                            padding: 10px 10px 15px 0;
+                            margin-left: 10px;
+                            .y-collumn_item{
+                                height: 35px;
+                                margin-bottom: 10px;
+                                padding: 0 12px 0 12px;
+                                font-size: em(18);
+                                &.active{
+                                    height: 35px;
+                                }
+                            }
+                        }
+                        &:after{
+                            background: none;
+                        }
+                        &.second_choice{
+                            z-index: 2;
+                            .yselect_hide{
+                                display: flex;
+                                align-items: center;
+                                height: 40px;
+                                background: #F0F0F0;
+                                font-family: $aleg;
+                                font-weight: 500;
+                                font-size: em(18);
+                                line-height: 22px;
+                                color: rgba(91, 91, 91, 0.54);
+                                i{
+                                    margin: 0 8px 0 22px;
+                                    color: rgba(91, 91, 91, 0.54);
+                                    font-size: em(16);
+                                }
+                            }
                         }
                     }
                 }
@@ -218,14 +316,45 @@
 @media only screen and (max-width: 600px){
     .ymenu{
         .ydrop-menu_vis{
-            width: 575px;
-            .yb_menu-collumn{
-                .y-menu-collumn_items{
-                    margin-left: 5px;
-                    padding: 10px 5px 10px 0;
-                    .y-collumn_item{
-                        font-size: em(10);
-                        height: 20px;
+            &.mobile{
+                top: 40px;
+                .yb_menu-collumn{
+                    .y-menu-collumn_items{
+                        margin-left: 5px;
+                        padding: 10px 5px 10px 0;
+                        .y-collumn_item{
+                            font-size: em(10);
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .ymenu{
+        .ydrop-menu_vis{
+            &.mobile{
+                width: 100%;
+                top: 50px;
+                padding: 10px;
+                .yheader_item-menu{
+                    width: 100%;
+                    margin: 0;
+                    padding: 0 10px;
+                    .ylocation-box{
+                        &.loc_long{
+                            width: 100%;
+                        }
+                        .loc_icon{
+                            left: 25px;
+                        }
+                    }
+                }
+                .ymenu_item-row{
+                    .yb_menu-collumn{
+                        width: 100%;
                     }
                 }
             }

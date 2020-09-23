@@ -8440,143 +8440,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
@@ -8589,7 +8452,107 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showMenu: false,
-      windowWidth: 0
+      windowWidth: 0,
+      idxShowItem: 0,
+      showSubItem: false,
+      selectedItem: '',
+      topmenu: [{
+        title: "Поиск авто и автотоваров",
+        submenu: [{
+          title: 'Ремонт авто 1'
+        }, {
+          title: 'Услуги для авто'
+        }, {
+          title: 'Поиск авто и автотоваров'
+        }, {
+          title: 'Услуги для авто'
+        }, {
+          title: 'Поиск авто и автотоваров'
+        }, {
+          title: 'Ремонт авто'
+        }]
+      }, {
+        title: "Услуги для авто",
+        submenu: [{
+          title: 'Поиск авто и автотоваров 2'
+        }, {
+          title: 'Услуги для авто'
+        }, {
+          title: 'Поиск авто и автотоваров'
+        }, {
+          title: 'Услуги для авто'
+        }, {
+          title: 'Поиск авто и автотоваров'
+        }, {
+          title: 'Ремонт авто'
+        }]
+      }, {
+        title: 'Ремонт авто',
+        submenu: [{
+          title: 'Ремонт авто 3'
+        }, {
+          title: 'Услуги для авто'
+        }, {
+          title: 'Поиск авто и автотоваров'
+        }, {
+          title: 'Услуги для авто'
+        }, {
+          title: 'Поиск авто и автотоваров'
+        }, {
+          title: 'Ремонт авто'
+        }]
+      }, {
+        title: 'Каталог СТО',
+        submenu: [{
+          title: "Стол заказа запчастей 4"
+        }, {
+          title: "Автозапчасти"
+        }, {
+          title: "Каталог СТО"
+        }, {
+          title: "Каталог авторазборок"
+        }, {
+          title: "Поиск авто и автотоваров"
+        }, {
+          title: "Каталог СТО"
+        }, {
+          title: "Поиск авто и автотоваров"
+        }]
+      }, {
+        title: 'Автозапчасти',
+        submenu: [{
+          title: "Стол заказа запчастей 5"
+        }, {
+          title: "Автозапчасти"
+        }, {
+          title: "Каталог СТО"
+        }, {
+          title: "Каталог авторазборок"
+        }, {
+          title: "Поиск авто и автотоваров"
+        }, {
+          title: "Каталог СТО"
+        }, {
+          title: "Поиск авто и автотоваров"
+        }]
+      }, {
+        title: 'Каталог авторазборок',
+        submenu: [{
+          title: "Стол заказа запчастей 6"
+        }, {
+          title: "Автозапчасти"
+        }, {
+          title: "Каталог СТО"
+        }, {
+          title: "Каталог авторазборок"
+        }, {
+          title: "Поиск авто и автотоваров"
+        }, {
+          title: "Каталог СТО"
+        }, {
+          title: "Поиск авто и автотоваров"
+        }]
+      }]
     };
   },
   methods: {
@@ -8601,6 +8564,16 @@ __webpack_require__.r(__webpack_exports__);
     onResize: function onResize() {
       this.windowWidth = document.documentElement.clientWidth;
       console.log(this.windowWidth);
+    },
+    openSub: function openSub(index, item) {
+      this.idxShowItem = index;
+      this.showSubItem = true;
+      this.selectedItem = item;
+      console.log(this.showSubItem);
+      console.log('click');
+    },
+    closeSub: function closeSub() {
+      this.showSubItem = false;
     }
   }
 });
@@ -56405,13 +56378,53 @@ var render = function() {
               }
             },
             [
-              _vm._m(1),
+              _c("div", { staticClass: "yb_menu-collumn first_choice" }, [
+                _c(
+                  "ul",
+                  { staticClass: "y-menu-collumn_items" },
+                  _vm._l(_vm.topmenu, function(item, index) {
+                    return _c(
+                      "li",
+                      {
+                        staticClass: "y-collumn_item",
+                        class: { active: _vm.idxShowItem === index },
+                        on: {
+                          click: function($event) {
+                            return _vm.openSub(index, item)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(item.title) +
+                            "\n                    "
+                        ),
+                        _c("i", { staticClass: "fas fa-angle-right" })
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ]),
               _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._m(4)
+              _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
+                _c(
+                  "ul",
+                  { staticClass: "y-menu-collumn_items" },
+                  _vm._l(_vm.topmenu[_vm.idxShowItem].submenu, function(
+                    subitem
+                  ) {
+                    return _c("li", { staticClass: "y-collumn_item" }, [
+                      _vm._v(
+                        " " + _vm._s(subitem.title) + "\n                    "
+                      ),
+                      _c("i", { staticClass: "fas fa-angle-right" })
+                    ])
+                  }),
+                  0
+                )
+              ])
             ]
           )
         : _vm.showMenu && _vm.windowWidth <= 768
@@ -56425,7 +56438,113 @@ var render = function() {
                 }
               }
             },
-            [_vm._m(5)]
+            [
+              _vm.showSubItem === false
+                ? _c("div", { staticClass: "yheader_item-menu" }, [
+                    _c(
+                      "div",
+                      { staticClass: "ylocation-box" },
+                      [
+                        _c("i", {
+                          staticClass: "loc_icon fas fa-map-marker-alt"
+                        }),
+                        _vm._v(" "),
+                        _c("ylocation", {
+                          attrs: {
+                            container: "header",
+                            text: "Вся Украина",
+                            list_style: "autocomplete-result",
+                            drop_style: "autocomplete-results",
+                            input_style: "dropdown-input"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("i", {
+                          staticClass: "list-toggle fas fa-chevron-down"
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "ymenu_item-row" }, [
+                _vm.showSubItem === false
+                  ? _c("div", { staticClass: "yb_menu-collumn first_choice" }, [
+                      _c(
+                        "ul",
+                        { staticClass: "y-menu-collumn_items" },
+                        _vm._l(_vm.topmenu, function(item, index) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass: "y-collumn_item",
+                              class: { active: _vm.idxShowItem === index },
+                              on: {
+                                click: function($event) {
+                                  return _vm.openSub(index, item)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(item.title) +
+                                  "\n                        "
+                              ),
+                              _c("i", { staticClass: "fas fa-angle-right" })
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ])
+                  : _c(
+                      "div",
+                      { staticClass: "yb_menu-collumn second_choice" },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "yselect_hide",
+                            on: {
+                              click: function($event) {
+                                return _vm.closeSub()
+                              }
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-angle-left" }),
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(_vm.selectedItem.title) +
+                                "\n                "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "y-menu-collumn_items" },
+                          _vm._l(_vm.topmenu[_vm.idxShowItem].submenu, function(
+                            subitem
+                          ) {
+                            return _c("li", { staticClass: "y-collumn_item" }, [
+                              _vm._v(
+                                _vm._s(subitem.title) +
+                                  "\n                        "
+                              ),
+                              _c("i", { staticClass: "fas fa-angle-right" })
+                            ])
+                          }),
+                          0
+                        )
+                      ]
+                    )
+              ])
+            ]
           )
         : _vm._e()
     ]
@@ -56452,232 +56571,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_menu-collumn first_choice" }, [
-      _c("ul", { staticClass: "y-menu-collumn_items" }, [
-        _c("li", { staticClass: "y-collumn_item active" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Услуги для авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Услуги для авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v(" Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
-      _c("ul", { staticClass: "y-menu-collumn_items" }, [
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Каталог СТО\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Каталог авторазборок\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Автозапчасти\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item active" }, [
-          _vm._v(" Стол заказа запчастей\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Автозапчасти\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v(" Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Каталог авторазборок\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
-      _c("ul", { staticClass: "y-menu-collumn_items" }, [
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Услуги для авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Услуги для авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v(" Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item active" }, [
-          _vm._v("Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
-      _c("ul", { staticClass: "y-menu-collumn_items" }, [
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Ремонт авто\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item active" }, [
-          _vm._v("Услуги для авто\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Поиск авто и автотоваров\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Услуги для авто\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v(" Поиск авто и автотоваров\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Поиск авто и автотоваров\n                    ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_menu-collumn first_choice" }, [
-      _c("ul", { staticClass: "y-menu-collumn_items" }, [
-        _c("li", { staticClass: "y-collumn_item active" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Услуги для авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Услуги для авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v("Ремонт авто\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item" }, [
-          _vm._v(" Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "y-collumn_item " }, [
-          _vm._v("Поиск авто и автотоваров\n                        "),
-          _c("i", { staticClass: "fas fa-angle-right" })
-        ])
-      ])
+    return _c("div", { staticClass: "yb-lang-switcher yvis_menu" }, [
+      _c("button", { staticClass: "ylang" }, [_vm._v("UA")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "ylang active" }, [_vm._v("RU")])
     ])
   }
 ]
