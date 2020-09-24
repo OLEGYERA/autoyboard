@@ -4970,10 +4970,6 @@ span.yb-gradient {
   .yfilterextended .show_tablet .yb-specifications_cars .yselect_specifications .y-double {
     width: 28.2%;
   }
-
-  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options:last-child {
-    display: none;
-  }
 }
 
 @media only screen and (max-width: 768px) {

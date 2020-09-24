@@ -14,7 +14,7 @@
         <div class="items" v-show="isOpen">
             <div class="item"
                  :class="{'checked' : itemSelected == item}"
-                 v-for="(item, key) in testItem"
+                 v-for="(item, key) in filteredItems"
                  :key="key"
                  @click="setItem(item)"
             >
@@ -60,12 +60,7 @@
                 return this.items
             },
             generatingPlaceholder(){
-                if(this.itemSelected === null){
-                    return this.placeholder
-                }
-                else {
-                    return this.itemSelected
-                }
+                return this.itemSelected === null ? this.placeholder : this.itemSelected;
             },
         },
     }

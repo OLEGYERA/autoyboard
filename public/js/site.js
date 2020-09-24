@@ -3087,6 +3087,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var _this = this;
@@ -4738,11 +4741,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.items;
     },
     generatingPlaceholder: function generatingPlaceholder() {
-      if (this.itemSelected === null) {
-        return this.placeholder;
-      } else {
-        return this.itemSelected;
-      }
+      return this.itemSelected === null ? this.placeholder : this.itemSelected;
     }
   }
 });
@@ -6630,110 +6629,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
@@ -6743,27 +6638,90 @@ __webpack_require__.r(__webpack_exports__);
   destroyed: function destroyed() {
     document.removeEventListener('click', this.clickOutside);
   },
+  computed: {
+    arrAccordion: function arrAccordion() {
+      var _this = this;
+
+      console.log('arrAcc', this.accordionItems);
+      return Array.from({
+        length: Math.ceil(this.accordionItems.length / this.show)
+      }, function (v, i) {
+        return _this.accordionItems.slice(i * _this.show, i * _this.show + _this.show);
+      });
+    }
+  },
   data: function data() {
     return {
+      show: 5,
       showSelected: false,
       isOpened: false,
       windowWidth: 0,
       colorOpen: false,
-      otherShowID: null,
+      otherShowID: 0,
       test: ['100'],
       test2: ['200'],
       accordionItems: [{
         title: 'Безопасность',
-        items: 'Бронированный автомобиль'
+        items: [{
+          title: 'Бронированный автомобиль'
+        }, {
+          title: 'ABS'
+        }, {
+          title: 'ASP'
+        }, {
+          title: 'Датчики движения'
+        }, {
+          title: 'Бронированный автомобиль'
+        }, {
+          title: 'Датчики движения'
+        }, {
+          title: 'ABS'
+        }, {
+          title: 'Бронированный автомобиль'
+        }, {
+          title: 'ABS'
+        }, {
+          title: 'ASP'
+        }]
       }, {
         title: 'Комфорт',
-        items: 'Подогрев сидений'
+        items: [{
+          title: 'Подогрев попы'
+        }, {
+          title: 'Подогрев руля'
+        }, {
+          title: 'что то еще '
+        }]
       }, {
         title: 'Мультимедия',
-        items: 'Мультируль'
+        items: [{
+          title: 'Магнитола'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'и збс'
+        }]
       }, {
         title: 'Прочее',
-        items: 'Мультируль'
+        items: [{
+          title: 'Понты'
+        }, {
+          title: 'для'
+        }, {
+          title: 'Приезжих'
+        }, {
+          title: 'Магнитола'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'и збс'
+        }, {
+          title: 'AUX'
+        }, {
+          title: 'и ты'
+        }, {
+          title: 'царь'
+        }]
       }],
       isActual: ['Все', 'Скрыть проданные', 'Только проданнные'],
       amountShow: ['По 10', 'По 20', 'По 30', 'По 50', 'По 100'],
@@ -49496,7 +49454,7 @@ var render = function() {
         ],
         staticClass: "items"
       },
-      _vm._l(_vm.testItem, function(item, key) {
+      _vm._l(_vm.filteredItems, function(item, key) {
         return _c(
           "div",
           {
@@ -50221,32 +50179,43 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                                            " +
                                     _vm._s(accordion.title) +
-                                    "\n                                        "
+                                    "\n                                            "
                                 ),
                                 _c("i", {
                                   staticClass: "fas ",
                                   class: {
-                                    "fa-chevron-up": _vm.otherShowID == idx,
-                                    "fa-chevron-down": _vm.otherShowID != idx
+                                    "fa-chevron-up": _vm.otherShowID === idx,
+                                    "fa-chevron-down": _vm.otherShowID !== idx
                                   }
                                 })
                               ]
                             ),
                             _vm._v(" "),
-                            _vm.otherShowID == idx
-                              ? _c("div", { staticClass: "yoption" }, [
-                                  _c("input", {
-                                    attrs: { id: "abd", type: "checkbox" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("label", { attrs: { for: "abd" } }, [
-                                    _vm._v(_vm._s(accordion.items))
-                                  ])
-                                ])
-                              : _vm._e()
-                          ]
+                            _vm._l(
+                              _vm.accordionItems[_vm.otherShowID].items,
+                              function(accordion) {
+                                return _vm.otherShowID == idx
+                                  ? _c("div", { staticClass: "yoption" }, [
+                                      _c("input", {
+                                        attrs: {
+                                          id: accordion.title,
+                                          type: "checkbox"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        { attrs: { for: accordion.title } },
+                                        [_vm._v(_vm._s(accordion.title))]
+                                      )
+                                    ])
+                                  : _vm._e()
+                              }
+                            )
+                          ],
+                          2
                         )
                       }),
                       0
@@ -50797,101 +50766,59 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "yvis_other-right" }, [
-                  _c("div", { staticClass: "yother_visl-btn" }, [
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
+                  _c(
+                    "div",
+                    { staticClass: "yother_visl-btn" },
+                    _vm._l(_vm.accordionItems, function(accordion, idx) {
+                      return _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.otherShowID = idx
+                            }
                           }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Безопасность\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Комфорт\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Мультимедия\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Прочее\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    )
-                  ]),
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(accordion.title) +
+                              "\n                                    "
+                          ),
+                          _c("i", {
+                            staticClass: "fas ",
+                            class: {
+                              "fa-angle-right": _vm.otherShowID === idx,
+                              "fa-angle-left": _vm.otherShowID != idx
+                            }
+                          })
+                        ]
+                      )
+                    }),
+                    0
+                  ),
                   _vm._v(" "),
-                  _vm._m(19)
+                  _c("div", { staticClass: "yother_visr-options" }, [
+                    _c(
+                      "div",
+                      { staticClass: "ycars_options" },
+                      _vm._l(
+                        _vm.accordionItems[_vm.otherShowID].items,
+                        function(accordion) {
+                          return _c("div", { staticClass: "yoption" }, [
+                            _c("input", {
+                              attrs: { id: accordion.title, type: "checkbox" }
+                            }),
+                            _vm._v(" "),
+                            _c("label", { attrs: { for: accordion.title } }, [
+                              _vm._v(_vm._s(accordion.title))
+                            ])
+                          ])
+                        }
+                      ),
+                      0
+                    )
+                  ])
                 ])
               ])
             ])
@@ -50942,11 +50869,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(20)
+              _vm._m(19)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(21)
+          _vm._m(20)
         ])
       : _c("div", { staticClass: "ybexpanded_search" }, [
           _c("h1", { staticClass: "ytitle-exp" }, [
@@ -50955,7 +50882,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "yb-carsearch_items" }, [
             _c("div", { staticClass: "yoptions_items" }, [
-              _vm._m(22),
+              _vm._m(21),
               _vm._v(" "),
               _c(
                 "div",
@@ -50984,7 +50911,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("h3", [_vm._v("Тип кузова")]),
                   _vm._v(" "),
-                  _vm._m(23),
+                  _vm._m(22),
                   _vm._v(" "),
                   _c("h4", [_vm._v("Страна производитель")]),
                   _vm._v(" "),
@@ -51105,7 +51032,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(24)
+                _vm._m(23)
               ]),
               _vm._v(" "),
               _c("button", { staticClass: "yadded-car-item" }, [
@@ -51228,7 +51155,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm._m(25)
+                _vm._m(24)
               ],
               1
             )
@@ -51237,7 +51164,7 @@ var render = function() {
           _c("div", { staticClass: "yb-condition_cars" }, [
             _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _vm._m(26),
+            _vm._m(25),
             _vm._v(" "),
             _c("div", { staticClass: "yb-status_checked-items" }, [
               _c("h2", [_vm._v("Пригнан из")]),
@@ -51253,7 +51180,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(27)
+                  _vm._m(26)
                 ],
                 1
               )
@@ -51404,9 +51331,9 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "yvis_other" }, [
                 _c("div", { staticClass: "yvis_other-left" }, [
-                  _vm._m(28),
+                  _vm._m(27),
                   _vm._v(" "),
-                  _vm._m(29),
+                  _vm._m(28),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -51431,101 +51358,83 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "yvis_other-right" }, [
-                  _c("div", { staticClass: "yother_visl-btn" }, [
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
+                  _c(
+                    "div",
+                    { staticClass: "yother_visl-btn" },
+                    _vm._l(_vm.accordionItems, function(accordion, idx) {
+                      return _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.otherShowID = idx
+                            }
                           }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Безопасность\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Комфорт\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Мультимедия\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            _vm.isOpened = !_vm.isOpened
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Прочее\n                                "
-                        ),
-                        _c("i", {
-                          staticClass: "fas ",
-                          class: {
-                            "fa-angle-right": _vm.isOpened,
-                            "fa-angle-left": !_vm.isOpened
-                          }
-                        })
-                      ]
-                    )
-                  ]),
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(accordion.title) +
+                              "\n                                    "
+                          ),
+                          _c("i", {
+                            staticClass: "fas ",
+                            class: {
+                              "fa-angle-right": _vm.otherShowID === idx,
+                              "fa-angle-left": _vm.otherShowID != idx
+                            }
+                          })
+                        ]
+                      )
+                    }),
+                    0
+                  ),
                   _vm._v(" "),
-                  _vm._m(30)
+                  _c(
+                    "div",
+                    { staticClass: "yother_visr-options" },
+                    _vm._l(_vm.arrAccordion, function(chunk, i) {
+                      return _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.otherShowID === i,
+                              expression: "otherShowID === i"
+                            }
+                          ],
+                          staticClass: "ycars_options"
+                        },
+                        _vm._l(chunk[_vm.otherShowID].items, function(item, j) {
+                          return _c(
+                            "div",
+                            {
+                              key: j,
+                              staticClass: "yoption",
+                              on: {
+                                click: function($event) {
+                                  _vm.otherShowID = j + i * _vm.show
+                                }
+                              }
+                            },
+                            [
+                              _c("input", {
+                                attrs: { id: "abd", type: "checkbox" }
+                              }),
+                              _vm._v(" "),
+                              _c("label", { attrs: { for: "abd" } }, [
+                                _vm._v(_vm._s(item.title))
+                              ])
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    }),
+                    0
+                  )
                 ])
               ])
             ])
@@ -51576,11 +51485,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(31)
+              _vm._m(29)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(32)
+          _vm._m(30)
         ])
   ])
 }
@@ -52938,100 +52847,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yother_visr-options" }, [
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "abd", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "abd" } }, [_vm._v("ABD")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "esp", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "esp" } }, [_vm._v("ESP")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "light", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "light" } }, [_vm._v("Галогенные фары")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "immobilizer", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "immobilizer" } }, [
-            _vm._v("Иммобилайзер")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "abs", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "abs" } }, [_vm._v("ABS")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "bag", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "bag" } }, [
-            _vm._v("Подушка безопасности")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "signaling", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "signaling" } }, [_vm._v("Сигнализация")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "armored", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "armored" } }, [
-            _vm._v("Бронированный автомобиль")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "lock", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "lock" } }, [_vm._v("Замок на КПП")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "suspension", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "suspension" } }, [
-            _vm._v("Пневмоподвеска")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "servo_wheel", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "servo_wheel" } }, [_vm._v("Серворуль")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "central_lock", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "central_lock" } }, [
-            _vm._v("Центральный замок")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "yseach_card-id" }, [
       _c("h3", [_vm._v("Поиск по ID")]),
       _vm._v(" "),
@@ -53788,100 +53603,6 @@ var staticRenderFns = [
           staticStyle: { "background-color": "#FF007A" },
           attrs: { for: "" }
         })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yother_visr-options" }, [
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "abd", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "abd" } }, [_vm._v("ABD")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "esp", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "esp" } }, [_vm._v("ESP")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "light", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "light" } }, [_vm._v("Галогенные фары")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "immobilizer", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "immobilizer" } }, [
-            _vm._v("Иммобилайзер")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "abs", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "abs" } }, [_vm._v("ABS")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "bag", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "bag" } }, [
-            _vm._v("Подушка безопасности")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "signaling", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "signaling" } }, [_vm._v("Сигнализация")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "armored", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "armored" } }, [
-            _vm._v("Бронированный автомобиль")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycars_options" }, [
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "lock", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "lock" } }, [_vm._v("Замок на КПП")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "suspension", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "suspension" } }, [
-            _vm._v("Пневмоподвеска")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "servo_wheel", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "servo_wheel" } }, [_vm._v("Серворуль")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yoption" }, [
-          _c("input", { attrs: { id: "central_lock", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "central_lock" } }, [
-            _vm._v("Центральный замок")
-          ])
-        ])
       ])
     ])
   },

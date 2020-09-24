@@ -29,7 +29,10 @@
                     </svg>
                     <transition-group ref="scrollTo" class="yb-full_carousel" :name="transition_name" tag="div">
                         <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide === i" :key="i">
-                            <li class="chunk_item" v-for="(item,j) in chunk" :key="j" @click="currImgIdx = j+(i*imgShow)" :class="{active_item: item === imgList[currImgIdx]}">
+                            <li class="chunk_item"
+                                v-for="(item,j) in chunk" :key="j"
+                                @click="currImgIdx = j+(i*imgShow)"
+                                :class="{active_item: item === imgList[currImgIdx]}">
                                 <img  :src="item" alt=""/>
                                 <div v-if="item === imgList[currImgIdx]" class="yb_count-img">
                                     <span>{{currImgIdx + 1}}</span>

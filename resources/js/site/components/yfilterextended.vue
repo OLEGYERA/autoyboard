@@ -437,12 +437,16 @@
                                             @click="otherShowID = idx">
                                             {{accordion.title}}
                                             <i class="fas "
-                                               :class="{'fa-chevron-up' : otherShowID == idx, 'fa-chevron-down':  otherShowID != idx}"
+                                               :class="{'fa-chevron-up' : otherShowID === idx, 'fa-chevron-down':  otherShowID !== idx}"
                                             ></i>
                                         </button>
-                                        <div v-if="otherShowID == idx" class="yoption">
-                                            <input id="abd" type="checkbox">
-                                            <label for="abd">{{accordion.items}}</label>
+                                        <div
+                                            v-if="otherShowID == idx"
+                                            v-for="(accordion) in accordionItems[otherShowID].items"
+                                            class="yoption"
+                                        >
+                                            <input  :id="accordion.title" type="checkbox">
+                                            <label  :for="accordion.title">{{accordion.title}}</label>
                                         </div>
                                     </li>
                                 </div>
@@ -1038,81 +1042,23 @@
                         </div>
                         <div class="yvis_other-right">
                             <div class="yother_visl-btn">
-                                <button @click="isOpened =  !isOpened">
-                                    Безопасность
+                                <button
+                                    v-for="(accordion, idx) in accordionItems"
+                                    @click="otherShowID = idx"
+                                >
+                                    {{accordion.title}}
                                     <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"
+                                       :class="{'fa-angle-right' : otherShowID === idx, 'fa-angle-left':  otherShowID != idx}"
                                     ></i>
-                                </button>
-                                <button @click="isOpened =  !isOpened">
-                                    Комфорт
-                                    <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
-                                </button>
-                                <button @click="isOpened =  !isOpened">
-                                    Мультимедия
-                                    <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
-                                </button>
-                                <button @click="isOpened =  !isOpened">
-                                    Прочее
-                                    <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
                                 </button>
                             </div>
                             <div class="yother_visr-options">
                                 <div class="ycars_options">
-                                    <div class="yoption">
-                                        <input id="abd" type="checkbox">
-                                        <label for="abd">ABD</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="esp" type="checkbox">
-                                        <label for="esp">ESP</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="light" type="checkbox">
-                                        <label for="light">Галогенные фары</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="immobilizer" type="checkbox">
-                                        <label for="immobilizer">Иммобилайзер</label>
-                                    </div>
-                                </div>
-                                <div class="ycars_options">
-                                    <div class="yoption">
-                                        <input id="abs" type="checkbox">
-                                        <label for="abs">ABS</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="bag" type="checkbox">
-                                        <label for="bag">Подушка безопасности</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="signaling" type="checkbox">
-                                        <label for="signaling">Сигнализация</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="armored" type="checkbox">
-                                        <label for="armored">Бронированный автомобиль</label>
-                                    </div>
-                                </div>
-                                <div class="ycars_options">
-                                    <div class="yoption">
-                                        <input id="lock" type="checkbox">
-                                        <label for="lock">Замок на КПП</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="suspension" type="checkbox">
-                                        <label for="suspension">Пневмоподвеска</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="servo_wheel" type="checkbox">
-                                        <label for="servo_wheel">Серворуль</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="central_lock" type="checkbox">
-                                        <label for="central_lock">Центральный замок</label>
+                                    <div
+                                        v-for="(accordion) in accordionItems[otherShowID].items"
+                                        class="yoption">
+                                        <input :id="accordion.title" type="checkbox">
+                                        <label :for="accordion.title">{{accordion.title}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -1702,84 +1648,34 @@
                         </div>
                         <div class="yvis_other-right">
                             <div class="yother_visl-btn">
-                                <button @click="isOpened =  !isOpened">
-                                    Безопасность
+                                <button
+                                    v-for="(accordion, idx) in accordionItems"
+                                    @click="otherShowID = idx"
+                                >
+                                    {{accordion.title}}
                                     <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"
+                                       :class="{'fa-angle-right' : otherShowID === idx, 'fa-angle-left':  otherShowID != idx}"
                                     ></i>
-                                </button>
-                                <button @click="isOpened =  !isOpened">
-                                    Комфорт
-                                    <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
-                                </button>
-                                <button @click="isOpened =  !isOpened">
-                                    Мультимедия
-                                    <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
-                                </button>
-                                <button @click="isOpened =  !isOpened">
-                                    Прочее
-                                    <i class="fas "
-                                       :class="{'fa-angle-right' : isOpened, 'fa-angle-left':  !isOpened}"></i>
                                 </button>
                             </div>
                             <div class="yother_visr-options">
-                                <div class="ycars_options">
-                                    <div class="yoption">
+                                <div v-for="(chunk, i) in arrAccordion" v-show="otherShowID === i" class="ycars_options">
+                                    <div
+                                         v-for="(item,j) in chunk[otherShowID].items" :key="j" @click="otherShowID = j+(i*show)"
+                                         class="yoption">
                                         <input id="abd" type="checkbox">
-                                        <label for="abd">ABD</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="esp" type="checkbox">
-                                        <label for="esp">ESP</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="light" type="checkbox">
-                                        <label for="light">Галогенные фары</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="immobilizer" type="checkbox">
-                                        <label for="immobilizer">Иммобилайзер</label>
-                                    </div>
-                                </div>
-                                <div class="ycars_options">
-                                    <div class="yoption">
-                                        <input id="abs" type="checkbox">
-                                        <label for="abs">ABS</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="bag" type="checkbox">
-                                        <label for="bag">Подушка безопасности</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="signaling" type="checkbox">
-                                        <label for="signaling">Сигнализация</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="armored" type="checkbox">
-                                        <label for="armored">Бронированный автомобиль</label>
-                                    </div>
-                                </div>
-                                <div class="ycars_options">
-                                    <div class="yoption">
-                                        <input id="lock" type="checkbox">
-                                        <label for="lock">Замок на КПП</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="suspension" type="checkbox">
-                                        <label for="suspension">Пневмоподвеска</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="servo_wheel" type="checkbox">
-                                        <label for="servo_wheel">Серворуль</label>
-                                    </div>
-                                    <div class="yoption">
-                                        <input id="central_lock" type="checkbox">
-                                        <label for="central_lock">Центральный замок</label>
+                                        <label for="abd">{{item.title}}</label>
                                     </div>
                                 </div>
                             </div>
+<!--                            <div class="yother_visr-options">-->
+<!--                                <div  class="ycars_options">-->
+<!--                                    <div v-for="(accordion) in accordionItems[otherShowID].items" class="yoption">-->
+<!--                                        <input id="abd" type="checkbox">-->
+<!--                                        <label for="abd">{{accordion.title}}</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -1849,31 +1745,69 @@
         destroyed() {
             document.removeEventListener('click', this.clickOutside)
         },
+        computed: {
+            arrAccordion() {
+                console.log('arrAcc',this.accordionItems)
+                return Array
+                    .from({ length: Math.ceil(this.accordionItems.length / this.show) }, (v, i) =>
+                        this.accordionItems.slice(i * this.show, i * this.show + this.show));
+            },
+        },
         data(){
             return{
+                show: 5,
                 showSelected: false,
                 isOpened: false,
                 windowWidth: 0,
                 colorOpen: false,
-                otherShowID: null,
+                otherShowID: 0,
                 test: ['100'],
                 test2: ['200'],
                 accordionItems: [
                     {
                         title: 'Безопасность',
-                        items:  'Бронированный автомобиль',
+                        items:[
+                            {title: 'Бронированный автомобиль'},
+                            {title: 'ABS'},
+                            {title: 'ASP'},
+                            {title: 'Датчики движения'},
+                            {title: 'Бронированный автомобиль'},
+                            {title: 'Датчики движения'},
+                            {title: 'ABS'},
+                            {title: 'Бронированный автомобиль'},
+                            {title: 'ABS'},
+                            {title: 'ASP'},
+                        ]
                     },
                     {
                         title: 'Комфорт',
-                        items:  'Подогрев сидений',
+                        items:[
+                            {title: 'Подогрев попы'},
+                            {title: 'Подогрев руля'},
+                            {title: 'что то еще '},
+                        ]
                     },
                     {
                         title: 'Мультимедия',
-                        items:  'Мультируль',
+                        items:[
+                            {title: 'Магнитола'},
+                            {title: 'есть'},
+                            {title: 'и збс'},
+                        ]
                     },
                     {
                         title: 'Прочее',
-                        items:  'Мультируль',
+                        items:[
+                            {title: 'Понты'},
+                            {title: 'для'},
+                            {title: 'Приезжих'},
+                            {title: 'Магнитола'},
+                            {title: 'есть'},
+                            {title: 'и збс'},
+                            {title: 'AUX'},
+                            {title: 'и ты'},
+                            {title: 'царь'},
+                        ]
                     }
                 ],
                 isActual: ['Все','Скрыть проданные','Только проданнные'],
@@ -1978,6 +1912,7 @@
             }
         },
         methods: {
+
             changeResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
                 console.log(this.windowWidth)
