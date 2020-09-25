@@ -194,6 +194,7 @@ export default {
         toggle: function (to) {
             to ? $('.ylocation-box').addClass('search_hide') : $('.ylocation-box').removeClass('search_hide');
             to ? $('.ysearch').addClass('search_long') : $('.ysearch').removeClass('search_long');
+            to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute')
         },
         mutableValue(to){
             this.searchEngine();

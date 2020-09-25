@@ -4720,14 +4720,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       itemSelected: null,
       isOpen: false,
-      result: [],
-      testItem: ['По цене', 'По дате добавление', 'По цене', 'По дате добавление', 'По цене']
+      result: []
     };
   },
   methods: {
-    setItem: function setItem(item) {
-      this.itemSelected = item;
-      this.result = item;
+    setItem: function setItem(index) {
+      this.itemSelected = index;
+      this.result = index;
       this.isOpen = false;
     },
     handleClickOutside: function handleClickOutside(evt) {
@@ -6629,6 +6628,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
@@ -6638,23 +6638,10 @@ __webpack_require__.r(__webpack_exports__);
   destroyed: function destroyed() {
     document.removeEventListener('click', this.clickOutside);
   },
-  computed: {
-    arrAccordion: function arrAccordion() {
-      var _this = this;
-
-      console.log('arrAcc', this.accordionItems);
-      return Array.from({
-        length: Math.ceil(this.accordionItems.length / this.show)
-      }, function (v, i) {
-        return _this.accordionItems.slice(i * _this.show, i * _this.show + _this.show);
-      });
-    }
-  },
   data: function data() {
     return {
-      show: 5,
-      showSelected: false,
-      isOpened: false,
+      checkedItems: [],
+      showSelectedItem: false,
       windowWidth: 0,
       colorOpen: false,
       otherShowID: 0,
@@ -6686,11 +6673,41 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         title: 'Комфорт',
         items: [{
-          title: 'Подогрев попы'
+          title: 'Бортовой компьютер'
         }, {
-          title: 'Подогрев руля'
+          title: 'Електропакет'
         }, {
-          title: 'что то еще '
+          title: 'Запуск кнопкой '
+        }, {
+          title: 'Кондиционер '
+        }, {
+          title: 'Люк '
+        }, {
+          title: 'Обогрев руля'
+        }, {
+          title: 'Память сидений'
+        }, {
+          title: 'Подогрев зеркал'
+        }, {
+          title: 'Усилитель руля'
+        }, {
+          title: 'Кожаный сайлон '
+        }, {
+          title: 'Датчик света'
+        }, {
+          title: 'Электростеклоподьемники'
+        }, {
+          title: 'Климат контроль'
+        }, {
+          title: 'Мультируль'
+        }, {
+          title: 'Омыватель фар'
+        }, {
+          title: 'Парктроник'
+        }, {
+          title: 'Подогрев сидений'
+        }, {
+          title: 'Датчик дождя'
         }]
       }, {
         title: 'Мультимедия',
@@ -8533,6 +8550,11 @@ __webpack_require__.r(__webpack_exports__);
     closeSub: function closeSub() {
       this.showSubItem = false;
     }
+  },
+  watch: {
+    showMenu: function showMenu(to) {
+      to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute');
+    }
   }
 });
 
@@ -8736,6 +8758,7 @@ __webpack_require__.r(__webpack_exports__);
     toggle: function toggle(to) {
       to ? $('.ylocation-box').addClass('search_hide') : $('.ylocation-box').removeClass('search_hide');
       to ? $('.ysearch').addClass('search_long') : $('.ysearch').removeClass('search_long');
+      to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute');
     },
     mutableValue: function mutableValue(to) {
       this.searchEngine();
@@ -49454,11 +49477,11 @@ var render = function() {
         ],
         staticClass: "items"
       },
-      _vm._l(_vm.filteredItems, function(item, key) {
+      _vm._l(_vm.filteredItems, function(item, index) {
         return _c(
           "div",
           {
-            key: key,
+            key: index,
             staticClass: "item",
             class: { checked: _vm.itemSelected == item },
             on: {
@@ -49469,7 +49492,7 @@ var render = function() {
           },
           [
             _vm._v("\n            " + _vm._s(item) + "\n            "),
-            _vm.itemSelected == item
+            _vm.itemSelected === item
               ? _c("i", { staticClass: "fas fa-check" })
               : _vm._e()
           ]
@@ -49771,29 +49794,23 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("i", {
-        staticClass: "fas fa-chevron-down",
+        staticClass: "fas",
+        class: {
+          "fa-chevron-up": _vm.showSelectedItem,
+          "fa-chevron-down": !_vm.showSelectedItem
+        },
         on: {
           click: function($event) {
-            _vm.showSelected = !_vm.showSelected
+            _vm.showSelectedItem = !_vm.showSelectedItem
           }
         }
       }),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showSelected,
-              expression: "showSelected"
-            }
-          ],
-          staticClass: "yfilter_selected-item show-drop_down"
-        },
-        [_vm._m(1)]
-      )
+      _vm.showSelectedItem === true
+        ? _c("div", { staticClass: "yfilter_selected-item show-drop_down" }, [
+            _vm._m(1)
+          ])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _vm.windowWidth <= 601
@@ -49842,7 +49859,627 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _c("div", { staticClass: "ychecked_options-mobile" }, [
+                  _c("h3", [_vm._v("Тип кузова")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yb-checked_type" }, [
+                    _c("div", { staticClass: "yl-vis checkbox" }, [
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check1", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check1" }
+                          },
+                          [_vm._v("Универсал")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check2", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check2" }
+                          },
+                          [_vm._v("Кроссовер")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check3", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check3" }
+                          },
+                          [_vm._v("Минивэн")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check4", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check4" }
+                          },
+                          [_vm._v("Лифтбек")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check5", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check5" }
+                          },
+                          [_vm._v("Хэтчбек")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check6", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check6" }
+                          },
+                          [_vm._v("Кабриолет")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yr-vis checkbox" }, [
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check7", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check7" }
+                          },
+                          [_vm._v("Седан")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check8", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check8" }
+                          },
+                          [_vm._v("Купе")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check9", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check9" }
+                          },
+                          [_vm._v("Пикап")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check10", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check10" }
+                          },
+                          [_vm._v("Ростер")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check11", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check11" }
+                          },
+                          [_vm._v("Лимузин")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedItems,
+                              expression: "checkedItems"
+                            }
+                          ],
+                          staticClass: "ycheck",
+                          attrs: { id: "check12", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkedItems)
+                              ? _vm._i(_vm.checkedItems, null) > -1
+                              : _vm.checkedItems
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedItems,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedItems = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedItems = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedItems = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: "check12" }
+                          },
+                          [_vm._v("Другой")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _c("h4", [_vm._v("Страна производитель")]),
@@ -49908,7 +50545,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(4)
+                _vm._m(3)
               ])
             ],
             1
@@ -49965,7 +50602,7 @@ var render = function() {
           _c("div", { staticClass: "yb-condition_cars" }, [
             _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _vm._m(5),
+            _vm._m(4),
             _vm._v(" "),
             _c("div", { staticClass: "yb-status_checked-items" }, [
               _c("h2", [_vm._v("Пригнан из")]),
@@ -49981,7 +50618,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(6)
+                  _vm._m(5)
                 ],
                 1
               )
@@ -50133,9 +50770,551 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "yvis_other" }, [
                   _c("div", { staticClass: "yvis_other-left" }, [
-                    _vm._m(7),
+                    _c("div", { staticClass: "ycheck_color" }, [
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#742D05" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FFCB11" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: {
+                            "background-color": "rgba(80, 83, 83, 0.92)"
+                          },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FFFFFF" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#000000" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#0B3F8D" },
+                          attrs: { for: "" }
+                        })
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _vm._m(8),
+                    _c("div", { staticClass: "ycheck_color" }, [
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#5100B8" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#E30000" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#1D8D0B" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#0066FF" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FFF504" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FF007A" },
+                          attrs: { for: "" }
+                        })
+                      ])
+                    ]),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -50179,9 +51358,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                            " +
+                                  "\n                                        " +
                                     _vm._s(accordion.title) +
-                                    "\n                                            "
+                                    "\n                                        "
                                 ),
                                 _c("i", {
                                   staticClass: "fas ",
@@ -50271,11 +51450,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(9)
+              _vm._m(6)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(10)
+          _vm._m(7)
         ])
       : _vm.windowWidth <= 946
       ? _c("div", { staticClass: "ybexpanded_search show_tablet" }, [
@@ -50289,7 +51468,7 @@ var render = function() {
                 "div",
                 { staticClass: "yoptions_items_mobile" },
                 [
-                  _vm._m(11),
+                  _vm._m(8),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -50331,7 +51510,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(12)
+              _vm._m(9)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "add-cars_items" }, [
@@ -50440,7 +51619,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(13)
+                _vm._m(10)
               ]),
               _vm._v(" "),
               _c("button", { staticClass: "yadded-car-item" }, [
@@ -50563,7 +51742,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm._m(14)
+                _vm._m(11)
               ],
               1
             )
@@ -50572,7 +51751,7 @@ var render = function() {
           _c("div", { staticClass: "yb-condition_cars" }, [
             _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _vm._m(15),
+            _vm._m(12),
             _vm._v(" "),
             _c("div", { staticClass: "yb-status_checked-items" }, [
               _c("h2", [_vm._v("Пригнан из")]),
@@ -50588,7 +51767,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(16)
+                  _vm._m(13)
                 ],
                 1
               )
@@ -50739,9 +51918,9 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "yvis_other" }, [
                 _c("div", { staticClass: "yvis_other-left" }, [
-                  _vm._m(17),
+                  _vm._m(14),
                   _vm._v(" "),
-                  _vm._m(18),
+                  _vm._m(15),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -50781,9 +51960,9 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                                " +
                               _vm._s(accordion.title) +
-                              "\n                                    "
+                              "\n                                "
                           ),
                           _c("i", {
                             staticClass: "fas ",
@@ -50869,11 +52048,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(19)
+              _vm._m(16)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(20)
+          _vm._m(17)
         ])
       : _c("div", { staticClass: "ybexpanded_search" }, [
           _c("h1", { staticClass: "ytitle-exp" }, [
@@ -50882,7 +52061,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "yb-carsearch_items" }, [
             _c("div", { staticClass: "yoptions_items" }, [
-              _vm._m(21),
+              _vm._m(18),
               _vm._v(" "),
               _c(
                 "div",
@@ -50911,7 +52090,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("h3", [_vm._v("Тип кузова")]),
                   _vm._v(" "),
-                  _vm._m(22),
+                  _vm._m(19),
                   _vm._v(" "),
                   _c("h4", [_vm._v("Страна производитель")]),
                   _vm._v(" "),
@@ -51032,7 +52211,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(23)
+                _vm._m(20)
               ]),
               _vm._v(" "),
               _c("button", { staticClass: "yadded-car-item" }, [
@@ -51155,7 +52334,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm._m(24)
+                _vm._m(21)
               ],
               1
             )
@@ -51164,7 +52343,7 @@ var render = function() {
           _c("div", { staticClass: "yb-condition_cars" }, [
             _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _vm._m(25),
+            _vm._m(22),
             _vm._v(" "),
             _c("div", { staticClass: "yb-status_checked-items" }, [
               _c("h2", [_vm._v("Пригнан из")]),
@@ -51180,7 +52359,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(26)
+                  _vm._m(23)
                 ],
                 1
               )
@@ -51331,9 +52510,551 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "yvis_other" }, [
                 _c("div", { staticClass: "yvis_other-left" }, [
-                  _vm._m(27),
+                  _c("div", { staticClass: "ycheck_color" }, [
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#742D05" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FFCB11" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: {
+                          "background-color": "rgba(80, 83, 83, 0.92)"
+                        },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FFFFFF" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#000000" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#0B3F8D" },
+                        attrs: { for: "" }
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _vm._m(28),
+                  _c("div", { staticClass: "ycheck_color" }, [
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#5100B8" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#E30000" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#1D8D0B" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#0066FF" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FFF504" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FF007A" },
+                        attrs: { for: "" }
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -51373,9 +53094,9 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                                " +
                               _vm._s(accordion.title) +
-                              "\n                                    "
+                              "\n                                "
                           ),
                           _c("i", {
                             staticClass: "fas ",
@@ -51390,51 +53111,27 @@ var render = function() {
                     0
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "yother_visr-options" },
-                    _vm._l(_vm.arrAccordion, function(chunk, i) {
-                      return _c(
-                        "div",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.otherShowID === i,
-                              expression: "otherShowID === i"
-                            }
-                          ],
-                          staticClass: "ycars_options"
-                        },
-                        _vm._l(chunk[_vm.otherShowID].items, function(item, j) {
-                          return _c(
-                            "div",
-                            {
-                              key: j,
-                              staticClass: "yoption",
-                              on: {
-                                click: function($event) {
-                                  _vm.otherShowID = j + i * _vm.show
-                                }
-                              }
-                            },
-                            [
-                              _c("input", {
-                                attrs: { id: "abd", type: "checkbox" }
-                              }),
-                              _vm._v(" "),
-                              _c("label", { attrs: { for: "abd" } }, [
-                                _vm._v(_vm._s(item.title))
-                              ])
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    }),
-                    0
-                  )
+                  _c("div", { staticClass: "yother_visr-options" }, [
+                    _c(
+                      "div",
+                      { staticClass: "ycars_options" },
+                      _vm._l(
+                        _vm.accordionItems[_vm.otherShowID].items,
+                        function(accordion) {
+                          return _c("div", { staticClass: "yoption" }, [
+                            _c("input", {
+                              attrs: { id: accordion.title, type: "checkbox" }
+                            }),
+                            _vm._v(" "),
+                            _c("label", { attrs: { for: accordion.title } }, [
+                              _vm._v(_vm._s(accordion.title))
+                            ])
+                          ])
+                        }
+                      ),
+                      0
+                    )
+                  ])
                 ])
               ])
             ])
@@ -51485,11 +53182,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(29)
+              _vm._m(24)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(30)
+          _vm._m(25)
         ])
   ])
 }
@@ -51618,176 +53315,6 @@ var staticRenderFns = [
       _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
       _vm._v(" "),
       _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ychecked_options-mobile" }, [
-      _c("h3", [_vm._v("Тип кузова")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-checked_type" }, [
-        _c("div", { staticClass: "yl-vis checkbox" }, [
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check1", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check1" } },
-              [_vm._v("Универсал")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check2", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check2" } },
-              [_vm._v("Кроссовер")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check3", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check3" } },
-              [_vm._v("Минивэн")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check4", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check4" } },
-              [_vm._v("Лифтбек")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check5", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check5" } },
-              [_vm._v("Хэтчбек")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check6", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check6" } },
-              [_vm._v("Кабриолет")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yr-vis checkbox" }, [
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check7", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check7" } },
-              [_vm._v("Седан")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check8", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check8" } },
-              [_vm._v("Купе")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check9", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check9" } },
-              [_vm._v("Пикап")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check10", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check10" } },
-              [_vm._v("Ростер")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check11", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check11" } },
-              [_vm._v("Лимузин")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_checkbox" }, [
-            _c("input", {
-              staticClass: "ycheck",
-              attrs: { id: "check12", type: "checkbox" }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "y-body_name", attrs: { for: "check12" } },
-              [_vm._v("Другой")]
-            )
-          ])
-        ])
-      ])
     ])
   },
   function() {
@@ -51953,126 +53480,6 @@ var staticRenderFns = [
             _vm._v("Ручное управление для инвалдов")
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycheck_color" }, [
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#742D05" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FFCB11" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "rgba(80, 83, 83, 0.92)" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FFFFFF" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#000000" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#0B3F8D" },
-          attrs: { for: "" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycheck_color" }, [
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#5100B8" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#E30000" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#1D8D0B" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#0066FF" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FFF504" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FF007A" },
-          attrs: { for: "" }
-        })
       ])
     ])
   },
@@ -53483,126 +54890,6 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycheck_color" }, [
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#742D05" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FFCB11" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "rgba(80, 83, 83, 0.92)" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FFFFFF" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#000000" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#0B3F8D" },
-          attrs: { for: "" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycheck_color" }, [
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#5100B8" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#E30000" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#1D8D0B" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#0066FF" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FFF504" },
-          attrs: { for: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ylabel_visible" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" "),
-        _c("label", {
-          staticStyle: { "background-color": "#FF007A" },
-          attrs: { for: "" }
-        })
       ])
     ])
   },
@@ -55731,7 +57018,7 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _vm.search.length != 0 && _vm.isOpened
+    _vm.search.length !== 0 && _vm.isOpened
       ? _c("i", { staticClass: "fas fa-times", on: { click: _vm.clearInput } })
       : _vm.isOpened
       ? _c("i", { staticClass: "fas fa-search" })

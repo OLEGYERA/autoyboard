@@ -14,12 +14,12 @@
         <div class="items" v-show="isOpen">
             <div class="item"
                  :class="{'checked' : itemSelected == item}"
-                 v-for="(item, key) in filteredItems"
-                 :key="key"
+                 v-for="(item, index) in filteredItems"
+                 :key="index"
                  @click="setItem(item)"
             >
                 {{ item }}
-                <i v-if="itemSelected == item" class="fas fa-check"></i>
+                <i v-if="itemSelected === item" class="fas fa-check"></i>
             </div>
         </div>
     </div>
@@ -39,13 +39,12 @@
                 itemSelected: null,
                 isOpen: false,
                 result: [],
-                testItem:['По цене','По дате добавление', 'По цене','По дате добавление', 'По цене',]
             }
         },
         methods: {
-            setItem(item) {
-                this.itemSelected = item
-                this.result = item
+            setItem(index) {
+                this.itemSelected = index
+                this.result = index
                 this.isOpen = false
             },
             handleClickOutside(evt){

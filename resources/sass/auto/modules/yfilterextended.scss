@@ -198,7 +198,7 @@
                                     background: rgba(91, 91, 91, 0.13);
                                 }
                             }
-                            &::-webkit-scrollbar { width: 0px; }
+                            &::-webkit-scrollbar { width: 0; }
                         }
                     }
                     h3{
@@ -1122,7 +1122,6 @@
                     .yvis_other-right{
                         width: 75%;
                         display: flex;
-                        justify-content: space-between;
                         .yother_visl-btn{
                             width: 15%;
                             margin-right: 20px;
@@ -1149,10 +1148,13 @@
                             display: flex;
                             width: 80%;
                             .ycars_options{
-                                margin-right: 22px;
+                                width: 100%;
+                                display: flex;
+                                flex-flow: wrap;
                                 .yoption{
                                     display: flex;
-                                    margin-bottom: 5px;
+                                    width: 30%;
+                                    margin: 0 22px 5px 0px;
                                     cursor: pointer;
                                     input{
                                         width: 12px;
@@ -1169,9 +1171,6 @@
                                     &:last-child{
                                         margin-bottom: 0;
                                     }
-                                }
-                                &:last-child{
-                                    margin-right: 0;
                                 }
                             }
                         }
@@ -1460,6 +1459,56 @@
                     }
                 }
             }
+            .yb-specifications_cars{
+                .yother_specifications{
+                    .yvis_other{
+                        .yvis_other-left{
+                            max-height: 120px;
+                        }
+                        .yvis_other-right{
+                            .yother_visl-btn{
+                                margin-right: 18px;
+                                width: 15%;
+                                button{
+                                    font-size: em(16);
+                                }
+                            }
+                            .yother_visr-options{
+                                .ycars_options{
+                                    .yoption{
+                                        width: 40%;
+                                        label{
+                                            font-size: em(15);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1440px){
+    .yfilterextended{
+        .ybexpanded_search{
+            .yb-specifications_cars{
+                .yother_specifications{
+                    .yvis_other{
+                        .yvis_other-right{
+                            .yother_visr-options{
+                                .ycars_options{
+                                    .yoption{
+                                        width: 35%;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -1501,7 +1550,14 @@
                        .yvis_other-right{
                            .yother_visl-btn{
                                width: 17%;
-                               margin-right: 0;
+                               margin-right: 15px;
+                           }
+                           .yother_visr-options{
+                               .ycars_options{
+                                   .yoption{
+                                       width: 40%;
+                                   }
+                               }
                            }
                        }
                    }
@@ -2161,13 +2217,22 @@
             padding: 15px 30px 15px 30px;
             .yb-items_selected{
                 .item_selected{
+                    padding: 0 10% 0 5%;
+                    height: 30px;
+                    span{
+                        font-size: em(12);
+                    }
+                    i{
+                        font-size: em(10);
+                    }
                     &:nth-child(3){
                         display: none;
                     }
                 }
             }
             .show-drop_down{
-                bottom: -245px;
+                bottom: -155px;
+                margin: 0;
             }
         }
         .show_mobile{
@@ -2298,6 +2363,15 @@
         }
     }
 }
+@media only screen and (max-width: 375px){
+    .yfilterextended{
+        .yfilter_selected-item{
+            .show-drop_down{
+                bottom: -195px;
+            }
+        }
+    }
+}
 @media only screen and (max-width: 320px){
     .yfilterextended{
         .yfilter_selected-item{
@@ -2308,9 +2382,6 @@
                         display: none;
                     }
                 }
-            }
-            .show-drop_down{
-                bottom: -285px;
             }
         }
         .show_mobile{

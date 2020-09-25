@@ -19,8 +19,15 @@
                     <i class="fas fa-times"></i>
                 </div>
             </div>
-            <i @click="showSelected = !showSelected" class="fas fa-chevron-down"></i>
-            <div v-show="showSelected" class="yfilter_selected-item show-drop_down">
+            <i @click="showSelectedItem = !showSelectedItem"
+               :class="{'fa-chevron-up' :showSelectedItem, 'fa-chevron-down':  !showSelectedItem}"
+               class="fas"
+            >
+            </i>
+            <div
+                 v-if="showSelectedItem === true"
+                class="yfilter_selected-item show-drop_down"
+            >
                 <div class="yb-items_selected">
                     <div class="item_selected">
                         <span>Возможен торг</span>
@@ -108,53 +115,53 @@
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check1" type="checkbox">
+                                    <input class="ycheck" id="check1" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check1">Универсал</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check2"  type="checkbox">
+                                    <input class="ycheck" id="check2" v-model="checkedItems"  type="checkbox">
                                     <label class="y-body_name" for="check2">Кроссовер</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check3" type="checkbox">
+                                    <input class="ycheck" id="check3" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check3">Минивэн</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check4" type="checkbox">
+                                    <input class="ycheck" id="check4"  v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check4">Лифтбек</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check5" type="checkbox">
+                                    <input class="ycheck" id="check5" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check5">Хэтчбек</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check6" type="checkbox">
+                                    <input class="ycheck" id="check6"  v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check6">Кабриолет</label>
                                 </div>
                             </div>
                             <div class="yr-vis checkbox">
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check7" type="checkbox">
+                                    <input class="ycheck" id="check7" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check7">Седан</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check8" type="checkbox">
+                                    <input class="ycheck" id="check8" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check8">Купе</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check9" type="checkbox">
+                                    <input class="ycheck" id="check9" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check9">Пикап</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check10" type="checkbox">
+                                    <input class="ycheck" id="check10" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check10">Ростер</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check11" type="checkbox">
+                                    <input class="ycheck" id="check11" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check11">Лимузин</label>
                                 </div>
                                 <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check12" type="checkbox">
+                                    <input class="ycheck" id="check12" v-model="checkedItems" type="checkbox">
                                     <label class="y-body_name" for="check12">Другой</label>
                                 </div>
                             </div>
@@ -372,53 +379,53 @@
                             <div class="yvis_other-left">
                                 <div class="ycheck_color">
                                     <div class="ylabel_visible">
-                                        <input  class=""  type="checkbox">
+                                        <input  class="" v-model="picked"  type="checkbox">
                                         <label style="background-color: #742D05"  for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class=""  type="checkbox">
+                                        <input class="" v-model="picked"  type="checkbox">
                                         <label style="background-color: #FFCB11" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class=""  type="checkbox">
+                                        <input class="" v-model="picked"  type="checkbox">
                                         <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class="" type="checkbox">
+                                        <input class="" v-model="picked" type="checkbox">
                                         <label style="background-color: #FFFFFF" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class="" type="checkbox">
+                                        <input class="" v-model="picked" type="checkbox">
                                         <label style="background-color: #000000" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class="" type="checkbox">
+                                        <input class="" v-model="picked" type="checkbox">
                                         <label style="background-color: #0B3F8D" for=""></label>
                                     </div>
                                 </div>
                                 <div class="ycheck_color">
                                     <div class="ylabel_visible">
-                                        <input class=""  type="checkbox">
+                                        <input class="" v-model="picked"  type="checkbox">
                                         <label style="background-color: #5100B8" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class=""  type="checkbox">
+                                        <input class="" v-model="picked"  type="checkbox">
                                         <label style="background-color: #E30000" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class="" type="checkbox">
+                                        <input class="" v-model="picked" type="checkbox">
                                         <label style="background-color: #1D8D0B" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class=""  type="checkbox">
+                                        <input class="" v-model="picked"  type="checkbox">
                                         <label style="background-color: #0066FF" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class="" type="checkbox">
+                                        <input class="" v-model="picked" type="checkbox">
                                         <label style="background-color: #FFF504" for=""></label>
                                     </div>
                                     <div class="ylabel_visible">
-                                        <input class="" type="checkbox">
+                                        <input class="" v-model="picked" type="checkbox">
                                         <label style="background-color: #FF007A" for=""></label>
                                     </div>
                                 </div>
@@ -1589,55 +1596,56 @@
                     <h3>Цвет</h3>
                     <div class="yvis_other">
                         <div class="yvis_other-left">
+
                             <div class="ycheck_color">
                                 <div class="ylabel_visible">
-                                    <input  class=""  type="checkbox">
+                                    <input  class="" v-model="picked"  type="checkbox">
                                     <label style="background-color: #742D05"  for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class=""  type="checkbox">
+                                    <input class="" v-model="picked"  type="checkbox">
                                     <label style="background-color: #FFCB11" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class=""  type="checkbox">
+                                    <input class="" v-model="picked"  type="checkbox">
                                     <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class="" type="checkbox">
+                                    <input class="" v-model="picked" type="checkbox">
                                     <label style="background-color: #FFFFFF" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class="" type="checkbox">
+                                    <input class="" v-model="picked" type="checkbox">
                                     <label style="background-color: #000000" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class="" type="checkbox">
+                                    <input class="" v-model="picked" type="checkbox">
                                     <label style="background-color: #0B3F8D" for=""></label>
                                 </div>
                             </div>
                             <div class="ycheck_color">
                                 <div class="ylabel_visible">
-                                    <input class=""  type="checkbox">
+                                    <input class="" v-model="picked"  type="checkbox">
                                     <label style="background-color: #5100B8" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class=""  type="checkbox">
+                                    <input class="" v-model="picked"  type="checkbox">
                                     <label style="background-color: #E30000" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class="" type="checkbox">
+                                    <input class="" v-model="picked" type="checkbox">
                                     <label style="background-color: #1D8D0B" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class=""  type="checkbox">
+                                    <input class="" v-model="picked"  type="checkbox">
                                     <label style="background-color: #0066FF" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class="" type="checkbox">
+                                    <input class="" v-model="picked" type="checkbox">
                                     <label style="background-color: #FFF504" for=""></label>
                                 </div>
                                 <div class="ylabel_visible">
-                                    <input class="" type="checkbox">
+                                    <input class="" v-model="picked" type="checkbox">
                                     <label style="background-color: #FF007A" for=""></label>
                                 </div>
                             </div>
@@ -1659,23 +1667,16 @@
                                 </button>
                             </div>
                             <div class="yother_visr-options">
-                                <div v-for="(chunk, i) in arrAccordion" v-show="otherShowID === i" class="ycars_options">
+                                <div class="ycars_options" >
                                     <div
-                                         v-for="(item,j) in chunk[otherShowID].items" :key="j" @click="otherShowID = j+(i*show)"
-                                         class="yoption">
-                                        <input id="abd" type="checkbox">
-                                        <label for="abd">{{item.title}}</label>
+                                        class="yoption"
+                                        v-for="(accordion) in accordionItems[otherShowID].items"
+                                    >
+                                        <input :id="accordion.title" type="checkbox">
+                                        <label :for="accordion.title">{{accordion.title}}</label>
                                     </div>
                                 </div>
                             </div>
-<!--                            <div class="yother_visr-options">-->
-<!--                                <div  class="ycars_options">-->
-<!--                                    <div v-for="(accordion) in accordionItems[otherShowID].items" class="yoption">-->
-<!--                                        <input id="abd" type="checkbox">-->
-<!--                                        <label for="abd">{{accordion.title}}</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -1745,19 +1746,10 @@
         destroyed() {
             document.removeEventListener('click', this.clickOutside)
         },
-        computed: {
-            arrAccordion() {
-                console.log('arrAcc',this.accordionItems)
-                return Array
-                    .from({ length: Math.ceil(this.accordionItems.length / this.show) }, (v, i) =>
-                        this.accordionItems.slice(i * this.show, i * this.show + this.show));
-            },
-        },
         data(){
             return{
-                show: 5,
-                showSelected: false,
-                isOpened: false,
+                checkedItems: [],
+                showSelectedItem: false,
                 windowWidth: 0,
                 colorOpen: false,
                 otherShowID: 0,
@@ -1782,9 +1774,24 @@
                     {
                         title: 'Комфорт',
                         items:[
-                            {title: 'Подогрев попы'},
-                            {title: 'Подогрев руля'},
-                            {title: 'что то еще '},
+                            {title: 'Бортовой компьютер'},
+                            {title: 'Електропакет'},
+                            {title: 'Запуск кнопкой '},
+                            {title: 'Кондиционер '},
+                            {title: 'Люк '},
+                            {title: 'Обогрев руля'},
+                            {title: 'Память сидений'},
+                            {title: 'Подогрев зеркал'},
+                            {title: 'Усилитель руля'},
+                            {title: 'Кожаный сайлон '},
+                            {title: 'Датчик света'},
+                            {title: 'Электростеклоподьемники'},
+                            {title: 'Климат контроль'},
+                            {title: 'Мультируль'},
+                            {title: 'Омыватель фар'},
+                            {title: 'Парктроник'},
+                            {title: 'Подогрев сидений'},
+                            {title: 'Датчик дождя'},
                         ]
                     },
                     {
@@ -1912,7 +1919,6 @@
             }
         },
         methods: {
-
             changeResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
                 console.log(this.windowWidth)
@@ -1922,7 +1928,7 @@
                     this.otherShowID = null;
                 }
             }
-        }
+        },
 
     }
 </script>

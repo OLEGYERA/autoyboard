@@ -40,6 +40,7 @@ Vue.component('ycardauto', require('./components/ycardauto').default);
 
 
 
+
 Vue.component('yfilterextended', require('./components/yfilterextended').default);
 Vue.component('yfilterform', require('./components/yfilterform').default);
 Vue.component('ycardfilter', require('./components/ycardfilter').default);

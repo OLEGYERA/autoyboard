@@ -15,7 +15,7 @@
                     v-model="search"
                     :placeholder="generatingPlaceholder"
                 />
-                <i v-if="search.length != 0 && isOpened"
+                <i v-if="search.length !== 0 && isOpened"
                    @click="clearInput"
                    class="fas fa-times">
                 </i>

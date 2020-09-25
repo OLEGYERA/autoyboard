@@ -204,5 +204,10 @@
                 this.showSubItem = false;
             }
         },
+        watch:{
+            showMenu: function (to){
+                to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute')
+            }
+        }
     }
 </script>
