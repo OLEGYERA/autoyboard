@@ -2,9 +2,11 @@
     <div  class="ydropdown">
     <div
         class="value"
-        @blur="isOpen = true"
         v-model="itemSelected"
-        @click="isOpen = !isOpen">{{generatingPlaceholder || placeholder}}</div>
+        @click="isOpen = !isOpen"
+    >
+        {{generatingPlaceholder || placeholder}}
+    </div>
         <i
            class="ynav-list-toggle fas"
            :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}"
@@ -13,20 +15,20 @@
         </i>
         <div class="items" v-show="isOpen">
             <div class="item"
-                 :class="{'checked' : itemSelected == item}"
+                 :class="{'checked' : itemSelected == item.name}"
                  v-for="(item, index) in filteredItems"
                  :key="index"
                  @click="setItem(item)"
             >
-                {{ item }}
-                <i v-if="itemSelected === item" class="fas fa-check"></i>
+                {{ item.name }}
+                <i v-if="itemSelected === item.name" class="fas fa-check"></i>
             </div>
         </div>
     </div>
 </template>
 <script>
     export default{
-        props: ['items', 'placeholder', ],
+        props: ['items', 'placeholder','selectedItem' ],
         mounted() {
             document.addEventListener('click', this.handleClickOutside);
 
@@ -42,16 +44,22 @@
             }
         },
         methods: {
-            setItem(index) {
-                this.itemSelected = index
-                this.result = index
+            setItem(item) {
+                this.itemSelected = item.name
+                this.result = item
                 this.isOpen = false
+
+                // this.$emit('setItem', Object.assign({item} ))
+                this.$emit('setItem', {
+                    selectItem: item,
+                })
             },
             handleClickOutside(evt){
                 if (!this.$el.contains(evt.target)) {
                     this.isOpen = false;
                 }
             },
+
         },
 
         computed: {

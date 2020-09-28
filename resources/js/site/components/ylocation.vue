@@ -37,7 +37,7 @@
 import vuescroll from "vuescroll";
     export default {
         components: {vuescroll},
-            props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
+        props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
         data() {
             return {
                 isOpen: false,
@@ -129,15 +129,15 @@ import vuescroll from "vuescroll";
                 this.onArrowUp()
             },
 
-            onArrowDown(ev) {
+            onArrowDown: function (ev) {
                 ev.preventDefault()
-                if (this.arrowCounter < this.results.length-1) {
+                if (this.arrowCounter < this.results.length - 1) {
                     this.arrowCounter = this.arrowCounter + 1;
                     this.fixScrolling();
                 }
             },
 
-            onArrowUp(ev) {
+            onArrowUp: function (ev) {
                 ev.preventDefault()
                 if (this.arrowCounter > 0) {
                     this.arrowCounter = this.arrowCounter - 1;
@@ -194,6 +194,7 @@ import vuescroll from "vuescroll";
         },
         mounted() {
             document.addEventListener('click', this.handleClickOutside)
+
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)

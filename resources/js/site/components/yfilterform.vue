@@ -182,12 +182,12 @@
                     bar: {
                         showDelay: 500,
                         onlyShowBarOnScroll: false,
-                        keepShow: true,
+                        keepShow: false,
                         background: '#0B3F8D',
                         opacity: 1,
                         hoverStyle: false,
                         specifyBorderRadius: false,
-                        minSize: 0.3,
+                        minSize: 0.1,
                         size: '7px',
                         disable: false
                     }

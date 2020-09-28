@@ -55,12 +55,14 @@
             display: flex;
             align-items: center;
             position: absolute;
-            bottom: -155px;
+            bottom: -125px;
             left: 0;
+            margin: 0;
             height: auto;
             z-index: 2;
                 .yb-items_selected{
-                    flex-wrap: wrap;
+                    flex-flow: wrap;
+                    width: 100%;
                     .item_selected{
                         margin-bottom: 10px;
                         padding: 0 2%;
@@ -215,12 +217,16 @@
                         display: flex;
                         width: 100%;
                         margin-bottom: 18px;
-                        .yl-vis{
-                            margin-right: 30px;
-                        }
+                        //.yl-vis{
+                        //    margin-right: 30px;
+                        //}
                         .checkbox{
                             width: 100%;
+                            display: flex;
+                            align-items: center;
+                            flex-flow: wrap;
                             .yvis_checkbox{
+                                width: 50%;
                                 margin-bottom: 5px;
                                 .ycheck{
                                     width: 12px;
@@ -1688,10 +1694,13 @@
                             color: rgba(46, 46, 46, 0.76);
                         }
                         .yb-checked_type{
-                            display: flex;
-                            justify-content: space-between;
                             .checkbox{
+                                display: flex;
+                                justify-content: space-between;
+                                flex-flow: wrap;
+                                align-items: center;
                                 .yvis_checkbox{
+                                    width: 50%;
                                     .ycheck{
                                         width: 12px;
                                         height: 12px;
@@ -1771,7 +1780,6 @@
     .yfilterextended {
         .yfilter_selected-item{
             .show-drop_down{
-                bottom: -200px;
                 padding: 15px 20px 15px 20px;
             }
         }
@@ -1869,15 +1877,7 @@
 @media only screen and (max-width: 600px){
     .yfilterextended{
         .yfilter_selected-item{
-            .yb-items_selected{
-                .item_selected{
-                    &:last-child{
-                        display: none;
-                    }
-                }
-            }
             .show-drop_down{
-                bottom: -200px;
             }
         }
         .show_mobile{
@@ -1913,7 +1913,13 @@
                             display: flex;
                             justify-content: space-between;
                             .checkbox{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                flex-flow: wrap;
+                            }
                                 .yvis_checkbox{
+                                    width: 50%;
                                     .ycheck{
                                         width: 12px;
                                         height: 12px;
@@ -2209,7 +2215,7 @@
             }
         }
     }
-}
+
 
 @media only screen and (max-width: 425px){
     .yfilterextended{

@@ -103,6 +103,7 @@
                 .ycard_name-price{
                     width: 100%;
                     display: flex;
+                    flex-flow: wrap;
                     width: 100%;
                     align-items: center;
                     justify-content: space-between;
@@ -114,6 +115,8 @@
                         font-size: em(18);
                         line-height: 142.5%;
                         margin: 0;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                     .yprice{
                         color: $dgreen;
@@ -295,7 +298,7 @@
                         padding: 10px 10px;
                         .ycard_name-price{
                             h2{
-                                font-size: em(13);
+                                font-size: em(16);
                             }
                             .yprice{
                                 font-size: em(16);
@@ -303,6 +306,9 @@
                         }
                         .yequipment_car{
                             .yequipment_item{
+                                svg{
+                                    width: 16px;
+                                }
                                 span{
                                     margin-left: 8px;
                                 }
@@ -444,7 +450,7 @@
                 font-family: $aleg;
                 overflow: scroll;
                 overflow-x: hidden;
-                width: 200px;
+                width: 220px;
                 max-height: 140px;
                 background: #FFFFFF;
                 top: 35px;

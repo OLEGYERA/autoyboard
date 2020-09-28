@@ -24,6 +24,22 @@
 {{--                <i class="fas fa-times"></i>--}}
 {{--            </div>--}}
 {{--            <div class="yb-select_item">--}}
+{{--                <span>Гибрид</span>--}}
+{{--                <i class="fas fa-times"></i>--}}
+{{--            </div>--}}
+{{--            <div class="yb-select_item">--}}
+{{--                <span>Гибрид</span>--}}
+{{--                <i class="fas fa-times"></i>--}}
+{{--            </div>--}}
+{{--            <div class="yb-select_item">--}}
+{{--                <span>Гибрид</span>--}}
+{{--                <i class="fas fa-times"></i>--}}
+{{--            </div>--}}
+{{--            <div class="yb-select_item">--}}
+{{--                <span>Гибрид</span>--}}
+{{--                <i class="fas fa-times"></i>--}}
+{{--            </div>--}}
+{{--            <div class="yb-select_item">--}}
 {{--                <span>Автобусы</span>--}}
 {{--                <i class="fas fa-times"></i>--}}
 {{--            </div>--}}
@@ -35,8 +51,20 @@
 {{--                <span>Гибрид</span>--}}
 {{--                <i class="fas fa-times"></i>--}}
 {{--            </div>--}}
+{{--            <div class="yb-select_item">--}}
+{{--                <span>Гибрид</span>--}}
+{{--                <i class="fas fa-times"></i>--}}
+{{--            </div>--}}
+{{--            <div class="yb-select_item">--}}
+{{--                <span>Гибрид</span>--}}
+{{--                <i class="fas fa-times"></i>--}}
+{{--            </div>--}}
+{{--            <div class="yb-select_item">--}}
+{{--                <span>Гибрид</span>--}}
+{{--                <i class="fas fa-times"></i>--}}
+{{--            </div>--}}
 {{--        </div>--}}
-{{--        <h2 class="filter-text">Гибрид</h2>--}}
+{{--        <h2 class="filter-text">Фильтр</h2>--}}
 {{--        <div class="yb-filter_visible">--}}
 {{--            <div class="yfilter_form">--}}
 {{--                <yfilterform></yfilterform>--}}

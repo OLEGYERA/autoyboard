@@ -1,21 +1,9 @@
 <template>
     <div class="yfilterextended">
-        <div class="yfilter_selected-item">
+        <div  class="yfilter_selected-item">
             <div class="yb-items_selected">
-                <div class="item_selected">
-                    <span>Легковые</span>
-                    <i class="fas fa-times"></i>
-                </div>
-                <div class="item_selected">
-                    <span>Киевская обл</span>
-                    <i class="fas fa-times"></i>
-                </div>
-                <div class="item_selected">
-                    <span>Легковые</span>
-                    <i class="fas fa-times"></i>
-                </div>
-                <div class="item_selected">
-                    <span>Легковые</span>
+                <div v-for="(item) in selectedTypeBody.slice(0, 4)" class="item_selected">
+                    <span>{{item}}</span>
                     <i class="fas fa-times"></i>
                 </div>
             </div>
@@ -29,56 +17,8 @@
                 class="yfilter_selected-item show-drop_down"
             >
                 <div class="yb-items_selected">
-                    <div class="item_selected">
-                        <span>Возможен торг</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="item_selected">
-                        <span>Легковые</span>
+                    <div v-for="(item) in selectedTypeBody" class="item_selected">
+                        <span>{{item}}</span>
                         <i class="fas fa-times"></i>
                     </div>
                 </div>
@@ -114,55 +54,9 @@
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check1" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check1">Универсал</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check2" v-model="checkedItems"  type="checkbox">
-                                    <label class="y-body_name" for="check2">Кроссовер</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check3" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check3">Минивэн</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check4"  v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check4">Лифтбек</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check5" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check5">Хэтчбек</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check6"  v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check6">Кабриолет</label>
-                                </div>
-                            </div>
-                            <div class="yr-vis checkbox">
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check7" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check7">Седан</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check8" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check8">Купе</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check9" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check9">Пикап</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check10" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check10">Ростер</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check11" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check11">Лимузин</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check12" v-model="checkedItems" type="checkbox">
-                                    <label class="y-body_name" for="check12">Другой</label>
+                                <div v-for="(item, id) in bodyType" class="yvis_checkbox">
+                                    <input class="ycheck" :value="item.name" :id="item.name" v-model="selectedTypeBody" type="checkbox">
+                                    <label class="y-body_name" :for="item.name">{{item.name}}</label>
                                 </div>
                             </div>
                         </div>
@@ -547,55 +441,9 @@
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check1" type="checkbox">
-                                    <label class="y-body_name" for="check1">Универсал</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check2"  type="checkbox">
-                                    <label class="y-body_name" for="check2">Кроссовер</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check3" type="checkbox">
-                                    <label class="y-body_name" for="check3">Минивэн</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check4" type="checkbox">
-                                    <label class="y-body_name" for="check4">Лифтбек</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check5" type="checkbox">
-                                    <label class="y-body_name" for="check5">Хэтчбек</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check6" type="checkbox">
-                                    <label class="y-body_name" for="check6">Кабриолет</label>
-                                </div>
-                            </div>
-                            <div class="yr-vis checkbox">
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check7" type="checkbox">
-                                    <label class="y-body_name" for="check7">Седан</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check8" type="checkbox">
-                                    <label class="y-body_name" for="check8">Купе</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check9" type="checkbox">
-                                    <label class="y-body_name" for="check9">Пикап</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check10" type="checkbox">
-                                    <label class="y-body_name" for="check10">Ростер</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check11" type="checkbox">
-                                    <label class="y-body_name" for="check11">Лимузин</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check12" type="checkbox">
-                                    <label class="y-body_name" for="check12">Другой</label>
+                                <div v-for="(item, id) in bodyType" class="yvis_checkbox">
+                                    <input class="ycheck" :value="item.name" :id="item.name" v-model="selectedTypeBody" type="checkbox">
+                                    <label class="y-body_name" :for="item.name">{{item.name}}</label>
                                 </div>
                             </div>
                         </div>
@@ -1147,64 +995,18 @@
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
-                        <ydropdown :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check1" type="checkbox">
-                                    <label class="y-body_name" for="check1">Универсал</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check2"  type="checkbox">
-                                    <label class="y-body_name" for="check2">Кроссовер</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check3" type="checkbox">
-                                    <label class="y-body_name" for="check3">Минивэн</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check4" type="checkbox">
-                                    <label class="y-body_name" for="check4">Лифтбек</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check5" type="checkbox">
-                                    <label class="y-body_name" for="check5">Хэтчбек</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check6" type="checkbox">
-                                    <label class="y-body_name" for="check6">Кабриолет</label>
-                                </div>
-                            </div>
-                            <div class="yr-vis checkbox">
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check7" type="checkbox">
-                                    <label class="y-body_name" for="check7">Седан</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check8" type="checkbox">
-                                    <label class="y-body_name" for="check8">Купе</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check9" type="checkbox">
-                                    <label class="y-body_name" for="check9">Пикап</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check10" type="checkbox">
-                                    <label class="y-body_name" for="check10">Ростер</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check11" type="checkbox">
-                                    <label class="y-body_name" for="check11">Лимузин</label>
-                                </div>
-                                <div class="yvis_checkbox">
-                                    <input class="ycheck" id="check12" type="checkbox">
-                                    <label class="y-body_name" for="check12">Другой</label>
+                                <div v-for="(item, id) in bodyType" class="yvis_checkbox">
+                                    <input class="ycheck" :value="item.name" :id="item.name" v-model="selectedTypeBody" type="checkbox">
+                                    <label class="y-body_name" :for="item.name">{{item.name}}</label>
                                 </div>
                             </div>
                         </div>
                         <h4>Страна производитель</h4>
-                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                     </div>
                 </div>
                 <div class="add-cars_items">
@@ -1748,7 +1550,9 @@
         },
         data(){
             return{
-                checkedItems: [],
+                selectDropDown: [], /// accepts data from child component <dropdown></dropdown>
+                picked: [],
+                selectedTypeBody: [],
                 showSelectedItem: false,
                 windowWidth: 0,
                 colorOpen: false,
@@ -1821,9 +1625,58 @@
                 amountShow: ['По 10','По 20','По 30','По 50','По 100'],
                 sortBy:['Обычная','От дешевых к дорогим', 'От дорогих к дешевым','Дата добавления','Год выпуска, по возрастанию', 'Год выпуска, по убыванию','Пробег, по возрастанию','Пробег, по убыванию',],
                 deliveryPeriod: ['Все', 'За час','За 3 часа','За 6 часов','За 12 часов','За сегодня','За сутки','За 2 дня','За 3 дня','За неделю','За месяц','За 3 месяца'],
-                fuel: ['Бензин', 'Дизель', 'Газ', 'Электро', 'Гибрид', 'Газ/Бензин', 'Газ метан', 'Газ пропан-бутан',] ,
-                transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная','Типтроник' ],
-                typeofdrive: ['Задний привод', 'Передний привод', 'Полный привод'],
+                fuel: [
+                    {
+                        id:'gasoline',
+                        name: 'Бензин',
+                    },
+                    {
+                        id:'diesel',
+                        name: 'Дизель',
+                    },
+                    {
+                        id:'gas',
+                        name: 'Газ',
+                    },
+                    {
+                        id:'electro',
+                        name: 'Электро',
+                    },
+                    {
+                        id:'hybrid',
+                        name: 'Гибрид',
+                    },
+                    {
+                        id:'gas_gasoline',
+                        name: 'Газ/Бензин',
+                    },
+                    {
+                        id:'methane_gas',
+                        name: 'Газ метан',
+                    },
+                    {
+                        id:'propane_butane_gas',
+                        name: 'Газ пропан-бутан',
+                    },
+                ],
+                transmission: [
+                    {name: 'Механическая', id: 'mechanical'},
+                    {name: 'Автоматическая', id: 'automatic'},
+                    {name: 'Роботизированная', id: 'robotic'},
+                    {name: 'Вариативная', id: 'variable'},
+                    {name: 'Типтроник', id: 'tiptronic'}
+                    ],
+                typeofdrive: [
+                    {name: 'Задний привод',
+                        id: 'rear_drive_unit'
+                    },
+                    {name: 'Передний привод',
+                        id: 'front_drive_unit'
+                    },
+                    {name: 'Полный привод',
+                        id: 'full_drive_unit'
+                    }
+                ],
                 ukSityName:[
                     {name: 'Поляна', id: 1},
                     {name: 'Славское', id: 2},
@@ -1886,16 +1739,48 @@
                     {name: 'Макеевка', id: 68},
                     {name: 'Мукачево', id: 69},
                 ],
-                countryName: ["Китай",
-                            "США",
-                            "Япония",
-                            "Германия",
-                            "Индия",
-                            "ЮжнаяКорея",
-                            "Мексика",
-                            "Бразилия",
-                            "Испания",
-                            "Таиланд",],
+                countryName: [
+                    {
+                        name: "Китай",
+                        id: "1",
+                    },
+                    {
+                        name: "США",
+                        id: "2",
+                    },
+                    {
+                        name: "Япония",
+                        id: "3",
+                    },
+                    {
+                        name: "Германия",
+                        id: "4",
+                    },
+                    {
+                        name: "Индия",
+                        id: "5",
+                    },
+                    {
+                        name: "ЮжнаяКорея",
+                        id: "6",
+                    },
+                    {
+                        name: "Мексика",
+                        id: "7",
+                    },
+                    {
+                        name: "Бразилия",
+                        id: "8",
+                    },
+                    {
+                        name: "Испания",
+                        id: "9",
+                    },
+                    {
+                        name: "Таиланд",
+                        id: "10",
+                    },
+                ],
                 cars: [
                 {
                     id: 1,
@@ -1914,11 +1799,94 @@
                     name: "Mazda",
                 },
             ],
-                typeCars: ['Легковые', 'Мото', 'Автобусы', 'Водный', 'Сельхозтехника', 'Спецтехника', 'Прицепы',],
+                typeCars: [
+                    {
+                        name: 'Легковые',
+                        id: 'passenger',
+                    },
+                    {
+                        name: 'Мото',
+                        id: 'moto',
+                    },
+                    {
+                        name: 'Автобусы',
+                        id: 'bus',
+                    },
+                    {
+                        name: 'Водный',
+                        id: 'aqueous',
+                    },
+                    {
+                        name: 'Сельхозтехника',
+                        id: 'agricultural_machinery',
+                    },
+                    {
+                        name: 'Спецтехника',
+                        id: 'special_equipment',
+                    },
+                    {
+                        name: 'Прицепы',
+                        id: '',
+                    },
+                ],
+                bodyType:[
+                    {
+                        id: 'station_wagon',
+                        name:'Универсал' ,
+                    },
+                    {
+                        id: 'crossover',
+                        name: 'Кроссовер',
+                    },
+                    {
+                        id: 'minivan',
+                        name: 'Минивэн',
+                    },
+                    {
+                        id: 'liftback',
+                        name: 'Лифтбек',
+                    },
+                    {
+                        id: 'hatchback',
+                        name: 'Хэтчбек',
+                    },
+                    {
+                        id: 'cabriolet',
+                        name: 'Кабриолет',
+                    },
+                    {
+                        id: 'sedan',
+                        name:'Седан' ,
+                    },
+                    {
+                        id: 'coupe',
+                        name: 'Купе',
+                    },
+                    {
+                        id: 'pikap',
+                        name: 'Пикап',
+                    },
+                    {
+                        id: 'roadster',
+                        name: 'Ростер' ,
+                    },
+                    {
+                        id: 'limousine',
+                        name: 'Лимузин',
+                    },
+                    {
+                        id: 'anouther_body',
+                        name: 'Другой',
+                    },
+                ],
                 years: ['2020' , '2019' , '2018' , '2017' , '2016' , '2015' , '2014' , '2013' , '2012' , '2011' , '2010' , '2009' , '2008' , '2007' , '2006' , '2005' , '2004' , '2003' , '2002' , '2001', '2000', '1999',  '1998', ' 1997', '1996', '1995',  '1994',  '1993',  '1992' , '1991',  '1990' , '1989' , '1988' , '1987' , '1986' , '1985' , '1984' , '1983' , '1982' , '1981' , '1980' , '1979' , '1978' , '1977' , '1976' , '1975' , '1974' , '1973' , '1972' , '1971' , '1970' , '1969' , '1968' , '1967' , '1966' , '1965' , '1964' , '1963' , '1962' , '1961' , '1960' , '1959' , '1958' , '1957' , '1956' , '1955' , '1954' , '1953' , '1952' , '1951' , '1950' ,'1949' , '1948' , '1947' , '1946' , '1945' , '1944' , '1943' , '1942' , '1941' , '1940' , '1939' , '1938' , '1937' , '1936' , '1935' , '1934' , '1933' , '1932' , '1931' , '1930' , '1929' , '1928' , '1927' , '1926' , '1925' , '1924' , '1923' , '1922' , '1921' , '1920', '1919' , '1918' , '1917' , '1916' ,'1915' , '1914' , '1913' , '1912' , '1911' , '1910' , '1909' , '1908' , '1907' , '1906' , '1905' , '1904' , '1903' , '1902',  '1901','1900']
             }
         },
         methods: {
+            selectedItem(data){
+                var arr1 = new Map();
+                this.selectDropDown = data
+            },
             changeResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
                 console.log(this.windowWidth)
