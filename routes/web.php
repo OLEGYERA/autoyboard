@@ -14,7 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'Site\Auto\PageController@start');
+$appRoutes = function() {
+    Route::get('/', 'HomeController@index')->name('home');
+};
+
+Route::group(array('domain' => 'api.yboard'), $appRoutes);
+Route::group(array('domain' => '10.0.0.140'), $appRoutes);
+
+Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
+
+
+//Route::get('/', 'Site\Auto\PageController@start');
+Route::get('/img_minified', 'Controller@img_minified')->name('img_minified');
 Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
 
 Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
@@ -29,3 +40,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
+
+//->name('m.ru.')->namespace('OLEGYERA\FrontBox')->namespace('OLEGYERA\FrontBox')
