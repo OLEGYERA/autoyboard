@@ -6490,15 +6490,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
+    var _this = this;
+
     document.addEventListener('click', this.clickOutside);
     window.addEventListener('resize', this.changeResize);
     this.changeResize();
+    this.getYears();
+    window.axios.get("http://10.0.0.140:1709/v1/transport_type", {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+      }
+    }).then(function (response) {
+      _this.transportType = response.data;
+    })["catch"](function (e) {});
   },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.clickOutside);
   },
   data: function data() {
     return {
+      transportType: [],
+      yearsList: [],
       showSelected: 6,
       selectDropDown: [],
       /// accepts data from child component <dropdown></dropdown>
@@ -6508,8 +6522,12 @@ __webpack_require__.r(__webpack_exports__);
       windowWidth: 0,
       colorOpen: false,
       otherShowID: 0,
-      test: ['100'],
-      test2: ['200'],
+      test: [{
+        name: '100'
+      }],
+      test2: [{
+        name: '200'
+      }],
       accordionItems: [{
         title: 'Безопасность',
         items: [{
@@ -6603,10 +6621,78 @@ __webpack_require__.r(__webpack_exports__);
           title: 'царь'
         }]
       }],
-      isActual: ['Все', 'Скрыть проданные', 'Только проданнные'],
-      amountShow: ['По 10', 'По 20', 'По 30', 'По 50', 'По 100'],
-      sortBy: ['Обычная', 'От дешевых к дорогим', 'От дорогих к дешевым', 'Дата добавления', 'Год выпуска, по возрастанию', 'Год выпуска, по убыванию', 'Пробег, по возрастанию', 'Пробег, по убыванию'],
-      deliveryPeriod: ['Все', 'За час', 'За 3 часа', 'За 6 часов', 'За 12 часов', 'За сегодня', 'За сутки', 'За 2 дня', 'За 3 дня', 'За неделю', 'За месяц', 'За 3 месяца'],
+      isActual: [{
+        name: 'Все'
+      }, {
+        name: 'Скрыть проданные'
+      }, {
+        name: 'Только проданные'
+      }],
+      amountShow: [{
+        name: 'По 10'
+      }, {
+        name: 'По 20'
+      }, {
+        name: 'По 30'
+      }, {
+        name: 'По 50'
+      }, {
+        name: 'По 100'
+      }],
+      sortBy: [{
+        name: 'Обычная'
+      }, {
+        name: 'От дешевых к дорогим'
+      }, {
+        name: 'От дорогих к дешевым'
+      }, {
+        name: 'Дата добавления'
+      }, {
+        name: 'Год выпуска, по возрастанию'
+      }, {
+        name: 'Год выпуска, по убыванию'
+      }, {
+        name: 'Пробег, по возрастанию'
+      }, {
+        name: 'Пробег, по убыванию'
+      }],
+      deliveryPeriod: [{
+        id: 'all',
+        name: 'Все'
+      }, {
+        id: 'one_hour',
+        name: 'За час'
+      }, {
+        id: 'three_hour',
+        name: 'За 3 часа'
+      }, {
+        id: 'six_hour',
+        name: 'За 6 часов'
+      }, {
+        id: 'twelve_hour',
+        name: 'За 12 часов'
+      }, {
+        id: 'today',
+        name: 'За сегодня'
+      }, {
+        id: 'for_day',
+        name: 'За сутки'
+      }, {
+        id: 'for_two_day',
+        name: 'За 2 дня'
+      }, {
+        id: 'for_three_day',
+        name: 'За 3 дня'
+      }, {
+        id: 'for_week',
+        name: 'За неделю'
+      }, {
+        id: 'for_mounth',
+        name: 'За месяц'
+      }, {
+        id: 'for_three_mounth',
+        name: 'За 3 месяца'
+      }],
       fuel: [{
         id: 'gasoline',
         name: 'Бензин'
@@ -7039,6 +7125,20 @@ __webpack_require__.r(__webpack_exports__);
     clickOutside: function clickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
         this.otherShowID = null;
+      }
+    },
+    getYears: function getYears() {
+      var y1 = new Date("1900-5-1").getFullYear();
+      var y2 = new Date().getFullYear();
+
+      if (y1 < y2) {
+        for (var i = y1; i <= y2; i++) {
+          this.yearsList.push(i);
+        }
+      } else {
+        for (var _i = y2; _i <= y1; _i++) {
+          this.yearsList.push(_i);
+        }
       }
     }
   },
@@ -50087,11 +50187,11 @@ var render = function() {
                       { staticClass: "ydrop_down-years" },
                       [
                         _c("ydropdown", {
-                          attrs: { placeholder: "От", items: _vm.years }
+                          attrs: { placeholder: "От", items: _vm.yearsList }
                         }),
                         _vm._v(" "),
                         _c("ydropdown", {
-                          attrs: { placeholder: "До", items: _vm.years }
+                          attrs: { placeholder: "До", items: _vm.yearsList }
                         })
                       ],
                       1
@@ -51159,11 +51259,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.years }
+                        attrs: { placeholder: "От", items: _vm.yearsList }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.years }
+                        attrs: { placeholder: "До", items: _vm.yearsList }
                       })
                     ],
                     1
@@ -51212,11 +51312,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.years }
+                        attrs: { placeholder: "От", items: _vm.yearsList }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.years }
+                        attrs: { placeholder: "До", items: _vm.yearsList }
                       })
                     ],
                     1
@@ -51271,11 +51371,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.years }
+                        attrs: { placeholder: "От", items: _vm.yearsList }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.years }
+                        attrs: { placeholder: "До", items: _vm.yearsList }
                       })
                     ],
                     1
@@ -51799,11 +51899,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.years }
+                        attrs: { placeholder: "От", items: _vm.yearsList }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.years }
+                        attrs: { placeholder: "До", items: _vm.yearsList }
                       })
                     ],
                     1
@@ -51854,11 +51954,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.years }
+                        attrs: { placeholder: "От", items: _vm.yearsList }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.years }
+                        attrs: { placeholder: "До", items: _vm.yearsList }
                       })
                     ],
                     1
@@ -51913,11 +52013,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.years }
+                        attrs: { placeholder: "От", items: _vm.yearsList }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.years }
+                        attrs: { placeholder: "До", items: _vm.yearsList }
                       })
                     ],
                     1
