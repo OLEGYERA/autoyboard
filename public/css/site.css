@@ -3065,11 +3065,16 @@ span.yb-gradient {
   padding: 25px 40px;
 }
 
-.yfilterextended {
+.yb_extended-content {
+  padding: 0 17%;
   width: 100%;
 }
 
-.yfilterextended .yfilter_selected-item {
+.yb_extended-content .yfilterextended {
+  width: 100%;
+}
+
+.yb_extended-content .yfilterextended .yfilter_selected-item {
   width: 100%;
   display: flex;
   position: relative;
@@ -3082,12 +3087,12 @@ span.yb-gradient {
   border-radius: 12px;
 }
 
-.yfilterextended .yfilter_selected-item .yb-items_selected {
+.yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected {
   display: flex;
   align-items: center;
 }
 
-.yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
+.yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3101,7 +3106,7 @@ span.yb-gradient {
   border-radius: 8px;
 }
 
-.yfilterextended .yfilter_selected-item .yb-items_selected .item_selected span {
+.yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected span {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 0.9375em;
@@ -3110,22 +3115,22 @@ span.yb-gradient {
   white-space: nowrap;
 }
 
-.yfilterextended .yfilter_selected-item .yb-items_selected .item_selected i {
+.yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected i {
   color: #0B3F8D;
   font-size: 0.875em;
   cursor: pointer;
   margin-left: 10px;
 }
 
-.yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:last-child {
+.yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:last-child {
   margin-right: 0;
 }
 
-.yfilterextended .yfilter_selected-item i {
+.yb_extended-content .yfilterextended .yfilter_selected-item i {
   cursor: pointer;
 }
 
-.yfilterextended .yfilter_selected-item .show-drop_down {
+.yb_extended-content .yfilterextended .yfilter_selected-item .show-drop_down {
   display: flex;
   align-items: center;
   position: absolute;
@@ -3136,17 +3141,17 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .yfilter_selected-item .show-drop_down .yb-items_selected {
+.yb_extended-content .yfilterextended .yfilter_selected-item .show-drop_down .yb-items_selected {
   flex-flow: wrap;
   width: 100%;
 }
 
-.yfilterextended .yfilter_selected-item .show-drop_down .yb-items_selected .item_selected {
+.yb_extended-content .yfilterextended .yfilter_selected-item .show-drop_down .yb-items_selected .item_selected {
   margin-bottom: 10px;
   padding: 0 2%;
 }
 
-.yfilterextended .ybexpanded_search {
+.yb_extended-content .yfilterextended .ybexpanded_search {
   background: #FFFFFF;
   box-shadow: 0px 4px 64px rgba(105, 105, 105, 0.19);
   border-radius: 13px;
@@ -3154,7 +3159,7 @@ span.yb-gradient {
   padding: 30px 25px;
 }
 
-.yfilterextended .ybexpanded_search .ytitle-exp {
+.yb_extended-content .yfilterextended .ybexpanded_search .ytitle-exp {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 2.25em;
@@ -3164,18 +3169,18 @@ span.yb-gradient {
   margin-bottom: 25px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items {
   width: 100%;
   position: relative;
   display: flex;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items {
   width: 22%;
   margin: 0 30px 25px 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .yoption_btn {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .yoption_btn {
   display: flex;
   border: 1px solid #E2E2E2;
   border-radius: 10px 10px 0px 0px;
@@ -3184,7 +3189,7 @@ span.yb-gradient {
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .yoption_btn .change_type {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .yoption_btn .change_type {
   width: 100%;
   height: 42px;
   font-family: "Alegreya Sans", sans-serif;
@@ -3193,12 +3198,12 @@ span.yb-gradient {
   line-height: 18px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .yoption_btn .change_type.active {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .yoption_btn .change_type.active {
   background: #0B3F8D;
   color: #FFFEFE;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .ycheckbox_options {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .ycheckbox_options {
   border: 1px solid #E2E2E2;
   border-radius: 10px;
   padding: 15px;
@@ -3206,7 +3211,7 @@ span.yb-gradient {
   margin-bottom: 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h2 {
   color: rgba(46, 46, 46, 0.76);
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -3216,7 +3221,7 @@ span.yb-gradient {
   margin-bottom: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown {
   width: 100%;
   height: 40px;
   position: relative;
@@ -3229,7 +3234,7 @@ span.yb-gradient {
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3237,11 +3242,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown i {
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items {
   position: absolute;
   scrollbar-width: none;
   max-height: 140px;
@@ -3256,7 +3261,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   height: 35px;
@@ -3270,7 +3275,7 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -3278,7 +3283,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -3288,21 +3293,21 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
   padding: 10px 15px 10px 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .items::-webkit-scrollbar {
   width: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h3 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h3 {
   color: rgba(46, 46, 46, 0.76);
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -3313,32 +3318,32 @@ span.yb-gradient {
   margin-top: 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type {
   display: flex;
   width: 100%;
   margin-bottom: 18px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox {
   width: 100%;
   display: flex;
   align-items: center;
   flex-flow: wrap;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox .yvis_checkbox {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox .yvis_checkbox {
   width: 50%;
   margin-bottom: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox .yvis_checkbox .ycheck {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox .yvis_checkbox .ycheck {
   width: 12px;
   height: 12px;
   background: #FFFFFF;
   border: 1px solid rgba(196, 196, 196, 0.7);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox .yvis_checkbox .y-body_name {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox .yvis_checkbox .y-body_name {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3346,7 +3351,7 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h4 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h4 {
   color: rgba(46, 46, 46, 0.76);
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -3356,22 +3361,22 @@ span.yb-gradient {
   margin-bottom: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items {
   width: 73%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item {
   width: 100%;
   display: flex;
   margin-bottom: 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item {
   margin-right: 20px;
   width: 31.8%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -3381,33 +3386,33 @@ span.yb-gradient {
   margin-bottom: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete {
   height: 40px;
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete .input-dropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete .input-dropdown {
   font-size: 1em;
   font-weight: normal;
   line-height: 19px;
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item:last-child {
   margin-right: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years {
   width: 26.9%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown {
   width: 45%;
   height: 40px;
   padding: 10px 15px 10px 20px;
@@ -3420,7 +3425,7 @@ span.yb-gradient {
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3428,11 +3433,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown i {
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items {
   width: 100%;
   background: #FFFFFF;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
@@ -3448,7 +3453,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .item {
   display: flex;
   align-items: center;
   font-family: "Alegreya Sans", sans-serif;
@@ -3462,7 +3467,7 @@ span.yb-gradient {
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -3470,7 +3475,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -3480,24 +3485,24 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items::-webkit-scrollbar {
   width: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove {
   position: relative;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3506,12 +3511,12 @@ span.yb-gradient {
   top: 33px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items i {
   color: #0B3F8D;
   font-size: 25px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yadded-car-item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yadded-car-item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 0.9375em;
@@ -3520,12 +3525,12 @@ span.yb-gradient {
   margin-bottom: 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car {
   width: 31.8%;
   margin-bottom: 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -3535,7 +3540,7 @@ span.yb-gradient {
   margin-bottom: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown {
   width: 100%;
   height: 40px;
   position: relative;
@@ -3548,7 +3553,7 @@ span.yb-gradient {
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3556,11 +3561,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown i {
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items {
   position: absolute;
   scrollbar-width: none;
   max-height: 140px;
@@ -3575,7 +3580,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   height: 35px;
@@ -3589,7 +3594,7 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -3597,7 +3602,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -3607,20 +3612,20 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .items::-webkit-scrollbar {
   width: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_items:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -3630,7 +3635,7 @@ span.yb-gradient {
   background-color: #E7E7E7;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items {
   display: flex;
   width: 100%;
   position: relative;
@@ -3638,11 +3643,11 @@ span.yb-gradient {
   padding: 15px 0 25px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container {
   width: 28%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.375em;
@@ -3651,28 +3656,28 @@ span.yb-gradient {
   margin: 0 0 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
   border: 1px solid #E2E2E2;
   border-radius: 10px;
   padding: 25px 15px;
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container {
   margin-bottom: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .change {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .change {
   width: 30%;
   height: 40px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change {
   display: flex;
   width: 25%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown {
   width: 100%;
   height: 40px;
   position: relative;
@@ -3685,7 +3690,7 @@ span.yb-gradient {
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3693,11 +3698,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown i {
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items {
   position: absolute;
   scrollbar-width: none;
   max-height: 140px;
@@ -3712,7 +3717,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   height: 35px;
@@ -3726,7 +3731,7 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -3734,7 +3739,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -3744,24 +3749,24 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown .items::-webkit-scrollbar {
   width: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container {
   width: 70%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.375em;
@@ -3770,24 +3775,24 @@ span.yb-gradient {
   margin: 0 0 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .autocomplete {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .autocomplete {
   margin-bottom: 15px;
   width: 40%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
   display: flex;
   width: 65%;
   justify-content: space-between;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -3796,20 +3801,20 @@ span.yb-gradient {
   color: rgba(46, 46, 46, 0.76);
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check {
   display: flex;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check {
   margin-right: 17px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central {
   display: flex;
   margin-bottom: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central input {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central input {
   width: 12px;
   height: 12px;
   background: #FFFFFF;
@@ -3817,7 +3822,7 @@ span.yb-gradient {
   border-radius: 1px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central label {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central label {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3826,19 +3831,19 @@ span.yb-gradient {
   margin-left: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check .central:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check:last-child {
   margin-right: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
   width: 33%;
 }
 
-.yfilterextended .ybexpanded_search .yb-carsearch_price-items:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -3848,13 +3853,13 @@ span.yb-gradient {
   background-color: #E7E7E7;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars {
   position: relative;
   width: 100%;
   padding-bottom: 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars h2 {
   margin: 15px 0 15px;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -3863,18 +3868,18 @@ span.yb-gradient {
   color: #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items {
   margin-right: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -3883,13 +3888,13 @@ span.yb-gradient {
   margin: 0 0 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3898,7 +3903,7 @@ span.yb-gradient {
   margin-right: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s.active {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s.active {
   color: #0B3F8D;
   padding: 5% 2%;
   width: 87px;
@@ -3908,23 +3913,23 @@ span.yb-gradient {
   border-radius: 6px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s:last-child {
   margin-right: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .large {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .large {
   width: 103px !important;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items:last-child {
   margin-right: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items {
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items h2 {
   margin: 0 0 5px;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -3933,12 +3938,12 @@ span.yb-gradient {
   color: rgba(24, 23, 23, 0.76);
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items {
   display: flex;
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
   width: 24.5%;
   height: 40px;
   position: relative;
@@ -3952,7 +3957,7 @@ span.yb-gradient {
   margin-right: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -3960,11 +3965,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown i {
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items {
   position: absolute;
   scrollbar-width: none;
   max-height: 140px;
@@ -3979,7 +3984,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   height: 35px;
@@ -3993,7 +3998,7 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -4001,7 +4006,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -4011,40 +4016,40 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown .items::-webkit-scrollbar {
   width: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
   display: flex;
   justify-content: space-between;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked {
   margin-right: 12px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox {
   display: flex;
   margin-bottom: 5px;
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox input {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox input {
   width: 12px;
   height: 12px;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox label {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox label {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -4052,15 +4057,15 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked .checkbox:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked:last-child {
   margin-right: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-condition_cars:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -4070,13 +4075,13 @@ span.yb-gradient {
   background-color: #E7E7E7;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars {
   position: relative;
   width: 100%;
   padding: 15px 0 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.375em;
@@ -4085,17 +4090,17 @@ span.yb-gradient {
   margin: 0 0 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications {
   display: flex;
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications {
   width: 24.5%;
   margin-right: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -4104,7 +4109,7 @@ span.yb-gradient {
   margin: 0 0 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown {
   width: 100%;
   height: 40px;
   position: relative;
@@ -4118,7 +4123,7 @@ span.yb-gradient {
   margin-bottom: 15px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -4126,11 +4131,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown i {
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items {
   position: absolute;
   scrollbar-width: none;
   max-height: 140px;
@@ -4145,7 +4150,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   height: 35px;
@@ -4159,7 +4164,7 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -4167,7 +4172,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -4177,29 +4182,29 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown .items::-webkit-scrollbar {
   width: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .vis_l-specifications .ydropdown:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double {
   width: 20.7%;
   margin-right: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double h3 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double h3 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -4208,17 +4213,17 @@ span.yb-gradient {
   margin: 15px 0 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double h3:first-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double h3:first-child {
   margin: 0 0 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown {
   width: 48%;
   height: 40px;
   position: relative;
@@ -4231,7 +4236,7 @@ span.yb-gradient {
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -4239,11 +4244,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown i {
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items {
   position: absolute;
   scrollbar-width: none;
   max-height: 140px;
@@ -4258,7 +4263,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   height: 35px;
@@ -4272,7 +4277,7 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -4280,7 +4285,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -4290,28 +4295,28 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double .ydouble_dropdown .ydropdown .items::-webkit-scrollbar {
   width: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yselect_specifications .y-double:last-child {
   margin-right: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications {
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications h3 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications h3 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -4320,13 +4325,13 @@ span.yb-gradient {
   margin: 15px 0 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
   width: 20%;
   border-radius: 12px;
   border: 1px solid #E2E2E2;
@@ -4334,7 +4339,7 @@ span.yb-gradient {
   text-align: center;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color {
   width: 100%;
   display: flex;
   align-items: center;
@@ -4342,19 +4347,19 @@ span.yb-gradient {
   margin-bottom: 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible input {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible input {
   position: absolute;
   z-index: 2;
   opacity: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible label {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color .ylabel_visible label {
   width: 23px;
   height: 23px;
   border: 1px solid #D6D6D6;
@@ -4362,25 +4367,25 @@ span.yb-gradient {
   position: relative;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycheck_color:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycolor_more i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left .ycolor_more i {
   color: #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right {
   width: 75%;
   display: flex;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
   width: 15%;
   margin-right: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -4393,39 +4398,39 @@ span.yb-gradient {
   margin-bottom: 10px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button i {
   color: #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
   display: flex;
   width: 80%;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options {
   width: 100%;
   display: flex;
   flex-flow: wrap;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption {
   display: flex;
   width: 30%;
   margin: 0 22px 5px 0px;
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption input {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption input {
   width: 12px;
   height: 12px;
   margin-right: 5px;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption label {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption label {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -4433,11 +4438,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption:last-child {
   margin-bottom: 0;
 }
 
-.yfilterextended .ybexpanded_search .yb-specifications_cars:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -4447,13 +4452,13 @@ span.yb-gradient {
   background-color: #E7E7E7;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results {
   padding: 15px 0 25px;
   width: 100%;
   position: relative;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results h3 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results h3 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.375em;
@@ -4462,17 +4467,17 @@ span.yb-gradient {
   margin: 0;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results {
   display: flex;
   width: 100%;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select {
   width: 24.5%;
   margin-right: 20px;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -4481,7 +4486,7 @@ span.yb-gradient {
   margin: 15px 0 6px;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown {
   width: 100%;
   height: 40px;
   position: relative;
@@ -4494,7 +4499,7 @@ span.yb-gradient {
   cursor: pointer;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .value {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .value {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -4502,11 +4507,11 @@ span.yb-gradient {
   color: #696969;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown i {
   color: #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items {
   position: absolute;
   scrollbar-width: none;
   max-height: 140px;
@@ -4521,7 +4526,7 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .item {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .item {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   height: 35px;
@@ -4535,7 +4540,7 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .item i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .item i {
   position: absolute;
   top: auto;
   color: #2ECC71;
@@ -4543,7 +4548,7 @@ span.yb-gradient {
   font-size: 0.75em;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .item:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .item:after {
   content: "";
   position: absolute;
   height: 1px;
@@ -4553,24 +4558,24 @@ span.yb-gradient {
   background: rgba(199, 199, 199, 0.33);
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .checked {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .checked {
   border-left: 4px solid #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .checked:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items .checked:after {
   height: 2px;
   background: rgba(91, 91, 91, 0.13);
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items::-webkit-scrollbar {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yvis_res-select .ydropdown .items::-webkit-scrollbar {
   width: 0px;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id {
   width: 24.5%;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id h3 {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id h3 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
@@ -4579,7 +4584,7 @@ span.yb-gradient {
   margin: 15px 0 6px;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id {
   width: 100%;
   height: 40px;
   padding: 10px 15px 10px 20px;
@@ -4593,35 +4598,35 @@ span.yb-gradient {
   border-radius: 10px;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::-moz-placeholder {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::-moz-placeholder {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id:-ms-input-placeholder {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id:-ms-input-placeholder {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::-ms-input-placeholder {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::-ms-input-placeholder {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::placeholder {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::placeholder {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
   color: #C7C7C7;
 }
 
-.yfilterextended .ybexpanded_search .yspecification_results:after {
+.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -4631,12 +4636,12 @@ span.yb-gradient {
   background-color: #E7E7E7;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results {
   width: 100%;
   padding: 15px 0 40px;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results h2 {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results h2 {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-size: 1.375em;
@@ -4645,14 +4650,14 @@ span.yb-gradient {
   margin: 0 0 15px;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -4665,7 +4670,7 @@ span.yb-gradient {
   border-radius: 8px;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected span {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected span {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 0.9375em;
@@ -4673,16 +4678,16 @@ span.yb-gradient {
   color: #0B3F8D;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected i {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected i {
   color: #0B3F8D;
   font-size: 0.875em;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .item_selected:last-child {
   margin-right: 0;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .yb-count_result {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .yb-repeat_selected .yb-count_result {
   margin-left: 20px;
   font-family: "Noto Sans", sans-serif;
   font-weight: 500;
@@ -4691,7 +4696,7 @@ span.yb-gradient {
   color: rgba(24, 23, 23, 0.76);
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .yclear_form {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .yclear_form {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 0.875em;
@@ -4702,14 +4707,14 @@ span.yb-gradient {
   margin-bottom: 30px;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .y_form-search {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .y_form-search {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.yfilterextended .ybexpanded_search .ysearch_results .y_form-search button {
+.yb_extended-content .yfilterextended .ybexpanded_search .ysearch_results .y_form-search button {
   width: 270px;
   height: 58px;
   background: #0B3F8D;
@@ -4724,62 +4729,68 @@ span.yb-gradient {
 }
 
 @media only screen and (max-width: 1600px) {
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown {
     padding: 10px 10px 10px 15px;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox {
     display: block;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
     width: 100%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country {
     width: 45%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check {
     width: 100%;
     justify-content: space-between;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:first-child {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:first-child {
     margin-bottom: 15px;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
     width: 45%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items {
     margin-bottom: 0px;
   }
 
-  .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-condition_cars .yb-status_car-items .status_items {
     margin-bottom: 15px;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
     max-height: 120px;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     margin-right: 18px;
     width: 15%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn button {
     font-size: 1em;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption {
     width: 40%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption label {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption label {
     font-size: 0.9375em;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .yb_extended-content {
+    padding: 0 10%;
   }
 }
 
@@ -4789,75 +4800,95 @@ span.yb-gradient {
   }
 }
 
+@media only screen and (max-width: 1366px) {
+  .yb_extended-content {
+    padding: 0 8%;
+  }
+}
+
+@media only screen and (max-width: 1330px) {
+  .yb_extended-content {
+    padding: 0 6%;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
-  .yfilterextended .ybexpanded_search .yb-carsearch_items {
+  .yb_extended-content {
+    padding: 0 2.5%;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items {
     justify-content: space-between;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items {
     width: 24%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items {
     width: 75%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .ydrop_down-years .ydropdown {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .ydrop_down-years .ydropdown {
     padding: 10px 10px 10px 10px;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container {
     width: 30%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .yreg_container {
     width: 69%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
     width: 23%;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 17%;
     margin-right: 15px;
   }
 
-  .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .ycars_options .yoption {
     width: 40%;
   }
 }
 
 @media only screen and (max-width: 945px) {
-  .yfilterextended .show_tablet {
+  .yb_extended-content {
+    padding: 0 15px;
+  }
+
+  .yb_extended-content .yfilterextended .show_tablet {
     padding: 25px 15px;
   }
 
-  .yfilterextended .show_tablet .ytitle-exp {
+  .yb_extended-content .yfilterextended .show_tablet .ytitle-exp {
     font-size: 1.5em;
     line-height: 28px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items {
     display: block;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items {
     width: 100%;
     display: flex;
     margin: 0 30px 15px 0;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
     width: 27%;
     margin-right: 25px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ycheckbox_options .change_resource .title_change {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ycheckbox_options .change_resource .title_change {
     font-size: 1em;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile h4 {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile h4 {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;
     font-size: 1.125em;
@@ -4866,7 +4897,7 @@ span.yb-gradient {
     color: rgba(46, 46, 46, 0.76);
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown {
     width: 100%;
     height: 40px;
     position: relative;
@@ -4879,7 +4910,7 @@ span.yb-gradient {
     cursor: pointer;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .value {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .value {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: normal;
     font-size: 1em;
@@ -4887,11 +4918,11 @@ span.yb-gradient {
     color: #696969;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown i {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown i {
     color: #C7C7C7;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items {
     position: absolute;
     scrollbar-width: none;
     max-height: 140px;
@@ -4906,7 +4937,7 @@ span.yb-gradient {
     z-index: 2;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: normal;
     height: 35px;
@@ -4920,7 +4951,7 @@ span.yb-gradient {
     color: rgba(0, 0, 0, 0.83);
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item i {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item i {
     position: absolute;
     top: auto;
     color: #2ECC71;
@@ -4928,7 +4959,7 @@ span.yb-gradient {
     font-size: 0.75em;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item:after {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .item:after {
     content: "";
     position: absolute;
     height: 1px;
@@ -4938,29 +4969,29 @@ span.yb-gradient {
     background: rgba(199, 199, 199, 0.33);
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .checked {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .checked {
     border-left: 4px solid #0B3F8D;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .checked:after {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items .checked:after {
     height: 2px;
     background: rgba(91, 91, 91, 0.13);
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items::-webkit-scrollbar {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile .ydropdown .items::-webkit-scrollbar {
     width: 0px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .y-transport_options {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .y-transport_options {
     width: 27%;
     margin-right: 25px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
     width: 24%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile h3 {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile h3 {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -4969,24 +5000,24 @@ span.yb-gradient {
     color: rgba(46, 46, 46, 0.76);
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox {
     display: flex;
     justify-content: space-between;
     flex-flow: wrap;
     align-items: center;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox {
     width: 50%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .ycheck {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .ycheck {
     width: 12px;
     height: 12px;
     margin-right: 5px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .y-body_name {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox .yvis_checkbox .y-body_name {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: normal;
     font-size: 1em;
@@ -4994,164 +5025,172 @@ span.yb-gradient {
     color: #696969;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .add-cars_items {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .add-cars_items {
     width: 100%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
     padding: 25px 10px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .change {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .change {
     width: 32%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox {
     display: flex;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
     flex-direction: column;
     width: 50%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country {
     width: 100%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country:first-child {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country:first-child {
     margin-bottom: 20px;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .yselect_specifications .vis_l-specifications {
+  .yb_extended-content .yfilterextended .show_tablet .yb-specifications_cars .yselect_specifications .vis_l-specifications {
     width: 33.7%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .yselect_specifications .y-double {
+  .yb_extended-content .yfilterextended .show_tablet .yb-specifications_cars .yselect_specifications .y-double {
     width: 28.2%;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .yfilterextended .yfilter_selected-item .show-drop_down {
+  .yb_extended-content .yfilterextended .yfilter_selected-item .show-drop_down {
     padding: 15px 20px 15px 20px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
     margin-right: 15px;
     width: 32%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .y-transport_options {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .y-transport_options {
     margin-right: 15px;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
     width: 32%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .ychange_price-container {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .ychange_price-container {
     width: 38%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container {
     width: 61%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir {
     width: 60%;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country h2 {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country h2 {
     font-size: 1em;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check {
     font-size: 0.875em;
   }
 
-  .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .yreg_container .yreg-checkbox .yflex_dir:last-child {
     width: 35%;
   }
 
-  .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items {
+  .yb_extended-content .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items {
     display: block;
   }
 
-  .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+  .yb_extended-content .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
     width: 30%;
     margin-right: 0px;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
+  .yb_extended-content .yfilterextended .show_tablet .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
     width: 100%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other {
+  .yb_extended-content .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other {
     flex-direction: column;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
+  .yb_extended-content .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-left {
     width: 30%;
     padding: 15px;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right {
+  .yb_extended-content .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right {
     width: 100%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
+  .yb_extended-content .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 20%;
   }
 
-  .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
+  .yb_extended-content .yfilterextended .show_tablet .yb-specifications_cars .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
     width: 75%;
   }
 
-  .yfilterextended .show_tablet .yspecification_results .yvisual_results .yvis_res-select {
+  .yb_extended-content .yfilterextended .show_tablet .yspecification_results .yvisual_results .yvis_res-select {
     width: 30%;
     margin-right: 15px;
   }
 
-  .yfilterextended .show_tablet .yspecification_results .yvisual_results .yseach_card-id {
+  .yb_extended-content .yfilterextended .show_tablet .yspecification_results .yvisual_results .yseach_card-id {
     width: 30%;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .yfilterextended .show_mobile {
+  .yb_extended-content .yfilterextended .yfilter_selected-item {
+    margin: 20px 0 20px;
+  }
+
+  .yb_extended-content .yfilterextended .yfilter_selected-item .show-drop_down {
+    bottom: -80px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile {
     padding: 25px 10px;
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .ytitle-exp {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ytitle-exp {
     font-size: 1.5em;
     line-height: 28px;
     margin: 0 0 18px;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items {
     display: block;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 0;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
     width: 50%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
     width: 44%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile h3 {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile h3 {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;
     font-size: 1.125em;
@@ -5160,30 +5199,30 @@ span.yb-gradient {
     margin: 0 0 10px;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type {
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .checkbox {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-flow: wrap;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .yvis_checkbox {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .yvis_checkbox {
     width: 50%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .yvis_checkbox .ycheck {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .yvis_checkbox .ycheck {
     width: 12px;
     height: 12px;
     margin-right: 5px;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .yvis_checkbox .y-body_name {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type .yvis_checkbox .y-body_name {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: normal;
     font-size: 1em;
@@ -5191,255 +5230,125 @@ span.yb-gradient {
     color: #696969;
   }
 
-  .yfilterextended .show_mobile h4 {
-    font-family: "Alegreya Sans", sans-serif;
-    font-weight: 500;
-    font-size: 1.125em;
-    line-height: 22px;
-    color: rgba(46, 46, 46, 0.76);
-    margin: 0 0 5px;
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items {
+    flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .ydropdown {
-    width: 50%;
-    height: 40px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px 10px 20px;
-    border-radius: 10px;
-    border: 1px solid #E2E2E2;
-    cursor: pointer;
-    margin-bottom: 15px;
-  }
-
-  .yfilterextended .show_mobile .ydropdown .value {
-    font-family: "Alegreya Sans", sans-serif;
-    font-weight: normal;
-    font-size: 1em;
-    line-height: 22px;
-    color: #696969;
-  }
-
-  .yfilterextended .show_mobile .ydropdown i {
-    color: #C7C7C7;
-  }
-
-  .yfilterextended .show_mobile .ydropdown .items {
-    position: absolute;
-    scrollbar-width: none;
-    max-height: 140px;
-    overflow: scroll;
-    overflow-x: hidden;
-    top: 45px;
-    left: 0;
-    width: 100%;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-    border-radius: 3px;
-    z-index: 2;
-  }
-
-  .yfilterextended .show_mobile .ydropdown .items .item {
-    font-family: "Alegreya Sans", sans-serif;
-    font-weight: normal;
-    height: 35px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-size: 1em;
-    line-height: 22px;
-    padding: 0px 0px 0px 20px;
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.83);
-  }
-
-  .yfilterextended .show_mobile .ydropdown .items .item i {
-    position: absolute;
-    top: auto;
-    color: #2ECC71;
-    right: 16px;
-    font-size: 0.75em;
-  }
-
-  .yfilterextended .show_mobile .ydropdown .items .item:after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(199, 199, 199, 0.33);
-  }
-
-  .yfilterextended .show_mobile .ydropdown .items .checked {
-    border-left: 4px solid #0B3F8D;
-  }
-
-  .yfilterextended .show_mobile .ydropdown .items .checked:after {
-    height: 2px;
-    background: rgba(91, 91, 91, 0.13);
-  }
-
-  .yfilterextended .show_mobile .ydropdown .items::-webkit-scrollbar {
-    width: 0px;
-  }
-
-  .yfilterextended .show_mobile .add-cars_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .ychange_price-container {
     width: 50%;
   }
 
-  .yfilterextended .show_mobile .add-cars_items .yflex_car-item {
-    display: block;
-    margin-bottom: 10px;
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .ychange_price-container h2 {
+    color: #0B3F8D !important;
   }
 
-  .yfilterextended .show_mobile .add-cars_items .yflex_car-item .ycars-item {
-    width: 100%;
-  }
-
-  .yfilterextended .show_mobile .add-cars_items .yflex_car-item .ycars-item h2 {
-    margin: 15px 0 5px;
-  }
-
-  .yfilterextended .show_mobile .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown {
-    padding: 10px 15px 10px 20px;
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown {
     margin-bottom: 0;
   }
 
-  .yfilterextended .show_mobile .add-cars_items .y-cut_added-item {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .yfilterextended .show_mobile .add-cars_items .y-cut_added-item .car-items_btn {
-    text-align: left;
-    font-family: "Alegreya Sans", sans-serif;
-    font-weight: 500;
-    font-size: 0.9375em;
-    line-height: 18px;
-    color: #0B3F8D;
-    margin-bottom: 10px;
-  }
-
-  .yfilterextended .show_mobile .add-cars_items .y-cut_added-item .car-items_btn:last-child {
-    margin-bottom: 15px;
-  }
-
-  .yfilterextended .yb-carsearch_price-items {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .yfilterextended .yb-carsearch_price-items .ychange_price-container {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .yreg_container {
     width: 50%;
   }
 
-  .yfilterextended .yb-carsearch_price-items .yreg_container {
-    width: 50%;
-  }
-
-  .yfilterextended .yb-carsearch_price-items .yreg_container h2 {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .yreg_container h2 {
     margin: 10px 0 15px;
     color: #0B3F8D;
   }
 
-  .yfilterextended .yb-carsearch_price-items .yreg_container .autocomplete {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .yreg_container .autocomplete {
     width: 100%;
     margin-bottom: 10px;
   }
 
-  .yfilterextended .yb-carsearch_price-items .yreg_container .autocomplete:last-child {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .yreg_container .autocomplete:last-child {
     margin-bottom: 0;
   }
 
-  .yfilterextended .yb-condition_cars .yb-status_checked-items .yb-select_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items {
     flex-direction: column;
   }
 
-  .yfilterextended .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
     width: 50%;
     margin-right: 0;
     margin-bottom: 10px;
   }
 
-  .yfilterextended .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
     width: 90%;
   }
 
-  .yfilterextended .yb-specifications_cars .yselect_specifications {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .yselect_specifications {
     width: 100%;
     justify-content: space-between;
   }
 
-  .yfilterextended .yb-specifications_cars .yselect_specifications .vis_l-specifications {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .yselect_specifications .vis_l-specifications {
     width: 50%;
   }
 
-  .yfilterextended .yb-specifications_cars .yselect_specifications .vis_c-specifications {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .yselect_specifications .vis_c-specifications {
     width: 45%;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile {
     width: 100%;
     margin-top: 15px;
     position: relative;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .y-double {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .y-double {
     width: 45%;
     margin-right: 0;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications {
     width: 45%;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications h3 {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications h3 {
     margin: 0px 0 10px;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other {
     flex-direction: column;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
     width: 100%;
     padding: 15px 20px 10px 20px;
     margin-bottom: 10px;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right {
     width: 100%;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn {
     width: 100%;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options button {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options button {
     width: 50%;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options button i {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options button i {
     font-size: 0.875em;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption {
     display: flex;
     margin-bottom: 5px;
     cursor: pointer;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption input {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption input {
     width: 12px;
     height: 12px;
     margin-right: 5px;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption label {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visl-btn .yb_list-options .yoption label {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: normal;
     font-size: 1em;
@@ -5447,7 +5356,7 @@ span.yb-gradient {
     color: #696969;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
     flex-direction: column;
     text-align: center;
     height: 150px;
@@ -5462,39 +5371,39 @@ span.yb-gradient {
     border-radius: 3px;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options {
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options .ycars_options {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options .ycars_options {
     margin-right: 0;
   }
 
-  .yfilterextended .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options i {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options i {
     margin-top: 15px;
     color: #0B3F8D;
     font-size: 1.125em;
   }
 
-  .yfilterextended .yspecification_results .yvisual_results {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yspecification_results .yvisual_results {
     flex-direction: column;
   }
 
-  .yfilterextended .yspecification_results .yvisual_results .yvis_res-select {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yspecification_results .yvisual_results .yvis_res-select {
     width: 50%;
   }
 
-  .yfilterextended .yspecification_results .yvisual_results .yseach_card-id {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yspecification_results .yvisual_results .yseach_card-id {
     width: 50%;
   }
 
-  .yfilterextended .ysearch_results .yclear_form {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yclear_form {
     margin-bottom: 15px;
   }
 
-  .yfilterextended .ysearch_results .yb-count_result {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yb-count_result {
     margin-bottom: 25px;
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;
@@ -5502,154 +5411,296 @@ span.yb-gradient {
     line-height: 22px;
     color: rgba(24, 23, 23, 0.76);
   }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile h4 {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.125em;
+    line-height: 22px;
+    color: rgba(46, 46, 46, 0.76);
+    margin: 0 0 5px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown {
+    width: 50%;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #E2E2E2;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .value {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 22px;
+    color: #696969;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown i {
+    color: #C7C7C7;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .items {
+    position: absolute;
+    scrollbar-width: none;
+    max-height: 140px;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+    border-radius: 3px;
+    z-index: 2;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .items .item {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: normal;
+    height: 35px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    line-height: 22px;
+    padding: 0px 0px 0px 20px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.83);
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .items .item i {
+    position: absolute;
+    top: auto;
+    color: #2ECC71;
+    right: 16px;
+    font-size: 0.75em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .items .item:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(199, 199, 199, 0.33);
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .items .checked {
+    border-left: 4px solid #0B3F8D;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .items .checked:after {
+    height: 2px;
+    background: rgba(91, 91, 91, 0.13);
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ydropdown .items::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items {
+    width: 50%;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .yflex_car-item {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .yflex_car-item .ycars-item {
+    width: 100% !important;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .yflex_car-item .ycars-item h2 {
+    margin: 15px 0 5px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown {
+    padding: 10px 15px 10px 20px;
+    margin-bottom: 0;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .y-cut_added-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .y-cut_added-item .car-items_btn {
+    text-align: left;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    font-size: 0.9375em;
+    line-height: 18px;
+    color: #0B3F8D;
+    margin-bottom: 10px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .y-cut_added-item .car-items_btn:last-child {
+    margin-bottom: 15px;
+  }
 }
 
 @media only screen and (max-width: 425px) {
-  .yfilterextended .yfilter_selected-item {
+  .yb_extended-content .yfilterextended .yfilter_selected-item {
     padding: 15px 30px 15px 30px;
   }
 
-  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
+  .yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected {
+    width: 90%;
+    overflow: hidden;
+  }
+
+  .yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
     padding: 0 10% 0 5%;
     height: 30px;
   }
 
-  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected span {
+  .yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected span {
     font-size: 0.75em;
   }
 
-  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected i {
+  .yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected i {
     font-size: 0.625em;
   }
 
-  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:nth-child(3) {
+  .yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:nth-child(3) {
     display: none;
   }
 
-  .yfilterextended .yfilter_selected-item .show-drop_down {
-    bottom: -155px;
+  .yb_extended-content .yfilterextended .yfilter_selected-item .show-drop_down {
+    bottom: -75px;
     margin: 0;
   }
 
-  .yfilterextended .show_mobile {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile {
     padding: 25px 10px;
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .ytitle-exp {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ytitle-exp {
     font-size: 1.5em;
     line-height: 28px;
     margin: 0 0 18px;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items {
     flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .yoptions_items_mobile {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile {
     width: 100%;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type {
-    width: 70%;
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .yoptions_items .ychecked_options-mobile .yb-checked_type {
+    width: 80%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .ydropdown {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .ydropdown {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_items .add-cars_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .add-cars_items {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_price-items .ychange_price-container {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .ychange_price-container {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_price-items .yreg_container {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .yreg_container {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
     width: 60%;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items {
     width: 100%;
     flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .ycheked {
     margin-right: 0;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .vis_l {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .yb-cheked_items .vis_l {
     margin-bottom: 5px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .yselect_specifications {
     flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .vis_l-specifications {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .yselect_specifications .vis_l-specifications {
     width: 100%;
     margin: 0 0 15px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .y-double {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .yselect_specifications .y-double {
     width: 70%;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .y-double {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .y-double {
     width: 70%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
     width: 70%;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options {
     height: auto;
     padding: 20px 15px;
     bottom: -65px;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options {
     flex-direction: column;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options .ycars_options .yoption {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-right .yother_visr-options .yflex_vis_options .ycars_options .yoption {
     margin-bottom: 10px;
   }
 
-  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yvis_res-select {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yspecification_results .yvisual_results .yvis_res-select {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yseach_card-id {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yspecification_results .yvisual_results .yseach_card-id {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .ysearch_results .yb-repeat_selected .item_selected {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yb-repeat_selected .item_selected {
     margin-bottom: 5px;
   }
 
-  .yfilterextended .show_mobile .ysearch_results .yclear_form {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yclear_form {
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .ysearch_results .yb-count_result {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yb-count_result {
     margin-bottom: 25px;
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;
@@ -5659,81 +5710,75 @@ span.yb-gradient {
   }
 }
 
-@media only screen and (max-width: 375px) {
-  .yfilterextended .yfilter_selected-item .show-drop_down {
-    bottom: -195px;
-  }
-}
-
 @media only screen and (max-width: 320px) {
-  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
+  .yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected {
     padding: 0 10%;
   }
 
-  .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:nth-child(2) {
+  .yb_extended-content .yfilterextended .yfilter_selected-item .yb-items_selected .item_selected:nth-child(2) {
     display: none;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
     padding: 25px 5px;
   }
 
-  .yfilterextended .show_mobile .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .change_resource .title_change {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .change_resource .title_change {
     font-size: 0.875em;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_car-items .status_items {
     margin-right: 10px;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items h2 {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_car-items .status_items h2 {
     font-size: 1em;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s {
     font-size: 0.9375em;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s.active {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_car-items .status_items .change_vis-btn .btn_s.active {
     width: 75px;
     height: 35px;
     font-size: 0.9375em;
   }
 
-  .yfilterextended .show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-condition_cars .yb-status_checked-items .yb-select_items .ydropdown {
     width: 70%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .yselect_specifications .y-double {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .yselect_specifications .y-double {
     width: 90%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .y-double {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .y-double {
     width: 90%;
   }
 
-  .yfilterextended .show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-specifications_cars .vis_mobile .yother_specifications .yvis_other .yvis_other-left {
     width: 90%;
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yvis_res-select {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yspecification_results .yvisual_results .yvis_res-select {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .yspecification_results .yvisual_results .yseach_card-id {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yspecification_results .yvisual_results .yseach_card-id {
     width: 100%;
   }
 
-  .yfilterextended .show_mobile .ysearch_results .yb-repeat_selected .item_selected:last-child {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yb-repeat_selected .item_selected:last-child {
     display: none;
   }
 
-  .yfilterextended .show_mobile .ysearch_results .yclear_form {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yclear_form {
     margin-bottom: 15px;
   }
 
-  .yfilterextended .show_mobile .ysearch_results .yb-count_result {
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .ysearch_results .yb-count_result {
     margin-bottom: 25px;
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 500;

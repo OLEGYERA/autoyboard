@@ -75,6 +75,7 @@ export  default  {
             this.results = result;
             this.isOpened = false;
             this.selected = null;
+            this.$emit('setItem', result)
         },
         onChange() {
             this.isOpened = true;

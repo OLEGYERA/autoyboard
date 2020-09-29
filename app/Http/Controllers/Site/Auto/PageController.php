@@ -32,6 +32,11 @@ class PageController extends BasicController
         $this->content = view('site.auto.favorite.ru')->render();
         return $this->renderBasic();
     }
+    public function extended(){
+
+        $this->content = view('site.auto.extended.ru')->render();
+        return $this->renderBasic();
+    }
 
 
 

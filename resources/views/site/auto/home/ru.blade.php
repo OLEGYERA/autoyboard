@@ -28,7 +28,7 @@
             </div>
             <yform></yform>
             <div class="yb-form_right">
-                <yexpanded :text_color="'white'" :text="'Расширеный поиск'"></yexpanded>
+                <yexpanded  :text_color="'white'" :text="'Расширеный поиск'"></yexpanded>
                 <ystatus></ystatus>
             </div>
         </div>
@@ -48,7 +48,6 @@
     <section class="ymobilecatalog">
         <ymobilecatalog></ymobilecatalog>
     </section>
-
     <section class="yb-analytics">
         <yanalitics></yanalitics>
     </section>

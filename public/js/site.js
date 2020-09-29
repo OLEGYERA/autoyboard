@@ -4729,11 +4729,12 @@ __webpack_require__.r(__webpack_exports__);
     setItem: function setItem(item) {
       this.itemSelected = item.name;
       this.result = item;
-      this.isOpen = false; // this.$emit('setItem', Object.assign({item} ))
-
-      this.$emit('setItem', {
-        selectItem: item
-      });
+      this.isOpen = false;
+      this.$emit('setItem', item); //
+      // this.$emit('setItem', {
+      //     selectItem: item.name,
+      //     selectId: item.id
+      // })
     },
     handleClickOutside: function handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
@@ -6437,6 +6438,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
@@ -6448,6 +6499,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      showSelected: 6,
       selectDropDown: [],
       /// accepts data from child component <dropdown></dropdown>
       picked: [],
@@ -6890,24 +6942,107 @@ __webpack_require__.r(__webpack_exports__);
         id: 'anouther_body',
         name: 'Другой'
       }],
-      years: ['2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', ' 1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984', '1983', '1982', '1981', '1980', '1979', '1978', '1977', '1976', '1975', '1974', '1973', '1972', '1971', '1970', '1969', '1968', '1967', '1966', '1965', '1964', '1963', '1962', '1961', '1960', '1959', '1958', '1957', '1956', '1955', '1954', '1953', '1952', '1951', '1950', '1949', '1948', '1947', '1946', '1945', '1944', '1943', '1942', '1941', '1940', '1939', '1938', '1937', '1936', '1935', '1934', '1933', '1932', '1931', '1930', '1929', '1928', '1927', '1926', '1925', '1924', '1923', '1922', '1921', '1920', '1919', '1918', '1917', '1916', '1915', '1914', '1913', '1912', '1911', '1910', '1909', '1908', '1907', '1906', '1905', '1904', '1903', '1902', '1901', '1900']
+      years: [{
+        name: '2020',
+        id: '2020'
+      }, {
+        name: '2019',
+        id: '2019'
+      }, {
+        name: '2018',
+        id: '2018'
+      }, {
+        name: '2017',
+        id: '2017'
+      }, {
+        name: '2016',
+        id: '2016'
+      }, {
+        name: '2015',
+        id: '2015'
+      }, {
+        name: '2014',
+        id: '2014'
+      }, {
+        name: '2013',
+        id: '2013'
+      }, {
+        name: '2012',
+        id: '2012'
+      }, {
+        name: '2011',
+        id: '2011'
+      }, {
+        name: '2010',
+        id: '2010'
+      }, {
+        name: '2009',
+        id: '2009'
+      }, {
+        name: '2008',
+        id: '2008'
+      }, {
+        name: '2007',
+        id: '2007'
+      }, {
+        name: '2006',
+        id: '2006'
+      }, {
+        name: '2005',
+        id: '2005'
+      }, {
+        name: '2004',
+        id: '2004'
+      }, {
+        name: '2003',
+        id: '2003'
+      }, {
+        name: '2002',
+        id: '2002'
+      }, {
+        name: '2001',
+        id: '2001'
+      }, {
+        name: '2000',
+        id: '2000'
+      }, {
+        name: '1999',
+        id: '1999'
+      }, {
+        name: '1998',
+        id: '1998'
+      }, {
+        name: '1997',
+        id: '1997'
+      }, {
+        name: '1996',
+        id: '1996'
+      }, {
+        name: '1995',
+        id: '1995'
+      }]
     };
   },
   methods: {
-    selectedItem: function selectedItem(data) {
-      var arr1 = new Map();
-      this.selectDropDown = data;
+    selectedItem: function selectedItem(e) {
+      this.selectDropDown.push(e);
     },
     changeResize: function changeResize(event) {
       this.windowWidth = document.documentElement.clientWidth;
       console.log(this.windowWidth);
+      if (this.windowWidth <= 1024) this.showSelected = 5;
+      if (this.windowWidth <= 768) this.showSelected = 4;
+      if (this.windowWidth <= 600) this.showSelected = 3;
+      if (this.windowWidth <= 425) this.showSelected = 2;
+      if (this.windowWidth <= 320) this.showSelected = 1;
     },
     clickOutside: function clickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
         this.otherShowID = null;
       }
     }
-  }
+  },
+  watch: {}
 });
 
 /***/ }),
@@ -8058,6 +8193,7 @@ __webpack_require__.r(__webpack_exports__);
       this.results = result;
       this.isOpened = false;
       this.selected = null;
+      this.$emit('setItem', result);
     },
     onChange: function onChange() {
       this.isOpened = true;
@@ -49742,50 +49878,73 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "yfilterextended" }, [
-    _c("div", { staticClass: "yfilter_selected-item" }, [
-      _c(
-        "div",
-        { staticClass: "yb-items_selected" },
-        _vm._l(_vm.selectedTypeBody.slice(0, 4), function(item) {
-          return _c("div", { staticClass: "item_selected" }, [
-            _c("span", [_vm._v(_vm._s(item))]),
-            _vm._v(" "),
-            _c("i", { staticClass: "fas fa-times" })
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "fas",
-        class: {
-          "fa-chevron-up": _vm.showSelectedItem,
-          "fa-chevron-down": !_vm.showSelectedItem
-        },
-        on: {
-          click: function($event) {
-            _vm.showSelectedItem = !_vm.showSelectedItem
-          }
-        }
-      }),
-      _vm._v(" "),
-      _vm.showSelectedItem === true
-        ? _c("div", { staticClass: "yfilter_selected-item show-drop_down" }, [
-            _c(
-              "div",
-              { staticClass: "yb-items_selected" },
-              _vm._l(_vm.selectedTypeBody, function(item) {
-                return _c("div", { staticClass: "item_selected" }, [
-                  _c("span", [_vm._v(_vm._s(item))]),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "fas fa-times" })
-                ])
-              }),
-              0
-            )
-          ])
-        : _vm._e()
-    ]),
+    _vm.selectDropDown.length > 0
+      ? _c("div", { staticClass: "yfilter_selected-item" }, [
+          _c(
+            "div",
+            { staticClass: "yb-items_selected" },
+            _vm._l(_vm.selectDropDown.slice(0, _vm.showSelected), function(
+              item,
+              index
+            ) {
+              return _c("div", { staticClass: "item_selected" }, [
+                _c("span", [_vm._v(_vm._s(item.name))]),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-times",
+                  on: {
+                    click: function($event) {
+                      return _vm.selectDropDown.splice(index, 1)
+                    }
+                  }
+                })
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("i", {
+            staticClass: "fas",
+            class: {
+              "fa-chevron-up": _vm.showSelectedItem,
+              "fa-chevron-down": !_vm.showSelectedItem
+            },
+            on: {
+              click: function($event) {
+                _vm.showSelectedItem = !_vm.showSelectedItem
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.showSelectedItem === true
+            ? _c(
+                "div",
+                { staticClass: "yfilter_selected-item show-drop_down" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "yb-items_selected" },
+                    _vm._l(_vm.selectDropDown, function(item) {
+                      return _c("div", { staticClass: "item_selected" }, [
+                        _c("span", [_vm._v(_vm._s(item.name))]),
+                        _vm._v(" "),
+                        _c("i", {
+                          staticClass: "fas fa-times",
+                          on: {
+                            click: function($event) {
+                              return _vm.selectDropDown.splice(_vm.index, 1)
+                            }
+                          }
+                        })
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _vm.windowWidth <= 601
       ? _c("div", { staticClass: "ybexpanded_search show_mobile" }, [
@@ -49826,7 +49985,8 @@ var render = function() {
                         attrs: {
                           placeholder: "Не выбрано",
                           items: _vm.typeCars
-                        }
+                        },
+                        on: { setItem: _vm.selectedItem }
                       })
                     ],
                     1
@@ -49843,42 +50003,12 @@ var render = function() {
                       _vm._l(_vm.bodyType, function(item, id) {
                         return _c("div", { staticClass: "yvis_checkbox" }, [
                           _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.selectedTypeBody,
-                                expression: "selectedTypeBody"
-                              }
-                            ],
                             staticClass: "ycheck",
                             attrs: { id: item.name, type: "checkbox" },
-                            domProps: {
-                              value: item.name,
-                              checked: Array.isArray(_vm.selectedTypeBody)
-                                ? _vm._i(_vm.selectedTypeBody, item.name) > -1
-                                : _vm.selectedTypeBody
-                            },
+                            domProps: { value: item.name },
                             on: {
                               change: function($event) {
-                                var $$a = _vm.selectedTypeBody,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = item.name,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.selectedTypeBody = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.selectedTypeBody = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
-                                } else {
-                                  _vm.selectedTypeBody = $$c
-                                }
+                                return _vm.selectedItem(item)
                               }
                             }
                           }),
@@ -49889,7 +50019,13 @@ var render = function() {
                               staticClass: "y-body_name",
                               attrs: { for: item.name }
                             },
-                            [_vm._v(_vm._s(item.name))]
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(item.name) +
+                                  "\n                                "
+                              )
+                            ]
                           )
                         ])
                       }),
@@ -49905,7 +50041,8 @@ var render = function() {
                 attrs: {
                   placeholder: "Выберите страну",
                   items: _vm.countryName
-                }
+                },
+                on: { setItem: _vm.selectedItem }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "add-cars_items" }, [
@@ -50002,14 +50139,16 @@ var render = function() {
                   attrs: {
                     placeholder: "Выберите область",
                     options: _vm.ukSityName
-                  }
+                  },
+                  on: { setItem: _vm.selectedItem }
                 }),
                 _vm._v(" "),
                 _c("yselect", {
                   attrs: {
                     placeholder: "Выберите город",
                     options: _vm.ukSityName
-                  }
+                  },
+                  on: { setItem: _vm.selectedItem }
                 })
               ],
               1
@@ -50032,7 +50171,8 @@ var render = function() {
                     attrs: {
                       placeholder: "Выберите страну",
                       items: _vm.countryName
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _vm._m(3)
@@ -50053,7 +50193,8 @@ var render = function() {
                   _c("h2", [_vm._v("Топливо")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.fuel }
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("КПП")]),
@@ -50062,13 +50203,18 @@ var render = function() {
                     attrs: {
                       placeholder: "Не выбрано",
                       items: _vm.transmission
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Тип привода")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.typeofdrive }
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.typeofdrive
+                    },
+                    on: { setItem: _vm.selectedItem }
                   })
                 ],
                 1
@@ -50908,7 +51054,8 @@ var render = function() {
                     attrs: {
                       placeholder: "Выберите страну",
                       items: _vm.countryName
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   })
                 ],
                 1
@@ -50921,7 +51068,8 @@ var render = function() {
                   _c("h2", [_vm._v("Тип транспорта")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.typeCars }
+                    attrs: { placeholder: "Не выбрано", items: _vm.typeCars },
+                    on: { setItem: _vm.selectedItem }
                   })
                 ],
                 1
@@ -50937,42 +51085,12 @@ var render = function() {
                     _vm._l(_vm.bodyType, function(item, id) {
                       return _c("div", { staticClass: "yvis_checkbox" }, [
                         _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.selectedTypeBody,
-                              expression: "selectedTypeBody"
-                            }
-                          ],
                           staticClass: "ycheck",
                           attrs: { id: item.name, type: "checkbox" },
-                          domProps: {
-                            value: item.name,
-                            checked: Array.isArray(_vm.selectedTypeBody)
-                              ? _vm._i(_vm.selectedTypeBody, item.name) > -1
-                              : _vm.selectedTypeBody
-                          },
+                          domProps: { value: item.name },
                           on: {
                             change: function($event) {
-                              var $$a = _vm.selectedTypeBody,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = item.name,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.selectedTypeBody = $$a.concat([$$v]))
-                                } else {
-                                  $$i > -1 &&
-                                    (_vm.selectedTypeBody = $$a
-                                      .slice(0, $$i)
-                                      .concat($$a.slice($$i + 1)))
-                                }
-                              } else {
-                                _vm.selectedTypeBody = $$c
-                              }
+                              return _vm.selectedItem(item)
                             }
                           }
                         }),
@@ -50983,7 +51101,13 @@ var render = function() {
                             staticClass: "y-body_name",
                             attrs: { for: item.name }
                           },
-                          [_vm._v(_vm._s(item.name))]
+                          [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(item.name) +
+                                "\n                                "
+                            )
+                          ]
                         )
                       ])
                     }),
@@ -51173,7 +51297,8 @@ var render = function() {
                     attrs: {
                       placeholder: "Выберите страну",
                       items: _vm.countryName
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   })
                 ],
                 1
@@ -51219,7 +51344,8 @@ var render = function() {
                   attrs: {
                     placeholder: "Выберите город",
                     options: _vm.ukSityName
-                  }
+                  },
+                  on: { setItem: _vm.selectedItem }
                 }),
                 _vm._v(" "),
                 _vm._m(8)
@@ -51244,7 +51370,8 @@ var render = function() {
                     attrs: {
                       placeholder: "Выберите страну",
                       items: _vm.countryName
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _vm._m(10)
@@ -51265,7 +51392,8 @@ var render = function() {
                   _c("h2", [_vm._v("Топливо")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.fuel }
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("КПП")]),
@@ -51274,13 +51402,18 @@ var render = function() {
                     attrs: {
                       placeholder: "Не выбрано",
                       items: _vm.transmission
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Тип привода")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.typeofdrive }
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.typeofdrive
+                    },
+                    on: { setItem: _vm.selectedItem }
                   })
                 ],
                 1
@@ -51575,45 +51708,15 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "yl-vis checkbox" },
-                      _vm._l(_vm.bodyType, function(item, id) {
+                      _vm._l(_vm.bodyType, function(item) {
                         return _c("div", { staticClass: "yvis_checkbox" }, [
                           _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.selectedTypeBody,
-                                expression: "selectedTypeBody"
-                              }
-                            ],
                             staticClass: "ycheck",
                             attrs: { id: item.name, type: "checkbox" },
-                            domProps: {
-                              value: item.name,
-                              checked: Array.isArray(_vm.selectedTypeBody)
-                                ? _vm._i(_vm.selectedTypeBody, item.name) > -1
-                                : _vm.selectedTypeBody
-                            },
+                            domProps: { value: item.name },
                             on: {
                               change: function($event) {
-                                var $$a = _vm.selectedTypeBody,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = item.name,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.selectedTypeBody = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.selectedTypeBody = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
-                                } else {
-                                  _vm.selectedTypeBody = $$c
-                                }
+                                return _vm.selectedItem(item)
                               }
                             }
                           }),
@@ -51624,7 +51727,13 @@ var render = function() {
                               staticClass: "y-body_name",
                               attrs: { for: item.name }
                             },
-                            [_vm._v(_vm._s(item.name))]
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(item.name) +
+                                  "\n                                "
+                              )
+                            ]
                           )
                         ])
                       }),
@@ -51658,7 +51767,8 @@ var render = function() {
                       attrs: {
                         placeholder: "Выберите марку",
                         options: _vm.cars
-                      }
+                      },
+                      on: { setItem: _vm.selectedItem }
                     })
                   ],
                   1
@@ -51674,7 +51784,8 @@ var render = function() {
                       attrs: {
                         placeholder: "Выберите модель",
                         options: _vm.cars
-                      }
+                      },
+                      on: { setItem: _vm.selectedItem }
                     })
                   ],
                   1
@@ -51711,7 +51822,8 @@ var render = function() {
                       attrs: {
                         placeholder: "Выберите марку",
                         options: _vm.cars
-                      }
+                      },
+                      on: { setItem: _vm.selectedItem }
                     })
                   ],
                   1
@@ -51727,7 +51839,8 @@ var render = function() {
                       attrs: {
                         placeholder: "Выберите модель",
                         options: _vm.cars
-                      }
+                      },
+                      on: { setItem: _vm.selectedItem }
                     })
                   ],
                   1
@@ -51826,7 +51939,8 @@ var render = function() {
                     attrs: {
                       placeholder: "Выберите страну",
                       items: _vm.countryName
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   })
                 ],
                 1
@@ -51872,7 +51986,8 @@ var render = function() {
                   attrs: {
                     placeholder: "Выберите город",
                     options: _vm.ukSityName
-                  }
+                  },
+                  on: { setItem: _vm.selectedItem }
                 }),
                 _vm._v(" "),
                 _vm._m(17)
@@ -51897,7 +52012,8 @@ var render = function() {
                     attrs: {
                       placeholder: "Выберите страну",
                       items: _vm.countryName
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _vm._m(19)
@@ -51918,7 +52034,8 @@ var render = function() {
                   _c("h2", [_vm._v("Топливо")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.fuel }
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("КПП")]),
@@ -51927,13 +52044,18 @@ var render = function() {
                     attrs: {
                       placeholder: "Не выбрано",
                       items: _vm.transmission
-                    }
+                    },
+                    on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Тип привода")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.typeofdrive }
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.typeofdrive
+                    },
+                    on: { setItem: _vm.selectedItem }
                   })
                 ],
                 1

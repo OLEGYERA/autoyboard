@@ -49,10 +49,12 @@
                 this.result = item
                 this.isOpen = false
 
-                // this.$emit('setItem', Object.assign({item} ))
-                this.$emit('setItem', {
-                    selectItem: item,
-                })
+                this.$emit('setItem', item)
+                //
+                // this.$emit('setItem', {
+                //     selectItem: item.name,
+                //     selectId: item.id
+                // })
             },
             handleClickOutside(evt){
                 if (!this.$el.contains(evt.target)) {

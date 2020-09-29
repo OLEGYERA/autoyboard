@@ -1,13 +1,21 @@
 <template>
     <div class="yfilterextended">
-        <div  class="yfilter_selected-item">
+        <div v-if="selectDropDown.length > 0"  class="yfilter_selected-item">
             <div class="yb-items_selected">
-                <div v-for="(item) in selectedTypeBody.slice(0, 4)" class="item_selected">
-                    <span>{{item}}</span>
-                    <i class="fas fa-times"></i>
+                <div
+                    v-for="(item, index) in selectDropDown.slice(0, showSelected)"
+                    class="item_selected"
+                >
+                    <span>{{item.name}}</span>
+                    <i
+                        @click="selectDropDown.splice(index, 1)"
+                       class="fas fa-times"
+                    >
+                    </i>
                 </div>
             </div>
-            <i @click="showSelectedItem = !showSelectedItem"
+            <i
+                @click="showSelectedItem = !showSelectedItem"
                :class="{'fa-chevron-up' :showSelectedItem, 'fa-chevron-down':  !showSelectedItem}"
                class="fas"
             >
@@ -17,9 +25,16 @@
                 class="yfilter_selected-item show-drop_down"
             >
                 <div class="yb-items_selected">
-                    <div v-for="(item) in selectedTypeBody" class="item_selected">
-                        <span>{{item}}</span>
-                        <i class="fas fa-times"></i>
+                    <div
+                        class="item_selected"
+                        v-for="(item) in selectDropDown"
+                    >
+                        <span>{{item.name}}</span>
+                        <i
+                            @click="selectDropDown.splice(index, 1)"
+                            class="fas fa-times"
+                        >
+                        </i>
                     </div>
                 </div>
             </div>
@@ -47,7 +62,7 @@
                         </div>
                         <div class="y-transport_options">
                             <h2>Тип транспорта</h2>
-                            <ydropdown :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
                         </div>
                     </div>
                     <div class="ychecked_options-mobile">
@@ -55,15 +70,26 @@
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
                                 <div v-for="(item, id) in bodyType" class="yvis_checkbox">
-                                    <input class="ycheck" :value="item.name" :id="item.name" v-model="selectedTypeBody" type="checkbox">
-                                    <label class="y-body_name" :for="item.name">{{item.name}}</label>
+                                    <input
+                                        @change="selectedItem(item)"
+                                        class="ycheck"
+                                        :value="item.name"
+                                        :id="item.name"
+                                        type="checkbox"
+                                    >
+                                    <label
+                                        class="y-body_name"
+                                        :for="item.name"
+                                    >
+                                        {{item.name}}
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <h4>Страна производитель</h4>
-                <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                 <div class="add-cars_items">
                     <div class="yflex_car-item">
                         <div class="ycars-item marks">
@@ -110,8 +136,8 @@
                 </div>
                 <div class="yreg_container">
                     <h2>Регион</h2>
-                    <yselect :placeholder="'Выберите область'" :options="ukSityName"></yselect>
-                    <yselect :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                    <yselect @setItem='selectedItem' :placeholder="'Выберите область'" :options="ukSityName"></yselect>
+                    <yselect @setItem='selectedItem' :placeholder="'Выберите город'" :options="ukSityName"></yselect>
                 </div>
             </div>
             <div class="yb-condition_cars">
@@ -170,7 +196,7 @@
                 <div class="yb-status_checked-items">
                     <h2>Пригнан из</h2>
                     <div class="yb-select_items">
-                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                         <div class="yb-cheked_items">
                             <div class="ycheked vis_l">
                                 <div class="yvis_l checkbox">
@@ -225,11 +251,11 @@
                 <div class="yselect_specifications">
                     <div class="vis_l-specifications">
                         <h2>Топливо</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
                         <h2>КПП</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
                         <h2>Тип привода</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
                     </div>
                     <div class="vis_c-specifications y-double">
                         <h3>Росход топлива, л./100 км</h3>
@@ -431,19 +457,30 @@
                             </ycheckbox>
                         </div>
                         <h4>Страна производитель</h4>
-                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
-                        <ydropdown :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
                     </div>
                     <div class="ychecked_options-mobile">
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
                                 <div v-for="(item, id) in bodyType" class="yvis_checkbox">
-                                    <input class="ycheck" :value="item.name" :id="item.name" v-model="selectedTypeBody" type="checkbox">
-                                    <label class="y-body_name" :for="item.name">{{item.name}}</label>
+                                    <input
+                                        class="ycheck"
+                                        :value="item.name"
+                                        :id="item.name"
+                                        @change="selectedItem(item)"
+                                        type="checkbox"
+                                    >
+                                    <label
+                                        class="y-body_name"
+                                        :for="item.name"
+                                    >
+                                        {{item.name}}
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -520,7 +557,7 @@
                     <button class="yadded-car-item exclude">Добавить марку</button>
                     <div class="yexclude_country-car">
                         <h2>Исключить страну</h2>
-                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                     </div>
                     <button class="yadded-car-item exclude_counry">Добавить страну</button>
                 </div>
@@ -543,7 +580,7 @@
                 </div>
                 <div class="yreg_container">
                     <h2>Регион</h2>
-                    <yselect :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                    <yselect @setItem='selectedItem' :placeholder="'Выберите город'" :options="ukSityName"></yselect>
                     <div class="yreg-checkbox">
                         <div class="yflex_dir">
                             <div class="yside_country">
@@ -736,7 +773,7 @@
                 <div class="yb-status_checked-items">
                     <h2>Пригнан из</h2>
                     <div class="yb-select_items">
-                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                         <div class="yb-cheked_items">
                             <div class="ycheked vis_l">
                                 <div class="yvis_l checkbox">
@@ -793,11 +830,11 @@
                 <div class="yselect_specifications">
                     <div class="vis_l-specifications">
                         <h2>Топливо</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
                         <h2>КПП</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
                         <h2>Тип привода</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
                     </div>
                     <div class="vis_c-specifications y-double">
                         <h3>Росход топлива, л./100 км</h3>
@@ -999,9 +1036,19 @@
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
-                                <div v-for="(item, id) in bodyType" class="yvis_checkbox">
-                                    <input class="ycheck" :value="item.name" :id="item.name" v-model="selectedTypeBody" type="checkbox">
-                                    <label class="y-body_name" :for="item.name">{{item.name}}</label>
+                                <div v-for="(item) in bodyType" class="yvis_checkbox">
+                                    <input
+                                        class="ycheck"
+                                        :value="item.name"
+                                        :id="item.name"
+                                        @change="selectedItem(item)"
+                                        type="checkbox">
+                                    <label
+                                        class="y-body_name"
+                                        :for="item.name"
+                                    >
+                                        {{item.name}}
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -1014,12 +1061,14 @@
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
+                                @setItem='selectedItem'
                                 :placeholder="'Выберите марку'"
                                 :options="cars"></yselect>
                         </div>
                         <div class="ycars-item model">
                             <h2>Модель</h2>
                             <yselect
+                                @setItem='selectedItem'
                                 :placeholder="'Выберите модель'"
                                 :options="cars"></yselect>
                         </div>
@@ -1035,12 +1084,14 @@
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
+                                @setItem='selectedItem'
                                 :placeholder="'Выберите марку'"
                                 :options="cars"></yselect>
                         </div>
                         <div class="ycars-item model">
                             <h2>Модель</h2>
                             <yselect
+                                @setItem='selectedItem'
                                 :placeholder="'Выберите модель'"
                                 :options="cars"></yselect>
                         </div>
@@ -1080,7 +1131,7 @@
                     <button class="yadded-car-item exclude">Добавить марку</button>
                     <div class="yexclude_country-car">
                         <h2>Исключить страну</h2>
-                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                     </div>
                     <button class="yadded-car-item exclude_counry">Добавить страну</button>
                 </div>
@@ -1103,7 +1154,7 @@
                 </div>
                 <div class="yreg_container">
                     <h2>Регион</h2>
-                    <yselect :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                    <yselect @setItem='selectedItem' :placeholder="'Выберите город'" :options="ukSityName"></yselect>
                     <div class="yreg-checkbox">
                         <div class="yflex_dir">
                             <div class="yside_country">
@@ -1296,7 +1347,7 @@
                 <div class="yb-status_checked-items">
                         <h2>Пригнан из</h2>
                     <div class="yb-select_items">
-                        <ydropdown :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                         <div class="yb-cheked_items">
                             <div class="ycheked vis_l">
                                 <div class="yvis_l checkbox">
@@ -1353,11 +1404,11 @@
                 <div class="yselect_specifications">
                     <div class="vis_l-specifications">
                         <h2>Топливо</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
                         <h2>КПП</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
                         <h2>Тип привода</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
                     </div>
                     <div class="vis_c-specifications y-double">
                         <h3>Росход топлива, л./100 км</h3>
@@ -1398,7 +1449,6 @@
                     <h3>Цвет</h3>
                     <div class="yvis_other">
                         <div class="yvis_other-left">
-
                             <div class="ycheck_color">
                                 <div class="ylabel_visible">
                                     <input  class="" v-model="picked"  type="checkbox">
@@ -1550,6 +1600,7 @@
         },
         data(){
             return{
+                showSelected: 6,
                 selectDropDown: [], /// accepts data from child component <dropdown></dropdown>
                 picked: [],
                 selectedTypeBody: [],
@@ -1879,17 +1930,21 @@
                         name: 'Другой',
                     },
                 ],
-                years: ['2020' , '2019' , '2018' , '2017' , '2016' , '2015' , '2014' , '2013' , '2012' , '2011' , '2010' , '2009' , '2008' , '2007' , '2006' , '2005' , '2004' , '2003' , '2002' , '2001', '2000', '1999',  '1998', ' 1997', '1996', '1995',  '1994',  '1993',  '1992' , '1991',  '1990' , '1989' , '1988' , '1987' , '1986' , '1985' , '1984' , '1983' , '1982' , '1981' , '1980' , '1979' , '1978' , '1977' , '1976' , '1975' , '1974' , '1973' , '1972' , '1971' , '1970' , '1969' , '1968' , '1967' , '1966' , '1965' , '1964' , '1963' , '1962' , '1961' , '1960' , '1959' , '1958' , '1957' , '1956' , '1955' , '1954' , '1953' , '1952' , '1951' , '1950' ,'1949' , '1948' , '1947' , '1946' , '1945' , '1944' , '1943' , '1942' , '1941' , '1940' , '1939' , '1938' , '1937' , '1936' , '1935' , '1934' , '1933' , '1932' , '1931' , '1930' , '1929' , '1928' , '1927' , '1926' , '1925' , '1924' , '1923' , '1922' , '1921' , '1920', '1919' , '1918' , '1917' , '1916' ,'1915' , '1914' , '1913' , '1912' , '1911' , '1910' , '1909' , '1908' , '1907' , '1906' , '1905' , '1904' , '1903' , '1902',  '1901','1900']
+                years: [{name :'2020', id: '2020'} , {name :'2019', id: '2019'} , {name :'2018', id: '2018'} , {name :'2017', id: '2017'} , {name :'2016', id: '2016'} , {name :'2015', id: '2015'} , {name :'2014', id: '2014'} , {name :'2013', id: '2013'} , {name :'2012', id: '2012'} , {name :'2011', id: '2011'} , {name :'2010', id: '2010'} , {name :'2009', id: '2009'} , {name: '2008', id:'2008'} , {name: '2007', id:'2007'} , {name: '2006', id:'2006'} , {name: '2005', id:'2005'} , {name: '2004', id:'2004'} , {name: '2003', id:'2003'} , {name: '2002', id:'2002'} , {name: '2001', id:'2001'}, {name: '2000', id:'2000'}, {name: '1999', id:'1999'}, {name: '1998', id:'1998'}, {name: '1997', id:'1997'}, {name:'1996', id:'1996'}, {name:'1995', id:'1995'},],
             }
-        },
+      },
         methods: {
-            selectedItem(data){
-                var arr1 = new Map();
-                this.selectDropDown = data
+            selectedItem(e){
+                this.selectDropDown.push(e)
             },
             changeResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
                 console.log(this.windowWidth)
+                if(this.windowWidth <= 1024) this.showSelected = 5
+                if(this.windowWidth <= 768) this.showSelected = 4
+                if(this.windowWidth <= 600) this.showSelected = 3
+                if(this.windowWidth <= 425) this.showSelected = 2
+                if(this.windowWidth <= 320) this.showSelected = 1
             },
             clickOutside(evt){
                 if (!this.$el.contains(evt.target)) {
@@ -1897,6 +1952,8 @@
                 }
             }
         },
+        watch: {
 
+        }
     }
 </script>
