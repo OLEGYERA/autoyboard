@@ -4898,6 +4898,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
 //
 //
 //
@@ -6245,277 +6246,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    var _this = this;
 
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: {
+    reversedYears: function reversedYears() {
+      return this.yearsList.slice().reverse();
+    }
+  },
+  mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
     window.addEventListener('resize', this.changeResize);
     this.changeResize();
     this.getYears();
-    window.axios.get("http://10.0.0.140:1709/v1/transport_type", {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-      }
-    }).then(function (response) {
-      _this.transportType = response.data;
-    })["catch"](function (e) {});
+    this.getRegion();
+    this.getTransportType();
   },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.clickOutside);
   },
   data: function data() {
     return {
+      transportTypeChecked: [],
+      // true or false checkbox
       transportType: [],
       yearsList: [],
+      regionArr: [],
       showSelected: 6,
       selectDropDown: [],
-      /// accepts data from child component <dropdown></dropdown>
+      /// accepts data from child component <dropdown></dropdown> && <select></select>
       picked: [],
       selectedTypeBody: [],
       showSelectedItem: false,
@@ -7110,12 +6868,20 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    addToArray: function addToArray(item, index) {
+      this.selectDropDown.push({
+        name: item.name,
+        id: index
+      });
+    },
+    removeSelectedItem: function removeSelectedItem(index) {
+      this.$delete(this.selectDropDown, index);
+    },
     selectedItem: function selectedItem(e) {
       this.selectDropDown.push(e);
     },
     changeResize: function changeResize(event) {
       this.windowWidth = document.documentElement.clientWidth;
-      console.log(this.windowWidth);
       if (this.windowWidth <= 1024) this.showSelected = 5;
       if (this.windowWidth <= 768) this.showSelected = 4;
       if (this.windowWidth <= 600) this.showSelected = 3;
@@ -7128,21 +6894,46 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getYears: function getYears() {
-      var y1 = new Date("1900-5-1").getFullYear();
+      var y1 = new Date("1900").getFullYear();
       var y2 = new Date().getFullYear();
 
       if (y1 < y2) {
         for (var i = y1; i <= y2; i++) {
-          this.yearsList.push(i);
+          this.yearsList.push({
+            name: i
+          });
         }
       } else {
         for (var _i = y2; _i <= y1; _i++) {
-          this.yearsList.push(_i);
+          this.yearsList.push({
+            name: _i
+          });
         }
       }
+    },
+    getTransportType: function getTransportType() {
+      var _this = this;
+
+      var lang = 3,
+          query = "?langType=" + lang;
+      _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].get('/transport_types' + query).then(function (response) {
+        _this.transportType = response.data;
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    getRegion: function getRegion() {
+      var _this2 = this;
+
+      var lang = 3,
+          query = "?langType=" + lang + '&alias=1';
+      _http_js__WEBPACK_IMPORTED_MODULE_0__["HTTP"].get('/regions' + query).then(function (response) {
+        _this2.regionArr = response.data;
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
     }
-  },
-  watch: {}
+  }
 });
 
 /***/ }),
@@ -7349,6 +7140,118 @@ __webpack_require__.r(__webpack_exports__);
     check: function check() {
       console.log('check');
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterselectsearch.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterselectsearch.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['placeholder', 'options'],
+  data: function data() {
+    return {
+      openRes: false,
+      result: [],
+      search: '',
+      arrowCounter: 0
+    };
+  },
+  computed: {// filterResults() {
+    //     this.arrowCounter = 0;
+    //     this.$refs.scrollContainer.scrollTop = 0;
+    //     this.results = this.options.filter((item) => {
+    //         return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+    //     });
+    // },
+  },
+  methods: {
+    filteredCity: function filteredCity() {// this.result = this.options.filter(function (r){
+      //     console.log(r)
+      //     return r.childrens.name.toLowerCase().indexOf(val.toLowerCase()) !== -1
+      // })
+    },
+    handleClickOutside: function handleClickOutside(evt) {
+      if (!this.$el.contains(evt.target)) {
+        this.openRes = false;
+      }
+    },
+    // fixScrolling(){
+    //     const scroll = this.$refs.scroll[this.arrowCounter].scrollHeight;
+    //     this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
+    //     console.log(this.$refs.scrollContainer.scrollTop);
+    //     console.log(scroll * this.arrowCounter);
+    // },
+    onArrowDown: function onArrowDown(ev) {
+      ev.preventDefault();
+
+      if (this.arrowCounter < this.result.length - 1) {
+        this.arrowCounter = this.arrowCounter + 1;
+        this.fixScrolling();
+      }
+    },
+    onArrowUp: function onArrowUp(ev) {
+      ev.preventDefault();
+
+      if (this.arrowCounter > 0) {
+        this.arrowCounter = this.arrowCounter - 1;
+        this.fixScrolling();
+      }
+    }
+  },
+  mounted: function mounted() {
+    document.addEventListener('click', this.handleClickOutside);
+    this.filteredCity();
+  },
+  destroyed: function destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
   }
 });
 
@@ -49994,7 +49897,7 @@ var render = function() {
                   staticClass: "fas fa-times",
                   on: {
                     click: function($event) {
-                      return _vm.selectDropDown.splice(index, 1)
+                      return _vm.removeSelectedItem(index)
                     }
                   }
                 })
@@ -50024,7 +49927,7 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "yb-items_selected" },
-                    _vm._l(_vm.selectDropDown, function(item) {
+                    _vm._l(_vm.selectDropDown, function(item, index) {
                       return _c("div", { staticClass: "item_selected" }, [
                         _c("span", [_vm._v(_vm._s(item.name))]),
                         _vm._v(" "),
@@ -50032,7 +49935,7 @@ var render = function() {
                           staticClass: "fas fa-times",
                           on: {
                             click: function($event) {
-                              return _vm.selectDropDown.splice(_vm.index, 1)
+                              return _vm.removeSelectedItem(index)
                             }
                           }
                         })
@@ -50084,7 +49987,7 @@ var render = function() {
                       _c("ydropdown", {
                         attrs: {
                           placeholder: "Не выбрано",
-                          items: _vm.typeCars
+                          items: _vm.transportType
                         },
                         on: { setItem: _vm.selectedItem }
                       })
@@ -50187,11 +50090,11 @@ var render = function() {
                       { staticClass: "ydrop_down-years" },
                       [
                         _c("ydropdown", {
-                          attrs: { placeholder: "От", items: _vm.yearsList }
+                          attrs: { placeholder: "От", items: _vm.reversedYears }
                         }),
                         _vm._v(" "),
                         _c("ydropdown", {
-                          attrs: { placeholder: "До", items: _vm.yearsList }
+                          attrs: { placeholder: "До", items: _vm.reversedYears }
                         })
                       ],
                       1
@@ -51168,7 +51071,10 @@ var render = function() {
                   _c("h2", [_vm._v("Тип транспорта")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.typeCars },
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transportType
+                    },
                     on: { setItem: _vm.selectedItem }
                   })
                 ],
@@ -51259,11 +51165,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.yearsList }
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.yearsList }
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
                       })
                     ],
                     1
@@ -51312,11 +51218,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.yearsList }
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.yearsList }
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
                       })
                     ],
                     1
@@ -51371,11 +51277,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.yearsList }
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.yearsList }
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
                       })
                     ],
                     1
@@ -51448,7 +51354,35 @@ var render = function() {
                   on: { setItem: _vm.selectedItem }
                 }),
                 _vm._v(" "),
-                _vm._m(8)
+                _c("div", { staticClass: "yreg-checkbox" }, [
+                  _c(
+                    "div",
+                    { staticClass: "yflex_dir" },
+                    _vm._l(_vm.regionArr, function(item) {
+                      return _c("div", { staticClass: "yside_country" }, [
+                        _c("h2", [_vm._v(_vm._s(item.name))]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "yside_check" },
+                          _vm._l(item.childrens, function(child) {
+                            return _c("div", { staticClass: "y-check " }, [
+                              _c("input", {
+                                attrs: { id: child.alias, type: "checkbox" }
+                              }),
+                              _vm._v(" "),
+                              _c("label", { attrs: { for: child.alias } }, [
+                                _vm._v(_vm._s(child.name))
+                              ])
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ])
               ],
               1
             )
@@ -51457,7 +51391,7 @@ var render = function() {
           _c("div", { staticClass: "yb-condition_cars" }, [
             _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _vm._m(9),
+            _vm._m(8),
             _vm._v(" "),
             _c("div", { staticClass: "yb-status_checked-items" }, [
               _c("h2", [_vm._v("Пригнан из")]),
@@ -51474,7 +51408,7 @@ var render = function() {
                     on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
-                  _vm._m(10)
+                  _vm._m(9)
                 ],
                 1
               )
@@ -51631,9 +51565,9 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "yvis_other" }, [
                 _c("div", { staticClass: "yvis_other-left" }, [
-                  _vm._m(11),
+                  _vm._m(10),
                   _vm._v(" "),
-                  _vm._m(12),
+                  _vm._m(11),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -51761,11 +51695,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(13)
+              _vm._m(12)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(14)
+          _vm._m(13)
         ])
       : _c("div", { staticClass: "ybexpanded_search" }, [
           _c("h1", { staticClass: "ytitle-exp" }, [
@@ -51774,7 +51708,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "yb-carsearch_items" }, [
             _c("div", { staticClass: "yoptions_items" }, [
-              _vm._m(15),
+              _vm._m(14),
               _vm._v(" "),
               _c(
                 "div",
@@ -51798,7 +51732,10 @@ var render = function() {
                   _c("h2", [_vm._v("Тип транспорта")]),
                   _vm._v(" "),
                   _c("ydropdown", {
-                    attrs: { placeholder: "Не выбрано", items: _vm.typeCars },
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transportType
+                    },
                     on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
@@ -51808,15 +51745,61 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "yl-vis checkbox" },
-                      _vm._l(_vm.bodyType, function(item) {
+                      _vm._l(_vm.bodyType, function(item, index) {
                         return _c("div", { staticClass: "yvis_checkbox" }, [
                           _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.transportTypeChecked[index],
+                                expression: "transportTypeChecked[index]"
+                              }
+                            ],
                             staticClass: "ycheck",
                             attrs: { id: item.name, type: "checkbox" },
-                            domProps: { value: item.name },
+                            domProps: {
+                              value: item.name,
+                              checked: Array.isArray(
+                                _vm.transportTypeChecked[index]
+                              )
+                                ? _vm._i(
+                                    _vm.transportTypeChecked[index],
+                                    item.name
+                                  ) > -1
+                                : _vm.transportTypeChecked[index]
+                            },
                             on: {
+                              click: function($event) {
+                                return _vm.addToArray(item, index)
+                              },
                               change: function($event) {
-                                return _vm.selectedItem(item)
+                                var $$a = _vm.transportTypeChecked[index],
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = item.name,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.transportTypeChecked,
+                                        index,
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.transportTypeChecked,
+                                        index,
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(_vm.transportTypeChecked, index, $$c)
+                                }
                               }
                             }
                           }),
@@ -51899,11 +51882,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.yearsList }
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.yearsList }
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
                       })
                     ],
                     1
@@ -51954,18 +51937,18 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.yearsList }
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.yearsList }
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
                       })
                     ],
                     1
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(16)
+                _vm._m(15)
               ]),
               _vm._v(" "),
               _c("button", { staticClass: "yadded-car-item" }, [
@@ -52013,11 +51996,11 @@ var render = function() {
                     { staticClass: "ydrop_down-years" },
                     [
                       _c("ydropdown", {
-                        attrs: { placeholder: "От", items: _vm.yearsList }
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
                       }),
                       _vm._v(" "),
                       _c("ydropdown", {
-                        attrs: { placeholder: "До", items: _vm.yearsList }
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
                       })
                     ],
                     1
@@ -52082,15 +52065,43 @@ var render = function() {
               [
                 _c("h2", [_vm._v("Регион")]),
                 _vm._v(" "),
-                _c("yselect", {
+                _c("yfsearch", {
                   attrs: {
                     placeholder: "Выберите город",
-                    options: _vm.ukSityName
+                    options: _vm.regionArr
                   },
                   on: { setItem: _vm.selectedItem }
                 }),
                 _vm._v(" "),
-                _vm._m(17)
+                _c("div", { staticClass: "yreg-checkbox" }, [
+                  _c(
+                    "div",
+                    { staticClass: "yflex_dir" },
+                    _vm._l(_vm.regionArr, function(item) {
+                      return _c("div", { staticClass: "yside_country" }, [
+                        _c("h2", [_vm._v(_vm._s(item.name))]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "yside_check" },
+                          _vm._l(item.childrens, function(child) {
+                            return _c("div", { staticClass: "y-check " }, [
+                              _c("input", {
+                                attrs: { id: child.alias, type: "checkbox" }
+                              }),
+                              _vm._v(" "),
+                              _c("label", { attrs: { for: child.alias } }, [
+                                _vm._v(_vm._s(child.name))
+                              ])
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ])
               ],
               1
             )
@@ -52099,7 +52110,7 @@ var render = function() {
           _c("div", { staticClass: "yb-condition_cars" }, [
             _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _vm._m(18),
+            _vm._m(16),
             _vm._v(" "),
             _c("div", { staticClass: "yb-status_checked-items" }, [
               _c("h2", [_vm._v("Пригнан из")]),
@@ -52116,7 +52127,7 @@ var render = function() {
                     on: { setItem: _vm.selectedItem }
                   }),
                   _vm._v(" "),
-                  _vm._m(19)
+                  _vm._m(17)
                 ],
                 1
               )
@@ -52945,11 +52956,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(20)
+              _vm._m(18)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(21)
+          _vm._m(19)
         ])
   ])
 }
@@ -53209,250 +53220,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("button", { staticClass: "yremove_car-items" }, [
       _c("i", { staticClass: "fas fa-trash-alt" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yreg-checkbox" }, [
-      _c("div", { staticClass: "yflex_dir" }, [
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Центральная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "kievskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "kievskaya" } }, [
-                  _vm._v("Киевская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "poltavskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "poltavskaya" } }, [
-                  _vm._v("Полтавская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "vinnitskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "vinnitskaya" } }, [
-                  _vm._v("Винницкая")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "zhytomyrskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "zhytomyrskaya" } }, [
-                  _vm._v("Житомирская")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "y-check" }, [
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "sumskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "sumskaya" } }, [_vm._v("Сумская")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "cherkasy", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "cherkasy" } }, [
-                  _vm._v("Черкасская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", {
-                  attrs: { id: "chernihivskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "chernihivskaya" } }, [
-                  _vm._v("Черниговская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "kirovograd", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "kirovograd" } }, [
-                  _vm._v("Кировоградская")
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Западная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "lvivskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "lvivskaya" } }, [
-                  _vm._v("Львовская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "volynskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "volynskaya" } }, [
-                  _vm._v("Волынская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "karpaty", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "karpaty" } }, [
-                  _vm._v("Закарпатская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "rovenskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "rovenskaya" } }, [
-                  _vm._v("Ровенская")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "y-check" }, [
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "franyk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "franyk" } }, [
-                  _vm._v("Ивано-Франковская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "ternopil", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "ternopil" } }, [
-                  _vm._v("Тернопольская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "chmelnyk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "chmelnyk" } }, [
-                  _vm._v("Хмельницкая")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "chernivtsi", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "chernivtsi" } }, [
-                  _vm._v("Черновицкая")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yflex_dir" }, [
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Восточная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "charkov", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "charkov" } }, [
-                  _vm._v("Харьковская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "donetsk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "donetsk" } }, [_vm._v("Донецкая")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "zaporizhzhya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "zaporizhzhya" } }, [
-                  _vm._v("Запорожская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "lugansk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "lugansk" } }, [
-                  _vm._v("Луганская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "dnepropetrovskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "dnepropetrovskaya" } }, [
-                  _vm._v("Днепропетровская")
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Южная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "hersonskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "hersonskaya" } }, [
-                  _vm._v("Херсонская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "nykolaevskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "nykolaevskaya" } }, [
-                  _vm._v("Николаевская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "odesskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "odesskaya" } }, [
-                  _vm._v("Одесская")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
     ])
   },
   function() {
@@ -53806,250 +53573,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("button", { staticClass: "yremove_car-items" }, [
       _c("i", { staticClass: "fas fa-trash-alt" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yreg-checkbox" }, [
-      _c("div", { staticClass: "yflex_dir" }, [
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Центральная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "kievskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "kievskaya" } }, [
-                  _vm._v("Киевская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "poltavskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "poltavskaya" } }, [
-                  _vm._v("Полтавская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "vinnitskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "vinnitskaya" } }, [
-                  _vm._v("Винницкая")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "zhytomyrskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "zhytomyrskaya" } }, [
-                  _vm._v("Житомирская")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "y-check" }, [
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "sumskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "sumskaya" } }, [_vm._v("Сумская")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "cherkasy", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "cherkasy" } }, [
-                  _vm._v("Черкасская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", {
-                  attrs: { id: "chernihivskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "chernihivskaya" } }, [
-                  _vm._v("Черниговская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "kirovograd", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "kirovograd" } }, [
-                  _vm._v("Кировоградская")
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Западная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "lvivskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "lvivskaya" } }, [
-                  _vm._v("Львовская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "volynskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "volynskaya" } }, [
-                  _vm._v("Волынская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "karpaty", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "karpaty" } }, [
-                  _vm._v("Закарпатская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "rovenskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "rovenskaya" } }, [
-                  _vm._v("Ровенская")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "y-check" }, [
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "franyk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "franyk" } }, [
-                  _vm._v("Ивано-Франковская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "ternopil", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "ternopil" } }, [
-                  _vm._v("Тернопольская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "chmelnyk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "chmelnyk" } }, [
-                  _vm._v("Хмельницкая")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check_vis_r central" }, [
-                _c("input", { attrs: { id: "chernivtsi", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "chernivtsi" } }, [
-                  _vm._v("Черновицкая")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yflex_dir" }, [
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Восточная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "charkov", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "charkov" } }, [
-                  _vm._v("Харьковская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "donetsk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "donetsk" } }, [_vm._v("Донецкая")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "zaporizhzhya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "zaporizhzhya" } }, [
-                  _vm._v("Запорожская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "lugansk", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "lugansk" } }, [
-                  _vm._v("Луганская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "dnepropetrovskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "dnepropetrovskaya" } }, [
-                  _vm._v("Днепропетровская")
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yside_country" }, [
-          _c("h2", [_vm._v("Южная Украина")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yside_check" }, [
-            _c("div", { staticClass: "y-check " }, [
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "hersonskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "hersonskaya" } }, [
-                  _vm._v("Херсонская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", {
-                  attrs: { id: "nykolaevskaya", type: "checkbox" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "nykolaevskaya" } }, [
-                  _vm._v("Николаевская")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "check-vis_l central" }, [
-                _c("input", { attrs: { id: "odesskaya", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "odesskaya" } }, [
-                  _vm._v("Одесская")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
     ])
   },
   function() {
@@ -54526,6 +54049,154 @@ var render = function() {
         ])
       ])
     ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterselectsearch.vue?vue&type=template&id=96e6b4d4&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterselectsearch.vue?vue&type=template&id=96e6b4d4& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "yfilter_select-search" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.search,
+          expression: "search"
+        }
+      ],
+      staticClass: "yinput_search",
+      attrs: { placeholder: _vm.placeholder, type: "text" },
+      domProps: { value: _vm.search },
+      on: {
+        click: function($event) {
+          _vm.openRes = !_vm.openRes
+        },
+        keyup: function($event) {
+          if (
+            !$event.type.indexOf("key") &&
+            _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])
+          ) {
+            return null
+          }
+          _vm.openRes = !_vm.openRes
+        },
+        keydown: [
+          function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "down", 40, $event.key, [
+                "Down",
+                "ArrowDown"
+              ])
+            ) {
+              return null
+            }
+            return _vm.onArrowDown($event)
+          },
+          function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "up", 38, $event.key, ["Up", "ArrowUp"])
+            ) {
+              return null
+            }
+            return _vm.onArrowUp($event)
+          }
+        ],
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.search = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("i", {
+      staticClass: "fas",
+      class: { "fa-chevron-up": _vm.openRes, "fa-chevron-down": !_vm.openRes }
+    }),
+    _vm._v(" "),
+    _vm.openRes
+      ? _c(
+          "div",
+          { staticClass: "y_show-results" },
+          _vm._l(_vm.options, function(item, i) {
+            return _c(
+              "div",
+              {
+                staticClass: "select_option region_part_option",
+                class: { y_active: i === _vm.arrowCounter }
+              },
+              [
+                _c("span", { staticClass: "option_name" }, [
+                  _vm._v(_vm._s(item.name))
+                ]),
+                _vm._v(" "),
+                _vm._l(item.childrens, function(region, region_index) {
+                  return _c(
+                    "div",
+                    { staticClass: "select_option region_option" },
+                    [
+                      _c("span", { staticClass: "option_name" }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(region.name) +
+                            "\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "select_option city_option" },
+                        _vm._l(region.childrens, function(city, city_index) {
+                          return _c(
+                            "span",
+                            {
+                              ref: "scroll",
+                              refInFor: true,
+                              staticClass: "option_name"
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(city.name) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
+            )
+          }),
+          0
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -77866,6 +77537,32 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/http.js":
+/*!******************************!*\
+  !*** ./resources/js/http.js ***!
+  \******************************/
+/*! exports provided: HTTP */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HTTP", function() { return HTTP; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+  baseURL: "http://10.0.0.140:1709/v1",
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
+    'Access-Control-Allow-Headers': 'X-CSRF-Token, Origin, X-Requested-With, Content-Type, Accept, Authorization',
+    'Access-Control-Allow-Credentials': true
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/site/components/yanalitics.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/site/components/yanalitics.vue ***!
@@ -78758,6 +78455,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterform_vue_vue_type_template_id_3935a294___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterform_vue_vue_type_template_id_3935a294___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfilterselectsearch.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/site/components/yfilterselectsearch.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _yfilterselectsearch_vue_vue_type_template_id_96e6b4d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yfilterselectsearch.vue?vue&type=template&id=96e6b4d4& */ "./resources/js/site/components/yfilterselectsearch.vue?vue&type=template&id=96e6b4d4&");
+/* harmony import */ var _yfilterselectsearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yfilterselectsearch.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yfilterselectsearch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _yfilterselectsearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _yfilterselectsearch_vue_vue_type_template_id_96e6b4d4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _yfilterselectsearch_vue_vue_type_template_id_96e6b4d4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/yfilterselectsearch.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfilterselectsearch.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/site/components/yfilterselectsearch.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterselectsearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfilterselectsearch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterselectsearch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterselectsearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfilterselectsearch.vue?vue&type=template&id=96e6b4d4&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/site/components/yfilterselectsearch.vue?vue&type=template&id=96e6b4d4& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterselectsearch_vue_vue_type_template_id_96e6b4d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfilterselectsearch.vue?vue&type=template&id=96e6b4d4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterselectsearch.vue?vue&type=template&id=96e6b4d4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterselectsearch_vue_vue_type_template_id_96e6b4d4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterselectsearch_vue_vue_type_template_id_96e6b4d4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -79755,6 +79521,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfavorite', __webpack_requ
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yanalitics', __webpack_require__(/*! ./components/yanalitics */ "./resources/js/site/components/yanalitics.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynews', __webpack_require__(/*! ./components/ynews */ "./resources/js/site/components/ynews.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yselect', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfsearch', __webpack_require__(/*! ./components/yfilterselectsearch */ "./resources/js/site/components/yfilterselectsearch.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdown', __webpack_require__(/*! ./components/ydropdown */ "./resources/js/site/components/ydropdown.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycardauto', __webpack_require__(/*! ./components/ycardauto */ "./resources/js/site/components/ycardauto.vue")["default"]);

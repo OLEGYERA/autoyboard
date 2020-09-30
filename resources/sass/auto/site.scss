@@ -3,14 +3,17 @@
 
 //components
 @import 'components/header';
-
+@import 'components/filter';
+@import 'components/yfilterextended';
 @import 'components/home';
 
-@import 'components/filter';
+
 @import 'modules/yfilterform';
 @import 'modules/ycardfilter';
 @import 'modules/ydropdownfilter';
-@import 'components/yfilterextended';
+@import 'modules/yfilterselectsearch';
+
+
 
 @import 'components/card';
 @import 'components/favorite';

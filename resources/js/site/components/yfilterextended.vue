@@ -8,7 +8,7 @@
                 >
                     <span>{{item.name}}</span>
                     <i
-                        @click="selectDropDown.splice(index, 1)"
+                        @click="removeSelectedItem(index)"
                        class="fas fa-times"
                     >
                     </i>
@@ -27,11 +27,11 @@
                 <div class="yb-items_selected">
                     <div
                         class="item_selected"
-                        v-for="(item) in selectDropDown"
+                        v-for="(item, index) in selectDropDown"
                     >
                         <span>{{item.name}}</span>
                         <i
-                            @click="selectDropDown.splice(index, 1)"
+                            @click="removeSelectedItem(index)"
                             class="fas fa-times"
                         >
                         </i>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="y-transport_options">
                             <h2>Тип транспорта</h2>
-                            <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="transportType"></ydropdown>
                         </div>
                     </div>
                     <div class="ychecked_options-mobile">
@@ -107,8 +107,8 @@
                         <div class="ycars-item years">
                             <h2>Год</h2>
                             <div class="ydrop_down-years">
-                                <ydropdown :placeholder="'От'" :items="yearsList"></ydropdown>
-                                <ydropdown :placeholder="'До'" :items="yearsList"></ydropdown>
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
                             </div>
                         </div>
                     </div>
@@ -461,7 +461,7 @@
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="transportType"></ydropdown>
                     </div>
                     <div class="ychecked_options-mobile">
                         <h3>Тип кузова</h3>
@@ -503,8 +503,8 @@
                         <div class="ycars-item years">
                             <h2>Год</h2>
                             <div class="ydrop_down-years">
-                                <ydropdown :placeholder="'От'" :items="yearsList"></ydropdown>
-                                <ydropdown :placeholder="'До'" :items="yearsList"></ydropdown>
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
                             </div>
                         </div>
                     </div>
@@ -524,8 +524,8 @@
                         <div class="ycars-item years">
                             <h2>Год</h2>
                             <div class="ydrop_down-years">
-                                <ydropdown :placeholder="'От'" :items="yearsList"></ydropdown>
-                                <ydropdown :placeholder="'До'" :items="yearsList"></ydropdown>
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
                             </div>
                         </div>
                         <button class="yremove_car-items">
@@ -549,8 +549,8 @@
                         <div class="ycars-item years">
                             <h2>Год</h2>
                             <div class="ydrop_down-years">
-                                <ydropdown :placeholder="'От'" :items="yearsList"></ydropdown>
-                                <ydropdown :placeholder="'До'" :items="yearsList"></ydropdown>
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
                             </div>
                         </div>
                     </div>
@@ -583,134 +583,12 @@
                     <yselect @setItem='selectedItem' :placeholder="'Выберите город'" :options="ukSityName"></yselect>
                     <div class="yreg-checkbox">
                         <div class="yflex_dir">
-                            <div class="yside_country">
-                                <h2>Центральная Украина</h2>
+                            <div v-for="(item) in regionArr"  class="yside_country">
+                                <h2>{{item.name}}</h2>
                                 <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="kievskaya" type="checkbox">
-                                            <label for="kievskaya">Киевская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="poltavskaya" type="checkbox">
-                                            <label for="poltavskaya">Полтавская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="vinnitskaya" type="checkbox">
-                                            <label for="vinnitskaya">Винницкая</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="zhytomyrskaya" type="checkbox">
-                                            <label for="zhytomyrskaya">Житомирская</label>
-                                        </div>
-                                    </div>
-                                    <div class="y-check">
-                                        <div class="check_vis_r central">
-                                            <input id="sumskaya" type="checkbox">
-                                            <label for="sumskaya">Сумская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="cherkasy" type="checkbox">
-                                            <label for="cherkasy">Черкасская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="chernihivskaya" type="checkbox">
-                                            <label for="chernihivskaya">Черниговская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="kirovograd" type="checkbox">
-                                            <label for="kirovograd">Кировоградская</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="yside_country">
-                                <h2>Западная Украина</h2>
-                                <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="lvivskaya" type="checkbox">
-                                            <label for="lvivskaya">Львовская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="volynskaya" type="checkbox">
-                                            <label for="volynskaya">Волынская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="karpaty" type="checkbox">
-                                            <label for="karpaty">Закарпатская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="rovenskaya" type="checkbox">
-                                            <label for="rovenskaya">Ровенская</label>
-                                        </div>
-                                    </div>
-                                    <div class="y-check">
-                                        <div class="check_vis_r central">
-                                            <input id="franyk" type="checkbox">
-                                            <label for="franyk">Ивано-Франковская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="ternopil" type="checkbox">
-                                            <label for="ternopil">Тернопольская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="chmelnyk" type="checkbox">
-                                            <label for="chmelnyk">Хмельницкая</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="chernivtsi" type="checkbox">
-                                            <label for="chernivtsi">Черновицкая</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="yflex_dir">
-                            <div class="yside_country">
-                                <h2>Восточная Украина</h2>
-                                <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="charkov" type="checkbox">
-                                            <label for="charkov">Харьковская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="donetsk" type="checkbox">
-                                            <label for="donetsk">Донецкая</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="zaporizhzhya" type="checkbox">
-                                            <label for="zaporizhzhya">Запорожская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="lugansk" type="checkbox">
-                                            <label for="lugansk">Луганская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="dnepropetrovskaya" type="checkbox">
-                                            <label for="dnepropetrovskaya">Днепропетровская</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="yside_country">
-                                <h2>Южная Украина</h2>
-                                <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="hersonskaya" type="checkbox">
-                                            <label for="hersonskaya">Херсонская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="nykolaevskaya" type="checkbox">
-                                            <label for="nykolaevskaya">Николаевская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="odesskaya" type="checkbox">
-                                            <label for="odesskaya">Одесская</label>
-                                        </div>
-                                    </div>
+                                    <div v-for="(child) in item.childrens"  class="y-check ">
+                                        <input :id="child.alias" type="checkbox">
+                                        <label :for="child.alias">{{child.name}}</label>                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1032,16 +910,17 @@
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="typeCars"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="transportType"></ydropdown>
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
-                                <div v-for="(item) in bodyType" class="yvis_checkbox">
+                                <div v-for="(item, index) in bodyType" class="yvis_checkbox">
                                     <input
                                         class="ycheck"
+                                        v-model="transportTypeChecked[index]"
                                         :value="item.name"
+                                        @click="addToArray(item, index)"
                                         :id="item.name"
-                                        @change="selectedItem(item)"
                                         type="checkbox">
                                     <label
                                         class="y-body_name"
@@ -1075,8 +954,8 @@
                         <div class="ycars-item years">
                             <h2>Год</h2>
                             <div class="ydrop_down-years">
-                                <ydropdown :placeholder="'От'" :items="yearsList"></ydropdown>
-                                <ydropdown :placeholder="'До'" :items="yearsList"></ydropdown>
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
                             </div>
                         </div>
                     </div>
@@ -1098,8 +977,8 @@
                         <div class="ycars-item years">
                             <h2>Год</h2>
                             <div class="ydrop_down-years">
-                                <ydropdown :placeholder="'От'" :items="yearsList"></ydropdown>
-                                <ydropdown :placeholder="'До'" :items="yearsList"></ydropdown>
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
                             </div>
                         </div>
                         <button class="yremove_car-items">
@@ -1123,8 +1002,8 @@
                         <div class="ycars-item years">
                             <h2>Год</h2>
                             <div class="ydrop_down-years">
-                                <ydropdown :placeholder="'От'" :items="yearsList"></ydropdown>
-                                <ydropdown :placeholder="'До'" :items="yearsList"></ydropdown>
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
                             </div>
                         </div>
                     </div>
@@ -1154,137 +1033,15 @@
                 </div>
                 <div class="yreg_container">
                     <h2>Регион</h2>
-                    <yselect @setItem='selectedItem' :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                    <yfsearch @setItem='selectedItem' :placeholder="'Выберите город'" :options="regionArr"></yfsearch>
                     <div class="yreg-checkbox">
                         <div class="yflex_dir">
-                            <div class="yside_country">
-                                <h2>Центральная Украина</h2>
+                            <div v-for="(item) in regionArr"  class="yside_country">
+                                <h2>{{item.name}}</h2>
                                 <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="kievskaya" type="checkbox">
-                                            <label for="kievskaya">Киевская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="poltavskaya" type="checkbox">
-                                            <label for="poltavskaya">Полтавская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="vinnitskaya" type="checkbox">
-                                            <label for="vinnitskaya">Винницкая</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="zhytomyrskaya" type="checkbox">
-                                            <label for="zhytomyrskaya">Житомирская</label>
-                                        </div>
-                                    </div>
-                                    <div class="y-check">
-                                        <div class="check_vis_r central">
-                                            <input id="sumskaya" type="checkbox">
-                                            <label for="sumskaya">Сумская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="cherkasy" type="checkbox">
-                                            <label for="cherkasy">Черкасская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="chernihivskaya" type="checkbox">
-                                            <label for="chernihivskaya">Черниговская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="kirovograd" type="checkbox">
-                                            <label for="kirovograd">Кировоградская</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="yside_country">
-                                <h2>Западная Украина</h2>
-                                <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="lvivskaya" type="checkbox">
-                                            <label for="lvivskaya">Львовская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="volynskaya" type="checkbox">
-                                            <label for="volynskaya">Волынская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="karpaty" type="checkbox">
-                                            <label for="karpaty">Закарпатская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="rovenskaya" type="checkbox">
-                                            <label for="rovenskaya">Ровенская</label>
-                                        </div>
-                                    </div>
-                                    <div class="y-check">
-                                        <div class="check_vis_r central">
-                                            <input id="franyk" type="checkbox">
-                                            <label for="franyk">Ивано-Франковская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="ternopil" type="checkbox">
-                                            <label for="ternopil">Тернопольская</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="chmelnyk" type="checkbox">
-                                            <label for="chmelnyk">Хмельницкая</label>
-                                        </div>
-                                        <div class="check_vis_r central">
-                                            <input id="chernivtsi" type="checkbox">
-                                            <label for="chernivtsi">Черновицкая</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="yflex_dir">
-                            <div class="yside_country">
-                                <h2>Восточная Украина</h2>
-                                <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="charkov" type="checkbox">
-                                            <label for="charkov">Харьковская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="donetsk" type="checkbox">
-                                            <label for="donetsk">Донецкая</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="zaporizhzhya" type="checkbox">
-                                            <label for="zaporizhzhya">Запорожская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="lugansk" type="checkbox">
-                                            <label for="lugansk">Луганская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="dnepropetrovskaya" type="checkbox">
-                                            <label for="dnepropetrovskaya">Днепропетровская</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="yside_country">
-                                <h2>Южная Украина</h2>
-                                <div class="yside_check">
-                                    <div class="y-check ">
-                                        <div class="check-vis_l central">
-                                            <input id="hersonskaya" type="checkbox">
-                                            <label for="hersonskaya">Херсонская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="nykolaevskaya" type="checkbox">
-                                            <label for="nykolaevskaya">Николаевская</label>
-                                        </div>
-                                        <div class="check-vis_l central">
-                                            <input id="odesskaya" type="checkbox">
-                                            <label for="odesskaya">Одесская</label>
-                                        </div>
-                                    </div>
+                                    <div v-for="(child) in item.childrens"  class="y-check ">
+                                        <input :id="child.alias" type="checkbox">
+                                        <label :for="child.alias">{{child.name}}</label>                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1589,38 +1346,33 @@
 </template>
 
 <script>
+    import {HTTP} from "../../http.js";
     export default {
+        computed: {
+            reversedYears() {
+                return this.yearsList.slice().reverse();
+            },
+        },
         mounted () {
             document.addEventListener('click', this.clickOutside);
             window.addEventListener('resize', this.changeResize)
             this.changeResize();
             this.getYears()
-
-
-           window.axios
-               .get("http://10.0.0.140:1709/v1/transport_type",{
-                   headers: {
-                       "Access-Control-Allow-Origin": "*",
-                       "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                       "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-                   }
-               })
-               .then(response => {
-                   this.transportType = response.data;
-               })
-               .catch(function(e){
-
-               });
+            this.getRegion()
+            this.getTransportType()
         },
         destroyed() {
             document.removeEventListener('click', this.clickOutside)
         },
         data(){
             return{
+                transportTypeChecked: [], // true or false checkbox
                 transportType:[],
                 yearsList: [],
+                regionArr:[],
+
                 showSelected: 6,
-                selectDropDown: [], /// accepts data from child component <dropdown></dropdown>
+                selectDropDown: [], /// accepts data from child component <dropdown></dropdown> && <select></select>
                 picked: [],
                 selectedTypeBody: [],
                 showSelectedItem: false,
@@ -1975,12 +1727,20 @@
             }
       },
         methods: {
+            addToArray(item, index){
+                this.selectDropDown.push({
+                    name: item.name,
+                    id: index
+                })
+            },
+            removeSelectedItem(index){
+                this.$delete(this.selectDropDown, index)
+            },
             selectedItem(e){
                 this.selectDropDown.push(e)
             },
             changeResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
-                console.log(this.windowWidth)
                 if(this.windowWidth <= 1024) this.showSelected = 5
                 if(this.windowWidth <= 768) this.showSelected = 4
                 if(this.windowWidth <= 600) this.showSelected = 3
@@ -1993,22 +1753,46 @@
                 }
             },
             getYears(){
-                var y1 = new Date("1900-5-1").getFullYear();
+                var y1 = new Date("1900").getFullYear();
                 var y2 = new Date().getFullYear();
                 if(y1 < y2){
                     for(let i = y1; i <= y2; i++){
-                        this.yearsList.push(i);
+                        this.yearsList.push({
+                            name: i
+                        });
                     }
-                }
-                else{
+                }else{
                     for(let i = y2; i <= y1; i++){
-                        this.yearsList.push(i)
+                        this.yearsList.push({
+                            name: i
+                        })
                     }
                 }
             },
-        },
-        watch: {
+            getTransportType(){
+                let lang = 3,
+                    query = "?langType=" + lang ;
 
-        }
+
+                HTTP.get('/transport_types' + query)
+                    .then(response => {
+                        this.transportType = response.data;
+                    }).catch(error =>{
+                    console.log('error', error)
+
+                })
+            },
+            getRegion(){
+                let lang = 3,
+                    query = "?langType=" + lang + '&alias=1' ;
+                HTTP.get('/regions' + query)
+                    .then(response => {
+                        this.regionArr = response.data;
+                    }).catch(error =>{
+                    console.log('error', error)
+
+                })
+            }
+        },
     }
 </script>

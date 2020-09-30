@@ -618,14 +618,14 @@
                         width: 40%;
                     }
                     .yreg-checkbox{
-                        display: flex;
                         width: 100%;
-                        justify-content: space-between;
                         .yflex_dir{
                             display: flex;
-                            width: 65%;
+                            width: 100%;
                             justify-content: space-between;
+                            flex-flow: wrap;
                             .yside_country{
+                                width: 50%;
                                 h2{
                                     font-family: $aleg;
                                     font-style: normal;
@@ -636,11 +636,11 @@
                                 }
                                 .yside_check{
                                     display: flex;
+                                    flex-flow: wrap;
                                     .y-check{
-                                        margin-right: 17px;
-                                        .central{
-                                            display: flex;
-                                            margin-bottom: 5px;
+                                        display: flex;
+                                        align-items: center;
+                                        width: 50%;
                                             input{
                                                 width: 12px;
                                                 height: 12px;
@@ -659,15 +659,15 @@
                                             &:last-child{
                                                 margin-bottom: 0;
                                             }
-                                        }
+
                                         &:last-child{
                                             margin-right: 0;
                                         }
                                     }
                                 }
-                            }
-                            &:last-child{
-                                width: 33%;
+                                &:first-child{
+                                    margin-bottom: 15px;
+                                }
                             }
                         }
                     }
@@ -1443,22 +1443,12 @@
                     }
                     .yreg_container{
                         .yreg-checkbox{
-                            display: block;
                             .yflex_dir{
-                                width: 100%;
                                 .yside_country{
-                                    width: 45%;
                                     .yside_check{
                                         width: 100%;
                                         justify-content: space-between;
                                     }
-                                }
-                                &:first-child{
-                                    margin-bottom: 15px;
-                                }
-                                &:last-child{
-                                    width: 45%;
-
                                 }
                             }
                         }
@@ -1571,6 +1561,19 @@
                     }
                     .yreg_container{
                         width: 69%;
+                        .yreg-checkbox{
+                            .yflex_dir{
+                               .yside_country{
+                                   .yside_check{
+                                       .y-check{
+                                           label{
+                                               font-size: em(15);
+                                           }
+                                       }
+                                   }
+                               }
+                            }
+                        }
                     }
                 }
                 .yb-specifications_cars{
@@ -1766,14 +1769,9 @@
                     }
                     .yreg_container{
                         .yreg-checkbox{
-                            display: flex;
                             .yflex_dir{
-                                flex-direction: column;
-                                width: 50%;
                                 .yside_country{
-                                    width: 100%;
                                     &:first-child{
-                                        margin-bottom: 20px;
                                     }
                                 }
                             }
@@ -1835,21 +1833,24 @@
                     }
                     .yreg_container{
                         width: 61%;
+                        .autocomplete{
+                            width: 50%;
+                        }
                         .yreg-checkbox{
                             .yflex_dir{
-                                width: 60%;
                                 .yside_country{
                                     h2{
                                         font-size: em(16);
                                     }
                                     .yside_check{
+                                        flex-direction: column;
                                         .y-check{
-                                            font-size: em(14);
+                                            width: 100%;
+                                            label{
+                                                font-size: em(14);
+                                            }
                                         }
                                     }
-                                }
-                                &:last-child{
-                                    width: 35%;
                                 }
                             }
                         }

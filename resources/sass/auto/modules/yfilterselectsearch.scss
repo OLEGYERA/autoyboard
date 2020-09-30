@@ -1,0 +1,63 @@
+@import '../clear';
+@import '../../vars';
+
+.yfilter_select-search{
+    width: 40%;
+    margin-bottom: 15px;
+    position: relative;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #E2E2E2;
+    cursor: pointer;
+    .yinput_search{
+        position: relative;
+        width: 100%;
+        border: none;
+    }
+    i{
+        color: #C7C7C7;
+    }
+    .y_show-results{
+        width: 100%;
+        position: absolute;
+        scrollbar-width: none;
+        max-height: 140px;
+        overflow: scroll;
+        overflow-x: hidden;
+        top: 45px;
+        left: 0;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+        border-radius: 3px;
+        z-index: 2;
+        .select_option{
+            font-family: $aleg;
+            font-weight: normal;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            line-height: 22px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.83);
+
+            &.region_part_option{
+                padding-left: 10px;
+                background-color: darkslategray;
+                color: #fff;
+            }
+
+            &.region_option{
+                padding-left: 20px;
+                background-color: #4d8d8d;
+                color: #fff;
+            }
+        }
+    }
+}
