@@ -13,7 +13,20 @@
 </template>
 
 <script>
-export default{
-    props: ['title']
+    import {HTTP} from "../../http.js";
+    export default{
+    props: ['title'],
+    mounted(){
+      this.test();
+    },
+    methods: {
+        test(){
+            HTTP.get(`/transport_type`)
+                .then(response => {
+
+                }).catch(error =>{
+            })
+        }
+    }
 }
 </script>

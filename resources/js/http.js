@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const HTTP = axios.create({
-    baseURL: `/yb-v1/api`,
+    baseURL: `http://api.yboard:8000/v1`,
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
