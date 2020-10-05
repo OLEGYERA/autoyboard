@@ -456,8 +456,6 @@
                                 :text="'С фото'">
                             </ycheckbox>
                         </div>
-                        <h4>Страна производитель</h4>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
@@ -488,6 +486,10 @@
                 </div>
                 <div class="add-cars_items">
                     <div class="yflex_car-item">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
@@ -509,6 +511,10 @@
                         </div>
                     </div>
                     <div class="yflex_car-item remove">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
@@ -931,12 +937,15 @@
                                 </div>
                             </div>
                         </div>
-                        <h4>Страна производитель</h4>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+
                     </div>
                 </div>
                 <div class="add-cars_items">
                     <div class="yflex_car-item">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
@@ -960,6 +969,10 @@
                         </div>
                     </div>
                     <div class="yflex_car-item remove">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
@@ -1039,7 +1052,7 @@
                             <div v-for="(item) in regionArr"  class="yside_country">
                                 <h2>{{item.name}}</h2>
                                 <div class="yside_check">
-                                    <div v-for="(child) in item.childrens"  class="y-check ">
+                                    <div v-for="(child) in item.children"  class="y-check ">
                                         <input :id="child.alias" type="checkbox">
                                         <label :for="child.alias">{{child.name}}</label>                                    </div>
                                 </div>
@@ -1742,7 +1755,7 @@
             changeResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
                 if(this.windowWidth <= 1024) this.showSelected = 5
-                if(this.windowWidth <= 768) this.showSelected = 4
+                if(this.windowWidth <= 945) this.showSelected = 4
                 if(this.windowWidth <= 600) this.showSelected = 3
                 if(this.windowWidth <= 425) this.showSelected = 2
                 if(this.windowWidth <= 320) this.showSelected = 1

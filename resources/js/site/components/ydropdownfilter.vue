@@ -60,7 +60,6 @@
         computed: {
             filteredItems() {
                 return this.items
-
             },
             staticItem(){
                 if(this.value == ""){

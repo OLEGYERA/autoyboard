@@ -27,7 +27,7 @@
     export default{
         data() {
             return{
-                currency: [ '$', '₴', '€' ],
+                currency: [{name: '$'}, {name: '₴'}, {name: '€'} ],
                 minRange: null,
                 maxRange: null,
                 slider: {

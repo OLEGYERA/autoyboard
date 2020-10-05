@@ -266,8 +266,8 @@
                         display: flex;
                         margin-bottom: 15px;
                         .ycars-item{
-                            margin-right: 20px;
-                            width: 31.8%;
+                            margin-right: 15px;
+                            width: 22%;
                             h2{
                                 font-family: $aleg;
                                 font-weight: 500;
@@ -289,6 +289,82 @@
                             }
                             &:last-child{
                                 margin-right: 0;
+                            }
+                        }
+                        .countries{
+                            .ydropdown{
+                                width: 100%;
+                                height: 40px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding: 10px 15px 10px 20px;
+                                border-radius: 10px;
+                                border: 1px solid #E2E2E2;
+                                cursor: pointer;
+                                .value{
+                                    font-family: $aleg;
+                                    font-weight: normal;
+                                    font-size: em(16);
+                                    line-height: 22px;
+                                    color: #696969;
+                                }
+                                i{
+                                    color: #C7C7C7;
+                                }
+                                .items{
+                                    position: absolute;
+                                    scrollbar-width: none;
+                                    max-height: 140px;
+                                    overflow: scroll;
+                                    overflow-x: hidden;
+                                    top: 45px;
+                                    left: 0;
+                                    width: 100%;
+                                    background: #FFFFFF;
+                                    box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+                                    border-radius: 3px;
+                                    z-index: 2;
+                                    .item{
+                                        font-family: $aleg;
+                                        font-weight: normal;
+                                        height: 35px;
+                                        position: relative;
+                                        display: flex;
+                                        align-items: center;
+                                        font-size: em(16);
+                                        line-height: 22px;
+                                        padding: 0px 0px 0px 20px;
+                                        cursor: pointer;
+                                        color: rgba(0, 0, 0, 0.83);
+                                        i{
+                                            position: absolute;
+                                            top: auto;
+                                            color: $dgreen;
+                                            right: 16px;
+                                            font-size: em(12);
+                                        }
+                                        &:after{
+                                            content: '';
+                                            position: absolute;
+                                            height: 1px;
+                                            bottom: 0;
+                                            left: 0;
+                                            width: 100%;
+                                            background: rgba(199, 199, 199, 0.33) ;
+                                        }
+                                    }
+                                    .checked{
+                                        border-left: 4px solid $darkblue;
+                                        padding: 10px 15px 10px 20px;
+                                        &:after{
+                                            height: 2px;
+                                            background: rgba(91, 91, 91, 0.13);
+                                        }
+                                    }
+                                    &::-webkit-scrollbar { width: 0; }
+                                }
                             }
                         }
                         .years{
@@ -321,13 +397,12 @@
                                     .items{
                                         width: 100%;
                                         background: #FFFFFF;
-                                        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
+                                        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
                                         border-radius: 5px;
                                         position: absolute;
                                         padding: 0;
                                         margin: 0;
                                         left: 0;
-                                        width: 100%;
                                         max-height: 140px;
                                         overflow: auto;
                                         top: 45px;
@@ -335,14 +410,14 @@
                                         .item{
                                             display: flex;
                                             align-items: center;
-                                            font-family: $aleg;
+                                            font-family: $noto;
                                             font-weight: normal;
                                             font-size: em(16);
                                             line-height: 19px;
                                             color: #696969;
                                             height: 35px;
                                             position: relative;
-                                            padding: 0px 0px 0px 20px;
+                                            padding: 0 0 0 20px;
                                             cursor: pointer;
                                             i{
                                                 position: absolute;
@@ -368,27 +443,55 @@
                                                 background: rgba(91, 91, 91, 0.13);
                                             }
                                         }
-                                        &::-webkit-scrollbar { width: 0px; }
+                                        &::-webkit-scrollbar { width: 0; }
                                     }
                                 }
                             }
                         }
-                    }
-                    .remove{
-                        position: relative;
-                        .yremove_car-items{
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            position: absolute;
-                            right: 0;
-                            top: 33px;
-                            i{
-                                color: $darkblue;
-                                font-size: 25px;
+                        &.remove{
+                            position: relative;
+                            .ycars-item{
+                                &:last-child{
+                                    margin-right: 0!important;
+                                }
+                            }
+                            .yremove_car-items{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: absolute;
+                                right: -30px;
+                                top: 33px;
+                                i{
+                                    color: $darkblue;
+                                    font-size: 25px;
+                                }
                             }
                         }
                     }
+                    //.remove{
+                    //    position: relative;
+                    //    .ycars-item{
+                    //        &.years{
+                    //            &:last-child{
+                    //                margin-right: 0;
+                    //            }
+                    //        }
+                    //        //width: 22%;
+                    //    }
+                    //    .yremove_car-items{
+                    //        display: flex;
+                    //        align-items: center;
+                    //        justify-content: center;
+                    //        position: absolute;
+                    //        right: -30px;
+                    //        top: 33px;
+                    //        i{
+                    //            color: $darkblue;
+                    //            font-size: 25px;
+                    //        }
+                    //    }
+                    //}
                     .yadded-car-item{
                         font-family: $aleg;
                         font-weight: 500;
@@ -1427,6 +1530,37 @@
     .yb_extended-content{
         .yfilterextended{
             .ybexpanded_search{
+                .yb-carsearch_items{
+                    .add-cars_items{
+                        .yflex_car-item{
+                            .ycars-item{
+                                margin-right: 10px;
+                                h2{
+                                    font-size: em(17);
+                                }
+                                .ydropdown{
+                                    .value{
+                                        font-size: em(14);
+                                    }
+                                    i{
+                                        font-size: em(12);
+                                    }
+                                }
+                                .autocomplete{
+                                    .input-dropdown{
+                                        font-size: em(15);
+                                    }
+                                    i{
+                                        font-size: em(12);
+                                    }
+                                }
+                                &:last-child{
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+                    }
+                }
                 .yb-carsearch_price-items{
                     .ychange_price-container{
                         .yrange_slider-container{
@@ -1537,19 +1671,86 @@
         padding: 0 2.5%;
         .yfilterextended{
             .ybexpanded_search{
+                .ytitle-exp{
+                    font-size: em(32);
+                    margin-bottom: 15px;
+                }
                 .yb-carsearch_items{
                     justify-content: space-between;
                     .yoptions_items{
                         width: 24%;
+                        margin: 0 20px 20px 0;
+                        .y-transport_options{
+                            h2{
+                                font-size: em(15);
+                            }
+                            .ydropdown{
+                                .value{
+                                    font-size: em(15);
+                                }
+                            }
+                            h3{
+                                font-size: em(15);
+                            }
+                            .yb-checked_type{
+                                .checkbox{
+                                    .yvis_checkbox{
+                                        .y-body_name{
+                                            font-size: em(15);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     .add-cars_items{
                         width: 75%;
                         .yflex_car-item{
                             .ycars-item {
+                                h2{
+                                    font-size: em(15);
+                                }
+                                .ydropdown
+                                {
+                                    padding: 10px;
+                                }
                                 .ydrop_down-years{
                                     .ydropdown{
-                                        padding: 10px 10px 10px 10px;
+                                        padding: 10px;
                                     }
+                                }
+                                .autocomplete{
+                                    .input-dropdown{
+                                        right: -15px;
+                                        padding: 10px;
+                                        i{
+                                            font-size: em(18);
+                                        }
+                                    }
+                                }
+                            }
+                            &.remove{
+                                .yremove_car-items{
+                                    right: -10px;
+                                    top: 38px;
+                                    i{
+                                        font-size: em(18);
+                                    }
+                                }
+                            }
+                        }
+                        .yexclude_country-car{
+                            width: 25%;
+                            h2{
+                                font-size: em(15);
+                            }
+                            .ydropdown{
+                                padding: 10px;
+                                .value{
+                                    font-size: em(15);
+                                }
+                                i{
+                                    font-size: em(12);
                                 }
                             }
                         }
@@ -1752,6 +1953,13 @@
                     }
                     .add-cars_items{
                         width: 100%;
+                        .yflex_car-item{
+                            &.remove{
+                                .yremove_car-items{
+                                    right: 0;
+                                }
+                            }
+                        }
                     }
                 }
                 .yb-carsearch_price-items{
@@ -1972,6 +2180,14 @@
                                         }
                                     }
                                 }
+                            }
+                        }
+                        h4{
+                            font-size: em(15);
+                        }
+                        .ydropdown{
+                            .value{
+                                font-size: em(15);
                             }
                         }
                     }
@@ -2233,7 +2449,10 @@
                             .ycars-item{
                                 width: 100%!important;
                                 h2{
-                                    margin: 15px 0 5px;
+                                    margin: 0 0 5px;
+                                }
+                                .autocomplete{
+                                    margin-bottom: 15px;
                                 }
                             }
                             .years{

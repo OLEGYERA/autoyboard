@@ -1257,8 +1257,8 @@ span.yb-gradient {
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item {
-  margin-right: 20px;
-  width: 31.8%;
+  margin-right: 15px;
+  width: 22%;
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item h2 {
@@ -1285,6 +1285,92 @@ span.yb-gradient {
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item:last-child {
   margin-right: 0;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #E2E2E2;
+  cursor: pointer;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .value {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 22px;
+  color: #696969;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown i {
+  color: #C7C7C7;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .items {
+  position: absolute;
+  scrollbar-width: none;
+  max-height: 140px;
+  overflow: scroll;
+  overflow-x: hidden;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .items .item {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  height: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  line-height: 22px;
+  padding: 0px 0px 0px 20px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.83);
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .items .item i {
+  position: absolute;
+  top: auto;
+  color: #2ECC71;
+  right: 16px;
+  font-size: 0.75em;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .items .item:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(199, 199, 199, 0.33);
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .items .checked {
+  border-left: 4px solid #0B3F8D;
+  padding: 10px 15px 10px 20px;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .items .checked:after {
+  height: 2px;
+  background: rgba(91, 91, 91, 0.13);
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .countries .ydropdown .items::-webkit-scrollbar {
+  width: 0;
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years {
@@ -1325,13 +1411,12 @@ span.yb-gradient {
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items {
   width: 100%;
   background: #FFFFFF;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   position: absolute;
   padding: 0;
   margin: 0;
   left: 0;
-  width: 100%;
   max-height: 140px;
   overflow: auto;
   top: 45px;
@@ -1341,14 +1426,14 @@ span.yb-gradient {
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items .item {
   display: flex;
   align-items: center;
-  font-family: "Alegreya Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
   line-height: 19px;
   color: #696969;
   height: 35px;
   position: relative;
-  padding: 0px 0px 0px 20px;
+  padding: 0 0 0 20px;
   cursor: pointer;
 }
 
@@ -1380,23 +1465,27 @@ span.yb-gradient {
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown .items::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
 }
 
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item.remove {
   position: relative;
 }
 
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item.remove .ycars-item:last-child {
+  margin-right: 0 !important;
+}
+
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item.remove .yremove_car-items {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 0;
+  right: -30px;
   top: 33px;
 }
 
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .remove .yremove_car-items i {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item.remove .yremove_car-items i {
   color: #0B3F8D;
   font-size: 25px;
 }
@@ -2615,6 +2704,34 @@ span.yb-gradient {
 }
 
 @media only screen and (max-width: 1600px) {
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item {
+    margin-right: 10px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item h2 {
+    font-size: 1.0625em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .ydropdown .value {
+    font-size: 0.875em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .ydropdown i {
+    font-size: 0.75em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete .input-dropdown {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete i {
+    font-size: 0.75em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item:last-child {
+    margin-right: 0;
+  }
+
   .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container .yrange_slider-container .yprice_container .input_change .currency_change .ydropdown {
     padding: 10px 10px 10px 15px;
   }
@@ -2683,20 +2800,88 @@ span.yb-gradient {
     padding: 0 2.5%;
   }
 
+  .yb_extended-content .yfilterextended .ybexpanded_search .ytitle-exp {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+
   .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items {
     justify-content: space-between;
   }
 
   .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items {
     width: 24%;
+    margin: 0 20px 20px 0;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h2 {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .ydropdown .value {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options h3 {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .yoptions_items .y-transport_options .yb-checked_type .checkbox .yvis_checkbox .y-body_name {
+    font-size: 0.9375em;
   }
 
   .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items {
     width: 75%;
   }
 
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item h2 {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .ydropdown {
+    padding: 10px;
+  }
+
   .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .ydrop_down-years .ydropdown {
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete .input-dropdown {
+    right: -15px;
+    padding: 10px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item .ycars-item .autocomplete .input-dropdown i {
+    font-size: 1.125em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item.remove .yremove_car-items {
+    right: -10px;
+    top: 38px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yflex_car-item.remove .yremove_car-items i {
+    font-size: 1.125em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car {
+    width: 25%;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car h2 {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown {
+    padding: 10px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown .value {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_items .add-cars_items .yexclude_country-car .ydropdown i {
+    font-size: 0.75em;
   }
 
   .yb_extended-content .yfilterextended .ybexpanded_search .yb-carsearch_price-items .ychange_price-container {
@@ -2899,6 +3084,10 @@ span.yb-gradient {
     width: 100%;
   }
 
+  .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_items .add-cars_items .yflex_car-item.remove .yremove_car-items {
+    right: 0;
+  }
+
   .yb_extended-content .yfilterextended .show_tablet .yb-carsearch_price-items .ychange_price-container .yrange_slider-container {
     padding: 25px 10px;
   }
@@ -3085,6 +3274,14 @@ span.yb-gradient {
     font-size: 1em;
     line-height: 19px;
     color: #696969;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items h4 {
+    font-size: 0.9375em;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_items .ydropdown .value {
+    font-size: 0.9375em;
   }
 
   .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .yb-carsearch_price-items {
@@ -3378,7 +3575,11 @@ span.yb-gradient {
   }
 
   .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .yflex_car-item .ycars-item h2 {
-    margin: 15px 0 5px;
+    margin: 0 0 5px;
+  }
+
+  .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .yflex_car-item .ycars-item .autocomplete {
+    margin-bottom: 15px;
   }
 
   .yb_extended-content .yfilterextended .ybexpanded_search.show_mobile .add-cars_items .yflex_car-item .years .ydrop_down-years .ydropdown {
@@ -10525,7 +10726,7 @@ span.yb-gradient {
   border: 1px solid #E2E2E2;
   box-sizing: border-box;
   border-radius: 10px;
-  font-family: "Alegreya Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   font-size: 1.125em;
   color: rgba(34, 34, 34, 0.8);

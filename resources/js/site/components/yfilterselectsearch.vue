@@ -18,18 +18,19 @@
             class="y_show-results"
         >
             <div
-                v-for="(item, i) in options"
+                v-for="(item, i) in clearRegions"
                 class="select_option region_part_option"
                 :class="{y_active : i === arrowCounter}"
+                v-if="item != undefined"
             >
-                <span class="option_name">{{item.name}}</span>
+                <span class="option_name">{{item.regionPart.name}}</span>
                 <div class="select_option region_option"
-                     v-for="(region, region_index) in item.childrens">
-                    <span   class="option_name">
-                        {{region.name}}
+                     v-for="(region, region_index) in item.children">
+                    <span class="option_name">
+                        {{region.region.name}}
                     </span>
                     <div class="select_option city_option">
-                        <span  ref="scroll" class="option_name" v-for="(city, city_index) in region.childrens">
+                        <span  ref="scroll" class="option_name" v-for="(city, city_index) in region.children">
                             {{city.name}}
                         </span>
                     </div>
@@ -40,44 +41,50 @@
 </template>
 <script>
 export  default {
-    props: ['placeholder','options'],
+    props: ['placeholder','options'], // options is a predator variable func
+    beforeMount() {
+        document.addEventListener('click', this.handleClickOutside);
+    },
     data(){
         return{
+            regionParts: [],
+            regions: [],
+            cities: [],
             openRes: false,
             result: [],
             search: '',
             arrowCounter: 0,
         }
     },
-    computed:{
+    methods: {
+        destructRegionPart() {
+            this.regionParts = [];
+            this.regions = [];
+            this.cities = [];
+            let self = this;
+            this.options.forEach(function(el){
+                self.regionParts[el.val] = {'alias': el.alias, 'name': el.name};
+                el.children.forEach(function(sub_el){
+                    self.regions[sub_el.val] = {'alias': sub_el.alias, 'name': sub_el.name, 'parent': el.val};
+                    sub_el.children.forEach(function(city){
+                        self.cities.push({'alias': city.alias, 'name': city.name, 'parent': sub_el.val});
+                    })
+                })
+            });
 
-        // filterResults() {
-        //     this.arrowCounter = 0;
-        //     this.$refs.scrollContainer.scrollTop = 0;
-        //     this.results = this.options.filter((item) => {
-        //         return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
-        //     });
-        // },
-
-    },
-    methods:{
-        filteredCity(){
-            // this.result = this.options.filter(function (r){
-            //     console.log(r)
-            //     return r.childrens.name.toLowerCase().indexOf(val.toLowerCase()) !== -1
-            // })
+            this.result = this.cities;
         },
         handleClickOutside(evt) {
             if (!this.$el.contains(evt.target)) {
                 this.openRes = false;
             }
         },
-        // fixScrolling(){
-        //     const scroll = this.$refs.scroll[this.arrowCounter].scrollHeight;
-        //     this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
-        //     console.log(this.$refs.scrollContainer.scrollTop);
-        //     console.log(scroll * this.arrowCounter);
-        // },
+        fixScrolling(){
+            const scroll = this.$refs.scroll[this.arrowCounter].scrollHeight;
+            this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
+            console.log(this.$refs.scrollContainer.scrollTop);
+            console.log(scroll * this.arrowCounter);
+        },
         onArrowDown: function (ev) {
             ev.preventDefault()
             if (this.arrowCounter < this.result.length - 1) {
@@ -85,7 +92,6 @@ export  default {
                 this.fixScrolling();
             }
         },
-
         onArrowUp: function (ev) {
             ev.preventDefault()
             if (this.arrowCounter > 0) {
@@ -94,9 +100,41 @@ export  default {
             }
         },
     },
-    mounted() {
-        document.addEventListener('click', this.handleClickOutside)
-        this.filteredCity()
+    computed: {
+        clearRegions(){
+            let clearArr = [],
+                regionArr = []
+                self = this;
+
+
+            this.result.forEach(function (el){
+
+                if(regionArr[el.parent] == undefined){
+                    regionArr[el.parent] = {'region': self.regions[el.parent], 'children': []};
+                }
+                regionArr[el.parent]['children'].push(el);
+            });
+
+            console.log(regionArr);
+
+            regionArr.forEach(function (el){
+                if(clearArr[el.region.parent] == undefined){
+                    clearArr[el.region.parent] = {'regionPart': self.regionParts[el.region.parent], 'children': []};
+                }
+                clearArr[el.region.parent]['children'].push(el);
+            });
+            return clearArr;
+        }
+    },
+    watch: {
+        options(to){
+            this.destructRegionPart();
+        },
+        search(to, from){
+            this.result = this.cities.filter((item)=>{
+                return to.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
+            })
+        }
     },
     destroyed() {
         document.removeEventListener('click', this.handleClickOutside)

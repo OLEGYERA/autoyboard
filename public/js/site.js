@@ -6246,6 +6246,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
@@ -6883,7 +6896,7 @@ __webpack_require__.r(__webpack_exports__);
     changeResize: function changeResize(event) {
       this.windowWidth = document.documentElement.clientWidth;
       if (this.windowWidth <= 1024) this.showSelected = 5;
-      if (this.windowWidth <= 768) this.showSelected = 4;
+      if (this.windowWidth <= 945) this.showSelected = 4;
       if (this.windowWidth <= 600) this.showSelected = 3;
       if (this.windowWidth <= 425) this.showSelected = 2;
       if (this.windowWidth <= 320) this.showSelected = 1;
@@ -7194,41 +7207,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['placeholder', 'options'],
+  // options is a predator variable func
+  beforeMount: function beforeMount() {
+    document.addEventListener('click', this.handleClickOutside);
+  },
   data: function data() {
     return {
+      regionParts: [],
+      regions: [],
+      cities: [],
       openRes: false,
       result: [],
       search: '',
       arrowCounter: 0
     };
   },
-  computed: {// filterResults() {
-    //     this.arrowCounter = 0;
-    //     this.$refs.scrollContainer.scrollTop = 0;
-    //     this.results = this.options.filter((item) => {
-    //         return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
-    //     });
-    // },
-  },
   methods: {
-    filteredCity: function filteredCity() {// this.result = this.options.filter(function (r){
-      //     console.log(r)
-      //     return r.childrens.name.toLowerCase().indexOf(val.toLowerCase()) !== -1
-      // })
+    destructRegionPart: function destructRegionPart() {
+      this.regionParts = [];
+      this.regions = [];
+      this.cities = [];
+      var self = this;
+      this.options.forEach(function (el) {
+        self.regionParts[el.val] = {
+          'alias': el.alias,
+          'name': el.name
+        };
+        el.children.forEach(function (sub_el) {
+          self.regions[sub_el.val] = {
+            'alias': sub_el.alias,
+            'name': sub_el.name,
+            'parent': el.val
+          };
+          sub_el.children.forEach(function (city) {
+            self.cities.push({
+              'alias': city.alias,
+              'name': city.name,
+              'parent': sub_el.val
+            });
+          });
+        });
+      });
+      this.result = this.cities;
     },
     handleClickOutside: function handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
         this.openRes = false;
       }
     },
-    // fixScrolling(){
-    //     const scroll = this.$refs.scroll[this.arrowCounter].scrollHeight;
-    //     this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
-    //     console.log(this.$refs.scrollContainer.scrollTop);
-    //     console.log(scroll * this.arrowCounter);
-    // },
+    fixScrolling: function fixScrolling() {
+      var scroll = this.$refs.scroll[this.arrowCounter].scrollHeight;
+      this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
+      console.log(this.$refs.scrollContainer.scrollTop);
+      console.log(scroll * this.arrowCounter);
+    },
     onArrowDown: function onArrowDown(ev) {
       ev.preventDefault();
 
@@ -7246,9 +7281,46 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   },
-  mounted: function mounted() {
-    document.addEventListener('click', this.handleClickOutside);
-    this.filteredCity();
+  computed: {
+    clearRegions: function clearRegions() {
+      var clearArr = [],
+          regionArr = [];
+      self = this;
+      this.result.forEach(function (el) {
+        if (regionArr[el.parent] == undefined) {
+          regionArr[el.parent] = {
+            'region': self.regions[el.parent],
+            'children': []
+          };
+        }
+
+        regionArr[el.parent]['children'].push(el);
+      });
+      console.log(regionArr);
+      regionArr.forEach(function (el) {
+        if (clearArr[el.region.parent] == undefined) {
+          clearArr[el.region.parent] = {
+            'regionPart': self.regionParts[el.region.parent],
+            'children': []
+          };
+        }
+
+        clearArr[el.region.parent]['children'].push(el);
+      });
+      return clearArr;
+    }
+  },
+  watch: {
+    options: function options(to) {
+      this.destructRegionPart();
+    },
+    search: function search(to, from) {
+      this.result = this.cities.filter(function (item) {
+        return to.toLowerCase().split(' ').every(function (v) {
+          return item.name.toLowerCase().includes(v);
+        });
+      });
+    }
   },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.handleClickOutside);
@@ -8070,7 +8142,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      currency: ['$', '₴', '€'],
+      currency: [{
+        name: '$'
+      }, {
+        name: '₴'
+      }, {
+        name: '€'
+      }],
       minRange: null,
       maxRange: null,
       slider: {
@@ -51030,39 +51108,24 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "yb-carsearch_items" }, [
             _c("div", { staticClass: "yoptions_items" }, [
-              _c(
-                "div",
-                { staticClass: "yoptions_items_mobile" },
-                [
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "ycheckbox_options" },
-                    [
-                      _c("ycheckbox", {
-                        attrs: { text: "Поиск со всех ресурсов" }
-                      }),
-                      _vm._v(" "),
-                      _c("ycheckbox", { attrs: { text: "Провереные" } }),
-                      _vm._v(" "),
-                      _c("ycheckbox", { attrs: { text: "С фото" } })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h4", [_vm._v("Страна производитель")]),
-                  _vm._v(" "),
-                  _c("ydropdown", {
-                    attrs: {
-                      placeholder: "Выберите страну",
-                      items: _vm.countryName
-                    },
-                    on: { setItem: _vm.selectedItem }
-                  })
-                ],
-                1
-              ),
+              _c("div", { staticClass: "yoptions_items_mobile" }, [
+                _vm._m(6),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycheckbox_options" },
+                  [
+                    _c("ycheckbox", {
+                      attrs: { text: "Поиск со всех ресурсов" }
+                    }),
+                    _vm._v(" "),
+                    _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                    _vm._v(" "),
+                    _c("ycheckbox", { attrs: { text: "С фото" } })
+                  ],
+                  1
+                )
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -51127,6 +51190,23 @@ var render = function() {
               _c("div", { staticClass: "yflex_car-item" }, [
                 _c(
                   "div",
+                  { staticClass: "ycars-item countries" },
+                  [
+                    _c("h2", [_vm._v("Страна производитель")]),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: {
+                        placeholder: "Выберите страну",
+                        items: _vm.countryName
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
                   { staticClass: "ycars-item marks" },
                   [
                     _c("h2", [_vm._v("Марка")]),
@@ -51178,6 +51258,23 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "yflex_car-item remove" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item countries" },
+                  [
+                    _c("h2", [_vm._v("Страна производитель")]),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: {
+                        placeholder: "Выберите страну",
+                        items: _vm.countryName
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "ycars-item marks" },
@@ -51822,17 +51919,7 @@ var render = function() {
                       }),
                       0
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c("h4", [_vm._v("Страна производитель")]),
-                  _vm._v(" "),
-                  _c("ydropdown", {
-                    attrs: {
-                      placeholder: "Выберите страну",
-                      items: _vm.countryName
-                    },
-                    on: { setItem: _vm.selectedItem }
-                  })
+                  ])
                 ],
                 1
               )
@@ -51840,6 +51927,23 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "add-cars_items" }, [
               _c("div", { staticClass: "yflex_car-item" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item countries" },
+                  [
+                    _c("h2", [_vm._v("Страна производитель")]),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: {
+                        placeholder: "Выберите страну",
+                        items: _vm.countryName
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "ycars-item marks" },
@@ -51895,6 +51999,23 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "yflex_car-item remove" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item countries" },
+                  [
+                    _c("h2", [_vm._v("Страна производитель")]),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: {
+                        placeholder: "Выберите страну",
+                        items: _vm.countryName
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "ycars-item marks" },
@@ -52084,7 +52205,7 @@ var render = function() {
                         _c(
                           "div",
                           { staticClass: "yside_check" },
-                          _vm._l(item.childrens, function(child) {
+                          _vm._l(item.children, function(child) {
                             return _c("div", { staticClass: "y-check " }, [
                               _c("input", {
                                 attrs: { id: child.alias, type: "checkbox" }
@@ -54140,59 +54261,61 @@ var render = function() {
       ? _c(
           "div",
           { staticClass: "y_show-results" },
-          _vm._l(_vm.options, function(item, i) {
-            return _c(
-              "div",
-              {
-                staticClass: "select_option region_part_option",
-                class: { y_active: i === _vm.arrowCounter }
-              },
-              [
-                _c("span", { staticClass: "option_name" }, [
-                  _vm._v(_vm._s(item.name))
-                ]),
-                _vm._v(" "),
-                _vm._l(item.childrens, function(region, region_index) {
-                  return _c(
-                    "div",
-                    { staticClass: "select_option region_option" },
-                    [
-                      _c("span", { staticClass: "option_name" }, [
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(region.name) +
-                            "\n                "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
+          _vm._l(_vm.clearRegions, function(item, i) {
+            return item != undefined
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "select_option region_part_option",
+                    class: { y_active: i === _vm.arrowCounter }
+                  },
+                  [
+                    _c("span", { staticClass: "option_name" }, [
+                      _vm._v(_vm._s(item.regionPart.name))
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(item.children, function(region, region_index) {
+                      return _c(
                         "div",
-                        { staticClass: "select_option city_option" },
-                        _vm._l(region.childrens, function(city, city_index) {
-                          return _c(
-                            "span",
-                            {
-                              ref: "scroll",
-                              refInFor: true,
-                              staticClass: "option_name"
-                            },
-                            [
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(city.name) +
-                                  "\n                    "
+                        { staticClass: "select_option region_option" },
+                        [
+                          _c("span", { staticClass: "option_name" }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(region.region.name) +
+                                "\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "select_option city_option" },
+                            _vm._l(region.children, function(city, city_index) {
+                              return _c(
+                                "span",
+                                {
+                                  ref: "scroll",
+                                  refInFor: true,
+                                  staticClass: "option_name"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(city.name) +
+                                      "\n                    "
+                                  )
+                                ]
                               )
-                            ]
+                            }),
+                            0
                           )
-                        }),
-                        0
+                        ]
                       )
-                    ]
-                  )
-                })
-              ],
-              2
-            )
+                    })
+                  ],
+                  2
+                )
+              : _vm._e()
           }),
           0
         )
