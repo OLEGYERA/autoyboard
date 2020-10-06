@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            <div class="yb-carsearch_price-items">
+            <div class="yb-region_price-items">
                 <div class="ychange_price-container">
                     <h2>Цена</h2>
                     <div class="yrange_slider-container">
@@ -367,14 +367,14 @@
                                                :class="{'fa-chevron-up' : otherShowID === idx, 'fa-chevron-down':  otherShowID !== idx}"
                                             ></i>
                                         </button>
-                                        <div
-                                            v-if="otherShowID == idx"
-                                            v-for="(accordion) in accordionItems[otherShowID].items"
-                                            class="yoption"
-                                        >
-                                            <input  :id="accordion.title" type="checkbox">
-                                            <label  :for="accordion.title">{{accordion.title}}</label>
-                                        </div>
+<!--                                        <div-->
+<!--                                            v-if="otherShowID == idx"-->
+<!--                                            v-for="(accordion) in accordionItems[otherShowID].items"-->
+<!--                                            class="yoption"-->
+<!--                                        >-->
+<!--                                            <input  :id="accordion.title" type="checkbox">-->
+<!--                                            <label  :for="accordion.title">{{accordion.title}}</label>-->
+<!--                                        </div>-->
                                     </li>
                                 </div>
                             </div>
@@ -568,7 +568,7 @@
                     <button class="yadded-car-item exclude_counry">Добавить страну</button>
                 </div>
             </div>
-            <div class="yb-carsearch_price-items">
+            <div class="yb-region_price-items">
                 <div class="ychange_price-container">
                     <h2>Цена</h2>
                     <div class="yrange_slider-container">
@@ -1028,7 +1028,7 @@
                     <button class="yadded-car-item exclude_counry">Добавить страну</button>
                 </div>
             </div>
-            <div class="yb-carsearch_price-items">
+            <div class="yb-region_price-items">
                 <div class="ychange_price-container">
                     <h2>Цена</h2>
                     <div class="yrange_slider-container">
@@ -1044,17 +1044,38 @@
                         </ycheckbox>
                     </div>
                 </div>
-                <div class="yreg_container">
+                <div class="yreg_container" v-if="regionArr.length != 0">
                     <h2>Регион</h2>
-                    <yfsearch @setItem='selectedItem' :placeholder="'Выберите город'" :options="regionArr"></yfsearch>
+                    <yfsearch
+                        :placeholder="'Выберите город'"
+                        :options="regionArr"
+                        @responseResult="computeCityResult"
+                    ></yfsearch>
+                    <div class="yselect_region">
+                        <div v-for="(city, city_idx) in choosedCities"class="yselect_region-item">
+                            <svg @click="removeChoosedCities(city_idx)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="6" fill="white"/>
+                                <g clip-path="url(#clip0)">
+                                    <path d="M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z" fill="#0B3F8D"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="6" height="6" fill="white" transform="translate(3 3)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            {{city.name}}
+                        </div>
+                    </div>
                     <div class="yreg-checkbox">
                         <div class="yflex_dir">
-                            <div v-for="(item) in regionArr"  class="yside_country">
+                            <div v-for="(item) in regionAndPart"  class="yside_country">
                                 <h2>{{item.name}}</h2>
                                 <div class="yside_check">
                                     <div v-for="(child) in item.children"  class="y-check ">
-                                        <input :id="child.alias" type="checkbox">
-                                        <label :for="child.alias">{{child.name}}</label>                                    </div>
+                                        <input :id="child.alias" type="checkbox" @change="SET_CHOOSED_REGIONS($event)" v-bind="{'checked': child.choosed == true}">
+                                        <label :for="child.alias">{{child.name}}</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1290,13 +1311,13 @@
                             </div>
                             <div class="yother_visr-options">
                                 <div class="ycars_options" >
-                                    <div
-                                        class="yoption"
-                                        v-for="(accordion) in accordionItems[otherShowID].items"
-                                    >
-                                        <input :id="accordion.title" type="checkbox">
-                                        <label :for="accordion.title">{{accordion.title}}</label>
-                                    </div>
+<!--                                    <div-->
+<!--                                        class="yoption"-->
+<!--                                        v-for="(accordion) in accordionItems[otherShowID].items"-->
+<!--                                    >-->
+<!--                                        <input :id="accordion.title" type="checkbox">-->
+<!--                                        <label :for="accordion.title">{{accordion.title}}</label>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -1359,31 +1380,22 @@
 </template>
 
 <script>
+    import {mapGetters, mapActions, mapMutations} from 'vuex';
     import {HTTP} from "../../http.js";
     export default {
-        computed: {
-            reversedYears() {
-                return this.yearsList.slice().reverse();
-            },
-        },
         mounted () {
             document.addEventListener('click', this.clickOutside);
             window.addEventListener('resize', this.changeResize)
             this.changeResize();
             this.getYears()
             this.getRegion()
-            this.getTransportType()
-        },
-        destroyed() {
-            document.removeEventListener('click', this.clickOutside)
+            this.getTransportType();
         },
         data(){
             return{
                 transportTypeChecked: [], // true or false checkbox
                 transportType:[],
                 yearsList: [],
-                regionArr:[],
-
                 showSelected: 6,
                 selectDropDown: [], /// accepts data from child component <dropdown></dropdown> && <select></select>
                 picked: [],
@@ -1522,7 +1534,7 @@
                     {name: 'Роботизированная', id: 'robotic'},
                     {name: 'Вариативная', id: 'variable'},
                     {name: 'Типтроник', id: 'tiptronic'}
-                    ],
+                ],
                 typeofdrive: [
                     {name: 'Задний привод',
                         id: 'rear_drive_unit'
@@ -1639,23 +1651,23 @@
                     },
                 ],
                 cars: [
-                {
-                    id: 1,
-                    name: "Ford",
-                },
-                {
-                    id: 2,
-                    name: "Toyota",
-                },
-                {
-                    id: 3,
-                    name: "Fiat",
-                },
-                {
-                    id: 4,
-                    name: "Mazda",
-                },
-            ],
+                    {
+                        id: 1,
+                        name: "Ford",
+                    },
+                    {
+                        id: 2,
+                        name: "Toyota",
+                    },
+                    {
+                        id: 3,
+                        name: "Fiat",
+                    },
+                    {
+                        id: 4,
+                        name: "Mazda",
+                    },
+                ],
                 typeCars: [
                     {
                         name: 'Легковые',
@@ -1738,8 +1750,16 @@
                 ],
                 years: [{name :'2020', id: '2020'} , {name :'2019', id: '2019'} , {name :'2018', id: '2018'} , {name :'2017', id: '2017'} , {name :'2016', id: '2016'} , {name :'2015', id: '2015'} , {name :'2014', id: '2014'} , {name :'2013', id: '2013'} , {name :'2012', id: '2012'} , {name :'2011', id: '2011'} , {name :'2010', id: '2010'} , {name :'2009', id: '2009'} , {name: '2008', id:'2008'} , {name: '2007', id:'2007'} , {name: '2006', id:'2006'} , {name: '2005', id:'2005'} , {name: '2004', id:'2004'} , {name: '2003', id:'2003'} , {name: '2002', id:'2002'} , {name: '2001', id:'2001'}, {name: '2000', id:'2000'}, {name: '1999', id:'1999'}, {name: '1998', id:'1998'}, {name: '1997', id:'1997'}, {name:'1996', id:'1996'}, {name:'1995', id:'1995'},],
             }
-      },
+        },
         methods: {
+            ...mapMutations(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS']),
+            ...mapActions(['FULL_REGIONS_FROM_API']),
+            check(e){
+              console.log(e.target.id);
+            },
+            computeCityResult(city){
+                this.SET_CITIES_TO_STORE(city);
+            },
             addToArray(item, index){
                 this.selectDropDown.push({
                     name: item.name,
@@ -1748,6 +1768,10 @@
             },
             removeSelectedItem(index){
                 this.$delete(this.selectDropDown, index)
+            },
+            removeChoosedCities(city_idx){
+                this.$delete(this.choosedCities, city_idx)
+                console.log('remove', city_idx)
             },
             selectedItem(e){
                 this.selectDropDown.push(e)
@@ -1796,16 +1820,27 @@
                 })
             },
             getRegion(){
-                let lang = 3,
-                    query = "?langType=" + lang + '&alias=1' ;
-                HTTP.get('/regions' + query)
-                    .then(response => {
-                        this.regionArr = response.data;
-                    }).catch(error =>{
-                    console.log('error', error)
-
-                })
+                let lang = 3, query = "?langType=" + lang + '&alias=1' ;
+                this.FULL_REGIONS_FROM_API('/regions' + query);
             }
+        },
+        computed: {
+            ...mapGetters({
+                'regionArr': 'GET_FULL_REGION_FROM_STORE',
+                'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
+                'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE'
+            }),
+            reversedYears() {
+                return this.yearsList.slice().reverse();
+            },
+        },
+        watch: {
+            regionArr(to){
+                console.log(to)
+            }
+        },
+        destroyed() {
+            document.removeEventListener('click', this.clickOutside)
         },
     }
 </script>

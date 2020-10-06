@@ -1,21 +1,24 @@
 <template>
-    <div class="yfilter_select-search">
+    <div class="yregionsearch">
         <input
             class="yinput_search"
             :placeholder="placeholder"
-            @click="openRes = !openRes"
-            @keyup.esc="openRes = !openRes"
+            @click="openResults = !openResults"
+            @keyup.esc="openResults = !openResults"
             @keydown.down="onArrowDown"
             @keydown.up="onArrowUp"
+            @keydown.enter="onEnter"
             v-model="search"
             type="text">
         <i
            class="fas"
-           :class="{'fa-chevron-up' :openRes, 'fa-chevron-down':  !openRes}">
+           :class="{'fa-chevron-up' :openResults, 'fa-chevron-down':  !openResults}">
         </i>
+        <span class="y_show-results null_res" v-if="result.length === 0">Ничего не найдено</span>
         <div
-            v-if="openRes"
+            v-if="openResults"
             class="y_show-results"
+            ref="scrollContainer"
         >
             <div
                 v-for="(item, i) in clearRegions"
@@ -23,14 +26,26 @@
                 :class="{y_active : i === arrowCounter}"
                 v-if="item != undefined"
             >
-                <span class="option_name">{{item.regionPart.name}}</span>
+                <span
+                    class="option_name"
+                    @click="openResults = true"
+                >{{item.regionPart.name}}</span>
                 <div class="select_option region_option"
                      v-for="(region, region_index) in item.children">
-                    <span class="option_name">
+                    <span
+                        class="option_name"
+                        @click="openResults = true"
+                    >
                         {{region.region.name}}
                     </span>
                     <div class="select_option city_option">
-                        <span  ref="scroll" class="option_name" v-for="(city, city_index) in region.children">
+                        <span
+                            ref="scroll"
+                            class="option_name"
+                            @click="setResult(city)"
+                            v-for="(city, city_index) in region.children"
+                            :class="{'selected': city_index === arrowCounter}"
+                        >
                             {{city.name}}
                         </span>
                     </div>
@@ -44,46 +59,42 @@ export  default {
     props: ['placeholder','options'], // options is a predator variable func
     beforeMount() {
         document.addEventListener('click', this.handleClickOutside);
+        this.destructRegionPart();
     },
     data(){
         return{
             regionParts: [],
             regions: [],
             cities: [],
-            openRes: false,
+            openResults: false,
             result: [],
             search: '',
             arrowCounter: 0,
         }
     },
     methods: {
-        destructRegionPart() {
-            this.regionParts = [];
-            this.regions = [];
-            this.cities = [];
-            let self = this;
-            this.options.forEach(function(el){
-                self.regionParts[el.val] = {'alias': el.alias, 'name': el.name};
-                el.children.forEach(function(sub_el){
-                    self.regions[sub_el.val] = {'alias': sub_el.alias, 'name': sub_el.name, 'parent': el.val};
-                    sub_el.children.forEach(function(city){
-                        self.cities.push({'alias': city.alias, 'name': city.name, 'parent': sub_el.val});
-                    })
-                })
-            });
+        setResult(city) {
+            this.search = null;
+            this.openResults = false;
+            if(this.search === null){
+                this.search = ''
+                this.result = this.result
+            }
 
-            this.result = this.cities;
+            this.$emit('responseResult', city);
         },
+        onEnter() {
+            this.setResult(this.result[this.arrowCounter]);
+        },
+
         handleClickOutside(evt) {
             if (!this.$el.contains(evt.target)) {
-                this.openRes = false;
+                this.openResults = false;
             }
         },
         fixScrolling(){
             const scroll = this.$refs.scroll[this.arrowCounter].scrollHeight;
             this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
-            console.log(this.$refs.scrollContainer.scrollTop);
-            console.log(scroll * this.arrowCounter);
         },
         onArrowDown: function (ev) {
             ev.preventDefault()
@@ -99,24 +110,35 @@ export  default {
                 this.fixScrolling()
             }
         },
+
+        destructRegionPart() {
+            this.regionParts = [];
+            this.regions = [];
+            this.cities = [];
+            let self = this;
+            this.options.forEach(function(el){
+                self.regionParts[el.val] = {'alias': el.alias, 'name': el.name};
+                el.children.forEach(function(sub_el){
+                    self.regions[sub_el.val] = {'alias': sub_el.alias, 'name': sub_el.name, 'parent': el.val};
+                    sub_el.children.forEach(function(city){
+                        self.cities.push({'alias': city.alias, 'name': city.name, 'val': city.val, 'parent': sub_el.val});
+                    })
+                })
+            });
+            this.result = this.cities;
+        },
     },
     computed: {
         clearRegions(){
             let clearArr = [],
                 regionArr = []
                 self = this;
-
-
             this.result.forEach(function (el){
-
                 if(regionArr[el.parent] == undefined){
                     regionArr[el.parent] = {'region': self.regions[el.parent], 'children': []};
                 }
                 regionArr[el.parent]['children'].push(el);
             });
-
-            console.log(regionArr);
-
             regionArr.forEach(function (el){
                 if(clearArr[el.region.parent] == undefined){
                     clearArr[el.region.parent] = {'regionPart': self.regionParts[el.region.parent], 'children': []};
@@ -127,10 +149,13 @@ export  default {
         }
     },
     watch: {
-        options(to){
-            this.destructRegionPart();
-        },
-        search(to, from){
+        search(to){
+            if(to == null) return false;
+            if(!this.openResults) this.openResults = true;
+
+            this.arrowCounter = 0;
+            this.$refs.scrollContainer.scrollTop = 0;
+
             this.result = this.cities.filter((item)=>{
                 return to.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
             })

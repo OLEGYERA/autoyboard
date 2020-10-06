@@ -1,6 +1,7 @@
 require('../bootstrap.js');
 
 import Vue from 'vue';
+import {services} from '../STORE/services';
 
 //modules
 Vue.component('ymenu', require('./modules/header/ymenu.vue').default);
@@ -30,7 +31,7 @@ Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 
  Vue.component('yselect', require('./components/yselectsearch').default);
-Vue.component('yfsearch', require('./components/yfilterselectsearch').default);
+Vue.component('yfsearch', require('./components/yregionsearch').default);
 
 
 Vue.component('ydropdown', require('./components/ydropdown').default);
@@ -49,5 +50,5 @@ Vue.component('ycardfilter', require('./components/ycardfilter').default);
 Vue.component('ydropdowfilter', require('./components/ydropdownfilter').default);
 
 new Vue({
-
+    store: services
 }).$mount('#yb-site', );

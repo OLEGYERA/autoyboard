@@ -597,7 +597,7 @@
                     background-color: #E7E7E7;
                 }
             }
-            .yb-carsearch_price-items{
+            .yb-region_price-items{
                 display: flex;
                 width: 100%;
                 position: relative;
@@ -719,6 +719,32 @@
                     .autocomplete{
                         margin-bottom: 15px;
                         width: 40%;
+                    }
+                    .yselect_region{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        flex-flow: wrap;
+                        .yselect_region-item{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            height: 30px;
+                            margin-right: 20px;
+                            padding: 0 2%;
+                            background-color: $darkblue;
+                            color: white;
+                            border-radius: 6px;
+                            margin-bottom: 15px;
+                            svg{
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 8px;
+                            }
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                        }
                     }
                     .yreg-checkbox{
                         width: 100%;
@@ -1561,7 +1587,7 @@
                         }
                     }
                 }
-                .yb-carsearch_price-items{
+                .yb-region_price-items{
                     .ychange_price-container{
                         .yrange_slider-container{
                             .yprice_container{
@@ -1756,7 +1782,7 @@
                         }
                     }
                 }
-                .yb-carsearch_price-items{
+                .yb-region_price-items{
                     .ychange_price-container{
                         width: 30%;
                     }
@@ -1962,7 +1988,7 @@
                         }
                     }
                 }
-                .yb-carsearch_price-items{
+                .yb-region_price-items{
                     .ychange_price-container{
                         .yrange_slider-container{
                             padding: 25px 10px;
@@ -2035,7 +2061,7 @@
                         }
                     }
                 }
-                .yb-carsearch_price-items{
+                .yb-region_price-items{
                     .ychange_price-container{
                         width: 38%;
                     }
@@ -2191,7 +2217,7 @@
                             }
                         }
                     }
-                    .yb-carsearch_price-items{
+                    .yb-region_price-items{
                         flex-direction: column;
                         .ychange_price-container{
                             width: 50%;
@@ -2547,7 +2573,7 @@
                             width: 100%;
                         }
                     }
-                    .yb-carsearch_price-items{
+                    .yb-region_price-items{
                         .ychange_price-container{
                             width: 100%;
                         }
@@ -2670,7 +2696,7 @@
             }
             .ybexpanded_search{
                 &.show_mobile{
-                    .yb-carsearch_price-items{
+                    .yb-region_price-items{
                         .ychange_price-container{
                             .yrange_slider-container{
                                 padding: 25px 5px;
