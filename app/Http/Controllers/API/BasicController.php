@@ -17,6 +17,7 @@ abstract class BasicController
         $requests = Arr::add($requests, 'query', $request->q);
         $requests = Arr::add($requests, 'regionStage', $request->regionStage);
         $requests = Arr::add($requests, 'children', ($request->children === "1") ? 1 : 0);
+        $requests = Arr::add($requests, 'manufacture', $request->manufatureID);
 
         return $requests;
     }

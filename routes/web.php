@@ -25,12 +25,12 @@ Route::get('api_testing', function(){
 //Route::group(array('domain' => 'api.yboard'), $appRoutes);
 //Route::group(array('domain' => '10.0.0.140'), $appRoutes);
 //
-//Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
+Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
 //
 //
 ////Route::get('/', 'Site\Auto\PageController@start');
 //Route::get('/img_minified', 'Controller@img_minified')->name('img_minified');
-////Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
+Route::get('/img/{alias}', 'Site\Auto\PageController@generateURL')->name('lol');
 //
 //Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
 //

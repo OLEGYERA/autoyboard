@@ -34,6 +34,42 @@ class Controller extends BaseController
     public function filterparse()
     {
 
+
+        $brand_1 = Curl::to('https://auto.ria.com/demo/api/categories/8/marks/_active/_with_count/_with_country?langId=2')
+        ->withTimeout(60)
+        ->withConnectTimeout(60)
+        //            ->withProxy('93.190.44.51', 14523, 'https://', 'O9e5TwD', 'N5k6WhE')
+        ->withHeaders(array('User-Agent' => 'Mozilla/5.0 (Linux; Android 10; HRY-LX1 Build/HONORHRY-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.117 Mobile Safari/537.36 YaApp_Android/9.85 YaSearchBrowser/9.85'))
+        ->withResponseHeaders()
+        ->returnResponseObject()
+        ->get();
+
+        $brand_1 = json_decode($brand_1->content);
+        $manufacture = json_decode('[{"val" : "276", "name": "Германия"},{"val" : "392", "name": "Япония"},{"val" : "250", "name": "Франция"},{"val" : "840", "name": "США"},{"val" : "408", "name": "Корея"},{"val" : "203", "name": "Чехия"},{"val" : "804", "name": "Украина"},{"val" : "380", "name": "Италия"},{"val" : "752", "name": "Швеция"},{"val" : "158", "name": "Китай"},{"val" : "40", "name": "Австрия"},{"val" : "826", "name": "Англия"},{"val" : "32", "name": "Аргентина"},{"val" : "112", "name": "Беларусь"},{"val" : "56", "name": "Бельгия"},{"val" : "100", "name": "Болгария"},{"val" : "76", "name": "Бразилия"},{"val" : "348", "name": "Венгрия"},{"val" : "276", "name": "Германия"},{"val" : "900", "name": "Грузия"},{"val" : "208", "name": "Дания"},{"val" : "356", "name": "Индия"},{"val" : "364", "name": "Иран"},{"val" : "901", "name": "Ирландия"},{"val" : "724", "name": "Испания"},{"val" : "380", "name": "Италия"},{"val" : "398", "name": "Казахстан"},{"val" : "124", "name": "Канада"},{"val" : "158", "name": "Китай"},{"val" : "408", "name": "Корея"},{"val" : "428", "name": "Латвия"},{"val" : "440", "name": "Литва"},{"val" : "442", "name": "Люксембург"},{"val" : "458", "name": "Малайзия"},{"val" : "498", "name": "Молдова"},{"val" : "528", "name": "Нидерланды"},{"val" : "578", "name": "Норвегия"},{"val" : "902", "name": "ОАЭ"},{"val" : "616", "name": "Польша"},{"val" : "620", "name": "Португалия"},{"val" : "643", "name": "Россия"},{"val" : "642", "name": "Румыния"},{"val" : "688", "name": "Сербия"},{"val" : "703", "name": "Словакия"},{"val" : "705", "name": "Словения"},{"val" : "840", "name": "США"},{"val" : "792", "name": "Турция"},{"val" : "860", "name": "Узбекистан"},{"val" : "804", "name": "Украина"},{"val" : "246", "name": "Финляндия"},{"val" : "250", "name": "Франция"},{"val" : "203", "name": "Чехия"},{"val" : "756", "name": "Швейцария"},{"val" : "752", "name": "Швеция"},{"val" : "233", "name": "Эстония"},{"val" : "392", "name": "Япония"}]');
+
+        $manufacture_assoc = [];
+        foreach ($manufacture as $i){
+            $manufacture_assoc = Arr::add($manufacture_assoc, $i->val, $i->name);
+        }
+
+//        dd($brand_1);
+
+        foreach ($brand_1 as $i){
+            $brand = Brand::where('title', $i->name)->first();
+
+            if(!empty($brand)){
+                echo $i->country . '<br/>';
+                if($i->country != 0 && isset($manufacture_assoc[$i->country])){
+                    $mc = ManufactureCountry::where('rtitle', $manufacture_assoc[$i->country])->first();
+                    $brand->manufacture_id = $mc->id;
+                    $brand->save();
+                }
+            }
+        }
+        dd($i->country);
+
+
+        dd($manufacture_assoc);
         foreach (Brand::all() as $item){
             if($item->car){
                 $bpt = new BrandPivotType;
@@ -236,14 +272,14 @@ class Controller extends BaseController
 
             $large = $image->resize(800, 600);
             $large->save('folder/' . $i . 'large.jpg',  60);
-//            $medium = $image->resize(620, 465);
-//            $medium->save('folder/' . $i . 'medium.jpg',  60);
+            $medium = $image->resize(620, 465);
+            $medium->save('folder/' . $i . 'medium.jpg',  60);
 
             $standart = $image->resize(460, 290);
             $standart->save('folder/' . $i . 'standart.jpg',  60);
 
-//            $small = $image->resize(150, 100);
-//            $small->save('folder/' . $i . 'small.jpg',  60);
+            $small = $image->resize(150, 100);
+            $small->save('folder/' . $i . 'small.jpg',  60);
         }
 
     }

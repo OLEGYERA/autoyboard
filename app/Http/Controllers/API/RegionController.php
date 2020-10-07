@@ -35,7 +35,7 @@ class RegionController extends BasicController
             case 1:
                 if($requests['children']) {
                     foreach (UkrainianRegionPart::select($selecting_query)->get() as $urp) {
-                        $urp->childrens = $urp->regions()->select($selecting_query)->get();
+                        $urp->children = $urp->regions()->select($selecting_query)->get();
                         array_push($regions, $urp);
                     }
                 }
@@ -46,7 +46,7 @@ class RegionController extends BasicController
             case 2:
                 if($requests['children']) {
                     foreach (UkrainianRegion::select($selecting_query)->get() as $ur) {
-                        $ur->childrens = $ur->cities()->select($selecting_query)->get();
+                        $ur->children = $ur->cities()->select($selecting_query)->get();
                         array_push($regions, $ur);
                     }
                 }
@@ -61,10 +61,10 @@ class RegionController extends BasicController
                 foreach (UkrainianRegionPart::select($selecting_query)->get() as $urp){
                     $region_part = [];
                     foreach ($urp->regions()->select($selecting_query)->get() as $ur){
-                        $ur->childrens = $ur->cities()->select($selecting_query)->get();
+                        $ur->children = $ur->cities()->select($selecting_query)->orderBy('created_at', 'asc')->get();
                         array_push($region_part, $ur);
                     }
-                    $urp->childrens = $region_part;
+                    $urp->children = $region_part;
                     array_push($regions, $urp);
                 }
                 break;
