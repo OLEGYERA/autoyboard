@@ -1,11 +1,20 @@
 require('../bootstrap.js');
 
 import Vue from 'vue';
+import {services} from '../STORE/services';
 
 //modules
 Vue.component('ymenu', require('./modules/header/ymenu.vue').default);
 
-
+//mobile
+Vue.component('ymobilesticker', require('./components/ymobilesticker').default);
+Vue.component('ymobilecatalog', require('./components/ymobilecatalog').default);
+Vue.component('ymobileanalitics', require('./components/ymobileanalitics').default);
+//finish mobile
+//change visible
+Vue.component('ychangeoffers', require('./components/ybestofferschange').default);
+Vue.component('ynewschange', require('./components/ynewschange').default);
+//finish change visible
 
 Vue.component('ysearch', require('./modules/header/ysearch.vue').default);
 Vue.component('ylocation', require('./components/ylocation.vue').default);
@@ -21,8 +30,25 @@ Vue.component('yfavorite', require('./components/yfavorite').default);
 Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 
-Vue.component('carousel', require('./components/carousel').default);
+ Vue.component('yselect', require('./components/yselectsearch').default);
+Vue.component('yfsearch', require('./components/yregionsearch').default);
+
+
+Vue.component('ydropdown', require('./components/ydropdown').default);
+
+
+Vue.component('ystickers', require('./components/ystickers').default);
+
+Vue.component('ycardauto', require('./components/ycardauto').default);
+
+
+
+
+Vue.component('yfilterextended', require('./components/yfilterextended').default);
+Vue.component('yfilterform', require('./components/yfilterform').default);
+Vue.component('ycardfilter', require('./components/ycardfilter').default);
+Vue.component('ydropdowfilter', require('./components/ydropdownfilter').default);
 
 new Vue({
-
+    store: services
 }).$mount('#yb-site', );

@@ -1,0 +1,95 @@
+@import '../clear';
+@import '../../vars';
+
+.yregionsearch{
+    width: 40%;
+    margin-bottom: 15px;
+    position: relative;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #E2E2E2;
+    cursor: pointer;
+    .yinput_search{
+        position: relative;
+        width: 100%;
+        border: none;
+    }
+    i{
+        color: #C7C7C7;
+    }
+    .y_show-results{
+        width: 100%;
+        position: absolute;
+        scrollbar-width: none;
+        max-height: 155px;
+        overflow: scroll;
+        overflow-x: hidden;
+        top: 45px;
+        left: 0;
+        background: #FFFFFF;
+        box-shadow: 0 0 5px 1px rgba(52, 110, 197, 0.28);
+        border-radius: 3px;
+        z-index: 2;
+        .select_option{
+            font-family: $aleg;
+            font-weight: normal;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            line-height: 22px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.83);
+            .option_name{
+                font-family: $aleg;
+            }
+
+            &.region_part_option{
+                padding-left: 10px;
+                background-color: #FFFFFF;
+                color: #fff;
+                .option_name{
+                    font-weight: bold;
+                    font-size: em(16);
+                    line-height: 22px;
+                    color: $darkblue;
+                    padding-top: 5px;
+                }
+            }
+
+            &.region_option{
+                background-color: #FFFFFF;
+                color: #fff;
+                .option_name{
+                    font-weight: 500;
+                    font-size: em(16);
+                    line-height: 22px;
+                    color: #2A2C2D;
+                    padding: 0!important;
+
+                }
+
+            }
+            &.city_option{
+                .option_name{
+                    height: 25px;
+                    display: flex;
+                    align-items: center;
+                    font-weight: normal;
+                    font-size: em(15);
+                    line-height: 19px;
+                    color: #5B5B5B;
+                    padding: 0!important;
+                    &.selected{
+                        background: rgba(221, 241, 255, 0.64);
+                    }
+                }
+            }
+        }
+    }
+}

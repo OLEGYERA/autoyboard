@@ -15,71 +15,99 @@
             border: 1px solid $search-border;
             box-sizing: border-box;
             border-radius: 10px;
-            font-family: $aleg;
+            font-family: $noto;
             font-weight: 500;
             font-size: em(18);
             color: $site-grey;
+            -moz-appearance: textfield;
             &::placeholder{
                 color: $site-grey;
             }
         }
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        input[type=number] {
-            -moz-appearance:textfield;
+        .currency_change{
+            display: none;
         }
     }
-    .track-container{
+    .noUi-target{
         width: 100%;
-        position: relative;
-        cursor: pointer;
-        height: 0.5rem;
+        height: 7px;
+        background: #E5E5E5;
+        border-right: none;
+        border: none;
+        box-shadow: none;
+        .noUi-base{
+            .noUi-connects{
+                background: #E5E5E5;
+                .noUi-connect {
+                    background: #0B3F8D;
+                    transform: translate(22%, 0px) scale(0.6, 1);
+                }
+            }
+            .noUi-origin{
+                .noUi-handle{
+                    background: #FFFEFE;
+                    border-radius: 4px;
+                    width: 15px;
+                    outline: none;
+                    cursor: pointer;
+                    height: 15px;
+                    top: -5px;
+                    box-shadow: -1px 2px 4px rgba(78, 78, 78, 0.2);
+                    &:after, &:before{
+                        display: none;
+                    }
+                }
+                .noUi-handle-upper{
+                    right: -1px;
+                }
+                .noUi-handle-lower{
+                    right: -15px;
+                }
+            }
+        }
 
-        .track,
-        .track-highlight {
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 7px;
-        }
-        .track{
-            background-color: #E5E5E5;
-            height: 7px;
-        }
-
-        .track-highlight{
-            background-color: #0B3F8D;
-            z-index: 2;
-        }
-        .track-btn{
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            outline: none;
-            cursor: pointer;
-            display: block;
-            position: absolute;
-            z-index: 2;
-            width: 15px;
-            height: 15px;
-            top: calc(-50%);
-            border-radius: 4px;
-            border: none;
-            background: #FFFEFE;
-            -ms-touch-action: pan-x;
-            touch-action: pan-x;
-            box-shadow: -1px 2px 4px rgba(78, 78, 78, 0.2);
-            transition: box-shadow .3s ease-out,background-color .3s ease,-webkit-transform .3s ease-out;
-            transition: transform .3s ease-out,box-shadow .3s ease-out,background-color .3s ease;
-            transition: transform .3s ease-out,box-shadow .3s ease-out,background-color .3s ease,-webkit-transform .3s ease-out;
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yprice_container{
+        .input_change{
+            padding-bottom: 15px;
+            .change{
+                height: 38px;
+            }
         }
     }
 }
-
-
+@media only screen and (max-width: 945px){
+    .yprice_container{
+        .input_change{
+            padding-bottom: 12px;
+            .change{
+                height: 35px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .yprice_container{
+        width: 80%;
+        margin: 0 auto;
+        .input_change{
+            justify-content: space-between;
+            padding-bottom: 20px;
+            .change{
+                width: 110px;
+                height: 40px;
+                font-size: em(16);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .yprice_container{
+        width: 90%;
+    }
+}
 
 
 

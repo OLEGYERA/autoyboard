@@ -2,7 +2,7 @@ require('../bootstrap.js');
 
 import Vue from 'vue';
 import Routes from './router'
-import {store} from '../STORE/store';
+import {services} from '../STORE/store';
 
 // Vue.config.productionTip = false;
 // Vue.config.devtools = false;
@@ -16,5 +16,5 @@ Vue.component('ycheck', require('../MODULES/ycheck.vue').default);
 
 new Vue({
     router: Routes,
-    store: store
+    store: services
 }).$mount('#authentication');

@@ -1,0 +1,70 @@
+@import '../clear';
+@import '../../vars';
+
+.ydropdownfilter{
+    background: #F9F9FA;
+    box-shadow: 1px 3px 8px 1px rgba(52, 110, 197, 0.28);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    .value{
+        color: $darkblue;
+        font-family: $aleg;
+        font-weight: 500;
+        font-size: em(16);
+        line-height: 22px;
+    }
+    i{
+        color: $darkblue;
+        margin-left: 10px;
+    }
+    .items{
+        position: absolute;
+        top: 38px;
+        width: 100%;
+        left: 0;
+        z-index: 2;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+        border-radius: 3px;
+        .item{
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 14px;
+            font-family: $aleg;
+            height: 35px;
+            width: 100%;
+            font-weight: normal;
+            font-size: em(16);
+            line-height: 22px;
+            color: rgba(0, 0, 0, 0.83);
+            i{
+                position: absolute;
+                top: auto;
+                color: $dgreen;
+                right: 8px;
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(199, 199, 199, 0.33) ;
+            }
+        }
+        .checked{
+            border-left: 4px solid $darkblue;
+            &:after{
+                height: 2px;
+                background: rgba(91, 91, 91, 0.13);
+            }
+        }
+    }
+}

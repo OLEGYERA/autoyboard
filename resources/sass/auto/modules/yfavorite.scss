@@ -5,27 +5,27 @@
 .favorite{
     position: absolute;
     z-index: 2;
-    width: 68px;
-    height: 68px;
+    width: 50px;
+    height: 50px;
     background: #FFFFFF;
     border-radius: 50%;
-    bottom: 130px;
+    bottom: 110px;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    right: 60px;
+    right: 25px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     .heart_svg{
-        width: 40px;
+        width: 25px;
     }
 }
 @media only screen and (max-width: 1600px){
     .favorite{
-        width: 50px;
-        height: 50px;
-        right: 30px;
-        bottom: 135px;
+        width: 45px;
+        height: 45px;
+        right: 15px;
+        bottom: 115px;
         .heart_svg{
             width: 25px;
         }
@@ -35,10 +35,39 @@
     .favorite{
         width: 40px;
         height: 40px;
-        right: 30px;
-        bottom: 135px;
+        right: 20px;
+        bottom: 110px;
         .heart_svg{
-            width: 22px;
+            width: 18px;
         }
+    }
+}
+@media only screen and (max-width: 1024px){
+    .favorite{
+        width: 40px;
+        height: 40px;
+        right: 20px;
+        bottom: 110px;
+    }
+}
+@media only screen and (max-width: 945px){
+    .favorite{
+        width: 40px;
+        height: 40px;
+        right: 20px;
+        bottom: 20px;
+        box-shadow: none;
+        .heart_svg{
+            width: 39px;
+            fill: $darkblue;
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .favorite{
+        width: 27px;
+        height: 27px;
+        right: 15px;
+        bottom: 10px;
     }
 }

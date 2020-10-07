@@ -24,3 +24,44 @@
         }
     }
 }
+@media only screen and (max-width: 1600px){
+    .ystatus{
+        .status_item{
+            margin-bottom: 35px;
+            .count_number{
+                font-size: em(26);
+            }
+            .count_title{
+                font-size: em(16);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .ystatus{
+        .status_item{
+            margin-bottom: 25px;
+            .count_number{
+                font-size: em(22);
+            }
+            .count_title{
+                font-size: em(15);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1280px){
+    .ystatus{
+        .status_item{
+            margin-bottom: 20px;
+            .count_number{
+                font-size: em(18);
+                margin-bottom: 10px;
+            }
+            .count_title{
+                font-size: em(15);
+            }
+        }
+    }
+}

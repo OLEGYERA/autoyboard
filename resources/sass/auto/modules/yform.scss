@@ -121,9 +121,6 @@
                     background: #0B3F8D;
                     color: #FFFEFE;
                 }
-                &:hover{
-                    color: #0B3F8D;
-                }
             }
         }
         .yprice_options{
@@ -136,7 +133,7 @@
                 font-family: $aleg;
                 font-style: normal;
                 text-align: start;
-                font-weight: 500;
+                font-weight: 700;
                 margin: 0 0 15px;
                 font-size: em(20);
                 line-height: 26px;
@@ -153,4 +150,7 @@
             width: 100%;
         }
     }
+}
+@media only screen and (max-width: 425px){
+
 }

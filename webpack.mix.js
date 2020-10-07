@@ -11,9 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
+<<<<<<< HEAD
 mix.browserSync('http://yboard:8000/');
 
 
+=======
+mix.browserSync('http://yboard.loc');
+>>>>>>> origin/frontArtur
 
 // mix.js('resources/js/auth/auth.js', 'public/js')
 //     .sass('resources/sass/auth.scss', 'public/css/');
