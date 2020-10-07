@@ -18,6 +18,28 @@ class PageController extends BasicController
         return $this->renderBasic();
     }
 
+    public function filter(){
+
+        $this->content = view('site.auto.filter.ru')->render();
+        return $this->renderBasic();
+    }
+
+    public function card(){
+
+        $this->content = view('site.auto.card.ru')->render();
+        return $this->renderBasic();
+    }
+    public function favorite(){
+
+        $this->content = view('site.auto.favorite.ru')->render();
+        return $this->renderBasic();
+    }
+    public function extended(){
+
+        $this->content = view('site.auto.extended.ru')->render();
+        return $this->renderBasic();
+    }
+
 
 
     public function generateURL(){

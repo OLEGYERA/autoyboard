@@ -31,7 +31,35 @@ $ua_json = json_decode('{"security":[{"name":"Сигналізація","value":
 $en_json = json_decode('{"security": [{"name": "Alarm", "value": 303}], "comfort": [{"name": "Antenna", "value": 487}, {"name": " Shower ","value": 412}, {"name":" Button start ","value": 525}, {"name":" Air conditioning ","value": 189}, {"name":" Heating steering wheel ","value": 524}, {"name":" Heating ","value": 490}, {"name":" Tent ","value": 489}, {"name":"Seat memory ","value": 523}, {"name":" Stove ","value": 488}, {"name":" Safe ","value": 492}, {"name":" TV ","value": 422}, {"name":" Toilet ","value": 425}, {"name":" Washbasin ","value": 491}, {"name":" Refrigerator ", "value": 426}], "multimedia": [{"name": "CD", "value": 407}, {"name": "DVD", "value": 408}, {"name": "MP3", "value": 433}], "state": [{"name": "Garage storage", "value": 477}, {"name": "Individual equipment", "value": 513} , {"name": "Unbeaten", "value": 497}, {"name": "Unpainted", "value": 498}, {"name": "First registration", "value": 501 }, {"name": "First owner", "value": 496}, {"name": "Needs repair", "value": 522}, {"name": "Custom", "value" : 512}]}', true);
 
 
+<<<<<<< HEAD
 
+=======
+    <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://stats.g.doubleclick.net/dc.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-P46SHG8"></script><script>
+    document.oncopy=function(){
+        if (!window.location.href.match(/\/add_auto\.html|\/addauto\/autoinfo\/autoId\//)) {
+            var bodyEl = document.getElementsByTagName('body')[0],
+                selection = window.getSelection();
+            if(selection.toString().length>25){
+                var newDiv = document.createElement('div'),
+                    pageLink = ['<p>Источник: <a href="',
+                        document.location.href,
+                        '">',document.location.href,
+                        '</a> © AUTO.RIA.com™</p>'].join('');
+                newDiv.style.position='absolute';
+                newDiv.style.left='-99999px';
+                bodyEl.appendChild(newDiv);
+                newDiv.innerHTML=selection + pageLink;
+                selection.selectAllChildren(newDiv);
+                window.setTimeout(function(){
+                    bodyEl.removeChild(newDiv)
+                },0)
+            }
+        }
+    }
+    //fix svg xlink:href
+    !function(e,t){"use strict";e.addEventListener("DOMContentLoaded",function(){var n=t.location.href.replace(t.location.hash,"");[].slice.call(e.querySelectorAll("use[*|href]")).filter(function(e){return 0===e.getAttribute("xlink:href").indexOf("#")}).forEach(function(e){e.setAttribute("xlink:href",n+e.getAttribute("xlink:href"))})},!1)}(document,window);
+</script>
+>>>>>>> origin/frontArtur
 
 
 

@@ -13,11 +13,11 @@
             type="text"
         />
         <div
-            id="autocomplete-results"
             v-show="isOpen"
             ref="scrollContainer"
-            :class="drop_style">
-
+            id="autocomplete-results"
+            :class="drop_style"
+        >
             <div
                 ref="options"
                 v-for="(result, i) in results"
@@ -34,15 +34,17 @@
 </template>
 
 <script>
+import vuescroll from "vuescroll";
     export default {
-            props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
+        components: {vuescroll},
+        props: ['input_style', 'drop_style', 'text', 'container', 'list_style'],
         data() {
             return {
                 isOpen: false,
                 results: [],
                 search: '',
                 arrowCounter: 0,
-                items: ['Поляна', 'Славское',
+                items: ['Ивано-Франковская область','Днепропетровская область','Поляна', 'Славское',
                     'Тернополь',
                     'Трускавец',
                     'Хмельницкий',
@@ -127,15 +129,15 @@
                 this.onArrowUp()
             },
 
-            onArrowDown(ev) {
+            onArrowDown: function (ev) {
                 ev.preventDefault()
-                if (this.arrowCounter < this.results.length-1) {
+                if (this.arrowCounter < this.results.length - 1) {
                     this.arrowCounter = this.arrowCounter + 1;
                     this.fixScrolling();
                 }
             },
 
-            onArrowUp(ev) {
+            onArrowUp: function (ev) {
                 ev.preventDefault()
                 if (this.arrowCounter > 0) {
                     this.arrowCounter = this.arrowCounter - 1;
@@ -148,8 +150,6 @@
                 this.$refs.scrollContainer.scrollTop = scroll * this.arrowCounter;
                 console.log(this.$refs.scrollContainer.scrollTop);
                 console.log(scroll * this.arrowCounter);
-
-
             },
 
             showAll() {
@@ -180,13 +180,25 @@
                     this.results = val;
                     this.isLoading = false;
                 }
-            }
+            },
+            isOpen: function (to) {
+                to ? $('.ylocation-box').addClass('loc_long') : $('.ylocation-box').removeClass('loc_long');
+                to ? $('.list-toggle').addClass('arrow_hide') : $('.list-toggle').removeClass('arrow_hide');
+                to ? $('.yb-lang-switcher').addClass('leng_hide') : $('.yb-lang-switcher').removeClass('leng_hide');
+                if(this.results !== []){
+                    $('.list-toggle').addClass('arrow_hide')
+                }else{
+                    $('.list-toggle').removeClass('arrow_hide');
+                }
+            },
         },
         mounted() {
             document.addEventListener('click', this.handleClickOutside)
+
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)
         }
     }
+
 </script>

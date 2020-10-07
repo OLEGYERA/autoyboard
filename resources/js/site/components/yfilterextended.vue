@@ -1,0 +1,1903 @@
+<template>
+    <div class="yfilterextended">
+        <div v-if="selectDropDown.length > 0"  class="yfilter_selected-item">
+            <div class="yb-items_selected">
+                <div
+                    v-for="(item, index) in selectDropDown.slice(0, showSelected)"
+                    class="item_selected"
+                >
+                    <span>{{item.name}}</span>
+                    <i
+                        @click="removeSelectedItem(index)"
+                       class="fas fa-times"
+                    >
+                    </i>
+                </div>
+            </div>
+            <i
+                @click="showSelectedItem = !showSelectedItem"
+               :class="{'fa-chevron-up' :showSelectedItem, 'fa-chevron-down':  !showSelectedItem}"
+               class="fas"
+            >
+            </i>
+            <div
+                 v-if="showSelectedItem === true"
+                class="yfilter_selected-item show-drop_down"
+            >
+                <div class="yb-items_selected">
+                    <div
+                        class="item_selected"
+                        v-for="(item, index) in selectDropDown"
+                    >
+                        <span>{{item.name}}</span>
+                        <i
+                            @click="removeSelectedItem(index)"
+                            class="fas fa-times"
+                        >
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  v-if="windowWidth <= 601" class="ybexpanded_search show_mobile">
+            <h1 class="ytitle-exp">Расширенный поиск</h1>
+            <div class="yb-carsearch_items">
+                <div class="yoptions_items">
+                    <div class="yoptions_items_mobile">
+                        <div class="yoption_btn">
+                            <button class="change_type active">Все</button>
+                            <button class="change_type">Новые</button>
+                            <button class="change_type">Б/у</button>
+                        </div>
+                        <div class="ycheckbox_options">
+                            <ycheckbox
+                                :text="'Поиск со всех ресурсов'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'Провереные'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'С фото'">
+                            </ycheckbox>
+                        </div>
+                        <div class="y-transport_options">
+                            <h2>Тип транспорта</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="transportType"></ydropdown>
+                        </div>
+                    </div>
+                    <div class="ychecked_options-mobile">
+                        <h3>Тип кузова</h3>
+                        <div class="yb-checked_type">
+                            <div class="yl-vis checkbox">
+                                <div v-for="(item, id) in bodyType" class="yvis_checkbox">
+                                    <input
+                                        @change="selectedItem(item)"
+                                        class="ycheck"
+                                        :value="item.name"
+                                        :id="item.name"
+                                        type="checkbox"
+                                    >
+                                    <label
+                                        class="y-body_name"
+                                        :for="item.name"
+                                    >
+                                        {{item.name}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>Страна производитель</h4>
+                <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
+                <div class="add-cars_items">
+                    <div class="yflex_car-item">
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="carBrandsArr"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="y-cut_added-item">
+                        <button class="car-items_btn y-added ">Добавить марку</button>
+                        <button class="car-items_btn y-сut">Исключить марку</button>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-region_price-items">
+                <div class="ychange_price-container">
+                    <h2>Цена</h2>
+                    <div class="yrange_slider-container">
+                        <yrange></yrange>
+                        <ycheckbox
+                            :text="'Возможен торг'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на автомобиль'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на недвижимость'">
+                        </ycheckbox>
+                    </div>
+                </div>
+                <div class="yreg_container">
+                    <h2>Регион</h2>
+                    <yselect @setItem='selectedItem' :placeholder="'Выберите область'" :options="ukSityName"></yselect>
+                    <yselect @setItem='selectedItem' :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                </div>
+            </div>
+            <div class="yb-condition_cars">
+                <h2>Состояние</h2>
+                <div class="yb-status_car-items">
+                    <div class="status_items">
+                        <h2>Авто не в Украине</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>В кредите</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Нерастаможеные</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Конфискат</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>После ДТП</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Не на ходу</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Продавец</h2>
+                        <div class="change_vis-btn">
+                            <button class="btn_s large active">Частное лицо</button>
+                            <button class=" btn_s ">Компания</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="yb-status_checked-items">
+                    <h2>Пригнан из</h2>
+                    <div class="yb-select_items">
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <div class="yb-cheked_items">
+                            <div class="ycheked vis_l">
+                                <div class="yvis_l checkbox">
+                                    <input id="1" type="checkbox">
+                                    <label for="1">Гаражное хранение</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="2" type="checkbox">
+                                    <label for="2">Индивидуальная комплектация</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="3" type="checkbox">
+                                    <label for="3">Не бит</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="4" type="checkbox">
+                                    <label for="4">Не крашен</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="10" type="checkbox">
+                                    <label for="10">Требует ремонта</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_c">
+                                <div class="yvis_c checkbox">
+                                    <input id="5" type="checkbox">
+                                    <label for="5">Первая регистрация</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="6" type="checkbox">
+                                    <label for="6">Первый владелец</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="7" type="checkbox">
+                                    <label for="7">Пригоню под заказ</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="8" type="checkbox">
+                                    <label for="8">Сервисная книжка</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="9" type="checkbox">
+                                    <label for="9">Ручное управление для инвалдов</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-specifications_cars">
+                <h2>Технические характеристики</h2>
+                <div class="yselect_specifications">
+                    <div class="vis_l-specifications">
+                        <h2>Топливо</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
+                        <h2>КПП</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
+                        <h2>Тип привода</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
+                    </div>
+                    <div class="vis_c-specifications y-double">
+                        <h3>Росход топлива, л./100 км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Объём, л.</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Мощность</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="yselect_specifications vis_mobile">
+                    <div class="vis_r-specifications y-double">
+                        <h3>Пробег, тыс.км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество дверей</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество мест</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                    <div class="yother_specifications">
+                        <h3>Цвет</h3>
+                        <div class="yvis_other">
+                            <div class="yvis_other-left">
+                                <div class="ycheck_color">
+                                    <div class="ylabel_visible">
+                                        <input  class="" v-model="picked"  type="checkbox">
+                                        <label style="background-color: #742D05"  for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked"  type="checkbox">
+                                        <label style="background-color: #FFCB11" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked"  type="checkbox">
+                                        <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked" type="checkbox">
+                                        <label style="background-color: #FFFFFF" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked" type="checkbox">
+                                        <label style="background-color: #000000" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked" type="checkbox">
+                                        <label style="background-color: #0B3F8D" for=""></label>
+                                    </div>
+                                </div>
+                                <div class="ycheck_color">
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked"  type="checkbox">
+                                        <label style="background-color: #5100B8" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked"  type="checkbox">
+                                        <label style="background-color: #E30000" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked" type="checkbox">
+                                        <label style="background-color: #1D8D0B" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked"  type="checkbox">
+                                        <label style="background-color: #0066FF" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked" type="checkbox">
+                                        <label style="background-color: #FFF504" for=""></label>
+                                    </div>
+                                    <div class="ylabel_visible">
+                                        <input class="" v-model="picked" type="checkbox">
+                                        <label style="background-color: #FF007A" for=""></label>
+                                    </div>
+                                </div>
+                                <button @click="colorOpen = !colorOpen" class="ycolor_more">
+                                    <i class="fas"
+                                       :class="{'fa-chevron-up' : colorOpen, 'fa-chevron-down':  !colorOpen}"></i>
+                                </button>
+                            </div>
+                            <div class="yvis_other-right">
+                                <div  class="yother_visl-btn">
+                                    <li
+                                        class="yb_list-options"
+                                        v-for="(accordion, idx) in accordionItems"
+                                        :key="idx">
+                                        <button
+                                            @click="otherShowID = idx">
+                                            {{accordion.title}}
+                                            <i class="fas "
+                                               :class="{'fa-chevron-up' : otherShowID === idx, 'fa-chevron-down':  otherShowID !== idx}"
+                                            ></i>
+                                        </button>
+<!--                                        <div-->
+<!--                                            v-if="otherShowID == idx"-->
+<!--                                            v-for="(accordion) in accordionItems[otherShowID].items"-->
+<!--                                            class="yoption"-->
+<!--                                        >-->
+<!--                                            <input  :id="accordion.title" type="checkbox">-->
+<!--                                            <label  :for="accordion.title">{{accordion.title}}</label>-->
+<!--                                        </div>-->
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="yspecification_results">
+                <h3>Результаты поиска</h3>
+                <div class="yvisual_results">
+                    <div class="yvis_res-select">
+                        <h2>Сортировка</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="sortBy"></ydropdown>
+                        <h2>Период подачи</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="deliveryPeriod"></ydropdown>
+                    </div>
+                    <div class="yvis_res-select">
+                        <h2>Актуальность</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="isActual" ></ydropdown>
+                        <h2>Показывать</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="amountShow" ></ydropdown>
+                    </div>
+                    <div class="yseach_card-id">
+                        <h3>Поиск по ID</h3>
+                        <input
+                            class="y_seach-id"
+                            type="text"
+                            placeholder="Введите ID объявления"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="ysearch_results">
+                <h2>Вы ищите:</h2>
+                <div class="yb-repeat_selected">
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <button class="yclear_form">Сбросить все фильтры</button>
+                <div class="yb-count_result"> Найдено 178 978 авто</div>
+                <div class="y_form-search">
+                    <button>Поиск</button>
+                </div>
+            </div>
+        </div>
+        <div  v-else-if="windowWidth <= 946" class="ybexpanded_search show_tablet">
+            <h1 class="ytitle-exp">Расширенный поиск</h1>
+            <div class="yb-carsearch_items">
+                <div class="yoptions_items">
+                    <div class="yoptions_items_mobile">
+                        <div class="yoption_btn">
+                            <button class="change_type active">Все</button>
+                            <button class="change_type">Новые</button>
+                            <button class="change_type">Б/у</button>
+                        </div>
+                        <div class="ycheckbox_options">
+                            <ycheckbox
+                                :text="'Поиск со всех ресурсов'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'Провереные'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'С фото'">
+                            </ycheckbox>
+                        </div>
+                    </div>
+                    <div class="y-transport_options">
+                        <h2>Тип транспорта</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="transportType"></ydropdown>
+                    </div>
+                    <div class="ychecked_options-mobile">
+                        <h3>Тип кузова</h3>
+                        <div class="yb-checked_type">
+                            <div class="yl-vis checkbox">
+                                <div v-for="(item, id) in bodyType" class="yvis_checkbox">
+                                    <input
+                                        class="ycheck"
+                                        :value="item.name"
+                                        :id="item.name"
+                                        @change="selectedItem(item)"
+                                        type="checkbox"
+                                    >
+                                    <label
+                                        class="y-body_name"
+                                        :for="item.name"
+                                    >
+                                        {{item.name}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-cars_items">
+                    <div class="yflex_car-item">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
+                        </div>
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="carBrandsArr"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yflex_car-item remove">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
+                        </div>
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="carBrandsArr"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
+                            </div>
+                        </div>
+                        <button class="yremove_car-items">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <button class="yadded-car-item">Добавить марку</button>
+                    <div class="yflex_car-item exclude">
+                        <div class="ycars-item marks">
+                            <h2>Исключить марку</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="yadded-car-item exclude">Добавить марку</button>
+                    <div class="yexclude_country-car">
+                        <h2>Исключить страну</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
+                    </div>
+                    <button class="yadded-car-item exclude_counry">Добавить страну</button>
+                </div>
+            </div>
+            <div class="yb-region_price-items">
+                <div class="ychange_price-container">
+                    <h2>Цена</h2>
+                    <div class="yrange_slider-container">
+                        <yrange></yrange>
+                        <ycheckbox
+                            :text="'Возможен торг'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на автомобиль'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на недвижимость'">
+                        </ycheckbox>
+                    </div>
+                </div>
+                <div class="yreg_container" v-if="regionArr.length != 0">
+                    <h2>Регион</h2>
+                    <yfsearch
+                        :placeholder="'Выберите город'"
+                        :options="regionArr"
+                        @responseResult="computeCityResult"
+                    ></yfsearch>
+                    <div class="yselect_region">
+                        <div v-for="(city, city_idx) in choosedCities"class="yselect_region-item">
+                            {{city.name}}
+                            <svg @click="removeChoosedCities(city_idx)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="6" fill="white"/>
+                                <g clip-path="url(#clip0)">
+                                    <path d="M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z" fill="#0B3F8D"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="6" height="6" fill="white" transform="translate(3 3)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="yreg-checkbox">
+                        <div class="yflex_dir">
+                            <div v-for="(item) in regionAndPart"  class="yside_country">
+                                <h2>{{item.name}}</h2>
+                                <div class="yside_check">
+                                    <div v-for="(child) in item.children"  class="y-check ">
+                                        <input :id="child.alias" type="checkbox" @change="SET_CHOOSED_REGIONS(child.val)" v-bind="{'checked': child.choosed == true}">
+                                        <label :for="child.alias">{{child.name}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-condition_cars">
+                <h2>Состояние</h2>
+                <div class="yb-status_car-items">
+                    <div class="status_items">
+                        <h2>Авто не в Украине</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>В кредите</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Нерастаможеные</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Конфискат</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>После ДТП</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Не на ходу</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Продавец</h2>
+                        <div class="change_vis-btn">
+                            <button class="btn_s large active">Частное лицо</button>
+                            <button class=" btn_s ">Компания</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="yb-status_checked-items">
+                    <h2>Пригнан из</h2>
+                    <div class="yb-select_items">
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <div class="yb-cheked_items">
+                            <div class="ycheked vis_l">
+                                <div class="yvis_l checkbox">
+                                    <input id="1" type="checkbox">
+                                    <label for="1">Гаражное хранение</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="2" type="checkbox">
+                                    <label for="2">Индивидуальная комплектация</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="3" type="checkbox">
+                                    <label for="3">Не бит</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="4" type="checkbox">
+                                    <label for="4">Не крашен</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_c">
+                                <div class="yvis_c checkbox">
+                                    <input id="5" type="checkbox">
+                                    <label for="5">Первая регистрация</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="6" type="checkbox">
+                                    <label for="6">Первый владелец</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="7" type="checkbox">
+                                    <label for="7">Пригоню под заказ</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="8" type="checkbox">
+                                    <label for="8">Сервисная книжка</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_r">
+                                <div class="yvis_r checkbox">
+                                    <input id="9" type="checkbox">
+                                    <label for="9">Ручное управление для инвалдов</label>
+                                </div>
+                                <div class="yvis_r checkbox">
+                                    <input id="10" type="checkbox">
+                                    <label for="10">Требует ремонта</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-specifications_cars">
+                <h2>Технические характеристики</h2>
+                <div class="yselect_specifications">
+                    <div class="vis_l-specifications">
+                        <h2>Топливо</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
+                        <h2>КПП</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
+                        <h2>Тип привода</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
+                    </div>
+                    <div class="vis_c-specifications y-double">
+                        <h3>Росход топлива, л./100 км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Объём, л.</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Мощность</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                    <div class="vis_r-specifications y-double">
+                        <h3>Пробег, тыс.км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество дверей</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество мест</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="yother_specifications">
+                    <h3>Цвет</h3>
+                    <div class="yvis_other">
+                        <div class="yvis_other-left">
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input  class=""  type="checkbox">
+                                    <label style="background-color: #742D05"  for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #FFCB11" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FFFFFF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #000000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #0B3F8D" for=""></label>
+                                </div>
+                            </div>
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #5100B8" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #E30000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #1D8D0B" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class=""  type="checkbox">
+                                    <label style="background-color: #0066FF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FFF504" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" type="checkbox">
+                                    <label style="background-color: #FF007A" for=""></label>
+                                </div>
+                            </div>
+                            <button @click="colorOpen = !colorOpen" class="ycolor_more">
+                                <i class="fas"
+                                   :class="{'fa-chevron-up' : colorOpen, 'fa-chevron-down':  !colorOpen}"></i>
+                            </button>
+                        </div>
+                        <div class="yvis_other-right">
+                            <div class="yother_visl-btn">
+                                <button
+                                    v-for="(accordion, idx) in accordionItems"
+                                    @click="otherShowID = idx"
+                                >
+                                    {{accordion.title}}
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : otherShowID === idx, 'fa-angle-left':  otherShowID != idx}"
+                                    ></i>
+                                </button>
+                            </div>
+                            <div class="yother_visr-options">
+<!--                                <div class="ycars_options">-->
+<!--                                    <div-->
+<!--                                        v-for="(accordion) in accordionItems[otherShowID].items"-->
+<!--                                        class="yoption">-->
+<!--                                        <input :id="accordion.title" type="checkbox">-->
+<!--                                        <label :for="accordion.title">{{accordion.title}}</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yspecification_results">
+                <h3>Результаты поиска</h3>
+                <div class="yvisual_results">
+                    <div class="yvis_res-select">
+                        <h2>Сортировка</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="sortBy"></ydropdown>
+                        <h2>Период подачи</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="deliveryPeriod"></ydropdown>
+                    </div>
+                    <div class="yvis_res-select">
+                        <h2>Актуальность</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="isActual" ></ydropdown>
+                        <h2>Показывать</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="amountShow"></ydropdown>
+                    </div>
+                    <div class="yseach_card-id">
+                        <h3>Поиск по ID</h3>
+                        <input
+                            class="y_seach-id"
+                            type="text"
+                            placeholder="Введите ID объявления"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="ysearch_results">
+                <h2>Вы ищите:</h2>
+                <div class="yb-repeat_selected">
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="yb-count_result"> Найдено 178 978 авто</div>
+                </div>
+                <button class="yclear_form">Сбросить все фильтры</button>
+                <div class="y_form-search">
+                    <button>Поиск</button>
+                </div>
+            </div>
+        </div>
+        <div v-else class="ybexpanded_search">
+            <h1 class="ytitle-exp">Расширенный поиск</h1>
+            <div class="yb-carsearch_items">
+                <div class="yoptions_items">
+                    <div class="yoption_btn">
+                        <button  class="change_type active">Все</button>
+                        <button class="change_type">Новые</button>
+                        <button class="change_type">Б/у</button>
+                    </div>
+                    <div class="ycheckbox_options">
+                        <ycheckbox
+                            :text="'Поиск со всех ресурсов'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Провереные'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'С фото'">
+                        </ycheckbox>
+                    </div>
+                    <div class="y-transport_options">
+                        <h2>Тип транспорта</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="transportType"></ydropdown>
+                        <h3>Тип кузова</h3>
+                        <div class="yb-checked_type">
+                            <div class="yl-vis checkbox">
+                                <div v-for="(item, index) in bodyType" class="yvis_checkbox">
+                                    <input
+                                        class="ycheck"
+                                        v-model="transportTypeChecked[index]"
+                                        :value="item.name"
+                                        @click="addToArray(item, index)"
+                                        :id="item.name"
+                                        type="checkbox">
+                                    <label
+                                        class="y-body_name"
+                                        :for="item.name"
+                                    >
+                                        {{item.name}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="add-cars_items">
+                    <div class="yflex_car-item">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
+                        </div>
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                @setItem='selectedItem'
+                                :placeholder="'Выберите марку'"
+                                :options="carBrandsArr"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                @setItem='selectedItem'
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yflex_car-item remove">
+                        <div class="ycars-item countries">
+                            <h2>Страна производитель</h2>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
+                        </div>
+                        <div class="ycars-item marks">
+                            <h2>Марка</h2>
+                            <yselect
+                                @setItem='selectedItem'
+                                :placeholder="'Выберите марку'"
+                                :options="carBrandsArr"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                @setItem='selectedItem'
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
+                            </div>
+                        </div>
+                        <button class="yremove_car-items">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <button class="yadded-car-item">Добавить марку</button>
+                    <div class="yflex_car-item exclude">
+                        <div class="ycars-item marks">
+                            <h2>Исключить марку</h2>
+                            <yselect
+                                :placeholder="'Выберите марку'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselect
+                                :placeholder="'Выберите модель'"
+                                :options="cars"></yselect>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>
+                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="yadded-car-item exclude">Добавить марку</button>
+                    <div class="yexclude_country-car">
+                        <h2>Исключить страну</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                    </div>
+                    <button class="yadded-car-item exclude_counry">Добавить страну</button>
+                </div>
+            </div>
+            <div class="yb-region_price-items">
+                <div class="ychange_price-container">
+                    <h2>Цена</h2>
+                    <div class="yrange_slider-container">
+                        <yrange></yrange>
+                        <ycheckbox
+                            :text="'Возможен торг'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на автомобиль'">
+                        </ycheckbox>
+                        <ycheckbox
+                            :text="'Возможен обмен на недвижимость'">
+                        </ycheckbox>
+                    </div>
+                </div>
+                <div class="yreg_container" v-if="regionArr.length != 0">
+                    <h2>Регион</h2>
+                    <yfsearch
+                        :placeholder="'Выберите город'"
+                        :options="regionArr"
+                        @responseResult="computeCityResult"
+                    ></yfsearch>
+                    <div class="yselect_region">
+                        <div v-for="(city, city_idx) in choosedCities"class="yselect_region-item">
+                            {{city.name}}
+                            <svg @click="removeChoosedCities(city_idx)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="6" fill="white"/>
+                                <g clip-path="url(#clip0)">
+                                    <path d="M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z" fill="#0B3F8D"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="6" height="6" fill="white" transform="translate(3 3)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="yreg-checkbox">
+                        <div class="yflex_dir">
+                            <div v-for="(item) in regionAndPart"  class="yside_country">
+                                <h2>{{item.name}}</h2>
+                                <div class="yside_check">
+                                    <div v-for="(child) in item.children"  class="y-check ">
+                                        <input :id="child.alias" type="checkbox" @change="SET_CHOOSED_REGIONS(child.val)" v-bind="{'checked': child.choosed == true}">
+                                        <label :for="child.alias">{{child.name}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-condition_cars">
+                <h2>Состояние</h2>
+                <div class="yb-status_car-items">
+                    <div class="status_items">
+                        <h2>Авто не в Украине</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>В кредите</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Нерастаможеные</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Конфискат</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>После ДТП</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Не на ходу</h2>
+                        <div class="change_vis-btn">
+                            <button class=" btn_s  active">Показать</button>
+                            <button class=" btn_s ">Скрыть</button>
+                        </div>
+                    </div>
+                    <div class="status_items">
+                        <h2>Продавец</h2>
+                        <div class="change_vis-btn">
+                            <button class="btn_s large active">Частное лицо</button>
+                            <button class=" btn_s ">Компания</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="yb-status_checked-items">
+                        <h2>Пригнан из</h2>
+                    <div class="yb-select_items">
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <div class="yb-cheked_items">
+                            <div class="ycheked vis_l">
+                                <div class="yvis_l checkbox">
+                                    <input id="1" type="checkbox">
+                                    <label for="1">Гаражное хранение</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="2" type="checkbox">
+                                    <label for="2">Индивидуальная комплектация</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="3" type="checkbox">
+                                    <label for="3">Не бит</label>
+                                </div>
+                                <div class="yvis_l checkbox">
+                                    <input id="4" type="checkbox">
+                                    <label for="4">Не крашен</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_c">
+                                <div class="yvis_c checkbox">
+                                    <input id="5" type="checkbox">
+                                    <label for="5">Первая регистрация</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="6" type="checkbox">
+                                    <label for="6">Первый владелец</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="7" type="checkbox">
+                                    <label for="7">Пригоню под заказ</label>
+                                </div>
+                                <div class="yvis_c checkbox">
+                                    <input id="8" type="checkbox">
+                                    <label for="8">Сервисная книжка</label>
+                                </div>
+                            </div>
+                            <div class="ycheked vis_r">
+                                <div class="yvis_r checkbox">
+                                    <input id="9" type="checkbox">
+                                    <label for="9">Ручное управление для инвалдов</label>
+                                </div>
+                                <div class="yvis_r checkbox">
+                                    <input id="10" type="checkbox">
+                                    <label for="10">Требует ремонта</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yb-specifications_cars">
+                <h2>Технические характеристики</h2>
+                <div class="yselect_specifications">
+                    <div class="vis_l-specifications">
+                        <h2>Топливо</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
+                        <h2>КПП</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
+                        <h2>Тип привода</h2>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
+                    </div>
+                    <div class="vis_c-specifications y-double">
+                        <h3>Росход топлива, л./100 км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Объём, л.</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Мощность</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                    <div class="vis_r-specifications y-double">
+                        <h3>Пробег, тыс.км</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество дверей</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                        <h3>Количество мест</h3>
+                        <div class="ydouble_dropdown">
+                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
+                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="yother_specifications">
+                    <h3>Цвет</h3>
+                    <div class="yvis_other">
+                        <div class="yvis_other-left">
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input  class="" v-model="picked"  type="checkbox">
+                                    <label style="background-color: #742D05"  for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked"  type="checkbox">
+                                    <label style="background-color: #FFCB11" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked"  type="checkbox">
+                                    <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked" type="checkbox">
+                                    <label style="background-color: #FFFFFF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked" type="checkbox">
+                                    <label style="background-color: #000000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked" type="checkbox">
+                                    <label style="background-color: #0B3F8D" for=""></label>
+                                </div>
+                            </div>
+                            <div class="ycheck_color">
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked"  type="checkbox">
+                                    <label style="background-color: #5100B8" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked"  type="checkbox">
+                                    <label style="background-color: #E30000" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked" type="checkbox">
+                                    <label style="background-color: #1D8D0B" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked"  type="checkbox">
+                                    <label style="background-color: #0066FF" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked" type="checkbox">
+                                    <label style="background-color: #FFF504" for=""></label>
+                                </div>
+                                <div class="ylabel_visible">
+                                    <input class="" v-model="picked" type="checkbox">
+                                    <label style="background-color: #FF007A" for=""></label>
+                                </div>
+                            </div>
+                            <button @click="colorOpen = !colorOpen" class="ycolor_more">
+                                <i class="fas"
+                                   :class="{'fa-chevron-up' : colorOpen, 'fa-chevron-down':  !colorOpen}"></i>
+                            </button>
+                        </div>
+                        <div class="yvis_other-right">
+                            <div class="yother_visl-btn">
+                                <button
+                                    v-for="(accordion, idx) in accordionItems"
+                                    @click="otherShowID = idx"
+                                >
+                                    {{accordion.title}}
+                                    <i class="fas "
+                                       :class="{'fa-angle-right' : otherShowID === idx, 'fa-angle-left':  otherShowID != idx}"
+                                    ></i>
+                                </button>
+                            </div>
+                            <div class="yother_visr-options">
+<!--                                <div class="ycars_options" >-->
+<!--                                    <div-->
+<!--                                        class="yoption"-->
+<!--                                        v-for="(accordion) in accordionItems[otherShowID].items"-->
+<!--                                    >-->
+<!--                                        <input :id="accordion.title" type="checkbox">-->
+<!--                                        <label :for="accordion.title">{{accordion.title}}</label>-->
+<!--                                    </div >-->
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yspecification_results">
+                <h3>Результаты поиска</h3>
+                <div class="yvisual_results">
+                    <div class="yvis_res-select">
+                        <h2>Сортировка</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="sortBy"></ydropdown>
+                        <h2>Период подачи</h2>
+                        <ydropdown :placeholder="'Не выбрано'" :items="deliveryPeriod"></ydropdown>
+                    </div>
+                    <div class="yvis_res-select">
+                        <h2>Актуальность</h2>
+                        <ydropdown  :placeholder="'Не выбрано'" :items="isActual"></ydropdown>
+                        <h2>Показывать</h2>
+                        <ydropdown  :placeholder="'Не выбрано'" :items="amountShow" ></ydropdown>
+                    </div>
+                    <div class="yseach_card-id">
+                        <h3>Поиск по ID</h3>
+                            <input
+                                class="y_seach-id"
+                                type="text"
+                                placeholder="Введите ID объявления"
+                            />
+                    </div>
+                </div>
+            </div>
+            <div class="ysearch_results">
+                <h2>Вы ищите:</h2>
+                <div class="yb-repeat_selected">
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="item_selected">
+                        <span>Легковые</span>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="yb-count_result"> Найдено 178 978 авто</div>
+                </div>
+                <button class="yclear_form">Сбросить все фильтры</button>
+                <div class="y_form-search">
+                    <button>Поиск</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import {mapGetters, mapActions, mapMutations} from 'vuex';
+    import {HTTP} from "../../http.js";
+    export default {
+        mounted () {
+            document.addEventListener('click', this.clickOutside);
+            window.addEventListener('resize', this.changeResize)
+            this.changeResize();
+            this.getYears()
+            this.getRegion()
+            this.getTransportType();
+            this.getManufactureCounries()
+            this.getCarBrands()
+
+        },
+        data(){
+            return{
+                transportTypeChecked: [], // true or false checkbox
+                transportType:[],
+                yearsList: [],
+                manufactureCountries: [],
+                carBrandsArr: [],
+
+
+                showSelected: 6,
+                selectDropDown: [], /// accepts data from child component <dropdown></dropdown> && <select></select>
+                picked: [],
+                selectedTypeBody: [],
+                showSelectedItem: false,
+                windowWidth: 0,
+                colorOpen: false,
+                otherShowID: 0,
+                test: [{name: '100'}],
+                test2: [{name: '200'}],
+                accordionItems: [
+                    {
+                        title: 'Безопасность',
+                        items:[
+                            {title: 'Бронированный автомобиль'},
+                            {title: 'ABS'},
+                            {title: 'ASP'},
+                            {title: 'Датчики движения'},
+                            {title: 'Бронированный автомобиль'},
+                            {title: 'Датчики движения'},
+                            {title: 'ABS'},
+                            {title: 'Бронированный автомобиль'},
+                            {title: 'ABS'},
+                            {title: 'ASP'},
+                        ]
+                    },
+                    {
+                        title: 'Комфорт',
+                        items:[
+                            {title: 'Бортовой компьютер'},
+                            {title: 'Електропакет'},
+                            {title: 'Запуск кнопкой '},
+                            {title: 'Кондиционер '},
+                            {title: 'Люк '},
+                            {title: 'Обогрев руля'},
+                            {title: 'Память сидений'},
+                            {title: 'Подогрев зеркал'},
+                            {title: 'Усилитель руля'},
+                            {title: 'Кожаный сайлон '},
+                            {title: 'Датчик света'},
+                            {title: 'Электростеклоподьемники'},
+                            {title: 'Климат контроль'},
+                            {title: 'Мультируль'},
+                            {title: 'Омыватель фар'},
+                            {title: 'Парктроник'},
+                            {title: 'Подогрев сидений'},
+                            {title: 'Датчик дождя'},
+                        ]
+                    },
+                    {
+                        title: 'Мультимедия',
+                        items:[
+                            {title: 'Магнитола'},
+                            {title: 'есть'},
+                            {title: 'и збс'},
+                        ]
+                    },
+                    {
+                        title: 'Прочее',
+                        items:[
+                            {title: 'Понты'},
+                            {title: 'для'},
+                            {title: 'Приезжих'},
+                            {title: 'Магнитола'},
+                            {title: 'есть'},
+                            {title: 'и збс'},
+                            {title: 'AUX'},
+                            {title: 'и ты'},
+                            {title: 'царь'},
+                        ]
+                    }
+                ],
+                isActual: [{name:'Все'}, {name:'Скрыть проданные'}, {name:'Только проданные'}],
+                amountShow: [{name:'По 10'}, {name:'По 20'}, {name:'По 30'}, {name:'По 50'}, {name:'По 100'}],
+                sortBy:[
+                    {name:'Обычная'},
+                    {name:'От дешевых к дорогим'},
+                    {name:'От дорогих к дешевым'},
+                    {name:'Дата добавления'},
+                    {name:'Год выпуска, по возрастанию'},
+                    {name:'Год выпуска, по убыванию'},
+                    {name:'Пробег, по возрастанию'},
+                    {name:'Пробег, по убыванию'},
+                ],
+                deliveryPeriod: [
+                    {id:'all', name:'Все'},
+                    {id:'one_hour', name:'За час'},
+                    {id:'three_hour', name:'За 3 часа'},
+                    {id:'six_hour', name:'За 6 часов'},
+                    {id:'twelve_hour', name:'За 12 часов'},
+                    {id:'today', name:'За сегодня'},
+                    {id:'for_day', name:'За сутки'},
+                    {id:'for_two_day', name:'За 2 дня'},
+                    {id:'for_three_day', name:'За 3 дня'},
+                    {id:'for_week', name:'За неделю'},
+                    {id:'for_mounth', name:'За месяц'},
+                    {id:'for_three_mounth', name:'За 3 месяца'}
+                ],
+                fuel: [
+                    {
+                        id:'gasoline',
+                        name: 'Бензин',
+                    },
+                    {
+                        id:'diesel',
+                        name: 'Дизель',
+                    },
+                    {
+                        id:'gas',
+                        name: 'Газ',
+                    },
+                    {
+                        id:'electro',
+                        name: 'Электро',
+                    },
+                    {
+                        id:'hybrid',
+                        name: 'Гибрид',
+                    },
+                    {
+                        id:'gas_gasoline',
+                        name: 'Газ/Бензин',
+                    },
+                    {
+                        id:'methane_gas',
+                        name: 'Газ метан',
+                    },
+                    {
+                        id:'propane_butane_gas',
+                        name: 'Газ пропан-бутан',
+                    },
+                ],
+                transmission: [
+                    {name: 'Механическая', id: 'mechanical'},
+                    {name: 'Автоматическая', id: 'automatic'},
+                    {name: 'Роботизированная', id: 'robotic'},
+                    {name: 'Вариативная', id: 'variable'},
+                    {name: 'Типтроник', id: 'tiptronic'}
+                ],
+                typeofdrive: [
+                    {name: 'Задний привод',
+                        id: 'rear_drive_unit'
+                    },
+                    {name: 'Передний привод',
+                        id: 'front_drive_unit'
+                    },
+                    {name: 'Полный привод',
+                        id: 'full_drive_unit'
+                    }
+                ],
+                ukSityName:[
+                    {name: 'Поляна', id: 1},
+                    {name: 'Славское', id: 2},
+                    {name: 'Тернополь', id: 3},
+                    {name: 'Трускавец', id: 4 },
+                    {name: 'Хмельницкий', id: 5},
+                    {name: 'Чайковка', id:6 },
+                    {name: 'Чубинское,', id: 7},
+                    {name: 'Шаян', id:8 },
+                    {name: 'Шешоры', id: 9},
+                    {name: 'Яремче', id:10 },
+                    {name: 'Петровское', id: 11},
+                    {name: 'Приморское', id: 12},
+                    {name: 'Черновцы', id: 13},
+                    {name: 'Днепропетровск', id: 14},
+                    {name: 'Донецк', id:15 },
+                    {name: 'Ивано-Франковск', id:16 },
+                    {name: 'Каменец-Подольский', id: 17},
+                    {name: 'Харьков', id: 18},
+                    {name: 'Херсон', id:19 },
+                    {name: 'Киев', id: 20},
+                    {name: 'Кривой Рог', id: 30},
+                    {name: 'Луганск', id: 31 },
+                    {name: 'Львов', id:32 },
+                    {name: 'Николаев', id:33 },
+                    {name: 'Одесса', id:34},
+                    {name: 'Полтава', id:35 },
+                    {name: 'Сумы', id: 36},
+                    {name: 'Ужгород', id: 37},
+                    {name: 'Запорожье', id:38 },
+                    {name: 'Винница', id:39 },
+                    {name: 'Черкассы', id:40 },
+                    {name: 'Чернигов', id:41 },
+                    {name: 'Ильичевск', id:42 },
+                    {name: 'Луцк', id:43},
+                    {name: 'Малехов', id: 44},
+                    {name: 'Микуличин', id: 45},
+                    {name: 'Ровно', id: 46},
+                    {name: 'Стрый', id: 47},
+                    {name: 'Ахтырка', id: 48},
+                    {name: 'Белогородка', id: 49},
+                    {name: 'Бердянск', id:50 },
+                    {name: 'Борисполь', id:51 },
+                    {name: 'Бояны', id:52 },
+                    {name: 'Бровары', id: 53},
+                    {name: 'Буковель', id: 54},
+                    {name: 'Бурлачья Балка', id: 55},
+                    {name: 'Верховина', id: 56},
+                    {name: 'Винники', id:57 },
+                    {name: 'Жденево', id:58 },
+                    {name: 'Житомир', id:59 },
+                    {name: 'Жовтневое', id: 60},
+                    {name: 'Затока', id: 61},
+                    {name: 'Кировоград', id:62 },
+                    {name: 'Коблево', id: 63},
+                    {name: 'Козин', id: 64},
+                    {name: 'Колоденка', id: 65},
+                    {name: 'Коропово', id: 66},
+                    {name: 'Кременчуг', id: 67},
+                    {name: 'Макеевка', id: 68},
+                    {name: 'Мукачево', id: 69},
+                ],
+                countryName: [
+                    {
+                        name: "Китай",
+                        id: "1",
+                    },
+                    {
+                        name: "США",
+                        id: "2",
+                    },
+                    {
+                        name: "Япония",
+                        id: "3",
+                    },
+                    {
+                        name: "Германия",
+                        id: "4",
+                    },
+                    {
+                        name: "Индия",
+                        id: "5",
+                    },
+                    {
+                        name: "ЮжнаяКорея",
+                        id: "6",
+                    },
+                    {
+                        name: "Мексика",
+                        id: "7",
+                    },
+                    {
+                        name: "Бразилия",
+                        id: "8",
+                    },
+                    {
+                        name: "Испания",
+                        id: "9",
+                    },
+                    {
+                        name: "Таиланд",
+                        id: "10",
+                    },
+                ],
+                cars: [
+                    {
+                        id: 1,
+                        name: "Ford",
+                    },
+                    {
+                        id: 2,
+                        name: "Toyota",
+                    },
+                    {
+                        id: 3,
+                        name: "Fiat",
+                    },
+                    {
+                        id: 4,
+                        name: "Mazda",
+                    },
+                ],
+                typeCars: [
+                    {
+                        name: 'Легковые',
+                        id: 'passenger',
+                    },
+                    {
+                        name: 'Мото',
+                        id: 'moto',
+                    },
+                    {
+                        name: 'Автобусы',
+                        id: 'bus',
+                    },
+                    {
+                        name: 'Водный',
+                        id: 'aqueous',
+                    },
+                    {
+                        name: 'Сельхозтехника',
+                        id: 'agricultural_machinery',
+                    },
+                    {
+                        name: 'Спецтехника',
+                        id: 'special_equipment',
+                    },
+                    {
+                        name: 'Прицепы',
+                        id: '',
+                    },
+                ],
+                bodyType:[
+                    {
+                        id: 'station_wagon',
+                        name:'Универсал' ,
+                    },
+                    {
+                        id: 'crossover',
+                        name: 'Кроссовер',
+                    },
+                    {
+                        id: 'minivan',
+                        name: 'Минивэн',
+                    },
+                    {
+                        id: 'liftback',
+                        name: 'Лифтбек',
+                    },
+                    {
+                        id: 'hatchback',
+                        name: 'Хэтчбек',
+                    },
+                    {
+                        id: 'cabriolet',
+                        name: 'Кабриолет',
+                    },
+                    {
+                        id: 'sedan',
+                        name:'Седан' ,
+                    },
+                    {
+                        id: 'coupe',
+                        name: 'Купе',
+                    },
+                    {
+                        id: 'pikap',
+                        name: 'Пикап',
+                    },
+                    {
+                        id: 'roadster',
+                        name: 'Ростер' ,
+                    },
+                    {
+                        id: 'limousine',
+                        name: 'Лимузин',
+                    },
+                    {
+                        id: 'anouther_body',
+                        name: 'Другой',
+                    },
+                ],
+                years: [{name :'2020', id: '2020'} , {name :'2019', id: '2019'} , {name :'2018', id: '2018'} , {name :'2017', id: '2017'} , {name :'2016', id: '2016'} , {name :'2015', id: '2015'} , {name :'2014', id: '2014'} , {name :'2013', id: '2013'} , {name :'2012', id: '2012'} , {name :'2011', id: '2011'} , {name :'2010', id: '2010'} , {name :'2009', id: '2009'} , {name: '2008', id:'2008'} , {name: '2007', id:'2007'} , {name: '2006', id:'2006'} , {name: '2005', id:'2005'} , {name: '2004', id:'2004'} , {name: '2003', id:'2003'} , {name: '2002', id:'2002'} , {name: '2001', id:'2001'}, {name: '2000', id:'2000'}, {name: '1999', id:'1999'}, {name: '1998', id:'1998'}, {name: '1997', id:'1997'}, {name:'1996', id:'1996'}, {name:'1995', id:'1995'},],
+            }
+        },
+        methods: {
+            ...mapMutations(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS']),
+            ...mapActions(['FULL_REGIONS_FROM_API']),
+            check(e){
+              console.log(e.target.id);
+            },
+            computeCityResult(city){
+                this.SET_CITIES_TO_STORE(city);
+            },
+            addToArray(item, index){
+                this.selectDropDown.push({
+                    name: item.name,
+                    id: index
+                })
+            },
+            removeSelectedItem(index){
+                this.$delete(this.selectDropDown, index)
+            },
+            removeChoosedCities(city_idx){
+                this.$delete(this.choosedCities, city_idx)
+                console.log('remove', city_idx)
+            },
+            selectedItem(e){
+                const select = this.selectDropDown.find(item =>{
+                    if(item.name === e.name) return  true
+                })
+                if(!select){
+                    this.selectDropDown.push(e)
+                }
+            },
+            changeResize(event) {
+                this.windowWidth = document.documentElement.clientWidth;
+                if(this.windowWidth <= 1024) this.showSelected = 5
+                if(this.windowWidth <= 945) this.showSelected = 4
+                if(this.windowWidth <= 600) this.showSelected = 3
+                if(this.windowWidth <= 425) this.showSelected = 2
+                if(this.windowWidth <= 320) this.showSelected = 1
+            },
+            clickOutside(evt){
+                if (!this.$el.contains(evt.target)) {
+                    this.otherShowID = null;
+                }
+            },
+            getYears(){
+                var y1 = new Date("1900").getFullYear();
+                var y2 = new Date().getFullYear();
+                if(y1 < y2){
+                    for(let i = y1; i <= y2; i++){
+                        this.yearsList.push({
+                            name: i
+                        });
+                    }
+                }else{
+                    for(let i = y2; i <= y1; i++){
+                        this.yearsList.push({
+                            name: i
+                        })
+                    }
+                }
+            },
+            getCarBrands(){
+                let lang = 3,
+                    query = "?langType=" + lang ;
+
+                HTTP.get('/transport_types/1-8/brands' + query)
+                    .then(response => {
+                        this.carBrandsArr = response.data;
+                    }).catch(error =>{
+                    console.log('error', error)
+
+                })
+            },
+            getManufactureCounries(){
+                let lang = 3,
+                    query = "?langType=" + lang ;
+
+                HTTP.get('/manufacture_countries' + query)
+                    .then(response => {
+                        this.manufactureCountries = response.data;
+                    }).catch(error =>{
+                    console.log('error', error)
+
+                })
+            },
+            getTransportType(){
+                let lang = 3,
+                    query = "?langType=" + lang ;
+
+
+                HTTP.get('/transport_types' + query)
+                    .then(response => {
+                        this.transportType = response.data;
+                    }).catch(error =>{
+                    console.log('error', error)
+
+                })
+            },
+            getRegion(){
+                let lang = 3, query = "?langType=" + lang + '&alias=1' ;
+                this.FULL_REGIONS_FROM_API('/regions' + query);
+            }
+        },
+        computed: {
+            ...mapGetters({
+                'regionArr': 'GET_FULL_REGION_FROM_STORE',
+                'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
+                'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE'
+            }),
+            reversedYears() {
+                return this.yearsList.slice().reverse();
+            },
+        },
+        watch: {
+            regionArr(to){
+                console.log(to)
+            }
+        },
+        destroyed() {
+            document.removeEventListener('click', this.clickOutside)
+        },
+    }
+</script>

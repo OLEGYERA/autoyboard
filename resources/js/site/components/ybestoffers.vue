@@ -1,8 +1,11 @@
 <template>
     <div class="ybestoffer">
-        <ytitle :title="'Лучшие предложения'"></ytitle>
-        <div class="ybest-items">
-                <VueSlickCarousel style="display: flex" v-bind="settings">
+        <ytitle
+            :title="'Лучшие предложения'"
+            @getStatus="changeStatus">
+        </ytitle>
+        <div v-if="status || windowWidth < 946" class="ybest-items">
+                <Slick ref="slick" :options="slickOptions">
                     <div class="ybest-item">
                         <div class="yb-icon_check">
                             <button class="item_check">
@@ -13,7 +16,7 @@
                             </button>
                         </div>
                         <figure class="item_image">
-                            <img src="https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg" alt="">
+                            <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
                         </figure>
                         <div class="item_desc">
@@ -42,7 +45,7 @@
                             </button>
                         </div>
                         <figure class="item_image">
-                            <img src="https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg" alt="">
+                            <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
                         </figure>
                         <div class="item_desc">
@@ -71,7 +74,7 @@
                             </button>
                         </div>
                         <figure class="item_image">
-                            <img src="https://www.autocentre.ua/wp-content/uploads/2017/11/cross_Renault_CAPTUR.jpg" alt="">
+                            <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
                         </figure>
                         <div class="item_desc">
@@ -100,7 +103,7 @@
                             </button>
                         </div>
                         <figure class="item_image">
-                            <img src="https://imgctcf.aeplcdn.com/thumbs/p-nc-a-ver48/images/car-data/big/renault-kwid-default.jpg" alt="">
+                            <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
                         </figure>
                         <div class="item_desc">
@@ -129,7 +132,7 @@
                             </button>
                         </div>
                         <figure class="item_image">
-                            <img src="https://imgctcf.aeplcdn.com/thumbs/p-nc-a-ver48/images/car-data/big/renault-kwid-default.jpg" alt="">
+                            <img src="https://insurance-guidelines.com/wp-content/uploads/2019/03/car-rental.jpeg" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
                         </figure>
                         <div class="item_desc">
@@ -158,7 +161,7 @@
                             </button>
                         </div>
                         <figure class="item_image">
-                            <img src="https://imgctcf.aeplcdn.com/thumbs/p-nc-a-ver48/images/car-data/big/renault-kwid-default.jpg" alt="">
+                            <img src="https://autoworld.files.wordpress.com/2010/01/peugeot-sr1-concept-car-img_1.jpg" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
                         </figure>
                         <div class="item_desc">
@@ -177,56 +180,82 @@
                             </div>
                         </div>
                     </div>
-                </VueSlickCarousel>
+                </Slick>
+        </div>
+        <div v-else class="ychangeoffers">
+            <ychangeoffers></ychangeoffers>
         </div>
     </div>
 </template>
 
 
 <script>
-    import VueSlickCarousel from  'vue-slick-carousel'
     import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+    import Slick from 'vue-slick';
 export default {
-    components: { VueSlickCarousel },
+    components: { Slick },
+    mounted () {
+        window.addEventListener('resize', this.onResize)
+        this.onResize();
+    },
     data() {
         return {
             favorite: false,
-            settings: {
-                dots: true,
-                arrows: true,
-                dotsClass: "slick-dots custom-dot-class",
-                edgeFriction: 0,
-                infinite: false,
-                speed: 600,
+            windowWidth: 0,
+            status: false,
+            slickOptions: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
-                nextArrow: '#gallery-next',
-                prevArrow: '#gallery-prev',
+                dotsClass: "slick-dots custom-dot-class",
+                edgeFriction: 0,
+                infinite: true,
+                speed: 600,
+                dots: true,
+                arrows: true,
+                adaptiveHeight: true,
+                ZIndex: 1000,
+                cssEase: 'linear',
                 responsive: [
                     {
-                        breakpoint: 1920,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: false,
-                            dots: true,
-                            arrows: true,
-                        }
-                    },
-                    {
-                        breakpoint: 945,
+                        breakpoint: 946,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2,
-                            infinite: false,
-                            dots: true,
-                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 601,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 476,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 426,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
                         }
                     },
                 ]
-
             },
         }
+    },
+    methods:{
+        changeStatus(s){
+            this.status = s;
+        },
+        onResize(event) {
+            this.windowWidth = document.documentElement.clientWidth;
+        },
     }
 }
 </script>

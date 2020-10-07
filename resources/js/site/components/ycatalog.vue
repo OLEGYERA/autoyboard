@@ -1,11 +1,9 @@
 <template>
     <div class="ycatalog_block">
-        <ytopcontent :title="'Каталог'"></ytopcontent>
+        <ytitle :title="'Каталог'"></ytitle>
         <div class="y-cat-bottom">
             <div class="cat_categories">
-                <div class="y-bt_title">
                     <h3 class="title">Категории</h3>
-                </div>
                 <div class="cat_list-items">
                     <ul class="list_items">
                         <li  tabindex="0" class="cat_item">Легковые</li>
@@ -18,6 +16,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="ydrop_down">
+                <ydropdown></ydropdown>
+            </div>
             <div class="type_body-marks">
                 <div class="car_body-type">
                     <div class="body-type_top">
@@ -25,32 +26,36 @@
                         <yexpanded :text_color="'white'" :text="'Смотреть больше'"></yexpanded>
                     </div>
                     <div class="yb-slide_type">
-                        <div class="yb_clide-body">
+                        <Slick id="slick3" :options="slickOptions" ref="slick">
+                        <div class="yb_slide-body">
                             <figure class="slide small">
                                 <img src="img/system/static/sedan.png" alt="">
                             </figure>
                             <span class="body_name">Седан</span>
                         </div>
-                        <div class="yb_clide-body">
+                        <div class="yb_slide-body">
                             <figure class="slide large">
                                 <img src="img/system/static/crossover.png" alt="">
                             </figure>
                             <span class="body_name bold">Кроссовер</span>
                         </div>
-                        <div class="yb_clide-body">
+                        <div class="yb_slide-body">
                             <figure class="slide small">
                                 <img src="img/system/static/cabriolet.png" alt="">
                             </figure>
                             <span class="body_name">Кабриолет</span>
                         </div>
+                        </Slick>
                     </div>
+                </div>
+                <div class="yshow_more-body">
+                    <button class="ymore_body">Смотреть еще</button>
                 </div>
                 <div class="yb-car_marks">
                     <div class="car_marks-title">
                         <h3 class="marks_title">Популярные марки</h3>
                         <yexpanded :text_color="'blue'" :text="'Смотреть больше'" :color="'blue'"  ></yexpanded>
                     </div>
-                    <div class="yb_list">
                             <div class="yb_marks_list">
                                 <ul class="marks-list_body">
                                     <li class="mark_list">
@@ -104,8 +109,10 @@
                                     </a>
                                     </li>
                                 </ul>
+                                <div class="yshow_more-marks">
+                                    <button class="ymore_marks">Все марки</button>
+                                </div>
                             </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -113,5 +120,34 @@
 </template>
 
 <script>
-
+    import Slick from "vue-slick";
+export default  {
+    components: {
+        Slick
+    },
+    data(){
+        return{
+            slickOptions: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                arrows: false,
+                dots: false,
+                speed: 600,
+                adaptiveHeight: false,
+                infinite: false,
+                responsive: [
+                    {
+                        breakpoint: 601,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: true,
+                            speed: 600,
+                        }
+                    }
+                ]
+            },
+        }
+    }
+}
 </script>

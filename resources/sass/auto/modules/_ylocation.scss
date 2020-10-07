@@ -5,51 +5,66 @@
     display: flex;
     align-items: center;
     position: relative;
+    z-index: 2;
+    width: 100%;
     &.header{
         .dropdown-input{
             width: 100%;
             font-family: $aleg;
             font-style: normal;
+            height: 35px;
             font-weight: normal;
-            font-size: em(20);
-            line-height: 24px;
+            line-height: 18px;
+            color: rgba(98, 109, 117, 0.65);
+            font-size: em(15);
+            background: #FFFFFF;
+            border-radius: 8px;
+            z-index: 4;
             border: none;
             outline: none;
-            color: rgba(34, 34, 34, 0.79);
+            text-overflow: ellipsis;
+            &:focus{
+                background: #F9F9FA;
+                box-shadow: 1px 3px 8px 1px rgba(52, 110, 197, 0.28);
         }
+    }
         .autocomplete-results{
             font-family: $aleg;
-            background: linear-gradient(180deg, rgba(249, 249, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 105.93%), #F7F7F7;
+            background: #FFFFFF;
+            box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 8px;
             position: absolute;
-            padding: 0;
-            margin: 0;
-            max-height: 180px;
-            overflow: auto;
-            width: 100%;
-            top: 45px;
-            z-index: 2;
+            max-height: 330px;
+            overflow: scroll;
+            width: 110%;
+            top: 50px;
+            padding-top: 10px;
+            left: -14px;
+            z-index: 1;
             scrollbar-width: none;
             .autocomplete-result {
+                font-family: $aleg;
+                font-weight: normal;
                 height: 30px;
                 display: flex;
-                justify-content: center;
+                padding-left: 15px;
                 align-items: center;
                 cursor: pointer;
-                color: rgba(34, 34, 34, 0.79);
+                font-size: em(16);
+                line-height: 19px;
+                color: #5B5B5B;
             }
             .autocomplete-result.is-active,
             .autocomplete-result:hover {
-                background: linear-gradient(0deg, #0B3F8D, #0B3F8D), #FFFFFF;
-                color: #FFFFFF;
+                background: rgba(221, 241, 255, 0.64);
             }
-            &::-webkit-scrollbar { width: 0px; }
-
+            &::-webkit-scrollbar { width: 0; }
         }
     }
 }
 .autocomplete {
-    position: relative;
-    width: 130px;
+position: relative;
+width: 130px;
 }
 
 

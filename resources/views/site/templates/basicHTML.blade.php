@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('fonts/AlegreyaSans/alegreyasans.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/Raleway/raleway.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/Montserrat/montserrat.css')}}">
+    <script src="{{asset('libs/Jquery.min.js')}}"></script>
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
@@ -20,5 +21,6 @@
 </div>
 
 <script src="{{asset('js/site.js')}}"></script>
+<script src="{{asset('js/servis.js')}}"></script>
 </body>
 </html>
