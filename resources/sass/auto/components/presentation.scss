@@ -1,0 +1,181 @@
+@import '../clear';
+@import '../../vars';
+
+
+.presentation_content{
+    .first_screen-present{
+        width: 100%;
+        padding-left: 17%;
+        background: linear-gradient(180deg, #0B3F8D 0%, #02174E 100%);
+        display: flex;
+        align-items: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .vis-l_screen{
+            width: 50%;
+            display: flex;
+            padding: 70px 0 140px 0;
+            align-items: center;
+            flex-direction: column;
+            .ytitle_present{
+                font-family: $rale;
+                font-weight: bold;
+                font-size: em(64);
+                line-height: 143.4%;
+                color: #FFFFFF;
+                margin-bottom: 20px;
+                img{
+                    width: 200px;
+                }
+            }
+            .ydesc_present{
+                margin: 0;
+                font-family: $aleg;
+                font-weight: normal;
+                font-size: em(24);
+                line-height: 29px;
+                color: #FFFFFF;
+            }
+        }
+        .visr_screen{
+
+        }
+    }
+    .yb-scope_present{
+        background: #F8FBFF;
+        .yb_sales {
+            display: flex;
+            align-items: center;
+            position: relative;
+            h1{
+                margin: 0;
+                text-align: center;
+                font-family: $rale;
+                font-weight: 500;
+                font-size: em(72);
+                line-height: 85px;
+                color: $darkblue;
+                margin-bottom: 90px;
+            }
+            &.auto_demo{
+                height: 800px;
+                padding: 50px 0 0 0;
+                background-repeat: no-repeat;
+                background-position: right;
+                img{
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                }
+            }
+            &.new_auto{
+                padding-top: 150px;
+                height: 800px;
+                display: flex;
+                justify-content: flex-end;
+                img{
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                }
+                .y_write-up{
+                    padding-left: 0;
+                    width: 50%;
+                }
+            }
+            &.car_service{
+                height: 800px;
+                display: flex;
+                img{
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                }
+            }
+            &.check_auto{
+                height: 800px;
+                display: flex;
+                justify-content: flex-end;
+                .y_write-up{
+                    padding-left: 0;
+                    width: 60%;
+                }
+                img{
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                }
+            }
+            &.monitoring_price{
+                height: 800px;
+                display: flex;
+                img{
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                }
+            }
+            &.analytics{
+                height: 800px;
+                display: flex;
+                justify-content: flex-end;
+                .y_write-up{
+                    padding-left: 0;
+                    width: 60%;
+                }
+                img{
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                }
+            }
+            .y_write-up{
+                padding-left: 17%;
+                .yb_demo-title{
+                    font-family: $rale;
+                    font-weight: 600;
+                    font-size: em(48);
+                    line-height: 56px;
+                    color: #002F76;
+                    margin: 0 0 20px 0;
+                }
+                .yb_demo-desc{
+                    width: 50%;
+                    margin: 0 0 15px 0;
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(24);
+                    line-height: 34px;
+                    color: #636467;
+                }
+                .y_watch-more{
+                    display: flex;
+                    align-items: center;
+                    background: $darkblue;
+                    border-radius: 8px;
+                    font-family: $aleg;
+                    font-weight: bold;
+                    font-size: em(16);
+                    line-height: 19px;
+                    text-align: center;
+                    height: 45px;
+                    color: #FFFFFF;
+                    padding: 0 2%;
+                    .yexpended{
+                        .white{
+                            svg{
+                                width:30px;
+                            }
+                            .eclipse{
+                                &:after{
+                                    left: 20px;
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

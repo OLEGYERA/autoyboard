@@ -4879,6 +4879,257 @@ span.yb-gradient {
   padding: 25px 40px;
 }
 
+.presentation_content .first_screen-present {
+  width: 100%;
+  padding-left: 17%;
+  background: linear-gradient(180deg, #0B3F8D 0%, #02174E 100%);
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.presentation_content .first_screen-present .vis-l_screen {
+  width: 50%;
+  display: flex;
+  padding: 70px 0 140px 0;
+  align-items: center;
+  flex-direction: column;
+}
+
+.presentation_content .first_screen-present .vis-l_screen .ytitle_present {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 4em;
+  line-height: 143.4%;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.presentation_content .first_screen-present .vis-l_screen .ytitle_present img {
+  width: 200px;
+}
+
+.presentation_content .first_screen-present .vis-l_screen .ydesc_present {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1.5em;
+  line-height: 29px;
+  color: #FFFFFF;
+}
+
+.presentation_content .yb-scope_present {
+  background: #F8FBFF;
+}
+
+.presentation_content .yb-scope_present .yb_sales {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.presentation_content .yb-scope_present .yb_sales h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 4.5em;
+  line-height: 85px;
+  color: #0B3F8D;
+  margin-bottom: 90px;
+}
+
+.presentation_content .yb-scope_present .yb_sales.auto_demo {
+  height: 800px;
+  padding: 50px 0 0 0;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.presentation_content .yb-scope_present .yb_sales.auto_demo img {
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.new_auto {
+  padding-top: 150px;
+  height: 800px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.presentation_content .yb-scope_present .yb_sales.new_auto img {
+  position: absolute;
+  left: 0;
+  height: 100%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.new_auto .y_write-up {
+  padding-left: 0;
+  width: 50%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.car_service {
+  height: 800px;
+  display: flex;
+}
+
+.presentation_content .yb-scope_present .yb_sales.car_service img {
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.check_auto {
+  height: 800px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.presentation_content .yb-scope_present .yb_sales.check_auto .y_write-up {
+  padding-left: 0;
+  width: 60%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.check_auto img {
+  position: absolute;
+  left: 0;
+  height: 100%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.monitoring_price {
+  height: 800px;
+  display: flex;
+}
+
+.presentation_content .yb-scope_present .yb_sales.monitoring_price img {
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.analytics {
+  height: 800px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.presentation_content .yb-scope_present .yb_sales.analytics .y_write-up {
+  padding-left: 0;
+  width: 60%;
+}
+
+.presentation_content .yb-scope_present .yb_sales.analytics img {
+  position: absolute;
+  left: 0;
+  height: 100%;
+}
+
+.presentation_content .yb-scope_present .yb_sales .y_write-up {
+  padding-left: 17%;
+}
+
+.presentation_content .yb-scope_present .yb_sales .y_write-up .yb_demo-title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+  line-height: 56px;
+  color: #002F76;
+  margin: 0 0 20px 0;
+}
+
+.presentation_content .yb-scope_present .yb_sales .y_write-up .yb_demo-desc {
+  width: 50%;
+  margin: 0 0 15px 0;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1.5em;
+  line-height: 34px;
+  color: #636467;
+}
+
+.presentation_content .yb-scope_present .yb_sales .y_write-up .y_watch-more {
+  display: flex;
+  align-items: center;
+  background: #0B3F8D;
+  border-radius: 8px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 19px;
+  text-align: center;
+  height: 45px;
+  color: #FFFFFF;
+  padding: 0 2%;
+}
+
+.presentation_content .yb-scope_present .yb_sales .y_write-up .y_watch-more .yexpended .white svg {
+  width: 30px;
+}
+
+.presentation_content .yb-scope_present .yb_sales .y_write-up .y_watch-more .yexpended .white .eclipse:after {
+  left: 20px;
+  width: 20px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+header,
+footer,
+div,
+section,
+article,
+aside,
+main,
+input,
+button {
+  box-sizing: border-box;
+  outline: none;
+}
+
+li,
+a {
+  list-style: none;
+  outline: none;
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+h1.yb-main-title {
+  font-family: "Fira Sans", sans-serif;
+  margin: 0px;
+  font-size: 1.625em;
+  font-weight: 500;
+  color: #2E2E2E;
+}
+
+span.yb-gradient {
+  background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.yb-tm-box {
+  background-color: #fff;
+  box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.9), 6px -6px 12px rgba(255, 255, 255, 0.9), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 25px 40px;
+}
+
 .yfilter {
   width: 100%;
   padding-right: 13px;

@@ -19,6 +19,7 @@ Route::get('/filter', 'Site\Auto\PageController@filter')->name('filter');
 Route::get('/card', 'Site\Auto\PageController@card')->name('card');
 Route::get('/favorite', 'Site\Auto\PageController@favorite')->name('favorite');
 Route::get('/extended', 'Site\Auto\PageController@extended')->name('extended');
+Route::get('/presentation', 'Site\Auto\PageController@presentation')->name('presentation');
 
 Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
 
