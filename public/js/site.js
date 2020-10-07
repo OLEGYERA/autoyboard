@@ -6299,6 +6299,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6309,6 +6330,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getYears();
     this.getRegion();
     this.getTransportType();
+    this.getManufactureCounries();
+    this.getCarBrands();
   },
   data: function data() {
     return {
@@ -6316,6 +6339,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       // true or false checkbox
       transportType: [],
       yearsList: [],
+      manufactureCountries: [],
+      carBrandsArr: [],
       showSelected: 6,
       selectDropDown: [],
       /// accepts data from child component <dropdown></dropdown> && <select></select>
@@ -6933,7 +6958,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log('remove', city_idx);
     },
     selectedItem: function selectedItem(e) {
-      this.selectDropDown.push(e);
+      var select = this.selectDropDown.find(function (item) {
+        if (item.name === e.name) return true;
+      });
+
+      if (!select) {
+        this.selectDropDown.push(e);
+      }
     },
     changeResize: function changeResize(event) {
       this.windowWidth = document.documentElement.clientWidth;
@@ -6966,13 +6997,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
     },
-    getTransportType: function getTransportType() {
+    getCarBrands: function getCarBrands() {
       var _this = this;
 
       var lang = 3,
           query = "?langType=" + lang;
+      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/transport_types/1-8/brands' + query).then(function (response) {
+        _this.carBrandsArr = response.data;
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    getManufactureCounries: function getManufactureCounries() {
+      var _this2 = this;
+
+      var lang = 3,
+          query = "?langType=" + lang;
+      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/manufacture_countries' + query).then(function (response) {
+        _this2.manufactureCountries = response.data;
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    getTransportType: function getTransportType() {
+      var _this3 = this;
+
+      var lang = 3,
+          query = "?langType=" + lang;
       _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/transport_types' + query).then(function (response) {
-        _this.transportType = response.data;
+        _this3.transportType = response.data;
       })["catch"](function (error) {
         console.log('error', error);
       });
@@ -50943,7 +50996,7 @@ var render = function() {
               _c("ydropdown", {
                 attrs: {
                   placeholder: "Выберите страну",
-                  items: _vm.countryName
+                  items: _vm.manufactureCountries
                 },
                 on: { setItem: _vm.selectedItem }
               }),
@@ -50959,7 +51012,7 @@ var render = function() {
                       _c("yselect", {
                         attrs: {
                           placeholder: "Выберите марку",
-                          options: _vm.cars
+                          options: _vm.carBrandsArr
                         }
                       })
                     ],
@@ -51996,7 +52049,7 @@ var render = function() {
                     _c("ydropdown", {
                       attrs: {
                         placeholder: "Выберите страну",
-                        items: _vm.countryName
+                        items: _vm.manufactureCountries
                       },
                       on: { setItem: _vm.selectedItem }
                     })
@@ -52013,7 +52066,7 @@ var render = function() {
                     _c("yselect", {
                       attrs: {
                         placeholder: "Выберите марку",
-                        options: _vm.cars
+                        options: _vm.carBrandsArr
                       }
                     })
                   ],
@@ -52066,7 +52119,7 @@ var render = function() {
                     _c("ydropdown", {
                       attrs: {
                         placeholder: "Выберите страну",
-                        items: _vm.countryName
+                        items: _vm.manufactureCountries
                       },
                       on: { setItem: _vm.selectedItem }
                     })
@@ -52083,7 +52136,7 @@ var render = function() {
                     _c("yselect", {
                       attrs: {
                         placeholder: "Выберите марку",
-                        options: _vm.cars
+                        options: _vm.carBrandsArr
                       }
                     })
                   ],
@@ -52198,7 +52251,7 @@ var render = function() {
                   _c("ydropdown", {
                     attrs: {
                       placeholder: "Выберите страну",
-                      items: _vm.countryName
+                      items: _vm.manufactureCountries
                     },
                     on: { setItem: _vm.selectedItem }
                   })
@@ -52236,52 +52289,145 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "yreg_container" },
-              [
-                _c("h2", [_vm._v("Регион")]),
-                _vm._v(" "),
-                _c("yselect", {
-                  attrs: {
-                    placeholder: "Выберите город",
-                    options: _vm.ukSityName
-                  },
-                  on: { setItem: _vm.selectedItem }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "yreg-checkbox" }, [
-                  _c(
-                    "div",
-                    { staticClass: "yflex_dir" },
-                    _vm._l(_vm.regionArr, function(item) {
-                      return _c("div", { staticClass: "yside_country" }, [
-                        _c("h2", [_vm._v(_vm._s(item.name))]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "yside_check" },
-                          _vm._l(item.childrens, function(child) {
-                            return _c("div", { staticClass: "y-check " }, [
-                              _c("input", {
-                                attrs: { id: child.alias, type: "checkbox" }
-                              }),
-                              _vm._v(" "),
-                              _c("label", { attrs: { for: child.alias } }, [
-                                _vm._v(_vm._s(child.name))
-                              ])
-                            ])
-                          }),
-                          0
-                        )
-                      ])
+            _vm.regionArr.length != 0
+              ? _c(
+                  "div",
+                  { staticClass: "yreg_container" },
+                  [
+                    _c("h2", [_vm._v("Регион")]),
+                    _vm._v(" "),
+                    _c("yfsearch", {
+                      attrs: {
+                        placeholder: "Выберите город",
+                        options: _vm.regionArr
+                      },
+                      on: { responseResult: _vm.computeCityResult }
                     }),
-                    0
-                  )
-                ])
-              ],
-              1
-            )
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "yselect_region" },
+                      _vm._l(_vm.choosedCities, function(city, city_idx) {
+                        return _c(
+                          "div",
+                          { staticClass: "yselect_region-item" },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(city.name) +
+                                "\n                            "
+                            ),
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "12",
+                                  height: "12",
+                                  viewBox: "0 0 12 12",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.removeChoosedCities(city_idx)
+                                  }
+                                }
+                              },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "6",
+                                    cy: "6",
+                                    r: "6",
+                                    fill: "white"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  { attrs: { "clip-path": "url(#clip0)" } },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z",
+                                        fill: "#0B3F8D"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("defs", [
+                                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                                    _c("rect", {
+                                      attrs: {
+                                        width: "6",
+                                        height: "6",
+                                        fill: "white",
+                                        transform: "translate(3 3)"
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yreg-checkbox" }, [
+                      _c(
+                        "div",
+                        { staticClass: "yflex_dir" },
+                        _vm._l(_vm.regionAndPart, function(item) {
+                          return _c("div", { staticClass: "yside_country" }, [
+                            _c("h2", [_vm._v(_vm._s(item.name))]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "yside_check" },
+                              _vm._l(item.children, function(child) {
+                                return _c("div", { staticClass: "y-check " }, [
+                                  _c(
+                                    "input",
+                                    _vm._b(
+                                      {
+                                        attrs: {
+                                          id: child.alias,
+                                          type: "checkbox"
+                                        },
+                                        on: {
+                                          change: function($event) {
+                                            return _vm.SET_CHOOSED_REGIONS(
+                                              child.val
+                                            )
+                                          }
+                                        }
+                                      },
+                                      "input",
+                                      { checked: child.choosed == true },
+                                      false
+                                    )
+                                  ),
+                                  _vm._v(" "),
+                                  _c("label", { attrs: { for: child.alias } }, [
+                                    _vm._v(_vm._s(child.name))
+                                  ])
+                                ])
+                              }),
+                              0
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  ],
+                  1
+                )
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "yb-condition_cars" }, [
@@ -52520,27 +52666,7 @@ var render = function() {
                     0
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "yother_visr-options" }, [
-                    _c(
-                      "div",
-                      { staticClass: "ycars_options" },
-                      _vm._l(
-                        _vm.accordionItems[_vm.otherShowID].items,
-                        function(accordion) {
-                          return _c("div", { staticClass: "yoption" }, [
-                            _c("input", {
-                              attrs: { id: accordion.title, type: "checkbox" }
-                            }),
-                            _vm._v(" "),
-                            _c("label", { attrs: { for: accordion.title } }, [
-                              _vm._v(_vm._s(accordion.title))
-                            ])
-                          ])
-                        }
-                      ),
-                      0
-                    )
-                  ])
+                  _c("div", { staticClass: "yother_visr-options" })
                 ])
               ])
             ])
@@ -52735,7 +52861,7 @@ var render = function() {
                     _c("ydropdown", {
                       attrs: {
                         placeholder: "Выберите страну",
-                        items: _vm.countryName
+                        items: _vm.manufactureCountries
                       },
                       on: { setItem: _vm.selectedItem }
                     })
@@ -52752,7 +52878,7 @@ var render = function() {
                     _c("yselect", {
                       attrs: {
                         placeholder: "Выберите марку",
-                        options: _vm.cars
+                        options: _vm.carBrandsArr
                       },
                       on: { setItem: _vm.selectedItem }
                     })
@@ -52807,7 +52933,7 @@ var render = function() {
                     _c("ydropdown", {
                       attrs: {
                         placeholder: "Выберите страну",
-                        items: _vm.countryName
+                        items: _vm.manufactureCountries
                       },
                       on: { setItem: _vm.selectedItem }
                     })
@@ -52824,7 +52950,7 @@ var render = function() {
                     _c("yselect", {
                       attrs: {
                         placeholder: "Выберите марку",
-                        options: _vm.cars
+                        options: _vm.carBrandsArr
                       },
                       on: { setItem: _vm.selectedItem }
                     })
@@ -53002,6 +53128,11 @@ var render = function() {
                           "div",
                           { staticClass: "yselect_region-item" },
                           [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(city.name) +
+                                "\n                            "
+                            ),
                             _c(
                               "svg",
                               {
@@ -53055,11 +53186,6 @@ var render = function() {
                                   ])
                                 ])
                               ]
-                            ),
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(city.name) +
-                                "\n                        "
                             )
                           ]
                         )
@@ -53091,7 +53217,7 @@ var render = function() {
                                         on: {
                                           change: function($event) {
                                             return _vm.SET_CHOOSED_REGIONS(
-                                              $event
+                                              child.val
                                             )
                                           }
                                         }
@@ -53898,7 +54024,7 @@ var render = function() {
                     0
                   ),
                   _vm._v(" "),
-                  _vm._m(18)
+                  _c("div", { staticClass: "yother_visr-options" })
                 ])
               ])
             ])
@@ -53949,11 +54075,11 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(19)
+              _vm._m(18)
             ])
           ]),
           _vm._v(" "),
-          _vm._m(20)
+          _vm._m(19)
         ])
   ])
 }
@@ -54720,14 +54846,6 @@ var staticRenderFns = [
           _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yother_visr-options" }, [
-      _c("div", { staticClass: "ycars_options" })
     ])
   },
   function() {
@@ -79886,27 +80004,22 @@ var getters = {
     state.FULL_REGIONS.forEach(function (el, i) {
       var regionNewArr = [];
       el.children.forEach(function (reg_el, reg_i) {
-        // const condition = state.choosedRegions.find(function(chr, i){
-        //     if(chr === reg_el.alias) return true
-        // })
-        // console.log(condition)
-        //
-        // let choosedRegionByCity = false;
-        // state.choosedCities.forEach((chc, i) => {
-        //     if(chc.parent === reg_el.val){
-        //         choosedRegionByCity = true;
-        //         if(condition == undefined){
-        //             state.choosedCities.splice(i, 1);
-        //         }
-        //     } else if(condition != undefined){
-        //         choosedRegionByCity = true;
-        //     }
-        // })
+        //функция включения регионов, если регион включен принудительно
+        var condition = state.choosedRegions.find(function (chr, i) {
+          if (chr === reg_el.val) return true;
+        }); //функция включения регионов, если город включен, а регион нет
+
+        var choosedRegionByCity = false;
+        state.choosedCities.forEach(function (chc, i) {
+          if (chc.parent === reg_el.val) {
+            choosedRegionByCity = true;
+          }
+        });
         regionNewArr.push({
           'val': reg_el.val,
           'alias': reg_el.alias,
           'name': reg_el.name,
-          'choosed': choosedRegionByCity
+          'choosed': choosedRegionByCity || condition !== undefined
         });
       });
       state.regionAndParts.push({
@@ -79924,6 +80037,7 @@ var mutations = {
   SET_CITIES_TO_STORE: function SET_CITIES_TO_STORE(state, payload) {
     var condition = state.choosedCities.find(function (el, i) {
       if (payload.val === el.val) return true;
+      console.log(payload.val === el.val);
     });
 
     if (!condition) {
@@ -79935,13 +80049,13 @@ var mutations = {
   },
   SET_CHOOSED_REGIONS: function SET_CHOOSED_REGIONS(state, payload) {
     var condition = state.choosedRegions.find(function (el) {
-      if (payload.target.id === el) return true;
+      if (payload === el) return true;
     });
 
-    if (condition && condition !== undefined) {
+    if (condition !== undefined) {
       state.choosedRegions.splice(state.choosedRegions.indexOf(condition), 1);
     } else {
-      state.choosedRegions.push(payload.target.id);
+      state.choosedRegions.push(payload);
     }
   } // SET_VERIFY_PAGE_NAME: (state, payload) => {
   //     state.VerifyPageName = payload;

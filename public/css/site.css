@@ -1765,23 +1765,30 @@ span.yb-gradient {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 30px;
-  margin-right: 20px;
+  width: auto;
   padding: 0 2%;
-  background-color: #0B3F8D;
-  color: white;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  margin: 0 15px 15px 0px;
+  height: 30px;
+  background: linear-gradient(0deg, rgba(11, 63, 141, 0.04), rgba(11, 63, 141, 0.04));
+  border: 1px solid rgba(11, 63, 141, 0.79);
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 0.9375em;
+  line-height: 18px;
+  color: #0B3F8D;
+  white-space: nowrap;
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yselect_region .yselect_region-item svg {
   width: 16px;
   height: 16px;
-  margin-right: 8px;
+  margin-left: 15px;
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yselect_region .yselect_region-item:last-child {
-  margin-right: 0;
+  margin: 0 0 15px 0;
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox {
@@ -6081,9 +6088,8 @@ span.yb-gradient {
   overflow-x: hidden;
   top: 45px;
   left: 0;
-  width: 100%;
   background: #FFFFFF;
-  box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
+  box-shadow: 0 0 5px 1px rgba(52, 110, 197, 0.28);
   border-radius: 3px;
   z-index: 2;
 }
@@ -6100,20 +6106,50 @@ span.yb-gradient {
   color: rgba(0, 0, 0, 0.83);
 }
 
+.yregionsearch .y_show-results .select_option .option_name {
+  font-family: "Alegreya Sans", sans-serif;
+}
+
 .yregionsearch .y_show-results .select_option.region_part_option {
   padding-left: 10px;
-  background-color: darkslategray;
+  background-color: #FFFFFF;
   color: #fff;
+}
+
+.yregionsearch .y_show-results .select_option.region_part_option .option_name {
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 22px;
+  color: #0B3F8D;
+  padding-top: 5px;
 }
 
 .yregionsearch .y_show-results .select_option.region_option {
-  padding-left: 20px;
-  background-color: #4d8d8d;
+  background-color: #FFFFFF;
   color: #fff;
 }
 
-.yregionsearch .y_show-results .select_option.region_option .option_name.selected {
-  background-color: #0B3F8D;
+.yregionsearch .y_show-results .select_option.region_option .option_name {
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 22px;
+  color: #2A2C2D;
+  padding: 0 !important;
+}
+
+.yregionsearch .y_show-results .select_option.city_option .option_name {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  font-size: 0.9375em;
+  line-height: 19px;
+  color: #5B5B5B;
+  padding: 0 !important;
+}
+
+.yregionsearch .y_show-results .select_option.city_option .option_name.selected {
+  background: rgba(221, 241, 255, 0.64);
 }
 
 .yb-card_content {

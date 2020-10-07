@@ -89,14 +89,14 @@
                     </div>
                 </div>
                 <h4>Страна производитель</h4>
-                <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
                 <div class="add-cars_items">
                     <div class="yflex_car-item">
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
                                 :placeholder="'Выберите марку'"
-                                :options="cars"></yselect>
+                                :options="carBrandsArr"></yselect>
                         </div>
                         <div class="ycars-item model">
                             <h2>Модель</h2>
@@ -488,13 +488,13 @@
                     <div class="yflex_car-item">
                         <div class="ycars-item countries">
                             <h2>Страна производитель</h2>
-                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
                         </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
                                 :placeholder="'Выберите марку'"
-                                :options="cars"></yselect>
+                                :options="carBrandsArr"></yselect>
                         </div>
                         <div class="ycars-item model">
                             <h2>Модель</h2>
@@ -513,13 +513,13 @@
                     <div class="yflex_car-item remove">
                         <div class="ycars-item countries">
                             <h2>Страна производитель</h2>
-                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
                         </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
                                 :placeholder="'Выберите марку'"
-                                :options="cars"></yselect>
+                                :options="carBrandsArr"></yselect>
                         </div>
                         <div class="ycars-item model">
                             <h2>Модель</h2>
@@ -563,7 +563,7 @@
                     <button class="yadded-car-item exclude">Добавить марку</button>
                     <div class="yexclude_country-car">
                         <h2>Исключить страну</h2>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
                     </div>
                     <button class="yadded-car-item exclude_counry">Добавить страну</button>
                 </div>
@@ -584,17 +584,38 @@
                         </ycheckbox>
                     </div>
                 </div>
-                <div class="yreg_container">
+                <div class="yreg_container" v-if="regionArr.length != 0">
                     <h2>Регион</h2>
-                    <yselect @setItem='selectedItem' :placeholder="'Выберите город'" :options="ukSityName"></yselect>
+                    <yfsearch
+                        :placeholder="'Выберите город'"
+                        :options="regionArr"
+                        @responseResult="computeCityResult"
+                    ></yfsearch>
+                    <div class="yselect_region">
+                        <div v-for="(city, city_idx) in choosedCities"class="yselect_region-item">
+                            {{city.name}}
+                            <svg @click="removeChoosedCities(city_idx)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="6" fill="white"/>
+                                <g clip-path="url(#clip0)">
+                                    <path d="M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z" fill="#0B3F8D"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="6" height="6" fill="white" transform="translate(3 3)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
                     <div class="yreg-checkbox">
                         <div class="yflex_dir">
-                            <div v-for="(item) in regionArr"  class="yside_country">
+                            <div v-for="(item) in regionAndPart"  class="yside_country">
                                 <h2>{{item.name}}</h2>
                                 <div class="yside_check">
-                                    <div v-for="(child) in item.childrens"  class="y-check ">
-                                        <input :id="child.alias" type="checkbox">
-                                        <label :for="child.alias">{{child.name}}</label>                                    </div>
+                                    <div v-for="(child) in item.children"  class="y-check ">
+                                        <input :id="child.alias" type="checkbox" @change="SET_CHOOSED_REGIONS(child.val)" v-bind="{'checked': child.choosed == true}">
+                                        <label :for="child.alias">{{child.name}}</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -829,14 +850,14 @@
                                 </button>
                             </div>
                             <div class="yother_visr-options">
-                                <div class="ycars_options">
-                                    <div
-                                        v-for="(accordion) in accordionItems[otherShowID].items"
-                                        class="yoption">
-                                        <input :id="accordion.title" type="checkbox">
-                                        <label :for="accordion.title">{{accordion.title}}</label>
-                                    </div>
-                                </div>
+<!--                                <div class="ycars_options">-->
+<!--                                    <div-->
+<!--                                        v-for="(accordion) in accordionItems[otherShowID].items"-->
+<!--                                        class="yoption">-->
+<!--                                        <input :id="accordion.title" type="checkbox">-->
+<!--                                        <label :for="accordion.title">{{accordion.title}}</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -944,14 +965,14 @@
                     <div class="yflex_car-item">
                         <div class="ycars-item countries">
                             <h2>Страна производитель</h2>
-                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
                         </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
                                 @setItem='selectedItem'
                                 :placeholder="'Выберите марку'"
-                                :options="cars"></yselect>
+                                :options="carBrandsArr"></yselect>
                         </div>
                         <div class="ycars-item model">
                             <h2>Модель</h2>
@@ -971,14 +992,14 @@
                     <div class="yflex_car-item remove">
                         <div class="ycars-item countries">
                             <h2>Страна производитель</h2>
-                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+                            <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="manufactureCountries"></ydropdown>
                         </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
                             <yselect
                                 @setItem='selectedItem'
                                 :placeholder="'Выберите марку'"
-                                :options="cars"></yselect>
+                                :options="carBrandsArr"></yselect>
                         </div>
                         <div class="ycars-item model">
                             <h2>Модель</h2>
@@ -1053,6 +1074,7 @@
                     ></yfsearch>
                     <div class="yselect_region">
                         <div v-for="(city, city_idx) in choosedCities"class="yselect_region-item">
+                            {{city.name}}
                             <svg @click="removeChoosedCities(city_idx)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="6" cy="6" r="6" fill="white"/>
                                 <g clip-path="url(#clip0)">
@@ -1064,7 +1086,6 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-                            {{city.name}}
                         </div>
                     </div>
                     <div class="yreg-checkbox">
@@ -1073,7 +1094,7 @@
                                 <h2>{{item.name}}</h2>
                                 <div class="yside_check">
                                     <div v-for="(child) in item.children"  class="y-check ">
-                                        <input :id="child.alias" type="checkbox" @change="SET_CHOOSED_REGIONS($event)" v-bind="{'checked': child.choosed == true}">
+                                        <input :id="child.alias" type="checkbox" @change="SET_CHOOSED_REGIONS(child.val)" v-bind="{'checked': child.choosed == true}">
                                         <label :for="child.alias">{{child.name}}</label>
                                     </div>
                                 </div>
@@ -1310,15 +1331,15 @@
                                 </button>
                             </div>
                             <div class="yother_visr-options">
-                                <div class="ycars_options" >
+<!--                                <div class="ycars_options" >-->
 <!--                                    <div-->
 <!--                                        class="yoption"-->
 <!--                                        v-for="(accordion) in accordionItems[otherShowID].items"-->
 <!--                                    >-->
 <!--                                        <input :id="accordion.title" type="checkbox">-->
 <!--                                        <label :for="accordion.title">{{accordion.title}}</label>-->
-<!--                                    </div>-->
-                                </div>
+<!--                                    </div >-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -1390,12 +1411,19 @@
             this.getYears()
             this.getRegion()
             this.getTransportType();
+            this.getManufactureCounries()
+            this.getCarBrands()
+
         },
         data(){
             return{
                 transportTypeChecked: [], // true or false checkbox
                 transportType:[],
                 yearsList: [],
+                manufactureCountries: [],
+                carBrandsArr: [],
+
+
                 showSelected: 6,
                 selectDropDown: [], /// accepts data from child component <dropdown></dropdown> && <select></select>
                 picked: [],
@@ -1774,7 +1802,12 @@
                 console.log('remove', city_idx)
             },
             selectedItem(e){
-                this.selectDropDown.push(e)
+                const select = this.selectDropDown.find(item =>{
+                    if(item.name === e.name) return  true
+                })
+                if(!select){
+                    this.selectDropDown.push(e)
+                }
             },
             changeResize(event) {
                 this.windowWidth = document.documentElement.clientWidth;
@@ -1805,6 +1838,30 @@
                         })
                     }
                 }
+            },
+            getCarBrands(){
+                let lang = 3,
+                    query = "?langType=" + lang ;
+
+                HTTP.get('/transport_types/1-8/brands' + query)
+                    .then(response => {
+                        this.carBrandsArr = response.data;
+                    }).catch(error =>{
+                    console.log('error', error)
+
+                })
+            },
+            getManufactureCounries(){
+                let lang = 3,
+                    query = "?langType=" + lang ;
+
+                HTTP.get('/manufacture_countries' + query)
+                    .then(response => {
+                        this.manufactureCountries = response.data;
+                    }).catch(error =>{
+                    console.log('error', error)
+
+                })
             },
             getTransportType(){
                 let lang = 3,

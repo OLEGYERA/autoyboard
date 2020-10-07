@@ -64,6 +64,7 @@ export  default  {
             }
             const condition = new RegExp(this.search, "i");
             this.results =  this.options.filter(item => item.name.match(condition));
+
         },
         generatingPlaceholder(){
             return this.isOpened ? 'Поиск...' : this.placeholder;
@@ -131,6 +132,7 @@ export  default  {
             this.isOpened = true;
         }
     },
+
 
 }
 </script>

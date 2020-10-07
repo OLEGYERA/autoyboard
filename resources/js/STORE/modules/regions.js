@@ -38,34 +38,31 @@ let getters = {
     },
 
     GET_REGION_AND_PART_FROM_STORE: state => {
+
         state.regionAndParts = [];
+
         state.FULL_REGIONS.forEach((el, i) => {
             let regionNewArr = [];
             el.children.forEach((reg_el, reg_i) => {
+                //функция включения регионов, если регион включен принудительно
 
-                // const condition = state.choosedRegions.find(function(chr, i){
-                //     if(chr === reg_el.alias) return true
-                // })
-                // console.log(condition)
-                //
-                // let choosedRegionByCity = false;
-                // state.choosedCities.forEach((chc, i) => {
-                //     if(chc.parent === reg_el.val){
-                //         choosedRegionByCity = true;
-                //         if(condition == undefined){
-                //             state.choosedCities.splice(i, 1);
-                //         }
-                //     } else if(condition != undefined){
-                //         choosedRegionByCity = true;
-                //     }
-                // })
+                const condition = state.choosedRegions.find(function(chr, i){
+                    if(chr === reg_el.val) return true
+                })
 
+                //функция включения регионов, если город включен, а регион нет
+                let choosedRegionByCity = false;
+                state.choosedCities.forEach((chc, i) => {
+                    if(chc.parent === reg_el.val){
+                        choosedRegionByCity = true;
+                    }
+                })
 
                 regionNewArr.push({
                     'val': reg_el.val,
                     'alias': reg_el.alias,
                     'name': reg_el.name,
-                    'choosed': choosedRegionByCity,
+                    'choosed': choosedRegionByCity || condition !== undefined,
                 })
             })
 
@@ -77,6 +74,7 @@ let getters = {
                 'children': regionNewArr
             })
         })
+
         return state.regionAndParts
     }
 };
@@ -85,6 +83,7 @@ let mutations = {
     SET_CITIES_TO_STORE: (state, payload) => {
         const condition = state.choosedCities.find(function(el, i){
             if(payload.val === el.val) return true
+            console.log(payload.val === el.val)
         })
 
         if(!condition){
@@ -98,13 +97,13 @@ let mutations = {
 
     SET_CHOOSED_REGIONS: (state, payload) => {
         const condition = state.choosedRegions.find(function(el){
-            if(payload.target.id === el) return true;
+            if(payload === el) return true;
         })
 
-        if(condition && condition !== undefined){
+        if(condition !== undefined){
             state.choosedRegions.splice(state.choosedRegions.indexOf(condition), 1);
         } else{
-            state.choosedRegions.push(payload.target.id)
+            state.choosedRegions.push(payload)
         }
     }
 
