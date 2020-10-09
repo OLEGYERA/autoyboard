@@ -29,6 +29,8 @@ Vue.component('ycatalog', require('./components/ycatalog').default);
 Vue.component('yfavorite', require('./components/yfavorite').default);
 Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
+Vue.component('yfaqquestions', require('./components/yfaqquestions').default);
+
 
  Vue.component('yselect', require('./components/yselectsearch').default);
 Vue.component('yfsearch', require('./components/yregionsearch').default);

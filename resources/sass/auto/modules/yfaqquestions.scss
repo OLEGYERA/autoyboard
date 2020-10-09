@@ -1,0 +1,263 @@
+@import '../clear';
+@import '../../vars';
+
+.yfaqquestions{
+    width: 100%;
+    display: flex;
+    .yfaq_list-categories{
+        position: relative;
+        .ycat_list-items{
+            padding: 0 15px 0 0;
+            margin: 0;
+            .ycat_list-item{
+                cursor: pointer;
+                height: 40px;
+                font-family: $rale;
+                font-weight: 500;
+                font-size: em(20);
+                line-height: 23px;
+                color: #191919;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 15px;
+                align-items: center;
+                &.y_active-cat{
+                    background: $darkblue;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.21);
+                    border-radius: 8px;
+                    font-family: $rale;
+                    font-weight: 600;
+                    font-size: em(20);
+                    line-height: 23px;
+                    color: #FFFFFF;
+
+                }
+                i{
+                    margin-left: 15px;
+                }
+            }
+
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: rgba(11, 63, 141, 0.31);;
+        }
+    }
+    .yfaq_list-questions{
+        margin-left: 40px;
+        ul{
+            margin: 0;
+            padding: 0;
+            li.yquest_list-item{
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+                font-family: $aleg;
+                font-weight: 500;
+                font-size: em(20);
+                line-height: 37px;
+                color: $faqtitleblue;
+
+            }
+            li.shoosed-item{
+                font-weight: 800;
+            }
+        }
+    }
+    .yfaq-prev_questions{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 50%;
+        span{
+            margin-top: 30px;
+            font-family: $rale;
+            font-weight: 500;
+            font-size: em(36);
+            line-height: 42px;
+            color: $titlebluefaq;
+        }
+    }
+}
+@media only screen and (max-width: 1600px){
+    .yfaqquestions{
+        .yfaq_list-categories{
+            .ycat_list-items{
+                li.ycat_list-item{
+                    font-size: em(18);
+                    line-height: 19px;
+                    &.y_active-cat{
+                        font-size: em(18);
+                        line-height: 19px;
+                    }
+                }
+
+            }
+        }
+        .yfaq-prev_questions{
+
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yfaqquestions{
+        .yfaq-prev_questions{
+            svg{
+                width: 220px;
+                height: 165px;
+            }
+            span{
+                font-size: em(28);
+                margin-top: 20px;
+            }
+        }
+        .yfaq_list-questions{
+            .yquest_list-items{
+                .yquest_list-item{
+                    font-size: em(18);
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 1280px){
+    .yfaqquestions{
+        .yfaq_list-categories{
+            .ycat_list-items{
+                li.ycat_list-item{
+                    height: 35px;
+                    font-size: em(16);
+                    &.y_active-cat{
+                        font-size: em(16);
+                    }
+                }
+            }
+        }
+        .yfaq-prev_questions{
+            svg{
+                width: 220px;
+                height: 165px;
+            }
+            span{
+                font-size: em(28);
+                margin-top: 20px;
+            }
+        }
+        .yfaq_list-questions{
+            .yquest_list-items{
+                .yquest_list-item{
+                    font-size: em(16);
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 1024px){
+    .yfaqquestions{
+        .yfaq-prev_questions{
+            svg{
+                width: 200px;
+                height: 145px;
+            }
+            span{
+                font-size: em(26);
+                margin-top: 20px;
+                line-height: 29px;
+            }
+        }
+        .yfaq_list-questions{
+            margin-left: 30px;
+            .yquest_list-items{
+                .yquest_list-item{
+                    line-height: 29px;
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 768px){
+    .yfaqquestions{
+        .yfaq-prev_questions{
+            svg{
+                width: 180px;
+                height: 130px;
+            }
+            span{
+                font-size: em(24);
+                margin-top: 15px;
+                line-height: 29px;
+            }
+        }
+        .yfaq_list-questions{
+            .yquest_list-items{
+                .yquest_list-item{
+                    line-height: 26px;
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 600px){
+    .yfaqquestions{
+        flex-direction: column;
+        &.mobile_faqquestions{
+            .yfaq_list-categories{
+                width: 100%;
+                background: #FFFFFF;
+                border-radius: 8px;
+                padding: 18px 24px 24px 14px;
+                box-shadow: 0px 10px 20px rgba(2, 26, 63, 0.18);
+                .ycat_list-items{
+                    width: 100%;
+                    padding: 0;
+                    .ycat_list-item{
+                        color: $darkblue;
+                        font-weight: 700;
+                        i{
+                            color: $darkblue;
+                        }
+                    }
+                }
+                &:after{
+                    width: 0;
+                }
+            }
+            .yfaq_list-questions{
+                margin: 20px 0 0 0;
+                background: #FFFFFF;
+                box-shadow: 0px 5px 12px rgba(11, 63, 141, 0.15);
+                border-radius: 8px;
+                overflow: hidden;
+                .yfaq_close{
+                    height: 41px;
+                    background: $darkblue;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 24px;
+                    color: #FFFFFF;
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(18);
+                    line-height: 22px;
+                    i{
+                        margin-right: 11px;
+                        color: #FFFFFF;
+                    }
+                }
+                .yquest_list-items{
+                    margin: 10px;
+                }
+            }
+        }
+    }
+}
