@@ -773,31 +773,11 @@
                                 .yside_check{
                                     display: flex;
                                     flex-flow: wrap;
-                                    .y-check{
-                                        display: flex;
-                                        align-items: center;
+                                    .ycheck{
                                         width: 50%;
-                                            input{
-                                                width: 12px;
-                                                height: 12px;
-                                                background: #FFFFFF;
-                                                border: 1px solid rgba(196, 196, 196, 0.7);
-                                                border-radius: 1px;
-                                            }
-                                            label{
-                                                font-family: $aleg;
-                                                font-weight: normal;
-                                                font-size: em(16);
-                                                line-height: 19px;
-                                                color: $filercheckbox;
-                                                margin-left: 5px;
-                                            }
-                                            &:last-child{
-                                                margin-bottom: 0;
-                                            }
-
+                                        margin-bottom: 5px;
                                         &:last-child{
-                                            margin-right: 0;
+                                            margin-bottom: 0;
                                         }
                                     }
                                 }

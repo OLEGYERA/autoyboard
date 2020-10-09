@@ -30,7 +30,15 @@ Vue.component('yfavorite', require('./components/yfavorite').default);
 Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 
- Vue.component('yselect', require('./components/yselectsearch').default);
+
+Vue.component('yselectsearch', require('./components/yselectsearch').default);
+Vue.component('yselectmultysearch', require('./components/yselectmultysearch').default);
+Vue.component('ycheck', require('./components/ycheck').default);
+
+
+
+
+
 Vue.component('yfsearch', require('./components/yregionsearch').default);
 
 
@@ -48,6 +56,22 @@ Vue.component('yfilterextended', require('./components/yfilterextended').default
 Vue.component('yfilterform', require('./components/yfilterform').default);
 Vue.component('ycardfilter', require('./components/ycardfilter').default);
 Vue.component('ydropdowfilter', require('./components/ydropdownfilter').default);
+
+Vue.directive('click-outside', {
+    bind: function (el, binding, vnode) {
+        el.clickOutsideEvent = function (event) {
+            // here I check that click was outside the el and his childrens
+            if (!(el == event.target || el.contains(event.target))) {
+                // and if it did, call method provided in attribute value
+                vnode.context[binding.expression](event);
+            }
+        };
+        document.body.addEventListener('click', el.clickOutsideEvent)
+    },
+    unbind: function (el) {
+        document.body.removeEventListener('click', el.clickOutsideEvent)
+    },
+});
 
 new Vue({
     store: services

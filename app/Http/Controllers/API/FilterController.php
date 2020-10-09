@@ -54,11 +54,12 @@ class FilterController extends BasicController
             array_push($selecting_query, 'alias');
         }
 
+
         if($requests['manufacture']){
-            $brands = $tt->brands()->where('manufacture_id', $requests['manufacture'])->select($selecting_query)->get();
-        } else{
-            $brands = $tt->brands()->select($selecting_query)->get();
+            array_push($selecting_query, 'manufacture_id as manufacture');
         }
+
+        $brands = $tt->brands()->select($selecting_query)->get();
 
         return $this->JSON(empty($brands) ? [] : $brands,200);
     }

@@ -1,5 +1,5 @@
 <template>
-    <div class="yselectsearch">
+    <div class="yselectmultysearch">
         <input
             type="text"
             class="input-dropdown"
@@ -14,37 +14,28 @@
             :placeholder="generatingPlaceholder"
         />
 
-        <i v-if="(search.length !== 0 && openResults) || choosedItem !== null"
-           @click.self="clearInput"
-           class="fas fa-times"
-           :class="{delete: choosedItem !== null}"
-        >
-        </i>
-        <i @click="$refs.yselectsearch.focus()" v-else="openResults" class="fas" :class="openResults ? 'fa-search' : 'fa-chevron-down'"></i>
+        <i @click="$refs.yselectsearch.focus()" class="fas" :class="openResults ? 'fa-search' : 'fa-chevron-down'" ></i>
         <ul class="options-list" id="scrollContainer" ref="scrollContainer" v-show="openResults">
-            <li v-if="choosedItem !== null" class="choosed">{{choosedItem.name}}<i class="fas fa-check"></i></li>
             <li v-if="(results.length == 0)">Такого нет</li>
             <li v-for="(result, i) in results"
                 ref="options"
                 @mouseenter="mouseSelected = i"
                 @mouseleave="mouseSelected = null"
-
                 @click="clickingResult(result)"
                 :class="{
                     'selected': i === selected,
                     'selectedMouse': i === mouseSelected,
-                    'faded': choosedItem !== null ? choosedItem.name == result.name : false
+                    'checked': isPresent(result)
                 }">
-                {{ result.name || result  }}
+                <i class="fas" :class="isPresent(result) ? 'far fa-check-square' : 'far fa-square'"></i> {{ result.name || result  }}
             </li>
         </ul>
     </div>
 </template>
 <script>
     export  default  {
-        props: ['options', 'placeholder', 'choosedItem'],
+        props: ['options', 'placeholder'],
         mounted() {
-            this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);
         },
         data() {
@@ -54,17 +45,24 @@
                 mouseSelected: null,
 
                 search: "",
+                choosedItem: null,
+                choosedItems: [],
                 results: [],
             }
         },
         methods: {
-            clickingResult(result) {
-                this.cleanTextField();
-                this.$emit('updateChoose', result)
+            clickingResult(result){
+                if(this.isPresent(result)){
+                    this.choosedItems.splice(this.choosedItems.indexOf(result), 1);
+                }
+                else{
+                    this.choosedItems.push(result);
+                }
+                this.search = '';
             },
             selectingResult() {
                 if(this.results[this.selected] != undefined){
-                    this.clickingResult(this.results[this.selected])
+                    this.clickingResult(this.results[this.selected]);
                 }
             },
 
@@ -83,9 +81,7 @@
             fixScrolling(){
                 const scroll = this.$refs.options[this.selected].scrollHeight + 1;
                 this.$refs.scrollContainer.scrollTop = scroll * this.selected;
-                console.log(this.selected)
             },
-
 
             handleClickOutside(evt){
                 if(!this.$el.contains(evt.target))this.cleanTextField();
@@ -97,27 +93,36 @@
                 this.$refs.scrollContainer.scrollTop = 0;
                 this.openResults = true;
             },
-            clearInput(){
-                this.search = '';
-                if(this.choosedItem !== null) this.$emit('deleteChoose');
-                if(this.openResults == true) this.$refs.yselectsearch.focus()
-            },
             cleanTextField(){
                 this.search = '';
                 this.openResults = false;
-                this.$refs.yselectsearch.blur();
             },
 
+            isPresent(result){
+                return this.choosedItems.indexOf(result) == -1 ? false : true
+            },
 
             computingResults(text){
                 this.results = this.options.filter((item)=>{
                     return text.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
                 });
-            }
+            },
         },
         computed: {
             generatingPlaceholder(){
-                return this.choosedItem !== null ? this.choosedItem.name : this.openResults ? 'Поиск...' : this.placeholder;
+                let outputPlaceholder = '',
+                    arrLength = this.choosedItems.length;
+                if(arrLength !== 0){
+                    this.choosedItems.forEach((el, i) => {
+                        if(arrLength - 1 == i){
+                            outputPlaceholder += el.name;
+                        } else{
+                            outputPlaceholder += el.name + '; '
+                        }
+                    })
+
+                }
+                return outputPlaceholder !== '' ? outputPlaceholder : this.openResults ? 'Поиск...' : this.placeholder;
             },
         },
         watch: {
@@ -130,7 +135,6 @@
                 this.$refs.scrollContainer.scrollTop = 0;
             },
             options(to){
-                // if updating will be later
                 this.computingResults('');
             }
         },

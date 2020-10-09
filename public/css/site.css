@@ -142,10 +142,6 @@ header.yb-header .yb-header-right .ylocation-box .ylocation input:-ms-input-plac
   color: rgba(34, 34, 34, 0.8);
 }
 
-header.yb-header .yb-header-right .ylocation-box .ylocation input::-ms-input-placeholder {
-  color: rgba(34, 34, 34, 0.8);
-}
-
 header.yb-header .yb-header-right .ylocation-box .ylocation input::placeholder {
   color: rgba(34, 34, 34, 0.8);
 }
@@ -1820,35 +1816,13 @@ span.yb-gradient {
   flex-flow: wrap;
 }
 
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check {
-  display: flex;
-  align-items: center;
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .ycheck {
   width: 50%;
+  margin-bottom: 5px;
 }
 
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check input {
-  width: 12px;
-  height: 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(196, 196, 196, 0.7);
-  border-radius: 1px;
-}
-
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check label {
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: normal;
-  font-size: 1em;
-  line-height: 19px;
-  color: #696969;
-  margin-left: 5px;
-}
-
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check:last-child {
+.yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .ycheck:last-child {
   margin-bottom: 0;
-}
-
-.yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country .yside_check .y-check:last-child {
-  margin-right: 0;
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yb-region_price-items .yreg_container .yreg-checkbox .yflex_dir .yside_country:first-child {
@@ -2618,13 +2592,6 @@ span.yb-gradient {
 }
 
 .yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id:-ms-input-placeholder {
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: normal;
-  font-size: 1em;
-  color: #C7C7C7;
-}
-
-.yb_extended-content .yfilterextended .ybexpanded_search .yspecification_results .yvisual_results .yseach_card-id .y_seach-id::-ms-input-placeholder {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: normal;
   font-size: 1em;
@@ -6271,8 +6238,7 @@ span.yb-gradient {
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .blur {
-  -webkit-filter: blur(8px);
-          filter: blur(8px);
+  filter: blur(8px);
 }
 
 .yb-card_content .yb-card_auto .yb_auto-item .yb_auto_vis-l .y-visl_items .yb_sold-car {
@@ -9496,11 +9462,6 @@ span.yb-gradient {
   color: #9c9c9c;
 }
 
-.ysearch .search::-ms-input-placeholder {
-  font-weight: 400;
-  color: #9c9c9c;
-}
-
 .ysearch .search::placeholder {
   font-weight: 400;
   color: #9c9c9c;
@@ -10011,7 +9972,7 @@ span.yb-gradient {
   padding: 25px 40px;
 }
 
-.autocomplete {
+.yselectsearch {
   display: flex;
   align-items: center;
   position: relative;
@@ -10019,7 +9980,7 @@ span.yb-gradient {
   width: 100%;
 }
 
-.autocomplete .input-dropdown {
+.yselectsearch .input-dropdown {
   width: 100%;
   height: 42px;
   padding: 10px 40px 10px 20px;
@@ -10031,19 +9992,182 @@ span.yb-gradient {
   border: 1px solid #E2E2E2;
 }
 
-.autocomplete i {
+.yselectsearch i {
+  cursor: pointer;
   position: absolute;
   right: 15px;
   color: #C7C7C7;
 }
 
-.autocomplete:last-child {
+.yselectsearch i.fa-search {
+  cursor: text;
+}
+
+.yselectsearch i.delete {
+  color: #0B3F8D;
+}
+
+.yselectsearch:last-child {
   margin-bottom: 0;
 }
 
-.autocomplete .options-list {
+.yselectsearch .options-list {
   font-family: "Alegreya Sans", sans-serif;
   background: #FFFFFF;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-height: 140px;
+  overflow: auto;
+  top: 50px;
+  z-index: 2;
+  scrollbar-width: none;
+}
+
+.yselectsearch .options-list::-webkit-scrollbar {
+  width: 0;
+}
+
+.yselectsearch .options-list li {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0px 0px 0px 20px;
+  cursor: pointer;
+  color: rgba(34, 34, 34, 0.79);
+  border-left: 4px solid transparent;
+  border-bottom: 1px solid rgba(199, 199, 199, 0.33);
+}
+
+.yselectsearch .options-list li.faded {
+  background-color: rgba(199, 199, 199, 0.5);
+  color: rgba(34, 34, 34, 0.79);
+  opacity: 0.8;
+}
+
+.yselectsearch .options-list li.selectedMouse {
+  background-color: rgba(221, 241, 255, 0.64);
+  color: rgba(34, 34, 34, 0.79);
+}
+
+.yselectsearch .options-list li.selected {
+  background-color: #111E6C;
+  color: #fff;
+}
+
+.yselectsearch .options-list li.choosed {
+  cursor: default;
+  border-left: 4px solid #0B3F8D;
+  border-bottom: 1px solid rgba(199, 199, 199, 0.7);
+  font-weight: 600;
+}
+
+.yselectsearch .options-list li.choosed i {
+  color: #2ECC71;
+  cursor: default;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+header,
+footer,
+div,
+section,
+article,
+aside,
+main,
+input,
+button {
+  box-sizing: border-box;
+  outline: none;
+}
+
+li,
+a {
+  list-style: none;
+  outline: none;
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+h1.yb-main-title {
+  font-family: "Fira Sans", sans-serif;
+  margin: 0px;
+  font-size: 1.625em;
+  font-weight: 500;
+  color: #2E2E2E;
+}
+
+span.yb-gradient {
+  background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.yb-tm-box {
+  background-color: #fff;
+  box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.9), 6px -6px 12px rgba(255, 255, 255, 0.9), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 25px 40px;
+}
+
+.yselectmultysearch {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.yselectmultysearch .input-dropdown {
+  width: 100%;
+  height: 42px;
+  padding: 10px 40px 10px 20px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.125em;
+  color: rgba(34, 34, 34, 0.8);
+  border-radius: 10px;
+  border: 1px solid #E2E2E2;
+}
+
+.yselectmultysearch i {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  color: #C7C7C7;
+}
+
+.yselectmultysearch i.fa-search {
+  cursor: text;
+}
+
+.yselectmultysearch i.delete {
+  color: #0B3F8D;
+}
+
+.yselectmultysearch:last-child {
+  margin-bottom: 0;
+}
+
+.yselectmultysearch .options-list {
+  font-family: "Alegreya Sans", sans-serif;
+  background: #fff;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   position: absolute;
@@ -10056,31 +10180,122 @@ span.yb-gradient {
   z-index: 2;
 }
 
-.autocomplete .options-list li {
+.yselectmultysearch .options-list li {
   height: 35px;
   display: flex;
   align-items: center;
   padding: 0px 0px 0px 20px;
   cursor: pointer;
   color: rgba(34, 34, 34, 0.79);
-  cursor: pointer;
-  transition: 0.3s all ease;
+  border-bottom: 1px solid rgba(199, 199, 199, 0.33);
 }
 
-.autocomplete .options-list li.selected {
+.yselectmultysearch .options-list li.checked {
+  background-color: #fff;
+  color: rgba(34, 34, 34, 0.79);
+  font-weight: 600;
+}
+
+.yselectmultysearch .options-list li.checked i {
+  color: #2ECC71;
+}
+
+.yselectmultysearch .options-list li.checked.selected {
   background-color: #111E6C;
   color: #fff;
 }
 
-@media only screen and (max-width: 1366px) {
-  .autocomplete {
-    margin-bottom: 10px;
-  }
+.yselectmultysearch .options-list li.selectedMouse {
+  background-color: rgba(221, 241, 255, 0.64);
+  color: rgba(34, 34, 34, 0.79);
+}
 
-  .autocomplete .input-dropdown {
-    height: 38px;
-    font-size: 16px;
-  }
+.yselectmultysearch .options-list li.selected {
+  background-color: #111E6C;
+  color: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+header,
+footer,
+div,
+section,
+article,
+aside,
+main,
+input,
+button {
+  box-sizing: border-box;
+  outline: none;
+}
+
+li,
+a {
+  list-style: none;
+  outline: none;
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+h1.yb-main-title {
+  font-family: "Fira Sans", sans-serif;
+  margin: 0px;
+  font-size: 1.625em;
+  font-weight: 500;
+  color: #2E2E2E;
+}
+
+span.yb-gradient {
+  background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.yb-tm-box {
+  background-color: #fff;
+  box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.9), 6px -6px 12px rgba(255, 255, 255, 0.9), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 25px 40px;
+}
+
+.ycheck {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ycheck i.fa-square {
+  color: #C7C7C7;
+}
+
+.ycheck i.fa-check-square {
+  color: #2ECC71;
+}
+
+.ycheck .ycheck-label {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 19px;
+  color: #696969;
+  margin-left: 10px;
+}
+
+.ycheck:last-child {
+  margin-right: 0;
 }
 
 .yexpended .ex_search {
@@ -10434,10 +10649,6 @@ span.yb-gradient {
 }
 
 .yform .left_options .selector-rows .yinput_list .yselect .select_form:-ms-input-placeholder {
-  color: rgba(34, 34, 34, 0.8);
-}
-
-.yform .left_options .selector-rows .yinput_list .yselect .select_form::-ms-input-placeholder {
   color: rgba(34, 34, 34, 0.8);
 }
 
@@ -10808,10 +11019,6 @@ span.yb-gradient {
 }
 
 .yprice_container .input_change .change:-ms-input-placeholder {
-  color: rgba(34, 34, 34, 0.8);
-}
-
-.yprice_container .input_change .change::-ms-input-placeholder {
   color: rgba(34, 34, 34, 0.8);
 }
 

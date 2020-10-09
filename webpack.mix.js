@@ -20,5 +20,5 @@ mix.browserSync('http://yboard:8000/');
 //     .sass('resources/sass/admin/admin.scss', 'public/css/');
 
 
-// mix.js('resources/js/site/site.js', 'public/js')
-//     .sass('resources/sass/auto/site.scss', 'public/css/');
+mix.js('resources/js/site/site.js', 'public/js')
+    .sass('resources/sass/auto/site.scss', 'public/css/');
