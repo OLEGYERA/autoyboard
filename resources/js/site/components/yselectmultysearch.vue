@@ -21,13 +21,13 @@
                 ref="options"
                 @mouseenter="mouseSelected = i"
                 @mouseleave="mouseSelected = null"
-                @click="clickingResult(result)"
+                @click="clickingResult(result.val)"
                 :class="{
                     'selected': i === selected,
                     'selectedMouse': i === mouseSelected,
-                    'checked': isPresent(result)
+                    'checked': isPresent(result.val)
                 }">
-                <i class="fas" :class="isPresent(result) ? 'far fa-check-square' : 'far fa-square'"></i> {{ result.name || result  }}
+                <i class="fas" :class="isPresent(result.val) ? 'far fa-check-square' : 'far fa-square'"></i> {{ result.name || result  }}
             </li>
         </ul>
     </div>
@@ -61,7 +61,7 @@
             },
             selectingResult() {
                 if(this.results[this.selected] != undefined){
-                    this.clickingResult(this.results[this.selected]);
+                    this.clickingResult(this.results[this.selected].val);
                 }
             },
 
@@ -113,13 +113,10 @@
                     arrLength = this.choosedItems.length;
                 if(arrLength !== 0){
                     this.choosedItems.forEach((el, i) => {
-                        if(arrLength - 1 == i){
-                            outputPlaceholder += el.name;
-                        } else{
-                            outputPlaceholder += el.name + '; '
-                        }
+                        let finded = this.options.find(op_el => {if(el ===  op_el.val) return true;})
+                        if(finded !== undefined)
+                            outputPlaceholder += arrLength - 1 == i ? finded.name : finded.name + '; ';
                     })
-
                 }
                 return outputPlaceholder !== '' ? outputPlaceholder : this.openResults ? 'Поиск...' : this.placeholder;
             },

@@ -4941,6 +4941,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+/* harmony import */ var _site_site_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../site/site.js */ "./resources/js/site/site.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6380,14 +6381,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  beforeMount: function beforeMount() {
-    console.log(document.location);
-  },
+  beforeMount: function beforeMount() {},
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
     window.addEventListener('resize', this.changeResize);
@@ -6997,24 +6996,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     setBrandsAndGetModels: function setBrandsAndGetModels(data) {
       this.SET_BRAND_CHOSE(data);
-      data['url'] = '/transport_types/1/brands/' + data.choose.val + '/models?langType=1&alias=1';
+      data['url'] = '/transport_types/1/brands/' + data.choose + '/models?langType=1&alias=1';
       this.MODELS_FROM_API(data);
+    },
+    analizeLink: function analizeLink(search) {
+      search = search.split('?').join('').split('&');
+      console.log(search);
     },
     analizeRbymsProps: function analizeRbymsProps() {
       var RbymsProps = '';
       this.rbymsArr.forEach(function (el, i) {
         if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-          RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose.val + '&' : '';
-          RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose.val + '&' : '';
+          RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
+          RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
 
           if (el.brandChoose !== null && el.modelsChoose.length > 0) {
             el.modelsChoose.forEach(function (el_model, i_model) {
-              RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model.val + '&' : '';
+              RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&' : '';
             });
           }
 
-          RbymsProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom.val + '&' : '';
-          RbymsProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo.val + '&' : '';
+          RbymsProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom + '&' : '';
+          RbymsProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo + '&' : '';
         }
       });
       return RbymsProps.substring(0, RbymsProps.length - 1);
@@ -7025,15 +7028,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
     'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
     'rbymsArr': 'GET_RBMYS',
-    'rbymNewIndex': 'GET_RBMY_NEW_INDEX',
     'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
     'brands': 'GET_BRANDS',
     'years': 'GET_YEARS'
   })), {}, {
     generateLink: function generateLink() {
-      var CurrentURI = 'extended'; // window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?');
+      var CurrentURI = 'extended'; // let test = this.analizeRbymsProps();
 
-      console.log(this.analizeRbymsProps());
+      var r = _site_site_js__WEBPACK_IMPORTED_MODULE_3__["eventBus"].$options.methods.lol(this.rbymsArr);
+      console.log(r);
+      window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + 'rbmy[0][reg]=3&rbmy[0][brand]=6&rbmy[0][model][0]=1747&rbmy[0][yearF]=2019');
     }
   }),
   destroyed: function destroyed() {
@@ -8377,7 +8381,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     selectingResult: function selectingResult() {
       if (this.results[this.selected] != undefined) {
-        this.clickingResult(this.results[this.selected]);
+        this.clickingResult(this.results[this.selected].val);
       }
     },
     onDown: function onDown() {
@@ -8423,16 +8427,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     generatingPlaceholder: function generatingPlaceholder() {
+      var _this = this;
+
       var outputPlaceholder = '',
           arrLength = this.choosedItems.length;
 
       if (arrLength !== 0) {
         this.choosedItems.forEach(function (el, i) {
-          if (arrLength - 1 == i) {
-            outputPlaceholder += el.name;
-          } else {
-            outputPlaceholder += el.name + '; ';
-          }
+          var finded = _this.options.find(function (op_el) {
+            if (el === op_el.val) return true;
+          });
+
+          if (finded !== undefined) outputPlaceholder += arrLength - 1 == i ? finded.name : finded.name + '; ';
         });
       }
 
@@ -8533,7 +8539,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     selectingResult: function selectingResult() {
       if (this.results[this.selected] != undefined) {
-        this.clickingResult(this.results[this.selected]);
+        this.clickingResult(this.results[this.selected].val);
       }
     },
     onDown: function onDown() {
@@ -8581,8 +8587,15 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    getChoosedObject: function getChoosedObject() {
+      var _this = this;
+
+      return this.options.find(function (el) {
+        if (el.val == _this.choosedItem) return true;
+      });
+    },
     generatingPlaceholder: function generatingPlaceholder() {
-      return this.choosedItem !== null ? this.choosedItem.name : this.openResults ? 'Поиск...' : this.placeholder;
+      return this.getChoosedObject !== undefined ? this.getChoosedObject.name : this.openResults ? 'Поиск...' : this.placeholder;
     }
   },
   watch: {
@@ -49248,7 +49261,7 @@ var render = function() {
                 staticClass: "yadded-car-item",
                 on: {
                   click: function($event) {
-                    return _vm.CREATE_NEW_RBMY(_vm.rbymNewIndex)
+                    return _vm.CREATE_NEW_RBMY({ regionChoose: 1 })
                   }
                 }
               },
@@ -52740,7 +52753,7 @@ var render = function() {
               class: {
                 selected: i === _vm.selected,
                 selectedMouse: i === _vm.mouseSelected,
-                checked: _vm.isPresent(result)
+                checked: _vm.isPresent(result.val)
               },
               on: {
                 mouseenter: function($event) {
@@ -52750,14 +52763,14 @@ var render = function() {
                   _vm.mouseSelected = null
                 },
                 click: function($event) {
-                  return _vm.clickingResult(result)
+                  return _vm.clickingResult(result.val)
                 }
               }
             },
             [
               _c("i", {
                 staticClass: "fas",
-                class: _vm.isPresent(result)
+                class: _vm.isPresent(result.val)
                   ? "far fa-check-square"
                   : "far fa-square"
               }),
@@ -52861,10 +52874,11 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    (_vm.search.length !== 0 && _vm.openResults) || _vm.choosedItem !== null
+    (_vm.search.length !== 0 && _vm.openResults) ||
+    _vm.getChoosedObject !== undefined
       ? _c("i", {
           staticClass: "fas fa-times",
-          class: { delete: _vm.choosedItem !== null },
+          class: { delete: _vm.getChoosedObject !== undefined },
           on: {
             click: function($event) {
               if ($event.target !== $event.currentTarget) {
@@ -52900,9 +52914,9 @@ var render = function() {
         attrs: { id: "scrollContainer" }
       },
       [
-        _vm.choosedItem !== null
+        _vm.getChoosedObject !== undefined
           ? _c("li", { staticClass: "choosed" }, [
-              _vm._v(_vm._s(_vm.choosedItem.name)),
+              _vm._v(_vm._s(_vm.getChoosedObject.name)),
               _c("i", { staticClass: "fas fa-check" })
             ])
           : _vm._e(),
@@ -52919,8 +52933,8 @@ var render = function() {
                 selected: i === _vm.selected,
                 selectedMouse: i === _vm.mouseSelected,
                 faded:
-                  _vm.choosedItem !== null
-                    ? _vm.choosedItem.name == result.name
+                  _vm.getChoosedObject !== undefined
+                    ? _vm.getChoosedObject.val == result.val
                     : false
               },
               on: {
@@ -52931,7 +52945,7 @@ var render = function() {
                   _vm.mouseSelected = null
                 },
                 click: function($event) {
-                  return _vm.clickingResult(result)
+                  return _vm.clickingResult(result.val)
                 }
               }
             },
@@ -75691,9 +75705,6 @@ var getters = {
   GET_RBMYS: function GET_RBMYS(state) {
     return state.rbmyFullStore;
   },
-  GET_RBMY_NEW_INDEX: function GET_RBMY_NEW_INDEX(state) {
-    return state.rbmyFullStore.length;
-  },
   GET_MANUFACTURE_REGIONS: function GET_MANUFACTURE_REGIONS(state) {
     return state.manufactureRegions;
   },
@@ -75724,7 +75735,7 @@ var mutations = {
     state.rbmyFullStore[payload.index].regionChoose = payload.choose;
     var manufactureBrands = [];
     state.brands.forEach(function (el) {
-      if (el.manufacture == payload.choose.val && el.manufacture !== null) {
+      if (el.manufacture == payload.choose && el.manufacture !== null) {
         manufactureBrands.push(el);
       }
     });
@@ -75759,7 +75770,7 @@ var mutations = {
   SET_YEAR_FROM: function SET_YEAR_FROM(state, payload) {
     var smartLink = state.rbmyFullStore[payload.index];
 
-    if (smartLink.yearTo !== null && payload.choose.val > smartLink.yearTo.val) {
+    if (smartLink.yearTo !== null && payload.choose > smartLink.yearTo) {
       var temp = smartLink.yearTo;
       smartLink.yearTo = payload.choose;
       smartLink.yearFrom = temp;
@@ -75773,7 +75784,7 @@ var mutations = {
   SET_YEAR_TO: function SET_YEAR_TO(state, payload) {
     var smartLink = state.rbmyFullStore[payload.index];
 
-    if (smartLink.yearFrom !== null && payload.choose.val < smartLink.yearFrom.val) {
+    if (smartLink.yearFrom !== null && payload.choose < smartLink.yearFrom) {
       var temp = smartLink.yearFrom;
       smartLink.yearFrom = payload.choose;
       smartLink.yearTo = temp;
@@ -78179,54 +78190,58 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./resources/js/site/site.js ***!
   \***********************************/
-/*! no exports provided */
+/*! exports provided: eventBus */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _STORE_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../STORE/services */ "./resources/js/STORE/services.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventBus", function() { return eventBus; });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _STORE_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../STORE/services */ "./resources/js/STORE/services.js");
+
+
 __webpack_require__(/*! ../bootstrap.js */ "./resources/js/bootstrap.js");
 
 
  //modules
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymenu', __webpack_require__(/*! ./modules/header/ymenu.vue */ "./resources/js/site/modules/header/ymenu.vue")["default"]); //mobile
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymenu', __webpack_require__(/*! ./modules/header/ymenu.vue */ "./resources/js/site/modules/header/ymenu.vue")["default"]); //mobile
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilesticker', __webpack_require__(/*! ./components/ymobilesticker */ "./resources/js/site/components/ymobilesticker.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilecatalog', __webpack_require__(/*! ./components/ymobilecatalog */ "./resources/js/site/components/ymobilecatalog.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobileanalitics', __webpack_require__(/*! ./components/ymobileanalitics */ "./resources/js/site/components/ymobileanalitics.vue")["default"]); //finish mobile
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymobilesticker', __webpack_require__(/*! ./components/ymobilesticker */ "./resources/js/site/components/ymobilesticker.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymobilecatalog', __webpack_require__(/*! ./components/ymobilecatalog */ "./resources/js/site/components/ymobilecatalog.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymobileanalitics', __webpack_require__(/*! ./components/ymobileanalitics */ "./resources/js/site/components/ymobileanalitics.vue")["default"]); //finish mobile
 //change visible
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ychangeoffers', __webpack_require__(/*! ./components/ybestofferschange */ "./resources/js/site/components/ybestofferschange.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynewschange', __webpack_require__(/*! ./components/ynewschange */ "./resources/js/site/components/ynewschange.vue")["default"]); //finish change visible
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ychangeoffers', __webpack_require__(/*! ./components/ybestofferschange */ "./resources/js/site/components/ybestofferschange.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ynewschange', __webpack_require__(/*! ./components/ynewschange */ "./resources/js/site/components/ynewschange.vue")["default"]); //finish change visible
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ysearch', __webpack_require__(/*! ./modules/header/ysearch.vue */ "./resources/js/site/modules/header/ysearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ylocation', __webpack_require__(/*! ./components/ylocation.vue */ "./resources/js/site/components/ylocation.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystatus', __webpack_require__(/*! ./components/ystatus */ "./resources/js/site/components/ystatus.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yexpanded', __webpack_require__(/*! ./components/yexpanded */ "./resources/js/site/components/yexpanded.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yform', __webpack_require__(/*! ./components/yform */ "./resources/js/site/components/yform.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycheckbox', __webpack_require__(/*! ./components/ycheckbox */ "./resources/js/site/components/ycheckbox.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ytitle', __webpack_require__(/*! ./components/ytitle */ "./resources/js/site/components/ytitle.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ybestoffer', __webpack_require__(/*! ./components/ybestoffers */ "./resources/js/site/components/ybestoffers.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yrange', __webpack_require__(/*! ./components/yrangeslider */ "./resources/js/site/components/yrangeslider.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycatalog', __webpack_require__(/*! ./components/ycatalog */ "./resources/js/site/components/ycatalog.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfavorite', __webpack_require__(/*! ./components/yfavorite */ "./resources/js/site/components/yfavorite.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yanalitics', __webpack_require__(/*! ./components/yanalitics */ "./resources/js/site/components/yanalitics.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynews', __webpack_require__(/*! ./components/ynews */ "./resources/js/site/components/ynews.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yselectsearch', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yselectmultysearch', __webpack_require__(/*! ./components/yselectmultysearch */ "./resources/js/site/components/yselectmultysearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycheck', __webpack_require__(/*! ./components/ycheck */ "./resources/js/site/components/ycheck.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfsearch', __webpack_require__(/*! ./components/yregionsearch */ "./resources/js/site/components/yregionsearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdown', __webpack_require__(/*! ./components/ydropdown */ "./resources/js/site/components/ydropdown.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycardauto', __webpack_require__(/*! ./components/ycardauto */ "./resources/js/site/components/ycardauto.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfilterextended', __webpack_require__(/*! ./components/yfilterextended */ "./resources/js/site/components/yfilterextended.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfilterform', __webpack_require__(/*! ./components/yfilterform */ "./resources/js/site/components/yfilterform.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycardfilter', __webpack_require__(/*! ./components/ycardfilter */ "./resources/js/site/components/ycardfilter.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdowfilter', __webpack_require__(/*! ./components/ydropdownfilter */ "./resources/js/site/components/ydropdownfilter.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.directive('click-outside', {
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ysearch', __webpack_require__(/*! ./modules/header/ysearch.vue */ "./resources/js/site/modules/header/ysearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ylocation', __webpack_require__(/*! ./components/ylocation.vue */ "./resources/js/site/components/ylocation.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ystatus', __webpack_require__(/*! ./components/ystatus */ "./resources/js/site/components/ystatus.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yexpanded', __webpack_require__(/*! ./components/yexpanded */ "./resources/js/site/components/yexpanded.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yform', __webpack_require__(/*! ./components/yform */ "./resources/js/site/components/yform.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycheckbox', __webpack_require__(/*! ./components/ycheckbox */ "./resources/js/site/components/ycheckbox.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ytitle', __webpack_require__(/*! ./components/ytitle */ "./resources/js/site/components/ytitle.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ybestoffer', __webpack_require__(/*! ./components/ybestoffers */ "./resources/js/site/components/ybestoffers.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yrange', __webpack_require__(/*! ./components/yrangeslider */ "./resources/js/site/components/yrangeslider.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycatalog', __webpack_require__(/*! ./components/ycatalog */ "./resources/js/site/components/ycatalog.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfavorite', __webpack_require__(/*! ./components/yfavorite */ "./resources/js/site/components/yfavorite.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yanalitics', __webpack_require__(/*! ./components/yanalitics */ "./resources/js/site/components/yanalitics.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ynews', __webpack_require__(/*! ./components/ynews */ "./resources/js/site/components/ynews.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yselectsearch', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yselectmultysearch', __webpack_require__(/*! ./components/yselectmultysearch */ "./resources/js/site/components/yselectmultysearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycheck', __webpack_require__(/*! ./components/ycheck */ "./resources/js/site/components/ycheck.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfsearch', __webpack_require__(/*! ./components/yregionsearch */ "./resources/js/site/components/yregionsearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ydropdown', __webpack_require__(/*! ./components/ydropdown */ "./resources/js/site/components/ydropdown.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycardauto', __webpack_require__(/*! ./components/ycardauto */ "./resources/js/site/components/ycardauto.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfilterextended', __webpack_require__(/*! ./components/yfilterextended */ "./resources/js/site/components/yfilterextended.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfilterform', __webpack_require__(/*! ./components/yfilterform */ "./resources/js/site/components/yfilterform.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycardfilter', __webpack_require__(/*! ./components/ycardfilter */ "./resources/js/site/components/ycardfilter.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ydropdowfilter', __webpack_require__(/*! ./components/ydropdownfilter */ "./resources/js/site/components/ydropdownfilter.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.directive('click-outside', {
   bind: function bind(el, binding, vnode) {
     el.clickOutsideEvent = function (event) {
       // here I check that click was outside the el and his childrens
@@ -78242,18 +78257,31 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.directive('click-outside', {
     document.body.removeEventListener('click', el.clickOutsideEvent);
   }
 });
-var myMixin = {
-  created: function created() {
-    this.hello();
-  },
+var eventBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   methods: {
-    hello: function hello() {
-      console.log('привет из примеси!');
+    lol: function lol(rbymsArr) {
+      var RbymsProps = '';
+      rbymsArr.forEach(function (el, i) {
+        if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
+          RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
+          RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
+
+          if (el.brandChoose !== null && el.modelsChoose.length > 0) {
+            el.modelsChoose.forEach(function (el_model, i_model) {
+              RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&' : '';
+            });
+          }
+
+          RbymsProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom + '&' : '';
+          RbymsProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo + '&' : '';
+        }
+      });
+      return RbymsProps.substring(0, RbymsProps.length - 1);
     }
   }
-};
-new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  store: _STORE_services__WEBPACK_IMPORTED_MODULE_1__["services"]
+});
+new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
+  store: _STORE_services__WEBPACK_IMPORTED_MODULE_2__["services"]
 }).$mount('#yb-site');
 
 /***/ }),

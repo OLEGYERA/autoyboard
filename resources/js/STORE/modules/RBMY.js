@@ -19,9 +19,6 @@ let getters = {
     GET_RBMYS: state => {
         return state.rbmyFullStore;
     },
-    GET_RBMY_NEW_INDEX: state => {
-        return state.rbmyFullStore.length;
-    },
     GET_MANUFACTURE_REGIONS: state => {
         return state.manufactureRegions;
     },
@@ -53,7 +50,7 @@ let mutations = {
         state.rbmyFullStore[payload.index].regionChoose = payload.choose;
         let manufactureBrands = [];
         state.brands.forEach(el => {
-            if(el.manufacture == payload.choose.val && el.manufacture !== null){
+            if(el.manufacture == payload.choose && el.manufacture !== null){
                 manufactureBrands.push(el);
             }
         });
@@ -87,7 +84,7 @@ let mutations = {
     },
     SET_YEAR_FROM: (state, payload) => {
         let smartLink = state.rbmyFullStore[payload.index]
-        if(smartLink.yearTo !== null && payload.choose.val > smartLink.yearTo.val){
+        if(smartLink.yearTo !== null && payload.choose > smartLink.yearTo){
             let temp = smartLink.yearTo;
             smartLink.yearTo = payload.choose;
             smartLink.yearFrom = temp;
@@ -101,7 +98,7 @@ let mutations = {
     },
     SET_YEAR_TO: (state, payload) => {
         let smartLink = state.rbmyFullStore[payload.index]
-        if(smartLink.yearFrom !== null && payload.choose.val < smartLink.yearFrom.val){
+        if(smartLink.yearFrom !== null && payload.choose < smartLink.yearFrom){
             let temp = smartLink.yearFrom;
             smartLink.yearFrom = payload.choose;
             smartLink.yearTo = temp;

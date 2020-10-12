@@ -1021,7 +1021,7 @@
                         </button>
                     </div>
                     <button
-                        @click="CREATE_NEW_RBMY(rbymNewIndex)"
+                        @click="CREATE_NEW_RBMY({'regionChoose': 1})"
                         class="yadded-car-item">Добавить марку</button>
                     {{generateLink}}
 <!--                    <div class="yflex_car-item remove">-->
@@ -1431,14 +1431,14 @@
         </div>
     </div>
 </template>
-
 <script>
     import Vue from 'vue';
     import {mapGetters, mapActions, mapMutations} from 'vuex';
     import {HTTP} from "../../http.js";
+    import { eventBus } from '../../site/site.js';
     export default {
         beforeMount() {
-            console.log(document.location);
+
         },
         mounted () {
             document.addEventListener('click', this.clickOutside);
@@ -1926,24 +1926,27 @@
             },
             setBrandsAndGetModels(data){
                 this.SET_BRAND_CHOSE(data);
-                data['url'] = '/transport_types/1/brands/' + data.choose.val + '/models?langType=1&alias=1';
+                data['url'] = '/transport_types/1/brands/' + data.choose + '/models?langType=1&alias=1';
                 this.MODELS_FROM_API(data);
             },
-
+            analizeLink(search) {
+                search = search.split('?').join('').split('&')
+                console.log(search);
+            },
 
             analizeRbymsProps() {
                 let RbymsProps = '';
                 this.rbymsArr.forEach((el, i) => {
                     if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-                        RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose.val + '&' : '';
-                        RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose.val + '&' : '';
+                        RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
+                        RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
                         if (el.brandChoose !== null && el.modelsChoose.length > 0) {
                             el.modelsChoose.forEach((el_model, i_model) => {
-                                RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model.val + '&' : '';
+                                RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&' : '';
                             })
                         }
-                        RbymsProps  += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]='+ el.yearFrom.val + '&' : '';
-                        RbymsProps  += el.yearTo !== null ? 'rbmy[' + i + '][yearT]='+ el.yearTo.val + '&' : '';
+                        RbymsProps  += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]='+ el.yearFrom + '&' : '';
+                        RbymsProps  += el.yearTo !== null ? 'rbmy[' + i + '][yearT]='+ el.yearTo + '&' : '';
                     }
                 })
                 return RbymsProps.substring(0, RbymsProps.length - 1);
@@ -1955,15 +1958,16 @@
                 'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
                 'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
                 'rbymsArr': 'GET_RBMYS',
-                'rbymNewIndex': 'GET_RBMY_NEW_INDEX',
                 'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
                 'brands': 'GET_BRANDS',
                 'years': 'GET_YEARS'
             }),
             generateLink() {
                 const CurrentURI = 'extended';
-                // window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?');
-                console.log(this.analizeRbymsProps())
+                // let test = this.analizeRbymsProps();
+                let r = eventBus.$options.methods.lol(this.rbymsArr)
+                console.log(r);
+                window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + 'rbmy[0][reg]=3&rbmy[0][brand]=6&rbmy[0][model][0]=1747&rbmy[0][yearF]=2019');
             },
         },
         destroyed() {
