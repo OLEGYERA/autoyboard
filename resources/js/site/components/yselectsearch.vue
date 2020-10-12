@@ -14,26 +14,26 @@
             :placeholder="generatingPlaceholder"
         />
 
-        <i v-if="(search.length !== 0 && openResults) || choosedItem !== null"
+        <i v-if="(search.length !== 0 && openResults) || getChoosedObject !== undefined"
            @click.self="clearInput"
            class="fas fa-times"
-           :class="{delete: choosedItem !== null}"
+           :class="{delete: getChoosedObject !== undefined}"
         >
         </i>
         <i @click="$refs.yselectsearch.focus()" v-else="openResults" class="fas" :class="openResults ? 'fa-search' : 'fa-chevron-down'"></i>
         <ul class="options-list" id="scrollContainer" ref="scrollContainer" v-show="openResults">
-            <li v-if="choosedItem !== null" class="choosed">{{choosedItem.name}}<i class="fas fa-check"></i></li>
+            <li v-if="getChoosedObject !== undefined" class="choosed">{{getChoosedObject.name}}<i class="fas fa-check"></i></li>
             <li v-if="(results.length == 0)">Такого нет</li>
             <li v-for="(result, i) in results"
                 ref="options"
                 @mouseenter="mouseSelected = i"
                 @mouseleave="mouseSelected = null"
 
-                @click="clickingResult(result)"
+                @click="clickingResult(result.val)"
                 :class="{
                     'selected': i === selected,
                     'selectedMouse': i === mouseSelected,
-                    'faded': choosedItem !== null ? choosedItem.name == result.name : false
+                    'faded': getChoosedObject !== undefined ? getChoosedObject.val == result.val : false
                 }">
                 {{ result.name || result  }}
             </li>
@@ -64,7 +64,7 @@
             },
             selectingResult() {
                 if(this.results[this.selected] != undefined){
-                    this.clickingResult(this.results[this.selected])
+                    this.clickingResult(this.results[this.selected].val)
                 }
             },
 
@@ -83,7 +83,6 @@
             fixScrolling(){
                 const scroll = this.$refs.options[this.selected].scrollHeight + 1;
                 this.$refs.scrollContainer.scrollTop = scroll * this.selected;
-                console.log(this.selected)
             },
 
 
@@ -107,8 +106,6 @@
                 this.openResults = false;
                 this.$refs.yselectsearch.blur();
             },
-
-
             computingResults(text){
                 this.results = this.options.filter((item)=>{
                     return text.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
@@ -116,8 +113,13 @@
             }
         },
         computed: {
+            getChoosedObject(){
+                return this.options.find(el => {
+                    if(el.val == this.choosedItem) return true;
+                })
+            },
             generatingPlaceholder(){
-                return this.choosedItem !== null ? this.choosedItem.name : this.openResults ? 'Поиск...' : this.placeholder;
+                return this.getChoosedObject !== undefined ? this.getChoosedObject.name : this.openResults ? 'Поиск...' : this.placeholder;
             },
         },
         watch: {

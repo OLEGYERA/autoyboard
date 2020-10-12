@@ -21,21 +21,22 @@
                 ref="options"
                 @mouseenter="mouseSelected = i"
                 @mouseleave="mouseSelected = null"
-                @click="clickingResult(result)"
+                @click="clickingResult(result.val)"
                 :class="{
                     'selected': i === selected,
                     'selectedMouse': i === mouseSelected,
-                    'checked': isPresent(result)
+                    'checked': isPresent(result.val)
                 }">
-                <i class="fas" :class="isPresent(result) ? 'far fa-check-square' : 'far fa-square'"></i> {{ result.name || result  }}
+                <i class="fas" :class="isPresent(result.val) ? 'far fa-check-square' : 'far fa-square'"></i> {{ result.name || result  }}
             </li>
         </ul>
     </div>
 </template>
 <script>
     export  default  {
-        props: ['options', 'placeholder'],
+        props: ['options', 'placeholder', 'choosedItems'],
         mounted() {
+            this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);
         },
         data() {
@@ -45,24 +46,22 @@
                 mouseSelected: null,
 
                 search: "",
-                choosedItem: null,
-                choosedItems: [],
                 results: [],
             }
         },
         methods: {
             clickingResult(result){
                 if(this.isPresent(result)){
-                    this.choosedItems.splice(this.choosedItems.indexOf(result), 1);
+                    this.$emit('deleteChoose', result);
                 }
                 else{
-                    this.choosedItems.push(result);
+                    this.$emit('updateChoose', result)
                 }
                 this.search = '';
             },
             selectingResult() {
                 if(this.results[this.selected] != undefined){
-                    this.clickingResult(this.results[this.selected]);
+                    this.clickingResult(this.results[this.selected].val);
                 }
             },
 
@@ -114,13 +113,10 @@
                     arrLength = this.choosedItems.length;
                 if(arrLength !== 0){
                     this.choosedItems.forEach((el, i) => {
-                        if(arrLength - 1 == i){
-                            outputPlaceholder += el.name;
-                        } else{
-                            outputPlaceholder += el.name + '; '
-                        }
+                        let finded = this.options.find(op_el => {if(el ===  op_el.val) return true;})
+                        if(finded !== undefined)
+                            outputPlaceholder += arrLength - 1 == i ? finded.name : finded.name + '; ';
                     })
-
                 }
                 return outputPlaceholder !== '' ? outputPlaceholder : this.openResults ? 'Поиск...' : this.placeholder;
             },
@@ -135,6 +131,7 @@
                 this.$refs.scrollContainer.scrollTop = 0;
             },
             options(to){
+                // if updating will be later
                 this.computingResults('');
             }
         },
