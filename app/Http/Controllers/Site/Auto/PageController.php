@@ -47,6 +47,12 @@ class PageController extends BasicController
         $this->content = view('site.auto.faq.ru')->render();
         return $this->renderBasic();
     }
+    public function about(){
+
+        $this->content = view('site.auto.about.ru')->render();
+        return $this->renderBasic();
+    }
+
 
 
 
