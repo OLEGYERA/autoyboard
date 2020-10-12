@@ -83,7 +83,6 @@
             fixScrolling(){
                 const scroll = this.$refs.options[this.selected].scrollHeight + 1;
                 this.$refs.scrollContainer.scrollTop = scroll * this.selected;
-                console.log(this.selected)
             },
 
 

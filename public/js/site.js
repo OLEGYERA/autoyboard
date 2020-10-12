@@ -4937,8 +4937,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6365,9 +6367,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  beforeMount: function beforeMount() {
+    console.log(document.location);
+  },
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
     window.addEventListener('resize', this.changeResize);
@@ -6379,7 +6399,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getCarBrands();
   },
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
       transportTypeChecked: [],
       // true or false checkbox
       transportType: [],
@@ -6393,586 +6415,490 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       selectedTypeBody: [],
       showSelectedItem: false,
       windowWidth: 0,
-      colorOpen: false,
-      otherShowID: 0,
-      test: [{
-        name: '100'
-      }],
-      test2: [{
-        name: '200'
-      }],
-      accordionItems: [{
-        title: 'Безопасность',
-        items: [{
-          title: 'Бронированный автомобиль'
-        }, {
-          title: 'ABS'
-        }, {
-          title: 'ASP'
-        }, {
-          title: 'Датчики движения'
-        }, {
-          title: 'Бронированный автомобиль'
-        }, {
-          title: 'Датчики движения'
-        }, {
-          title: 'ABS'
-        }, {
-          title: 'Бронированный автомобиль'
-        }, {
-          title: 'ABS'
-        }, {
-          title: 'ASP'
-        }]
+      colorOpen: false
+    }, _defineProperty(_ref, "colorOpen", false), _defineProperty(_ref, "otherShowID", 0), _defineProperty(_ref, "test", [{
+      name: '100'
+    }]), _defineProperty(_ref, "test2", [{
+      name: '200'
+    }]), _defineProperty(_ref, "accordionItems", [{
+      title: 'Безопасность',
+      items: [{
+        title: 'Бронированный автомобиль'
       }, {
-        title: 'Комфорт',
-        items: [{
-          title: 'Бортовой компьютер'
-        }, {
-          title: 'Електропакет'
-        }, {
-          title: 'Запуск кнопкой '
-        }, {
-          title: 'Кондиционер '
-        }, {
-          title: 'Люк '
-        }, {
-          title: 'Обогрев руля'
-        }, {
-          title: 'Память сидений'
-        }, {
-          title: 'Подогрев зеркал'
-        }, {
-          title: 'Усилитель руля'
-        }, {
-          title: 'Кожаный сайлон '
-        }, {
-          title: 'Датчик света'
-        }, {
-          title: 'Электростеклоподьемники'
-        }, {
-          title: 'Климат контроль'
-        }, {
-          title: 'Мультируль'
-        }, {
-          title: 'Омыватель фар'
-        }, {
-          title: 'Парктроник'
-        }, {
-          title: 'Подогрев сидений'
-        }, {
-          title: 'Датчик дождя'
-        }]
+        title: 'ABS'
       }, {
-        title: 'Мультимедия',
-        items: [{
-          title: 'Магнитола'
-        }, {
-          title: 'есть'
-        }, {
-          title: 'и збс'
-        }]
+        title: 'ASP'
       }, {
-        title: 'Прочее',
-        items: [{
-          title: 'Понты'
-        }, {
-          title: 'для'
-        }, {
-          title: 'Приезжих'
-        }, {
-          title: 'Магнитола'
-        }, {
-          title: 'есть'
-        }, {
-          title: 'и збс'
-        }, {
-          title: 'AUX'
-        }, {
-          title: 'и ты'
-        }, {
-          title: 'царь'
-        }]
-      }],
-      isActual: [{
-        name: 'Все'
+        title: 'Датчики движения'
       }, {
-        name: 'Скрыть проданные'
+        title: 'Бронированный автомобиль'
       }, {
-        name: 'Только проданные'
-      }],
-      amountShow: [{
-        name: 'По 10'
+        title: 'Датчики движения'
       }, {
-        name: 'По 20'
+        title: 'ABS'
       }, {
-        name: 'По 30'
+        title: 'Бронированный автомобиль'
       }, {
-        name: 'По 50'
+        title: 'ABS'
       }, {
-        name: 'По 100'
-      }],
-      sortBy: [{
-        name: 'Обычная'
-      }, {
-        name: 'От дешевых к дорогим'
-      }, {
-        name: 'От дорогих к дешевым'
-      }, {
-        name: 'Дата добавления'
-      }, {
-        name: 'Год выпуска, по возрастанию'
-      }, {
-        name: 'Год выпуска, по убыванию'
-      }, {
-        name: 'Пробег, по возрастанию'
-      }, {
-        name: 'Пробег, по убыванию'
-      }],
-      deliveryPeriod: [{
-        id: 'all',
-        name: 'Все'
-      }, {
-        id: 'one_hour',
-        name: 'За час'
-      }, {
-        id: 'three_hour',
-        name: 'За 3 часа'
-      }, {
-        id: 'six_hour',
-        name: 'За 6 часов'
-      }, {
-        id: 'twelve_hour',
-        name: 'За 12 часов'
-      }, {
-        id: 'today',
-        name: 'За сегодня'
-      }, {
-        id: 'for_day',
-        name: 'За сутки'
-      }, {
-        id: 'for_two_day',
-        name: 'За 2 дня'
-      }, {
-        id: 'for_three_day',
-        name: 'За 3 дня'
-      }, {
-        id: 'for_week',
-        name: 'За неделю'
-      }, {
-        id: 'for_mounth',
-        name: 'За месяц'
-      }, {
-        id: 'for_three_mounth',
-        name: 'За 3 месяца'
-      }],
-      fuel: [{
-        id: 'gasoline',
-        name: 'Бензин'
-      }, {
-        id: 'diesel',
-        name: 'Дизель'
-      }, {
-        id: 'gas',
-        name: 'Газ'
-      }, {
-        id: 'electro',
-        name: 'Электро'
-      }, {
-        id: 'hybrid',
-        name: 'Гибрид'
-      }, {
-        id: 'gas_gasoline',
-        name: 'Газ/Бензин'
-      }, {
-        id: 'methane_gas',
-        name: 'Газ метан'
-      }, {
-        id: 'propane_butane_gas',
-        name: 'Газ пропан-бутан'
-      }],
-      transmission: [{
-        name: 'Механическая',
-        id: 'mechanical'
-      }, {
-        name: 'Автоматическая',
-        id: 'automatic'
-      }, {
-        name: 'Роботизированная',
-        id: 'robotic'
-      }, {
-        name: 'Вариативная',
-        id: 'variable'
-      }, {
-        name: 'Типтроник',
-        id: 'tiptronic'
-      }],
-      typeofdrive: [{
-        name: 'Задний привод',
-        id: 'rear_drive_unit'
-      }, {
-        name: 'Передний привод',
-        id: 'front_drive_unit'
-      }, {
-        name: 'Полный привод',
-        id: 'full_drive_unit'
-      }],
-      ukSityName: [{
-        name: 'Поляна',
-        id: 1
-      }, {
-        name: 'Славское',
-        id: 2
-      }, {
-        name: 'Тернополь',
-        id: 3
-      }, {
-        name: 'Трускавец',
-        id: 4
-      }, {
-        name: 'Хмельницкий',
-        id: 5
-      }, {
-        name: 'Чайковка',
-        id: 6
-      }, {
-        name: 'Чубинское,',
-        id: 7
-      }, {
-        name: 'Шаян',
-        id: 8
-      }, {
-        name: 'Шешоры',
-        id: 9
-      }, {
-        name: 'Яремче',
-        id: 10
-      }, {
-        name: 'Петровское',
-        id: 11
-      }, {
-        name: 'Приморское',
-        id: 12
-      }, {
-        name: 'Черновцы',
-        id: 13
-      }, {
-        name: 'Днепропетровск',
-        id: 14
-      }, {
-        name: 'Донецк',
-        id: 15
-      }, {
-        name: 'Ивано-Франковск',
-        id: 16
-      }, {
-        name: 'Каменец-Подольский',
-        id: 17
-      }, {
-        name: 'Харьков',
-        id: 18
-      }, {
-        name: 'Херсон',
-        id: 19
-      }, {
-        name: 'Киев',
-        id: 20
-      }, {
-        name: 'Кривой Рог',
-        id: 30
-      }, {
-        name: 'Луганск',
-        id: 31
-      }, {
-        name: 'Львов',
-        id: 32
-      }, {
-        name: 'Николаев',
-        id: 33
-      }, {
-        name: 'Одесса',
-        id: 34
-      }, {
-        name: 'Полтава',
-        id: 35
-      }, {
-        name: 'Сумы',
-        id: 36
-      }, {
-        name: 'Ужгород',
-        id: 37
-      }, {
-        name: 'Запорожье',
-        id: 38
-      }, {
-        name: 'Винница',
-        id: 39
-      }, {
-        name: 'Черкассы',
-        id: 40
-      }, {
-        name: 'Чернигов',
-        id: 41
-      }, {
-        name: 'Ильичевск',
-        id: 42
-      }, {
-        name: 'Луцк',
-        id: 43
-      }, {
-        name: 'Малехов',
-        id: 44
-      }, {
-        name: 'Микуличин',
-        id: 45
-      }, {
-        name: 'Ровно',
-        id: 46
-      }, {
-        name: 'Стрый',
-        id: 47
-      }, {
-        name: 'Ахтырка',
-        id: 48
-      }, {
-        name: 'Белогородка',
-        id: 49
-      }, {
-        name: 'Бердянск',
-        id: 50
-      }, {
-        name: 'Борисполь',
-        id: 51
-      }, {
-        name: 'Бояны',
-        id: 52
-      }, {
-        name: 'Бровары',
-        id: 53
-      }, {
-        name: 'Буковель',
-        id: 54
-      }, {
-        name: 'Бурлачья Балка',
-        id: 55
-      }, {
-        name: 'Верховина',
-        id: 56
-      }, {
-        name: 'Винники',
-        id: 57
-      }, {
-        name: 'Жденево',
-        id: 58
-      }, {
-        name: 'Житомир',
-        id: 59
-      }, {
-        name: 'Жовтневое',
-        id: 60
-      }, {
-        name: 'Затока',
-        id: 61
-      }, {
-        name: 'Кировоград',
-        id: 62
-      }, {
-        name: 'Коблево',
-        id: 63
-      }, {
-        name: 'Козин',
-        id: 64
-      }, {
-        name: 'Колоденка',
-        id: 65
-      }, {
-        name: 'Коропово',
-        id: 66
-      }, {
-        name: 'Кременчуг',
-        id: 67
-      }, {
-        name: 'Макеевка',
-        id: 68
-      }, {
-        name: 'Мукачево',
-        id: 69
-      }],
-      countryName: [{
-        name: "Китай",
-        id: "1"
-      }, {
-        name: "США",
-        id: "2"
-      }, {
-        name: "Япония",
-        id: "3"
-      }, {
-        name: "Германия",
-        id: "4"
-      }, {
-        name: "Индия",
-        id: "5"
-      }, {
-        name: "ЮжнаяКорея",
-        id: "6"
-      }, {
-        name: "Мексика",
-        id: "7"
-      }, {
-        name: "Бразилия",
-        id: "8"
-      }, {
-        name: "Испания",
-        id: "9"
-      }, {
-        name: "Таиланд",
-        id: "10"
-      }],
-      typeCars: [{
-        name: 'Легковые',
-        id: 'passenger'
-      }, {
-        name: 'Мото',
-        id: 'moto'
-      }, {
-        name: 'Автобусы',
-        id: 'bus'
-      }, {
-        name: 'Водный',
-        id: 'aqueous'
-      }, {
-        name: 'Сельхозтехника',
-        id: 'agricultural_machinery'
-      }, {
-        name: 'Спецтехника',
-        id: 'special_equipment'
-      }, {
-        name: 'Прицепы',
-        id: ''
-      }],
-      bodyType: [{
-        id: 'station_wagon',
-        name: 'Универсал'
-      }, {
-        id: 'crossover',
-        name: 'Кроссовер'
-      }, {
-        id: 'minivan',
-        name: 'Минивэн'
-      }, {
-        id: 'liftback',
-        name: 'Лифтбек'
-      }, {
-        id: 'hatchback',
-        name: 'Хэтчбек'
-      }, {
-        id: 'cabriolet',
-        name: 'Кабриолет'
-      }, {
-        id: 'sedan',
-        name: 'Седан'
-      }, {
-        id: 'coupe',
-        name: 'Купе'
-      }, {
-        id: 'pikap',
-        name: 'Пикап'
-      }, {
-        id: 'roadster',
-        name: 'Ростер'
-      }, {
-        id: 'limousine',
-        name: 'Лимузин'
-      }, {
-        id: 'anouther_body',
-        name: 'Другой'
-      }],
-      years: [{
-        name: '2020',
-        id: '2020'
-      }, {
-        name: '2019',
-        id: '2019'
-      }, {
-        name: '2018',
-        id: '2018'
-      }, {
-        name: '2017',
-        id: '2017'
-      }, {
-        name: '2016',
-        id: '2016'
-      }, {
-        name: '2015',
-        id: '2015'
-      }, {
-        name: '2014',
-        id: '2014'
-      }, {
-        name: '2013',
-        id: '2013'
-      }, {
-        name: '2012',
-        id: '2012'
-      }, {
-        name: '2011',
-        id: '2011'
-      }, {
-        name: '2010',
-        id: '2010'
-      }, {
-        name: '2009',
-        id: '2009'
-      }, {
-        name: '2008',
-        id: '2008'
-      }, {
-        name: '2007',
-        id: '2007'
-      }, {
-        name: '2006',
-        id: '2006'
-      }, {
-        name: '2005',
-        id: '2005'
-      }, {
-        name: '2004',
-        id: '2004'
-      }, {
-        name: '2003',
-        id: '2003'
-      }, {
-        name: '2002',
-        id: '2002'
-      }, {
-        name: '2001',
-        id: '2001'
-      }, {
-        name: '2000',
-        id: '2000'
-      }, {
-        name: '1999',
-        id: '1999'
-      }, {
-        name: '1998',
-        id: '1998'
-      }, {
-        name: '1997',
-        id: '1997'
-      }, {
-        name: '1996',
-        id: '1996'
-      }, {
-        name: '1995',
-        id: '1995'
+        title: 'ASP'
       }]
-    };
+    }, {
+      title: 'Комфорт',
+      items: [{
+        title: 'Бортовой компьютер'
+      }, {
+        title: 'Електропакет'
+      }, {
+        title: 'Запуск кнопкой '
+      }, {
+        title: 'Кондиционер '
+      }, {
+        title: 'Люк '
+      }, {
+        title: 'Обогрев руля'
+      }, {
+        title: 'Память сидений'
+      }, {
+        title: 'Подогрев зеркал'
+      }, {
+        title: 'Усилитель руля'
+      }, {
+        title: 'Кожаный сайлон '
+      }, {
+        title: 'Датчик света'
+      }, {
+        title: 'Электростеклоподьемники'
+      }, {
+        title: 'Климат контроль'
+      }, {
+        title: 'Мультируль'
+      }, {
+        title: 'Омыватель фар'
+      }, {
+        title: 'Парктроник'
+      }, {
+        title: 'Подогрев сидений'
+      }, {
+        title: 'Датчик дождя'
+      }]
+    }, {
+      title: 'Мультимедия',
+      items: [{
+        title: 'Магнитола'
+      }, {
+        title: 'есть'
+      }, {
+        title: 'и збс'
+      }]
+    }, {
+      title: 'Прочее',
+      items: [{
+        title: 'Понты'
+      }, {
+        title: 'для'
+      }, {
+        title: 'Приезжих'
+      }, {
+        title: 'Магнитола'
+      }, {
+        title: 'есть'
+      }, {
+        title: 'и збс'
+      }, {
+        title: 'AUX'
+      }, {
+        title: 'и ты'
+      }, {
+        title: 'царь'
+      }]
+    }]), _defineProperty(_ref, "isActual", [{
+      name: 'Все'
+    }, {
+      name: 'Скрыть проданные'
+    }, {
+      name: 'Только проданные'
+    }]), _defineProperty(_ref, "amountShow", [{
+      name: 'По 10'
+    }, {
+      name: 'По 20'
+    }, {
+      name: 'По 30'
+    }, {
+      name: 'По 50'
+    }, {
+      name: 'По 100'
+    }]), _defineProperty(_ref, "sortBy", [{
+      name: 'Обычная'
+    }, {
+      name: 'От дешевых к дорогим'
+    }, {
+      name: 'От дорогих к дешевым'
+    }, {
+      name: 'Дата добавления'
+    }, {
+      name: 'Год выпуска, по возрастанию'
+    }, {
+      name: 'Год выпуска, по убыванию'
+    }, {
+      name: 'Пробег, по возрастанию'
+    }, {
+      name: 'Пробег, по убыванию'
+    }]), _defineProperty(_ref, "deliveryPeriod", [{
+      id: 'all',
+      name: 'Все'
+    }, {
+      id: 'one_hour',
+      name: 'За час'
+    }, {
+      id: 'three_hour',
+      name: 'За 3 часа'
+    }, {
+      id: 'six_hour',
+      name: 'За 6 часов'
+    }, {
+      id: 'twelve_hour',
+      name: 'За 12 часов'
+    }, {
+      id: 'today',
+      name: 'За сегодня'
+    }, {
+      id: 'for_day',
+      name: 'За сутки'
+    }, {
+      id: 'for_two_day',
+      name: 'За 2 дня'
+    }, {
+      id: 'for_three_day',
+      name: 'За 3 дня'
+    }, {
+      id: 'for_week',
+      name: 'За неделю'
+    }, {
+      id: 'for_mounth',
+      name: 'За месяц'
+    }, {
+      id: 'for_three_mounth',
+      name: 'За 3 месяца'
+    }]), _defineProperty(_ref, "fuel", [{
+      id: 'gasoline',
+      name: 'Бензин'
+    }, {
+      id: 'diesel',
+      name: 'Дизель'
+    }, {
+      id: 'gas',
+      name: 'Газ'
+    }, {
+      id: 'electro',
+      name: 'Электро'
+    }, {
+      id: 'hybrid',
+      name: 'Гибрид'
+    }, {
+      id: 'gas_gasoline',
+      name: 'Газ/Бензин'
+    }, {
+      id: 'methane_gas',
+      name: 'Газ метан'
+    }, {
+      id: 'propane_butane_gas',
+      name: 'Газ пропан-бутан'
+    }]), _defineProperty(_ref, "transmission", [{
+      name: 'Механическая',
+      id: 'mechanical'
+    }, {
+      name: 'Автоматическая',
+      id: 'automatic'
+    }, {
+      name: 'Роботизированная',
+      id: 'robotic'
+    }, {
+      name: 'Вариативная',
+      id: 'variable'
+    }, {
+      name: 'Типтроник',
+      id: 'tiptronic'
+    }]), _defineProperty(_ref, "typeofdrive", [{
+      name: 'Задний привод',
+      id: 'rear_drive_unit'
+    }, {
+      name: 'Передний привод',
+      id: 'front_drive_unit'
+    }, {
+      name: 'Полный привод',
+      id: 'full_drive_unit'
+    }]), _defineProperty(_ref, "ukSityName", [{
+      name: 'Поляна',
+      id: 1
+    }, {
+      name: 'Славское',
+      id: 2
+    }, {
+      name: 'Тернополь',
+      id: 3
+    }, {
+      name: 'Трускавец',
+      id: 4
+    }, {
+      name: 'Хмельницкий',
+      id: 5
+    }, {
+      name: 'Чайковка',
+      id: 6
+    }, {
+      name: 'Чубинское,',
+      id: 7
+    }, {
+      name: 'Шаян',
+      id: 8
+    }, {
+      name: 'Шешоры',
+      id: 9
+    }, {
+      name: 'Яремче',
+      id: 10
+    }, {
+      name: 'Петровское',
+      id: 11
+    }, {
+      name: 'Приморское',
+      id: 12
+    }, {
+      name: 'Черновцы',
+      id: 13
+    }, {
+      name: 'Днепропетровск',
+      id: 14
+    }, {
+      name: 'Донецк',
+      id: 15
+    }, {
+      name: 'Ивано-Франковск',
+      id: 16
+    }, {
+      name: 'Каменец-Подольский',
+      id: 17
+    }, {
+      name: 'Харьков',
+      id: 18
+    }, {
+      name: 'Херсон',
+      id: 19
+    }, {
+      name: 'Киев',
+      id: 20
+    }, {
+      name: 'Кривой Рог',
+      id: 30
+    }, {
+      name: 'Луганск',
+      id: 31
+    }, {
+      name: 'Львов',
+      id: 32
+    }, {
+      name: 'Николаев',
+      id: 33
+    }, {
+      name: 'Одесса',
+      id: 34
+    }, {
+      name: 'Полтава',
+      id: 35
+    }, {
+      name: 'Сумы',
+      id: 36
+    }, {
+      name: 'Ужгород',
+      id: 37
+    }, {
+      name: 'Запорожье',
+      id: 38
+    }, {
+      name: 'Винница',
+      id: 39
+    }, {
+      name: 'Черкассы',
+      id: 40
+    }, {
+      name: 'Чернигов',
+      id: 41
+    }, {
+      name: 'Ильичевск',
+      id: 42
+    }, {
+      name: 'Луцк',
+      id: 43
+    }, {
+      name: 'Малехов',
+      id: 44
+    }, {
+      name: 'Микуличин',
+      id: 45
+    }, {
+      name: 'Ровно',
+      id: 46
+    }, {
+      name: 'Стрый',
+      id: 47
+    }, {
+      name: 'Ахтырка',
+      id: 48
+    }, {
+      name: 'Белогородка',
+      id: 49
+    }, {
+      name: 'Бердянск',
+      id: 50
+    }, {
+      name: 'Борисполь',
+      id: 51
+    }, {
+      name: 'Бояны',
+      id: 52
+    }, {
+      name: 'Бровары',
+      id: 53
+    }, {
+      name: 'Буковель',
+      id: 54
+    }, {
+      name: 'Бурлачья Балка',
+      id: 55
+    }, {
+      name: 'Верховина',
+      id: 56
+    }, {
+      name: 'Винники',
+      id: 57
+    }, {
+      name: 'Жденево',
+      id: 58
+    }, {
+      name: 'Житомир',
+      id: 59
+    }, {
+      name: 'Жовтневое',
+      id: 60
+    }, {
+      name: 'Затока',
+      id: 61
+    }, {
+      name: 'Кировоград',
+      id: 62
+    }, {
+      name: 'Коблево',
+      id: 63
+    }, {
+      name: 'Козин',
+      id: 64
+    }, {
+      name: 'Колоденка',
+      id: 65
+    }, {
+      name: 'Коропово',
+      id: 66
+    }, {
+      name: 'Кременчуг',
+      id: 67
+    }, {
+      name: 'Макеевка',
+      id: 68
+    }, {
+      name: 'Мукачево',
+      id: 69
+    }]), _defineProperty(_ref, "countryName", [{
+      name: "Китай",
+      id: "1"
+    }, {
+      name: "США",
+      id: "2"
+    }, {
+      name: "Япония",
+      id: "3"
+    }, {
+      name: "Германия",
+      id: "4"
+    }, {
+      name: "Индия",
+      id: "5"
+    }, {
+      name: "ЮжнаяКорея",
+      id: "6"
+    }, {
+      name: "Мексика",
+      id: "7"
+    }, {
+      name: "Бразилия",
+      id: "8"
+    }, {
+      name: "Испания",
+      id: "9"
+    }, {
+      name: "Таиланд",
+      id: "10"
+    }]), _defineProperty(_ref, "typeCars", [{
+      name: 'Легковые',
+      id: 'passenger'
+    }, {
+      name: 'Мото',
+      id: 'moto'
+    }, {
+      name: 'Автобусы',
+      id: 'bus'
+    }, {
+      name: 'Водный',
+      id: 'aqueous'
+    }, {
+      name: 'Сельхозтехника',
+      id: 'agricultural_machinery'
+    }, {
+      name: 'Спецтехника',
+      id: 'special_equipment'
+    }, {
+      name: 'Прицепы',
+      id: ''
+    }]), _defineProperty(_ref, "bodyType", [{
+      id: 'station_wagon',
+      name: 'Универсал'
+    }, {
+      id: 'crossover',
+      name: 'Кроссовер'
+    }, {
+      id: 'minivan',
+      name: 'Минивэн'
+    }, {
+      id: 'liftback',
+      name: 'Лифтбек'
+    }, {
+      id: 'hatchback',
+      name: 'Хэтчбек'
+    }, {
+      id: 'cabriolet',
+      name: 'Кабриолет'
+    }, {
+      id: 'sedan',
+      name: 'Седан'
+    }, {
+      id: 'coupe',
+      name: 'Купе'
+    }, {
+      id: 'pikap',
+      name: 'Пикап'
+    }, {
+      id: 'roadster',
+      name: 'Ростер'
+    }, {
+      id: 'limousine',
+      name: 'Лимузин'
+    }, {
+      id: 'anouther_body',
+      name: 'Другой'
+    }]), _ref;
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS', 'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['FULL_REGIONS_FROM_API', 'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API'])), {}, {
-    check: function check(e) {
-      console.log(e.target.id);
-    },
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS', 'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['FULL_REGIONS_FROM_API', 'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR'])), {}, {
+    check: function check(e) {},
     computeCityResult: function computeCityResult(city) {
       this.SET_CITIES_TO_STORE(city);
     },
@@ -6987,7 +6913,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     removeChoosedCities: function removeChoosedCities(city_idx) {
       this.$delete(this.choosedCities, city_idx);
-      console.log('remove', city_idx);
     },
     selectedItem: function selectedItem(e) {
       var select = this.selectDropDown.find(function (item) {
@@ -7034,7 +6959,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var lang = 1,
           query = "?langType=" + lang;
-      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/transport_types/1/brands' + query).then(function (response) {
+      _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('/transport_types/1/brands' + query).then(function (response) {
         _this.carBrandsArr = response.data;
       })["catch"](function (error) {
         console.log('error', error);
@@ -7045,7 +6970,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var lang = 3,
           query = "?langType=" + lang;
-      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/manufacture_countries' + query).then(function (response) {
+      _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('/manufacture_countries' + query).then(function (response) {
         _this2.manufactureCountries = response.data;
       })["catch"](function (error) {
         console.log('error', error);
@@ -7056,7 +6981,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var lang = 3,
           query = "?langType=" + lang;
-      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/transport_types' + query).then(function (response) {
+      _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('/transport_types' + query).then(function (response) {
         _this3.transportType = response.data;
       })["catch"](function (error) {
         console.log('error', error);
@@ -7068,26 +6993,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.FULL_REGIONS_FROM_API('/regions' + query);
       this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query);
       this.BRANDS_FROM_API('/transport_types/1/brands?langType=1&alias=1&manufactureID=1');
+      this.GENERATE_YEAR(new Date().getFullYear());
+    },
+    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
+      this.SET_BRAND_CHOSE(data);
+      data['url'] = '/transport_types/1/brands/' + data.choose.val + '/models?langType=1&alias=1';
+      this.MODELS_FROM_API(data);
+    },
+    analizeRbymsProps: function analizeRbymsProps() {
+      var RbymsProps = '';
+      this.rbymsArr.forEach(function (el, i) {
+        if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
+          RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose.val + '&' : '';
+          RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose.val + '&' : '';
+
+          if (el.brandChoose !== null && el.modelsChoose.length > 0) {
+            el.modelsChoose.forEach(function (el_model, i_model) {
+              RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model.val + '&' : '';
+            });
+          }
+
+          RbymsProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom.val + '&' : '';
+          RbymsProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo.val + '&' : '';
+        }
+      });
+      return RbymsProps.substring(0, RbymsProps.length - 1);
     }
   }),
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     'regionArr': 'GET_FULL_REGION_FROM_STORE',
     'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
     'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
     'rbymsArr': 'GET_RBMYS',
     'rbymNewIndex': 'GET_RBMY_NEW_INDEX',
     'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
-    'brands': 'GET_BRANDS'
+    'brands': 'GET_BRANDS',
+    'years': 'GET_YEARS'
   })), {}, {
-    reversedYears: function reversedYears() {
-      return this.yearsList.slice().reverse();
+    generateLink: function generateLink() {
+      var CurrentURI = 'extended'; // window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?');
+
+      console.log(this.analizeRbymsProps());
     }
   }),
-  watch: {
-    regionArr: function regionArr(to) {
-      console.log(to);
-    }
-  },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.clickOutside);
   }
@@ -8402,8 +8350,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['options', 'placeholder'],
+  props: ['options', 'placeholder', 'choosedItems'],
   mounted: function mounted() {
+    this.computingResults(''); // if data load rapid and doesn`t updated
+
     document.addEventListener('click', this.handleClickOutside);
   },
   data: function data() {
@@ -8412,17 +8362,15 @@ __webpack_require__.r(__webpack_exports__);
       selected: null,
       mouseSelected: null,
       search: "",
-      choosedItem: null,
-      choosedItems: [],
       results: []
     };
   },
   methods: {
     clickingResult: function clickingResult(result) {
       if (this.isPresent(result)) {
-        this.choosedItems.splice(this.choosedItems.indexOf(result), 1);
+        this.$emit('deleteChoose', result);
       } else {
-        this.choosedItems.push(result);
+        this.$emit('updateChoose', result);
       }
 
       this.search = '';
@@ -8500,6 +8448,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.scrollContainer.scrollTop = 0;
     },
     options: function options(to) {
+      // if updating will be later
       this.computingResults('');
     }
   },
@@ -8602,7 +8551,6 @@ __webpack_require__.r(__webpack_exports__);
     fixScrolling: function fixScrolling() {
       var scroll = this.$refs.options[this.selected].scrollHeight + 1;
       this.$refs.scrollContainer.scrollTop = scroll * this.selected;
-      console.log(this.selected);
     },
     handleClickOutside: function handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) this.cleanTextField();
@@ -49171,13 +49119,111 @@ var render = function() {
                       attrs: {
                         placeholder: "Выберите марку",
                         options:
-                          rbym.brands.length > 0 ? rbym.brands : _vm.brands,
+                          rbym.brands.length > 0
+                            ? rbym.brands
+                            : rbym.regionChoose !== null
+                            ? []
+                            : _vm.brands,
                         choosedItem: rbym.brandChoose
+                      },
+                      on: {
+                        updateChoose: function($event) {
+                          return _vm.setBrandsAndGetModels({
+                            choose: $event,
+                            index: i
+                          })
+                        },
+                        deleteChoose: function($event) {
+                          return _vm.DELETE_BRAND_CHOOSE({ index: i })
+                        }
                       }
                     })
                   ],
                   1
                 ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselectmultysearch", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: rbym.models,
+                        choosedItems: rbym.modelsChoose
+                      },
+                      on: {
+                        updateChoose: function($event) {
+                          return _vm.SET_MODELS_CHOOSE({
+                            choose: $event,
+                            index: i
+                          })
+                        },
+                        deleteChoose: function($event) {
+                          return _vm.DELETE_MODELS_CHOOSE({
+                            choose: $event,
+                            index: i
+                          })
+                        }
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("yselectsearch", {
+                        attrs: {
+                          placeholder: "От",
+                          options: _vm.years,
+                          choosedItem: rbym.yearFrom
+                        },
+                        on: {
+                          updateChoose: function($event) {
+                            return _vm.SET_YEAR_FROM({
+                              choose: $event,
+                              index: i
+                            })
+                          },
+                          deleteChoose: function($event) {
+                            return _vm.DELETE_YEAR_FROM({
+                              choose: $event,
+                              index: i
+                            })
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("yselectsearch", {
+                        attrs: {
+                          placeholder: "До",
+                          options: _vm.years,
+                          choosedItem: rbym.yearTo
+                        },
+                        on: {
+                          updateChoose: function($event) {
+                            return _vm.SET_YEAR_TO({ choose: $event, index: i })
+                          },
+                          deleteChoose: function($event) {
+                            return _vm.DELETE_YEAR_TO({
+                              choose: $event,
+                              index: i
+                            })
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
                 _vm._v(" "),
                 i != 0
                   ? _c(
@@ -49208,7 +49254,7 @@ var render = function() {
               },
               [_vm._v("Добавить марку")]
             ),
-            _vm._v("\n                    " + _vm._s(_vm.rbymNewIndex) + "\n")
+            _vm._v("\n                    " + _vm._s(_vm.generateLink) + "\n")
           ],
           2
         )
@@ -75633,12 +75679,13 @@ var state = {
     modelsChoose: [],
     yearFrom: null,
     yearTo: null,
-    brands: []
+    brands: [],
+    models: []
   }],
   manufactureRegions: [],
   //one load
   brands: [],
-  modelsChoose: null
+  years: []
 };
 var getters = {
   GET_RBMYS: function GET_RBMYS(state) {
@@ -75650,8 +75697,12 @@ var getters = {
   GET_MANUFACTURE_REGIONS: function GET_MANUFACTURE_REGIONS(state) {
     return state.manufactureRegions;
   },
+  //if absent RBMY brand units
   GET_BRANDS: function GET_BRANDS(state) {
     return state.brands;
+  },
+  GET_YEARS: function GET_YEARS(state) {
+    return state.years;
   }
 };
 var mutations = {
@@ -75662,7 +75713,8 @@ var mutations = {
       modelsChoose: [],
       yearFrom: null,
       yearTo: null,
-      brands: []
+      brands: [],
+      models: []
     });
   },
   DELETE_RBMY: function DELETE_RBMY(state, payload) {
@@ -75672,21 +75724,77 @@ var mutations = {
     state.rbmyFullStore[payload.index].regionChoose = payload.choose;
     var manufactureBrands = [];
     state.brands.forEach(function (el) {
-      if (el.manufacture == payload.choose.val) {
+      if (el.manufacture == payload.choose.val && el.manufacture !== null) {
         manufactureBrands.push(el);
       }
     });
     state.rbmyFullStore[payload.index].brands = manufactureBrands;
+    state.rbmyFullStore[payload.index].brandChoose = null;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
   },
   DELETE_REGION_CHOOSE: function DELETE_REGION_CHOOSE(state, payload) {
     state.rbmyFullStore[payload.index].regionChoose = null;
     state.rbmyFullStore[payload.index].brands = [];
+    state.rbmyFullStore[payload.index].brandChoose = null;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  SET_BRAND_CHOSE: function SET_BRAND_CHOSE(state, payload) {
+    state.rbmyFullStore[payload.index].brandChoose = payload.choose;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  DELETE_BRAND_CHOOSE: function DELETE_BRAND_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].brandChoose = null;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  SET_MODELS_CHOOSE: function SET_MODELS_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].modelsChoose.push(payload.choose);
+  },
+  DELETE_MODELS_CHOOSE: function DELETE_MODELS_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].modelsChoose.splice(state.rbmyFullStore[payload.index].modelsChoose.indexOf(payload.choose), 1);
+  },
+  SET_YEAR_FROM: function SET_YEAR_FROM(state, payload) {
+    var smartLink = state.rbmyFullStore[payload.index];
+
+    if (smartLink.yearTo !== null && payload.choose.val > smartLink.yearTo.val) {
+      var temp = smartLink.yearTo;
+      smartLink.yearTo = payload.choose;
+      smartLink.yearFrom = temp;
+    } else {
+      state.rbmyFullStore[payload.index].yearFrom = payload.choose;
+    }
+  },
+  DELETE_YEAR_FROM: function DELETE_YEAR_FROM(state, payload) {
+    state.rbmyFullStore[payload.index].yearFrom = null;
+  },
+  SET_YEAR_TO: function SET_YEAR_TO(state, payload) {
+    var smartLink = state.rbmyFullStore[payload.index];
+
+    if (smartLink.yearFrom !== null && payload.choose.val < smartLink.yearFrom.val) {
+      var temp = smartLink.yearFrom;
+      smartLink.yearFrom = payload.choose;
+      smartLink.yearTo = temp;
+    } else {
+      state.rbmyFullStore[payload.index].yearTo = payload.choose;
+    }
+  },
+  DELETE_YEAR_TO: function DELETE_YEAR_TO(state, payload) {
+    state.rbmyFullStore[payload.index].yearTo = null;
   },
   SET_MANUFACTURE_REGIONS_FROM_API: function SET_MANUFACTURE_REGIONS_FROM_API(state, payload) {
     state.manufactureRegions = payload;
   },
   SET_BRANDS_FROM_API: function SET_BRANDS_FROM_API(state, payload) {
     state.brands = payload;
+  },
+  SET_MODELS_FROM_API: function SET_MODELS_FROM_API(state, payload) {
+    state.rbmyFullStore[payload.index].models = payload.models;
+  },
+  SET_YEAR_FROM_GENERATOR: function SET_YEAR_FROM_GENERATOR(state, payload) {
+    state.years = payload;
   }
 };
 var actions = {
@@ -75741,7 +75849,46 @@ var actions = {
     }
 
     return BRANDS_FROM_API;
-  }()
+  }(),
+  MODELS_FROM_API: function () {
+    var _MODELS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload['url']).then(function (response) {
+                payload['models'] = response.data;
+                context.commit('SET_MODELS_FROM_API', payload);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    function MODELS_FROM_API(_x5, _x6) {
+      return _MODELS_FROM_API.apply(this, arguments);
+    }
+
+    return MODELS_FROM_API;
+  }(),
+  GENERATE_YEAR: function GENERATE_YEAR(context, payload) {
+    var YearArr = [];
+
+    for (var i = payload; i >= 1900; i--) {
+      YearArr.push({
+        'name': '' + i,
+        'val': i
+      });
+    }
+
+    context.commit('SET_YEAR_FROM_GENERATOR', YearArr);
+  }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: state,
@@ -78095,6 +78242,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.directive('click-outside', {
     document.body.removeEventListener('click', el.clickOutsideEvent);
   }
 });
+var myMixin = {
+  created: function created() {
+    this.hello();
+  },
+  methods: {
+    hello: function hello() {
+      console.log('привет из примеси!');
+    }
+  }
+};
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   store: _STORE_services__WEBPACK_IMPORTED_MODULE_1__["services"]
 }).$mount('#yb-site');

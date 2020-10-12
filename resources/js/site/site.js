@@ -73,6 +73,18 @@ Vue.directive('click-outside', {
     },
 });
 
+
+var myMixin = {
+    created: function () {
+        this.hello()
+    },
+    methods: {
+        hello: function () {
+            console.log('привет из примеси!')
+        }
+    }
+}
+
 new Vue({
     store: services
 }).$mount('#yb-site', );

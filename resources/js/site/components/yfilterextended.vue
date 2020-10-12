@@ -979,29 +979,43 @@
                         </div>
                         <div class="ycars-item marks">
                             <h2>Марка</h2>
-                            <!--                         @updateChoose='SET_REGION_CHOOSE({choose: $event, index: i})'
-                             @deleteChoose='DELETE_REGION_CHOOSE({index: i})'-->
+
                             <yselectsearch
+                                @updateChoose='setBrandsAndGetModels({choose: $event, index: i})'
+                                @deleteChoose='DELETE_BRAND_CHOOSE({index: i})'
                                 :placeholder="'Выберите марку'"
-                                :options="rbym.brands.length > 0 ? rbym.brands : brands"
+                                :options="rbym.brands.length > 0 ? rbym.brands : (rbym.regionChoose !== null ? [] : brands)"
                                 :choosedItem="rbym.brandChoose"
                             >
                             </yselectsearch>
                         </div>
-<!--                        <div class="ycars-item model">-->
-<!--                            <h2>Модель</h2>-->
-<!--                            <yselectmultysearch-->
-<!--                                @setItem='selectedItem'-->
-<!--                                :placeholder="'Выберите модель'"-->
-<!--                                :options="carBrandsArr"></yselectmultysearch>-->
-<!--                        </div>-->
-<!--                        <div class="ycars-item years">-->
-<!--                            <h2>Год</h2>-->
-<!--                            <div class="ydrop_down-years">-->
-<!--                                <ydropdown :placeholder="'От'" :items="reversedYears"></ydropdown>-->
+                        <div class="ycars-item model">
+                            <h2>Модель</h2>
+                            <yselectmultysearch
+                                @updateChoose='SET_MODELS_CHOOSE({choose: $event, index: i})'
+                                @deleteChoose='DELETE_MODELS_CHOOSE({choose: $event, index: i})'
+                                :placeholder="'Выберите модель'"
+                                :options="rbym.models"
+                                :choosedItems="rbym.modelsChoose"></yselectmultysearch>
+                        </div>
+                        <div class="ycars-item years">
+                            <h2>Год</h2>
+                            <div class="ydrop_down-years">
+                                <yselectsearch
+                                    @updateChoose="SET_YEAR_FROM({choose: $event, index: i})"
+                                    @deleteChoose="DELETE_YEAR_FROM({choose: $event, index: i})"
+                                    :placeholder="'От'"
+                                    :options="years"
+                                    :choosedItem="rbym.yearFrom"></yselectsearch>
+                                <yselectsearch
+                                    @updateChoose="SET_YEAR_TO({choose: $event, index: i})"
+                                    @deleteChoose="DELETE_YEAR_TO({choose: $event, index: i})"
+                                    :placeholder="'До'"
+                                    :options="years"
+                                    :choosedItem="rbym.yearTo"></yselectsearch>
 <!--                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                            </div>
+                        </div>
                         <button class="yremove_car-items" v-if="i != 0" @click="DELETE_RBMY(i)">
                             <i class="fas fa-trash-alt"></i>
                         </button>
@@ -1009,7 +1023,7 @@
                     <button
                         @click="CREATE_NEW_RBMY(rbymNewIndex)"
                         class="yadded-car-item">Добавить марку</button>
-                    {{rbymNewIndex}}
+                    {{generateLink}}
 <!--                    <div class="yflex_car-item remove">-->
 <!--                        <div class="ycars-item countries">-->
 <!--                            <h2>Страна производитель</h2>-->
@@ -1419,9 +1433,13 @@
 </template>
 
 <script>
+    import Vue from 'vue';
     import {mapGetters, mapActions, mapMutations} from 'vuex';
     import {HTTP} from "../../http.js";
     export default {
+        beforeMount() {
+            console.log(document.location);
+        },
         mounted () {
             document.addEventListener('click', this.clickOutside);
             window.addEventListener('resize', this.changeResize)
@@ -1431,7 +1449,6 @@
             this.getTransportType();
             this.getManufactureCounries()
             this.getCarBrands()
-
         },
         data(){
             return{
@@ -1448,6 +1465,7 @@
                 selectedTypeBody: [],
                 showSelectedItem: false,
                 windowWidth: 0,
+                colorOpen: false,
                 colorOpen: false,
                 otherShowID: 0,
                 test: [{name: '100'}],
@@ -1776,7 +1794,6 @@
                         name: 'Другой',
                     },
                 ],
-                years: [{name :'2020', id: '2020'} , {name :'2019', id: '2019'} , {name :'2018', id: '2018'} , {name :'2017', id: '2017'} , {name :'2016', id: '2016'} , {name :'2015', id: '2015'} , {name :'2014', id: '2014'} , {name :'2013', id: '2013'} , {name :'2012', id: '2012'} , {name :'2011', id: '2011'} , {name :'2010', id: '2010'} , {name :'2009', id: '2009'} , {name: '2008', id:'2008'} , {name: '2007', id:'2007'} , {name: '2006', id:'2006'} , {name: '2005', id:'2005'} , {name: '2004', id:'2004'} , {name: '2003', id:'2003'} , {name: '2002', id:'2002'} , {name: '2001', id:'2001'}, {name: '2000', id:'2000'}, {name: '1999', id:'1999'}, {name: '1998', id:'1998'}, {name: '1997', id:'1997'}, {name:'1996', id:'1996'}, {name:'1995', id:'1995'},],
             }
         },
         methods: {
@@ -1788,15 +1805,27 @@
                 'DELETE_RBMY',
 
                 'SET_REGION_CHOOSE',
-                'DELETE_REGION_CHOOSE'
+                'DELETE_REGION_CHOOSE',
+
+                'SET_BRAND_CHOSE',
+                'DELETE_BRAND_CHOOSE',
+
+                'SET_MODELS_CHOOSE',
+                'DELETE_MODELS_CHOOSE',
+
+                'SET_YEAR_FROM',
+                'DELETE_YEAR_FROM',
+                'SET_YEAR_TO',
+                'DELETE_YEAR_TO'
             ]),
             ...mapActions([
                 'FULL_REGIONS_FROM_API',
                 'MANUFACTURE_REGIONS_FROM_API',
-                'BRANDS_FROM_API'
+                'BRANDS_FROM_API',
+                'MODELS_FROM_API',
+                'GENERATE_YEAR',
             ]),
             check(e){
-              console.log(e.target.id);
             },
             computeCityResult(city){
                 this.SET_CITIES_TO_STORE(city);
@@ -1812,7 +1841,6 @@
             },
             removeChoosedCities(city_idx){
                 this.$delete(this.choosedCities, city_idx)
-                console.log('remove', city_idx)
             },
             selectedItem(e){
                 const select = this.selectDropDown.find(item =>{
@@ -1894,6 +1922,31 @@
                 this.FULL_REGIONS_FROM_API('/regions' + query);
                 this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query)
                 this.BRANDS_FROM_API('/transport_types/1/brands?langType=1&alias=1&manufactureID=1')
+                this.GENERATE_YEAR(new Date().getFullYear());
+            },
+            setBrandsAndGetModels(data){
+                this.SET_BRAND_CHOSE(data);
+                data['url'] = '/transport_types/1/brands/' + data.choose.val + '/models?langType=1&alias=1';
+                this.MODELS_FROM_API(data);
+            },
+
+
+            analizeRbymsProps() {
+                let RbymsProps = '';
+                this.rbymsArr.forEach((el, i) => {
+                    if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
+                        RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose.val + '&' : '';
+                        RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose.val + '&' : '';
+                        if (el.brandChoose !== null && el.modelsChoose.length > 0) {
+                            el.modelsChoose.forEach((el_model, i_model) => {
+                                RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model.val + '&' : '';
+                            })
+                        }
+                        RbymsProps  += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]='+ el.yearFrom.val + '&' : '';
+                        RbymsProps  += el.yearTo !== null ? 'rbmy[' + i + '][yearT]='+ el.yearTo.val + '&' : '';
+                    }
+                })
+                return RbymsProps.substring(0, RbymsProps.length - 1);
             }
         },
         computed: {
@@ -1904,17 +1957,14 @@
                 'rbymsArr': 'GET_RBMYS',
                 'rbymNewIndex': 'GET_RBMY_NEW_INDEX',
                 'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
-                'brands': 'GET_BRANDS'
-
+                'brands': 'GET_BRANDS',
+                'years': 'GET_YEARS'
             }),
-            reversedYears() {
-                return this.yearsList.slice().reverse();
+            generateLink() {
+                const CurrentURI = 'extended';
+                // window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?');
+                console.log(this.analizeRbymsProps())
             },
-        },
-        watch: {
-            regionArr(to){
-                console.log(to)
-            }
         },
         destroyed() {
             document.removeEventListener('click', this.clickOutside)

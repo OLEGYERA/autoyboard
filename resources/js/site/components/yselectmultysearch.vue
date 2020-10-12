@@ -34,8 +34,9 @@
 </template>
 <script>
     export  default  {
-        props: ['options', 'placeholder'],
+        props: ['options', 'placeholder', 'choosedItems'],
         mounted() {
+            this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);
         },
         data() {
@@ -45,18 +46,16 @@
                 mouseSelected: null,
 
                 search: "",
-                choosedItem: null,
-                choosedItems: [],
                 results: [],
             }
         },
         methods: {
             clickingResult(result){
                 if(this.isPresent(result)){
-                    this.choosedItems.splice(this.choosedItems.indexOf(result), 1);
+                    this.$emit('deleteChoose', result);
                 }
                 else{
-                    this.choosedItems.push(result);
+                    this.$emit('updateChoose', result)
                 }
                 this.search = '';
             },
@@ -135,6 +134,7 @@
                 this.$refs.scrollContainer.scrollTop = 0;
             },
             options(to){
+                // if updating will be later
                 this.computingResults('');
             }
         },
