@@ -68,6 +68,7 @@
                 line-height: 34px;
                 color: $darkblue;
                 margin-right: 5px;
+                height: fit-content;
             }
             p{
                 margin: 0;
@@ -97,12 +98,14 @@
                 .details{
                     display: flex;
                     align-items: center;
-                    font-family: $noto;
-                    font-weight: 500;
-                    font-size: em(24);
-                    line-height: 140.2%;
-                    color: $contact-details;
                     margin: 0 0 13px 0;
+                    a{
+                        color: $contact-details;
+                        font-family: $noto;
+                        font-weight: 500;
+                        font-size: em(24);
+                        line-height: 140.2%;
+                    }
                     .detail_icon{
                         display: flex;
                         align-items: center;
@@ -112,11 +115,6 @@
                         height: 54px;
                         border-radius: 50%;
                         margin-right: 24px;
-                        i{
-                            color: #FFFFFF;
-                            position: relative;
-                            font-size: 25px;
-                        }
                     }
                     &:last-child{
                         margin: 0;
@@ -131,9 +129,6 @@
             padding-bottom: 60px;
             a{
                 margin-right: 30px;
-                i{
-                    font-size: 57px;
-                }
                 &:last-child{
                     margin-right: 0;
                 }
@@ -173,12 +168,23 @@
                         margin: 0 0 20px 0;
                     }
                     .details{
-                        font-size: em(20);
+                        a{
+                            font-size: em(20);
+                        }
                         .detail_icon{
                             width: 45px;
                             height: 45px;
-                            i{
-                                font-size: em(18);
+                            .locations{
+                                width: 30px;
+                                height: 30px;
+                            }
+                            .mail{
+                                height: 15px;
+                                width: 30px;
+                            }
+                            .phone{
+                                width: 30px;
+                                height: 25px;
                             }
                         }
                     }
@@ -224,8 +230,9 @@
             }
             .yb-social_links{
                 a{
-                    i{
-                        font-size: 47px;
+                    svg{
+                        width: 45px;
+                        height: 45px;
                     }
                 }
             }
@@ -294,16 +301,29 @@
                         font-size: em(24);
                     }
                     .details{
-                        font-size: em(16);
+                        a{
+                            font-size: em(16);
+                        }
+
                         .detail_icon{
                             width: 40px;
                             height: 40px;
                             margin-right: 15px;
                         }
                     }
+
                 }
                 svg{
                     width: 520px;
+                }
+            }
+            .yb-social_links{
+                padding-bottom: 30px;
+                a{
+                    svg{
+                        width: 40px;
+                        height: 40px;
+                    }
                 }
             }
         }
@@ -326,6 +346,14 @@
                 svg{
                     width: 450px;
                     height: 250px;
+                }
+            }
+            .yb-social_links{
+                a{
+                    margin-right: 25px;
+                    &:last-child{
+                        margin-right: 0;
+                    }
                 }
             }
         }
@@ -373,6 +401,187 @@
                 svg{
                     width: 340px;
                 }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .yb_about-content{
+        .y-about_prev{
+            img{
+                width: 215px;
+            }
+            h1{
+                width: 90%;
+                font-size: em(24);
+                line-height: 28px;
+            }
+        }
+        .y-about_desc{
+            .y-about_crumbs{
+                display: none;
+            }
+            h2{
+                font-size: em(48);
+                line-height: 56px;
+                padding-top: 10px;
+            }
+            .yb_about-title{
+                width: 100%;
+                display: inline;
+                p{
+                    font-size: em(24);
+                    line-height: 34px;
+                    display: inline;
+                }
+            }
+            .yb-contacts_data{
+                flex-direction: column;
+                .yb-contacts_details{
+                    margin-right: 0;
+                    .yb_feedback{
+                        font-size: em(36);
+                        line-height: 42px;
+                    }
+                    .details{
+                        a{
+                            font-size: em(24);
+                            line-height: 140.2%;
+                        }
+
+                        .detail_icon{
+                            width: 54px;
+                            height: 54px;
+                            .phone{
+                                width: 35px;
+                                height: 30px;
+                            }
+                            .mail{
+                                height: 20px;
+                                width: 25px;
+                            }
+                            .locations{
+                                width: 35px;
+                                height: 35px;
+
+                            }
+                        }
+                    }
+                }
+                svg{
+                    width: 420px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .yb_about-content{
+        .y-about_prev{
+            img{
+                width: 200px;
+            }
+            h1{
+                font-size: em(18);
+                width: 95%;
+            }
+        }
+        .y-about_desc{
+            padding: 0 4%;
+            .yb_about-title{
+                p{
+                    font-size: em(17);
+                    line-height: 31px;
+                }
+            }
+            .yb-contacts_data{
+                .yb-contacts_details{
+                    .yb_feedback{
+                        font-size: em(32);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .yb_about-content{
+        .y-about_prev{
+            img{
+                width: 180px;
+            }
+            h1{
+                font-size: em(16);
+            }
+        }
+        .y-about_desc{
+            .yb_about-title{
+                span{
+                    font-size: em(20);
+                }
+                p{
+                    line-height: 24px;
+                    font-size: em(15);
+                }
+            }
+            .yb-contacts_data{
+                width: 95%;
+                .yb-contacts_details{
+                    .yb_feedback{
+                        font-size: em(32);
+                    }
+                    .details{
+
+
+                    }
+                }
+                svg{
+                    width: 350px;
+                }
+
+            }
+        }
+    }
+}
+@media only screen and (max-width: 320px){
+    .yb_about-content{
+        .y-about_prev{
+            padding: 30px 0 35px 0;
+            img{
+                width: 150px;
+            }
+            h1{
+                font-size: em(13);
+                margin: 20px 0 0 0;
+            }
+        }
+        .y-about_desc{
+            h2{
+                font-size: em(42);
+                line-height: 39px;
+            }
+            .yb_about-title{
+                span{
+                    font-size: em(19);
+                }
+            }
+            .yb-contacts_data{
+                width: 100%;
+                .yb-contacts_details{
+                    width: 100%;
+                    .yb_feedback{
+                        font-size: em(28);
+                    }
+                    .details{
+                        a{
+                            font-size: em(22);
+                        }
+                    }
+                }
+                svg{
+                    width: 300px;
+                }
+
             }
         }
     }

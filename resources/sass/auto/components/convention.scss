@@ -1,0 +1,130 @@
+@import '../clear';
+@import '../../vars';
+
+
+.yb-convention_content{
+    .yb-convention_prev{
+        background: linear-gradient(91.14deg, #0B3F8D 49.02%, #072F6A 67.4%);
+        box-shadow: 9px 4px 5px #021531;
+        padding: 0 17%;
+        .yb-convention_crumbs{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+            span{
+                display: flex;
+                align-items: center;
+                a{
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(18);
+                    line-height: 22px;
+                    color: #FFFFFF;
+                }
+                i{
+                    margin: 0 12px;
+                    color: #FFFFFF;
+                }
+            }
+        }
+        h1{
+            font-family: $rale;
+            font-weight: 500;
+            font-size: em(48);
+            line-height: 56px;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0 0 20px 0;
+        }
+    }
+    .yb-convention_desc{
+        background: #E5E5E5;
+        padding: 0 17%;
+        h2{
+            font-family: $rale;
+            font-weight: 500;
+            font-size: em(36);
+            line-height: 42px;
+            color: $active-crumbs;
+            margin: 0;
+            padding: 20px 0 15px 0;
+        }
+        .yb-use_content{
+            font-family: $aleg;
+            font-weight: 500;
+            font-size: em(18);
+            line-height: 28px;
+            color: $use_content;
+            margin: 0;
+            padding-bottom: 12px;
+        }
+        .yb-content_terms{
+            display: flex;
+            justify-content: space-between;
+            .yb-definition_terms{
+                width: 65%;
+                background: #FBFCFC;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.33);
+                border-radius: 8px;
+                .yb-list_terms{
+                    counter-reset: li;
+                    margin: 0;
+                    padding: 0;
+                    .yb-title_list{
+                    font-family: $rale;
+                    font-weight: bold;
+                    font-size: em(24);
+                    line-height: 28px;
+                    color: $active-crumbs;
+                        &:before{
+                            counter-increment: li;
+                            content: counters(li,".") ". ";
+                        }
+                        .yb_sub-list{
+                            li{
+                                font-family: $aleg;
+                                font-weight: normal;
+                                font-size: em(16);
+                                line-height: 26px;
+                                color: rgba(1, 12, 28, 0.79);
+                            }
+                        }
+                    }
+                }
+            }
+            .yb-scroll_terms{
+                width: 30%;
+                background: #07306B;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+                border-radius: 8px;
+                .yb-scroll_items{
+                    counter-reset: LiCounter;
+                    margin: 0;
+                    padding: 20px;
+                    .yb-scroll_item{
+                        font-family: $rale;
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: em(16);
+                        line-height: 22px;
+                        color: #FFFFFF;
+                        margin-bottom: 16px;
+                        cursor: pointer;
+                        &:hover{
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.71);
+                        }
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        &:before{
+                            font-family: $noto;
+                            counter-increment: LiCounter;
+                            content: counter(LiCounter) '.';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

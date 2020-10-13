@@ -52,7 +52,16 @@ class PageController extends BasicController
         $this->content = view('site.auto.about.ru')->render();
         return $this->renderBasic();
     }
+    public function confidentiality(){
 
+        $this->content = view('site.auto.confidentiality.ru')->render();
+        return $this->renderBasic();
+    }
+    public function convention(){
+
+        $this->content = view('site.auto.convention.ru')->render();
+        return $this->renderBasic();
+    }
 
 
 

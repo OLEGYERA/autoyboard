@@ -22,6 +22,8 @@ Route::get('/extended', 'Site\Auto\PageController@extended')->name('extended');
 Route::get('/presentation', 'Site\Auto\PageController@presentation')->name('presentation');
 Route::get('/faq', 'Site\Auto\PageController@faq')->name('faq');
 Route::get('/about', 'Site\Auto\PageController@about')->name('about');
+Route::get('/convention', 'Site\Auto\PageController@convention')->name('convention');
+Route::get('/confidentiality', 'Site\Auto\PageController@confidentiality')->name('confidentiality');
 
 Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
 

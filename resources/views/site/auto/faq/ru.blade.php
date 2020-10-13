@@ -33,6 +33,10 @@
     </section>
     <section class="yb_faq-answers">
         <div class="yb_answer_prev">
+            <button class="y_back-to">
+                <i class="fas fa-angle-left"></i>
+                Назад
+            </button>
             <h2 class="yquestion_title">Редактирование объявления. Какие параметры я могу менять?</h2>
             <ul>
                 <span class="recommendation">Общие рекомендации:</span>
