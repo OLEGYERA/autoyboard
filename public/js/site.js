@@ -6992,6 +6992,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var UriSearch = window.location.search;
       var UriPromise = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.ValidateUri(UriSearch);
       UriPromise().then(function (el) {
+        console.log(el, el.transportFullStore !== undefined);
+
         if (el.transportFullStore !== undefined) {
           _this2.SET_TRANPORT_ARR(el.transportFullStore);
 
@@ -7017,6 +7019,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.FULL_REGIONS_FROM_API('/regions' + query);
       this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query);
       this.GENERATE_YEAR(new Date().getFullYear());
+      this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
     }
   }),
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
@@ -78475,8 +78478,8 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/js/site/site.js */"./resources/js/site/site.js");
-module.exports = __webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
+__webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/site/site.js */"./resources/js/site/site.js");
+module.exports = __webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
 
 
 /***/ })

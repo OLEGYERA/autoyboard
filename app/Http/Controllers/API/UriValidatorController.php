@@ -48,8 +48,10 @@ class UriValidatorController extends BasicController
                         }
                         else{
                             $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', null);
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', []);
+                            $brands = [];
                         }
+                        $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
+
                         if(isset($rbmy['brand'])){
                             $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', intval($rbmy['brand']));
                             $brand = Brand::select(['brands.id as val', 'title as name'])->find($rbmy['brand']);
@@ -88,6 +90,7 @@ class UriValidatorController extends BasicController
             }
         }
 
+
         return response()->json($jSON_RESPONSE, 200);
     }
 
@@ -100,14 +103,15 @@ class UriValidatorController extends BasicController
     protected function validateTransportMain($data, $verifiedData){
         if(!isset($data['transport']['type'])){
             $tempTTID = 1;
+            $tempTT = null;
         }
         else {
             $tempTTID = 1;
             $tempTT = TransportType::select('id as val')->find(intval($data['transport']['type']));
         }
 
-        $tt = $tempTT == null ? TransportType::select('id as val')->find($tempTTID) : $tempTT;
 
+        $tt = $tempTT == null ? TransportType::select('id as val')->find($tempTTID) : $tempTT;
         $verifiedData['transport_type'] = $tt;
 
         return $verifiedData;

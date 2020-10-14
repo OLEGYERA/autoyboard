@@ -1897,7 +1897,9 @@
                 const UriSearch = window.location.search;
                 let UriPromise = routingSplicerBus.$options.methods.ValidateUri(UriSearch);
                 UriPromise().then(el => {
+                    console.log(el, el.transportFullStore  !== undefined);
                     if(el.transportFullStore !== undefined){
+
                         this.SET_TRANPORT_ARR(el.transportFullStore)
                         this.getRegion();
                     }
@@ -1918,6 +1920,7 @@
                 this.FULL_REGIONS_FROM_API('/regions' + query);
                 this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query)
                 this.GENERATE_YEAR(new Date().getFullYear());
+                this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1')
             },
         },
         computed: {
