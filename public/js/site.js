@@ -4941,7 +4941,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-/* harmony import */ var _site_site_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../site/site.js */ "./resources/js/site/site.js");
+/* harmony import */ var _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../site/routingSplicerBus.js */ "./resources/js/site/routingSplicerBus.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6378,32 +6378,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  beforeMount: function beforeMount() {},
+  beforeMount: function beforeMount() {
+    this.initFilter();
+  },
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
     window.addEventListener('resize', this.changeResize);
     this.changeResize();
-    this.getYears();
-    this.getRegion();
+    this.getYears(); // this.getRegion()
+
     this.getTransportType();
     this.getManufactureCounries();
     this.getCarBrands();
   },
   data: function data() {
-    var _ref;
-
-    return _ref = {
-      transportTypeChecked: [],
-      // true or false checkbox
-      transportType: [],
+    return {
+      initPage: false,
+      langType: 3,
       yearsList: [],
       manufactureCountries: [],
       carBrandsArr: [],
@@ -6414,489 +6410,508 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       selectedTypeBody: [],
       showSelectedItem: false,
       windowWidth: 0,
-      colorOpen: false
-    }, _defineProperty(_ref, "colorOpen", false), _defineProperty(_ref, "otherShowID", 0), _defineProperty(_ref, "test", [{
-      name: '100'
-    }]), _defineProperty(_ref, "test2", [{
-      name: '200'
-    }]), _defineProperty(_ref, "accordionItems", [{
-      title: 'Безопасность',
-      items: [{
-        title: 'Бронированный автомобиль'
+      colorOpen: false,
+      otherShowID: 0,
+      test: [{
+        name: '100'
+      }],
+      test2: [{
+        name: '200'
+      }],
+      accordionItems: [{
+        title: 'Безопасность',
+        items: [{
+          title: 'Бронированный автомобиль'
+        }, {
+          title: 'ABS'
+        }, {
+          title: 'ASP'
+        }, {
+          title: 'Датчики движения'
+        }, {
+          title: 'Бронированный автомобиль'
+        }, {
+          title: 'Датчики движения'
+        }, {
+          title: 'ABS'
+        }, {
+          title: 'Бронированный автомобиль'
+        }, {
+          title: 'ABS'
+        }, {
+          title: 'ASP'
+        }]
       }, {
-        title: 'ABS'
+        title: 'Комфорт',
+        items: [{
+          title: 'Бортовой компьютер'
+        }, {
+          title: 'Електропакет'
+        }, {
+          title: 'Запуск кнопкой '
+        }, {
+          title: 'Кондиционер '
+        }, {
+          title: 'Люк '
+        }, {
+          title: 'Обогрев руля'
+        }, {
+          title: 'Память сидений'
+        }, {
+          title: 'Подогрев зеркал'
+        }, {
+          title: 'Усилитель руля'
+        }, {
+          title: 'Кожаный сайлон '
+        }, {
+          title: 'Датчик света'
+        }, {
+          title: 'Электростеклоподьемники'
+        }, {
+          title: 'Климат контроль'
+        }, {
+          title: 'Мультируль'
+        }, {
+          title: 'Омыватель фар'
+        }, {
+          title: 'Парктроник'
+        }, {
+          title: 'Подогрев сидений'
+        }, {
+          title: 'Датчик дождя'
+        }]
       }, {
-        title: 'ASP'
+        title: 'Мультимедия',
+        items: [{
+          title: 'Магнитола'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'и збс'
+        }]
       }, {
-        title: 'Датчики движения'
+        title: 'Прочее',
+        items: [{
+          title: 'Понты'
+        }, {
+          title: 'для'
+        }, {
+          title: 'Приезжих'
+        }, {
+          title: 'Магнитола'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'и збс'
+        }, {
+          title: 'AUX'
+        }, {
+          title: 'и ты'
+        }, {
+          title: 'царь'
+        }]
+      }],
+      isActual: [{
+        name: 'Все'
       }, {
-        title: 'Бронированный автомобиль'
+        name: 'Скрыть проданные'
       }, {
-        title: 'Датчики движения'
+        name: 'Только проданные'
+      }],
+      amountShow: [{
+        name: 'По 10'
       }, {
-        title: 'ABS'
+        name: 'По 20'
       }, {
-        title: 'Бронированный автомобиль'
+        name: 'По 30'
       }, {
-        title: 'ABS'
+        name: 'По 50'
       }, {
-        title: 'ASP'
+        name: 'По 100'
+      }],
+      sortBy: [{
+        name: 'Обычная'
+      }, {
+        name: 'От дешевых к дорогим'
+      }, {
+        name: 'От дорогих к дешевым'
+      }, {
+        name: 'Дата добавления'
+      }, {
+        name: 'Год выпуска, по возрастанию'
+      }, {
+        name: 'Год выпуска, по убыванию'
+      }, {
+        name: 'Пробег, по возрастанию'
+      }, {
+        name: 'Пробег, по убыванию'
+      }],
+      deliveryPeriod: [{
+        id: 'all',
+        name: 'Все'
+      }, {
+        id: 'one_hour',
+        name: 'За час'
+      }, {
+        id: 'three_hour',
+        name: 'За 3 часа'
+      }, {
+        id: 'six_hour',
+        name: 'За 6 часов'
+      }, {
+        id: 'twelve_hour',
+        name: 'За 12 часов'
+      }, {
+        id: 'today',
+        name: 'За сегодня'
+      }, {
+        id: 'for_day',
+        name: 'За сутки'
+      }, {
+        id: 'for_two_day',
+        name: 'За 2 дня'
+      }, {
+        id: 'for_three_day',
+        name: 'За 3 дня'
+      }, {
+        id: 'for_week',
+        name: 'За неделю'
+      }, {
+        id: 'for_mounth',
+        name: 'За месяц'
+      }, {
+        id: 'for_three_mounth',
+        name: 'За 3 месяца'
+      }],
+      fuel: [{
+        id: 'gasoline',
+        name: 'Бензин'
+      }, {
+        id: 'diesel',
+        name: 'Дизель'
+      }, {
+        id: 'gas',
+        name: 'Газ'
+      }, {
+        id: 'electro',
+        name: 'Электро'
+      }, {
+        id: 'hybrid',
+        name: 'Гибрид'
+      }, {
+        id: 'gas_gasoline',
+        name: 'Газ/Бензин'
+      }, {
+        id: 'methane_gas',
+        name: 'Газ метан'
+      }, {
+        id: 'propane_butane_gas',
+        name: 'Газ пропан-бутан'
+      }],
+      transmission: [{
+        name: 'Механическая',
+        id: 'mechanical'
+      }, {
+        name: 'Автоматическая',
+        id: 'automatic'
+      }, {
+        name: 'Роботизированная',
+        id: 'robotic'
+      }, {
+        name: 'Вариативная',
+        id: 'variable'
+      }, {
+        name: 'Типтроник',
+        id: 'tiptronic'
+      }],
+      typeofdrive: [{
+        name: 'Задний привод',
+        id: 'rear_drive_unit'
+      }, {
+        name: 'Передний привод',
+        id: 'front_drive_unit'
+      }, {
+        name: 'Полный привод',
+        id: 'full_drive_unit'
+      }],
+      ukSityName: [{
+        name: 'Поляна',
+        id: 1
+      }, {
+        name: 'Славское',
+        id: 2
+      }, {
+        name: 'Тернополь',
+        id: 3
+      }, {
+        name: 'Трускавец',
+        id: 4
+      }, {
+        name: 'Хмельницкий',
+        id: 5
+      }, {
+        name: 'Чайковка',
+        id: 6
+      }, {
+        name: 'Чубинское,',
+        id: 7
+      }, {
+        name: 'Шаян',
+        id: 8
+      }, {
+        name: 'Шешоры',
+        id: 9
+      }, {
+        name: 'Яремче',
+        id: 10
+      }, {
+        name: 'Петровское',
+        id: 11
+      }, {
+        name: 'Приморское',
+        id: 12
+      }, {
+        name: 'Черновцы',
+        id: 13
+      }, {
+        name: 'Днепропетровск',
+        id: 14
+      }, {
+        name: 'Донецк',
+        id: 15
+      }, {
+        name: 'Ивано-Франковск',
+        id: 16
+      }, {
+        name: 'Каменец-Подольский',
+        id: 17
+      }, {
+        name: 'Харьков',
+        id: 18
+      }, {
+        name: 'Херсон',
+        id: 19
+      }, {
+        name: 'Киев',
+        id: 20
+      }, {
+        name: 'Кривой Рог',
+        id: 30
+      }, {
+        name: 'Луганск',
+        id: 31
+      }, {
+        name: 'Львов',
+        id: 32
+      }, {
+        name: 'Николаев',
+        id: 33
+      }, {
+        name: 'Одесса',
+        id: 34
+      }, {
+        name: 'Полтава',
+        id: 35
+      }, {
+        name: 'Сумы',
+        id: 36
+      }, {
+        name: 'Ужгород',
+        id: 37
+      }, {
+        name: 'Запорожье',
+        id: 38
+      }, {
+        name: 'Винница',
+        id: 39
+      }, {
+        name: 'Черкассы',
+        id: 40
+      }, {
+        name: 'Чернигов',
+        id: 41
+      }, {
+        name: 'Ильичевск',
+        id: 42
+      }, {
+        name: 'Луцк',
+        id: 43
+      }, {
+        name: 'Малехов',
+        id: 44
+      }, {
+        name: 'Микуличин',
+        id: 45
+      }, {
+        name: 'Ровно',
+        id: 46
+      }, {
+        name: 'Стрый',
+        id: 47
+      }, {
+        name: 'Ахтырка',
+        id: 48
+      }, {
+        name: 'Белогородка',
+        id: 49
+      }, {
+        name: 'Бердянск',
+        id: 50
+      }, {
+        name: 'Борисполь',
+        id: 51
+      }, {
+        name: 'Бояны',
+        id: 52
+      }, {
+        name: 'Бровары',
+        id: 53
+      }, {
+        name: 'Буковель',
+        id: 54
+      }, {
+        name: 'Бурлачья Балка',
+        id: 55
+      }, {
+        name: 'Верховина',
+        id: 56
+      }, {
+        name: 'Винники',
+        id: 57
+      }, {
+        name: 'Жденево',
+        id: 58
+      }, {
+        name: 'Житомир',
+        id: 59
+      }, {
+        name: 'Жовтневое',
+        id: 60
+      }, {
+        name: 'Затока',
+        id: 61
+      }, {
+        name: 'Кировоград',
+        id: 62
+      }, {
+        name: 'Коблево',
+        id: 63
+      }, {
+        name: 'Козин',
+        id: 64
+      }, {
+        name: 'Колоденка',
+        id: 65
+      }, {
+        name: 'Коропово',
+        id: 66
+      }, {
+        name: 'Кременчуг',
+        id: 67
+      }, {
+        name: 'Макеевка',
+        id: 68
+      }, {
+        name: 'Мукачево',
+        id: 69
+      }],
+      countryName: [{
+        name: "Китай",
+        id: "1"
+      }, {
+        name: "США",
+        id: "2"
+      }, {
+        name: "Япония",
+        id: "3"
+      }, {
+        name: "Германия",
+        id: "4"
+      }, {
+        name: "Индия",
+        id: "5"
+      }, {
+        name: "ЮжнаяКорея",
+        id: "6"
+      }, {
+        name: "Мексика",
+        id: "7"
+      }, {
+        name: "Бразилия",
+        id: "8"
+      }, {
+        name: "Испания",
+        id: "9"
+      }, {
+        name: "Таиланд",
+        id: "10"
+      }],
+      typeCars: [{
+        name: 'Легковые',
+        id: 'passenger'
+      }, {
+        name: 'Мото',
+        id: 'moto'
+      }, {
+        name: 'Автобусы',
+        id: 'bus'
+      }, {
+        name: 'Водный',
+        id: 'aqueous'
+      }, {
+        name: 'Сельхозтехника',
+        id: 'agricultural_machinery'
+      }, {
+        name: 'Спецтехника',
+        id: 'special_equipment'
+      }, {
+        name: 'Прицепы',
+        id: ''
+      }],
+      bodyType: [{
+        id: 'station_wagon',
+        name: 'Универсал'
+      }, {
+        id: 'crossover',
+        name: 'Кроссовер'
+      }, {
+        id: 'minivan',
+        name: 'Минивэн'
+      }, {
+        id: 'liftback',
+        name: 'Лифтбек'
+      }, {
+        id: 'hatchback',
+        name: 'Хэтчбек'
+      }, {
+        id: 'cabriolet',
+        name: 'Кабриолет'
+      }, {
+        id: 'sedan',
+        name: 'Седан'
+      }, {
+        id: 'coupe',
+        name: 'Купе'
+      }, {
+        id: 'pikap',
+        name: 'Пикап'
+      }, {
+        id: 'roadster',
+        name: 'Ростер'
+      }, {
+        id: 'limousine',
+        name: 'Лимузин'
+      }, {
+        id: 'anouther_body',
+        name: 'Другой'
       }]
-    }, {
-      title: 'Комфорт',
-      items: [{
-        title: 'Бортовой компьютер'
-      }, {
-        title: 'Електропакет'
-      }, {
-        title: 'Запуск кнопкой '
-      }, {
-        title: 'Кондиционер '
-      }, {
-        title: 'Люк '
-      }, {
-        title: 'Обогрев руля'
-      }, {
-        title: 'Память сидений'
-      }, {
-        title: 'Подогрев зеркал'
-      }, {
-        title: 'Усилитель руля'
-      }, {
-        title: 'Кожаный сайлон '
-      }, {
-        title: 'Датчик света'
-      }, {
-        title: 'Электростеклоподьемники'
-      }, {
-        title: 'Климат контроль'
-      }, {
-        title: 'Мультируль'
-      }, {
-        title: 'Омыватель фар'
-      }, {
-        title: 'Парктроник'
-      }, {
-        title: 'Подогрев сидений'
-      }, {
-        title: 'Датчик дождя'
-      }]
-    }, {
-      title: 'Мультимедия',
-      items: [{
-        title: 'Магнитола'
-      }, {
-        title: 'есть'
-      }, {
-        title: 'и збс'
-      }]
-    }, {
-      title: 'Прочее',
-      items: [{
-        title: 'Понты'
-      }, {
-        title: 'для'
-      }, {
-        title: 'Приезжих'
-      }, {
-        title: 'Магнитола'
-      }, {
-        title: 'есть'
-      }, {
-        title: 'и збс'
-      }, {
-        title: 'AUX'
-      }, {
-        title: 'и ты'
-      }, {
-        title: 'царь'
-      }]
-    }]), _defineProperty(_ref, "isActual", [{
-      name: 'Все'
-    }, {
-      name: 'Скрыть проданные'
-    }, {
-      name: 'Только проданные'
-    }]), _defineProperty(_ref, "amountShow", [{
-      name: 'По 10'
-    }, {
-      name: 'По 20'
-    }, {
-      name: 'По 30'
-    }, {
-      name: 'По 50'
-    }, {
-      name: 'По 100'
-    }]), _defineProperty(_ref, "sortBy", [{
-      name: 'Обычная'
-    }, {
-      name: 'От дешевых к дорогим'
-    }, {
-      name: 'От дорогих к дешевым'
-    }, {
-      name: 'Дата добавления'
-    }, {
-      name: 'Год выпуска, по возрастанию'
-    }, {
-      name: 'Год выпуска, по убыванию'
-    }, {
-      name: 'Пробег, по возрастанию'
-    }, {
-      name: 'Пробег, по убыванию'
-    }]), _defineProperty(_ref, "deliveryPeriod", [{
-      id: 'all',
-      name: 'Все'
-    }, {
-      id: 'one_hour',
-      name: 'За час'
-    }, {
-      id: 'three_hour',
-      name: 'За 3 часа'
-    }, {
-      id: 'six_hour',
-      name: 'За 6 часов'
-    }, {
-      id: 'twelve_hour',
-      name: 'За 12 часов'
-    }, {
-      id: 'today',
-      name: 'За сегодня'
-    }, {
-      id: 'for_day',
-      name: 'За сутки'
-    }, {
-      id: 'for_two_day',
-      name: 'За 2 дня'
-    }, {
-      id: 'for_three_day',
-      name: 'За 3 дня'
-    }, {
-      id: 'for_week',
-      name: 'За неделю'
-    }, {
-      id: 'for_mounth',
-      name: 'За месяц'
-    }, {
-      id: 'for_three_mounth',
-      name: 'За 3 месяца'
-    }]), _defineProperty(_ref, "fuel", [{
-      id: 'gasoline',
-      name: 'Бензин'
-    }, {
-      id: 'diesel',
-      name: 'Дизель'
-    }, {
-      id: 'gas',
-      name: 'Газ'
-    }, {
-      id: 'electro',
-      name: 'Электро'
-    }, {
-      id: 'hybrid',
-      name: 'Гибрид'
-    }, {
-      id: 'gas_gasoline',
-      name: 'Газ/Бензин'
-    }, {
-      id: 'methane_gas',
-      name: 'Газ метан'
-    }, {
-      id: 'propane_butane_gas',
-      name: 'Газ пропан-бутан'
-    }]), _defineProperty(_ref, "transmission", [{
-      name: 'Механическая',
-      id: 'mechanical'
-    }, {
-      name: 'Автоматическая',
-      id: 'automatic'
-    }, {
-      name: 'Роботизированная',
-      id: 'robotic'
-    }, {
-      name: 'Вариативная',
-      id: 'variable'
-    }, {
-      name: 'Типтроник',
-      id: 'tiptronic'
-    }]), _defineProperty(_ref, "typeofdrive", [{
-      name: 'Задний привод',
-      id: 'rear_drive_unit'
-    }, {
-      name: 'Передний привод',
-      id: 'front_drive_unit'
-    }, {
-      name: 'Полный привод',
-      id: 'full_drive_unit'
-    }]), _defineProperty(_ref, "ukSityName", [{
-      name: 'Поляна',
-      id: 1
-    }, {
-      name: 'Славское',
-      id: 2
-    }, {
-      name: 'Тернополь',
-      id: 3
-    }, {
-      name: 'Трускавец',
-      id: 4
-    }, {
-      name: 'Хмельницкий',
-      id: 5
-    }, {
-      name: 'Чайковка',
-      id: 6
-    }, {
-      name: 'Чубинское,',
-      id: 7
-    }, {
-      name: 'Шаян',
-      id: 8
-    }, {
-      name: 'Шешоры',
-      id: 9
-    }, {
-      name: 'Яремче',
-      id: 10
-    }, {
-      name: 'Петровское',
-      id: 11
-    }, {
-      name: 'Приморское',
-      id: 12
-    }, {
-      name: 'Черновцы',
-      id: 13
-    }, {
-      name: 'Днепропетровск',
-      id: 14
-    }, {
-      name: 'Донецк',
-      id: 15
-    }, {
-      name: 'Ивано-Франковск',
-      id: 16
-    }, {
-      name: 'Каменец-Подольский',
-      id: 17
-    }, {
-      name: 'Харьков',
-      id: 18
-    }, {
-      name: 'Херсон',
-      id: 19
-    }, {
-      name: 'Киев',
-      id: 20
-    }, {
-      name: 'Кривой Рог',
-      id: 30
-    }, {
-      name: 'Луганск',
-      id: 31
-    }, {
-      name: 'Львов',
-      id: 32
-    }, {
-      name: 'Николаев',
-      id: 33
-    }, {
-      name: 'Одесса',
-      id: 34
-    }, {
-      name: 'Полтава',
-      id: 35
-    }, {
-      name: 'Сумы',
-      id: 36
-    }, {
-      name: 'Ужгород',
-      id: 37
-    }, {
-      name: 'Запорожье',
-      id: 38
-    }, {
-      name: 'Винница',
-      id: 39
-    }, {
-      name: 'Черкассы',
-      id: 40
-    }, {
-      name: 'Чернигов',
-      id: 41
-    }, {
-      name: 'Ильичевск',
-      id: 42
-    }, {
-      name: 'Луцк',
-      id: 43
-    }, {
-      name: 'Малехов',
-      id: 44
-    }, {
-      name: 'Микуличин',
-      id: 45
-    }, {
-      name: 'Ровно',
-      id: 46
-    }, {
-      name: 'Стрый',
-      id: 47
-    }, {
-      name: 'Ахтырка',
-      id: 48
-    }, {
-      name: 'Белогородка',
-      id: 49
-    }, {
-      name: 'Бердянск',
-      id: 50
-    }, {
-      name: 'Борисполь',
-      id: 51
-    }, {
-      name: 'Бояны',
-      id: 52
-    }, {
-      name: 'Бровары',
-      id: 53
-    }, {
-      name: 'Буковель',
-      id: 54
-    }, {
-      name: 'Бурлачья Балка',
-      id: 55
-    }, {
-      name: 'Верховина',
-      id: 56
-    }, {
-      name: 'Винники',
-      id: 57
-    }, {
-      name: 'Жденево',
-      id: 58
-    }, {
-      name: 'Житомир',
-      id: 59
-    }, {
-      name: 'Жовтневое',
-      id: 60
-    }, {
-      name: 'Затока',
-      id: 61
-    }, {
-      name: 'Кировоград',
-      id: 62
-    }, {
-      name: 'Коблево',
-      id: 63
-    }, {
-      name: 'Козин',
-      id: 64
-    }, {
-      name: 'Колоденка',
-      id: 65
-    }, {
-      name: 'Коропово',
-      id: 66
-    }, {
-      name: 'Кременчуг',
-      id: 67
-    }, {
-      name: 'Макеевка',
-      id: 68
-    }, {
-      name: 'Мукачево',
-      id: 69
-    }]), _defineProperty(_ref, "countryName", [{
-      name: "Китай",
-      id: "1"
-    }, {
-      name: "США",
-      id: "2"
-    }, {
-      name: "Япония",
-      id: "3"
-    }, {
-      name: "Германия",
-      id: "4"
-    }, {
-      name: "Индия",
-      id: "5"
-    }, {
-      name: "ЮжнаяКорея",
-      id: "6"
-    }, {
-      name: "Мексика",
-      id: "7"
-    }, {
-      name: "Бразилия",
-      id: "8"
-    }, {
-      name: "Испания",
-      id: "9"
-    }, {
-      name: "Таиланд",
-      id: "10"
-    }]), _defineProperty(_ref, "typeCars", [{
-      name: 'Легковые',
-      id: 'passenger'
-    }, {
-      name: 'Мото',
-      id: 'moto'
-    }, {
-      name: 'Автобусы',
-      id: 'bus'
-    }, {
-      name: 'Водный',
-      id: 'aqueous'
-    }, {
-      name: 'Сельхозтехника',
-      id: 'agricultural_machinery'
-    }, {
-      name: 'Спецтехника',
-      id: 'special_equipment'
-    }, {
-      name: 'Прицепы',
-      id: ''
-    }]), _defineProperty(_ref, "bodyType", [{
-      id: 'station_wagon',
-      name: 'Универсал'
-    }, {
-      id: 'crossover',
-      name: 'Кроссовер'
-    }, {
-      id: 'minivan',
-      name: 'Минивэн'
-    }, {
-      id: 'liftback',
-      name: 'Лифтбек'
-    }, {
-      id: 'hatchback',
-      name: 'Хэтчбек'
-    }, {
-      id: 'cabriolet',
-      name: 'Кабриолет'
-    }, {
-      id: 'sedan',
-      name: 'Седан'
-    }, {
-      id: 'coupe',
-      name: 'Купе'
-    }, {
-      id: 'pikap',
-      name: 'Пикап'
-    }, {
-      id: 'roadster',
-      name: 'Ростер'
-    }, {
-      id: 'limousine',
-      name: 'Лимузин'
-    }, {
-      id: 'anouther_body',
-      name: 'Другой'
-    }]), _ref;
+    };
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS', 'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['FULL_REGIONS_FROM_API', 'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR'])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS', //RBMY
+  'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
+  'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['FULL_REGIONS_FROM_API', //RBMY
+  'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
+  'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API'])), {}, {
     check: function check(e) {},
     computeCityResult: function computeCityResult(city) {
       this.SET_CITIES_TO_STORE(city);
@@ -6953,93 +6968,83 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
     },
-    getCarBrands: function getCarBrands() {
-      var _this = this;
-
-      var lang = 1,
-          query = "?langType=" + lang;
-      _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('/transport_types/1/brands' + query).then(function (response) {
-        _this.carBrandsArr = response.data;
-      })["catch"](function (error) {
-        console.log('error', error);
-      });
-    },
+    getCarBrands: function getCarBrands() {},
     getManufactureCounries: function getManufactureCounries() {
-      var _this2 = this;
+      var _this = this;
 
       var lang = 3,
           query = "?langType=" + lang;
       _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('/manufacture_countries' + query).then(function (response) {
-        _this2.manufactureCountries = response.data;
+        _this.manufactureCountries = response.data;
       })["catch"](function (error) {
         console.log('error', error);
       });
     },
-    getTransportType: function getTransportType() {
-      var _this3 = this;
+    getTransportType: function getTransportType() {},
+    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
+      this.SET_BRAND_CHOSE(data);
+      data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
+      this.MODELS_FROM_API(data);
+    },
+    initFilter: function initFilter() {
+      var _this2 = this;
 
-      var lang = 3,
-          query = "?langType=" + lang;
-      _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('/transport_types' + query).then(function (response) {
-        _this3.transportType = response.data;
-      })["catch"](function (error) {
-        console.log('error', error);
+      var UriSearch = window.location.search;
+      var UriPromise = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.ValidateUri(UriSearch);
+      UriPromise().then(function (el) {
+        if (el.transportFullStore !== undefined) {
+          _this2.SET_TRANPORT_ARR(el.transportFullStore);
+
+          _this2.getRegion();
+        }
+
+        if (el.rbmyFullStore !== undefined) {
+          _this2.SET_NEW_RBMY(el.rbmyFullStore);
+        }
+
+        _this2.initPage = true;
       });
+    },
+    reInitFilterByClick: function reInitFilterByClick(event) {
+      this.SET_TRANSPORT_TYPE(event);
+      this.CLEAR_BRANDS_MODELS();
+      this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
+      this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1');
     },
     getRegion: function getRegion() {
       var lang = 3,
           query = "?langType=" + lang + '&alias=1';
       this.FULL_REGIONS_FROM_API('/regions' + query);
       this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query);
-      this.BRANDS_FROM_API('/transport_types/1/brands?langType=1&alias=1&manufactureID=1');
       this.GENERATE_YEAR(new Date().getFullYear());
-    },
-    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
-      this.SET_BRAND_CHOSE(data);
-      data['url'] = '/transport_types/1/brands/' + data.choose + '/models?langType=1&alias=1';
-      this.MODELS_FROM_API(data);
-    },
-    analizeLink: function analizeLink(search) {
-      search = search.split('?').join('').split('&');
-      console.log(search);
-    },
-    analizeRbymsProps: function analizeRbymsProps() {
-      var RbymsProps = '';
-      this.rbymsArr.forEach(function (el, i) {
-        if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-          RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
-          RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
-
-          if (el.brandChoose !== null && el.modelsChoose.length > 0) {
-            el.modelsChoose.forEach(function (el_model, i_model) {
-              RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&' : '';
-            });
-          }
-
-          RbymsProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom + '&' : '';
-          RbymsProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo + '&' : '';
-        }
-      });
-      return RbymsProps.substring(0, RbymsProps.length - 1);
     }
   }),
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    'regionArr': 'GET_FULL_REGION_FROM_STORE',
-    'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
-    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
-    'rbymsArr': 'GET_RBMYS',
+    //RBMY
+    'rbmysArr': 'GET_RBMYS',
     'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
     'brands': 'GET_BRANDS',
-    'years': 'GET_YEARS'
+    'years': 'GET_YEARS',
+    //TRANSPORT
+    'transportsArr': 'GET_TRANSPORTS',
+    'transportTypes': 'GET_TRANSPORT_TYPES',
+    'transportBodies': 'GET_TRANSPORT_BODIES',
+    'regionArr': 'GET_FULL_REGION_FROM_STORE',
+    'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
+    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE'
   })), {}, {
     generateLink: function generateLink() {
-      var CurrentURI = 'extended'; // let test = this.analizeRbymsProps();
-
-      var r = _site_site_js__WEBPACK_IMPORTED_MODULE_3__["eventBus"].$options.methods.lol(this.rbymsArr);
-      console.log(r);
-      window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + 'rbmy[0][reg]=3&rbmy[0][brand]=6&rbmy[0][model][0]=1747&rbmy[0][yearF]=2019');
+      var CurrentURI = 'extended';
+      var TRANPORTsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingTRANSPORTsProps(this.transportsArr);
+      var RBMYsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingRBMYsProps(this.rbmysArr);
+      if (this.initPage) window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + TRANPORTsProps + '&' + RBMYsProps);
     }
   }),
+  watch: {
+    transportArr: function transportArr(to) {
+      console.log(to, 'watch');
+    }
+  },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.clickOutside);
   }
@@ -8517,7 +8522,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['options', 'placeholder', 'choosedItem'],
+  props: ['options', 'placeholder', 'choosedItem', 'deleteDis'],
   mounted: function mounted() {
     this.computingResults(''); // if data load rapid and doesn`t updated
 
@@ -8570,7 +8575,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     clearInput: function clearInput() {
       this.search = '';
-      if (this.choosedItem !== null) this.$emit('deleteChoose');
+      if (this.choosedItem !== null && this.deleteDis !== true) this.$emit('deleteChoose');
       if (this.openResults == true) this.$refs.yselectsearch.focus();
     },
     cleanTextField: function cleanTextField() {
@@ -48975,20 +48980,22 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "yb-carsearch_items" }, [
         _c("div", { staticClass: "yoptions_items" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "ycheckbox_options" },
-            [
-              _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
-              _vm._v(" "),
-              _c("ycheckbox", { attrs: { text: "Провереные" } }),
-              _vm._v(" "),
-              _c("ycheckbox", { attrs: { text: "С фото" } })
-            ],
-            1
-          ),
+          _c("div", { staticClass: "yfilter_view-option" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ycheckbox_options" },
+              [
+                _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
+                _vm._v(" "),
+                _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                _vm._v(" "),
+                _c("ycheckbox", { attrs: { text: "С фото" } })
+              ],
+              1
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -48996,9 +49003,18 @@ var render = function() {
             [
               _c("h2", [_vm._v("Тип транспорта")]),
               _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.transportType },
-                on: { setItem: _vm.selectedItem }
+              _c("yselectsearch", {
+                attrs: {
+                  deleteDis: true,
+                  placeholder: "Выберите тип транспорта",
+                  options: _vm.transportTypes,
+                  choosedItem: _vm.transportsArr.typeChoosed
+                },
+                on: {
+                  updateChoose: function($event) {
+                    return _vm.reInitFilterByClick($event)
+                  }
+                }
               }),
               _vm._v(" "),
               _c("h3", [_vm._v("Тип кузова")]),
@@ -49007,80 +49023,18 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "yl-vis checkbox" },
-                  _vm._l(_vm.bodyType, function(item, index) {
-                    return _c("div", { staticClass: "yvis_checkbox" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.transportTypeChecked[index],
-                            expression: "transportTypeChecked[index]"
-                          }
-                        ],
-                        staticClass: "ycheck",
-                        attrs: { id: item.name, type: "checkbox" },
-                        domProps: {
-                          value: item.name,
-                          checked: Array.isArray(
-                            _vm.transportTypeChecked[index]
-                          )
-                            ? _vm._i(
-                                _vm.transportTypeChecked[index],
-                                item.name
-                              ) > -1
-                            : _vm.transportTypeChecked[index]
-                        },
-                        on: {
-                          click: function($event) {
-                            return _vm.addToArray(item, index)
-                          },
-                          change: function($event) {
-                            var $$a = _vm.transportTypeChecked[index],
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = item.name,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.transportTypeChecked,
-                                    index,
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.transportTypeChecked,
-                                    index,
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.transportTypeChecked, index, $$c)
-                            }
-                          }
+                  _vm._l(_vm.transportBodies, function(body, i) {
+                    return _c("ycheck", {
+                      key: i,
+                      attrs: { name: body.name, checked: body.choosed },
+                      on: {
+                        checked: function($event) {
+                          return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
                         }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "y-body_name",
-                          attrs: { for: item.name }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(item.name) +
-                              "\n                                    "
-                          )
-                        ]
-                      )
-                    ])
+                      }
+                    })
                   }),
-                  0
+                  1
                 )
               ])
             ],
@@ -49092,7 +49046,7 @@ var render = function() {
           "div",
           { staticClass: "add-cars_items" },
           [
-            _vm._l(_vm.rbymsArr, function(rbym, i) {
+            _vm._l(_vm.rbmysArr, function(rbmy, i) {
               return _c("div", { staticClass: "yflex_car-item" }, [
                 _c(
                   "div",
@@ -49104,7 +49058,7 @@ var render = function() {
                       attrs: {
                         placeholder: "Выберите страну",
                         options: _vm.manufactureRegions,
-                        choosedItem: rbym.regionChoose
+                        choosedItem: rbmy.regionChoose
                       },
                       on: {
                         updateChoose: function($event) {
@@ -49132,12 +49086,12 @@ var render = function() {
                       attrs: {
                         placeholder: "Выберите марку",
                         options:
-                          rbym.brands.length > 0
-                            ? rbym.brands
-                            : rbym.regionChoose !== null
+                          rbmy.brands.length > 0
+                            ? rbmy.brands
+                            : rbmy.regionChoose !== null
                             ? []
                             : _vm.brands,
-                        choosedItem: rbym.brandChoose
+                        choosedItem: rbmy.brandChoose
                       },
                       on: {
                         updateChoose: function($event) {
@@ -49164,8 +49118,8 @@ var render = function() {
                     _c("yselectmultysearch", {
                       attrs: {
                         placeholder: "Выберите модель",
-                        options: rbym.models,
-                        choosedItems: rbym.modelsChoose
+                        options: rbmy.models,
+                        choosedItems: rbmy.modelsChoose
                       },
                       on: {
                         updateChoose: function($event) {
@@ -49197,7 +49151,7 @@ var render = function() {
                         attrs: {
                           placeholder: "От",
                           options: _vm.years,
-                          choosedItem: rbym.yearFrom
+                          choosedItem: rbmy.yearFrom
                         },
                         on: {
                           updateChoose: function($event) {
@@ -49219,7 +49173,7 @@ var render = function() {
                         attrs: {
                           placeholder: "До",
                           options: _vm.years,
-                          choosedItem: rbym.yearTo
+                          choosedItem: rbmy.yearTo
                         },
                         on: {
                           updateChoose: function($event) {
@@ -52875,10 +52829,12 @@ var render = function() {
     }),
     _vm._v(" "),
     (_vm.search.length !== 0 && _vm.openResults) ||
-    _vm.getChoosedObject !== undefined
+    (_vm.getChoosedObject !== undefined && _vm.deleteDis !== true)
       ? _c("i", {
           staticClass: "fas fa-times",
-          class: { delete: _vm.getChoosedObject !== undefined },
+          class: {
+            delete: _vm.getChoosedObject !== undefined && _vm.deleteDis !== true
+          },
           on: {
             click: function($event) {
               if ($event.target !== $event.currentTarget) {
@@ -75717,6 +75673,9 @@ var getters = {
   }
 };
 var mutations = {
+  SET_NEW_RBMY: function SET_NEW_RBMY(state, payload) {
+    state.rbmyFullStore = payload;
+  },
   CREATE_NEW_RBMY: function CREATE_NEW_RBMY(state, payload) {
     state.rbmyFullStore.push({
       regionChoose: null,
@@ -75750,6 +75709,17 @@ var mutations = {
     state.rbmyFullStore[payload.index].brandChoose = null;
     state.rbmyFullStore[payload.index].models = [];
     state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  CLEAR_BRANDS_MODELS: function CLEAR_BRANDS_MODELS(state, payload) {
+    state.rbmyFullStore = [{
+      regionChoose: null,
+      brandChoose: null,
+      modelsChoose: [],
+      yearFrom: null,
+      yearTo: null,
+      brands: [],
+      models: []
+    }];
   },
   SET_BRAND_CHOSE: function SET_BRAND_CHOSE(state, payload) {
     state.rbmyFullStore[payload.index].brandChoose = payload.choose;
@@ -75900,6 +75870,144 @@ var actions = {
 
     context.commit('SET_YEAR_FROM_GENERATOR', YearArr);
   }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/STORE/modules/TRANSPORT.js":
+/*!*************************************************!*\
+  !*** ./resources/js/STORE/modules/TRANSPORT.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  transportTypes: [],
+  transportBodies: [],
+  transportFullStore: {
+    typeChoosed: null,
+    bodiesChoosed: []
+  }
+};
+var getters = {
+  GET_TRANSPORT_TYPES: function GET_TRANSPORT_TYPES(state) {
+    return state.transportTypes;
+  },
+  GET_TRANSPORT_BODIES: function GET_TRANSPORT_BODIES(state) {
+    state.transportBodies.forEach(function (el) {
+      if (state.transportFullStore.bodiesChoosed.indexOf(el.val) !== -1) {
+        el['choosed'] = true;
+      } else {
+        el['choosed'] = false;
+      }
+    });
+    return state.transportBodies;
+  },
+  GET_TRANSPORTS: function GET_TRANSPORTS(state) {
+    return state.transportFullStore;
+  }
+};
+var mutations = {
+  SET_TRANSPORT_TYPE: function SET_TRANSPORT_TYPE(state, payload) {
+    state.transportFullStore.typeChoosed = payload;
+    state.transportFullStore.bodiesChoosed = [];
+    console.log(123);
+  },
+  SET_TRANPORT_ARR: function SET_TRANPORT_ARR(state, payload) {
+    state.transportTypes = payload.transportTypes;
+    state.transportBodies = payload.transportBodies;
+    state.transportFullStore.typeChoosed = payload.typeChoosed;
+    state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
+  },
+  SET_TRANSPORT_BODY_CHOOSE: function SET_TRANSPORT_BODY_CHOOSE(state, payload) {
+    var condition = state.transportFullStore.bodiesChoosed.find(function (el) {
+      if (payload === el) return true;
+    });
+
+    if (condition !== undefined) {
+      state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
+    } else {
+      state.transportFullStore.bodiesChoosed.push(payload);
+    }
+  },
+  SET_TRANSPORT_TYPES_FROM_API: function SET_TRANSPORT_TYPES_FROM_API(state, payload) {
+    state.transportTypes = payload;
+  },
+  SET_TRANSPORT_BODIES_FROM_API: function SET_TRANSPORT_BODIES_FROM_API(state, payload) {
+    state.transportBodies = payload;
+  }
+};
+var actions = {
+  TRANSPORT_TYPES_FROM_API: function () {
+    var _TRANSPORT_TYPES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function TRANSPORT_TYPES_FROM_API(_x, _x2) {
+      return _TRANSPORT_TYPES_FROM_API.apply(this, arguments);
+    }
+
+    return TRANSPORT_TYPES_FROM_API;
+  }(),
+  BODIES_FROM_API: function () {
+    var _BODIES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function BODIES_FROM_API(_x3, _x4) {
+      return _BODIES_FROM_API.apply(this, arguments);
+    }
+
+    return BODIES_FROM_API;
+  }()
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: state,
@@ -76064,6 +76172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_regions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/regions */ "./resources/js/STORE/modules/regions.js");
 /* harmony import */ var _modules_RBMY__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/RBMY */ "./resources/js/STORE/modules/RBMY.js");
+/* harmony import */ var _modules_TRANSPORT__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/TRANSPORT */ "./resources/js/STORE/modules/TRANSPORT.js");
+
 
 
 
@@ -76076,7 +76186,8 @@ var services = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   actions: {},
   modules: {
     regions: _modules_regions__WEBPACK_IMPORTED_MODULE_2__["default"],
-    RBMY: _modules_RBMY__WEBPACK_IMPORTED_MODULE_3__["default"]
+    RBMY: _modules_RBMY__WEBPACK_IMPORTED_MODULE_3__["default"],
+    TRANSPORT: _modules_TRANSPORT__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 
@@ -76117,7 +76228,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-  baseURL: "http://10.0.0.140:1709/v1",
+  // baseURL: `http://10.0.0.140:1709/v1`,
+  baseURL: "http://yboard.loc/v1",
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -78186,16 +78298,98 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/site/site.js":
-/*!***********************************!*\
-  !*** ./resources/js/site/site.js ***!
-  \***********************************/
-/*! exports provided: eventBus */
+/***/ "./resources/js/site/routingSplicerBus.js":
+/*!************************************************!*\
+  !*** ./resources/js/site/routingSplicerBus.js ***!
+  \************************************************/
+/*! exports provided: routingSplicerBus */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventBus", function() { return eventBus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routingSplicerBus", function() { return routingSplicerBus; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.js */ "./resources/js/http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+var routingSplicerBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
+  methods: {
+    //deconstrucot
+    ValidateUri: function ValidateUri(search) {
+      return /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                return _context.abrupt("return", _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].post('/validateSearch', {
+                  uri: search.substring(1)
+                }).then(function (response) {
+                  return response.data;
+                }));
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+    },
+    //constructor
+    creatingTRANSPORTsProps: function creatingTRANSPORTsProps(arr) {
+      var strProps = '';
+      strProps += 'transport[type]=' + arr.typeChoosed + '&';
+
+      if (arr.bodiesChoosed.length > 0) {
+        arr.bodiesChoosed.forEach(function (el, i) {
+          strProps += 'transport[bodies][' + i + ']=' + el + '&';
+        });
+      }
+
+      return strProps.substring(0, strProps.length - 1);
+    },
+    creatingRBMYsProps: function creatingRBMYsProps(arr) {
+      var strProps = '';
+      arr.forEach(function (el, i) {
+        if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
+          strProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
+          strProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
+
+          if (el.brandChoose !== null && el.modelsChoose.length > 0) {
+            el.modelsChoose.forEach(function (el_model, i_model) {
+              strProps += 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&';
+            });
+          }
+
+          strProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom + '&' : '';
+          strProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo + '&' : '';
+        }
+      });
+      return strProps.substring(0, strProps.length - 1);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/site/site.js":
+/*!***********************************!*\
+  !*** ./resources/js/site/site.js ***!
+  \***********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
@@ -78255,29 +78449,6 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.directive('click-outside', {
   },
   unbind: function unbind(el) {
     document.body.removeEventListener('click', el.clickOutsideEvent);
-  }
-});
-var eventBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
-  methods: {
-    lol: function lol(rbymsArr) {
-      var RbymsProps = '';
-      rbymsArr.forEach(function (el, i) {
-        if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-          RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
-          RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
-
-          if (el.brandChoose !== null && el.modelsChoose.length > 0) {
-            el.modelsChoose.forEach(function (el_model, i_model) {
-              RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&' : '';
-            });
-          }
-
-          RbymsProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom + '&' : '';
-          RbymsProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo + '&' : '';
-        }
-      });
-      return RbymsProps.substring(0, RbymsProps.length - 1);
-    }
   }
 });
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a({

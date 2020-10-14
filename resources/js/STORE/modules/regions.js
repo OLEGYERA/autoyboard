@@ -43,7 +43,6 @@ let getters = {
                     }
                 })
 
-
                 regionNewArr.push({
                     'val': reg_el.val,
                     'alias': reg_el.alias,

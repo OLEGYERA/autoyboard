@@ -3,9 +3,9 @@
 
 //components
 @import 'components/header';
-@import 'components/filter';
+//@import 'components/filter';
 @import 'components/yfilterextended';
-@import 'components/home';
+//@import 'components/home';
 
 
 @import 'modules/yfilterform';
@@ -15,12 +15,12 @@
 
 
 
-@import 'components/card';
-@import 'components/favorite';
+//@import 'components/card';
+//@import 'components/favorite';
 //modules
-@import 'modules/header/ymenu';
-@import 'modules/header/ysearch';
-@import 'modules/ylocation';
+//@import 'modules/header/ymenu';
+//@import 'modules/header/ysearch';
+//@import 'modules/ylocation';
 
 
 
@@ -35,11 +35,11 @@
 @import 'modules/yform';
 @import 'modules/ycheckbox';
 @import 'modules/yrangeslider';
-@import 'modules/ybestoffers';
-@import 'modules/ycatalog';
-@import 'modules/yfavorite';
-@import 'modules/yanalitics';
-@import 'modules/ynews';
+//@import 'modules/ybestoffers';
+//@import 'modules/ycatalog';
+//@import 'modules/yfavorite';
+//@import 'modules/yanalitics';
+//@import 'modules/ynews';
 
 .scroll-disallowed{
     overflow-y: hidden;

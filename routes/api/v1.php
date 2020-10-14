@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 $appRoutes = function() {
     Route::get('/transport_types', 'API\FilterController@GET_transport_types');
     Route::get('/transport_types/{id}', 'API\FilterController@GET_transport_type');
+    Route::get('/transport_types/{id}/bodies', 'API\FilterController@GET_transport_bodies');
     Route::get('/transport_types/{id}/brands', 'API\FilterController@GET_transport_brands');
     Route::get('/transport_types/{id}/brands/{brand_id}', 'API\FilterController@GET_transport_brand');
     Route::get('/transport_types/{id}/brands/{brand_id}/models', 'API\FilterController@GET_transport_models');
@@ -29,6 +30,9 @@ $appRoutes = function() {
 
     Route::get('/regions', 'API\RegionController@GET_region');
 
+
+    Route::post('/validateSearch', 'API\UriValidatorController@validateSearch');
+
 //    manufatureID=4
 
 //    Route::post('/inverse_form', 'API\RegionController@POST_inverse_form');
@@ -37,4 +41,5 @@ $appRoutes = function() {
 
 Route::group(array('domain' => 'api.yboard'), $appRoutes);
 Route::group(array('domain' => '10.0.0.140'), $appRoutes);
+Route::group(array('domain' => 'yboard.loc'), $appRoutes);
 

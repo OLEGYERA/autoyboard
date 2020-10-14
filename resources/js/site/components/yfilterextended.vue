@@ -920,43 +920,40 @@
             <h1 class="ytitle-exp">Расширенный поиск</h1>
             <div class="yb-carsearch_items">
                 <div class="yoptions_items">
-                    <div class="yoption_btn">
-                        <button  class="change_type active">Все</button>
-                        <button class="change_type">Новые</button>
-                        <button class="change_type">Б/у</button>
-                    </div>
-                    <div class="ycheckbox_options">
-                        <ycheckbox
-                            :text="'Поиск со всех ресурсов'">
-                        </ycheckbox>
-                        <ycheckbox
-                            :text="'Провереные'">
-                        </ycheckbox>
-                        <ycheckbox
-                            :text="'С фото'">
-                        </ycheckbox>
+                    <div class="yfilter_view-option">
+                        <div class="yoption_btn">
+                            <button class="change_type active">Все</button>
+                            <button class="change_type">Новые</button>
+                            <button class="change_type">Б/у</button>
+                        </div>
+                        <div class="ycheckbox_options">
+                            <ycheckbox
+                                :text="'Поиск со всех ресурсов'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'Провереные'">
+                            </ycheckbox>
+                            <ycheckbox
+                                :text="'С фото'">
+                            </ycheckbox>
+                        </div>
                     </div>
                     <div class="y-transport_options">
                         <h2>Тип транспорта</h2>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'"  :items="transportType"></ydropdown>
+                        <yselectsearch
+                            @updateChoose='reInitFilterByClick($event)'
+                            :deleteDis="true"
+                            :placeholder="'Выберите тип транспорта'"
+                            :options="transportTypes"
+                            :choosedItem="transportsArr.typeChoosed">
+                        </yselectsearch>
                         <h3>Тип кузова</h3>
                         <div class="yb-checked_type">
                             <div class="yl-vis checkbox">
-                                <div v-for="(item, index) in bodyType" class="yvis_checkbox">
-                                    <input
-                                        class="ycheck"
-                                        v-model="transportTypeChecked[index]"
-                                        :value="item.name"
-                                        @click="addToArray(item, index)"
-                                        :id="item.name"
-                                        type="checkbox">
-                                    <label
-                                        class="y-body_name"
-                                        :for="item.name"
-                                    >
-                                        {{item.name}}
-                                    </label>
-                                </div>
+                                <ycheck v-for="(body, i) in transportBodies" :key="i"
+                                        :name="body.name"
+                                        :checked="body.choosed"
+                                        @checked="SET_TRANSPORT_BODY_CHOOSE(body.val)"></ycheck>
                             </div>
                         </div>
 
@@ -964,7 +961,7 @@
                 </div>
                 <div class="add-cars_items">
                     <div
-                        v-for="(rbym, i) in  rbymsArr"
+                        v-for="(rbmy, i) in  rbmysArr"
                         class="yflex_car-item">
                         <div class="ycars-item countries">
                             <h2>Страна производитель</h2>
@@ -973,7 +970,7 @@
                                 @deleteChoose='DELETE_REGION_CHOOSE({index: i})'
                                 :placeholder="'Выберите страну'"
                                 :options="manufactureRegions"
-                                :choosedItem="rbym.regionChoose"
+                                :choosedItem="rbmy.regionChoose"
                             >
                             </yselectsearch>
                         </div>
@@ -984,8 +981,8 @@
                                 @updateChoose='setBrandsAndGetModels({choose: $event, index: i})'
                                 @deleteChoose='DELETE_BRAND_CHOOSE({index: i})'
                                 :placeholder="'Выберите марку'"
-                                :options="rbym.brands.length > 0 ? rbym.brands : (rbym.regionChoose !== null ? [] : brands)"
-                                :choosedItem="rbym.brandChoose"
+                                :options="rbmy.brands.length > 0 ? rbmy.brands : (rbmy.regionChoose !== null ? [] : brands)"
+                                :choosedItem="rbmy.brandChoose"
                             >
                             </yselectsearch>
                         </div>
@@ -995,8 +992,8 @@
                                 @updateChoose='SET_MODELS_CHOOSE({choose: $event, index: i})'
                                 @deleteChoose='DELETE_MODELS_CHOOSE({choose: $event, index: i})'
                                 :placeholder="'Выберите модель'"
-                                :options="rbym.models"
-                                :choosedItems="rbym.modelsChoose"></yselectmultysearch>
+                                :options="rbmy.models"
+                                :choosedItems="rbmy.modelsChoose"></yselectmultysearch>
                         </div>
                         <div class="ycars-item years">
                             <h2>Год</h2>
@@ -1006,13 +1003,13 @@
                                     @deleteChoose="DELETE_YEAR_FROM({choose: $event, index: i})"
                                     :placeholder="'От'"
                                     :options="years"
-                                    :choosedItem="rbym.yearFrom"></yselectsearch>
+                                    :choosedItem="rbmy.yearFrom"></yselectsearch>
                                 <yselectsearch
                                     @updateChoose="SET_YEAR_TO({choose: $event, index: i})"
                                     @deleteChoose="DELETE_YEAR_TO({choose: $event, index: i})"
                                     :placeholder="'До'"
                                     :options="years"
-                                    :choosedItem="rbym.yearTo"></yselectsearch>
+                                    :choosedItem="rbmy.yearTo"></yselectsearch>
 <!--                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>-->
                             </div>
                         </div>
@@ -1108,7 +1105,7 @@
                         @responseResult="computeCityResult"
                     ></yfsearch>
                     <div class="yselectsearch_region">
-                        <div v-for="(city, city_idx) in choosedCities"class="yselectsearch_region-item">
+                        <div v-for="(city, city_idx) in choosedCities" class="yselectsearch_region-item">
                             {{city.name}}
                             <svg @click="removeChoosedCities(city_idx)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="6" cy="6" r="6" fill="white"/>
@@ -1435,25 +1432,26 @@
     import Vue from 'vue';
     import {mapGetters, mapActions, mapMutations} from 'vuex';
     import {HTTP} from "../../http.js";
-    import { eventBus } from '../../site/site.js';
+    import {routingSplicerBus} from '../../site/routingSplicerBus.js';
     export default {
         beforeMount() {
-
+            this.initFilter();
         },
         mounted () {
             document.addEventListener('click', this.clickOutside);
             window.addEventListener('resize', this.changeResize)
             this.changeResize();
             this.getYears()
-            this.getRegion()
+            // this.getRegion()
             this.getTransportType();
             this.getManufactureCounries()
             this.getCarBrands()
         },
         data(){
             return{
-                transportTypeChecked: [], // true or false checkbox
-                transportType:[],
+                initPage: false,
+                langType: 3,
+
                 yearsList: [],
                 manufactureCountries: [],
                 carBrandsArr: [],
@@ -1465,7 +1463,6 @@
                 selectedTypeBody: [],
                 showSelectedItem: false,
                 windowWidth: 0,
-                colorOpen: false,
                 colorOpen: false,
                 otherShowID: 0,
                 test: [{name: '100'}],
@@ -1798,32 +1795,26 @@
         },
         methods: {
             ...mapMutations([
-                'SET_CITIES_TO_STORE',
-                'SET_CHOOSED_REGIONS',
+                'SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS',
+                //RBMY
+                'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY',
+                'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE',
+                'CLEAR_BRANDS_MODELS',
+                'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE',
+                'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE',
+                'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO',
+                //TRANSPORT
+                'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE'
 
-                'CREATE_NEW_RBMY',
-                'DELETE_RBMY',
-
-                'SET_REGION_CHOOSE',
-                'DELETE_REGION_CHOOSE',
-
-                'SET_BRAND_CHOSE',
-                'DELETE_BRAND_CHOOSE',
-
-                'SET_MODELS_CHOOSE',
-                'DELETE_MODELS_CHOOSE',
-
-                'SET_YEAR_FROM',
-                'DELETE_YEAR_FROM',
-                'SET_YEAR_TO',
-                'DELETE_YEAR_TO'
             ]),
             ...mapActions([
                 'FULL_REGIONS_FROM_API',
-                'MANUFACTURE_REGIONS_FROM_API',
-                'BRANDS_FROM_API',
-                'MODELS_FROM_API',
-                'GENERATE_YEAR',
+
+                //RBMY
+                'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API',
+                'MODELS_FROM_API', 'GENERATE_YEAR',
+                //TRANSPORT
+                'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API',
             ]),
             check(e){
             },
@@ -1881,16 +1872,6 @@
                 }
             },
             getCarBrands(){
-                let lang = 1,
-                    query = "?langType=" + lang ;
-
-                HTTP.get('/transport_types/1/brands' + query)
-                    .then(response => {
-                        this.carBrandsArr = response.data;
-                    }).catch(error =>{
-                    console.log('error', error)
-
-                })
             },
             getManufactureCounries(){
                 let lang = 3,
@@ -1905,70 +1886,66 @@
                 })
             },
             getTransportType(){
-                let lang = 3,
-                    query = "?langType=" + lang ;
+            },
+            setBrandsAndGetModels(data){
+                this.SET_BRAND_CHOSE(data);
+                data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
+                this.MODELS_FROM_API(data);
+            },
 
-
-                HTTP.get('/transport_types' + query)
-                    .then(response => {
-                        this.transportType = response.data;
-                    }).catch(error =>{
-                    console.log('error', error)
-
-                })
+            initFilter() {
+                const UriSearch = window.location.search;
+                let UriPromise = routingSplicerBus.$options.methods.ValidateUri(UriSearch);
+                UriPromise().then(el => {
+                    if(el.transportFullStore !== undefined){
+                        this.SET_TRANPORT_ARR(el.transportFullStore)
+                        this.getRegion();
+                    }
+                    if(el.rbmyFullStore !== undefined){
+                        this.SET_NEW_RBMY(el.rbmyFullStore);
+                    }
+                    this.initPage = true;
+                });
+            },
+            reInitFilterByClick(event){
+                this.SET_TRANSPORT_TYPE(event);
+                this.CLEAR_BRANDS_MODELS();
+                this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1')
+                this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1')
             },
             getRegion(){
                 let lang = 3, query = "?langType=" + lang + '&alias=1' ;
                 this.FULL_REGIONS_FROM_API('/regions' + query);
                 this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query)
-                this.BRANDS_FROM_API('/transport_types/1/brands?langType=1&alias=1&manufactureID=1')
                 this.GENERATE_YEAR(new Date().getFullYear());
             },
-            setBrandsAndGetModels(data){
-                this.SET_BRAND_CHOSE(data);
-                data['url'] = '/transport_types/1/brands/' + data.choose + '/models?langType=1&alias=1';
-                this.MODELS_FROM_API(data);
-            },
-            analizeLink(search) {
-                search = search.split('?').join('').split('&')
-                console.log(search);
-            },
-
-            analizeRbymsProps() {
-                let RbymsProps = '';
-                this.rbymsArr.forEach((el, i) => {
-                    if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-                        RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
-                        RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
-                        if (el.brandChoose !== null && el.modelsChoose.length > 0) {
-                            el.modelsChoose.forEach((el_model, i_model) => {
-                                RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&' : '';
-                            })
-                        }
-                        RbymsProps  += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]='+ el.yearFrom + '&' : '';
-                        RbymsProps  += el.yearTo !== null ? 'rbmy[' + i + '][yearT]='+ el.yearTo + '&' : '';
-                    }
-                })
-                return RbymsProps.substring(0, RbymsProps.length - 1);
-            }
         },
         computed: {
             ...mapGetters({
+                //RBMY
+                'rbmysArr': 'GET_RBMYS', 'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
+                'brands': 'GET_BRANDS', 'years': 'GET_YEARS',
+                //TRANSPORT
+                'transportsArr': 'GET_TRANSPORTS',
+                'transportTypes': 'GET_TRANSPORT_TYPES',
+                'transportBodies': 'GET_TRANSPORT_BODIES',
+
                 'regionArr': 'GET_FULL_REGION_FROM_STORE',
                 'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
                 'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
-                'rbymsArr': 'GET_RBMYS',
-                'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
-                'brands': 'GET_BRANDS',
-                'years': 'GET_YEARS'
             }),
             generateLink() {
                 const CurrentURI = 'extended';
-                // let test = this.analizeRbymsProps();
-                let r = eventBus.$options.methods.lol(this.rbymsArr)
-                console.log(r);
-                window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + 'rbmy[0][reg]=3&rbmy[0][brand]=6&rbmy[0][model][0]=1747&rbmy[0][yearF]=2019');
+                let TRANPORTsProps = routingSplicerBus.$options.methods.creatingTRANSPORTsProps(this.transportsArr);
+                let RBMYsProps = routingSplicerBus.$options.methods.creatingRBMYsProps(this.rbmysArr);
+                if(this.initPage)
+                    window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + TRANPORTsProps + '&' + RBMYsProps);
             },
+        },
+        watch: {
+            transportArr(to) {
+                console.log(to, 'watch')
+            }
         },
         destroyed() {
             document.removeEventListener('click', this.clickOutside)

@@ -91,39 +91,45 @@
             }
             .yb-carsearch_items{
                 width: 100%;
-                position: relative;
                 display: flex;
+                flex-direction: column;
                 .yoptions_items{
-                    width: 22%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
                     margin: 0 30px 25px 0;
-                    .yoption_btn{
-                        display: flex;
-                        border: 1px solid #E2E2E2;
-                        border-radius: 10px 10px 0px 0px;
-                        margin-bottom: 15px;
-                        overflow: hidden;
-                        width: 100%;
-                        .change_type{
+                    .yfilter_view-option{
+                        width: 22%;
+                        .yoption_btn{
+                            display: flex;
+                            border: 1px solid #E2E2E2;
+                            border-radius: 10px 10px 0px 0px;
+                            margin-bottom: 15px;
+                            overflow: hidden;
                             width: 100%;
-                            height: 42px;
-                            font-family: $aleg;
-                            font-weight: 500;
-                            font-size: em(15);
-                            line-height: 18px;
-                            &.active{
-                                background: #0B3F8D;
-                                color: #FFFEFE;
+                            .change_type{
+                                width: 100%;
+                                height: 42px;
+                                font-family: $aleg;
+                                font-weight: 500;
+                                font-size: em(15);
+                                line-height: 18px;
+                                &.active{
+                                    background: #0B3F8D;
+                                    color: #FFFEFE;
+                                }
                             }
                         }
-                    }
-                    .ycheckbox_options{
-                        border: 1px solid #E2E2E2;
-                        border-radius: 10px;
-                        padding: 15px;
-                        width: 100%;
-                        margin-bottom: 15px;
+                        .ycheckbox_options{
+                            border: 1px solid #E2E2E2;
+                            border-radius: 10px;
+                            padding: 15px;
+                            width: 100%;
+                            margin-bottom: 15px;
+                        }
                     }
                     .y-transport_options{
+                        width: 76%;
                         h2{
                             color: $filtergray;
                             font-family: $aleg;

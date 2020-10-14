@@ -10,6 +10,7 @@ use App\ManufactureCountry;
 
 class FilterController extends BasicController
 {
+
 //langType
     public function GET_transport_types(Request $request){
 
@@ -40,6 +41,23 @@ class FilterController extends BasicController
 
     }
 
+    public function GET_transport_bodies($id, Request $request){
+        $tt = $this->GET_transport_type($id, $request, true);
+        if(empty($tt)) return $this->JSON([],200);
+
+        $requests = $this->RequestExplode($request);
+
+        $selecting_query = ['id as val', $requests['langType'] . ' as name'];
+
+        if($requests['alias']){
+            array_push($selecting_query, 'alias');
+        }
+
+        $bodies = $tt->bodies()->select($selecting_query)->get();
+
+        return $this->JSON(empty($bodies) ? [] : $bodies,200);
+    }
+
 
     public function GET_transport_brands($id, Request $request){
 
@@ -53,7 +71,6 @@ class FilterController extends BasicController
         if($requests['alias']){
             array_push($selecting_query, 'alias');
         }
-
 
         if($requests['manufacture']){
             array_push($selecting_query, 'manufacture_id as manufacture');

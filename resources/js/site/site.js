@@ -75,28 +75,6 @@ Vue.directive('click-outside', {
     },
 });
 
-export const eventBus = new Vue({
-    methods: {
-        lol(rbymsArr){
-            let RbymsProps = '';
-            rbymsArr.forEach((el, i) => {
-                if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-                    RbymsProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
-                    RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
-                    if (el.brandChoose !== null && el.modelsChoose.length > 0) {
-                        el.modelsChoose.forEach((el_model, i_model) => {
-                            RbymsProps += el.brandChoose !== null ? 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&' : '';
-                        })
-                    }
-                    RbymsProps  += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]='+ el.yearFrom + '&' : '';
-                    RbymsProps  += el.yearTo !== null ? 'rbmy[' + i + '][yearT]='+ el.yearTo + '&' : '';
-                }
-            })
-            return RbymsProps.substring(0, RbymsProps.length - 1);
-        }
-    },
-})
-
 
 new Vue({
     store: services

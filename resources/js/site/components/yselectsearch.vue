@@ -14,10 +14,10 @@
             :placeholder="generatingPlaceholder"
         />
 
-        <i v-if="(search.length !== 0 && openResults) || getChoosedObject !== undefined"
+        <i v-if="(search.length !== 0 && openResults) || (getChoosedObject !== undefined && deleteDis !== true)"
            @click.self="clearInput"
            class="fas fa-times"
-           :class="{delete: getChoosedObject !== undefined}"
+           :class="{delete: (getChoosedObject !== undefined && deleteDis !== true)}"
         >
         </i>
         <i @click="$refs.yselectsearch.focus()" v-else="openResults" class="fas" :class="openResults ? 'fa-search' : 'fa-chevron-down'"></i>
@@ -42,7 +42,7 @@
 </template>
 <script>
     export  default  {
-        props: ['options', 'placeholder', 'choosedItem'],
+        props: ['options', 'placeholder', 'choosedItem', 'deleteDis'],
         mounted() {
             this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);
@@ -98,7 +98,7 @@
             },
             clearInput(){
                 this.search = '';
-                if(this.choosedItem !== null) this.$emit('deleteChoose');
+                if(this.choosedItem !== null && this.deleteDis !== true) this.$emit('deleteChoose');
                 if(this.openResults == true) this.$refs.yselectsearch.focus()
             },
             cleanTextField(){

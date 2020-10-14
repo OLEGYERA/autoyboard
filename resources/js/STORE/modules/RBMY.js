@@ -32,6 +32,9 @@ let getters = {
 };
 
 let mutations = {
+    SET_NEW_RBMY: (state, payload) => {
+        state.rbmyFullStore = payload;
+    },
     CREATE_NEW_RBMY: (state, payload) => {
         state.rbmyFullStore.push({
             regionChoose: null,
@@ -65,6 +68,17 @@ let mutations = {
         state.rbmyFullStore[payload.index].brandChoose = null;
         state.rbmyFullStore[payload.index].models = [];
         state.rbmyFullStore[payload.index].modelsChoose = [];
+    },
+    CLEAR_BRANDS_MODELS: (state, payload) => {
+        state.rbmyFullStore = [{
+            regionChoose: null,
+            brandChoose: null,
+            modelsChoose: [],
+            yearFrom: null,
+            yearTo: null,
+            brands: [],
+            models: []
+        }];
     },
     SET_BRAND_CHOSE: (state, payload) => {
         state.rbmyFullStore[payload.index].brandChoose = payload.choose;
