@@ -62,6 +62,11 @@ class PageController extends BasicController
         $this->content = view('site.auto.convention.ru')->render();
         return $this->renderBasic();
     }
+    public function marks(){
+
+        $this->content = view('site.auto.marks.ru')->render();
+        return $this->renderBasic();
+    }
 
 
 

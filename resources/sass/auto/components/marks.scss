@@ -1,0 +1,259 @@
+@import '../clear';
+@import '../../vars';
+
+
+.yb-marks_content{
+    .yb-marks_list{
+        width: 100% ;
+        padding: 0 17%;
+        .yb-marks_crumbs{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+            span{
+                display: flex;
+                align-items: center;
+                a{
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(18);
+                    line-height: 22px;
+                    color: #AFAFAF;
+                    &.active_crumb{
+                        color: $darkblue;
+                    }
+                }
+                i{
+                    margin: 0 12px;
+                    color: #AFAFAF;
+                }
+            }
+        }
+        h1{
+            font-family: $rale;
+            font-weight: 500;
+            font-size: em(54);
+            line-height: 63px;
+            color: $titleblue;
+            margin: 25px 0;
+        }
+        .yb-marks_items{
+            display: inline;
+            h2{
+                font-family: $rale;
+                font-weight: 500;
+                font-size: em(36);
+                line-height: 42px;
+                color: $titleblue;
+            }
+            .yb-marks_flex{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-flow: wrap;
+                position: relative;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(11, 63, 141, 0.24);
+                figure.yb-marks_item{
+                    width: 160px;
+                    height: 130px;
+                    margin: 0 0 20px 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: conic-gradient(from 89.31deg at -60.22% 59.22%, #FFFFFF 0deg, #FFFFFF 266.25deg, #EEEEEE 346.88deg, #FFFFFF 360deg);
+                    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+                    border-radius: 14px;
+
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                    img{
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1600px){
+    .yb-marks_content{
+        .yb-marks_list{
+            .yb-marks_items{
+                .yb-marks_flex{
+                    figure.yb-marks_item{
+                        width: 135px;
+                        height: 120px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1500px){
+    .yb-marks_content{
+        .yb-marks_list{
+            padding: 0 10%;
+        }
+    }
+}
+@media only screen and (max-width: 1440px){
+    .yb-marks_content{
+        .yb-marks_list{
+            .yb-marks_items{
+                .yb-marks_flex{
+                    figure.yb-marks_item{
+                      width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yb-marks_content{
+        .yb-marks_list{
+            padding: 0 8%;
+        }
+    }
+}
+@media only screen and (max-width: 1300px){
+    .yb-marks_content{
+        .yb-marks_list{
+            padding: 0 6%;
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    .yb-marks_content{
+        .yb-marks_list{
+            padding: 0 3%;
+            .yb-marks_items{
+                .yb-marks_flex{
+                    figure.yb-marks_item{
+                        width: 130px;
+                        height: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .yb-marks_content{
+        .yb-marks_list{
+            padding: 0 2%;
+            h1{
+                font-size: em(48);
+                margin: 15px 0;
+            }
+            .yb-marks_items{
+                .yb-marks_flex{
+                    figure.yb-marks_item{
+                        width: 120px;
+                        height: 90px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px){
+    .yb-marks_content{
+        .yb-marks_list{
+            h1{
+                line-height: 49px;
+            }
+            .yb-marks_items{
+                .yb-marks_flex{
+                    figure.yb-marks_item{
+                        width: 95px;
+                        height: 85px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .yb-marks_content{
+        .yb-marks_list{
+            .yb-marks_crumbs{
+                display: none;
+            }
+            h1{
+                line-height: 49px;
+                font-size: em(42);
+            }
+            .yb-marks_items{
+                .yb-marks_flex{
+                    justify-content: center;
+                    figure.yb-marks_item{
+                        margin: 10px;
+                        width: 160px;
+                        height: 130px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .yb-marks_content{
+        .yb-marks_list{
+            padding: 0 4%;
+            h1{
+                font-size: em(36);
+            }
+            .yb-marks_items{
+                h2{
+                    font-size: em(32);
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .yb-marks_content{
+        .yb-marks_list{
+            h1{
+                font-size: em(32);
+            }
+            .yb-marks_items{
+                h2{
+                    font-size: em(28);
+                }
+                .yb-marks_flex{
+                    figure.yb-marks_item{
+                        width: 140px;
+                        height: 120px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 320px){
+    .yb-marks_content{
+        .yb-marks_list{
+            h1{
+                font-size: em(28);
+            }
+            .yb-marks_items{
+                h2{
+                    font-size: em(24);
+                }
+                .yb-marks_flex{
+                    figure.yb-marks_item{
+                        width: 120px;
+                        height: 90px;
+                        img{
+                            width: 60%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

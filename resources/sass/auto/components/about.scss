@@ -24,7 +24,7 @@
         }
     }
     .y-about_desc{
-        background: #E5E5E5;
+        background: $bgfaq;
         padding: 0 17%;
         .y-about_crumbs{
             display: flex;
@@ -59,7 +59,6 @@
             margin: 0 0 16px 0;
         }
         .yb_about-title{
-            display: flex;
             margin-bottom: 11px;
             span{
                 font-family: $rale;
@@ -69,8 +68,10 @@
                 color: $darkblue;
                 margin-right: 5px;
                 height: fit-content;
+                display: inline;
             }
             p{
+                display: inline;
                 margin: 0;
                 font-family: $aleg;
                 font-weight: normal;
@@ -190,7 +191,7 @@
                     }
                 }
                 svg{
-                    width: 520px;
+                    width: 490px;
                     height: 350px;
                 }
             }

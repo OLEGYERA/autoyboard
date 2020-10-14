@@ -39,7 +39,7 @@
         }
     }
     .yb-convention_desc{
-        background: #E5E5E5;
+        background: $bgfaq;
         padding: 0 17%;
         h2{
             font-family: $rale;
@@ -63,31 +63,52 @@
             display: flex;
             justify-content: space-between;
             .yb-definition_terms{
-                width: 65%;
+                width: 68%;
                 background: #FBFCFC;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.33);
                 border-radius: 8px;
-                .yb-list_terms{
+                padding: 16px 23px 46px 23px;
+                ol{
+                    /* Идентифицируем счетчик и даем ему имя li. Значение счетчика не указано - по умолчанию оно равно 0 */
                     counter-reset: li;
-                    margin: 0;
-                    padding: 0;
-                    .yb-title_list{
-                    font-family: $rale;
-                    font-weight: bold;
-                    font-size: em(24);
-                    line-height: 28px;
-                    color: $active-crumbs;
-                        &:before{
-                            counter-increment: li;
-                            content: counters(li,".") ". ";
-                        }
-                        .yb_sub-list{
-                            li{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                font-size: em(16);
-                                line-height: 26px;
-                                color: rgba(1, 12, 28, 0.79);
+                }
+                .yb-terms_title{
+                    h2{
+                        font-family: $rale;
+                        font-weight: bold;
+                        font-size: em(24);
+                        line-height: 28px;
+                        color: $active-crumbs;
+                        margin: 0;
+                        display: inline;
+                        padding: 0;
+                    }
+                    &:before{
+                        font-family: $noto;
+                        font-weight: 600;
+                        line-height: 33px;
+                        text-transform: lowercase;
+                        color: $active-crumbs;
+                        counter-increment: li;
+                        content: counters(li,".") ". ";
+                    }
+                    .yb-subtitle_list{
+                        padding: 0 0 20px 4px;
+                        font-size: em(16);
+                        .yb-subtitle_item{
+                            margin: 15px 0;
+                            font-family: $aleg;
+                            font-weight: normal;
+                            font-size: em(16);
+                            line-height: 26px;
+                            color: rgba(1, 12, 28, 0.79);
+                            span{
+                                color: #010C1C;
+                                font-weight: 500;
+                            }
+                            &:before{
+                                counter-increment: li;
+                                content: counters(li,".") ". ";
                             }
                         }
                     }
@@ -95,6 +116,7 @@
             }
             .yb-scroll_terms{
                 width: 30%;
+                height: fit-content;
                 background: #07306B;
                 box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
                 border-radius: 8px;
@@ -128,3 +150,110 @@
         }
     }
 }
+@media only screen and (max-width: 1500px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            padding: 0 10%;
+        }
+        .yb-convention_desc{
+            padding: 0 10%;
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            padding: 0 8%;
+        }
+        .yb-convention_desc{
+            padding: 0 8%;
+        }
+    }
+}
+@media only screen and (max-width: 1300px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            padding: 0 6%;
+        }
+        .yb-convention_desc{
+            padding: 0 6%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            padding: 0 3%;
+            .yb-convention_crumbs{
+                padding: 10px 0;
+                span{
+                    a{
+                        font-size: em(15);
+                    }
+                }
+            }
+            h1{
+                font-size: em(46);
+            }
+        }
+        .yb-convention_desc{
+            padding: 0 3%;
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            padding: 0 2%;
+        }
+        .yb-convention_desc{
+            padding: 0 2%;
+            .yb-content_terms{
+                .yb-scroll_terms{
+                    .yb-scroll_items{
+                        .yb-scroll_item{
+                           font-size: em(15);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            .yb-convention_crumbs{
+                display: none;
+            }
+            h1{
+                text-align: center;
+                font-size: em(48);
+                line-height: 56px;
+                padding: 42px 0 54px 0;
+            }
+        }
+        .yb-convention_desc{
+            .yb-content_terms{
+                .yb-scroll_terms{
+                   display: none;
+                }
+                .yb-definition_terms{
+                    width: 100% ;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            padding: 0 4%;
+        }
+        .yb-convention_desc{
+            padding: 0 4%;
+        }
+    }
+}
+

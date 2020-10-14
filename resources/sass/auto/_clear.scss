@@ -11,7 +11,10 @@ header, footer, div, section, article, aside, main, input, button{
     box-sizing: border-box;
     outline: none;
 }
-
+ol{
+    padding: 0;
+    margin: 0;
+}
 li, a{
     list-style: none;
     outline: none;
