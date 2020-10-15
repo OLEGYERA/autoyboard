@@ -4745,6 +4745,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['options', 'placeholder', 'selectedItem', 'shade'],
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('keydown', this.test);
   },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.handleClickOutside);
@@ -4767,7 +4768,12 @@ __webpack_require__.r(__webpack_exports__);
       //     selectId: item.id
       // })
     },
+    test: function test(e) {
+      console.log(e);
+    },
     handleClickOutside: function handleClickOutside(evt) {
+      console.log(evt);
+
       if (!this.$el.contains(evt.target)) {
         this.isOpen = false;
       }

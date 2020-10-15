@@ -24,6 +24,9 @@
         mounted() {
             document.addEventListener('click', this.handleClickOutside);
 
+            document.addEventListener('keydown', this.test);
+
+
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)
@@ -48,7 +51,11 @@
                 //     selectId: item.id
                 // })
             },
+            test(e){
+                console.log(e)
+            },
             handleClickOutside(evt){
+                console.log(evt)
                 if (!this.$el.contains(evt.target)) {
                     this.isOpen = false;
                 }
