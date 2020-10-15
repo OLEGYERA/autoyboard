@@ -4741,10 +4741,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['options', 'placeholder', 'selectedItem', 'shade'],
   mounted: function mounted() {
@@ -7121,7 +7117,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -44933,67 +44928,74 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ydropdown", class: { white: _vm.shadow } }, [
-    _c(
-      "div",
-      {
-        staticClass: "name-dropdown",
-        on: {
-          click: function($event) {
-            _vm.isOpen = !_vm.isOpen
+  return _c(
+    "div",
+    { staticClass: "ydropdown", class: { black: _vm.shade !== undefined } },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "name-dropdown",
+          on: {
+            click: function($event) {
+              _vm.isOpen = !_vm.isOpen
+            }
           }
-        }
-      },
-      [_vm._v("\n        " + _vm._s(_vm.generatingPlaceholder) + "\n    ")]
-    ),
-    _vm._v(" "),
-    _c("i", {
-      staticClass: "ynav-list-toggle fas",
-      class: { "fa-chevron-up": _vm.isOpen, "fa-chevron-down": !_vm.isOpen },
-      on: {
-        click: function($event) {
-          _vm.isOpen = !_vm.isOpen
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isOpen,
-            expression: "isOpen"
-          }
-        ],
-        staticClass: "items"
-      },
-      _vm._l(_vm.options, function(item, index) {
-        return _c(
-          "div",
-          {
-            key: index,
-            staticClass: "item",
-            class: { checked: _vm.itemSelected == item.name },
+        },
+        [
+          _vm._v(
+            "\n        " + _vm._s(_vm.generatingPlaceholder) + "\n        "
+          ),
+          _c("i", {
+            staticClass: "yicon",
+            class: { "arrow-up": _vm.isOpen, "arrow-down": !_vm.isOpen },
             on: {
               click: function($event) {
-                return _vm.setItem(item)
+                _vm.isOpen = !_vm.isOpen
               }
             }
-          },
-          [
-            _vm._v("\n            " + _vm._s(item.name) + "\n            "),
-            _vm.itemSelected === item.name
-              ? _c("i", { staticClass: "fas fa-check" })
-              : _vm._e()
-          ]
-        )
-      }),
-      0
-    )
-  ])
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isOpen,
+              expression: "isOpen"
+            }
+          ],
+          staticClass: "items"
+        },
+        _vm._l(_vm.options, function(item, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "item",
+              class: { checked: _vm.itemSelected == item.name },
+              on: {
+                click: function($event) {
+                  return _vm.setItem(item)
+                }
+              }
+            },
+            [
+              _vm._v("\n            " + _vm._s(item.name) + "\n            "),
+              _vm.itemSelected === item.name
+                ? _c("i", { staticClass: "fas fa-check" })
+                : _vm._e()
+            ]
+          )
+        }),
+        0
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48641,9 +48643,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("ydropdown", {
-        attrs: { shade: true, options: _vm.currency, placeholder: 12 }
-      })
+      _c("ydropdown", { attrs: { options: _vm.currency, placeholder: 12 } })
     ],
     1
   )

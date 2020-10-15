@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="{{asset('img/favicon1.png')}}" type="image/x-icon" sizes="25x25">
     <script src="{{asset('libs/Jquery.min.js')}}"></script>
 
+    <link rel="stylesheet" href="{{asset('fonts/YboardFonts/style.css')}}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>

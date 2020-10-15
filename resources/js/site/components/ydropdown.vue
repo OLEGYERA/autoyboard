@@ -1,14 +1,10 @@
 <template>
-    <div  class="ydropdown" :class="{white: shadow}">
+    <div class="ydropdown" :class="{black: shade !== undefined}">
         <div class="name-dropdown" @click="isOpen = !isOpen">
             {{generatingPlaceholder}}
+            <i class="yicon" :class="{'arrow-up' :isOpen, 'arrow-down':  !isOpen}" @click="isOpen = !isOpen"></i>
         </div>
-            <i
-               class="ynav-list-toggle fas"
-               :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}"
-               @click="isOpen = !isOpen"
-            >
-            </i>
+
         <div class="items" v-show="isOpen">
             <div class="item"
                  :class="{'checked' : itemSelected == item.name}"

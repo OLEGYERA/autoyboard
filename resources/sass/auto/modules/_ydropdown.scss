@@ -19,12 +19,13 @@
         font-size: em(16);
         line-height: 18px;
         color: #696969;
+        i{
+            color: #C7C7C7;
+            position: absolute;
+            right: 15px;
+        }
     }
-    i{
-        color: #C7C7C7;
-        position: absolute;
-        right: 15px;
-    }
+
     .items{
         position: absolute;
         scrollbar-width: none;

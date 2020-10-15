@@ -6003,7 +6003,7 @@ span.yb-gradient {
   color: #696969;
 }
 
-.ydropdown i {
+.ydropdown .name-dropdown i {
   color: #C7C7C7;
   position: absolute;
   right: 15px;

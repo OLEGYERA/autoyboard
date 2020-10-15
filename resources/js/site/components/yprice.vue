@@ -11,7 +11,6 @@
             type="number"
             placeholder="До">
         <ydropdown
-            :shade="true"
             :options="currency"
             :placeholder="12"></ydropdown>
 
