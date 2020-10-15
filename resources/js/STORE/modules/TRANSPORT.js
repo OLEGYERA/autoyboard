@@ -29,7 +29,6 @@ let mutations = {
     SET_TRANSPORT_TYPE: (state, payload) => {
         state.transportFullStore.typeChoosed = payload;
         state.transportFullStore.bodiesChoosed = [];
-        console.log(123)
     },
     SET_TRANPORT_ARR: (state, payload) => {
         state.transportTypes = payload.transportTypes;

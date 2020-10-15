@@ -3,13 +3,14 @@ import {HTTP} from '../../http.js'
 let state = {
     choosedCities: [],
     choosedRegions: [],
-    regionAndParts: [],
+    choosedRegionParts: [],
+    cities: [],
     FULL_REGIONS: [],
 };
 
 let getters = {
-    GET_CHOOSED_CITIES_FROM_STORE: state => {
-        const sortedCities = state.choosedCities.sort(function (a, b){
+    GET_CITIES: state => {
+        const sortedCities = state.cities.sort(function (a, b){
             var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
             if (nameA < nameB) return -1
             if (nameA > nameB) return 1
@@ -17,62 +18,46 @@ let getters = {
         })
         return sortedCities;
     },
-    GET_FULL_REGION_FROM_STORE: state => {
-        return state.FULL_REGIONS;
-    },
-
+    GET_CHOOSED_CITIES: state => state.choosedCities,
+    GET_CHOOSED_REGIONS: state => state.choosedRegions,
     GET_REGION_AND_PART_FROM_STORE: state => {
-        state.regionAndParts = [];
+        let regionAndParts = [];
         state.FULL_REGIONS.forEach((el, i) => {
-            let regionNewArr = [];
+            let regionNewArr = [],
+                partsChoosed = state.choosedRegionParts.indexOf(el.val) !== -1,
+                countChoosed = 0;
             el.children.forEach((reg_el, reg_i) => {
-                //функция включения регионов, если регион включен принудительно
-
-                const condition = state.choosedRegions.find(function(chr, i){
-                    if(chr === reg_el.val){
-                        console.log(reg_el.name)
-                        return true
-                    }
-                })
-
-                //функция включения регионов, если город включен, а регион нет
-                let choosedRegionByCity = false;
-                state.choosedCities.forEach((chc, i) => {
-                    if(chc.parent === reg_el.val){
-                        choosedRegionByCity = true;
-                    }
-                })
-
-                regionNewArr.push({
-                    'val': reg_el.val,
-                    'alias': reg_el.alias,
-                    'name': reg_el.name,
-                    'choosed': choosedRegionByCity || condition !== undefined,
+                let choosed = state.choosedRegions.indexOf(reg_el.val) !== -1;
+                if(choosed) countChoosed++;
+                regionNewArr.push({'val': reg_el.val, 'alias': reg_el.alias, 'name': reg_el.name,
+                    'choosed': choosed,
                 })
             })
+            if(el.children.length == countChoosed && !partsChoosed){
+                state.choosedRegionParts.push(el.val);
+            }
+            else if(el.children.length !== countChoosed && partsChoosed){
+                state.choosedRegionParts.splice(state.choosedRegionParts.indexOf(el.val), 1);
+            }
+            partsChoosed = state.choosedRegionParts.indexOf(el.val) !== -1
 
-            state.regionAndParts.push({
-                'val': el.val,
-                'alias': el.alias,
-                'name': el.name,
-                'choosed': false,
-                'children': regionNewArr
-            })
+            regionAndParts.push({'val': el.val, 'alias': el.alias, 'name': el.name, 'choosed': partsChoosed, 'children': regionNewArr})
         })
 
-        return state.regionAndParts
+        return regionAndParts
     }
 };
 
 let mutations = {
-    SET_CITIES_TO_STORE: (state, payload) => {
-        const condition = state.choosedCities.find(function(el, i){
-            if(payload.val === el.val) return true
-            console.log(payload.val === el.val)
-        })
-        if(!condition){
-            state.choosedCities.push(payload)
-        }
+    SET_REGION_ARR: (state, payload) => {
+        state.choosedRegions = payload.choosedRegions,
+        state.choosedCities = payload.choosedCities
+    },
+    SET_CITIES_CHOOSE: (state, payload) => {
+        state.choosedCities.push(payload);
+    },
+    DELETE_CITIES_CHOOSE: (state, payload) => {
+        state.choosedCities.splice(state.choosedCities.indexOf(payload), 1);
     },
     SET_CHOOSED_REGIONS: (state, payload) => {
         const condition = state.choosedRegions.find(function(el){
@@ -85,9 +70,34 @@ let mutations = {
             state.choosedRegions.push(payload)
         }
     },
+    SET_CHOOSED_REGION_PARTS: (state, payload) =>{
+        let choosedPartPos = state.choosedRegionParts.indexOf(payload),
+            regionPartID = payload - 1;
+
+        if(state.choosedRegionParts.indexOf(payload) !== -1){
+            state.choosedRegionParts.splice(choosedPartPos, 1);
+
+            state.FULL_REGIONS[regionPartID].children.forEach(el => {
+                 state.choosedRegions.splice(state.choosedRegions.indexOf(el.val), 1);
+            })
+        } else{
+            state.FULL_REGIONS[regionPartID].children.forEach(el => {
+                if(state.choosedRegions.indexOf(el.val) == -1)
+                    state.choosedRegions.push(el.val);
+            })
+            state.choosedRegionParts.push(payload)
+        }
+    },
 
     SET_REGIONS_FROM_API: (state, payload) => {
         state.FULL_REGIONS = payload;
+        payload.forEach(el => {
+            el.children.forEach(el_reg => {
+                el_reg.children.forEach(el_city => {
+                    state.cities.push(el_city);
+                })
+            })
+        })
     },
 };
 

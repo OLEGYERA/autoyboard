@@ -4677,7 +4677,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['name', 'checked'],
+  props: ['name', 'checked', 'checkHide'],
   methods: {
     changeCheck: function changeCheck() {
       this.$emit('checked');
@@ -4948,18 +4948,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6907,15 +6895,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS', //RBMY
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
   'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
   'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['FULL_REGIONS_FROM_API', //RBMY
   'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
   'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API'])), {}, {
     check: function check(e) {},
-    computeCityResult: function computeCityResult(city) {
-      this.SET_CITIES_TO_STORE(city);
-    },
     addToArray: function addToArray(item, index) {
       this.selectDropDown.push({
         name: item.name,
@@ -6924,9 +6909,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     removeSelectedItem: function removeSelectedItem(index) {
       this.$delete(this.selectDropDown, index);
-    },
-    removeChoosedCities: function removeChoosedCities(city_idx) {
-      this.$delete(this.choosedCities, city_idx);
     },
     selectedItem: function selectedItem(e) {
       var select = this.selectDropDown.find(function (item) {
@@ -6991,35 +6973,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var UriSearch = window.location.search;
       var UriPromise = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.ValidateUri(UriSearch);
+      var lang = 3,
+          query = "?langType=" + lang + '&alias=1';
       UriPromise().then(function (el) {
-        console.log(el, el.transportFullStore !== undefined);
-
         if (el.transportFullStore !== undefined) {
           _this2.SET_TRANPORT_ARR(el.transportFullStore);
 
-          _this2.getRegion();
+          _this2.BRANDS_FROM_API('/transport_types/' + _this2.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
         }
 
         if (el.rbmyFullStore !== undefined) {
+          _this2.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query);
+
+          _this2.GENERATE_YEAR(new Date().getFullYear());
+
           _this2.SET_NEW_RBMY(el.rbmyFullStore);
+        }
+
+        if (el.regionFullStore !== undefined) {
+          _this2.SET_REGION_ARR(el.regionFullStore);
         }
 
         _this2.initPage = true;
       });
+      this.FULL_REGIONS_FROM_API('/regions' + query);
     },
     reInitFilterByClick: function reInitFilterByClick(event) {
       this.SET_TRANSPORT_TYPE(event);
       this.CLEAR_BRANDS_MODELS();
       this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
       this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1');
-    },
-    getRegion: function getRegion() {
-      var lang = 3,
-          query = "?langType=" + lang + '&alias=1';
-      this.FULL_REGIONS_FROM_API('/regions' + query);
-      this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query);
-      this.GENERATE_YEAR(new Date().getFullYear());
-      this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
     }
   }),
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
@@ -7032,15 +7015,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     'transportsArr': 'GET_TRANSPORTS',
     'transportTypes': 'GET_TRANSPORT_TYPES',
     'transportBodies': 'GET_TRANSPORT_BODIES',
-    'regionArr': 'GET_FULL_REGION_FROM_STORE',
-    'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
-    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE'
+    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
+    'cities': 'GET_CITIES',
+    'choosedCities': 'GET_CHOOSED_CITIES',
+    'choosedRegions': 'GET_CHOOSED_REGIONS'
   })), {}, {
     generateLink: function generateLink() {
       var CurrentURI = 'extended';
       var TRANPORTsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingTRANSPORTsProps(this.transportsArr);
       var RBMYsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingRBMYsProps(this.rbmysArr);
-      if (this.initPage) window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + TRANPORTsProps + '&' + RBMYsProps);
+      var REGIONProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
+      if (this.initPage) window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
     }
   }),
   watch: {
@@ -49254,121 +49239,77 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm.regionArr.length != 0
-          ? _c(
-              "div",
-              { staticClass: "yreg_container" },
-              [
-                _c("h2", [_vm._v("Регион")]),
-                _vm._v(" "),
-                _c("yfsearch", {
-                  attrs: {
-                    placeholder: "Выберите город",
-                    options: _vm.regionArr
-                  },
-                  on: { responseResult: _vm.computeCityResult }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "yselectsearch_region" },
-                  _vm._l(_vm.choosedCities, function(city, city_idx) {
-                    return _c(
-                      "div",
-                      { staticClass: "yselectsearch_region-item" },
+        _c(
+          "div",
+          { staticClass: "yreg_container" },
+          [
+            _c("h2", [_vm._v("Регион")]),
+            _vm._v(" "),
+            _c("yselectmultysearch", {
+              attrs: {
+                placeholder: "Выберите город",
+                options: _vm.cities,
+                choosedItems: _vm.choosedCities
+              },
+              on: {
+                updateChoose: function($event) {
+                  return _vm.SET_CITIES_CHOOSE($event)
+                },
+                deleteChoose: function($event) {
+                  return _vm.DELETE_CITIES_CHOOSE($event)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "yreg-checkbox" }, [
+              _c(
+                "div",
+                { staticClass: "yflex_dir" },
+                _vm._l(_vm.regionAndPart, function(item) {
+                  return _c("div", { staticClass: "yside_country" }, [
+                    _c(
+                      "h2",
                       [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(city.name) +
-                            "\n                            "
-                        ),
-                        _c(
-                          "svg",
-                          {
-                            attrs: {
-                              width: "12",
-                              height: "12",
-                              viewBox: "0 0 12 12",
-                              fill: "none",
-                              xmlns: "http://www.w3.org/2000/svg"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.removeChoosedCities(city_idx)
-                              }
-                            }
+                        _c("ycheck", {
+                          attrs: {
+                            name: item.name,
+                            checked: item.choosed,
+                            checkHide: true
                           },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "6", cy: "6", r: "6", fill: "white" }
-                            }),
-                            _vm._v(" "),
-                            _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z",
-                                  fill: "#0B3F8D"
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("defs", [
-                              _c("clipPath", { attrs: { id: "clip0" } }, [
-                                _c("rect", {
-                                  attrs: {
-                                    width: "6",
-                                    height: "6",
-                                    fill: "white",
-                                    transform: "translate(3 3)"
-                                  }
-                                })
-                              ])
-                            ])
-                          ]
-                        )
-                      ]
+                          on: {
+                            checked: function($event) {
+                              return _vm.SET_CHOOSED_REGION_PARTS(item.val)
+                            }
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "yside_check" },
+                      _vm._l(item.children, function(child, i) {
+                        return _c("ycheck", {
+                          key: i,
+                          attrs: { name: child.name, checked: child.choosed },
+                          on: {
+                            checked: function($event) {
+                              return _vm.SET_CHOOSED_REGIONS(child.val)
+                            }
+                          }
+                        })
+                      }),
+                      1
                     )
-                  }),
-                  0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "yreg-checkbox" }, [
-                  _c(
-                    "div",
-                    { staticClass: "yflex_dir" },
-                    _vm._l(_vm.regionAndPart, function(item) {
-                      return _c("div", { staticClass: "yside_country" }, [
-                        _c("h2", [_vm._v(_vm._s(item.name))]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "yside_check" },
-                          _vm._l(item.children, function(child, i) {
-                            return _c("ycheck", {
-                              key: i,
-                              attrs: {
-                                name: child.name,
-                                checked: child.choosed
-                              },
-                              on: {
-                                checked: function($event) {
-                                  return _vm.SET_CHOOSED_REGIONS(child.val)
-                                }
-                              }
-                            })
-                          }),
-                          1
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                ])
-              ],
-              1
-            )
-          : _vm._e()
+                  ])
+                }),
+                0
+              )
+            ])
+          ],
+          1
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "yb-condition_cars" }, [
@@ -75932,7 +75873,6 @@ var mutations = {
   SET_TRANSPORT_TYPE: function SET_TRANSPORT_TYPE(state, payload) {
     state.transportFullStore.typeChoosed = payload;
     state.transportFullStore.bodiesChoosed = [];
-    console.log(123);
   },
   SET_TRANPORT_ARR: function SET_TRANPORT_ARR(state, payload) {
     state.transportTypes = payload.transportTypes;
@@ -76043,12 +75983,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var state = {
   choosedCities: [],
   choosedRegions: [],
-  regionAndParts: [],
+  choosedRegionParts: [],
+  cities: [],
   FULL_REGIONS: []
 };
 var getters = {
-  GET_CHOOSED_CITIES_FROM_STORE: function GET_CHOOSED_CITIES_FROM_STORE(state) {
-    var sortedCities = state.choosedCities.sort(function (a, b) {
+  GET_CITIES: function GET_CITIES(state) {
+    var sortedCities = state.cities.sort(function (a, b) {
       var nameA = a.name.toLowerCase(),
           nameB = b.name.toLowerCase();
       if (nameA < nameB) return -1;
@@ -76057,56 +75998,56 @@ var getters = {
     });
     return sortedCities;
   },
-  GET_FULL_REGION_FROM_STORE: function GET_FULL_REGION_FROM_STORE(state) {
-    return state.FULL_REGIONS;
+  GET_CHOOSED_CITIES: function GET_CHOOSED_CITIES(state) {
+    return state.choosedCities;
+  },
+  GET_CHOOSED_REGIONS: function GET_CHOOSED_REGIONS(state) {
+    return state.choosedRegions;
   },
   GET_REGION_AND_PART_FROM_STORE: function GET_REGION_AND_PART_FROM_STORE(state) {
-    state.regionAndParts = [];
+    var regionAndParts = [];
     state.FULL_REGIONS.forEach(function (el, i) {
-      var regionNewArr = [];
+      var regionNewArr = [],
+          partsChoosed = state.choosedRegionParts.indexOf(el.val) !== -1,
+          countChoosed = 0;
       el.children.forEach(function (reg_el, reg_i) {
-        //функция включения регионов, если регион включен принудительно
-        var condition = state.choosedRegions.find(function (chr, i) {
-          if (chr === reg_el.val) {
-            console.log(reg_el.name);
-            return true;
-          }
-        }); //функция включения регионов, если город включен, а регион нет
-
-        var choosedRegionByCity = false;
-        state.choosedCities.forEach(function (chc, i) {
-          if (chc.parent === reg_el.val) {
-            choosedRegionByCity = true;
-          }
-        });
+        var choosed = state.choosedRegions.indexOf(reg_el.val) !== -1;
+        if (choosed) countChoosed++;
         regionNewArr.push({
           'val': reg_el.val,
           'alias': reg_el.alias,
           'name': reg_el.name,
-          'choosed': choosedRegionByCity || condition !== undefined
+          'choosed': choosed
         });
       });
-      state.regionAndParts.push({
+
+      if (el.children.length == countChoosed && !partsChoosed) {
+        state.choosedRegionParts.push(el.val);
+      } else if (el.children.length !== countChoosed && partsChoosed) {
+        state.choosedRegionParts.splice(state.choosedRegionParts.indexOf(el.val), 1);
+      }
+
+      partsChoosed = state.choosedRegionParts.indexOf(el.val) !== -1;
+      regionAndParts.push({
         'val': el.val,
         'alias': el.alias,
         'name': el.name,
-        'choosed': false,
+        'choosed': partsChoosed,
         'children': regionNewArr
       });
     });
-    return state.regionAndParts;
+    return regionAndParts;
   }
 };
 var mutations = {
-  SET_CITIES_TO_STORE: function SET_CITIES_TO_STORE(state, payload) {
-    var condition = state.choosedCities.find(function (el, i) {
-      if (payload.val === el.val) return true;
-      console.log(payload.val === el.val);
-    });
-
-    if (!condition) {
-      state.choosedCities.push(payload);
-    }
+  SET_REGION_ARR: function SET_REGION_ARR(state, payload) {
+    state.choosedRegions = payload.choosedRegions, state.choosedCities = payload.choosedCities;
+  },
+  SET_CITIES_CHOOSE: function SET_CITIES_CHOOSE(state, payload) {
+    state.choosedCities.push(payload);
+  },
+  DELETE_CITIES_CHOOSE: function DELETE_CITIES_CHOOSE(state, payload) {
+    state.choosedCities.splice(state.choosedCities.indexOf(payload), 1);
   },
   SET_CHOOSED_REGIONS: function SET_CHOOSED_REGIONS(state, payload) {
     var condition = state.choosedRegions.find(function (el) {
@@ -76119,8 +76060,31 @@ var mutations = {
       state.choosedRegions.push(payload);
     }
   },
+  SET_CHOOSED_REGION_PARTS: function SET_CHOOSED_REGION_PARTS(state, payload) {
+    var choosedPartPos = state.choosedRegionParts.indexOf(payload),
+        regionPartID = payload - 1;
+
+    if (state.choosedRegionParts.indexOf(payload) !== -1) {
+      state.choosedRegionParts.splice(choosedPartPos, 1);
+      state.FULL_REGIONS[regionPartID].children.forEach(function (el) {
+        state.choosedRegions.splice(state.choosedRegions.indexOf(el.val), 1);
+      });
+    } else {
+      state.FULL_REGIONS[regionPartID].children.forEach(function (el) {
+        if (state.choosedRegions.indexOf(el.val) == -1) state.choosedRegions.push(el.val);
+      });
+      state.choosedRegionParts.push(payload);
+    }
+  },
   SET_REGIONS_FROM_API: function SET_REGIONS_FROM_API(state, payload) {
     state.FULL_REGIONS = payload;
+    payload.forEach(function (el) {
+      el.children.forEach(function (el_reg) {
+        el_reg.children.forEach(function (el_city) {
+          state.cities.push(el_city);
+        });
+      });
+    });
   }
 };
 var actions = {
@@ -76231,8 +76195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-  // baseURL: `http://10.0.0.140:1709/v1`,
-  baseURL: "http://yboard.loc/v1",
+  baseURL: "http://10.0.0.140:1709/v1",
+  // baseURL: `http://yboard.loc/v1`,
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -78377,6 +78341,23 @@ var routingSplicerBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
           strProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo + '&' : '';
         }
       });
+      return strProps.substring(0, strProps.length - 1);
+    },
+    creatingREGIONsProps: function creatingREGIONsProps(regions, cities) {
+      var strProps = '';
+
+      if (regions.length > 0) {
+        regions.forEach(function (el, i) {
+          strProps += 'region[reg][' + i + ']=' + el + '&';
+        });
+      }
+
+      if (cities.length > 0) {
+        cities.forEach(function (el, i) {
+          strProps += 'region[city][' + i + ']=' + el + '&';
+        });
+      }
+
       return strProps.substring(0, strProps.length - 1);
     }
   }
