@@ -25,6 +25,8 @@ Route::get('/about', 'Site\Auto\PageController@about')->name('about');
 Route::get('/convention', 'Site\Auto\PageController@convention')->name('convention');
 Route::get('/confidentiality', 'Site\Auto\PageController@confidentiality')->name('confidentiality');
 Route::get('/marks', 'Site\Auto\PageController@marks')->name('marks');
+Route::get('/catbody', 'Site\Auto\PageController@catbody')->name('catbody');
+Route::get('/changelog', 'Site\Auto\PageController@changelog')->name('changelog');
 
 Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
 

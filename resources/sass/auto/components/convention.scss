@@ -73,7 +73,7 @@
                     counter-reset: li;
                 }
                 .yb-terms_title{
-                    h2{
+                    .yb-title_btn{
                         font-family: $rale;
                         font-weight: bold;
                         font-size: em(24);
@@ -82,16 +82,20 @@
                         margin: 0;
                         display: inline;
                         padding: 0;
+                        i{
+                            display: none;
+                        }
+                        &:before{
+                            font-family: $noto;
+                            font-weight: 600;
+                            line-height: 33px;
+                            text-transform: lowercase;
+                            color: $active-crumbs;
+                            counter-increment: li;
+                            content: counters(li,".") ". ";
+                        }
                     }
-                    &:before{
-                        font-family: $noto;
-                        font-weight: 600;
-                        line-height: 33px;
-                        text-transform: lowercase;
-                        color: $active-crumbs;
-                        counter-increment: li;
-                        content: counters(li,".") ". ";
-                    }
+
                     .yb-subtitle_list{
                         padding: 0 0 20px 4px;
                         font-size: em(16);
@@ -241,18 +245,97 @@
                 }
                 .yb-definition_terms{
                     width: 100% ;
+                    background: none;
+                    box-shadow: none;
+                    padding: 0;
+                    border-radius: 0;
+                    .yb-terms_list{
+                        .yb-terms_title{
+                            width: 100%;
+                            .yb-title_btn{
+                                position: relative;
+                                background: linear-gradient(143.75deg, #FEFFFF -24.96%, #E6E8E8 99.29%);
+                                box-shadow: -1px -1px 0px rgba(115, 115, 115, 0.09), 23px 20px 35px rgba(220, 222, 222, 0.02), 28px 28px 113px rgba(220, 222, 222, 0.17), inset -1px -1px 2px #DCDEDE;
+                                border-radius: 8px;
+                                width: 100%;
+                                display: flex;
+                                padding: 15px 20px 15px 15px;
+                                align-items: center;
+                                margin-bottom: 10px;
+                                font-size: em(22);
+                                &.br_margin{
+                                    margin-bottom: 0;
+                                    border-radius: 8px 8px 0 0;
+                                }
+                                i{
+                                    display: flex;
+                                    position: absolute;
+                                    right: 20px;
+                                }
+                            }
+                            .yb-subtitle_list{
+                                display: none;
+                                padding: 15px 20px 20px 15px;
+                                background: #FBFCFC;
+                                box-shadow: 0 4px 1px rgba(0, 0, 0, 0.33);
+                                border-radius: 0 8px;
+                                margin-bottom: 20px;
+                                .yb-subtitle_item{
+                                    margin: 0 0 15px 0;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
+@media only screen and (max-width: 600px){
+    .yb-convention_content{
+        .yb-convention_desc{
+            .yb-content_terms{
+                .yb-definition_terms{
+                    .yb-terms_list{
+                        .yb-terms_title{
+                            .yb-title_btn{
+                                font-size: em(18);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 425px){
     .yb-convention_content{
         .yb-convention_prev{
             padding: 0 4%;
+            h1{
+                font-size: em(42);
+                line-height: 49px;
+                padding: 32px 0 44px 0;
+            }
         }
         .yb-convention_desc{
             padding: 0 4%;
+            .yb-use_content{
+                font-size: em(16);
+                line-height: 25px;
+            }
+            .yb-content_terms{
+                .yb-definition_terms{
+                    .yb-terms_list{
+                        .yb-terms_title{
+                            .yb-title_btn{
+                            }
+                        }
+                    }
+                }
+
+            }
         }
     }
 }

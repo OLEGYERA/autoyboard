@@ -67,6 +67,18 @@ class PageController extends BasicController
         $this->content = view('site.auto.marks.ru')->render();
         return $this->renderBasic();
     }
+    public function catbody(){
+
+        $this->content = view('site.auto.catbody.ru')->render();
+        return $this->renderBasic();
+    }
+    public function changelog(){
+
+        $this->content = view('site.auto.changelog.ru')->render();
+        return $this->renderBasic();
+    }
+
+
 
 
 

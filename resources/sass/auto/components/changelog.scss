@@ -1,0 +1,49 @@
+@import '../clear';
+@import '../../vars';
+
+.yb-content{
+    .yb_changelog-prev{
+        background: linear-gradient(115.41deg, #0B3F8D 33.31%, #012152 89.95%);
+        padding-bottom: 130px;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
+        position: relative;
+        .yb_prev-logo{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 17%;
+            width: 61.5%;
+            flex-flow: wrap;
+            .yb_prev-title{
+                font-family: $rale;
+                font-weight: 500;
+                font-size: em(72);
+                line-height: 85px;
+                color: #FFFFFF;
+                margin: 74px 0 33px 0;
+            }
+            img{
+                width: 200px;
+            }
+        }
+        svg{
+            position: absolute;
+            top: 46px;
+            right: 20%;
+        }
+    }
+    .yb_change-promotion{
+        width: 100%;
+        padding-top: 140px;
+        h1{
+            font-family: $rale;
+            font-weight: 600;
+            font-size: em(48);
+            line-height: 56px;
+            text-align: center;
+            color: $darkblue;
+            margin: 0 0 47px  0;
+        }
+    }
+}

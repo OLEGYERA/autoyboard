@@ -12,6 +12,8 @@
 @import 'components/confidentiality';
 @import 'components/convention';
 @import 'components/marks';
+@import 'components/catbody';
+@import 'components/changelog';
 
 
 @import 'modules/yfilterform';
@@ -59,6 +61,7 @@
         flex-direction: column;
         width: 100%;
         overflow-x: hidden;
+        padding: 0 17%;
         .ycatalog{
             &:after{
                 content: '';
