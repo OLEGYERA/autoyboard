@@ -1,22 +1,18 @@
 <template>
-    <div  class="ydropdown">
-    <div
-        class="value"
-        v-model="itemSelected"
-        @click="isOpen = !isOpen"
-    >
-        {{generatingPlaceholder || placeholder}}
-    </div>
-        <i
-           class="ynav-list-toggle fas"
-           :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}"
-           @click="isOpen = !isOpen"
-        >
-        </i>
+    <div  class="ydropdown" :class="{white: shadow}">
+        <div class="name-dropdown" @click="isOpen = !isOpen">
+            {{generatingPlaceholder}}
+        </div>
+            <i
+               class="ynav-list-toggle fas"
+               :class="{'fa-chevron-up' :isOpen, 'fa-chevron-down':  !isOpen}"
+               @click="isOpen = !isOpen"
+            >
+            </i>
         <div class="items" v-show="isOpen">
             <div class="item"
                  :class="{'checked' : itemSelected == item.name}"
-                 v-for="(item, index) in filteredItems"
+                 v-for="(item, index) in options"
                  :key="index"
                  @click="setItem(item)"
             >
@@ -28,7 +24,7 @@
 </template>
 <script>
     export default{
-        props: ['items', 'placeholder','selectedItem' ],
+        props: ['options', 'placeholder', 'selectedItem', 'shade'],
         mounted() {
             document.addEventListener('click', this.handleClickOutside);
 

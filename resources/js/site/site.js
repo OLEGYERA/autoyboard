@@ -26,7 +26,6 @@ Vue.component('yform', require('./components/yform').default);
 Vue.component('ycheckbox', require('./components/ycheckbox').default);
 Vue.component('ytitle', require('./components/ytitle').default);
 Vue.component('ybestoffer', require('./components/ybestoffers').default);
-Vue.component('yrange', require('./components/yrangeslider').default);
 Vue.component('ycatalog', require('./components/ycatalog').default);
 Vue.component('yfavorite', require('./components/yfavorite').default);
 Vue.component('yanalitics', require('./components/yanalitics').default);
@@ -36,6 +35,7 @@ Vue.component('ynews', require('./components/ynews').default);
 Vue.component('yselectsearch', require('./components/yselectsearch').default);
 Vue.component('yselectmultysearch', require('./components/yselectmultysearch').default);
 Vue.component('ycheck', require('./components/ycheck').default);
+Vue.component('yprice', require('./components/yprice').default);
 
 
 

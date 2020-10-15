@@ -34,7 +34,8 @@
 @import 'modules/ystatus';
 @import 'modules/yform';
 @import 'modules/ycheckbox';
-@import 'modules/yrangeslider';
+@import 'modules/yprice';
+@import 'modules/ydropdown';
 //@import 'modules/ybestoffers';
 //@import 'modules/ycatalog';
 //@import 'modules/yfavorite';
@@ -81,6 +82,8 @@
 
             }
         }
+        padding: 0 17%;
+        width: 100%;
     }
     &.y_shadow-absolute{
         &:before{
