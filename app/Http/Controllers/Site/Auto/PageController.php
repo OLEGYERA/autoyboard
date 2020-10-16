@@ -77,7 +77,11 @@ class PageController extends BasicController
         $this->content = view('site.auto.changelog.ru')->render();
         return $this->renderBasic();
     }
+    public function update(){
 
+        $this->content = view('site.auto.update.ru')->render();
+        return $this->renderBasic();
+    }
 
 
 
