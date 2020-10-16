@@ -36,5 +36,19 @@ export const routingSplicerBus = new Vue({
             })
             return strProps.substring(0, strProps.length - 1);
         },
+        creatingREGIONsProps(regions, cities) {
+            let strProps = '';
+            if(regions.length > 0){
+                regions.forEach((el, i) => {
+                    strProps += 'region[reg][' + i + ']=' + el + '&';
+                })
+            }
+            if(cities.length > 0){
+                cities.forEach((el, i) => {
+                    strProps += 'region[city][' + i + ']=' + el + '&';
+                })
+            }
+            return strProps.substring(0, strProps.length - 1);
+        },
     },
 })

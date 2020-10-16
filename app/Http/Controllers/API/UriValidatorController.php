@@ -10,32 +10,16 @@ use Illuminate\Support\Arr;
 
 class UriValidatorController extends BasicController
 {
+    public $jSON_RESPONSE = [];
+    public $verifiedData = [];
+
     public function validateSearch(Request $request){
         parse_str($request->uri, $uris);
-        $jSON_RESPONSE = [];
-        $verifiedData = $this->verifyMainQueries($uris);
-        //servises
-        $tt_id = 1;
+        $this->verifyMainQueries($uris);
         foreach ($uris as $alias => $uri){
             switch ($alias){
                 case 'transport':
-                    $transportFullStores = [];
-                    $transportFullStores = Arr::add($transportFullStores, 'typeChoosed', $verifiedData['transport_type']->val);
-                    $transportFullStores = Arr::add($transportFullStores, 'transportTypes', TransportType::select(['id as val', 'rtitle as name'])->get());
-                    $bodies = $verifiedData['transport_type']->bodies()->select('id as val', 'rtitle as name')->get();
-                    $transportFullStores = Arr::add($transportFullStores, 'transportBodies', $bodies);
-
-                    if(isset($uri['bodies'])){
-                        $bodyArr = [];
-                        foreach ($uri['bodies'] as $body){
-                            array_push($bodyArr, intval($body));
-                        }
-                        $transportFullStores = Arr::add($transportFullStores, 'bodiesChoosed', $bodyArr);
-                    }
-                    else{
-                        $transportFullStores = Arr::add($transportFullStores, 'bodiesChoosed', []);
-                    }
-                    $jSON_RESPONSE = Arr::add($jSON_RESPONSE, 'transportFullStore', $transportFullStores);
+                    $this->analizeTransportAlias($uri);
                     break;
                 case 'rbmy':
                     $rbmyFullStores = [];
@@ -43,7 +27,7 @@ class UriValidatorController extends BasicController
                         $rbmyFullStore = [];
                         if(isset($rbmy['reg'])){
                             $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', intval($rbmy['reg']));
-                            $brands = $verifiedData['transport_type']->brands()->where('manufacture_id', intval($rbmy['reg']))->select(['brands.id as val', 'title as name'])->get();
+                            $brands = $this->verifiedData['transport_type']->brands()->where('manufacture_id', intval($rbmy['reg']))->select(['brands.id as val', 'title as name'])->get();
                             $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
                         }
                         else{
@@ -55,7 +39,7 @@ class UriValidatorController extends BasicController
                         if(isset($rbmy['brand'])){
                             $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', intval($rbmy['brand']));
                             $brand = Brand::select(['brands.id as val', 'title as name'])->find($rbmy['brand']);
-                            $models = $brand->modelsWithTransportType($verifiedData['transport_type']->val)->select(['id as val', 'title as name'])->get();
+                            $models = $brand->modelsWithTransportType($this->verifiedData['transport_type']->val)->select(['id as val', 'title as name'])->get();
                             $rbmyFullStore = Arr::add($rbmyFullStore, 'models', $models);
                         }
                         else{
@@ -85,35 +69,75 @@ class UriValidatorController extends BasicController
                         array_push($rbmyFullStores, $rbmyFullStore);
 
                     }
-                    $jSON_RESPONSE = Arr::add($jSON_RESPONSE, 'rbmyFullStore', $rbmyFullStores);
+                    $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', $rbmyFullStores);
+                    break;
+                case 'region':
+                    $regionFullStores = [];
+                    $regionsArr = [];
+                    if(isset($uri['reg'])){
+                        foreach ($uri['reg'] as $region){
+                            array_push($regionsArr, intval($region));
+                        }
+                    }
+                    $regionFullStores = Arr::add($regionFullStores, 'choosedRegions', $regionsArr);
+
+                    $citiesArr = [];
+                    if(isset($uri['city'])){
+                        foreach ($uri['city'] as $city){
+                            array_push($citiesArr, intval($city));
+                        }
+                    }
+                    $regionFullStores = Arr::add($regionFullStores, 'choosedCities', $citiesArr);
+                    $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', $regionFullStores);
                     break;
             }
         }
 
 
-        return response()->json($jSON_RESPONSE, 200);
+        return response()->json($this->jSON_RESPONSE, 200);
     }
 
     private function verifyMainQueries($data){
-        $verifiedData = [];
-        $verifiedData = $this->validateTransportMain($data, $verifiedData);
-        return $verifiedData;
+        $this->validateTransportMain($data);
+        return true;
     }
-
-    protected function validateTransportMain($data, $verifiedData){
+    protected function validateTransportMain($data){
+        $tempTTID = 1;
         if(!isset($data['transport']['type'])){
-            $tempTTID = 1;
             $tempTT = null;
         }
         else {
-            $tempTTID = 1;
             $tempTT = TransportType::select('id as val')->find(intval($data['transport']['type']));
         }
 
-
         $tt = $tempTT == null ? TransportType::select('id as val')->find($tempTTID) : $tempTT;
-        $verifiedData['transport_type'] = $tt;
+        $this->verifiedData['transport_type'] = $tt;
 
-        return $verifiedData;
+        if(!isset($data['transport'])){
+            $this->analizeTransportAlias();
+        }
+
+        return true;
+    }
+
+
+    private function analizeTransportAlias($uri = []){
+        $transportFullStores = [];
+        $transportFullStores = Arr::add($transportFullStores, 'typeChoosed', $this->verifiedData['transport_type']->val);
+        $transportFullStores = Arr::add($transportFullStores, 'transportTypes', TransportType::select(['id as val', 'rtitle as name'])->get());
+        $bodies = $this->verifiedData['transport_type']->bodies()->select('id as val', 'rtitle as name')->get();
+        $transportFullStores = Arr::add($transportFullStores, 'transportBodies', $bodies);
+
+        if(isset($uri['bodies'])){
+            $bodyArr = [];
+            foreach ($uri['bodies'] as $body){
+                array_push($bodyArr, intval($body));
+            }
+            $transportFullStores = Arr::add($transportFullStores, 'bodiesChoosed', $bodyArr);
+        }
+        else{
+            $transportFullStores = Arr::add($transportFullStores, 'bodiesChoosed', []);
+        }
+        $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
 }
