@@ -74880,8 +74880,8 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/js/site/site.js */"./resources/js/site/site.js");
-module.exports = __webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
+__webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/site/site.js */"./resources/js/site/site.js");
+module.exports = __webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
 
 
 /***/ })
