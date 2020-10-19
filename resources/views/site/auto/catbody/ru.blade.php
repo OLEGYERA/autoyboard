@@ -13,49 +13,75 @@
                 <a class="active_crumb" href="#"> Кузовы</a>
             </span>
         </div>
-        <h1> Кузовы мотоциклов</h1>
-        <div class="yb-body_list">
-            <div class="yb-body_item">
-                <figure class="yb_body_img">
-                    <img src="{{asset('img/system/static/passenger_car.png')}}" alt="">
-                </figure>
-                <span>Легковые</span>
+        <h1>Кузовы мотоциклов</h1>
+{{--        <div class="wrapper">--}}
+{{--            <input type="text" placeholder="Выберите кузов" class="show-list">--}}
+{{--            <div class="check-list">--}}
+{{--                <ul>--}}
+{{--                    <li>--}}
+{{--                        <input type="checkbox" value="Легковые" class="check-list__checkbox" />Легковые</li>--}}
+{{--                    <li>--}}
+{{--                        <input type="checkbox" value="Мото" class="check-list__checkbox" />Мото</li>--}}
+{{--                    <li>--}}
+{{--                        <input type="checkbox" value="Прицепы" class="check-list__checkbox" />Прицепы</li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+        <div class="yb_selected-body">
+            <div class="selected_body">
+                <span class="yb-body_choice">Выберите кузов</span>
+                <i class="fa fa-chevron-down"></i>
             </div>
-            <div class="yb-body_item active_item">
-                <figure class="yb_body_img">
-                    <img src="{{asset('img/system/static/moto.png')}}" alt="">
-                </figure>
-                <span>Мото</span>
-            </div>
-            <div class="yb-body_item">
-                <figure class="yb_body_img">
-                    <img src="{{asset('img/system/static/trailers.png')}}" alt="">
-                </figure>
-                <span>Прицепы</span>
-            </div>
-            <div class="yb-body_item active_item">
-                <figure class="yb_body_img">
-                    <img src="{{asset('img/system/static/spec_equipment.png')}}" alt="">
-                </figure>
-                <span>Спецтехника</span>
-            </div>
-            <div class="yb-body_item ">
-                <figure class="yb_body_img">
-                    <img src="{{asset('img/system/static/agro_machinery.png')}}" alt="">
-                </figure>
-                <span>Сельхозтехника</span>
-            </div>
-            <div class="yb-body_item ">
-                <figure class="yb_body_img">
-                    <img src="{{asset('img/system/static/buses.png')}}" alt="">
-                </figure>
-                <span>Автобусы</span>
-            </div>
-            <div class="yb-body_item active_item">
-                <figure class="yb_body_img">
-                    <img src="{{asset('img/system/static/water.png')}}" alt="">
-                </figure>
-                <span>Водный</span>
+            <div class="yb-body_list">
+                <div class="yb-body_item ">
+                    <figure class="yb_body_img">
+                        <img src="{{asset('img/system/static/passenger_car.png')}}" alt="">
+                    </figure>
+                    <span>Легковые</span>
+                    <i  class="fas fa-check"></i>
+                </div>
+                <div class="yb-body_item ">
+                    <figure class="yb_body_img">
+                        <img src="{{asset('img/system/static/moto.png')}}" alt="">
+                    </figure>
+                    <span>Мото</span>
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="yb-body_item">
+                    <figure class="yb_body_img">
+                        <img src="{{asset('img/system/static/trailers.png')}}" alt="">
+                    </figure>
+                    <span>Прицепы</span>
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="yb-body_item ">
+                    <figure class="yb_body_img">
+                        <img src="{{asset('img/system/static/spec_equipment.png')}}" alt="">
+                    </figure>
+                    <span>Спецтехника</span>
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="yb-body_item ">
+                    <figure class="yb_body_img">
+                        <img src="{{asset('img/system/static/agro_machinery.png')}}" alt="">
+                    </figure>
+                    <span>Сельхозтехника</span>
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="yb-body_item ">
+                    <figure class="yb_body_img">
+                        <img src="{{asset('img/system/static/buses.png')}}" alt="">
+                    </figure>
+                    <span>Автобусы</span>
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="yb-body_item ">
+                    <figure class="yb_body_img">
+                        <img src="{{asset('img/system/static/water.png')}}" alt="">
+                    </figure>
+                    <span>Водный</span>
+                    <i class="fas fa-check"></i>
+                </div>
             </div>
         </div>
         <div class="yb-changetype_items">

@@ -444,3 +444,87 @@
         }
     }
 }
+@media only screen and (max-width: 425px){
+    .yb-content{
+        .yb_changelog-prev{
+            padding-bottom: 140px;
+            .yb_prev-logo{
+                width: 100%;
+                .yb_prev-title{
+                    font-size: em(52);
+                    line-height: 54px;
+
+                }
+                img{
+                    width: 130px;
+                }
+            }
+            svg{
+                top: 105px;
+                height: 210px;
+                width: 220px;
+                right: 40%;
+            }
+        }
+        .yb_change-promotion{
+            h1{
+                font-size: em(34);
+                line-height: 40px;
+                margin: 0 0 30px 0;
+            }
+            .yb-last_update{
+                .yb-prev_content{
+                    flex-direction: column;
+                    margin-bottom: 30px;
+                    .yb-desc_update{
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        h2{
+                            font-size: em(18);
+                            line-height: 28px;
+                        }
+                        .yb-list_update{
+                            li.yb-update_item{
+                                font-size: em(18);
+                                line-height: 22px;
+                                width: 100%;
+                            }
+                        }
+                        .yb-more_content{
+                            width: 60%;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .yb-content{
+        .yb_changelog-prev{
+            .yb_prev-logo{
+                width: 100%;
+                .yb_prev-title{
+                    font-size: em(40);
+                    line-height: 54px;
+                }
+            }
+            svg{
+                top: 105px;
+                height: 220px;
+                width: 186px;
+            }
+        }
+        .yb_change-promotion{
+            h1{
+                font-size: em(26);
+                line-height: 31px;
+            }
+            .yb-last_update{
+
+            }
+        }
+    }
+}

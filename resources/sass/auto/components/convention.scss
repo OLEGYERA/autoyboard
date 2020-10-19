@@ -330,6 +330,79 @@
                     .yb-terms_list{
                         .yb-terms_title{
                             .yb-title_btn{
+                                font-size: em(16);
+                                line-height: 22px;
+                                text-align: start;
+                                display: inline;
+                                i{
+                                    top: 45%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            h1{
+                font-size: em(36);
+                line-height: 42px;
+            }
+        }
+        .yb-convention_desc{
+            h2{
+                font-size: em(24);
+                line-height: 28px;
+            }
+            .yb-use_content{
+
+            }
+            .yb-content_terms{
+                .yb-definition_terms{
+                    .yb-terms_list{
+                        .yb-terms_title{
+                            .yb-title_btn{
+                                padding: 10px 30px 10px 15px;
+                                i{
+                                    top: 40%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+@media only screen and (max-width: 320px){
+    .yb-convention_content{
+        .yb-convention_prev{
+            h1{
+                font-size: em(32);
+                line-height: 38px;
+                padding: 38px 0;
+            }
+        }
+        .yb-convention_desc{
+            h2{
+                font-size: em(24);
+                line-height: 28px;
+                text-align: center;
+            }
+            .yb-content_terms{
+                .yb-definition_terms{
+                    .yb-terms_list{
+                        .yb-terms_title{
+                            .yb-title_btn{
+                                font-size: em(15);
+                                i{
+                                }
                             }
                         }
                     }
