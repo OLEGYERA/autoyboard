@@ -8,34 +8,70 @@
                     <div class="ysearch_filter">
                         <div class="ysearch_type_btn">
                             <button class="change_type"
-                                    @click="SET_AUTO_CONDITION(1)"
+                                    @click="SET_AUTO_CONDITION_CHOOSED(1)"
                                     :class="{active: searchDeatils.autoConditionChoosed == 1}">
                                 Все
                             </button>
                             <button class="change_type"
-                                    @click="SET_AUTO_CONDITION(2)"
+                                    @click="SET_AUTO_CONDITION_CHOOSED(2)"
                                     :class="{active: searchDeatils.autoConditionChoosed == 2}">
                                 Новые
                             </button>
                             <button class="change_type"
-                                    @click="SET_AUTO_CONDITION(3)"
+                                    @click="SET_AUTO_CONDITION_CHOOSED(3)"
                                     :class="{active: searchDeatils.autoConditionChoosed == 3}">
                                 Б/у
                             </button>
                         </div>
                         <div class="ycheckbox_options">
-                            <ycheckbox
-                                :name="'Поиск со всех ресурсов'"
-                                :checked="searchDeatils.searchPropsChoosed.fullResource">
-                            </ycheckbox>
-                            <ycheckbox
-                                :name="'Провереные'"
-                                :checked="searchDeatils.searchPropsChoosed.verifiedAuto">
-                            </ycheckbox>
+<!--                            <ycheckbox-->
+<!--                                :name="'Поиск со всех ресурсов'"-->
+<!--                                :checked="searchDeatils.searchPropsChoosed.fullResource"-->
+<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'fullResource', val: $event})">-->
+<!--                            </ycheckbox>-->
+<!--                            <ycheckbox-->
+<!--                                :name="'Провереные'"-->
+<!--                                :checked="searchDeatils.searchPropsChoosed.verifiedAuto"-->
+<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'verifiedAuto', val: $event})">-->
+<!--                            </ycheckbox>-->
                             <ycheckbox
                                 :name="'С фото'"
-                                :checked="searchDeatils.searchPropsChoosed.withPhoto">
+                                :checked="searchDeatils.searchPropsChoosed.withPhoto"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'withPhoto', val: $event})">
                             </ycheckbox>
+
+
+                            <ycheckbox
+                                :name="'Авто не в Украине'"
+                                :checked="searchDeatils.searchPropsChoosed.abroad"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'abroad', val: $event})">
+                            </ycheckbox>
+                            <ycheckbox
+                                :name="'В кредите'"
+                                :checked="searchDeatils.searchPropsChoosed.credit"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'credit', val: $event})">
+                            </ycheckbox>
+                            <ycheckbox
+                                :name="'Нерастаможеные'"
+                                :checked="searchDeatils.searchPropsChoosed.customsСleared"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'customsСleared', val: $event})">
+                            </ycheckbox>
+                            <ycheckbox
+                                :name="'Конфискат'"
+                                :checked="searchDeatils.searchPropsChoosed.confiscated"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'confiscated', val: $event})">
+                            </ycheckbox>
+                            <ycheckbox
+                                :name="'После ДТП'"
+                                :checked="searchDeatils.searchPropsChoosed.accident"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'accident', val: $event})">
+                            </ycheckbox>
+                            <ycheckbox
+                                :name="'Не на ходу'"
+                                :checked="searchDeatils.searchPropsChoosed.noMotion"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'noMotion', val: $event})">
+                            </ycheckbox>
+
                         </div>
                     </div>
                     <div class="yprice_filter">
@@ -43,13 +79,19 @@
                         <div class="yprice_filter-box">
                             <yprice></yprice>
                             <ycheckbox
-                                :text="'Возможен торг'">
+                                :name="'Возможен торг'"
+                                :checked="searchDeatils.searchPropsChoosed.bargain"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'bargain', val: $event})">
                             </ycheckbox>
                             <ycheckbox
-                                :text="'Возможен обмен на автомобиль'">
+                                :name="'Возможен обмен на автомобиль'"
+                                :checked="searchDeatils.searchPropsChoosed.exchangeCar"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeCar', val: $event})">
                             </ycheckbox>
                             <ycheckbox
-                                :text="'Возможен обмен на недвижимость'">
+                                :name="'Возможен обмен на недвижимость'"
+                                :checked="searchDeatils.searchPropsChoosed.exchangeHouse"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeHouse', val: $event})">
                             </ycheckbox>
                         </div>
                     </div>
@@ -224,114 +266,6 @@
                                 </h2>
                                 <div class="yside_check">
                                     <ycheck v-for="(child, i) in item.children" :key="i" :name="child.name" :checked="child.choosed" @checked="SET_CHOOSED_REGIONS(child.val)"></ycheck>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="yb-condition_cars">
-                <h2>Состояние</h2>
-                <div class="yb-status_car-items">
-                    <div class="status_items">
-                        <h2>Авто не в Украине</h2>
-                        <div class="change_vis-btn">
-                            <button class=" btn_s  active">Показать</button>
-                            <button class=" btn_s ">Скрыть</button>
-                        </div>
-                    </div>
-                    <div class="status_items">
-                        <h2>В кредите</h2>
-                        <div class="change_vis-btn">
-                            <button class=" btn_s  active">Показать</button>
-                            <button class=" btn_s ">Скрыть</button>
-                        </div>
-                    </div>
-                    <div class="status_items">
-                        <h2>Нерастаможеные</h2>
-                        <div class="change_vis-btn">
-                            <button class=" btn_s  active">Показать</button>
-                            <button class=" btn_s ">Скрыть</button>
-                        </div>
-                    </div>
-                    <div class="status_items">
-                        <h2>Конфискат</h2>
-                        <div class="change_vis-btn">
-                            <button class=" btn_s  active">Показать</button>
-                            <button class=" btn_s ">Скрыть</button>
-                        </div>
-                    </div>
-                    <div class="status_items">
-                        <h2>После ДТП</h2>
-                        <div class="change_vis-btn">
-                            <button class=" btn_s  active">Показать</button>
-                            <button class=" btn_s ">Скрыть</button>
-                        </div>
-                    </div>
-                    <div class="status_items">
-                        <h2>Не на ходу</h2>
-                        <div class="change_vis-btn">
-                            <button class=" btn_s  active">Показать</button>
-                            <button class=" btn_s ">Скрыть</button>
-                        </div>
-                    </div>
-                    <div class="status_items">
-                        <h2>Продавец</h2>
-                        <div class="change_vis-btn">
-                            <button class="btn_s large active">Частное лицо</button>
-                            <button class=" btn_s ">Компания</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-status_checked-items">
-                        <h2>Пригнан из</h2>
-                    <div class="yb-select_items">
-<!--                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>-->
-                        <div class="yb-cheked_items">
-                            <div class="ycheked vis_l">
-                                <div class="yvis_l checkbox">
-                                    <input id="1" type="checkbox">
-                                    <label for="1">Гаражное хранение</label>
-                                </div>
-                                <div class="yvis_l checkbox">
-                                    <input id="2" type="checkbox">
-                                    <label for="2">Индивидуальная комплектация</label>
-                                </div>
-                                <div class="yvis_l checkbox">
-                                    <input id="3" type="checkbox">
-                                    <label for="3">Не бит</label>
-                                </div>
-                                <div class="yvis_l checkbox">
-                                    <input id="4" type="checkbox">
-                                    <label for="4">Не крашен</label>
-                                </div>
-                            </div>
-                            <div class="ycheked vis_c">
-                                <div class="yvis_c checkbox">
-                                    <input id="5" type="checkbox">
-                                    <label for="5">Первая регистрация</label>
-                                </div>
-                                <div class="yvis_c checkbox">
-                                    <input id="6" type="checkbox">
-                                    <label for="6">Первый владелец</label>
-                                </div>
-                                <div class="yvis_c checkbox">
-                                    <input id="7" type="checkbox">
-                                    <label for="7">Пригоню под заказ</label>
-                                </div>
-                                <div class="yvis_c checkbox">
-                                    <input id="8" type="checkbox">
-                                    <label for="8">Сервисная книжка</label>
-                                </div>
-                            </div>
-                            <div class="ycheked vis_r">
-                                <div class="yvis_r checkbox">
-                                    <input id="9" type="checkbox">
-                                    <label for="9">Ручное управление для инвалдов</label>
-                                </div>
-                                <div class="yvis_r checkbox">
-                                    <input id="10" type="checkbox">
-                                    <label for="10">Требует ремонта</label>
                                 </div>
                             </div>
                         </div>
@@ -687,214 +621,12 @@
                         name: 'Газ пропан-бутан',
                     },
                 ],
-                transmission: [
-                    {name: 'Механическая', id: 'mechanical'},
-                    {name: 'Автоматическая', id: 'automatic'},
-                    {name: 'Роботизированная', id: 'robotic'},
-                    {name: 'Вариативная', id: 'variable'},
-                    {name: 'Типтроник', id: 'tiptronic'}
-                ],
-                typeofdrive: [
-                    {name: 'Задний привод',
-                        id: 'rear_drive_unit'
-                    },
-                    {name: 'Передний привод',
-                        id: 'front_drive_unit'
-                    },
-                    {name: 'Полный привод',
-                        id: 'full_drive_unit'
-                    }
-                ],
-                ukSityName:[
-                    {name: 'Поляна', id: 1},
-                    {name: 'Славское', id: 2},
-                    {name: 'Тернополь', id: 3},
-                    {name: 'Трускавец', id: 4 },
-                    {name: 'Хмельницкий', id: 5},
-                    {name: 'Чайковка', id:6 },
-                    {name: 'Чубинское,', id: 7},
-                    {name: 'Шаян', id:8 },
-                    {name: 'Шешоры', id: 9},
-                    {name: 'Яремче', id:10 },
-                    {name: 'Петровское', id: 11},
-                    {name: 'Приморское', id: 12},
-                    {name: 'Черновцы', id: 13},
-                    {name: 'Днепропетровск', id: 14},
-                    {name: 'Донецк', id:15 },
-                    {name: 'Ивано-Франковск', id:16 },
-                    {name: 'Каменец-Подольский', id: 17},
-                    {name: 'Харьков', id: 18},
-                    {name: 'Херсон', id:19 },
-                    {name: 'Киев', id: 20},
-                    {name: 'Кривой Рог', id: 30},
-                    {name: 'Луганск', id: 31 },
-                    {name: 'Львов', id:32 },
-                    {name: 'Николаев', id:33 },
-                    {name: 'Одесса', id:34},
-                    {name: 'Полтава', id:35 },
-                    {name: 'Сумы', id: 36},
-                    {name: 'Ужгород', id: 37},
-                    {name: 'Запорожье', id:38 },
-                    {name: 'Винница', id:39 },
-                    {name: 'Черкассы', id:40 },
-                    {name: 'Чернигов', id:41 },
-                    {name: 'Ильичевск', id:42 },
-                    {name: 'Луцк', id:43},
-                    {name: 'Малехов', id: 44},
-                    {name: 'Микуличин', id: 45},
-                    {name: 'Ровно', id: 46},
-                    {name: 'Стрый', id: 47},
-                    {name: 'Ахтырка', id: 48},
-                    {name: 'Белогородка', id: 49},
-                    {name: 'Бердянск', id:50 },
-                    {name: 'Борисполь', id:51 },
-                    {name: 'Бояны', id:52 },
-                    {name: 'Бровары', id: 53},
-                    {name: 'Буковель', id: 54},
-                    {name: 'Бурлачья Балка', id: 55},
-                    {name: 'Верховина', id: 56},
-                    {name: 'Винники', id:57 },
-                    {name: 'Жденево', id:58 },
-                    {name: 'Житомир', id:59 },
-                    {name: 'Жовтневое', id: 60},
-                    {name: 'Затока', id: 61},
-                    {name: 'Кировоград', id:62 },
-                    {name: 'Коблево', id: 63},
-                    {name: 'Козин', id: 64},
-                    {name: 'Колоденка', id: 65},
-                    {name: 'Коропово', id: 66},
-                    {name: 'Кременчуг', id: 67},
-                    {name: 'Макеевка', id: 68},
-                    {name: 'Мукачево', id: 69},
-                ],
-                countryName: [
-                    {
-                        name: "Китай",
-                        id: "1",
-                    },
-                    {
-                        name: "США",
-                        id: "2",
-                    },
-                    {
-                        name: "Япония",
-                        id: "3",
-                    },
-                    {
-                        name: "Германия",
-                        id: "4",
-                    },
-                    {
-                        name: "Индия",
-                        id: "5",
-                    },
-                    {
-                        name: "ЮжнаяКорея",
-                        id: "6",
-                    },
-                    {
-                        name: "Мексика",
-                        id: "7",
-                    },
-                    {
-                        name: "Бразилия",
-                        id: "8",
-                    },
-                    {
-                        name: "Испания",
-                        id: "9",
-                    },
-                    {
-                        name: "Таиланд",
-                        id: "10",
-                    },
-                ],
-                typeCars: [
-                    {
-                        name: 'Легковые',
-                        id: 'passenger',
-                    },
-                    {
-                        name: 'Мото',
-                        id: 'moto',
-                    },
-                    {
-                        name: 'Автобусы',
-                        id: 'bus',
-                    },
-                    {
-                        name: 'Водный',
-                        id: 'aqueous',
-                    },
-                    {
-                        name: 'Сельхозтехника',
-                        id: 'agricultural_machinery',
-                    },
-                    {
-                        name: 'Спецтехника',
-                        id: 'special_equipment',
-                    },
-                    {
-                        name: 'Прицепы',
-                        id: '',
-                    },
-                ],
-                bodyType:[
-                    {
-                        id: 'station_wagon',
-                        name:'Универсал' ,
-                    },
-                    {
-                        id: 'crossover',
-                        name: 'Кроссовер',
-                    },
-                    {
-                        id: 'minivan',
-                        name: 'Минивэн',
-                    },
-                    {
-                        id: 'liftback',
-                        name: 'Лифтбек',
-                    },
-                    {
-                        id: 'hatchback',
-                        name: 'Хэтчбек',
-                    },
-                    {
-                        id: 'cabriolet',
-                        name: 'Кабриолет',
-                    },
-                    {
-                        id: 'sedan',
-                        name:'Седан' ,
-                    },
-                    {
-                        id: 'coupe',
-                        name: 'Купе',
-                    },
-                    {
-                        id: 'pikap',
-                        name: 'Пикап',
-                    },
-                    {
-                        id: 'roadster',
-                        name: 'Ростер' ,
-                    },
-                    {
-                        id: 'limousine',
-                        name: 'Лимузин',
-                    },
-                    {
-                        id: 'anouther_body',
-                        name: 'Другой',
-                    },
-                ],
             }
         },
         methods: {
             ...mapMutations([
                 //search deataild
-                'SET_AUTO_CONDITION',
+                'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED',
                 //regions
                 'SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS',
                 //RBMY
@@ -993,6 +725,9 @@
                 let UriPromise = routingSplicerBus.$options.methods.ValidateUri(UriSearch);
                 let lang = 3, query = "?langType=" + lang + '&alias=1' ;
                 UriPromise().then(el => {
+                    if(el.searchDetailFullStore !== undefined){
+                        this.SET_SEARCHDETAIL_ARR(el.searchDetailFullStore)
+                    }
                     if(el.transportFullStore !== undefined){
                         this.SET_TRANPORT_ARR(el.transportFullStore)
                         this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
@@ -1036,11 +771,12 @@
             }),
             generateLink() {
                 const CurrentURI = 'extended';
+                let SEARCHDETAILsProps = routingSplicerBus.$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils);
                 let TRANPORTsProps = routingSplicerBus.$options.methods.creatingTRANSPORTsProps(this.transportsArr);
                 let RBMYsProps = routingSplicerBus.$options.methods.creatingRBMYsProps(this.rbmysArr);
                 let REGIONProps = routingSplicerBus.$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
                 if(this.initPage)
-                    window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
+                    window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + SEARCHDETAILsProps + '&' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
             },
         },
         watch: {

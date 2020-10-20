@@ -7,11 +7,28 @@ let state = {
     searchDetailFullStore: {
         autoConditionChoosed: null,
         searchPropsChoosed: {
-            fullResource: null,
-            verifiedAuto: null,
+            // fullResource: null,
+            // verifiedAuto: null,
             withPhoto: null,
+
+            abroad: null,
+            credit: null,
+            customsСleared: null,
+            confiscated: null,
+            accident: null,
+            noMotion: null,
+
+            bargain: null,
+            exchangeCar: null,
+            exchangeHouse: null,
+
         },
-        currencyChoosed: null,
+        priceChoosed: {
+            currency: null,
+            from: null,
+            to: null,
+        }
+
     },
 };
 
@@ -21,12 +38,17 @@ let getters = {
 };
 
 let mutations = {
-    SET_AUTO_CONDITION: (state, payload) => {
+    SET_SEARCHDETAIL_ARR: (state, payload) => {
+        state.searchDetailFullStore = payload;
+    },
+    SET_AUTO_CONDITION_CHOOSED: (state, payload) => {
         state.searchDetailFullStore.autoConditionChoosed = payload;
     },
-    SET_CURRENCY_CHOOSED: (state, payload) => {
-        console.log(payload)
-        state.searchDetailFullStore.currencyChoosed = payload;
+    SET_SEARCH_PROPS_CHOOSED: (state, payload) => {
+        state.searchDetailFullStore.searchPropsChoosed[payload.name] = payload.val;
+    },
+    SET_PRICE_CHOOSED: (state, payload) => {
+        state.searchDetailFullStore.priceChoosed[payload.name] = payload.val;
     },
 
     // SET_TRANPORT_ARR: (state, payload) => {

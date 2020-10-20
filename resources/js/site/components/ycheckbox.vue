@@ -2,7 +2,7 @@
     <div class="change_resource">
         <span class="title_change">{{name}}</span>
         <label class="ios7-switch">
-            <input type="checkbox" v-bind:checked="checked == true">
+            <input type="checkbox" v-model="checkerModel">
             <span></span>
         </label>
     </div>
@@ -11,11 +11,22 @@
 <script>
 export default {
     props: ['name', 'checked'],
-    methods: {
-        changeCheck(){
-            this.$emit('checked');
+    mounted() {
+        this.checkerModel = this.checked;
+    },
+    data(){
+        return {
+            checkerModel: false,
         }
     },
+    watch: {
+        checkerModel(to){
+            this.$emit('checked', this.checkerModel);
+        },
+        checked(to){
+            this.checkerModel = this.checked;
+        }
+    }
 }
 </script>
 
