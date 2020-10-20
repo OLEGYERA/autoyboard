@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
+
+//Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
+//Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
+//Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
+//Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+//->name('m.ru.')->namespace('OLEGYERA\FrontBox')->namespace('OLEGYERA\FrontBox')
+
 Route::get('/', 'Site\Auto\PageController@start');
 Route::get('/filter', 'Site\Auto\PageController@filter')->name('filter');
 Route::get('/card', 'Site\Auto\PageController@card')->name('card');
@@ -29,17 +38,5 @@ Route::get('/catbody', 'Site\Auto\PageController@catbody')->name('catbody');
 Route::get('/changelog', 'Site\Auto\PageController@changelog')->name('changelog');
 Route::get('/update', 'Site\Auto\PageController@update')->name('update');
 
-Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
-
-Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
-
-
-Route::get('first_try', 'Controller@first_try');
-
-Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 

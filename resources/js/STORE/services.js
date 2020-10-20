@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import regions from './modules/regions';
+import REGIONS from './modules/REGIONS';
+import RBMY from './modules/RBMY';
+import TRANSPORT from './modules/TRANSPORT';
+import SEARCHDEATAILS from './modules/SEARCHDETAILS';
 
 Vue.use(Vuex);
 
@@ -10,6 +13,9 @@ export const services = new Vuex.Store({
     mutations: {},
     actions: {},
     modules: {
-        regions,
+        REGIONS,
+        RBMY,
+        TRANSPORT,
+        SEARCHDEATAILS
     },
 });

@@ -1,4 +1,4 @@
-<main class="yb_extended-content">
+<main class="yb-content">
     <section class="yb-filter_extended">
         <yfilterextended></yfilterextended>
     </section>

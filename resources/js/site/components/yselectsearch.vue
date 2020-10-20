@@ -1,139 +1,145 @@
 <template>
-        <div class="autocomplete">
-                <input
-                    type="text"
-                    class="input-dropdown"
-                    @input="onChange"
-                    @blur="isOpened = true"
-                    @keyup.enter="select"
-                    @keyup.tab="select"
-                    @keydown.down="onDown"
-                    @keydown.up="onUp"
-                    @click="onChange"
-                    @keyup.esc="isOpen = false"
-                    ref="dropdown"
-                    v-model="search"
-                    :placeholder="generatingPlaceholder"
-                />
-                <i v-if="search.length !== 0 && isOpened"
-                   @click="clearInput"
-                   class="fas fa-times">
-                </i>
-                <i v-else-if="isOpened" class="fas fa-search"></i>
-                <i v-else
-                   @click="toggle"
-                   class="ynav-list-toggle fas"
-                   :class="{'fa-chevron-up' :isOpened, 'fa-chevron-down':  !isOpened}">
-                </i>
+    <div class="yselectsearch">
+        <input
+            type="text"
+            class="input-dropdown"
+            @mousedown="focusSelectSearch"
+            @focus="focusSelectSearch"
+            @keyup.enter="selectingResult"
+            @keydown.down="onDown"
+            @keydown.up="onUp"
+            @keyup.esc="cleanTextField"
+            ref="yselectsearch"
+            v-model="search"
+            :placeholder="generatingPlaceholder"
+        />
 
-
-        <ul class="options-list"  ref="scrollContainer" v-show="isOpened">
+        <i v-if="(search.length !== 0 && openResults) || (getChoosedObject !== undefined && deleteDis !== true)"
+           @click.self="clearInput"
+           class="fas fa-times"
+           :class="{delete: (getChoosedObject !== undefined && deleteDis !== true)}"
+        >
+        </i>
+        <i @click="$refs.yselectsearch.focus()" v-else="openResults" class="fas" :class="openResults ? 'fa-search' : 'fa-chevron-down'"></i>
+        <ul class="options-list" id="scrollContainer" ref="scrollContainer" v-show="openResults">
+            <li v-if="getChoosedObject !== undefined" class="choosed">{{getChoosedObject.name}}<i class="fas fa-check"></i></li>
+            <li v-if="(results.length == 0)">Такого нет</li>
             <li v-for="(result, i) in results"
                 ref="options"
-                @mouseenter="selected = i"
-                @click="setResult(result)"
-                :class="{'selected': i === selected}">
+                @mouseenter="mouseSelected = i"
+                @mouseleave="mouseSelected = null"
+
+                @click="clickingResult(result.val)"
+                :class="{
+                    'selected': i === selected,
+                    'selectedMouse': i === mouseSelected,
+                    'faded': getChoosedObject !== undefined ? getChoosedObject.val == result.val : false
+                }">
                 {{ result.name || result  }}
-                <slot name="item" :title="result"></slot>
             </li>
         </ul>
     </div>
 </template>
 <script>
-export  default  {
-    props: ['options', 'placeholder'],
-    mounted() {
-        document.addEventListener('click', this.handleClickOutside);
-    },
-    destroyed() {
-        document.removeEventListener('click', this.handleClickOutside)
-    },
-    data() {
-        return {
-            isOpened: false,
-            selected: null,
-            search: "",
-            results: [],
-        }
-    },
-    computed: {
-        filteredItems() {
-            this.selected = null
-            if(this.$refs.scrollContainer){
-                this.$refs.scrollContainer.scrollTop = 0;
-            }
-            const condition = new RegExp(this.search, "i");
-            this.results =  this.options.filter(item => item.name.match(condition));
+    export  default  {
+        props: ['options', 'placeholder', 'choosedItem', 'deleteDis'],
+        mounted() {
+            this.computingResults(''); // if data load rapid and doesn`t updated
+            document.addEventListener('click', this.handleClickOutside);
+        },
+        data() {
+            return {
+                openResults: false,
+                selected: null,
+                mouseSelected: null,
 
+                search: "",
+                results: [],
+            }
         },
-        generatingPlaceholder(){
-            return this.isOpened ? 'Поиск...' : this.placeholder;
-        }
-    },
-    methods: {
-        setResult(result) {
-            this.search = result.name;
-            this.results = result;
-            this.isOpened = false;
-            this.selected = null;
-            this.$emit('setItem', result)
-        },
-        onChange() {
-            this.isOpened = true;
-            this.filteredItems;
-            console.log(this.isOpened)
-        },
+        methods: {
+            clickingResult(result) {
+                this.cleanTextField();
+                this.$emit('updateChoose', result)
+            },
+            selectingResult() {
+                if(this.results[this.selected] != undefined){
+                    this.clickingResult(this.results[this.selected].val)
+                }
+            },
 
-        select() {
-            const searchName = this.results[this.selected];
-            this.search = searchName.name;
-            this.results = searchName.name;
-            this.selected = null;
-            if(this.results.length > 0){
-                this.selected = null
-            }
-            this.isOpened = false;
-        },
-        onDown() {
-            if (!this.isOpened) { return; }
-            this.selected = (this.selected + 1) % this.results.length;
-            this.fixScrolling()
+            onDown() {
+                this.selected = this.selected == null ? this.selected = 0 : (this.selected + 1) % this.results.length;
+                this.fixScrolling()
             },
-        onUp() {
-            if (!this.isOpened) { return; }
-            this.selected =
-                this.selected - 1 < 0
-                    ? this.results.length - 1
-                    : this.selected - 1;
-            this.fixScrolling()
+            onUp() {
+                if (!this.openResults) { return; }
+                this.selected =
+                    this.selected - 1 < 0
+                        ? this.results.length - 1
+                        : this.selected - 1;
+                this.fixScrolling()
             },
-        toggle() {
-            this.isOpened = !this.isOpened;
-            if (this.isOpened) {
-                this.$refs.dropdown.focus();
-            }
-            console.log(this.isOpened)
-        },
-        fixScrolling(){
-            const scroll = this.$refs.options[this.selected].scrollHeight;
-            this.$refs.scrollContainer.scrollTop = scroll * this.selected;
-            console.log(this.$refs.scrollContainer.scrollTop);
-            console.log(scroll * this.arrowCounter);
-        },
-        handleClickOutside(evt){
-            if (!this.$el.contains(evt.target)) {
-                this.isOpened = false;
+            fixScrolling(){
+                const scroll = this.$refs.options[this.selected].scrollHeight + 1;
+                this.$refs.scrollContainer.scrollTop = scroll * this.selected;
+            },
+
+
+            handleClickOutside(evt){
+                if(!this.$el.contains(evt.target))this.cleanTextField();
+            },
+            focusSelectSearch(){
                 this.selected = null;
+                this.mouseSelected = null;
+                this.arrowCounter = 0;
+                this.$refs.scrollContainer.scrollTop = 0;
+                this.openResults = true;
+            },
+            clearInput(){
+                this.search = '';
+                if(this.choosedItem !== null && this.deleteDis !== true) this.$emit('deleteChoose');
+                if(this.openResults == true) this.$refs.yselectsearch.focus()
+            },
+            cleanTextField(){
+                this.search = '';
+                this.openResults = false;
+                this.$refs.yselectsearch.blur();
+            },
+            computingResults(text){
+                this.results = this.options.filter((item)=>{
+                    return text.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
+                });
             }
         },
-        clearInput(){
-            this.search = "";
-            this.selected = null;
-            this.isOpened = true;
-        }
-    },
+        computed: {
+            getChoosedObject(){
+                return this.options.find(el => {
+                    if(el.val == this.choosedItem) return true;
+                })
+            },
+            generatingPlaceholder(){
+                return this.getChoosedObject !== undefined ? this.getChoosedObject.name : this.openResults ? 'Поиск...' : this.placeholder;
+            },
+        },
+        watch: {
+            search(to, from){
+                if(to == null) return false;
 
+                this.selected = 0;
+                this.computingResults(to);
+                this.arrowCounter = 0;
+                this.$refs.scrollContainer.scrollTop = 0;
+            },
+            options(to){
+                // if updating will be later
+                this.computingResults('');
+            }
+        },
+        destroyed() {
+            document.removeEventListener('click', this.handleClickOutside)
+        },
 
-}
+    }
 </script>
 
