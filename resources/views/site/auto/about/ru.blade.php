@@ -1,4 +1,4 @@
-<main class="yb_about-content">
+<main class="yb-content">
     <section class="y-about_prev">
         <img src="{{asset('img/system/logos/logo_white.png')}}" alt="">
         <h1>Самый удобный сервис. Все сайты в одном кабинете A­­utoRia, OLX, RST, Avtobazar и др.

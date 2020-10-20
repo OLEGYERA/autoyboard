@@ -1,6 +1,6 @@
 @import '../../vars';
 
-.yb-card_content{
+.yb-content{
     padding: 0 17%;
     width: 100%;
     position: relative;
@@ -1061,7 +1061,7 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_auto-item{
                 .yb_fullpage-visual{
@@ -1261,13 +1261,9 @@
         }
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb-card_content{
-        padding: 0 10%;
-    }
-}
+
 @media only screen and (max-width: 1440px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_auto-item{
                 .yb_fullpage-visual{
@@ -1319,18 +1315,10 @@
         }
     }
 }
-@media only screen and (max-width: 1366px){
-    .yb-card_content{
-        padding: 0 8%;
-    }
-}
-@media only screen and (max-width: 1330px){
-    .yb-card_content{
-        padding: 0 6%;
-    }
-}
+
+
 @media only screen and (max-width: 1280px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 span{
@@ -1356,8 +1344,7 @@
     }
 }
 @media only screen and (max-width: 1024px){
-    .yb-card_content{
-        padding: 0 2.5%;
+    .yb-content{
         .yb-card_auto{
             .yb_auto-item{
                 .yb_fullpage-visual{
@@ -1459,8 +1446,8 @@
     }
 }
 @media only screen and (max-width: 945px){
-    .yb-card_content{
-        padding: 0 15px;
+    .yb-content{
+
         .yb-card_auto{
             .yb-bread_next-card{
                 margin: 15px 0 15px;
@@ -1700,7 +1687,7 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 margin-bottom: 15px;
@@ -1876,7 +1863,7 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb-bread_next-card{
                 margin: 10px 0 15px;
@@ -2115,7 +2102,7 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb-bread_next-card{
                 display: none;
@@ -2280,7 +2267,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 flex-direction: column;
@@ -2392,7 +2379,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 padding-bottom: 5px;

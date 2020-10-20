@@ -2,11 +2,13 @@
 @import '../../vars';
 
 
-.yb-confidentiality_content{
+.yb-content{
     .yb-confidentiality_prev{
         background: linear-gradient(91.14deg, #0B3F8D 49.02%, #072F6A 67.4%);
         box-shadow: 9px 4px 5px #021531;
-        padding: 0 17%;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
+        padding: 0 26%;
         .yb-confidentiality_crumbs{
             display: flex;
             align-items: center;
@@ -40,8 +42,10 @@
         }
     }
     .yb-confidentiality_desc{
-        padding: 0 17%;
         background: $bgfaq;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
+        padding: 0 26%;
         ol{
             margin: 0;
             padding: 20px 0;
@@ -68,40 +72,11 @@
     }
 }
 
-@media only screen and (max-width: 1500px){
-    .yb-confidentiality_content{
-        .yb-confidentiality_prev{
-            padding: 0 10%;
-        }
-        .yb-confidentiality_desc{
-            padding: 0 10%;
-        }
-    }
-}
-@media only screen and (max-width: 1366px){
-    .yb-confidentiality_content{
-        .yb-confidentiality_prev{
-            padding: 0 8%;
-        }
-        .yb-confidentiality_desc{
-            padding: 0 8%;
-        }
-    }
-}
-@media only screen and (max-width: 1300px){
-    .yb-confidentiality_content{
-        .yb-confidentiality_prev{
-            padding: 0 6%;
-        }
-        .yb-confidentiality_desc{
-            padding: 0 6%;
-        }
-    }
-}
+
+
 @media only screen and (max-width: 1024px){
-    .yb-confidentiality_content{
+    .yb-content{
         .yb-confidentiality_prev{
-            padding: 0 3%;
             .yb-confidentiality_crumbs{
                 padding: 15px 0;
                 .yb-crumbs_items{
@@ -114,15 +89,11 @@
                font-size: 42px;
             }
         }
-        .yb-confidentiality_desc{
-            padding: 0 3%;
-        }
     }
 }
 @media only screen and (max-width: 945px){
-    .yb-confidentiality_content{
+    .yb-content{
         .yb-confidentiality_prev{
-            padding: 0 2%;
             .yb-confidentiality_crumbs{
                 padding: 10px 0 20px 0;
                 .yb-crumbs_items{
@@ -138,13 +109,10 @@
                 font-size: em(38);
             }
         }
-        .yb-confidentiality_desc{
-            padding: 0 2%;
-        }
     }
 }
 @media only screen and (max-width: 600px){
-    .yb-confidentiality_content{
+    .yb-content{
         .yb-confidentiality_prev{
             .yb-confidentiality_crumbs{
                 display: none;
@@ -160,28 +128,22 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb-confidentiality_content{
+    .yb-content{
         .yb-confidentiality_prev{
-            padding: 0 4%;
             h1{
                font-size: em(23);
                 line-height: 49px;
             }
         }
-        .yb-confidentiality_desc{
-            padding: 0 4%;
-        }
     }
 }
 @media only screen and (max-width: 375px){
-    .yb-confidentiality_content{
+    .yb-content{
         .yb-confidentiality_prev{
             h1{
                 font-size: em(20);
                 line-height: 29px;
             }
-        }
-        .yb-confidentiality_desc{
         }
     }
 }

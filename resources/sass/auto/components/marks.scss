@@ -2,10 +2,9 @@
 @import '../../vars';
 
 
-.yb-marks_content{
+.yb-content{
     .yb-marks_list{
         width: 100% ;
-        padding: 0 17%;
         .yb-marks_crumbs{
             display: flex;
             align-items: center;
@@ -78,7 +77,7 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
             .yb-marks_items{
                 .yb-marks_flex{
@@ -91,15 +90,8 @@
         }
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb-marks_content{
-        .yb-marks_list{
-            padding: 0 10%;
-        }
-    }
-}
 @media only screen and (max-width: 1440px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
             .yb-marks_items{
                 .yb-marks_flex{
@@ -111,24 +103,9 @@
         }
     }
 }
-@media only screen and (max-width: 1366px){
-    .yb-marks_content{
-        .yb-marks_list{
-            padding: 0 8%;
-        }
-    }
-}
-@media only screen and (max-width: 1300px){
-    .yb-marks_content{
-        .yb-marks_list{
-            padding: 0 6%;
-        }
-    }
-}
 @media only screen and (max-width: 1024px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
-            padding: 0 3%;
             .yb-marks_items{
                 .yb-marks_flex{
                     figure.yb-marks_item{
@@ -141,9 +118,8 @@
     }
 }
 @media only screen and (max-width: 945px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
-            padding: 0 2%;
             h1{
                 font-size: em(48);
                 margin: 15px 0;
@@ -160,7 +136,7 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
             h1{
                 line-height: 49px;
@@ -177,7 +153,7 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
             .yb-marks_crumbs{
                 display: none;
@@ -200,9 +176,8 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
-            padding: 0 4%;
             h1{
                 font-size: em(36);
             }
@@ -215,7 +190,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
             h1{
                 font-size: em(32);
@@ -235,7 +210,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .yb-marks_content{
+    .yb-content{
         .yb-marks_list{
             h1{
                 font-size: em(28);

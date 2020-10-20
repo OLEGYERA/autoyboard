@@ -1,4 +1,4 @@
-<main class="yb_favorite-content">
+<main class="yb-content">
     <div class="yb_bread-links">
         <ul class="yb_links-items">
             <li class="yb_links-item">

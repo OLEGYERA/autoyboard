@@ -48,12 +48,9 @@
                 }
             }
         }
-        padding: 0px 17%;
-
     }
 
     .yb-stickers{
-        padding: 0px 17%;
         width: 100%;
         margin: 30px 0 45px;
         display: flex;
@@ -133,13 +130,11 @@
         box-shadow: 0px -2px 4px rgba(78, 78, 78, 0.15);
         padding-bottom: 40px;
         //border-top: 1px solid #C7C7C7;
-        padding: 0px 17%;
         width: 100%;
         background: linear-gradient(179.87deg, rgba(255, 255, 255, 0.97) -67.8%, rgba(255, 255, 255, 0.94) 103.31%), #697C8C;
     }
 
     .yb-catalog{
-        padding: 0px 17%;
         position: relative;
         width: 100%;
     }
@@ -148,7 +143,6 @@
     }
 
     .yb-analytics{
-        padding: 0px 17%;
         position: relative;
         width: 100%;
     }
@@ -157,7 +151,6 @@
     }
 
     .yb-news{
-        padding: 0px 17%;
         width: 100%
     }
 }
@@ -203,14 +196,6 @@
         }
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb-content{
-        .yb-first_screen, .yb-stickers, .yb-best_offers, .yb-catalog, .yb-analytics, .yb-news{
-            padding: 0px 10%;
-        }
-    }
-
-}
 @media only screen and (max-width: 1440px){
     .yb-content{
         .yb-first_screen{
@@ -249,7 +234,6 @@
 @media only screen and (max-width: 1366px){
     .yb-content{
         .yb-first_screen{
-            padding: 0 8%;
             .yb-form{
                 .yb-form_left{
                     .yb-main-links{
@@ -287,29 +271,27 @@
             }
         }
         .yb-stickers{
-            padding: 0px 8%;
+            //padding: 0px 8%;
         }
         .yb-best_offers{
-            padding: 0px 8%;
+            //padding: 0px 8%;
         }
         .yb-catalog{
-            padding: 0px 8%;
+            //padding: 0px 8%;
         }
         .yb-analytics{
 
         }
         .yb-news{
-            padding: 0px 8%;
+            //padding: 0px 8%;
         }
     }
 }
 @media only screen and (max-width: 1330px){
     .yb-content{
         .yb-first_screen{
-            padding: 0px 6%;
         }
         .yb-stickers{
-            padding: 0px 6%;
             .ystickers{
                 .yb-sticker{
                     max-height: 180px;
@@ -317,16 +299,12 @@
             }
         }
         .yb-best_offers{
-            padding: 0px 6%;
         }
         .yb-catalog{
-            padding: 0px 6%;
         }
         .yb-analytics{
-            padding: 0px 6%;
         }
         .yb-news{
-            padding: 0px 6%;
         }
     }
 
@@ -377,7 +355,6 @@
 @media only screen and (max-width: 1024px){
     .yb-content{
         .yb-first_screen, .yb-stickers, .yb-best_offers, .yb-catalog, .yb-analytics, .yb-news{
-            padding: 0px 2.5%;
             .yb-form{
                 .yform{
                     top: 13px;
@@ -400,7 +377,6 @@
 @media only screen and (max-width: 945px){
     .yb-content{
         .yb-first_screen{
-            padding: 0px 0%;
             .yb-form{
                 .yform{
                     top: 23px;
@@ -437,7 +413,6 @@
             }
         }
         .yb-stickers{
-            padding: 0px 15px;
             margin: 15px 0 30px;
             .ystickers{
                 .yb-sticker{
@@ -450,7 +425,6 @@
             }
         }
         .yb-best_offers{
-            padding: 0px 15px;
         }
     }
 }
@@ -531,7 +505,6 @@
             display: block;
             position: relative;
             width: 100%;
-            padding: 0px 15px;
             margin-bottom: 30px;
         }
     }
@@ -600,7 +573,6 @@
         .yb-stickers-mobile{
             position: relative;
             margin: 15px 0 35px;
-            padding: 0px 15px;
             display: flex;
             width: 100%;
             .ystickers{
@@ -729,7 +701,6 @@
             display: none;
         }
         .ymobilecatalog{
-            padding: 0px 2.5%;
             position: relative;
             width: 100%;
             display: block;

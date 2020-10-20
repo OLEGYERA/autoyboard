@@ -1,4 +1,4 @@
-<main class="yb-marks_content">
+<main class="yb-content">
     <section class="yb-marks_list">
         <div class="yb-marks_crumbs">
             <span>

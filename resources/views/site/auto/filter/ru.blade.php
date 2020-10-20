@@ -1,4 +1,4 @@
-<main class="yb-filter_content">
+<main class="yb-content">
     <section class="yb-filter">
         <div class="yb-bread_crumbs">
             <span class="y-crumbs">

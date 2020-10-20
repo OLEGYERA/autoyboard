@@ -7,16 +7,16 @@
                 <button class="change_type">Б/у</button>
             </div>
             <div class="selector-rows">
-                <yselect :placeholder="'Тип авто'" :options="options"></yselect>
-                <yselect :placeholder="'Модель'" :options="options"></yselect>
-                <yselect :placeholder="'Марка'" :options="options"></yselect>
-                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>
-                <yselect :placeholder="'Регион'" :options="options"></yselect>
+<!--                <yselect :placeholder="'Тип авто'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Модель'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Марка'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Регион'" :options="options"></yselect>-->
             </div>
             <div class="yprice_options">
                 <h3 class="ytitle_option">Цена, $</h3>
                 <div class="change_price">
-                    <yrange></yrange>
+<!--                    <yrange></yrange>-->
                 </div>
             </div>
             <div class="yresource_options">
@@ -40,11 +40,11 @@
     <div class="yform"  v-else>
         <div class="left_options">
             <div class="selector-rows">
-                <yselect :placeholder="'Тип авто'" :options="options"></yselect>
-                <yselect :placeholder="'Модель'" :options="options"></yselect>
-                <yselect :placeholder="'Марка'" :options="options"></yselect>
-                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>
-                <yselect :placeholder="'Регион'" :options="options"></yselect>
+<!--                <yselect :placeholder="'Тип авто'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Модель'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Марка'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Регион'" :options="options"></yselect>-->
             </div>
             <div class="yform-submit">
                 <button>Поиск</button>
@@ -59,7 +59,7 @@
             <div class="yprice_options">
                 <h3 class="ytitle_option">Цена, $</h3>
                 <div class="change_price">
-                    <yrange></yrange>
+<!--                    <yrange></yrange>-->
                 </div>
             </div>
             <div class="yresource_options">

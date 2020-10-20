@@ -1,4 +1,4 @@
-<main class="yb-convention_content">
+<main class="yb-content">
     <section class="yb-convention_prev">
         <div class="yb-convention_crumbs">
             <span>

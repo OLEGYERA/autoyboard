@@ -733,11 +733,47 @@
         }
     }
 }
-
-
+@media only screen and (max-width: 1500px){
+    #yb-site{
+        .yb-content{
+            padding: 0 10%;
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    #yb-site{
+        .yb-content{
+            padding: 0 8%;
+        }
+    }
+}
+@media only screen and (max-width: 1330px){
+    #yb-site{
+        .yb-content{
+            padding: 0 6%;
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    #yb-site{
+        .yb-content{
+            padding: 0 3%;
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    #yb-site{
+        .yb-content{
+            padding: 0 2%;
+        }
+    }
+}
 @media only screen and (max-width: 425px){
     #yb-site{
         padding-top: 50px;
+        .yb-content{
+            padding: 0 4%;
+        }
     }
 }
 

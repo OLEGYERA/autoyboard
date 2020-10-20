@@ -1,8 +1,7 @@
 @import '../../vars';
 
-.yb-filter_content{
+.yb-content{
     .yb-filter{
-            padding: 0px 17%;
             width: 100%;
         .yb-bread_crumbs{
             margin: 25px 0 20px;
@@ -129,54 +128,13 @@
         }
     }
     .yb-filter_extended{
-        padding: 0px 17%;
         width: 100%;
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb-filter_content{
-        .yb-filter {
-            padding: 0px 10%;
-        }
-        .yb-filter_extended{
-            padding: 0px 10%;
-        }
-    }
-}
-@media only screen and (max-width: 1366px){
-    .yb-filter_content{
-        .yb-filter {
-            padding: 0px 8%;
-        }
-        .yb-filter_extended{
-            padding: 0px 8%;
-        }
-    }
-}
-@media only screen and (max-width: 1330px){
-    .yb-filter_content{
-        .yb-filter {
-            padding: 0px 6%;
-        }
-        .yb-filter_extended{
-            padding: 0px 6%;
-        }
-    }
-}
-@media only screen and (max-width: 1024px){
-    .yb-filter_content{
-        .yb-filter {
-            padding: 0px 2.5%;
-        }
-        .yb-filter_extended{
-            padding: 0px 2.5%;
-        }
-    }
-}
+
 @media only screen and (max-width: 945px){
-    .yb-filter_content{
+    .yb-content{
         .yb-filter {
-            padding: 0px 15px;
             .yb-filter_title{
                 font-size: em(32);
             }
@@ -192,13 +150,11 @@
                 }
             }
         }
-        .yb-filter_extended{
-            padding: 0px 15px;
-        }
+
     }
 }
 @media only screen and (max-width: 768px){
-    .yb-filter_content{
+    .yb-content{
         .yb-filter {
             .yb-selected_positions{
                 margin: 0 0 20px;
@@ -219,7 +175,7 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb-filter_content{
+    .yb-content{
         .yb-filter{
             .yb-bread_crumbs{
                 display: none;
@@ -252,7 +208,7 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb-filter_content {
+    .yb-content {
         .yb-filter {
             .yb-selected_positions {
                 margin: 0 0 53px;
@@ -272,7 +228,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .yb-filter_content {
+    .yb-content {
         .yb-filter {
             .yb-bread_back{
                 display: none;
