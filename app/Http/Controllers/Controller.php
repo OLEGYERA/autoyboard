@@ -1,23 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Arr;
-use Stichoza\GoogleTranslate\GoogleTranslate;
-use YandexTranslate;
-use Intervention\Image\ImageManagerStatic as Image;
 use http\Env;
 use PHPHtmlParser\Dom;
 use App\Brand;
 use App\ModelOfBrand;
-use App\ManufactureCountry;
-use App\TranportBody;
-use App\UkrainianRegion;
-use App\UkrainianCity;
-use App\BrandPivotType;
-
-use App\TransportChTech;
-use App\TransportChTechPivotType;
-
+use App\TransportType;
 
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\File;
@@ -29,269 +17,6 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-
-    public function filterparse()
-    {
-
-
-        $brand_1 = Curl::to('https://auto.ria.com/demo/api/categories/8/marks/_active/_with_count/_with_country?langId=2')
-        ->withTimeout(60)
-        ->withConnectTimeout(60)
-        //            ->withProxy('93.190.44.51', 14523, 'https://', 'O9e5TwD', 'N5k6WhE')
-        ->withHeaders(array('User-Agent' => 'Mozilla/5.0 (Linux; Android 10; HRY-LX1 Build/HONORHRY-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.117 Mobile Safari/537.36 YaApp_Android/9.85 YaSearchBrowser/9.85'))
-        ->withResponseHeaders()
-        ->returnResponseObject()
-        ->get();
-
-        $brand_1 = json_decode($brand_1->content);
-        $manufacture = json_decode('[{"val" : "276", "name": "Германия"},{"val" : "392", "name": "Япония"},{"val" : "250", "name": "Франция"},{"val" : "840", "name": "США"},{"val" : "408", "name": "Корея"},{"val" : "203", "name": "Чехия"},{"val" : "804", "name": "Украина"},{"val" : "380", "name": "Италия"},{"val" : "752", "name": "Швеция"},{"val" : "158", "name": "Китай"},{"val" : "40", "name": "Австрия"},{"val" : "826", "name": "Англия"},{"val" : "32", "name": "Аргентина"},{"val" : "112", "name": "Беларусь"},{"val" : "56", "name": "Бельгия"},{"val" : "100", "name": "Болгария"},{"val" : "76", "name": "Бразилия"},{"val" : "348", "name": "Венгрия"},{"val" : "276", "name": "Германия"},{"val" : "900", "name": "Грузия"},{"val" : "208", "name": "Дания"},{"val" : "356", "name": "Индия"},{"val" : "364", "name": "Иран"},{"val" : "901", "name": "Ирландия"},{"val" : "724", "name": "Испания"},{"val" : "380", "name": "Италия"},{"val" : "398", "name": "Казахстан"},{"val" : "124", "name": "Канада"},{"val" : "158", "name": "Китай"},{"val" : "408", "name": "Корея"},{"val" : "428", "name": "Латвия"},{"val" : "440", "name": "Литва"},{"val" : "442", "name": "Люксембург"},{"val" : "458", "name": "Малайзия"},{"val" : "498", "name": "Молдова"},{"val" : "528", "name": "Нидерланды"},{"val" : "578", "name": "Норвегия"},{"val" : "902", "name": "ОАЭ"},{"val" : "616", "name": "Польша"},{"val" : "620", "name": "Португалия"},{"val" : "643", "name": "Россия"},{"val" : "642", "name": "Румыния"},{"val" : "688", "name": "Сербия"},{"val" : "703", "name": "Словакия"},{"val" : "705", "name": "Словения"},{"val" : "840", "name": "США"},{"val" : "792", "name": "Турция"},{"val" : "860", "name": "Узбекистан"},{"val" : "804", "name": "Украина"},{"val" : "246", "name": "Финляндия"},{"val" : "250", "name": "Франция"},{"val" : "203", "name": "Чехия"},{"val" : "756", "name": "Швейцария"},{"val" : "752", "name": "Швеция"},{"val" : "233", "name": "Эстония"},{"val" : "392", "name": "Япония"}]');
-
-        $manufacture_assoc = [];
-        foreach ($manufacture as $i){
-            $manufacture_assoc = Arr::add($manufacture_assoc, $i->val, $i->name);
-        }
-
-//        dd($brand_1);
-
-        foreach ($brand_1 as $i){
-            $brand = Brand::where('title', $i->name)->first();
-
-            if(!empty($brand)){
-                echo $i->country . '<br/>';
-                if($i->country != 0 && isset($manufacture_assoc[$i->country])){
-                    $mc = ManufactureCountry::where('rtitle', $manufacture_assoc[$i->country])->first();
-                    $brand->manufacture_id = $mc->id;
-                    $brand->save();
-                }
-            }
-        }
-        dd($i->country);
-
-
-        dd($manufacture_assoc);
-        foreach (Brand::all() as $item){
-            if($item->car){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 1;
-                $bpt->save();
-            }
-            if($item->moto){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 2;
-                $bpt->save();
-            }
-            if($item->tractor){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 3;
-                $bpt->save();
-            }
-            if($item->water_transport){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 4;
-                $bpt->save();
-            }
-            if($item->trailer){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 5;
-                $bpt->save();
-            }
-            if($item->lorry){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 6;
-                $bpt->save();
-            }
-            if($item->bus){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 7;
-                $bpt->save();
-            }
-            if($item->autodom){
-                $bpt = new BrandPivotType;
-                $bpt->brand_id = $item->id;
-                $bpt->type_id = 8;
-                $bpt->save();
-            }
-        }
-
-        dd('end');
-
-
-
-
-
-
-
-        $ru_json = json_decode('{"security":[{"name":"Сигнализация","value":303}],"comfort":[{"name":"Антена","value":487},{"name":"Душ","value":412},{"name":"Запуск кнопкой","value":525},{"name":"Кондиционер","value":189},{"name":"Отопление","value":490},{"name":"Палатка","value":489},{"name":"Память сидений","value":523},{"name":"Плита","value":488},{"name":"Подогрев руля","value":524},{"name":"Сейф","value":492},{"name":"Телевизор","value":422},{"name":"Туалет","value":425},{"name":"Умывальник","value":491},{"name":"Холодильник","value":426}],"multimedia":[{"name":"CD","value":407},{"name":"DVD","value":408},{"name":"MP3","value":433}],"state":[{"name":"Гаражное хранение","value":477},{"name":"Индивидуальная комплектация","value":513},{"name":"Не бит","value":497},{"name":"Не крашен","value":498},{"name":"Первая регистрация","value":501},{"name":"Первый владелец","value":496},{"name":"Пригоню под заказ","value":512},{"name":"Требует ремонта","value":522}]}', true);
-        $ua_json = json_decode('{"security":[{"name":"Сигналізація","value":303}],"comfort":[{"name":"Антена","value":487},{"name":"Душ","value":412},{"name":"Запуск кнопкою","value":525},{"name":"Кондиціонер","value":189},{"name":"Обігрів керма","value":524},{"name":"Опалення","value":490},{"name":"Палатка","value":489},{"name":"Пам\'ять сидінь","value":523},{"name":"Плита","value":488},{"name":"Сейф","value":492},{"name":"Телевізор","value":422},{"name":"Туалет","value":425},{"name":"Умивальник","value":491},{"name":"Холодильник","value":426}],"multimedia":[{"name":"CD","value":407},{"name":"DVD","value":408},{"name":"MP3","value":433}],"state":[{"name":"Гаражне зберігання","value":477},{"name":"Індивідуальна комплектація","value":513},{"name":"Не битий","value":497},{"name":"Не фарбований","value":498},{"name":"Перша реєстрація","value":501},{"name":"Перший власник","value":496},{"name":"Потребує ремонту","value":522},{"name":"Прижену під замовлення","value":512}]}', true);
-        $en_json = json_decode('{"security": [{"name": "Alarm", "value": 303}], "comfort": [{"name": "Antenna", "value": 487}, {"name": " Shower ","value": 412}, {"name":" Button start ","value": 525}, {"name":" Air conditioning ","value": 189}, {"name":" Heating steering wheel ","value": 524}, {"name":" Heating ","value": 490}, {"name":" Tent ","value": 489}, {"name":"Seat memory ","value": 523}, {"name":" Stove ","value": 488}, {"name":" Safe ","value": 492}, {"name":" TV ","value": 422}, {"name":" Toilet ","value": 425}, {"name":" Washbasin ","value": 491}, {"name":" Refrigerator ", "value": 426}], "multimedia": [{"name": "CD", "value": 407}, {"name": "DVD", "value": 408}, {"name": "MP3", "value": 433}], "state": [{"name": "Garage storage", "value": 477}, {"name": "Individual equipment", "value": 513} , {"name": "Unbeaten", "value": 497}, {"name": "Unpainted", "value": 498}, {"name": "First registration", "value": 501 }, {"name": "First owner", "value": 496}, {"name": "Needs repair", "value": 522}, {"name": "Custom", "value" : 512}]}', true);
-
-
-//auto 1
-//moto 2
-//tractor 4
-//water_transport 3
-//trailer 5
-//lorry 6
-//bus 7
-//autodom 8
-
-
-        $type_id = 8;
-        $obj = [];
-
-
-
-        foreach ($ru_json as $key => $item) {
-            foreach ($item as $i){
-                $obj = Arr::add($obj, $i['value'], ['assoc' => $key, 'rtitle' => $i['name']]);
-            }
-        }
-        foreach ($ua_json as $key => $item) {
-            foreach ($item as $i){
-                $obj[$i['value']]['utitle'] = $i['name'];
-            }
-        }
-        foreach ($en_json as $key => $item) {
-            foreach ($item as $i){
-                $obj[$i['value']]['title'] = trim($i['name']);
-                $obj[$i['value']]['alias'] = mb_strtolower($this->createAlias(trim($i['name'])));
-                echo $i['value'] . '<br/>';
-            }
-        }
-
-        dd($obj);
-
-
-
-        foreach ($obj as $item) {
-
-            $searched_item = TransportChTech::where('alias', $item['alias'])->first();
-
-            if(empty($searched_item)){
-                $tct = new TransportChTech;
-                $tct->type = $item['assoc'];
-                $tct->title = $item['title'];
-                $tct->rtitle = $item['rtitle'];
-                $tct->utitle = $item['utitle'];
-                $tct->alias = $item['alias'];
-
-                $tct->save();
-
-
-                $tctpt = new TransportChTechPivotType;
-                $tctpt->ch_tech_id = $tct->id;
-                $tctpt->type_id = $type_id;
-                $tctpt->save();
-
-            }
-            else{
-                echo $item['title'] . '---' . '<br/>';
-                $tctpt = new TransportChTechPivotType;
-                $tctpt->ch_tech_id = $searched_item->id;
-                $tctpt->type_id = $type_id;
-                $tctpt->save();
-            }
-
-
-        }
-
-        dd('end');
-
-
-
-
-
-
-        dd(json_decode($response->content));
-
-
-
-
-
-        foreach ($ru_json as $item) {
-            $ru_obj = Arr::add($ru_obj, $item->value, ['name' => $item->name, 'state' => $item->state]);
-        }
-
-        foreach ($ua_json as $item) {
-            $ua_obj = Arr::add($ua_obj, $item->value, ['name' => $item->name, 'state' => $item->state]);
-        }
-        foreach ($en_json as $item){
-            echo $item->value. '<br/>';
-            $en_obj = Arr::add($en_obj, $item->value, trim($item->name));
-        }
-
-
-        foreach ($ru_obj as $k => $item) {
-            $tb = new UkrainianCity;
-            $tb->title = 'null';
-            $tb->rtitle = $item['name'];
-            $tb->utitle = $ua_obj[$k]['name'];
-            $tb->alias = 'null';
-
-            $tb->region_id = UkrainianRegion::where('timely', $item['state'])->first()->id;
-            dd($tb);
-            $tb->save();
-            echo 'ru: ' . $tb->rtitle . ', ua: ' . $tb->utitle . '<br/>';
-//            $tb->save();
-
-        }
-
-        dd($ru_obj, $ua_obj);
-
-
-        $ru_json = json_decode('');
-        $ua_json = json_decode('');
-        $en_json = json_decode('');
-    }
-
-
-
-//$response = Curl::to('https://auto.ria.com/uk/api/categories/8/auto_options/_group?langId=2')
-//->withTimeout(60)
-//->withConnectTimeout(60)
-////            ->withProxy('93.190.44.51', 14523, 'https://', 'O9e5TwD', 'N5k6WhE')
-//->withHeaders(array('User-Agent' => 'Mozilla/5.0 (Linux; Android 10; HRY-LX1 Build/HONORHRY-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.117 Mobile Safari/537.36 YaApp_Android/9.85 YaSearchBrowser/9.85'))
-//->withResponseHeaders()
-//->returnResponseObject()
-//->get();
-
-    public function img_minified(){
-
-        for($i=1; $i <= 500; $i++){
-            $image = Image::make('https://cdn3.riastatic.com/photosnew/auto/photo/mercedes-benz_vito-111__351177843fx.jpg');
-            $watermark = Image::make('img/system/logos/logo_white.png');
-            $image->insert($watermark, 'bottom-left', 5, 5);
-
-            $large = $image->resize(800, 600);
-            $large->save('folder/' . $i . 'large.jpg',  60);
-            $medium = $image->resize(620, 465);
-            $medium->save('folder/' . $i . 'medium.jpg',  60);
-
-            $standart = $image->resize(460, 290);
-            $standart->save('folder/' . $i . 'standart.jpg',  60);
-
-            $small = $image->resize(150, 100);
-            $small->save('folder/' . $i . 'small.jpg',  60);
-        }
-
-    }
-
-
-
-
-
-
-
-
-
 
 
     public function first_try(){
@@ -382,7 +107,7 @@ class Controller extends BaseController
                     $new_brand->autodom = true;
                     $new_brand->title = $brand['name'];
                     $new_brand->rtitle = $brand['name_ru'];
-                    $new_brand->utitle= $brand['name_uk'];
+                    $new_brand->utitle = $brand['name_uk'];
                     $new_brand->alias = mb_strtolower($this->createAlias($brand['name']));
                     $new_brand->save();
                     echo $new_brand->title . ' - бренд создан <br/>';
@@ -395,7 +120,7 @@ class Controller extends BaseController
                             ->withHeaders( array( 'User-Agent' => 'Mozilla/5.0 (Linux; Android 10; HRY-LX1 Build/HONORHRY-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.117 Mobile Safari/537.36 YaApp_Android/9.85 YaSearchBrowser/9.85') )
                             ->withResponseHeaders()
                             ->download('img/brands_logo/' . $new_brand->alias . '.' . $extension);
-                        echo $new_brand->alias . ' - изображение добавленно <br/>';
+                             echo $new_brand->alias . ' - изображение добавленно <br/>';
                     }
                     else{
                         echo $new_brand->alias . ' - изображение <b>не</b> добавленно <br/>';
@@ -425,14 +150,14 @@ class Controller extends BaseController
 
                     $model_new->title = $model['name'];
                     $model_new->rtitle = $model['name_ru'];
-                    $model_new->utitle= $model['name_uk'];
+                    $model_new->utitle = $model['name_uk'];
                     $model_new->alias = mb_strtolower($this->createAlias($model['name']));
 
                     $model_new->save();
                     echo $model_new->title . ' - модель созданна <br/>';
                 }
-                echo $new_brand->title . ' - КОНЕЦ ---------------------------------------------- <br/>';
-                echo '<br/><br/><br/><br/>';
+            echo $new_brand->title . ' - КОНЕЦ ---------------------------------------------- <br/>';
+            echo '<br/><br/><br/><br/>';
             }
         }
 
@@ -544,7 +269,7 @@ class Controller extends BaseController
             'с' => 's',   'т' => 't',   'у' => 'u',
             'ф' => 'f',   'х' => 'h',   'ц' => 'c',
             'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
-            'ь' => 'y',  'ы' => 'y',   'ъ' => 'y',
+            'ь' => '\'',  'ы' => 'y',   'ъ' => '\'',
             'э' => 'e',   'ю' => 'yu',  'я' => 'ya',
 
             'А' => 'A',   'Б' => 'B',   'В' => 'V',
@@ -559,7 +284,6 @@ class Controller extends BaseController
             'Ь' => '\'',  'Ы' => 'Y',   'Ъ' => '\'',
             'Э' => 'E',   'Ю' => 'Yu',  'Я' => 'Ya',
             ' ' => '-', ' / ' => '_', '/' => '_',
-            '(' => '',    ')' => '',  '\'' => 'y'
         );
         return strtr($string, $converter);
     }

@@ -16,8 +16,8 @@ class CreateModelsTable extends Migration
         Schema::create('models', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('rtitle')->nullable();
-            $table->string('utitle')->nullable();
+            $table->string('rtitle')->nullable();;
+            $table->string('utitle')->nullable();;
             $table->string('alias');
 
             $table->bigInteger('brand_id')->unsigned();

@@ -177,8 +177,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        Bluora\Yandex\Providers\YandexTranslateServiceProvider::class,
     ],
 
     /*
@@ -233,8 +231,6 @@ return [
         'Curl' => Ixudra\Curl\Facades\Curl::class,
         'Token'=>\Dirape\Token\Facades\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-        'YandexTranslate' => Bluora\Yandex\Facades\YandexTranslateFacade::class,
     ],
 
 ];

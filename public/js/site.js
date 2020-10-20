@@ -4660,32 +4660,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ycheck.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ycheck.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['name', 'checked', 'checkHide'],
-  methods: {
-    changeCheck: function changeCheck() {
-      this.$emit('checked');
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ycheckbox.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ycheckbox.vue?vue&type=script&lang=js& ***!
@@ -4706,12 +4680,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['name', 'checked'],
-  methods: {
-    changeCheck: function changeCheck() {
-      this.$emit('checked');
-    }
-  }
+  props: ['text']
 });
 
 /***/ }),
@@ -4746,46 +4715,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['options', 'placeholder', 'choosedItem', 'shade'],
+  props: ['items', 'placeholder', 'selectedItem'],
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
   },
+  destroyed: function destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
+  },
   data: function data() {
     return {
-      openResults: false,
-      mouseSelected: null
+      itemSelected: null,
+      isOpen: false,
+      result: []
     };
   },
   methods: {
-    clickingResult: function clickingResult(result) {
-      this.openResults = false;
-      this.$emit('updateChoosed', result);
+    setItem: function setItem(item) {
+      this.itemSelected = item.name;
+      this.result = item;
+      this.isOpen = false;
+      this.$emit('setItem', item); //
+      // this.$emit('setItem', {
+      //     selectItem: item.name,
+      //     selectId: item.id
+      // })
     },
     handleClickOutside: function handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
-        this.openResults = false;
+        this.isOpen = false;
       }
     }
   },
   computed: {
-    getChoosedObject: function getChoosedObject() {
-      var _this = this;
-
-      return this.options.find(function (el) {
-        if (el.val == _this.choosedItem) return true;
-      });
+    filteredItems: function filteredItems() {
+      return this.items;
     },
     generatingPlaceholder: function generatingPlaceholder() {
-      return this.getChoosedObject !== undefined ? this.getChoosedObject.name : this.placeholder;
+      return this.itemSelected === null ? this.placeholder : this.itemSelected;
     }
-  },
-  watch: {
-    selected: function selected(to) {// console.log(to)
-    }
-  },
-  destroyed: function destroyed() {
-    document.removeEventListener('click', this.handleClickOutside);
   }
 });
 
@@ -4899,6 +4874,259 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfaqquestions.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfaqquestions.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.onResize();
+  },
+  data: function data() {
+    return {
+      windowWidth: 0,
+      catShowID: null,
+      questionID: null,
+      selectedCategories: '',
+      showListQuestions: false,
+      questionsItems: [{
+        title: 'Объявления',
+        subquest: [{
+          title: 'Редактирование объявления. Какие параметры я могу менять?'
+        }, {
+          title: 'Как удалить авто с AUTO.RIA?'
+        }, {
+          title: 'Как подтвердить номер телефона на AUTO.RIA?'
+        }, {
+          title: 'Что делать, если Вы забыли пароль?'
+        }, {
+          title: 'Что такое публикация? Условия публикации на AUTO.RIA'
+        }, {
+          title: 'Как поднять автомобиль в ТОП?'
+        }, {
+          title: 'Рекомендации по успешному добавлению объявлений на AUTO.RIA'
+        }, {
+          title: 'Как добавить объявление в мобильном приложении AUTO.RIA?'
+        }, {
+          title: 'Как добавить автомобиль на AUTO.RIA?'
+        }]
+      }, {
+        title: 'Регистрация на сайте',
+        subquest: [{
+          title: 'Как добавить автомобиль на AUTO.RIA?'
+        }, {
+          title: 'Електропакет'
+        }, {
+          title: 'Запуск кнопкой '
+        }, {
+          title: 'Кондиционер '
+        }, {
+          title: 'Люк '
+        }, {
+          title: 'Обогрев руля'
+        }, {
+          title: 'Память сидений'
+        }, {
+          title: 'Подогрев зеркал'
+        }, {
+          title: 'Усилитель руля'
+        }, {
+          title: 'Кожаный сайлон '
+        }, {
+          title: 'Датчик света'
+        }, {
+          title: 'Электростеклоподьемники'
+        }, {
+          title: 'Климат контроль'
+        }, {
+          title: 'Мультируль'
+        }, {
+          title: 'Омыватель фар'
+        }, {
+          title: 'Парктроник'
+        }, {
+          title: 'Подогрев сидений'
+        }, {
+          title: 'Датчик дождя'
+        }]
+      }, {
+        title: 'Черный список номеров',
+        subquest: [{
+          title: 'Магнитола'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'Что такое публикация? Условия публикации на AUTO.RIA'
+        }]
+      }, {
+        title: 'Поиск объявлений',
+        subquest: [{
+          title: 'Понты'
+        }, {
+          title: 'для'
+        }, {
+          title: 'Приезжих'
+        }, {
+          title: 'Магнитола'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'и збс'
+        }, {
+          title: 'AUX'
+        }, {
+          title: 'и ты'
+        }, {
+          title: 'царь'
+        }]
+      }, {
+        title: 'Мошенники',
+        subquest: [{
+          title: 'Понты'
+        }, {
+          title: 'для'
+        }, {
+          title: 'Приезжих'
+        }, {
+          title: 'Магнитола'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'и збс'
+        }, {
+          title: 'AUX'
+        }, {
+          title: 'и ты'
+        }, {
+          title: 'Как подтвердить номер телефона на AUTO.RIA?'
+        }]
+      }, {
+        title: 'Общие вопросы',
+        subquest: [{
+          title: 'Понты'
+        }, {
+          title: 'для'
+        }, {
+          title: 'Приезжих'
+        }, {
+          title: 'Как подтвердить номер телефона на AUTO.RIA?'
+        }, {
+          title: 'есть'
+        }, {
+          title: 'и збс'
+        }, {
+          title: 'AUX'
+        }, {
+          title: 'и ты'
+        }, {
+          title: 'царь'
+        }]
+      }]
+    };
+  },
+  methods: {
+    onResize: function onResize() {
+      this.windowWidth = document.documentElement.clientWidth;
+      console.log(this.windowWidth);
+    },
+    openSub: function openSub(catItem, catIndex) {
+      this.catShowID = catIndex;
+      this.showListQuestions = true;
+      this.selectedItem = catItem;
+      console.log(this.catShowID);
+      console.log(this.showSubItem);
+      console.log('click');
+    },
+    closeSub: function closeSub() {
+      this.showListQuestions = false;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfavorite.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfavorite.vue?vue&type=script&lang=js& ***!
@@ -4935,11 +5163,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-/* harmony import */ var _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../site/routingSplicerBus.js */ "./resources/js/site/routingSplicerBus.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -5474,28 +5699,898 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  beforeMount: function beforeMount() {
-    this.initFilter();
-  },
   mounted: function mounted() {
     document.addEventListener('click', this.clickOutside);
     window.addEventListener('resize', this.changeResize);
     this.changeResize();
-    this.getYears(); // this.getRegion()
-
+    this.getYears();
+    this.getRegion();
     this.getTransportType();
     this.getManufactureCounries();
     this.getCarBrands();
   },
   data: function data() {
     return {
-      initPage: false,
-      langType: 3,
+      transportTypeChecked: [],
+      // true or false checkbox
+      transportType: [],
       yearsList: [],
       manufactureCountries: [],
       carBrandsArr: [],
@@ -5942,6 +7037,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         name: "Таиланд",
         id: "10"
       }],
+      cars: [{
+        id: 1,
+        name: "Ford"
+      }, {
+        id: 2,
+        name: "Toyota"
+      }, {
+        id: 3,
+        name: "Fiat"
+      }, {
+        id: 4,
+        name: "Mazda"
+      }],
       typeCars: [{
         name: 'Легковые',
         id: 'passenger'
@@ -6000,17 +7108,95 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         id: 'anouther_body',
         name: 'Другой'
+      }],
+      years: [{
+        name: '2020',
+        id: '2020'
+      }, {
+        name: '2019',
+        id: '2019'
+      }, {
+        name: '2018',
+        id: '2018'
+      }, {
+        name: '2017',
+        id: '2017'
+      }, {
+        name: '2016',
+        id: '2016'
+      }, {
+        name: '2015',
+        id: '2015'
+      }, {
+        name: '2014',
+        id: '2014'
+      }, {
+        name: '2013',
+        id: '2013'
+      }, {
+        name: '2012',
+        id: '2012'
+      }, {
+        name: '2011',
+        id: '2011'
+      }, {
+        name: '2010',
+        id: '2010'
+      }, {
+        name: '2009',
+        id: '2009'
+      }, {
+        name: '2008',
+        id: '2008'
+      }, {
+        name: '2007',
+        id: '2007'
+      }, {
+        name: '2006',
+        id: '2006'
+      }, {
+        name: '2005',
+        id: '2005'
+      }, {
+        name: '2004',
+        id: '2004'
+      }, {
+        name: '2003',
+        id: '2003'
+      }, {
+        name: '2002',
+        id: '2002'
+      }, {
+        name: '2001',
+        id: '2001'
+      }, {
+        name: '2000',
+        id: '2000'
+      }, {
+        name: '1999',
+        id: '1999'
+      }, {
+        name: '1998',
+        id: '1998'
+      }, {
+        name: '1997',
+        id: '1997'
+      }, {
+        name: '1996',
+        id: '1996'
+      }, {
+        name: '1995',
+        id: '1995'
       }]
     };
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])([//search deataild
-  'SET_AUTO_CONDITION', //regions
-  'SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
-  'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
-  'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['FULL_REGIONS_FROM_API', //RBMY
-  'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
-  'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API'])), {}, {
-    check: function check(e) {},
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['SET_CITIES_TO_STORE', 'SET_CHOOSED_REGIONS'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['FULL_REGIONS_FROM_API'])), {}, {
+    check: function check(e) {
+      console.log(e.target.id);
+    },
+    computeCityResult: function computeCityResult(city) {
+      this.SET_CITIES_TO_STORE(city);
+    },
     addToArray: function addToArray(item, index) {
       this.selectDropDown.push({
         name: item.name,
@@ -6019,6 +7205,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     removeSelectedItem: function removeSelectedItem(index) {
       this.$delete(this.selectDropDown, index);
+    },
+    removeChoosedCities: function removeChoosedCities(city_idx) {
+      this.$delete(this.choosedCities, city_idx);
+      console.log('remove', city_idx);
     },
     selectedItem: function selectedItem(e) {
       var select = this.selectDropDown.find(function (item) {
@@ -6060,89 +7250,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
     },
-    getCarBrands: function getCarBrands() {},
-    getManufactureCounries: function getManufactureCounries() {
+    getCarBrands: function getCarBrands() {
       var _this = this;
 
       var lang = 3,
           query = "?langType=" + lang;
-      _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('/manufacture_countries' + query).then(function (response) {
-        _this.manufactureCountries = response.data;
+      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/transport_types/1-8/brands' + query).then(function (response) {
+        _this.carBrandsArr = response.data;
       })["catch"](function (error) {
         console.log('error', error);
       });
     },
-    getTransportType: function getTransportType() {},
-    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
-      this.SET_BRAND_CHOSE(data);
-      data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
-      this.MODELS_FROM_API(data);
-    },
-    initFilter: function initFilter() {
+    getManufactureCounries: function getManufactureCounries() {
       var _this2 = this;
 
-      var UriSearch = window.location.search;
-      var UriPromise = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.ValidateUri(UriSearch);
+      var lang = 3,
+          query = "?langType=" + lang;
+      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/manufacture_countries' + query).then(function (response) {
+        _this2.manufactureCountries = response.data;
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    getTransportType: function getTransportType() {
+      var _this3 = this;
+
+      var lang = 3,
+          query = "?langType=" + lang;
+      _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get('/transport_types' + query).then(function (response) {
+        _this3.transportType = response.data;
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    getRegion: function getRegion() {
       var lang = 3,
           query = "?langType=" + lang + '&alias=1';
-      UriPromise().then(function (el) {
-        if (el.transportFullStore !== undefined) {
-          _this2.SET_TRANPORT_ARR(el.transportFullStore);
-
-          _this2.BRANDS_FROM_API('/transport_types/' + _this2.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
-        }
-
-        if (el.rbmyFullStore !== undefined) {
-          _this2.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query);
-
-          _this2.GENERATE_YEAR(new Date().getFullYear());
-
-          _this2.SET_NEW_RBMY(el.rbmyFullStore);
-        }
-
-        if (el.regionFullStore !== undefined) {
-          _this2.SET_REGION_ARR(el.regionFullStore);
-        }
-
-        _this2.initPage = true;
-      });
       this.FULL_REGIONS_FROM_API('/regions' + query);
-    },
-    reInitFilterByClick: function reInitFilterByClick(event) {
-      this.SET_TRANSPORT_TYPE(event);
-      this.CLEAR_BRANDS_MODELS();
-      this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
-      this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1');
     }
   }),
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    //search detail
-    'searchDeatils': 'GET_SEARCHDETAILS',
-    //RBMY
-    'rbmysArr': 'GET_RBMYS',
-    'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
-    'brands': 'GET_BRANDS',
-    'years': 'GET_YEARS',
-    //TRANSPORT
-    'transportsArr': 'GET_TRANSPORTS',
-    'transportTypes': 'GET_TRANSPORT_TYPES',
-    'transportBodies': 'GET_TRANSPORT_BODIES',
-    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
-    'cities': 'GET_CITIES',
-    'choosedCities': 'GET_CHOOSED_CITIES',
-    'choosedRegions': 'GET_CHOOSED_REGIONS'
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    'regionArr': 'GET_FULL_REGION_FROM_STORE',
+    'choosedCities': 'GET_CHOOSED_CITIES_FROM_STORE',
+    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE'
   })), {}, {
-    generateLink: function generateLink() {
-      var CurrentURI = 'extended';
-      var TRANPORTsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingTRANSPORTsProps(this.transportsArr);
-      var RBMYsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingRBMYsProps(this.rbmysArr);
-      var REGIONProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
-      if (this.initPage) window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
+    reversedYears: function reversedYears() {
+      return this.yearsList.slice().reverse();
     }
   }),
   watch: {
-    transportArr: function transportArr(to) {
-      console.log(to, 'watch');
+    regionArr: function regionArr(to) {
+      console.log(to);
     }
   },
   destroyed: function destroyed() {
@@ -7132,54 +8290,85 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yprice.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yprice.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+/* harmony import */ var nouislider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nouislider */ "./node_modules/nouislider/distribute/nouislider.js");
+/* harmony import */ var nouislider__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nouislider__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var nouislider_distribute_nouislider_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! nouislider/distribute/nouislider.css */ "./node_modules/nouislider/distribute/nouislider.css");
+/* harmony import */ var nouislider_distribute_nouislider_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(nouislider_distribute_nouislider_css__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      currency: [{
+        name: '$'
+      }, {
+        name: '₴'
+      }, {
+        name: '€'
+      }],
       minRange: null,
-      maxRange: null
+      maxRange: null,
+      slider: {
+        startMin: 60000,
+        startMax: 100000,
+        min: 200,
+        max: 200000,
+        step: 200
+      }
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['SET_CURRENCY_CHOOSED'])),
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    'curencies': 'GET_CURRENCIES',
-    'searchDeatils': 'GET_SEARCHDETAILS'
-  }))
+  methods: {
+    updateSlider: function updateSlider() {
+      this.$refs.slider.noUiSlider.set([this.minRange, this.maxRange]);
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    nouislider__WEBPACK_IMPORTED_MODULE_0___default.a.create(this.$refs.slider, {
+      start: [this.slider.startMin, this.slider.startMax],
+      step: this.slider.step,
+      connect: true,
+      range: {
+        'min': this.slider.min,
+        'max': this.slider.max
+      }
+    });
+    this.$refs.slider.noUiSlider.on('update', function (values, handle) {
+      _this[handle ? 'maxRange' : 'minRange'] = parseInt(values[handle]);
+    });
+  }
 });
 
 /***/ }),
@@ -7384,161 +8573,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yselectmultysearch.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yselectmultysearch.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['options', 'placeholder', 'choosedItems'],
-  mounted: function mounted() {
-    this.computingResults(''); // if data load rapid and doesn`t updated
-
-    document.addEventListener('click', this.handleClickOutside);
-  },
-  data: function data() {
-    return {
-      openResults: false,
-      selected: null,
-      mouseSelected: null,
-      search: "",
-      results: []
-    };
-  },
-  methods: {
-    clickingResult: function clickingResult(result) {
-      if (this.isPresent(result)) {
-        this.$emit('deleteChoose', result);
-      } else {
-        this.$emit('updateChoose', result);
-      }
-
-      this.search = '';
-    },
-    selectingResult: function selectingResult() {
-      if (this.results[this.selected] != undefined) {
-        this.clickingResult(this.results[this.selected].val);
-      }
-    },
-    onDown: function onDown() {
-      this.selected = this.selected == null ? this.selected = 0 : (this.selected + 1) % this.results.length;
-      this.fixScrolling();
-    },
-    onUp: function onUp() {
-      if (!this.openResults) {
-        return;
-      }
-
-      this.selected = this.selected - 1 < 0 ? this.results.length - 1 : this.selected - 1;
-      this.fixScrolling();
-    },
-    fixScrolling: function fixScrolling() {
-      var scroll = this.$refs.options[this.selected].scrollHeight + 1;
-      this.$refs.scrollContainer.scrollTop = scroll * this.selected;
-    },
-    handleClickOutside: function handleClickOutside(evt) {
-      if (!this.$el.contains(evt.target)) this.cleanTextField();
-    },
-    focusSelectSearch: function focusSelectSearch() {
-      this.selected = null;
-      this.mouseSelected = null;
-      this.arrowCounter = 0;
-      this.$refs.scrollContainer.scrollTop = 0;
-      this.openResults = true;
-    },
-    cleanTextField: function cleanTextField() {
-      this.search = '';
-      this.openResults = false;
-    },
-    isPresent: function isPresent(result) {
-      return this.choosedItems.indexOf(result) == -1 ? false : true;
-    },
-    computingResults: function computingResults(text) {
-      this.results = this.options.filter(function (item) {
-        return text.toLowerCase().split(' ').every(function (v) {
-          return item.name.toLowerCase().includes(v);
-        });
-      });
-    }
-  },
-  computed: {
-    generatingPlaceholder: function generatingPlaceholder() {
-      var _this = this;
-
-      var outputPlaceholder = '',
-          arrLength = this.choosedItems.length;
-
-      if (arrLength !== 0) {
-        this.choosedItems.forEach(function (el, i) {
-          var finded = _this.options.find(function (op_el) {
-            if (el === op_el.val) return true;
-          });
-
-          if (finded !== undefined) outputPlaceholder += arrLength - 1 == i ? finded.name : finded.name + '; ';
-        });
-      }
-
-      return outputPlaceholder !== '' ? outputPlaceholder : this.openResults ? 'Поиск...' : this.placeholder;
-    }
-  },
-  watch: {
-    search: function search(to, from) {
-      if (to == null) return false;
-      this.selected = 0;
-      this.computingResults(to);
-      this.arrowCounter = 0;
-      this.$refs.scrollContainer.scrollTop = 0;
-    },
-    options: function options(to) {
-      // if updating will be later
-      this.computingResults('');
-    }
-  },
-  destroyed: function destroyed() {
-    document.removeEventListener('click', this.handleClickOutside);
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yselectsearch.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yselectsearch.vue?vue&type=script&lang=js& ***!
@@ -7589,104 +8623,106 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['options', 'placeholder', 'choosedItem', 'deleteDis'],
+  props: ['options', 'placeholder'],
   mounted: function mounted() {
-    this.computingResults(''); // if data load rapid and doesn`t updated
-
     document.addEventListener('click', this.handleClickOutside);
+  },
+  destroyed: function destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
   },
   data: function data() {
     return {
-      openResults: false,
+      isOpened: false,
       selected: null,
-      mouseSelected: null,
       search: "",
       results: []
     };
   },
-  methods: {
-    clickingResult: function clickingResult(result) {
-      this.cleanTextField();
-      this.$emit('updateChoose', result);
-    },
-    selectingResult: function selectingResult() {
-      if (this.results[this.selected] != undefined) {
-        this.clickingResult(this.results[this.selected].val);
+  computed: {
+    filteredItems: function filteredItems() {
+      this.selected = null;
+
+      if (this.$refs.scrollContainer) {
+        this.$refs.scrollContainer.scrollTop = 0;
       }
+
+      var condition = new RegExp(this.search, "i");
+      this.results = this.options.filter(function (item) {
+        return item.name.match(condition);
+      });
+    },
+    generatingPlaceholder: function generatingPlaceholder() {
+      return this.isOpened ? 'Поиск...' : this.placeholder;
+    }
+  },
+  methods: {
+    setResult: function setResult(result) {
+      this.search = result.name;
+      this.results = result;
+      this.isOpened = false;
+      this.selected = null;
+      this.$emit('setItem', result);
+    },
+    onChange: function onChange() {
+      this.isOpened = true;
+      this.filteredItems;
+      console.log(this.isOpened);
+    },
+    select: function select() {
+      var searchName = this.results[this.selected];
+      this.search = searchName.name;
+      this.results = searchName.name;
+      this.selected = null;
+
+      if (this.results.length > 0) {
+        this.selected = null;
+      }
+
+      this.isOpened = false;
     },
     onDown: function onDown() {
-      this.selected = this.selected == null ? this.selected = 0 : (this.selected + 1) % this.results.length;
+      if (!this.isOpened) {
+        return;
+      }
+
+      this.selected = (this.selected + 1) % this.results.length;
       this.fixScrolling();
     },
     onUp: function onUp() {
-      if (!this.openResults) {
+      if (!this.isOpened) {
         return;
       }
 
       this.selected = this.selected - 1 < 0 ? this.results.length - 1 : this.selected - 1;
       this.fixScrolling();
     },
+    toggle: function toggle() {
+      this.isOpened = !this.isOpened;
+
+      if (this.isOpened) {
+        this.$refs.dropdown.focus();
+      }
+
+      console.log(this.isOpened);
+    },
     fixScrolling: function fixScrolling() {
-      var scroll = this.$refs.options[this.selected].scrollHeight + 1;
+      var scroll = this.$refs.options[this.selected].scrollHeight;
       this.$refs.scrollContainer.scrollTop = scroll * this.selected;
+      console.log(this.$refs.scrollContainer.scrollTop);
+      console.log(scroll * this.arrowCounter);
     },
     handleClickOutside: function handleClickOutside(evt) {
-      if (!this.$el.contains(evt.target)) this.cleanTextField();
-    },
-    focusSelectSearch: function focusSelectSearch() {
-      this.selected = null;
-      this.mouseSelected = null;
-      this.arrowCounter = 0;
-      this.$refs.scrollContainer.scrollTop = 0;
-      this.openResults = true;
+      if (!this.$el.contains(evt.target)) {
+        this.isOpened = false;
+        this.selected = null;
+      }
     },
     clearInput: function clearInput() {
-      this.search = '';
-      if (this.choosedItem !== null && this.deleteDis !== true) this.$emit('deleteChoose');
-      if (this.openResults == true) this.$refs.yselectsearch.focus();
-    },
-    cleanTextField: function cleanTextField() {
-      this.search = '';
-      this.openResults = false;
-      this.$refs.yselectsearch.blur();
-    },
-    computingResults: function computingResults(text) {
-      this.results = this.options.filter(function (item) {
-        return text.toLowerCase().split(' ').every(function (v) {
-          return item.name.toLowerCase().includes(v);
-        });
-      });
+      this.search = "";
+      this.selected = null;
+      this.isOpened = true;
     }
-  },
-  computed: {
-    getChoosedObject: function getChoosedObject() {
-      var _this = this;
-
-      return this.options.find(function (el) {
-        if (el.val == _this.choosedItem) return true;
-      });
-    },
-    generatingPlaceholder: function generatingPlaceholder() {
-      return this.getChoosedObject !== undefined ? this.getChoosedObject.name : this.openResults ? 'Поиск...' : this.placeholder;
-    }
-  },
-  watch: {
-    search: function search(to, from) {
-      if (to == null) return false;
-      this.selected = 0;
-      this.computingResults(to);
-      this.arrowCounter = 0;
-      this.$refs.scrollContainer.scrollTop = 0;
-    },
-    options: function options(to) {
-      // if updating will be later
-      this.computingResults('');
-    }
-  },
-  destroyed: function destroyed() {
-    document.removeEventListener('click', this.handleClickOutside);
   }
 });
 
@@ -8285,6 +9321,25 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/nouislider/distribute/nouislider.css":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/nouislider/distribute/nouislider.css ***!
+  \*******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/*! nouislider - 14.6.0 - 6/27/2020 */\n/* Functional styling;\n * These styles are required for noUiSlider to function.\n * You don't need to change these rules to apply your design.\n */\n.noUi-target,\n.noUi-target * {\n  -webkit-touch-callout: none;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  -webkit-user-select: none;\n  touch-action: none;\n  -ms-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  box-sizing: border-box;\n}\n.noUi-target {\n  position: relative;\n}\n.noUi-base,\n.noUi-connects {\n  width: 100%;\n  height: 100%;\n  position: relative;\n  z-index: 1;\n}\n/* Wrapper for all connect elements.\n */\n.noUi-connects {\n  overflow: hidden;\n  z-index: 0;\n}\n.noUi-connect,\n.noUi-origin {\n  will-change: transform;\n  position: absolute;\n  z-index: 1;\n  top: 0;\n  right: 0;\n  -ms-transform-origin: 0 0;\n  -webkit-transform-origin: 0 0;\n  -webkit-transform-style: preserve-3d;\n  transform-origin: 0 0;\n  transform-style: flat;\n}\n.noUi-connect {\n  height: 100%;\n  width: 100%;\n}\n.noUi-origin {\n  height: 10%;\n  width: 10%;\n}\n/* Offset direction\n */\n.noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {\n  left: 0;\n  right: auto;\n}\n/* Give origins 0 height/width so they don't interfere with clicking the\n * connect elements.\n */\n.noUi-vertical .noUi-origin {\n  width: 0;\n}\n.noUi-horizontal .noUi-origin {\n  height: 0;\n}\n.noUi-handle {\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  position: absolute;\n}\n.noUi-touch-area {\n  height: 100%;\n  width: 100%;\n}\n.noUi-state-tap .noUi-connect,\n.noUi-state-tap .noUi-origin {\n  transition: transform 0.3s;\n}\n.noUi-state-drag * {\n  cursor: inherit !important;\n}\n/* Slider size and handle placement;\n */\n.noUi-horizontal {\n  height: 18px;\n}\n.noUi-horizontal .noUi-handle {\n  width: 34px;\n  height: 28px;\n  right: -17px;\n  top: -6px;\n}\n.noUi-vertical {\n  width: 18px;\n}\n.noUi-vertical .noUi-handle {\n  width: 28px;\n  height: 34px;\n  right: -6px;\n  top: -17px;\n}\n.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {\n  left: -17px;\n  right: auto;\n}\n/* Styling;\n * Giving the connect element a border radius causes issues with using transform: scale\n */\n.noUi-target {\n  background: #FAFAFA;\n  border-radius: 4px;\n  border: 1px solid #D3D3D3;\n  box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;\n}\n.noUi-connects {\n  border-radius: 3px;\n}\n.noUi-connect {\n  background: #3FB8AF;\n}\n/* Handles and cursors;\n */\n.noUi-draggable {\n  cursor: ew-resize;\n}\n.noUi-vertical .noUi-draggable {\n  cursor: ns-resize;\n}\n.noUi-handle {\n  border: 1px solid #D9D9D9;\n  border-radius: 3px;\n  background: #FFF;\n  cursor: default;\n  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;\n}\n.noUi-active {\n  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;\n}\n/* Handle stripes;\n */\n.noUi-handle:before,\n.noUi-handle:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 14px;\n  width: 1px;\n  background: #E8E7E6;\n  left: 14px;\n  top: 6px;\n}\n.noUi-handle:after {\n  left: 17px;\n}\n.noUi-vertical .noUi-handle:before,\n.noUi-vertical .noUi-handle:after {\n  width: 14px;\n  height: 1px;\n  left: 6px;\n  top: 14px;\n}\n.noUi-vertical .noUi-handle:after {\n  top: 17px;\n}\n/* Disabled state;\n */\n[disabled] .noUi-connect {\n  background: #B8B8B8;\n}\n[disabled].noUi-target,\n[disabled].noUi-handle,\n[disabled] .noUi-handle {\n  cursor: not-allowed;\n}\n/* Base;\n *\n */\n.noUi-pips,\n.noUi-pips * {\n  box-sizing: border-box;\n}\n.noUi-pips {\n  position: absolute;\n  color: #999;\n}\n/* Values;\n *\n */\n.noUi-value {\n  position: absolute;\n  white-space: nowrap;\n  text-align: center;\n}\n.noUi-value-sub {\n  color: #ccc;\n  font-size: 10px;\n}\n/* Markings;\n *\n */\n.noUi-marker {\n  position: absolute;\n  background: #CCC;\n}\n.noUi-marker-sub {\n  background: #AAA;\n}\n.noUi-marker-large {\n  background: #AAA;\n}\n/* Horizontal layout;\n *\n */\n.noUi-pips-horizontal {\n  padding: 10px 0;\n  height: 80px;\n  top: 100%;\n  left: 0;\n  width: 100%;\n}\n.noUi-value-horizontal {\n  transform: translate(-50%, 50%);\n}\n.noUi-rtl .noUi-value-horizontal {\n  transform: translate(50%, 50%);\n}\n.noUi-marker-horizontal.noUi-marker {\n  margin-left: -1px;\n  width: 2px;\n  height: 5px;\n}\n.noUi-marker-horizontal.noUi-marker-sub {\n  height: 10px;\n}\n.noUi-marker-horizontal.noUi-marker-large {\n  height: 15px;\n}\n/* Vertical layout;\n *\n */\n.noUi-pips-vertical {\n  padding: 0 10px;\n  height: 100%;\n  top: 0;\n  left: 100%;\n}\n.noUi-value-vertical {\n  transform: translate(0, -50%);\n  padding-left: 25px;\n}\n.noUi-rtl .noUi-value-vertical {\n  transform: translate(0, 50%);\n}\n.noUi-marker-vertical.noUi-marker {\n  width: 5px;\n  height: 2px;\n  margin-top: -1px;\n}\n.noUi-marker-vertical.noUi-marker-sub {\n  width: 10px;\n}\n.noUi-marker-vertical.noUi-marker-large {\n  width: 15px;\n}\n.noUi-tooltip {\n  display: block;\n  position: absolute;\n  border: 1px solid #D9D9D9;\n  border-radius: 3px;\n  background: #fff;\n  color: #000;\n  padding: 5px;\n  text-align: center;\n  white-space: nowrap;\n}\n.noUi-horizontal .noUi-tooltip {\n  transform: translate(-50%, 0);\n  left: 50%;\n  bottom: 120%;\n}\n.noUi-vertical .noUi-tooltip {\n  transform: translate(0, -50%);\n  top: 50%;\n  right: 120%;\n}\n.noUi-horizontal .noUi-origin > .noUi-tooltip {\n  transform: translate(50%, 0);\n  left: auto;\n  bottom: 10px;\n}\n.noUi-vertical .noUi-origin > .noUi-tooltip {\n  transform: translate(0, -18px);\n  top: auto;\n  right: 28px;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -19299,7 +20354,7 @@ return jQuery;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.20';
+  var VERSION = '4.17.15';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -23006,21 +24061,8 @@ return jQuery;
      * @returns {Array} Returns the new sorted array.
      */
     function baseOrderBy(collection, iteratees, orders) {
-      if (iteratees.length) {
-        iteratees = arrayMap(iteratees, function(iteratee) {
-          if (isArray(iteratee)) {
-            return function(value) {
-              return baseGet(value, iteratee.length === 1 ? iteratee[0] : iteratee);
-            }
-          }
-          return iteratee;
-        });
-      } else {
-        iteratees = [identity];
-      }
-
       var index = -1;
-      iteratees = arrayMap(iteratees, baseUnary(getIteratee()));
+      iteratees = arrayMap(iteratees.length ? iteratees : [identity], baseUnary(getIteratee()));
 
       var result = baseMap(collection, function(value, key, collection) {
         var criteria = arrayMap(iteratees, function(iteratee) {
@@ -23277,10 +24319,6 @@ return jQuery;
         var key = toKey(path[index]),
             newValue = value;
 
-        if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
-          return object;
-        }
-
         if (index != lastIndex) {
           var objValue = nested[key];
           newValue = customizer ? customizer(objValue, key, nested) : undefined;
@@ -23433,14 +24471,11 @@ return jQuery;
      *  into `array`.
      */
     function baseSortedIndexBy(array, value, iteratee, retHighest) {
-      var low = 0,
-          high = array == null ? 0 : array.length;
-      if (high === 0) {
-        return 0;
-      }
-
       value = iteratee(value);
-      var valIsNaN = value !== value,
+
+      var low = 0,
+          high = array == null ? 0 : array.length,
+          valIsNaN = value !== value,
           valIsNull = value === null,
           valIsSymbol = isSymbol(value),
           valIsUndefined = value === undefined;
@@ -24925,11 +25960,10 @@ return jQuery;
       if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
         return false;
       }
-      // Check that cyclic values are equal.
-      var arrStacked = stack.get(array);
-      var othStacked = stack.get(other);
-      if (arrStacked && othStacked) {
-        return arrStacked == other && othStacked == array;
+      // Assume cyclic values are equal.
+      var stacked = stack.get(array);
+      if (stacked && stack.get(other)) {
+        return stacked == other;
       }
       var index = -1,
           result = true,
@@ -25091,11 +26125,10 @@ return jQuery;
           return false;
         }
       }
-      // Check that cyclic values are equal.
-      var objStacked = stack.get(object);
-      var othStacked = stack.get(other);
-      if (objStacked && othStacked) {
-        return objStacked == other && othStacked == object;
+      // Assume cyclic values are equal.
+      var stacked = stack.get(object);
+      if (stacked && stack.get(other)) {
+        return stacked == other;
       }
       var result = true;
       stack.set(object, other);
@@ -28476,10 +29509,6 @@ return jQuery;
      * // The `_.property` iteratee shorthand.
      * _.filter(users, 'active');
      * // => objects for ['barney']
-     *
-     * // Combining several predicates using `_.overEvery` or `_.overSome`.
-     * _.filter(users, _.overSome([{ 'age': 36 }, ['age', 40]]));
-     * // => objects for ['fred', 'barney']
      */
     function filter(collection, predicate) {
       var func = isArray(collection) ? arrayFilter : baseFilter;
@@ -29229,15 +30258,15 @@ return jQuery;
      * var users = [
      *   { 'user': 'fred',   'age': 48 },
      *   { 'user': 'barney', 'age': 36 },
-     *   { 'user': 'fred',   'age': 30 },
+     *   { 'user': 'fred',   'age': 40 },
      *   { 'user': 'barney', 'age': 34 }
      * ];
      *
      * _.sortBy(users, [function(o) { return o.user; }]);
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 30]]
+     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
      *
      * _.sortBy(users, ['user', 'age']);
-     * // => objects for [['barney', 34], ['barney', 36], ['fred', 30], ['fred', 48]]
+     * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
      */
     var sortBy = baseRest(function(collection, iteratees) {
       if (collection == null) {
@@ -34112,11 +35141,11 @@ return jQuery;
 
       // Use a sourceURL for easier debugging.
       // The sourceURL gets injected into the source that's eval-ed, so be careful
-      // to normalize all kinds of whitespace, so e.g. newlines (and unicode versions of it) can't sneak in
-      // and escape the comment, thus injecting code that gets evaled.
+      // with lookup (in case of e.g. prototype pollution), and strip newlines if any.
+      // A newline wouldn't be a valid sourceURL anyway, and it'd enable code injection.
       var sourceURL = '//# sourceURL=' +
         (hasOwnProperty.call(options, 'sourceURL')
-          ? (options.sourceURL + '').replace(/\s/g, ' ')
+          ? (options.sourceURL + '').replace(/[\r\n]/g, ' ')
           : ('lodash.templateSources[' + (++templateCounter) + ']')
         ) + '\n';
 
@@ -34149,6 +35178,8 @@ return jQuery;
 
       // If `variable` is not specified wrap a with-statement around the generated
       // code to add the data object to the top of the scope chain.
+      // Like with sourceURL, we take care to not check the option's prototype,
+      // as this configuration is a code injection vector.
       var variable = hasOwnProperty.call(options, 'variable') && options.variable;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
@@ -34855,9 +35886,6 @@ return jQuery;
      * values against any array or object value, respectively. See `_.isEqual`
      * for a list of supported value comparisons.
      *
-     * **Note:** Multiple values can be checked by combining several matchers
-     * using `_.overSome`
-     *
      * @static
      * @memberOf _
      * @since 3.0.0
@@ -34873,10 +35901,6 @@ return jQuery;
      *
      * _.filter(objects, _.matches({ 'a': 4, 'c': 6 }));
      * // => [{ 'a': 4, 'b': 5, 'c': 6 }]
-     *
-     * // Checking for several possible values
-     * _.filter(objects, _.overSome([_.matches({ 'a': 1 }), _.matches({ 'a': 4 })]));
-     * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matches(source) {
       return baseMatches(baseClone(source, CLONE_DEEP_FLAG));
@@ -34890,9 +35914,6 @@ return jQuery;
      * **Note:** Partial comparisons will match empty array and empty object
      * `srcValue` values against any array or object value, respectively. See
      * `_.isEqual` for a list of supported value comparisons.
-     *
-     * **Note:** Multiple values can be checked by combining several matchers
-     * using `_.overSome`
      *
      * @static
      * @memberOf _
@@ -34910,10 +35931,6 @@ return jQuery;
      *
      * _.find(objects, _.matchesProperty('a', 4));
      * // => { 'a': 4, 'b': 5, 'c': 6 }
-     *
-     * // Checking for several possible values
-     * _.filter(objects, _.overSome([_.matchesProperty('a', 1), _.matchesProperty('a', 4)]));
-     * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matchesProperty(path, srcValue) {
       return baseMatchesProperty(path, baseClone(srcValue, CLONE_DEEP_FLAG));
@@ -35137,10 +36154,6 @@ return jQuery;
      * Creates a function that checks if **all** of the `predicates` return
      * truthy when invoked with the arguments it receives.
      *
-     * Following shorthands are possible for providing predicates.
-     * Pass an `Object` and it will be used as an parameter for `_.matches` to create the predicate.
-     * Pass an `Array` of parameters for `_.matchesProperty` and the predicate will be created using them.
-     *
      * @static
      * @memberOf _
      * @since 4.0.0
@@ -35167,10 +36180,6 @@ return jQuery;
      * Creates a function that checks if **any** of the `predicates` return
      * truthy when invoked with the arguments it receives.
      *
-     * Following shorthands are possible for providing predicates.
-     * Pass an `Object` and it will be used as an parameter for `_.matches` to create the predicate.
-     * Pass an `Array` of parameters for `_.matchesProperty` and the predicate will be created using them.
-     *
      * @static
      * @memberOf _
      * @since 4.0.0
@@ -35190,9 +36199,6 @@ return jQuery;
      *
      * func(NaN);
      * // => false
-     *
-     * var matchesFunc = _.overSome([{ 'a': 1 }, { 'a': 2 }])
-     * var matchesPropertyFunc = _.overSome([['a', 1], ['a', 2]])
      */
     var overSome = createOver(arraySome);
 
@@ -36443,6 +37449,2712 @@ return jQuery;
 
 /***/ }),
 
+/***/ "./node_modules/nouislider/distribute/nouislider.css":
+/*!***********************************************************!*\
+  !*** ./node_modules/nouislider/distribute/nouislider.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./nouislider.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/nouislider/distribute/nouislider.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/nouislider/distribute/nouislider.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/nouislider/distribute/nouislider.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! nouislider - 14.6.0 - 6/27/2020 */
+(function(factory) {
+    if (true) {
+        // AMD. Register as an anonymous module.
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else {}
+})(function() {
+    "use strict";
+
+    var VERSION = "14.6.0";
+
+    //region Helper Methods
+
+    function isValidFormatter(entry) {
+        return typeof entry === "object" && typeof entry.to === "function" && typeof entry.from === "function";
+    }
+
+    function removeElement(el) {
+        el.parentElement.removeChild(el);
+    }
+
+    function isSet(value) {
+        return value !== null && value !== undefined;
+    }
+
+    // Bindable version
+    function preventDefault(e) {
+        e.preventDefault();
+    }
+
+    // Removes duplicates from an array.
+    function unique(array) {
+        return array.filter(function(a) {
+            return !this[a] ? (this[a] = true) : false;
+        }, {});
+    }
+
+    // Round a value to the closest 'to'.
+    function closest(value, to) {
+        return Math.round(value / to) * to;
+    }
+
+    // Current position of an element relative to the document.
+    function offset(elem, orientation) {
+        var rect = elem.getBoundingClientRect();
+        var doc = elem.ownerDocument;
+        var docElem = doc.documentElement;
+        var pageOffset = getPageOffset(doc);
+
+        // getBoundingClientRect contains left scroll in Chrome on Android.
+        // I haven't found a feature detection that proves this. Worst case
+        // scenario on mis-match: the 'tap' feature on horizontal sliders breaks.
+        if (/webkit.*Chrome.*Mobile/i.test(navigator.userAgent)) {
+            pageOffset.x = 0;
+        }
+
+        return orientation
+            ? rect.top + pageOffset.y - docElem.clientTop
+            : rect.left + pageOffset.x - docElem.clientLeft;
+    }
+
+    // Checks whether a value is numerical.
+    function isNumeric(a) {
+        return typeof a === "number" && !isNaN(a) && isFinite(a);
+    }
+
+    // Sets a class and removes it after [duration] ms.
+    function addClassFor(element, className, duration) {
+        if (duration > 0) {
+            addClass(element, className);
+            setTimeout(function() {
+                removeClass(element, className);
+            }, duration);
+        }
+    }
+
+    // Limits a value to 0 - 100
+    function limit(a) {
+        return Math.max(Math.min(a, 100), 0);
+    }
+
+    // Wraps a variable as an array, if it isn't one yet.
+    // Note that an input array is returned by reference!
+    function asArray(a) {
+        return Array.isArray(a) ? a : [a];
+    }
+
+    // Counts decimals
+    function countDecimals(numStr) {
+        numStr = String(numStr);
+        var pieces = numStr.split(".");
+        return pieces.length > 1 ? pieces[1].length : 0;
+    }
+
+    // http://youmightnotneedjquery.com/#add_class
+    function addClass(el, className) {
+        if (el.classList && !/\s/.test(className)) {
+            el.classList.add(className);
+        } else {
+            el.className += " " + className;
+        }
+    }
+
+    // http://youmightnotneedjquery.com/#remove_class
+    function removeClass(el, className) {
+        if (el.classList && !/\s/.test(className)) {
+            el.classList.remove(className);
+        } else {
+            el.className = el.className.replace(
+                new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"),
+                " "
+            );
+        }
+    }
+
+    // https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
+    function hasClass(el, className) {
+        return el.classList
+            ? el.classList.contains(className)
+            : new RegExp("\\b" + className + "\\b").test(el.className);
+    }
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY#Notes
+    function getPageOffset(doc) {
+        var supportPageOffset = window.pageXOffset !== undefined;
+        var isCSS1Compat = (doc.compatMode || "") === "CSS1Compat";
+        var x = supportPageOffset
+            ? window.pageXOffset
+            : isCSS1Compat
+                ? doc.documentElement.scrollLeft
+                : doc.body.scrollLeft;
+        var y = supportPageOffset
+            ? window.pageYOffset
+            : isCSS1Compat
+                ? doc.documentElement.scrollTop
+                : doc.body.scrollTop;
+
+        return {
+            x: x,
+            y: y
+        };
+    }
+
+    // we provide a function to compute constants instead
+    // of accessing window.* as soon as the module needs it
+    // so that we do not compute anything if not needed
+    function getActions() {
+        // Determine the events to bind. IE11 implements pointerEvents without
+        // a prefix, which breaks compatibility with the IE10 implementation.
+        return window.navigator.pointerEnabled
+            ? {
+                  start: "pointerdown",
+                  move: "pointermove",
+                  end: "pointerup"
+              }
+            : window.navigator.msPointerEnabled
+                ? {
+                      start: "MSPointerDown",
+                      move: "MSPointerMove",
+                      end: "MSPointerUp"
+                  }
+                : {
+                      start: "mousedown touchstart",
+                      move: "mousemove touchmove",
+                      end: "mouseup touchend"
+                  };
+    }
+
+    // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+    // Issue #785
+    function getSupportsPassive() {
+        var supportsPassive = false;
+
+        /* eslint-disable */
+        try {
+            var opts = Object.defineProperty({}, "passive", {
+                get: function() {
+                    supportsPassive = true;
+                }
+            });
+
+            window.addEventListener("test", null, opts);
+        } catch (e) {}
+        /* eslint-enable */
+
+        return supportsPassive;
+    }
+
+    function getSupportsTouchActionNone() {
+        return window.CSS && CSS.supports && CSS.supports("touch-action", "none");
+    }
+
+    //endregion
+
+    //region Range Calculation
+
+    // Determine the size of a sub-range in relation to a full range.
+    function subRangeRatio(pa, pb) {
+        return 100 / (pb - pa);
+    }
+
+    // (percentage) How many percent is this value of this range?
+    function fromPercentage(range, value, startRange) {
+        return (value * 100) / (range[startRange + 1] - range[startRange]);
+    }
+
+    // (percentage) Where is this value on this range?
+    function toPercentage(range, value) {
+        return fromPercentage(range, range[0] < 0 ? value + Math.abs(range[0]) : value - range[0], 0);
+    }
+
+    // (value) How much is this percentage on this range?
+    function isPercentage(range, value) {
+        return (value * (range[1] - range[0])) / 100 + range[0];
+    }
+
+    function getJ(value, arr) {
+        var j = 1;
+
+        while (value >= arr[j]) {
+            j += 1;
+        }
+
+        return j;
+    }
+
+    // (percentage) Input a value, find where, on a scale of 0-100, it applies.
+    function toStepping(xVal, xPct, value) {
+        if (value >= xVal.slice(-1)[0]) {
+            return 100;
+        }
+
+        var j = getJ(value, xVal);
+        var va = xVal[j - 1];
+        var vb = xVal[j];
+        var pa = xPct[j - 1];
+        var pb = xPct[j];
+
+        return pa + toPercentage([va, vb], value) / subRangeRatio(pa, pb);
+    }
+
+    // (value) Input a percentage, find where it is on the specified range.
+    function fromStepping(xVal, xPct, value) {
+        // There is no range group that fits 100
+        if (value >= 100) {
+            return xVal.slice(-1)[0];
+        }
+
+        var j = getJ(value, xPct);
+        var va = xVal[j - 1];
+        var vb = xVal[j];
+        var pa = xPct[j - 1];
+        var pb = xPct[j];
+
+        return isPercentage([va, vb], (value - pa) * subRangeRatio(pa, pb));
+    }
+
+    // (percentage) Get the step that applies at a certain value.
+    function getStep(xPct, xSteps, snap, value) {
+        if (value === 100) {
+            return value;
+        }
+
+        var j = getJ(value, xPct);
+        var a = xPct[j - 1];
+        var b = xPct[j];
+
+        // If 'snap' is set, steps are used as fixed points on the slider.
+        if (snap) {
+            // Find the closest position, a or b.
+            if (value - a > (b - a) / 2) {
+                return b;
+            }
+
+            return a;
+        }
+
+        if (!xSteps[j - 1]) {
+            return value;
+        }
+
+        return xPct[j - 1] + closest(value - xPct[j - 1], xSteps[j - 1]);
+    }
+
+    function handleEntryPoint(index, value, that) {
+        var percentage;
+
+        // Wrap numerical input in an array.
+        if (typeof value === "number") {
+            value = [value];
+        }
+
+        // Reject any invalid input, by testing whether value is an array.
+        if (!Array.isArray(value)) {
+            throw new Error("noUiSlider (" + VERSION + "): 'range' contains invalid value.");
+        }
+
+        // Covert min/max syntax to 0 and 100.
+        if (index === "min") {
+            percentage = 0;
+        } else if (index === "max") {
+            percentage = 100;
+        } else {
+            percentage = parseFloat(index);
+        }
+
+        // Check for correct input.
+        if (!isNumeric(percentage) || !isNumeric(value[0])) {
+            throw new Error("noUiSlider (" + VERSION + "): 'range' value isn't numeric.");
+        }
+
+        // Store values.
+        that.xPct.push(percentage);
+        that.xVal.push(value[0]);
+
+        // NaN will evaluate to false too, but to keep
+        // logging clear, set step explicitly. Make sure
+        // not to override the 'step' setting with false.
+        if (!percentage) {
+            if (!isNaN(value[1])) {
+                that.xSteps[0] = value[1];
+            }
+        } else {
+            that.xSteps.push(isNaN(value[1]) ? false : value[1]);
+        }
+
+        that.xHighestCompleteStep.push(0);
+    }
+
+    function handleStepPoint(i, n, that) {
+        // Ignore 'false' stepping.
+        if (!n) {
+            return;
+        }
+
+        // Step over zero-length ranges (#948);
+        if (that.xVal[i] === that.xVal[i + 1]) {
+            that.xSteps[i] = that.xHighestCompleteStep[i] = that.xVal[i];
+
+            return;
+        }
+
+        // Factor to range ratio
+        that.xSteps[i] =
+            fromPercentage([that.xVal[i], that.xVal[i + 1]], n, 0) / subRangeRatio(that.xPct[i], that.xPct[i + 1]);
+
+        var totalSteps = (that.xVal[i + 1] - that.xVal[i]) / that.xNumSteps[i];
+        var highestStep = Math.ceil(Number(totalSteps.toFixed(3)) - 1);
+        var step = that.xVal[i] + that.xNumSteps[i] * highestStep;
+
+        that.xHighestCompleteStep[i] = step;
+    }
+
+    //endregion
+
+    //region Spectrum
+
+    function Spectrum(entry, snap, singleStep) {
+        this.xPct = [];
+        this.xVal = [];
+        this.xSteps = [singleStep || false];
+        this.xNumSteps = [false];
+        this.xHighestCompleteStep = [];
+
+        this.snap = snap;
+
+        var index;
+        var ordered = []; // [0, 'min'], [1, '50%'], [2, 'max']
+
+        // Map the object keys to an array.
+        for (index in entry) {
+            if (entry.hasOwnProperty(index)) {
+                ordered.push([entry[index], index]);
+            }
+        }
+
+        // Sort all entries by value (numeric sort).
+        if (ordered.length && typeof ordered[0][0] === "object") {
+            ordered.sort(function(a, b) {
+                return a[0][0] - b[0][0];
+            });
+        } else {
+            ordered.sort(function(a, b) {
+                return a[0] - b[0];
+            });
+        }
+
+        // Convert all entries to subranges.
+        for (index = 0; index < ordered.length; index++) {
+            handleEntryPoint(ordered[index][1], ordered[index][0], this);
+        }
+
+        // Store the actual step values.
+        // xSteps is sorted in the same order as xPct and xVal.
+        this.xNumSteps = this.xSteps.slice(0);
+
+        // Convert all numeric steps to the percentage of the subrange they represent.
+        for (index = 0; index < this.xNumSteps.length; index++) {
+            handleStepPoint(index, this.xNumSteps[index], this);
+        }
+    }
+
+    Spectrum.prototype.getDistance = function(value) {
+        var index;
+        var distances = [];
+
+        for (index = 0; index < this.xNumSteps.length - 1; index++) {
+            // last "range" can't contain step size as it is purely an endpoint.
+            var step = this.xNumSteps[index];
+
+            if (step && (value / step) % 1 !== 0) {
+                throw new Error(
+                    "noUiSlider (" +
+                        VERSION +
+                        "): 'limit', 'margin' and 'padding' of " +
+                        this.xPct[index] +
+                        "% range must be divisible by step."
+                );
+            }
+
+            // Calculate percentual distance in current range of limit, margin or padding
+            distances[index] = fromPercentage(this.xVal, value, index);
+        }
+
+        return distances;
+    };
+
+    // Calculate the percentual distance over the whole scale of ranges.
+    // direction: 0 = backwards / 1 = forwards
+    Spectrum.prototype.getAbsoluteDistance = function(value, distances, direction) {
+        var xPct_index = 0;
+
+        // Calculate range where to start calculation
+        if (value < this.xPct[this.xPct.length - 1]) {
+            while (value > this.xPct[xPct_index + 1]) {
+                xPct_index++;
+            }
+        } else if (value === this.xPct[this.xPct.length - 1]) {
+            xPct_index = this.xPct.length - 2;
+        }
+
+        // If looking backwards and the value is exactly at a range separator then look one range further
+        if (!direction && value === this.xPct[xPct_index + 1]) {
+            xPct_index++;
+        }
+
+        var start_factor;
+        var rest_factor = 1;
+
+        var rest_rel_distance = distances[xPct_index];
+
+        var range_pct = 0;
+
+        var rel_range_distance = 0;
+        var abs_distance_counter = 0;
+        var range_counter = 0;
+
+        // Calculate what part of the start range the value is
+        if (direction) {
+            start_factor = (value - this.xPct[xPct_index]) / (this.xPct[xPct_index + 1] - this.xPct[xPct_index]);
+        } else {
+            start_factor = (this.xPct[xPct_index + 1] - value) / (this.xPct[xPct_index + 1] - this.xPct[xPct_index]);
+        }
+
+        // Do until the complete distance across ranges is calculated
+        while (rest_rel_distance > 0) {
+            // Calculate the percentage of total range
+            range_pct = this.xPct[xPct_index + 1 + range_counter] - this.xPct[xPct_index + range_counter];
+
+            // Detect if the margin, padding or limit is larger then the current range and calculate
+            if (distances[xPct_index + range_counter] * rest_factor + 100 - start_factor * 100 > 100) {
+                // If larger then take the percentual distance of the whole range
+                rel_range_distance = range_pct * start_factor;
+                // Rest factor of relative percentual distance still to be calculated
+                rest_factor = (rest_rel_distance - 100 * start_factor) / distances[xPct_index + range_counter];
+                // Set start factor to 1 as for next range it does not apply.
+                start_factor = 1;
+            } else {
+                // If smaller or equal then take the percentual distance of the calculate percentual part of that range
+                rel_range_distance = ((distances[xPct_index + range_counter] * range_pct) / 100) * rest_factor;
+                // No rest left as the rest fits in current range
+                rest_factor = 0;
+            }
+
+            if (direction) {
+                abs_distance_counter = abs_distance_counter - rel_range_distance;
+                // Limit range to first range when distance becomes outside of minimum range
+                if (this.xPct.length + range_counter >= 1) {
+                    range_counter--;
+                }
+            } else {
+                abs_distance_counter = abs_distance_counter + rel_range_distance;
+                // Limit range to last range when distance becomes outside of maximum range
+                if (this.xPct.length - range_counter >= 1) {
+                    range_counter++;
+                }
+            }
+
+            // Rest of relative percentual distance still to be calculated
+            rest_rel_distance = distances[xPct_index + range_counter] * rest_factor;
+        }
+
+        return value + abs_distance_counter;
+    };
+
+    Spectrum.prototype.toStepping = function(value) {
+        value = toStepping(this.xVal, this.xPct, value);
+
+        return value;
+    };
+
+    Spectrum.prototype.fromStepping = function(value) {
+        return fromStepping(this.xVal, this.xPct, value);
+    };
+
+    Spectrum.prototype.getStep = function(value) {
+        value = getStep(this.xPct, this.xSteps, this.snap, value);
+
+        return value;
+    };
+
+    Spectrum.prototype.getDefaultStep = function(value, isDown, size) {
+        var j = getJ(value, this.xPct);
+
+        // When at the top or stepping down, look at the previous sub-range
+        if (value === 100 || (isDown && value === this.xPct[j - 1])) {
+            j = Math.max(j - 1, 1);
+        }
+
+        return (this.xVal[j] - this.xVal[j - 1]) / size;
+    };
+
+    Spectrum.prototype.getNearbySteps = function(value) {
+        var j = getJ(value, this.xPct);
+
+        return {
+            stepBefore: {
+                startValue: this.xVal[j - 2],
+                step: this.xNumSteps[j - 2],
+                highestStep: this.xHighestCompleteStep[j - 2]
+            },
+            thisStep: {
+                startValue: this.xVal[j - 1],
+                step: this.xNumSteps[j - 1],
+                highestStep: this.xHighestCompleteStep[j - 1]
+            },
+            stepAfter: {
+                startValue: this.xVal[j],
+                step: this.xNumSteps[j],
+                highestStep: this.xHighestCompleteStep[j]
+            }
+        };
+    };
+
+    Spectrum.prototype.countStepDecimals = function() {
+        var stepDecimals = this.xNumSteps.map(countDecimals);
+        return Math.max.apply(null, stepDecimals);
+    };
+
+    // Outside testing
+    Spectrum.prototype.convert = function(value) {
+        return this.getStep(this.toStepping(value));
+    };
+
+    //endregion
+
+    //region Options
+
+    /*	Every input option is tested and parsed. This'll prevent
+        endless validation in internal methods. These tests are
+        structured with an item for every option available. An
+        option can be marked as required by setting the 'r' flag.
+        The testing function is provided with three arguments:
+            - The provided value for the option;
+            - A reference to the options object;
+            - The name for the option;
+
+        The testing function returns false when an error is detected,
+        or true when everything is OK. It can also modify the option
+        object, to make sure all values can be correctly looped elsewhere. */
+
+    //region Defaults
+
+    var defaultFormatter = {
+        to: function(value) {
+            return value !== undefined && value.toFixed(2);
+        },
+        from: Number
+    };
+
+    var cssClasses = {
+        target: "target",
+        base: "base",
+        origin: "origin",
+        handle: "handle",
+        handleLower: "handle-lower",
+        handleUpper: "handle-upper",
+        touchArea: "touch-area",
+        horizontal: "horizontal",
+        vertical: "vertical",
+        background: "background",
+        connect: "connect",
+        connects: "connects",
+        ltr: "ltr",
+        rtl: "rtl",
+        textDirectionLtr: "txt-dir-ltr",
+        textDirectionRtl: "txt-dir-rtl",
+        draggable: "draggable",
+        drag: "state-drag",
+        tap: "state-tap",
+        active: "active",
+        tooltip: "tooltip",
+        pips: "pips",
+        pipsHorizontal: "pips-horizontal",
+        pipsVertical: "pips-vertical",
+        marker: "marker",
+        markerHorizontal: "marker-horizontal",
+        markerVertical: "marker-vertical",
+        markerNormal: "marker-normal",
+        markerLarge: "marker-large",
+        markerSub: "marker-sub",
+        value: "value",
+        valueHorizontal: "value-horizontal",
+        valueVertical: "value-vertical",
+        valueNormal: "value-normal",
+        valueLarge: "value-large",
+        valueSub: "value-sub"
+    };
+
+    //endregion
+
+    function validateFormat(entry) {
+        // Any object with a to and from method is supported.
+        if (isValidFormatter(entry)) {
+            return true;
+        }
+
+        throw new Error("noUiSlider (" + VERSION + "): 'format' requires 'to' and 'from' methods.");
+    }
+
+    function testStep(parsed, entry) {
+        if (!isNumeric(entry)) {
+            throw new Error("noUiSlider (" + VERSION + "): 'step' is not numeric.");
+        }
+
+        // The step option can still be used to set stepping
+        // for linear sliders. Overwritten if set in 'range'.
+        parsed.singleStep = entry;
+    }
+
+    function testKeyboardPageMultiplier(parsed, entry) {
+        if (!isNumeric(entry)) {
+            throw new Error("noUiSlider (" + VERSION + "): 'keyboardPageMultiplier' is not numeric.");
+        }
+
+        parsed.keyboardPageMultiplier = entry;
+    }
+
+    function testKeyboardDefaultStep(parsed, entry) {
+        if (!isNumeric(entry)) {
+            throw new Error("noUiSlider (" + VERSION + "): 'keyboardDefaultStep' is not numeric.");
+        }
+
+        parsed.keyboardDefaultStep = entry;
+    }
+
+    function testRange(parsed, entry) {
+        // Filter incorrect input.
+        if (typeof entry !== "object" || Array.isArray(entry)) {
+            throw new Error("noUiSlider (" + VERSION + "): 'range' is not an object.");
+        }
+
+        // Catch missing start or end.
+        if (entry.min === undefined || entry.max === undefined) {
+            throw new Error("noUiSlider (" + VERSION + "): Missing 'min' or 'max' in 'range'.");
+        }
+
+        // Catch equal start or end.
+        if (entry.min === entry.max) {
+            throw new Error("noUiSlider (" + VERSION + "): 'range' 'min' and 'max' cannot be equal.");
+        }
+
+        parsed.spectrum = new Spectrum(entry, parsed.snap, parsed.singleStep);
+    }
+
+    function testStart(parsed, entry) {
+        entry = asArray(entry);
+
+        // Validate input. Values aren't tested, as the public .val method
+        // will always provide a valid location.
+        if (!Array.isArray(entry) || !entry.length) {
+            throw new Error("noUiSlider (" + VERSION + "): 'start' option is incorrect.");
+        }
+
+        // Store the number of handles.
+        parsed.handles = entry.length;
+
+        // When the slider is initialized, the .val method will
+        // be called with the start options.
+        parsed.start = entry;
+    }
+
+    function testSnap(parsed, entry) {
+        // Enforce 100% stepping within subranges.
+        parsed.snap = entry;
+
+        if (typeof entry !== "boolean") {
+            throw new Error("noUiSlider (" + VERSION + "): 'snap' option must be a boolean.");
+        }
+    }
+
+    function testAnimate(parsed, entry) {
+        // Enforce 100% stepping within subranges.
+        parsed.animate = entry;
+
+        if (typeof entry !== "boolean") {
+            throw new Error("noUiSlider (" + VERSION + "): 'animate' option must be a boolean.");
+        }
+    }
+
+    function testAnimationDuration(parsed, entry) {
+        parsed.animationDuration = entry;
+
+        if (typeof entry !== "number") {
+            throw new Error("noUiSlider (" + VERSION + "): 'animationDuration' option must be a number.");
+        }
+    }
+
+    function testConnect(parsed, entry) {
+        var connect = [false];
+        var i;
+
+        // Map legacy options
+        if (entry === "lower") {
+            entry = [true, false];
+        } else if (entry === "upper") {
+            entry = [false, true];
+        }
+
+        // Handle boolean options
+        if (entry === true || entry === false) {
+            for (i = 1; i < parsed.handles; i++) {
+                connect.push(entry);
+            }
+
+            connect.push(false);
+        }
+
+        // Reject invalid input
+        else if (!Array.isArray(entry) || !entry.length || entry.length !== parsed.handles + 1) {
+            throw new Error("noUiSlider (" + VERSION + "): 'connect' option doesn't match handle count.");
+        } else {
+            connect = entry;
+        }
+
+        parsed.connect = connect;
+    }
+
+    function testOrientation(parsed, entry) {
+        // Set orientation to an a numerical value for easy
+        // array selection.
+        switch (entry) {
+            case "horizontal":
+                parsed.ort = 0;
+                break;
+            case "vertical":
+                parsed.ort = 1;
+                break;
+            default:
+                throw new Error("noUiSlider (" + VERSION + "): 'orientation' option is invalid.");
+        }
+    }
+
+    function testMargin(parsed, entry) {
+        if (!isNumeric(entry)) {
+            throw new Error("noUiSlider (" + VERSION + "): 'margin' option must be numeric.");
+        }
+
+        // Issue #582
+        if (entry === 0) {
+            return;
+        }
+
+        parsed.margin = parsed.spectrum.getDistance(entry);
+    }
+
+    function testLimit(parsed, entry) {
+        if (!isNumeric(entry)) {
+            throw new Error("noUiSlider (" + VERSION + "): 'limit' option must be numeric.");
+        }
+
+        parsed.limit = parsed.spectrum.getDistance(entry);
+
+        if (!parsed.limit || parsed.handles < 2) {
+            throw new Error(
+                "noUiSlider (" +
+                    VERSION +
+                    "): 'limit' option is only supported on linear sliders with 2 or more handles."
+            );
+        }
+    }
+
+    function testPadding(parsed, entry) {
+        var index;
+
+        if (!isNumeric(entry) && !Array.isArray(entry)) {
+            throw new Error(
+                "noUiSlider (" + VERSION + "): 'padding' option must be numeric or array of exactly 2 numbers."
+            );
+        }
+
+        if (Array.isArray(entry) && !(entry.length === 2 || isNumeric(entry[0]) || isNumeric(entry[1]))) {
+            throw new Error(
+                "noUiSlider (" + VERSION + "): 'padding' option must be numeric or array of exactly 2 numbers."
+            );
+        }
+
+        if (entry === 0) {
+            return;
+        }
+
+        if (!Array.isArray(entry)) {
+            entry = [entry, entry];
+        }
+
+        // 'getDistance' returns false for invalid values.
+        parsed.padding = [parsed.spectrum.getDistance(entry[0]), parsed.spectrum.getDistance(entry[1])];
+
+        for (index = 0; index < parsed.spectrum.xNumSteps.length - 1; index++) {
+            // last "range" can't contain step size as it is purely an endpoint.
+            if (parsed.padding[0][index] < 0 || parsed.padding[1][index] < 0) {
+                throw new Error("noUiSlider (" + VERSION + "): 'padding' option must be a positive number(s).");
+            }
+        }
+
+        var totalPadding = entry[0] + entry[1];
+        var firstValue = parsed.spectrum.xVal[0];
+        var lastValue = parsed.spectrum.xVal[parsed.spectrum.xVal.length - 1];
+
+        if (totalPadding / (lastValue - firstValue) > 1) {
+            throw new Error("noUiSlider (" + VERSION + "): 'padding' option must not exceed 100% of the range.");
+        }
+    }
+
+    function testDirection(parsed, entry) {
+        // Set direction as a numerical value for easy parsing.
+        // Invert connection for RTL sliders, so that the proper
+        // handles get the connect/background classes.
+        switch (entry) {
+            case "ltr":
+                parsed.dir = 0;
+                break;
+            case "rtl":
+                parsed.dir = 1;
+                break;
+            default:
+                throw new Error("noUiSlider (" + VERSION + "): 'direction' option was not recognized.");
+        }
+    }
+
+    function testBehaviour(parsed, entry) {
+        // Make sure the input is a string.
+        if (typeof entry !== "string") {
+            throw new Error("noUiSlider (" + VERSION + "): 'behaviour' must be a string containing options.");
+        }
+
+        // Check if the string contains any keywords.
+        // None are required.
+        var tap = entry.indexOf("tap") >= 0;
+        var drag = entry.indexOf("drag") >= 0;
+        var fixed = entry.indexOf("fixed") >= 0;
+        var snap = entry.indexOf("snap") >= 0;
+        var hover = entry.indexOf("hover") >= 0;
+        var unconstrained = entry.indexOf("unconstrained") >= 0;
+
+        if (fixed) {
+            if (parsed.handles !== 2) {
+                throw new Error("noUiSlider (" + VERSION + "): 'fixed' behaviour must be used with 2 handles");
+            }
+
+            // Use margin to enforce fixed state
+            testMargin(parsed, parsed.start[1] - parsed.start[0]);
+        }
+
+        if (unconstrained && (parsed.margin || parsed.limit)) {
+            throw new Error(
+                "noUiSlider (" + VERSION + "): 'unconstrained' behaviour cannot be used with margin or limit"
+            );
+        }
+
+        parsed.events = {
+            tap: tap || snap,
+            drag: drag,
+            fixed: fixed,
+            snap: snap,
+            hover: hover,
+            unconstrained: unconstrained
+        };
+    }
+
+    function testTooltips(parsed, entry) {
+        if (entry === false) {
+            return;
+        }
+
+        if (entry === true) {
+            parsed.tooltips = [];
+
+            for (var i = 0; i < parsed.handles; i++) {
+                parsed.tooltips.push(true);
+            }
+        } else {
+            parsed.tooltips = asArray(entry);
+
+            if (parsed.tooltips.length !== parsed.handles) {
+                throw new Error("noUiSlider (" + VERSION + "): must pass a formatter for all handles.");
+            }
+
+            parsed.tooltips.forEach(function(formatter) {
+                if (
+                    typeof formatter !== "boolean" &&
+                    (typeof formatter !== "object" || typeof formatter.to !== "function")
+                ) {
+                    throw new Error("noUiSlider (" + VERSION + "): 'tooltips' must be passed a formatter or 'false'.");
+                }
+            });
+        }
+    }
+
+    function testAriaFormat(parsed, entry) {
+        parsed.ariaFormat = entry;
+        validateFormat(entry);
+    }
+
+    function testFormat(parsed, entry) {
+        parsed.format = entry;
+        validateFormat(entry);
+    }
+
+    function testKeyboardSupport(parsed, entry) {
+        parsed.keyboardSupport = entry;
+
+        if (typeof entry !== "boolean") {
+            throw new Error("noUiSlider (" + VERSION + "): 'keyboardSupport' option must be a boolean.");
+        }
+    }
+
+    function testDocumentElement(parsed, entry) {
+        // This is an advanced option. Passed values are used without validation.
+        parsed.documentElement = entry;
+    }
+
+    function testCssPrefix(parsed, entry) {
+        if (typeof entry !== "string" && entry !== false) {
+            throw new Error("noUiSlider (" + VERSION + "): 'cssPrefix' must be a string or `false`.");
+        }
+
+        parsed.cssPrefix = entry;
+    }
+
+    function testCssClasses(parsed, entry) {
+        if (typeof entry !== "object") {
+            throw new Error("noUiSlider (" + VERSION + "): 'cssClasses' must be an object.");
+        }
+
+        if (typeof parsed.cssPrefix === "string") {
+            parsed.cssClasses = {};
+
+            for (var key in entry) {
+                if (!entry.hasOwnProperty(key)) {
+                    continue;
+                }
+
+                parsed.cssClasses[key] = parsed.cssPrefix + entry[key];
+            }
+        } else {
+            parsed.cssClasses = entry;
+        }
+    }
+
+    // Test all developer settings and parse to assumption-safe values.
+    function testOptions(options) {
+        // To prove a fix for #537, freeze options here.
+        // If the object is modified, an error will be thrown.
+        // Object.freeze(options);
+
+        var parsed = {
+            margin: 0,
+            limit: 0,
+            padding: 0,
+            animate: true,
+            animationDuration: 300,
+            ariaFormat: defaultFormatter,
+            format: defaultFormatter
+        };
+
+        // Tests are executed in the order they are presented here.
+        var tests = {
+            step: { r: false, t: testStep },
+            keyboardPageMultiplier: { r: false, t: testKeyboardPageMultiplier },
+            keyboardDefaultStep: { r: false, t: testKeyboardDefaultStep },
+            start: { r: true, t: testStart },
+            connect: { r: true, t: testConnect },
+            direction: { r: true, t: testDirection },
+            snap: { r: false, t: testSnap },
+            animate: { r: false, t: testAnimate },
+            animationDuration: { r: false, t: testAnimationDuration },
+            range: { r: true, t: testRange },
+            orientation: { r: false, t: testOrientation },
+            margin: { r: false, t: testMargin },
+            limit: { r: false, t: testLimit },
+            padding: { r: false, t: testPadding },
+            behaviour: { r: true, t: testBehaviour },
+            ariaFormat: { r: false, t: testAriaFormat },
+            format: { r: false, t: testFormat },
+            tooltips: { r: false, t: testTooltips },
+            keyboardSupport: { r: true, t: testKeyboardSupport },
+            documentElement: { r: false, t: testDocumentElement },
+            cssPrefix: { r: true, t: testCssPrefix },
+            cssClasses: { r: true, t: testCssClasses }
+        };
+
+        var defaults = {
+            connect: false,
+            direction: "ltr",
+            behaviour: "tap",
+            orientation: "horizontal",
+            keyboardSupport: true,
+            cssPrefix: "noUi-",
+            cssClasses: cssClasses,
+            keyboardPageMultiplier: 5,
+            keyboardDefaultStep: 10
+        };
+
+        // AriaFormat defaults to regular format, if any.
+        if (options.format && !options.ariaFormat) {
+            options.ariaFormat = options.format;
+        }
+
+        // Run all options through a testing mechanism to ensure correct
+        // input. It should be noted that options might get modified to
+        // be handled properly. E.g. wrapping integers in arrays.
+        Object.keys(tests).forEach(function(name) {
+            // If the option isn't set, but it is required, throw an error.
+            if (!isSet(options[name]) && defaults[name] === undefined) {
+                if (tests[name].r) {
+                    throw new Error("noUiSlider (" + VERSION + "): '" + name + "' is required.");
+                }
+
+                return true;
+            }
+
+            tests[name].t(parsed, !isSet(options[name]) ? defaults[name] : options[name]);
+        });
+
+        // Forward pips options
+        parsed.pips = options.pips;
+
+        // All recent browsers accept unprefixed transform.
+        // We need -ms- for IE9 and -webkit- for older Android;
+        // Assume use of -webkit- if unprefixed and -ms- are not supported.
+        // https://caniuse.com/#feat=transforms2d
+        var d = document.createElement("div");
+        var msPrefix = d.style.msTransform !== undefined;
+        var noPrefix = d.style.transform !== undefined;
+
+        parsed.transformRule = noPrefix ? "transform" : msPrefix ? "msTransform" : "webkitTransform";
+
+        // Pips don't move, so we can place them using left/top.
+        var styles = [["left", "top"], ["right", "bottom"]];
+
+        parsed.style = styles[parsed.dir][parsed.ort];
+
+        return parsed;
+    }
+
+    //endregion
+
+    function scope(target, options, originalOptions) {
+        var actions = getActions();
+        var supportsTouchActionNone = getSupportsTouchActionNone();
+        var supportsPassive = supportsTouchActionNone && getSupportsPassive();
+
+        // All variables local to 'scope' are prefixed with 'scope_'
+
+        // Slider DOM Nodes
+        var scope_Target = target;
+        var scope_Base;
+        var scope_Handles;
+        var scope_Connects;
+        var scope_Pips;
+        var scope_Tooltips;
+
+        // Slider state values
+        var scope_Spectrum = options.spectrum;
+        var scope_Values = [];
+        var scope_Locations = [];
+        var scope_HandleNumbers = [];
+        var scope_ActiveHandlesCount = 0;
+        var scope_Events = {};
+
+        // Exposed API
+        var scope_Self;
+
+        // Document Nodes
+        var scope_Document = target.ownerDocument;
+        var scope_DocumentElement = options.documentElement || scope_Document.documentElement;
+        var scope_Body = scope_Document.body;
+
+        // Pips constants
+        var PIPS_NONE = -1;
+        var PIPS_NO_VALUE = 0;
+        var PIPS_LARGE_VALUE = 1;
+        var PIPS_SMALL_VALUE = 2;
+
+        // For horizontal sliders in standard ltr documents,
+        // make .noUi-origin overflow to the left so the document doesn't scroll.
+        var scope_DirOffset = scope_Document.dir === "rtl" || options.ort === 1 ? 0 : 100;
+
+        // Creates a node, adds it to target, returns the new node.
+        function addNodeTo(addTarget, className) {
+            var div = scope_Document.createElement("div");
+
+            if (className) {
+                addClass(div, className);
+            }
+
+            addTarget.appendChild(div);
+
+            return div;
+        }
+
+        // Append a origin to the base
+        function addOrigin(base, handleNumber) {
+            var origin = addNodeTo(base, options.cssClasses.origin);
+            var handle = addNodeTo(origin, options.cssClasses.handle);
+
+            addNodeTo(handle, options.cssClasses.touchArea);
+
+            handle.setAttribute("data-handle", handleNumber);
+
+            if (options.keyboardSupport) {
+                // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
+                // 0 = focusable and reachable
+                handle.setAttribute("tabindex", "0");
+                handle.addEventListener("keydown", function(event) {
+                    return eventKeydown(event, handleNumber);
+                });
+            }
+
+            handle.setAttribute("role", "slider");
+            handle.setAttribute("aria-orientation", options.ort ? "vertical" : "horizontal");
+
+            if (handleNumber === 0) {
+                addClass(handle, options.cssClasses.handleLower);
+            } else if (handleNumber === options.handles - 1) {
+                addClass(handle, options.cssClasses.handleUpper);
+            }
+
+            return origin;
+        }
+
+        // Insert nodes for connect elements
+        function addConnect(base, add) {
+            if (!add) {
+                return false;
+            }
+
+            return addNodeTo(base, options.cssClasses.connect);
+        }
+
+        // Add handles to the slider base.
+        function addElements(connectOptions, base) {
+            var connectBase = addNodeTo(base, options.cssClasses.connects);
+
+            scope_Handles = [];
+            scope_Connects = [];
+
+            scope_Connects.push(addConnect(connectBase, connectOptions[0]));
+
+            // [::::O====O====O====]
+            // connectOptions = [0, 1, 1, 1]
+
+            for (var i = 0; i < options.handles; i++) {
+                // Keep a list of all added handles.
+                scope_Handles.push(addOrigin(base, i));
+                scope_HandleNumbers[i] = i;
+                scope_Connects.push(addConnect(connectBase, connectOptions[i + 1]));
+            }
+        }
+
+        // Initialize a single slider.
+        function addSlider(addTarget) {
+            // Apply classes and data to the target.
+            addClass(addTarget, options.cssClasses.target);
+
+            if (options.dir === 0) {
+                addClass(addTarget, options.cssClasses.ltr);
+            } else {
+                addClass(addTarget, options.cssClasses.rtl);
+            }
+
+            if (options.ort === 0) {
+                addClass(addTarget, options.cssClasses.horizontal);
+            } else {
+                addClass(addTarget, options.cssClasses.vertical);
+            }
+
+            var textDirection = getComputedStyle(addTarget).direction;
+
+            if (textDirection === "rtl") {
+                addClass(addTarget, options.cssClasses.textDirectionRtl);
+            } else {
+                addClass(addTarget, options.cssClasses.textDirectionLtr);
+            }
+
+            return addNodeTo(addTarget, options.cssClasses.base);
+        }
+
+        function addTooltip(handle, handleNumber) {
+            if (!options.tooltips[handleNumber]) {
+                return false;
+            }
+
+            return addNodeTo(handle.firstChild, options.cssClasses.tooltip);
+        }
+
+        function isSliderDisabled() {
+            return scope_Target.hasAttribute("disabled");
+        }
+
+        // Disable the slider dragging if any handle is disabled
+        function isHandleDisabled(handleNumber) {
+            var handleOrigin = scope_Handles[handleNumber];
+            return handleOrigin.hasAttribute("disabled");
+        }
+
+        function removeTooltips() {
+            if (scope_Tooltips) {
+                removeEvent("update.tooltips");
+                scope_Tooltips.forEach(function(tooltip) {
+                    if (tooltip) {
+                        removeElement(tooltip);
+                    }
+                });
+                scope_Tooltips = null;
+            }
+        }
+
+        // The tooltips option is a shorthand for using the 'update' event.
+        function tooltips() {
+            removeTooltips();
+
+            // Tooltips are added with options.tooltips in original order.
+            scope_Tooltips = scope_Handles.map(addTooltip);
+
+            bindEvent("update.tooltips", function(values, handleNumber, unencoded) {
+                if (!scope_Tooltips[handleNumber]) {
+                    return;
+                }
+
+                var formattedValue = values[handleNumber];
+
+                if (options.tooltips[handleNumber] !== true) {
+                    formattedValue = options.tooltips[handleNumber].to(unencoded[handleNumber]);
+                }
+
+                scope_Tooltips[handleNumber].innerHTML = formattedValue;
+            });
+        }
+
+        function aria() {
+            bindEvent("update", function(values, handleNumber, unencoded, tap, positions) {
+                // Update Aria Values for all handles, as a change in one changes min and max values for the next.
+                scope_HandleNumbers.forEach(function(index) {
+                    var handle = scope_Handles[index];
+
+                    var min = checkHandlePosition(scope_Locations, index, 0, true, true, true);
+                    var max = checkHandlePosition(scope_Locations, index, 100, true, true, true);
+
+                    var now = positions[index];
+
+                    // Formatted value for display
+                    var text = options.ariaFormat.to(unencoded[index]);
+
+                    // Map to slider range values
+                    min = scope_Spectrum.fromStepping(min).toFixed(1);
+                    max = scope_Spectrum.fromStepping(max).toFixed(1);
+                    now = scope_Spectrum.fromStepping(now).toFixed(1);
+
+                    handle.children[0].setAttribute("aria-valuemin", min);
+                    handle.children[0].setAttribute("aria-valuemax", max);
+                    handle.children[0].setAttribute("aria-valuenow", now);
+                    handle.children[0].setAttribute("aria-valuetext", text);
+                });
+            });
+        }
+
+        function getGroup(mode, values, stepped) {
+            // Use the range.
+            if (mode === "range" || mode === "steps") {
+                return scope_Spectrum.xVal;
+            }
+
+            if (mode === "count") {
+                if (values < 2) {
+                    throw new Error("noUiSlider (" + VERSION + "): 'values' (>= 2) required for mode 'count'.");
+                }
+
+                // Divide 0 - 100 in 'count' parts.
+                var interval = values - 1;
+                var spread = 100 / interval;
+
+                values = [];
+
+                // List these parts and have them handled as 'positions'.
+                while (interval--) {
+                    values[interval] = interval * spread;
+                }
+
+                values.push(100);
+
+                mode = "positions";
+            }
+
+            if (mode === "positions") {
+                // Map all percentages to on-range values.
+                return values.map(function(value) {
+                    return scope_Spectrum.fromStepping(stepped ? scope_Spectrum.getStep(value) : value);
+                });
+            }
+
+            if (mode === "values") {
+                // If the value must be stepped, it needs to be converted to a percentage first.
+                if (stepped) {
+                    return values.map(function(value) {
+                        // Convert to percentage, apply step, return to value.
+                        return scope_Spectrum.fromStepping(scope_Spectrum.getStep(scope_Spectrum.toStepping(value)));
+                    });
+                }
+
+                // Otherwise, we can simply use the values.
+                return values;
+            }
+        }
+
+        function generateSpread(density, mode, group) {
+            function safeIncrement(value, increment) {
+                // Avoid floating point variance by dropping the smallest decimal places.
+                return (value + increment).toFixed(7) / 1;
+            }
+
+            var indexes = {};
+            var firstInRange = scope_Spectrum.xVal[0];
+            var lastInRange = scope_Spectrum.xVal[scope_Spectrum.xVal.length - 1];
+            var ignoreFirst = false;
+            var ignoreLast = false;
+            var prevPct = 0;
+
+            // Create a copy of the group, sort it and filter away all duplicates.
+            group = unique(
+                group.slice().sort(function(a, b) {
+                    return a - b;
+                })
+            );
+
+            // Make sure the range starts with the first element.
+            if (group[0] !== firstInRange) {
+                group.unshift(firstInRange);
+                ignoreFirst = true;
+            }
+
+            // Likewise for the last one.
+            if (group[group.length - 1] !== lastInRange) {
+                group.push(lastInRange);
+                ignoreLast = true;
+            }
+
+            group.forEach(function(current, index) {
+                // Get the current step and the lower + upper positions.
+                var step;
+                var i;
+                var q;
+                var low = current;
+                var high = group[index + 1];
+                var newPct;
+                var pctDifference;
+                var pctPos;
+                var type;
+                var steps;
+                var realSteps;
+                var stepSize;
+                var isSteps = mode === "steps";
+
+                // When using 'steps' mode, use the provided steps.
+                // Otherwise, we'll step on to the next subrange.
+                if (isSteps) {
+                    step = scope_Spectrum.xNumSteps[index];
+                }
+
+                // Default to a 'full' step.
+                if (!step) {
+                    step = high - low;
+                }
+
+                // Low can be 0, so test for false. If high is undefined,
+                // we are at the last subrange. Index 0 is already handled.
+                if (low === false || high === undefined) {
+                    return;
+                }
+
+                // Make sure step isn't 0, which would cause an infinite loop (#654)
+                step = Math.max(step, 0.0000001);
+
+                // Find all steps in the subrange.
+                for (i = low; i <= high; i = safeIncrement(i, step)) {
+                    // Get the percentage value for the current step,
+                    // calculate the size for the subrange.
+                    newPct = scope_Spectrum.toStepping(i);
+                    pctDifference = newPct - prevPct;
+
+                    steps = pctDifference / density;
+                    realSteps = Math.round(steps);
+
+                    // This ratio represents the amount of percentage-space a point indicates.
+                    // For a density 1 the points/percentage = 1. For density 2, that percentage needs to be re-divided.
+                    // Round the percentage offset to an even number, then divide by two
+                    // to spread the offset on both sides of the range.
+                    stepSize = pctDifference / realSteps;
+
+                    // Divide all points evenly, adding the correct number to this subrange.
+                    // Run up to <= so that 100% gets a point, event if ignoreLast is set.
+                    for (q = 1; q <= realSteps; q += 1) {
+                        // The ratio between the rounded value and the actual size might be ~1% off.
+                        // Correct the percentage offset by the number of points
+                        // per subrange. density = 1 will result in 100 points on the
+                        // full range, 2 for 50, 4 for 25, etc.
+                        pctPos = prevPct + q * stepSize;
+                        indexes[pctPos.toFixed(5)] = [scope_Spectrum.fromStepping(pctPos), 0];
+                    }
+
+                    // Determine the point type.
+                    type = group.indexOf(i) > -1 ? PIPS_LARGE_VALUE : isSteps ? PIPS_SMALL_VALUE : PIPS_NO_VALUE;
+
+                    // Enforce the 'ignoreFirst' option by overwriting the type for 0.
+                    if (!index && ignoreFirst && i !== high) {
+                        type = 0;
+                    }
+
+                    if (!(i === high && ignoreLast)) {
+                        // Mark the 'type' of this point. 0 = plain, 1 = real value, 2 = step value.
+                        indexes[newPct.toFixed(5)] = [i, type];
+                    }
+
+                    // Update the percentage count.
+                    prevPct = newPct;
+                }
+            });
+
+            return indexes;
+        }
+
+        function addMarking(spread, filterFunc, formatter) {
+            var element = scope_Document.createElement("div");
+
+            var valueSizeClasses = [];
+            valueSizeClasses[PIPS_NO_VALUE] = options.cssClasses.valueNormal;
+            valueSizeClasses[PIPS_LARGE_VALUE] = options.cssClasses.valueLarge;
+            valueSizeClasses[PIPS_SMALL_VALUE] = options.cssClasses.valueSub;
+
+            var markerSizeClasses = [];
+            markerSizeClasses[PIPS_NO_VALUE] = options.cssClasses.markerNormal;
+            markerSizeClasses[PIPS_LARGE_VALUE] = options.cssClasses.markerLarge;
+            markerSizeClasses[PIPS_SMALL_VALUE] = options.cssClasses.markerSub;
+
+            var valueOrientationClasses = [options.cssClasses.valueHorizontal, options.cssClasses.valueVertical];
+            var markerOrientationClasses = [options.cssClasses.markerHorizontal, options.cssClasses.markerVertical];
+
+            addClass(element, options.cssClasses.pips);
+            addClass(element, options.ort === 0 ? options.cssClasses.pipsHorizontal : options.cssClasses.pipsVertical);
+
+            function getClasses(type, source) {
+                var a = source === options.cssClasses.value;
+                var orientationClasses = a ? valueOrientationClasses : markerOrientationClasses;
+                var sizeClasses = a ? valueSizeClasses : markerSizeClasses;
+
+                return source + " " + orientationClasses[options.ort] + " " + sizeClasses[type];
+            }
+
+            function addSpread(offset, value, type) {
+                // Apply the filter function, if it is set.
+                type = filterFunc ? filterFunc(value, type) : type;
+
+                if (type === PIPS_NONE) {
+                    return;
+                }
+
+                // Add a marker for every point
+                var node = addNodeTo(element, false);
+                node.className = getClasses(type, options.cssClasses.marker);
+                node.style[options.style] = offset + "%";
+
+                // Values are only appended for points marked '1' or '2'.
+                if (type > PIPS_NO_VALUE) {
+                    node = addNodeTo(element, false);
+                    node.className = getClasses(type, options.cssClasses.value);
+                    node.setAttribute("data-value", value);
+                    node.style[options.style] = offset + "%";
+                    node.innerHTML = formatter.to(value);
+                }
+            }
+
+            // Append all points.
+            Object.keys(spread).forEach(function(offset) {
+                addSpread(offset, spread[offset][0], spread[offset][1]);
+            });
+
+            return element;
+        }
+
+        function removePips() {
+            if (scope_Pips) {
+                removeElement(scope_Pips);
+                scope_Pips = null;
+            }
+        }
+
+        function pips(grid) {
+            // Fix #669
+            removePips();
+
+            var mode = grid.mode;
+            var density = grid.density || 1;
+            var filter = grid.filter || false;
+            var values = grid.values || false;
+            var stepped = grid.stepped || false;
+            var group = getGroup(mode, values, stepped);
+            var spread = generateSpread(density, mode, group);
+            var format = grid.format || {
+                to: Math.round
+            };
+
+            scope_Pips = scope_Target.appendChild(addMarking(spread, filter, format));
+
+            return scope_Pips;
+        }
+
+        // Shorthand for base dimensions.
+        function baseSize() {
+            var rect = scope_Base.getBoundingClientRect();
+            var alt = "offset" + ["Width", "Height"][options.ort];
+            return options.ort === 0 ? rect.width || scope_Base[alt] : rect.height || scope_Base[alt];
+        }
+
+        // Handler for attaching events trough a proxy.
+        function attachEvent(events, element, callback, data) {
+            // This function can be used to 'filter' events to the slider.
+            // element is a node, not a nodeList
+
+            var method = function(e) {
+                e = fixEvent(e, data.pageOffset, data.target || element);
+
+                // fixEvent returns false if this event has a different target
+                // when handling (multi-) touch events;
+                if (!e) {
+                    return false;
+                }
+
+                // doNotReject is passed by all end events to make sure released touches
+                // are not rejected, leaving the slider "stuck" to the cursor;
+                if (isSliderDisabled() && !data.doNotReject) {
+                    return false;
+                }
+
+                // Stop if an active 'tap' transition is taking place.
+                if (hasClass(scope_Target, options.cssClasses.tap) && !data.doNotReject) {
+                    return false;
+                }
+
+                // Ignore right or middle clicks on start #454
+                if (events === actions.start && e.buttons !== undefined && e.buttons > 1) {
+                    return false;
+                }
+
+                // Ignore right or middle clicks on start #454
+                if (data.hover && e.buttons) {
+                    return false;
+                }
+
+                // 'supportsPassive' is only true if a browser also supports touch-action: none in CSS.
+                // iOS safari does not, so it doesn't get to benefit from passive scrolling. iOS does support
+                // touch-action: manipulation, but that allows panning, which breaks
+                // sliders after zooming/on non-responsive pages.
+                // See: https://bugs.webkit.org/show_bug.cgi?id=133112
+                if (!supportsPassive) {
+                    e.preventDefault();
+                }
+
+                e.calcPoint = e.points[options.ort];
+
+                // Call the event handler with the event [ and additional data ].
+                callback(e, data);
+            };
+
+            var methods = [];
+
+            // Bind a closure on the target for every event type.
+            events.split(" ").forEach(function(eventName) {
+                element.addEventListener(eventName, method, supportsPassive ? { passive: true } : false);
+                methods.push([eventName, method]);
+            });
+
+            return methods;
+        }
+
+        // Provide a clean event with standardized offset values.
+        function fixEvent(e, pageOffset, eventTarget) {
+            // Filter the event to register the type, which can be
+            // touch, mouse or pointer. Offset changes need to be
+            // made on an event specific basis.
+            var touch = e.type.indexOf("touch") === 0;
+            var mouse = e.type.indexOf("mouse") === 0;
+            var pointer = e.type.indexOf("pointer") === 0;
+
+            var x;
+            var y;
+
+            // IE10 implemented pointer events with a prefix;
+            if (e.type.indexOf("MSPointer") === 0) {
+                pointer = true;
+            }
+
+            // The only thing one handle should be concerned about is the touches that originated on top of it.
+            if (touch) {
+                // Returns true if a touch originated on the target.
+                var isTouchOnTarget = function(checkTouch) {
+                    return (
+                        checkTouch.target === eventTarget ||
+                        eventTarget.contains(checkTouch.target) ||
+                        (checkTouch.target.shadowRoot && checkTouch.target.shadowRoot.contains(eventTarget))
+                    );
+                };
+
+                // In the case of touchstart events, we need to make sure there is still no more than one
+                // touch on the target so we look amongst all touches.
+                if (e.type === "touchstart") {
+                    var targetTouches = Array.prototype.filter.call(e.touches, isTouchOnTarget);
+
+                    // Do not support more than one touch per handle.
+                    if (targetTouches.length > 1) {
+                        return false;
+                    }
+
+                    x = targetTouches[0].pageX;
+                    y = targetTouches[0].pageY;
+                } else {
+                    // In the other cases, find on changedTouches is enough.
+                    var targetTouch = Array.prototype.find.call(e.changedTouches, isTouchOnTarget);
+
+                    // Cancel if the target touch has not moved.
+                    if (!targetTouch) {
+                        return false;
+                    }
+
+                    x = targetTouch.pageX;
+                    y = targetTouch.pageY;
+                }
+            }
+
+            pageOffset = pageOffset || getPageOffset(scope_Document);
+
+            if (mouse || pointer) {
+                x = e.clientX + pageOffset.x;
+                y = e.clientY + pageOffset.y;
+            }
+
+            e.pageOffset = pageOffset;
+            e.points = [x, y];
+            e.cursor = mouse || pointer; // Fix #435
+
+            return e;
+        }
+
+        // Translate a coordinate in the document to a percentage on the slider
+        function calcPointToPercentage(calcPoint) {
+            var location = calcPoint - offset(scope_Base, options.ort);
+            var proposal = (location * 100) / baseSize();
+
+            // Clamp proposal between 0% and 100%
+            // Out-of-bound coordinates may occur when .noUi-base pseudo-elements
+            // are used (e.g. contained handles feature)
+            proposal = limit(proposal);
+
+            return options.dir ? 100 - proposal : proposal;
+        }
+
+        // Find handle closest to a certain percentage on the slider
+        function getClosestHandle(clickedPosition) {
+            var smallestDifference = 100;
+            var handleNumber = false;
+
+            scope_Handles.forEach(function(handle, index) {
+                // Disabled handles are ignored
+                if (isHandleDisabled(index)) {
+                    return;
+                }
+
+                var handlePosition = scope_Locations[index];
+                var differenceWithThisHandle = Math.abs(handlePosition - clickedPosition);
+
+                // Initial state
+                var clickAtEdge = differenceWithThisHandle === 100 && smallestDifference === 100;
+
+                // Difference with this handle is smaller than the previously checked handle
+                var isCloser = differenceWithThisHandle < smallestDifference;
+                var isCloserAfter = differenceWithThisHandle <= smallestDifference && clickedPosition > handlePosition;
+
+                if (isCloser || isCloserAfter || clickAtEdge) {
+                    handleNumber = index;
+                    smallestDifference = differenceWithThisHandle;
+                }
+            });
+
+            return handleNumber;
+        }
+
+        // Fire 'end' when a mouse or pen leaves the document.
+        function documentLeave(event, data) {
+            if (event.type === "mouseout" && event.target.nodeName === "HTML" && event.relatedTarget === null) {
+                eventEnd(event, data);
+            }
+        }
+
+        // Handle movement on document for handle and range drag.
+        function eventMove(event, data) {
+            // Fix #498
+            // Check value of .buttons in 'start' to work around a bug in IE10 mobile (data.buttonsProperty).
+            // https://connect.microsoft.com/IE/feedback/details/927005/mobile-ie10-windows-phone-buttons-property-of-pointermove-event-always-zero
+            // IE9 has .buttons and .which zero on mousemove.
+            // Firefox breaks the spec MDN defines.
+            if (navigator.appVersion.indexOf("MSIE 9") === -1 && event.buttons === 0 && data.buttonsProperty !== 0) {
+                return eventEnd(event, data);
+            }
+
+            // Check if we are moving up or down
+            var movement = (options.dir ? -1 : 1) * (event.calcPoint - data.startCalcPoint);
+
+            // Convert the movement into a percentage of the slider width/height
+            var proposal = (movement * 100) / data.baseSize;
+
+            moveHandles(movement > 0, proposal, data.locations, data.handleNumbers);
+        }
+
+        // Unbind move events on document, call callbacks.
+        function eventEnd(event, data) {
+            // The handle is no longer active, so remove the class.
+            if (data.handle) {
+                removeClass(data.handle, options.cssClasses.active);
+                scope_ActiveHandlesCount -= 1;
+            }
+
+            // Unbind the move and end events, which are added on 'start'.
+            data.listeners.forEach(function(c) {
+                scope_DocumentElement.removeEventListener(c[0], c[1]);
+            });
+
+            if (scope_ActiveHandlesCount === 0) {
+                // Remove dragging class.
+                removeClass(scope_Target, options.cssClasses.drag);
+                setZindex();
+
+                // Remove cursor styles and text-selection events bound to the body.
+                if (event.cursor) {
+                    scope_Body.style.cursor = "";
+                    scope_Body.removeEventListener("selectstart", preventDefault);
+                }
+            }
+
+            data.handleNumbers.forEach(function(handleNumber) {
+                fireEvent("change", handleNumber);
+                fireEvent("set", handleNumber);
+                fireEvent("end", handleNumber);
+            });
+        }
+
+        // Bind move events on document.
+        function eventStart(event, data) {
+            // Ignore event if any handle is disabled
+            if (data.handleNumbers.some(isHandleDisabled)) {
+                return false;
+            }
+
+            var handle;
+
+            if (data.handleNumbers.length === 1) {
+                var handleOrigin = scope_Handles[data.handleNumbers[0]];
+
+                handle = handleOrigin.children[0];
+                scope_ActiveHandlesCount += 1;
+
+                // Mark the handle as 'active' so it can be styled.
+                addClass(handle, options.cssClasses.active);
+            }
+
+            // A drag should never propagate up to the 'tap' event.
+            event.stopPropagation();
+
+            // Record the event listeners.
+            var listeners = [];
+
+            // Attach the move and end events.
+            var moveEvent = attachEvent(actions.move, scope_DocumentElement, eventMove, {
+                // The event target has changed so we need to propagate the original one so that we keep
+                // relying on it to extract target touches.
+                target: event.target,
+                handle: handle,
+                listeners: listeners,
+                startCalcPoint: event.calcPoint,
+                baseSize: baseSize(),
+                pageOffset: event.pageOffset,
+                handleNumbers: data.handleNumbers,
+                buttonsProperty: event.buttons,
+                locations: scope_Locations.slice()
+            });
+
+            var endEvent = attachEvent(actions.end, scope_DocumentElement, eventEnd, {
+                target: event.target,
+                handle: handle,
+                listeners: listeners,
+                doNotReject: true,
+                handleNumbers: data.handleNumbers
+            });
+
+            var outEvent = attachEvent("mouseout", scope_DocumentElement, documentLeave, {
+                target: event.target,
+                handle: handle,
+                listeners: listeners,
+                doNotReject: true,
+                handleNumbers: data.handleNumbers
+            });
+
+            // We want to make sure we pushed the listeners in the listener list rather than creating
+            // a new one as it has already been passed to the event handlers.
+            listeners.push.apply(listeners, moveEvent.concat(endEvent, outEvent));
+
+            // Text selection isn't an issue on touch devices,
+            // so adding cursor styles can be skipped.
+            if (event.cursor) {
+                // Prevent the 'I' cursor and extend the range-drag cursor.
+                scope_Body.style.cursor = getComputedStyle(event.target).cursor;
+
+                // Mark the target with a dragging state.
+                if (scope_Handles.length > 1) {
+                    addClass(scope_Target, options.cssClasses.drag);
+                }
+
+                // Prevent text selection when dragging the handles.
+                // In noUiSlider <= 9.2.0, this was handled by calling preventDefault on mouse/touch start/move,
+                // which is scroll blocking. The selectstart event is supported by FireFox starting from version 52,
+                // meaning the only holdout is iOS Safari. This doesn't matter: text selection isn't triggered there.
+                // The 'cursor' flag is false.
+                // See: http://caniuse.com/#search=selectstart
+                scope_Body.addEventListener("selectstart", preventDefault, false);
+            }
+
+            data.handleNumbers.forEach(function(handleNumber) {
+                fireEvent("start", handleNumber);
+            });
+        }
+
+        // Move closest handle to tapped location.
+        function eventTap(event) {
+            // Erroneous events seem to be passed in occasionally on iOS/iPadOS after user finishes interacting with
+            // the slider. They appear to be of type MouseEvent, yet they don't have usual properties set. Ignore tap
+            // events that have no touches or buttons associated with them.
+            if (!event.buttons && !event.touches) {
+                return false;
+            }
+
+            // The tap event shouldn't propagate up
+            event.stopPropagation();
+
+            var proposal = calcPointToPercentage(event.calcPoint);
+            var handleNumber = getClosestHandle(proposal);
+
+            // Tackle the case that all handles are 'disabled'.
+            if (handleNumber === false) {
+                return false;
+            }
+
+            // Flag the slider as it is now in a transitional state.
+            // Transition takes a configurable amount of ms (default 300). Re-enable the slider after that.
+            if (!options.events.snap) {
+                addClassFor(scope_Target, options.cssClasses.tap, options.animationDuration);
+            }
+
+            setHandle(handleNumber, proposal, true, true);
+
+            setZindex();
+
+            fireEvent("slide", handleNumber, true);
+            fireEvent("update", handleNumber, true);
+            fireEvent("change", handleNumber, true);
+            fireEvent("set", handleNumber, true);
+
+            if (options.events.snap) {
+                eventStart(event, { handleNumbers: [handleNumber] });
+            }
+        }
+
+        // Fires a 'hover' event for a hovered mouse/pen position.
+        function eventHover(event) {
+            var proposal = calcPointToPercentage(event.calcPoint);
+
+            var to = scope_Spectrum.getStep(proposal);
+            var value = scope_Spectrum.fromStepping(to);
+
+            Object.keys(scope_Events).forEach(function(targetEvent) {
+                if ("hover" === targetEvent.split(".")[0]) {
+                    scope_Events[targetEvent].forEach(function(callback) {
+                        callback.call(scope_Self, value);
+                    });
+                }
+            });
+        }
+
+        // Handles keydown on focused handles
+        // Don't move the document when pressing arrow keys on focused handles
+        function eventKeydown(event, handleNumber) {
+            if (isSliderDisabled() || isHandleDisabled(handleNumber)) {
+                return false;
+            }
+
+            var horizontalKeys = ["Left", "Right"];
+            var verticalKeys = ["Down", "Up"];
+            var largeStepKeys = ["PageDown", "PageUp"];
+            var edgeKeys = ["Home", "End"];
+
+            if (options.dir && !options.ort) {
+                // On an right-to-left slider, the left and right keys act inverted
+                horizontalKeys.reverse();
+            } else if (options.ort && !options.dir) {
+                // On a top-to-bottom slider, the up and down keys act inverted
+                verticalKeys.reverse();
+                largeStepKeys.reverse();
+            }
+
+            // Strip "Arrow" for IE compatibility. https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+            var key = event.key.replace("Arrow", "");
+
+            var isLargeDown = key === largeStepKeys[0];
+            var isLargeUp = key === largeStepKeys[1];
+            var isDown = key === verticalKeys[0] || key === horizontalKeys[0] || isLargeDown;
+            var isUp = key === verticalKeys[1] || key === horizontalKeys[1] || isLargeUp;
+            var isMin = key === edgeKeys[0];
+            var isMax = key === edgeKeys[1];
+
+            if (!isDown && !isUp && !isMin && !isMax) {
+                return true;
+            }
+
+            event.preventDefault();
+
+            var to;
+
+            if (isUp || isDown) {
+                var multiplier = options.keyboardPageMultiplier;
+                var direction = isDown ? 0 : 1;
+                var steps = getNextStepsForHandle(handleNumber);
+                var step = steps[direction];
+
+                // At the edge of a slider, do nothing
+                if (step === null) {
+                    return false;
+                }
+
+                // No step set, use the default of 10% of the sub-range
+                if (step === false) {
+                    step = scope_Spectrum.getDefaultStep(
+                        scope_Locations[handleNumber],
+                        isDown,
+                        options.keyboardDefaultStep
+                    );
+                }
+
+                if (isLargeUp || isLargeDown) {
+                    step *= multiplier;
+                }
+
+                // Step over zero-length ranges (#948);
+                step = Math.max(step, 0.0000001);
+
+                // Decrement for down steps
+                step = (isDown ? -1 : 1) * step;
+
+                to = scope_Values[handleNumber] + step;
+            } else if (isMax) {
+                // End key
+                to = options.spectrum.xVal[options.spectrum.xVal.length - 1];
+            } else {
+                // Home key
+                to = options.spectrum.xVal[0];
+            }
+
+            setHandle(handleNumber, scope_Spectrum.toStepping(to), true, true);
+
+            fireEvent("slide", handleNumber);
+            fireEvent("update", handleNumber);
+            fireEvent("change", handleNumber);
+            fireEvent("set", handleNumber);
+
+            return false;
+        }
+
+        // Attach events to several slider parts.
+        function bindSliderEvents(behaviour) {
+            // Attach the standard drag event to the handles.
+            if (!behaviour.fixed) {
+                scope_Handles.forEach(function(handle, index) {
+                    // These events are only bound to the visual handle
+                    // element, not the 'real' origin element.
+                    attachEvent(actions.start, handle.children[0], eventStart, {
+                        handleNumbers: [index]
+                    });
+                });
+            }
+
+            // Attach the tap event to the slider base.
+            if (behaviour.tap) {
+                attachEvent(actions.start, scope_Base, eventTap, {});
+            }
+
+            // Fire hover events
+            if (behaviour.hover) {
+                attachEvent(actions.move, scope_Base, eventHover, {
+                    hover: true
+                });
+            }
+
+            // Make the range draggable.
+            if (behaviour.drag) {
+                scope_Connects.forEach(function(connect, index) {
+                    if (connect === false || index === 0 || index === scope_Connects.length - 1) {
+                        return;
+                    }
+
+                    var handleBefore = scope_Handles[index - 1];
+                    var handleAfter = scope_Handles[index];
+                    var eventHolders = [connect];
+
+                    addClass(connect, options.cssClasses.draggable);
+
+                    // When the range is fixed, the entire range can
+                    // be dragged by the handles. The handle in the first
+                    // origin will propagate the start event upward,
+                    // but it needs to be bound manually on the other.
+                    if (behaviour.fixed) {
+                        eventHolders.push(handleBefore.children[0]);
+                        eventHolders.push(handleAfter.children[0]);
+                    }
+
+                    eventHolders.forEach(function(eventHolder) {
+                        attachEvent(actions.start, eventHolder, eventStart, {
+                            handles: [handleBefore, handleAfter],
+                            handleNumbers: [index - 1, index]
+                        });
+                    });
+                });
+            }
+        }
+
+        // Attach an event to this slider, possibly including a namespace
+        function bindEvent(namespacedEvent, callback) {
+            scope_Events[namespacedEvent] = scope_Events[namespacedEvent] || [];
+            scope_Events[namespacedEvent].push(callback);
+
+            // If the event bound is 'update,' fire it immediately for all handles.
+            if (namespacedEvent.split(".")[0] === "update") {
+                scope_Handles.forEach(function(a, index) {
+                    fireEvent("update", index);
+                });
+            }
+        }
+
+        // Undo attachment of event
+        function removeEvent(namespacedEvent) {
+            var event = namespacedEvent && namespacedEvent.split(".")[0];
+            var namespace = event && namespacedEvent.substring(event.length);
+
+            Object.keys(scope_Events).forEach(function(bind) {
+                var tEvent = bind.split(".")[0];
+                var tNamespace = bind.substring(tEvent.length);
+
+                if ((!event || event === tEvent) && (!namespace || namespace === tNamespace)) {
+                    delete scope_Events[bind];
+                }
+            });
+        }
+
+        // External event handling
+        function fireEvent(eventName, handleNumber, tap) {
+            Object.keys(scope_Events).forEach(function(targetEvent) {
+                var eventType = targetEvent.split(".")[0];
+
+                if (eventName === eventType) {
+                    scope_Events[targetEvent].forEach(function(callback) {
+                        callback.call(
+                            // Use the slider public API as the scope ('this')
+                            scope_Self,
+                            // Return values as array, so arg_1[arg_2] is always valid.
+                            scope_Values.map(options.format.to),
+                            // Handle index, 0 or 1
+                            handleNumber,
+                            // Un-formatted slider values
+                            scope_Values.slice(),
+                            // Event is fired by tap, true or false
+                            tap || false,
+                            // Left offset of the handle, in relation to the slider
+                            scope_Locations.slice(),
+                            // add the slider public API to an accessible parameter when this is unavailable
+                            scope_Self
+                        );
+                    });
+                }
+            });
+        }
+
+        // Split out the handle positioning logic so the Move event can use it, too
+        function checkHandlePosition(reference, handleNumber, to, lookBackward, lookForward, getValue) {
+            var distance;
+
+            // For sliders with multiple handles, limit movement to the other handle.
+            // Apply the margin option by adding it to the handle positions.
+            if (scope_Handles.length > 1 && !options.events.unconstrained) {
+                if (lookBackward && handleNumber > 0) {
+                    distance = scope_Spectrum.getAbsoluteDistance(reference[handleNumber - 1], options.margin, 0);
+                    to = Math.max(to, distance);
+                }
+
+                if (lookForward && handleNumber < scope_Handles.length - 1) {
+                    distance = scope_Spectrum.getAbsoluteDistance(reference[handleNumber + 1], options.margin, 1);
+                    to = Math.min(to, distance);
+                }
+            }
+
+            // The limit option has the opposite effect, limiting handles to a
+            // maximum distance from another. Limit must be > 0, as otherwise
+            // handles would be unmovable.
+            if (scope_Handles.length > 1 && options.limit) {
+                if (lookBackward && handleNumber > 0) {
+                    distance = scope_Spectrum.getAbsoluteDistance(reference[handleNumber - 1], options.limit, 0);
+                    to = Math.min(to, distance);
+                }
+
+                if (lookForward && handleNumber < scope_Handles.length - 1) {
+                    distance = scope_Spectrum.getAbsoluteDistance(reference[handleNumber + 1], options.limit, 1);
+                    to = Math.max(to, distance);
+                }
+            }
+
+            // The padding option keeps the handles a certain distance from the
+            // edges of the slider. Padding must be > 0.
+            if (options.padding) {
+                if (handleNumber === 0) {
+                    distance = scope_Spectrum.getAbsoluteDistance(0, options.padding[0], 0);
+                    to = Math.max(to, distance);
+                }
+
+                if (handleNumber === scope_Handles.length - 1) {
+                    distance = scope_Spectrum.getAbsoluteDistance(100, options.padding[1], 1);
+                    to = Math.min(to, distance);
+                }
+            }
+
+            to = scope_Spectrum.getStep(to);
+
+            // Limit percentage to the 0 - 100 range
+            to = limit(to);
+
+            // Return false if handle can't move
+            if (to === reference[handleNumber] && !getValue) {
+                return false;
+            }
+
+            return to;
+        }
+
+        // Uses slider orientation to create CSS rules. a = base value;
+        function inRuleOrder(v, a) {
+            var o = options.ort;
+            return (o ? a : v) + ", " + (o ? v : a);
+        }
+
+        // Moves handle(s) by a percentage
+        // (bool, % to move, [% where handle started, ...], [index in scope_Handles, ...])
+        function moveHandles(upward, proposal, locations, handleNumbers) {
+            var proposals = locations.slice();
+
+            var b = [!upward, upward];
+            var f = [upward, !upward];
+
+            // Copy handleNumbers so we don't change the dataset
+            handleNumbers = handleNumbers.slice();
+
+            // Check to see which handle is 'leading'.
+            // If that one can't move the second can't either.
+            if (upward) {
+                handleNumbers.reverse();
+            }
+
+            // Step 1: get the maximum percentage that any of the handles can move
+            if (handleNumbers.length > 1) {
+                handleNumbers.forEach(function(handleNumber, o) {
+                    var to = checkHandlePosition(
+                        proposals,
+                        handleNumber,
+                        proposals[handleNumber] + proposal,
+                        b[o],
+                        f[o],
+                        false
+                    );
+
+                    // Stop if one of the handles can't move.
+                    if (to === false) {
+                        proposal = 0;
+                    } else {
+                        proposal = to - proposals[handleNumber];
+                        proposals[handleNumber] = to;
+                    }
+                });
+            }
+
+            // If using one handle, check backward AND forward
+            else {
+                b = f = [true];
+            }
+
+            var state = false;
+
+            // Step 2: Try to set the handles with the found percentage
+            handleNumbers.forEach(function(handleNumber, o) {
+                state = setHandle(handleNumber, locations[handleNumber] + proposal, b[o], f[o]) || state;
+            });
+
+            // Step 3: If a handle moved, fire events
+            if (state) {
+                handleNumbers.forEach(function(handleNumber) {
+                    fireEvent("update", handleNumber);
+                    fireEvent("slide", handleNumber);
+                });
+            }
+        }
+
+        // Takes a base value and an offset. This offset is used for the connect bar size.
+        // In the initial design for this feature, the origin element was 1% wide.
+        // Unfortunately, a rounding bug in Chrome makes it impossible to implement this feature
+        // in this manner: https://bugs.chromium.org/p/chromium/issues/detail?id=798223
+        function transformDirection(a, b) {
+            return options.dir ? 100 - a - b : a;
+        }
+
+        // Updates scope_Locations and scope_Values, updates visual state
+        function updateHandlePosition(handleNumber, to) {
+            // Update locations.
+            scope_Locations[handleNumber] = to;
+
+            // Convert the value to the slider stepping/range.
+            scope_Values[handleNumber] = scope_Spectrum.fromStepping(to);
+
+            var translation = 10 * (transformDirection(to, 0) - scope_DirOffset);
+            var translateRule = "translate(" + inRuleOrder(translation + "%", "0") + ")";
+
+            scope_Handles[handleNumber].style[options.transformRule] = translateRule;
+
+            updateConnect(handleNumber);
+            updateConnect(handleNumber + 1);
+        }
+
+        // Handles before the slider middle are stacked later = higher,
+        // Handles after the middle later is lower
+        // [[7] [8] .......... | .......... [5] [4]
+        function setZindex() {
+            scope_HandleNumbers.forEach(function(handleNumber) {
+                var dir = scope_Locations[handleNumber] > 50 ? -1 : 1;
+                var zIndex = 3 + (scope_Handles.length + dir * handleNumber);
+                scope_Handles[handleNumber].style.zIndex = zIndex;
+            });
+        }
+
+        // Test suggested values and apply margin, step.
+        function setHandle(handleNumber, to, lookBackward, lookForward) {
+            to = checkHandlePosition(scope_Locations, handleNumber, to, lookBackward, lookForward, false);
+
+            if (to === false) {
+                return false;
+            }
+
+            updateHandlePosition(handleNumber, to);
+
+            return true;
+        }
+
+        // Updates style attribute for connect nodes
+        function updateConnect(index) {
+            // Skip connects set to false
+            if (!scope_Connects[index]) {
+                return;
+            }
+
+            var l = 0;
+            var h = 100;
+
+            if (index !== 0) {
+                l = scope_Locations[index - 1];
+            }
+
+            if (index !== scope_Connects.length - 1) {
+                h = scope_Locations[index];
+            }
+
+            // We use two rules:
+            // 'translate' to change the left/top offset;
+            // 'scale' to change the width of the element;
+            // As the element has a width of 100%, a translation of 100% is equal to 100% of the parent (.noUi-base)
+            var connectWidth = h - l;
+            var translateRule = "translate(" + inRuleOrder(transformDirection(l, connectWidth) + "%", "0") + ")";
+            var scaleRule = "scale(" + inRuleOrder(connectWidth / 100, "1") + ")";
+
+            scope_Connects[index].style[options.transformRule] = translateRule + " " + scaleRule;
+        }
+
+        // Parses value passed to .set method. Returns current value if not parse-able.
+        function resolveToValue(to, handleNumber) {
+            // Setting with null indicates an 'ignore'.
+            // Inputting 'false' is invalid.
+            if (to === null || to === false || to === undefined) {
+                return scope_Locations[handleNumber];
+            }
+
+            // If a formatted number was passed, attempt to decode it.
+            if (typeof to === "number") {
+                to = String(to);
+            }
+
+            to = options.format.from(to);
+            to = scope_Spectrum.toStepping(to);
+
+            // If parsing the number failed, use the current value.
+            if (to === false || isNaN(to)) {
+                return scope_Locations[handleNumber];
+            }
+
+            return to;
+        }
+
+        // Set the slider value.
+        function valueSet(input, fireSetEvent) {
+            var values = asArray(input);
+            var isInit = scope_Locations[0] === undefined;
+
+            // Event fires by default
+            fireSetEvent = fireSetEvent === undefined ? true : !!fireSetEvent;
+
+            // Animation is optional.
+            // Make sure the initial values were set before using animated placement.
+            if (options.animate && !isInit) {
+                addClassFor(scope_Target, options.cssClasses.tap, options.animationDuration);
+            }
+
+            // First pass, without lookAhead but with lookBackward. Values are set from left to right.
+            scope_HandleNumbers.forEach(function(handleNumber) {
+                setHandle(handleNumber, resolveToValue(values[handleNumber], handleNumber), true, false);
+            });
+
+            var i = scope_HandleNumbers.length === 1 ? 0 : 1;
+
+            // Secondary passes. Now that all base values are set, apply constraints.
+            // Iterate all handles to ensure constraints are applied for the entire slider (Issue #1009)
+            for (; i < scope_HandleNumbers.length; ++i) {
+                scope_HandleNumbers.forEach(function(handleNumber) {
+                    setHandle(handleNumber, scope_Locations[handleNumber], true, true);
+                });
+            }
+
+            setZindex();
+
+            scope_HandleNumbers.forEach(function(handleNumber) {
+                fireEvent("update", handleNumber);
+
+                // Fire the event only for handles that received a new value, as per #579
+                if (values[handleNumber] !== null && fireSetEvent) {
+                    fireEvent("set", handleNumber);
+                }
+            });
+        }
+
+        // Reset slider to initial values
+        function valueReset(fireSetEvent) {
+            valueSet(options.start, fireSetEvent);
+        }
+
+        // Set value for a single handle
+        function valueSetHandle(handleNumber, value, fireSetEvent) {
+            // Ensure numeric input
+            handleNumber = Number(handleNumber);
+
+            if (!(handleNumber >= 0 && handleNumber < scope_HandleNumbers.length)) {
+                throw new Error("noUiSlider (" + VERSION + "): invalid handle number, got: " + handleNumber);
+            }
+
+            // Look both backward and forward, since we don't want this handle to "push" other handles (#960);
+            setHandle(handleNumber, resolveToValue(value, handleNumber), true, true);
+
+            fireEvent("update", handleNumber);
+
+            if (fireSetEvent) {
+                fireEvent("set", handleNumber);
+            }
+        }
+
+        // Get the slider value.
+        function valueGet() {
+            var values = scope_Values.map(options.format.to);
+
+            // If only one handle is used, return a single value.
+            if (values.length === 1) {
+                return values[0];
+            }
+
+            return values;
+        }
+
+        // Removes classes from the root and empties it.
+        function destroy() {
+            for (var key in options.cssClasses) {
+                if (!options.cssClasses.hasOwnProperty(key)) {
+                    continue;
+                }
+                removeClass(scope_Target, options.cssClasses[key]);
+            }
+
+            while (scope_Target.firstChild) {
+                scope_Target.removeChild(scope_Target.firstChild);
+            }
+
+            delete scope_Target.noUiSlider;
+        }
+
+        function getNextStepsForHandle(handleNumber) {
+            var location = scope_Locations[handleNumber];
+            var nearbySteps = scope_Spectrum.getNearbySteps(location);
+            var value = scope_Values[handleNumber];
+            var increment = nearbySteps.thisStep.step;
+            var decrement = null;
+
+            // If snapped, directly use defined step value
+            if (options.snap) {
+                return [
+                    value - nearbySteps.stepBefore.startValue || null,
+                    nearbySteps.stepAfter.startValue - value || null
+                ];
+            }
+
+            // If the next value in this step moves into the next step,
+            // the increment is the start of the next step - the current value
+            if (increment !== false) {
+                if (value + increment > nearbySteps.stepAfter.startValue) {
+                    increment = nearbySteps.stepAfter.startValue - value;
+                }
+            }
+
+            // If the value is beyond the starting point
+            if (value > nearbySteps.thisStep.startValue) {
+                decrement = nearbySteps.thisStep.step;
+            } else if (nearbySteps.stepBefore.step === false) {
+                decrement = false;
+            }
+
+            // If a handle is at the start of a step, it always steps back into the previous step first
+            else {
+                decrement = value - nearbySteps.stepBefore.highestStep;
+            }
+
+            // Now, if at the slider edges, there is no in/decrement
+            if (location === 100) {
+                increment = null;
+            } else if (location === 0) {
+                decrement = null;
+            }
+
+            // As per #391, the comparison for the decrement step can have some rounding issues.
+            var stepDecimals = scope_Spectrum.countStepDecimals();
+
+            // Round per #391
+            if (increment !== null && increment !== false) {
+                increment = Number(increment.toFixed(stepDecimals));
+            }
+
+            if (decrement !== null && decrement !== false) {
+                decrement = Number(decrement.toFixed(stepDecimals));
+            }
+
+            return [decrement, increment];
+        }
+
+        // Get the current step size for the slider.
+        function getNextSteps() {
+            return scope_HandleNumbers.map(getNextStepsForHandle);
+        }
+
+        // Updateable: margin, limit, padding, step, range, animate, snap
+        function updateOptions(optionsToUpdate, fireSetEvent) {
+            // Spectrum is created using the range, snap, direction and step options.
+            // 'snap' and 'step' can be updated.
+            // If 'snap' and 'step' are not passed, they should remain unchanged.
+            var v = valueGet();
+
+            var updateAble = [
+                "margin",
+                "limit",
+                "padding",
+                "range",
+                "animate",
+                "snap",
+                "step",
+                "format",
+                "pips",
+                "tooltips"
+            ];
+
+            // Only change options that we're actually passed to update.
+            updateAble.forEach(function(name) {
+                // Check for undefined. null removes the value.
+                if (optionsToUpdate[name] !== undefined) {
+                    originalOptions[name] = optionsToUpdate[name];
+                }
+            });
+
+            var newOptions = testOptions(originalOptions);
+
+            // Load new options into the slider state
+            updateAble.forEach(function(name) {
+                if (optionsToUpdate[name] !== undefined) {
+                    options[name] = newOptions[name];
+                }
+            });
+
+            scope_Spectrum = newOptions.spectrum;
+
+            // Limit, margin and padding depend on the spectrum but are stored outside of it. (#677)
+            options.margin = newOptions.margin;
+            options.limit = newOptions.limit;
+            options.padding = newOptions.padding;
+
+            // Update pips, removes existing.
+            if (options.pips) {
+                pips(options.pips);
+            } else {
+                removePips();
+            }
+
+            // Update tooltips, removes existing.
+            if (options.tooltips) {
+                tooltips();
+            } else {
+                removeTooltips();
+            }
+
+            // Invalidate the current positioning so valueSet forces an update.
+            scope_Locations = [];
+            valueSet(optionsToUpdate.start || v, fireSetEvent);
+        }
+
+        // Initialization steps
+        function setupSlider() {
+            // Create the base element, initialize HTML and set classes.
+            // Add handles and connect elements.
+            scope_Base = addSlider(scope_Target);
+
+            addElements(options.connect, scope_Base);
+
+            // Attach user events.
+            bindSliderEvents(options.events);
+
+            // Use the public value method to set the start values.
+            valueSet(options.start);
+
+            if (options.pips) {
+                pips(options.pips);
+            }
+
+            if (options.tooltips) {
+                tooltips();
+            }
+
+            aria();
+        }
+
+        setupSlider();
+
+        // noinspection JSUnusedGlobalSymbols
+        scope_Self = {
+            destroy: destroy,
+            steps: getNextSteps,
+            on: bindEvent,
+            off: removeEvent,
+            get: valueGet,
+            set: valueSet,
+            setHandle: valueSetHandle,
+            reset: valueReset,
+            // Exposed for unit testing, don't use this in your application.
+            __moveHandles: function(a, b, c) {
+                moveHandles(a, b, scope_Locations, c);
+            },
+            options: originalOptions, // Issue #600, #678
+            updateOptions: updateOptions,
+            target: scope_Target, // Issue #597
+            removePips: removePips,
+            removeTooltips: removeTooltips,
+            getTooltips: function() {
+                return scope_Tooltips;
+            },
+            getOrigins: function() {
+                return scope_Handles;
+            },
+            pips: pips // Issue #594
+        };
+
+        return scope_Self;
+    }
+
+    // Run the standard initializer
+    function initialize(target, originalOptions) {
+        if (!target || !target.nodeName) {
+            throw new Error("noUiSlider (" + VERSION + "): create requires a single element, got: " + target);
+        }
+
+        // Throw an error if the slider was already initialized.
+        if (target.noUiSlider) {
+            throw new Error("noUiSlider (" + VERSION + "): Slider was already initialized.");
+        }
+
+        // Test the options and create the slider environment;
+        var options = testOptions(originalOptions, target);
+        var api = scope(target, options, originalOptions);
+
+        target.noUiSlider = api;
+
+        return api;
+    }
+
+    // Use an object instead of a function for future expandability;
+    return {
+        // Exposed for unit testing, don't use this in your application.
+        __spectrum: Spectrum,
+        version: VERSION,
+        // A reference to the default classes, allows global changes.
+        // Use the cssClasses option for changes to one slider.
+        cssClasses: cssClasses,
+        create: initialize
+    };
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -36663,24 +40375,6 @@ var runtime = (function (exports) {
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
 
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
-  }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
     var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
@@ -36751,19 +40445,16 @@ var runtime = (function (exports) {
     Generator.prototype = Object.create(IteratorPrototype);
   GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
   GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
 
   // Helper for defining the .next, .throw, and .return methods of the
   // Iterator interface in terms of a single ._invoke method.
   function defineIteratorMethods(prototype) {
     ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
+      prototype[method] = function(arg) {
         return this._invoke(method, arg);
-      });
+      };
     });
   }
 
@@ -36782,7 +40473,9 @@ var runtime = (function (exports) {
       Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
     } else {
       genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
     }
     genFun.prototype = Object.create(Gp);
     return genFun;
@@ -37052,7 +40745,7 @@ var runtime = (function (exports) {
   // unified ._invoke helper method.
   defineIteratorMethods(Gp);
 
-  define(Gp, toStringTagSymbol, "Generator");
+  Gp[toStringTagSymbol] = "Generator";
 
   // A Generator should always return itself as the iterator object when the
   // @@iterator function is called on it. Some browsers' implementations of the
@@ -39656,9 +43349,2126 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm.windowWidth > 600
+    ? _c("div", { staticClass: "yb_auto-item" }, [
+        _vm.showSlider
+          ? _c("div", { staticClass: "yb_fullpage-visual" }, [
+              _c("div", { staticClass: "yb_slide-header" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-times",
+                  on: {
+                    click: function($event) {
+                      _vm.showSlider = false
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("figure", { staticClass: "y-current_img" }, [
+                _c("img", {
+                  staticClass: "currImg",
+                  attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "svg",
+                  {
+                    staticClass: "yb_prev",
+                    attrs: {
+                      width: "26",
+                      height: "50",
+                      viewBox: "0 0 26 50",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    },
+                    on: { click: _vm.prevImage }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z",
+                        fill: "white"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "svg",
+                  {
+                    staticClass: "yb_next",
+                    attrs: {
+                      width: "30",
+                      height: "57",
+                      viewBox: "0 0 30 57",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    },
+                    on: { click: _vm.nextImage }
+                  },
+                  [
+                    _vm._v("-->\n                        "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z",
+                        fill: "white"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb-carousel_vis" },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "y_vis-controls prev",
+                      attrs: {
+                        width: "26",
+                        height: "50",
+                        viewBox: "0 0 26 50",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      },
+                      on: { click: _vm.prevChunk }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "transition-group",
+                    {
+                      ref: "scrollTo",
+                      staticClass: "yb-full_carousel",
+                      attrs: { name: _vm.transition_name, tag: "div" }
+                    },
+                    _vm._l(_vm.arrImage, function(chunk, i) {
+                      return _c(
+                        "ul",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.currSlide === i,
+                              expression: "currSlide === i"
+                            }
+                          ],
+                          key: i,
+                          staticClass: "yb-carousel_chunk"
+                        },
+                        _vm._l(chunk, function(item, j) {
+                          return _c(
+                            "li",
+                            {
+                              key: j,
+                              staticClass: "chunk_item",
+                              class: {
+                                active_item:
+                                  item === _vm.imgList[_vm.currImgIdx]
+                              },
+                              on: {
+                                click: function($event) {
+                                  _vm.currImgIdx = j + i * _vm.imgShow
+                                }
+                              }
+                            },
+                            [
+                              _c("img", { attrs: { src: item, alt: "" } }),
+                              _vm._v(" "),
+                              item === _vm.imgList[_vm.currImgIdx]
+                                ? _c("div", { staticClass: "yb_count-img" }, [
+                                    _c("span", [
+                                      _vm._v(_vm._s(_vm.currImgIdx + 1))
+                                    ]),
+                                    _vm._v(
+                                      "\n                                из\n                                "
+                                    ),
+                                    _c("span", [
+                                      _vm._v(_vm._s(_vm.imgList.length))
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "y_vis-controls next",
+                      attrs: {
+                        width: "30",
+                        height: "57",
+                        viewBox: "0 0 30 57",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      },
+                      on: { click: _vm.nextChunk }
+                    },
+                    [
+                      _vm._v("-->\n                    "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb_carousel-controls" },
+                _vm._l(_vm.arrImage, function(dot, i) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass: "yb_controls_dot",
+                      class: { active_dot: _vm.currSlide === i },
+                      on: {
+                        click: function($event) {
+                          return _vm.goToChunk(i)
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(i + 1))]
+                  )
+                }),
+                0
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_auto_vis-l" }, [
+          _c("h3", { staticClass: "y-auto_name" }, [
+            _vm._v("Mercedes-Benz E 220")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "y-visl_items" }, [
+            _vm.soldCar
+              ? _c("span", { staticClass: "yb_sold-car" }, [_vm._v("Продано")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.withPhotos === true
+              ? _c(
+                  "figure",
+                  {
+                    staticClass: "y-image_large",
+                    class: { blur: _vm.soldCar }
+                  },
+                  [
+                    _vm.verifiedCar
+                      ? _c("div", { staticClass: "yb-icon_check" }, [
+                          _c("div", { staticClass: "icon check" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "40",
+                                  height: "40",
+                                  viewBox: "0 0 40 40",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c(
+                                  "g",
+                                  { attrs: { "clip-path": "url(#clip0)" } },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                                        fill: "white"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                                        fill: "white"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("defs", [
+                                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                                    _c("rect", {
+                                      attrs: {
+                                        width: "39.5652",
+                                        height: "39.5652",
+                                        fill: "white",
+                                        transform: "translate(0.217773 0.35376)"
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { class: { "yb-sold_carout": _vm.soldCar } }),
+                    _vm._v(" "),
+                    _c("img", {
+                      attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yb-count_increase-img" }, [
+                      _c("div", { staticClass: "yb_count-img" }, [
+                        _c("i", { staticClass: "far fa-image" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "yb_count" }, [
+                          _c("span", { staticClass: "count" }, [
+                            _vm._v(_vm._s(_vm.currImgIdx + 1))
+                          ]),
+                          _vm._v(
+                            "\n                            из\n                            "
+                          ),
+                          _c("span", { staticClass: "count" }, [
+                            _vm._v(_vm._s(_vm.imgList.length))
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "yb-increase",
+                          on: {
+                            click: function($event) {
+                              _vm.showSlider = true
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fas fa-search-plus" })]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.withPhotos === false
+              ? _c("figure", { staticClass: "y-image_large without_photos" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../../public/img/system/static/withoutPhoto.png */ "./public/img/system/static/withoutPhoto.png"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Без фото")])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.withPhotos
+              ? _c(
+                  "div",
+                  { staticClass: "y_vis-image ", class: { blur: _vm.soldCar } },
+                  [
+                    _c(
+                      "ul",
+                      { staticClass: "y-image_small" },
+                      _vm._l(_vm.imgList.slice(0, 5), function(item, i) {
+                        return _c(
+                          "li",
+                          {
+                            staticClass: "y-item_image",
+                            on: {
+                              click: function($event) {
+                                _vm.currImgIdx = i
+                              }
+                            }
+                          },
+                          [
+                            _c("div", {
+                              class: { "yb-sold_carout": _vm.soldCar }
+                            }),
+                            _vm._v(" "),
+                            _c("img", { attrs: { src: item, alt: "" } })
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "y-image_all",
+                        on: {
+                          click: function($event) {
+                            _vm.openImage = !_vm.openImage
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                    Смотреть все фото\n                    "
+                        ),
+                        _c("i", {
+                          staticClass: "fas",
+                          class: {
+                            "fa-chevron-up": _vm.openImage,
+                            "fa-chevron-down": !_vm.openImage
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.openImage = !_vm.openImage
+                            }
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.openImage
+                      ? _c(
+                          "ul",
+                          { staticClass: "y-image_small is_show" },
+                          _vm._l(_vm.imgList.slice(5), function(item, i) {
+                            return _c(
+                              "li",
+                              {
+                                staticClass: "yb-is_show-items",
+                                on: {
+                                  click: function($event) {
+                                    _vm.currImgIdx = i
+                                  }
+                                }
+                              },
+                              [_c("img", { attrs: { src: item, alt: "" } })]
+                            )
+                          }),
+                          0
+                        )
+                      : _vm._e()
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "y-auto_options" }, [
+              _c("div", { staticClass: "yb_verified_car" }, [
+                _vm.verifiedCar
+                  ? _c("div", { staticClass: "yb_verified_content" }, [
+                      _c("h2", [_vm._v("Проверено по реестрам МВД")]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "y-vin_code" }, [
+                        _c(
+                          "svg",
+                          {
+                            attrs: {
+                              width: "40",
+                              height: "40",
+                              viewBox: "0 0 40 40",
+                              fill: "none",
+                              xmlns: "http://www.w3.org/2000/svg"
+                            }
+                          },
+                          [
+                            _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                                  fill: "#0B3F8D"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                                  fill: "#0B3F8D"
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("defs", [
+                              _c("clipPath", { attrs: { id: "clip0" } }, [
+                                _c("rect", {
+                                  attrs: {
+                                    width: "39.5652",
+                                    height: "39.5652",
+                                    fill: "#0B3F8D",
+                                    transform: "translate(0.217773 0.35376)"
+                                  }
+                                })
+                              ])
+                            ])
+                          ]
+                        ),
+                        _vm._v(
+                          "\n                        5YJSA1E4хFFхххх17\n                    "
+                        )
+                      ])
+                    ])
+                  : _c("div", { staticClass: "yb_disable-verified" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "48",
+                            height: "48",
+                            viewBox: "0 0 48 48",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            "xmlns:xlink": "http://www.w3.org/1999/xlink"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: {
+                              width: "48",
+                              height: "48",
+                              fill: "url(#pattern0)"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("defs", [
+                            _c(
+                              "pattern",
+                              {
+                                attrs: {
+                                  id: "pattern0",
+                                  patternContentUnits: "objectBoundingBox",
+                                  width: "1",
+                                  height: "1"
+                                }
+                              },
+                              [
+                                _c("use", {
+                                  attrs: {
+                                    "xlink:href": "#image0",
+                                    transform: "scale(0.0208333)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("image", {
+                              attrs: {
+                                id: "image0",
+                                width: "48",
+                                height: "48",
+                                "xlink:href":
+                                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADr0lEQVRoge2ZTYhVdRjGf+85c+494yiDjib0AdUqEqLUhYhzr5pUWEGbgRa2LkEwokUtIjIq0UFduGnTQqKNkEVkHwg6c2msKBuJplYSOY7ZEGEzc++ZO3fO62L8OIre/8c5Qy3uAxcOd57/+zzPff8v53/OQAcddLAoUEV0KN6rw6U3/msvztARunU4/kiHyrrwid9WRRZDq/CiOhQ/ABwFXXfLX44QNV+SjTSK1Cs0gJ4qDSDB+6DL70AZQ3RAKs2xojQLCaAnu+8l1AOoDljQ6yD7WZm8K2to5tXOFUBHWEEr3o3qq8ASx+WjpLwuW2a/zOPBK4DW4gdJdSfwIrAsjwFgFNV9LG1+Kuupuy42BtDjlFm6ZAWkDwMVVJ8DHvFxakADOInyOWHwIxqeo2/6smmbmQMMlVMb3iIhleps2I4QWBRpFWTGB0ZtmwAzBRjxhBi1bQJMFeDEEzptYnSZi8hF0PtcpXcPruGfqQiAvt45Dr7yi2sJQCdMDHMHVP/wUCbqSq9fl6K0DbMNJDBqmwMEeAUoRXr9OhvGCRY/nkUHfANkO6BtmG1x3kSwGGL5yUc56rphuuTbgVTOmijmAD3JD3jcC27ugFeAlO7kjIlkDHD1fPKzq3rWdOQXYEw28K+JZHMfAOFbV/Xstil1+cyAfm/DsguQymlX+fwzIAUGaEXHgXkX+dwzkMpXNjSrALJt6m8Epy7knIEzsiX53YZo1wGAlKMuDrKmI+cZ0I9tmdbnfD2xrI+oOQ7Ejm5ckUJwv1QbxpsYOHRgYRvJMX9ftkJ8bWserE6jWcwPQvA8Fp27MBnzWW01AjzTf4l7ViW2IodcHDk/Kupw+QuUp0y81w4/xMTkwm67e1XC3l2/2ZQfpTK7VgTrobEf4mtIgz1gFpiaiW573Raqe1zMg0cA2dw4jeiHJt6O7eP09rTo7WmxY/u4Teka1eYnzn5cFwDoiZ7VRPO/tnmF6IoW6FqpNp3PXO5bCJBtM5eAl33W3hYq7/mYB88AAFJNjoB+4Ls+g2H+St7y9pFHWUfoZq78DfCYZ4k/CcN1sqlufHi/E7w7ACAbaSDRk4DP6/LLSPp0HvOQMwCAVKYnaQVPAOccltVReVYqc8YnLhNyBwCQxxsXCMN+0O8s6BcJgq2yOakVoV1IAADZVJ9gplltO9jKWcJgg/Q3bILa6RZVKAs9Fb+A6CBw19WvWigHKc2++b/+H1kWWmM5Wn4H1UcJdKf0zxlfkXTQQQfuuAJ5Jy9oVaJtcgAAAABJRU5ErkJggg=="
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Продавец отказался предоставить VIN-код для проверки"
+                        )
+                      ])
+                    ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "y_verified" },
+                  [
+                    _vm._v(
+                      "\n                        Проверить авто\n                        "
+                    ),
+                    _c("yexpanded", {
+                      attrs: { text_color: "white", color: "white" }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_auto_vis-r" }, [
+          _c("div", { staticClass: "yvis_item-car" }, [
+            _c("div", { staticClass: "vis_car-price" }, [
+              _c("span", { staticClass: "car_name" }, [
+                _vm._v("Mercedes-Benz E 220")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb_flex-price" },
+                [_vm._m(2), _vm._v(" "), _c("yfavorite")],
+                1
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "price_monitoring" }, [
+                _vm._v(
+                  "\n                    Мониториг цен на авто\n                "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yvis-car_options" }, [
+              _c("div", { staticClass: "y-car_option" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "36",
+                      height: "35",
+                      viewBox: "0 0 36 35",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
+                        fill: "#0B3F8D"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(3)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "y-car_option" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "26",
+                      height: "36",
+                      viewBox: "0 0 26 36",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z",
+                        fill: "#0B3F8D"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(4)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "y-car_option" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "33",
+                      height: "32",
+                      viewBox: "0 0 33 32",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M19.0119 22.6527C18.9228 23.1984 18.7812 23.7256 18.5903 24.2298L20.3026 25.7813C20.0625 26.2866 19.789 26.7723 19.4735 27.2284L17.2751 26.5196C16.9283 26.9434 16.5401 27.3312 16.1162 27.6779L16.825 29.8763C16.3689 30.1919 15.8833 30.4648 15.3779 30.7054L13.8265 28.9931C13.3222 29.184 12.7956 29.3256 12.2493 29.4148L11.7609 31.6766C11.4847 31.6985 11.2075 31.7188 10.9253 31.7188C10.6431 31.7188 10.3658 31.6985 10.0891 31.6766L9.60076 29.4148C9.05498 29.3256 8.52779 29.184 8.02357 28.9931L6.47209 30.7054C5.96678 30.4653 5.48115 30.1919 5.02506 29.8763L5.73381 27.6779C5.30998 27.3312 4.92225 26.9429 4.57553 26.5196L2.37709 27.2284C2.06154 26.7723 1.78865 26.2866 1.54803 25.7813L3.26029 24.2298C3.06943 23.7256 2.92779 23.199 2.83865 22.6527L0.576777 22.1643C0.554902 21.8876 0.534668 21.6103 0.534668 21.3281C0.534668 21.0459 0.554902 20.7687 0.576777 20.492L2.83865 20.0036C2.92779 19.4578 3.06943 18.9306 3.26029 18.4264L1.54803 16.8749C1.78811 16.3696 2.06154 15.884 2.37709 15.4279L4.57553 16.1366C4.92225 15.7128 5.31053 15.3251 5.73436 14.9784L5.02561 12.7799C5.4817 12.4644 5.96732 12.1915 6.47264 11.9509L8.02412 13.6631C8.52834 13.4723 9.05498 13.3306 9.60131 13.2415L10.0897 10.9796C10.3658 10.9577 10.6431 10.9375 10.9253 10.9375C11.2075 10.9375 11.4847 10.9577 11.7615 10.9796L12.2498 13.2415C12.7956 13.3306 13.3228 13.4723 13.827 13.6631L15.3785 11.9509C15.8838 12.1909 16.3694 12.4644 16.8255 12.7799L16.1168 14.9784C16.5406 15.3251 16.9283 15.7134 17.2751 16.1372L19.4735 15.4284C19.789 15.8845 20.0619 16.3702 20.3026 16.8755L18.5903 18.427C18.7812 18.9312 18.9228 19.4578 19.0119 20.0041L21.2738 20.4925C21.2957 20.7687 21.3159 21.0459 21.3159 21.3281C21.3159 21.6103 21.2957 21.8876 21.2738 22.1643L19.0119 22.6527ZM10.9253 15.8594C7.9049 15.8594 5.45654 18.3077 5.45654 21.3281C5.45654 24.3485 7.9049 26.7969 10.9253 26.7969C13.9457 26.7969 16.394 24.3485 16.394 21.3281C16.394 18.3077 13.9457 15.8594 10.9253 15.8594Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M26.5982 7.27617C26.5129 7.55891 26.4013 7.83016 26.264 8.08555L27.1276 9.74039C26.8361 10.109 26.5036 10.4415 26.135 10.733L24.4801 9.86945C24.2247 10.0073 23.9535 10.1188 23.6708 10.2036L23.1108 11.9864C22.88 12.0138 22.647 12.0312 22.4097 12.0312C22.1723 12.0312 21.9394 12.0138 21.7091 11.987L21.1491 10.2041C20.8664 10.1194 20.5951 10.0073 20.3397 9.87L18.6849 10.7335C18.3163 10.442 17.9838 10.1095 17.6923 9.74094L18.5558 8.08609C18.418 7.8307 18.3065 7.55945 18.2217 7.27672L16.4389 6.71672C16.4115 6.48594 16.394 6.25297 16.394 6.01562C16.394 5.77828 16.4115 5.54531 16.4383 5.31508L18.2212 4.75508C18.3059 4.47234 18.418 4.20109 18.5553 3.9457L17.6918 2.29086C17.9833 1.92227 18.3158 1.58977 18.6844 1.29828L20.3392 2.1618C20.5946 2.02398 20.8658 1.91242 21.1486 1.82766L21.7086 0.0448438C21.9394 0.0175 22.1723 0 22.4097 0C22.647 0 22.88 0.0175001 23.1102 0.0442969L23.6702 1.82711C23.9529 1.91188 24.2242 2.02398 24.4796 2.16125L26.1344 1.29773C26.503 1.58922 26.8355 1.92172 27.127 2.29031L26.2635 3.94516C26.4013 4.20055 26.5129 4.4718 26.5976 4.75453L28.3804 5.31453C28.4078 5.54531 28.4253 5.77828 28.4253 6.01562C28.4253 6.25297 28.4078 6.48594 28.381 6.71617L26.5982 7.27617ZM22.4097 3.82812C21.2016 3.82812 20.2222 4.80758 20.2222 6.01562C20.2222 7.22367 21.2016 8.20312 22.4097 8.20312C23.6177 8.20312 24.5972 7.22367 24.5972 6.01562C24.5972 4.80758 23.6177 3.82812 22.4097 3.82812Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M31.0169 19.617C30.9327 19.9205 30.814 20.2081 30.662 20.4766L31.2062 21.6218C30.959 21.9373 30.6751 22.2212 30.3596 22.4684L29.2144 21.9242C28.9465 22.0763 28.6583 22.1949 28.3547 22.2791L27.9293 23.4757C27.7329 23.4998 27.5344 23.5156 27.3315 23.5156C27.1287 23.5156 26.9301 23.4998 26.7338 23.4757L26.3083 22.2791C26.0048 22.1949 25.7172 22.0763 25.4487 21.9242L24.3035 22.4684C23.9879 22.2212 23.7041 21.9373 23.4569 21.6218L24.0011 20.4766C23.849 20.2087 23.7304 19.9205 23.6462 19.6175L22.4496 19.192C22.4255 18.9952 22.4097 18.7966 22.4097 18.5938C22.4097 18.3909 22.4255 18.1923 22.4496 17.996L23.6462 17.5705C23.7304 17.267 23.849 16.9794 24.0011 16.7114L23.4569 15.5663C23.7041 15.2507 23.9879 14.9669 24.3035 14.7197L25.4487 15.2638C25.7166 15.1118 26.0048 14.9931 26.3083 14.9089L26.7338 13.7123C26.9301 13.6877 27.1287 13.6719 27.3315 13.6719C27.5344 13.6719 27.7329 13.6877 27.9293 13.7118L28.3547 14.9084C28.6583 14.9926 28.9459 15.1112 29.2144 15.2633L30.3596 14.7191C30.6751 14.9663 30.959 15.2502 31.2062 15.5657L30.662 16.7109C30.814 16.9788 30.9327 17.267 31.0169 17.5705L32.2135 17.996C32.2376 18.1923 32.2534 18.3909 32.2534 18.5938C32.2534 18.7966 32.2376 18.9952 32.2135 19.1915L31.0169 19.617ZM27.3315 16.9531C26.4254 16.9531 25.6909 17.6876 25.6909 18.5938C25.6909 19.4999 26.4254 20.2344 27.3315 20.2344C28.2377 20.2344 28.9722 19.4999 28.9722 18.5938C28.9722 17.6876 28.2377 16.9531 27.3315 16.9531Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M32.3605 1.10469L29.0896 0.450623L28.4355 3.72093L29.508 3.93586L29.8027 2.46367C30.3327 3.56617 30.6127 4.78133 30.6127 6.01562C30.6127 7.90125 29.9903 9.67422 28.8134 11.1426L29.6671 11.8267C30.9823 10.1855 31.7064 8.12218 31.7064 6.01562C31.7064 4.58336 31.3755 3.17133 30.7461 1.89711L32.1461 2.17711L32.3605 1.10469Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M11.859 5.62897L11.0857 6.40225L11.8289 7.14545C11.5281 7.12631 11.2268 7.10936 10.9255 7.10936C6.69484 7.10936 2.7125 8.97475 0 12.2276L0.84 12.9281C3.34414 9.92521 7.01969 8.20311 10.9255 8.20311C11.2038 8.20311 11.4816 8.21897 11.7595 8.23647L11.0857 8.91021L11.859 9.6835L13.8863 7.65623L11.859 5.62897Z",
+                        fill: "#0B3F8D"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(5)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "y-car_option" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "31",
+                      height: "30",
+                      viewBox: "0 0 31 30",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
+                        fill: "#0B3F8D"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(6)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "y-car_option" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "35",
+                      height: "17",
+                      viewBox: "0 0 35 17",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M7.58344 10.1856C5.97521 10.1856 4.66675 11.494 4.66675 13.1023C4.66675 14.7105 5.97515 16.019 7.58344 16.019C9.19166 16.019 10.5001 14.7106 10.5001 13.1023C10.5001 11.4941 9.19173 10.1856 7.58344 10.1856ZM7.58344 14.8523C6.61861 14.8523 5.83344 14.0672 5.83344 13.1023C5.83344 12.1375 6.61861 11.3523 7.58344 11.3523C8.54826 11.3523 9.33344 12.1375 9.33344 13.1023C9.33344 14.0672 8.54826 14.8523 7.58344 14.8523Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M34.4167 10.1856V6.68562C34.4167 6.43481 34.2562 6.21134 34.0177 6.13204L30.7265 5.03481C29.487 2.93542 27.783 0.937484 24.0176 0.277748C24.0106 0.276586 24.0036 0.275424 23.9966 0.274262C17.0427 -0.687076 11.8219 0.881498 8.47 4.93801C5.97509 4.97417 3.42822 5.49569 1.93026 6.4547C1.15445 6.95167 0.694189 7.81676 0.650986 8.73729L0.583311 10.1857C0.261338 10.1857 0 10.447 0 10.769V13.1023C0 13.4243 0.261338 13.6856 0.583311 13.6856H2.91662C3.24037 13.6856 3.49938 13.4196 3.49993 13.0959C3.49993 13.0929 3.50055 13.0901 3.50055 13.0865C3.5093 10.8389 5.3334 9.01893 7.58331 9.01893C9.83849 9.01893 11.6666 10.8471 11.6666 13.1022C11.6246 13.4563 11.904 13.6855 12.2499 13.6855H22.7499C23.0737 13.6855 23.3327 13.4196 23.3332 13.0958C23.3332 13.0929 23.3338 13.09 23.3338 13.0864C23.3425 10.8389 25.1666 9.01886 27.4166 9.01886C29.6717 9.01886 31.4999 10.847 31.4999 13.1022C31.4579 13.4563 31.7373 13.6855 32.0832 13.6855H34.4165C34.7385 13.6855 34.9998 13.4241 34.9998 13.1022V10.7689C35 10.447 34.7387 10.1856 34.4167 10.1856ZM18.6667 4.644C18.6667 4.80498 18.5361 4.93569 18.375 4.93569H10.7678C10.4983 4.93569 10.3758 4.60435 10.5746 4.42292C12.5988 2.57784 15.173 1.52257 18.3453 1.24203C18.5162 1.22685 18.6667 1.36452 18.6667 1.53604V4.644ZM25.6748 4.64687C25.673 4.80669 25.543 4.93562 25.3831 4.93562H20.125C19.964 4.93562 19.8333 4.80498 19.8333 4.64393V1.45893C19.8333 1.29733 19.9622 1.16437 20.1232 1.16437C21.2864 1.16321 22.5172 1.24777 23.8256 1.42865C24.4487 1.53829 25.0039 1.68882 25.5091 1.87373C25.6252 1.91632 25.6993 2.02891 25.6981 2.15257L25.6748 4.64687ZM28.7193 4.93562H27.1332C26.9711 4.93562 26.8398 4.80321 26.8415 4.64106L26.8567 3.06025C26.859 2.81935 27.1337 2.68865 27.328 2.83097C27.9586 3.29178 28.483 3.84071 28.9503 4.46373C29.0961 4.65794 28.9619 4.93562 28.7193 4.93562Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M27.4167 10.1856C25.8085 10.1856 24.5 11.494 24.5 13.1023C24.5 14.7105 25.8084 16.019 27.4167 16.019C29.0249 16.019 30.3334 14.7106 30.3334 13.1023C30.3333 11.4941 29.0249 10.1856 27.4167 10.1856ZM27.4167 14.8523C26.4519 14.8523 25.6667 14.0672 25.6667 13.1023C25.6667 12.1375 26.4519 11.3523 27.4167 11.3523C28.3815 11.3523 29.1667 12.1375 29.1667 13.1023C29.1667 14.0672 28.3815 14.8523 27.4167 14.8523Z",
+                        fill: "#0B3F8D"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(7)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "y-car_option" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "26",
+                      height: "35",
+                      viewBox: "0 0 26 35",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
+                        fill: "#0B3F8D"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
+                        fill: "#0B3F8D"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(8)
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(9)
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "yb_go_to" },
+            [
+              _vm._v("\n            Перейти на сайт объявления\n            "),
+              _c("yexpanded", {
+                attrs: { text_color: "white", color: "white" }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(10)
+        ])
+      ])
+    : _c("div", { staticClass: "yb_auto-item yb-visible_mobile" }, [
+        _vm.showSlider
+          ? _c("div", { staticClass: "yb_fullpage-visual" }, [
+              _c("div", { staticClass: "yb_slide-header" }, [
+                _vm._m(11),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-times",
+                  on: {
+                    click: function($event) {
+                      _vm.showSlider = false
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "figure",
+                {
+                  staticClass: "y-current_img",
+                  on: {
+                    touchstart: _vm.touchStart,
+                    touchmove: _vm.touchMove,
+                    touchend: _vm.touchEnd
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "currImg",
+                    attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "yb_prev",
+                      attrs: {
+                        width: "26",
+                        height: "50",
+                        viewBox: "0 0 26 50",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      },
+                      on: { click: _vm.prevImage }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "yb_next",
+                      attrs: {
+                        width: "30",
+                        height: "57",
+                        viewBox: "0 0 30 57",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      },
+                      on: { click: _vm.nextImage }
+                    },
+                    [
+                      _vm._v("-->\n                "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "yb_count-image" }, [
+                _vm._v("\n            " + _vm._s(_vm.currImgIdx + 1)),
+                _c("span", [_vm._v("/")]),
+                _vm._v(_vm._s(_vm.imgList.length) + "\n        ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb-carousel_vis" },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "y_vis-controls prev",
+                      attrs: {
+                        width: "26",
+                        height: "50",
+                        viewBox: "0 0 26 50",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      },
+                      on: { click: _vm.prevChunk }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "transition-group",
+                    {
+                      ref: "scrollTo",
+                      staticClass: "yb-full_carousel",
+                      attrs: { name: _vm.transition_name, tag: "div" }
+                    },
+                    _vm._l(_vm.arrImage, function(chunk, i) {
+                      return _c(
+                        "ul",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.currSlide === i,
+                              expression: "currSlide === i"
+                            }
+                          ],
+                          key: i,
+                          staticClass: "yb-carousel_chunk"
+                        },
+                        _vm._l(chunk, function(item, j) {
+                          return _c(
+                            "li",
+                            {
+                              key: j,
+                              staticClass: "chunk_item",
+                              class: {
+                                active_item:
+                                  item === _vm.imgList[_vm.currImgIdx]
+                              },
+                              on: {
+                                click: function($event) {
+                                  _vm.currImgIdx = j + i * _vm.imgShow
+                                }
+                              }
+                            },
+                            [
+                              _c("img", { attrs: { src: item, alt: "" } }),
+                              _vm._v(" "),
+                              item === _vm.imgList[_vm.currImgIdx]
+                                ? _c("div", { staticClass: "yb_count-img" }, [
+                                    _c("span", [
+                                      _vm._v(_vm._s(_vm.currImgIdx + 1))
+                                    ]),
+                                    _vm._v(
+                                      "\n                            из\n                            "
+                                    ),
+                                    _c("span", [
+                                      _vm._v(_vm._s(_vm.imgList.length))
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "y_vis-controls next",
+                      attrs: {
+                        width: "30",
+                        height: "57",
+                        viewBox: "0 0 30 57",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      },
+                      on: { click: _vm.nextChunk }
+                    },
+                    [
+                      _vm._v("-->\n                "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb_carousel-controls" },
+                _vm._l(_vm.arrImage, function(dot, i) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass: "yb_controls_dot",
+                      class: { active_dot: _vm.currSlide === i },
+                      on: {
+                        click: function($event) {
+                          return _vm.goToChunk(i)
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(i + 1))]
+                  )
+                }),
+                0
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_auto_vis-l" }, [
+          _c("div", { staticClass: "y-visl_items" }, [
+            _vm.soldCar
+              ? _c("span", { staticClass: "yb_sold-car" }, [_vm._v("Продано")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.withPhotos === true
+              ? _c(
+                  "figure",
+                  {
+                    staticClass: "y-image_large",
+                    class: { blur: _vm.soldCar }
+                  },
+                  [
+                    _vm.verifiedCar
+                      ? _c("div", { staticClass: "yb-icon_check" }, [
+                          _c("div", { staticClass: "icon check" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "40",
+                                  height: "40",
+                                  viewBox: "0 0 40 40",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c(
+                                  "g",
+                                  { attrs: { "clip-path": "url(#clip0)" } },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                                        fill: "white"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                                        fill: "white"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("defs", [
+                                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                                    _c("rect", {
+                                      attrs: {
+                                        width: "39.5652",
+                                        height: "39.5652",
+                                        fill: "white",
+                                        transform: "translate(0.217773 0.35376)"
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { class: { "yb-sold_carout": _vm.soldCar } }),
+                    _vm._v(" "),
+                    _c("img", {
+                      attrs: { src: _vm.imgList[_vm.currImgIdx], alt: "" }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yb-count_increase-img" }, [
+                      _c("div", { staticClass: "yb_count-img" }, [
+                        _c("i", { staticClass: "far fa-image" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "yb_count" }, [
+                          _c("span", { staticClass: "count" }, [
+                            _vm._v(_vm._s(_vm.currImgIdx + 1))
+                          ]),
+                          _vm._v(
+                            "\n                            из\n                            "
+                          ),
+                          _c("span", { staticClass: "count" }, [
+                            _vm._v(_vm._s(_vm.imgList.length))
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "yb-increase",
+                          on: {
+                            click: function($event) {
+                              _vm.showSlider = true
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fas fa-search-plus" })]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.withPhotos === false
+              ? _c("figure", { staticClass: "y-image_large without_photos" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../../public/img/system/static/withoutPhoto.png */ "./public/img/system/static/withoutPhoto.png"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Без фото")])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "yb_auto_vis-r" }, [
+              _c("div", { staticClass: "yvis_item-car" }, [
+                _c("div", { staticClass: "vis_car-price" }, [
+                  _c("span", { staticClass: "car_name" }, [
+                    _vm._v("Mercedes-Benz E 220")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "yb_flex-price" },
+                    [_vm._m(12), _vm._v(" "), _c("yfavorite")],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "price_monitoring" }, [
+                    _vm._v(
+                      "\n                            Мониториг цен на авто\n                        "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yvis-car_options" }, [
+                  _c("div", { staticClass: "y-car_option" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "36",
+                          height: "35",
+                          viewBox: "0 0 36 35",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(13)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "y-car_option" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "26",
+                          height: "36",
+                          viewBox: "0 0 26 36",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(14)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "y-car_option" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "33",
+                          height: "32",
+                          viewBox: "0 0 33 32",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19.0119 22.6527C18.9228 23.1984 18.7812 23.7256 18.5903 24.2298L20.3026 25.7813C20.0625 26.2866 19.789 26.7723 19.4735 27.2284L17.2751 26.5196C16.9283 26.9434 16.5401 27.3312 16.1162 27.6779L16.825 29.8763C16.3689 30.1919 15.8833 30.4648 15.3779 30.7054L13.8265 28.9931C13.3222 29.184 12.7956 29.3256 12.2493 29.4148L11.7609 31.6766C11.4847 31.6985 11.2075 31.7188 10.9253 31.7188C10.6431 31.7188 10.3658 31.6985 10.0891 31.6766L9.60076 29.4148C9.05498 29.3256 8.52779 29.184 8.02357 28.9931L6.47209 30.7054C5.96678 30.4653 5.48115 30.1919 5.02506 29.8763L5.73381 27.6779C5.30998 27.3312 4.92225 26.9429 4.57553 26.5196L2.37709 27.2284C2.06154 26.7723 1.78865 26.2866 1.54803 25.7813L3.26029 24.2298C3.06943 23.7256 2.92779 23.199 2.83865 22.6527L0.576777 22.1643C0.554902 21.8876 0.534668 21.6103 0.534668 21.3281C0.534668 21.0459 0.554902 20.7687 0.576777 20.492L2.83865 20.0036C2.92779 19.4578 3.06943 18.9306 3.26029 18.4264L1.54803 16.8749C1.78811 16.3696 2.06154 15.884 2.37709 15.4279L4.57553 16.1366C4.92225 15.7128 5.31053 15.3251 5.73436 14.9784L5.02561 12.7799C5.4817 12.4644 5.96732 12.1915 6.47264 11.9509L8.02412 13.6631C8.52834 13.4723 9.05498 13.3306 9.60131 13.2415L10.0897 10.9796C10.3658 10.9577 10.6431 10.9375 10.9253 10.9375C11.2075 10.9375 11.4847 10.9577 11.7615 10.9796L12.2498 13.2415C12.7956 13.3306 13.3228 13.4723 13.827 13.6631L15.3785 11.9509C15.8838 12.1909 16.3694 12.4644 16.8255 12.7799L16.1168 14.9784C16.5406 15.3251 16.9283 15.7134 17.2751 16.1372L19.4735 15.4284C19.789 15.8845 20.0619 16.3702 20.3026 16.8755L18.5903 18.427C18.7812 18.9312 18.9228 19.4578 19.0119 20.0041L21.2738 20.4925C21.2957 20.7687 21.3159 21.0459 21.3159 21.3281C21.3159 21.6103 21.2957 21.8876 21.2738 22.1643L19.0119 22.6527ZM10.9253 15.8594C7.9049 15.8594 5.45654 18.3077 5.45654 21.3281C5.45654 24.3485 7.9049 26.7969 10.9253 26.7969C13.9457 26.7969 16.394 24.3485 16.394 21.3281C16.394 18.3077 13.9457 15.8594 10.9253 15.8594Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M26.5982 7.27617C26.5129 7.55891 26.4013 7.83016 26.264 8.08555L27.1276 9.74039C26.8361 10.109 26.5036 10.4415 26.135 10.733L24.4801 9.86945C24.2247 10.0073 23.9535 10.1188 23.6708 10.2036L23.1108 11.9864C22.88 12.0138 22.647 12.0312 22.4097 12.0312C22.1723 12.0312 21.9394 12.0138 21.7091 11.987L21.1491 10.2041C20.8664 10.1194 20.5951 10.0073 20.3397 9.87L18.6849 10.7335C18.3163 10.442 17.9838 10.1095 17.6923 9.74094L18.5558 8.08609C18.418 7.8307 18.3065 7.55945 18.2217 7.27672L16.4389 6.71672C16.4115 6.48594 16.394 6.25297 16.394 6.01562C16.394 5.77828 16.4115 5.54531 16.4383 5.31508L18.2212 4.75508C18.3059 4.47234 18.418 4.20109 18.5553 3.9457L17.6918 2.29086C17.9833 1.92227 18.3158 1.58977 18.6844 1.29828L20.3392 2.1618C20.5946 2.02398 20.8658 1.91242 21.1486 1.82766L21.7086 0.0448438C21.9394 0.0175 22.1723 0 22.4097 0C22.647 0 22.88 0.0175001 23.1102 0.0442969L23.6702 1.82711C23.9529 1.91188 24.2242 2.02398 24.4796 2.16125L26.1344 1.29773C26.503 1.58922 26.8355 1.92172 27.127 2.29031L26.2635 3.94516C26.4013 4.20055 26.5129 4.4718 26.5976 4.75453L28.3804 5.31453C28.4078 5.54531 28.4253 5.77828 28.4253 6.01562C28.4253 6.25297 28.4078 6.48594 28.381 6.71617L26.5982 7.27617ZM22.4097 3.82812C21.2016 3.82812 20.2222 4.80758 20.2222 6.01562C20.2222 7.22367 21.2016 8.20312 22.4097 8.20312C23.6177 8.20312 24.5972 7.22367 24.5972 6.01562C24.5972 4.80758 23.6177 3.82812 22.4097 3.82812Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M31.0169 19.617C30.9327 19.9205 30.814 20.2081 30.662 20.4766L31.2062 21.6218C30.959 21.9373 30.6751 22.2212 30.3596 22.4684L29.2144 21.9242C28.9465 22.0763 28.6583 22.1949 28.3547 22.2791L27.9293 23.4757C27.7329 23.4998 27.5344 23.5156 27.3315 23.5156C27.1287 23.5156 26.9301 23.4998 26.7338 23.4757L26.3083 22.2791C26.0048 22.1949 25.7172 22.0763 25.4487 21.9242L24.3035 22.4684C23.9879 22.2212 23.7041 21.9373 23.4569 21.6218L24.0011 20.4766C23.849 20.2087 23.7304 19.9205 23.6462 19.6175L22.4496 19.192C22.4255 18.9952 22.4097 18.7966 22.4097 18.5938C22.4097 18.3909 22.4255 18.1923 22.4496 17.996L23.6462 17.5705C23.7304 17.267 23.849 16.9794 24.0011 16.7114L23.4569 15.5663C23.7041 15.2507 23.9879 14.9669 24.3035 14.7197L25.4487 15.2638C25.7166 15.1118 26.0048 14.9931 26.3083 14.9089L26.7338 13.7123C26.9301 13.6877 27.1287 13.6719 27.3315 13.6719C27.5344 13.6719 27.7329 13.6877 27.9293 13.7118L28.3547 14.9084C28.6583 14.9926 28.9459 15.1112 29.2144 15.2633L30.3596 14.7191C30.6751 14.9663 30.959 15.2502 31.2062 15.5657L30.662 16.7109C30.814 16.9788 30.9327 17.267 31.0169 17.5705L32.2135 17.996C32.2376 18.1923 32.2534 18.3909 32.2534 18.5938C32.2534 18.7966 32.2376 18.9952 32.2135 19.1915L31.0169 19.617ZM27.3315 16.9531C26.4254 16.9531 25.6909 17.6876 25.6909 18.5938C25.6909 19.4999 26.4254 20.2344 27.3315 20.2344C28.2377 20.2344 28.9722 19.4999 28.9722 18.5938C28.9722 17.6876 28.2377 16.9531 27.3315 16.9531Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M32.3605 1.10469L29.0896 0.450623L28.4355 3.72093L29.508 3.93586L29.8027 2.46367C30.3327 3.56617 30.6127 4.78133 30.6127 6.01562C30.6127 7.90125 29.9903 9.67422 28.8134 11.1426L29.6671 11.8267C30.9823 10.1855 31.7064 8.12218 31.7064 6.01562C31.7064 4.58336 31.3755 3.17133 30.7461 1.89711L32.1461 2.17711L32.3605 1.10469Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11.859 5.62897L11.0857 6.40225L11.8289 7.14545C11.5281 7.12631 11.2268 7.10936 10.9255 7.10936C6.69484 7.10936 2.7125 8.97475 0 12.2276L0.84 12.9281C3.34414 9.92521 7.01969 8.20311 10.9255 8.20311C11.2038 8.20311 11.4816 8.21897 11.7595 8.23647L11.0857 8.91021L11.859 9.6835L13.8863 7.65623L11.859 5.62897Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(15)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "y-car_option" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "31",
+                          height: "30",
+                          viewBox: "0 0 31 30",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(16)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "y-car_option" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "35",
+                          height: "17",
+                          viewBox: "0 0 35 17",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M7.58344 10.1856C5.97521 10.1856 4.66675 11.494 4.66675 13.1023C4.66675 14.7105 5.97515 16.019 7.58344 16.019C9.19166 16.019 10.5001 14.7106 10.5001 13.1023C10.5001 11.4941 9.19173 10.1856 7.58344 10.1856ZM7.58344 14.8523C6.61861 14.8523 5.83344 14.0672 5.83344 13.1023C5.83344 12.1375 6.61861 11.3523 7.58344 11.3523C8.54826 11.3523 9.33344 12.1375 9.33344 13.1023C9.33344 14.0672 8.54826 14.8523 7.58344 14.8523Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M34.4167 10.1856V6.68562C34.4167 6.43481 34.2562 6.21134 34.0177 6.13204L30.7265 5.03481C29.487 2.93542 27.783 0.937484 24.0176 0.277748C24.0106 0.276586 24.0036 0.275424 23.9966 0.274262C17.0427 -0.687076 11.8219 0.881498 8.47 4.93801C5.97509 4.97417 3.42822 5.49569 1.93026 6.4547C1.15445 6.95167 0.694189 7.81676 0.650986 8.73729L0.583311 10.1857C0.261338 10.1857 0 10.447 0 10.769V13.1023C0 13.4243 0.261338 13.6856 0.583311 13.6856H2.91662C3.24037 13.6856 3.49938 13.4196 3.49993 13.0959C3.49993 13.0929 3.50055 13.0901 3.50055 13.0865C3.5093 10.8389 5.3334 9.01893 7.58331 9.01893C9.83849 9.01893 11.6666 10.8471 11.6666 13.1022C11.6246 13.4563 11.904 13.6855 12.2499 13.6855H22.7499C23.0737 13.6855 23.3327 13.4196 23.3332 13.0958C23.3332 13.0929 23.3338 13.09 23.3338 13.0864C23.3425 10.8389 25.1666 9.01886 27.4166 9.01886C29.6717 9.01886 31.4999 10.847 31.4999 13.1022C31.4579 13.4563 31.7373 13.6855 32.0832 13.6855H34.4165C34.7385 13.6855 34.9998 13.4241 34.9998 13.1022V10.7689C35 10.447 34.7387 10.1856 34.4167 10.1856ZM18.6667 4.644C18.6667 4.80498 18.5361 4.93569 18.375 4.93569H10.7678C10.4983 4.93569 10.3758 4.60435 10.5746 4.42292C12.5988 2.57784 15.173 1.52257 18.3453 1.24203C18.5162 1.22685 18.6667 1.36452 18.6667 1.53604V4.644ZM25.6748 4.64687C25.673 4.80669 25.543 4.93562 25.3831 4.93562H20.125C19.964 4.93562 19.8333 4.80498 19.8333 4.64393V1.45893C19.8333 1.29733 19.9622 1.16437 20.1232 1.16437C21.2864 1.16321 22.5172 1.24777 23.8256 1.42865C24.4487 1.53829 25.0039 1.68882 25.5091 1.87373C25.6252 1.91632 25.6993 2.02891 25.6981 2.15257L25.6748 4.64687ZM28.7193 4.93562H27.1332C26.9711 4.93562 26.8398 4.80321 26.8415 4.64106L26.8567 3.06025C26.859 2.81935 27.1337 2.68865 27.328 2.83097C27.9586 3.29178 28.483 3.84071 28.9503 4.46373C29.0961 4.65794 28.9619 4.93562 28.7193 4.93562Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M27.4167 10.1856C25.8085 10.1856 24.5 11.494 24.5 13.1023C24.5 14.7105 25.8084 16.019 27.4167 16.019C29.0249 16.019 30.3334 14.7106 30.3334 13.1023C30.3333 11.4941 29.0249 10.1856 27.4167 10.1856ZM27.4167 14.8523C26.4519 14.8523 25.6667 14.0672 25.6667 13.1023C25.6667 12.1375 26.4519 11.3523 27.4167 11.3523C28.3815 11.3523 29.1667 12.1375 29.1667 13.1023C29.1667 14.0672 28.3815 14.8523 27.4167 14.8523Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(17)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "y-car_option" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "26",
+                          height: "35",
+                          viewBox: "0 0 26 35",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(18)
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(19)
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "yb_go_to" },
+                [
+                  _vm._v(
+                    "\n                    Перейти на сайт объявления\n                    "
+                  ),
+                  _c("yexpanded", {
+                    attrs: { text_color: "white", color: "white" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "y-auto_options" }, [
+              _c("div", { staticClass: "yb_verified_car" }, [
+                _vm.verifiedCar
+                  ? _c("div", { staticClass: "yb_verified_content" }, [
+                      _c("h2", [_vm._v("Проверено по реестрам МВД")]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "y-vin_code" }, [
+                        _c(
+                          "svg",
+                          {
+                            attrs: {
+                              width: "40",
+                              height: "40",
+                              viewBox: "0 0 40 40",
+                              fill: "none",
+                              xmlns: "http://www.w3.org/2000/svg"
+                            }
+                          },
+                          [
+                            _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                                  fill: "#0B3F8D"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                                  fill: "#0B3F8D"
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("defs", [
+                              _c("clipPath", { attrs: { id: "clip0" } }, [
+                                _c("rect", {
+                                  attrs: {
+                                    width: "39.5652",
+                                    height: "39.5652",
+                                    fill: "#0B3F8D",
+                                    transform: "translate(0.217773 0.35376)"
+                                  }
+                                })
+                              ])
+                            ])
+                          ]
+                        ),
+                        _vm._v(
+                          "\n                        5YJSA1E4хFFхххх17\n                    "
+                        )
+                      ])
+                    ])
+                  : _c("div", { staticClass: "yb_disable-verified" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "48",
+                            height: "48",
+                            viewBox: "0 0 48 48",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            "xmlns:xlink": "http://www.w3.org/1999/xlink"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: {
+                              width: "48",
+                              height: "48",
+                              fill: "url(#pattern0)"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("defs", [
+                            _c(
+                              "pattern",
+                              {
+                                attrs: {
+                                  id: "pattern0",
+                                  patternContentUnits: "objectBoundingBox",
+                                  width: "1",
+                                  height: "1"
+                                }
+                              },
+                              [
+                                _c("use", {
+                                  attrs: {
+                                    "xlink:href": "#image0",
+                                    transform: "scale(0.0208333)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("image", {
+                              attrs: {
+                                id: "image0",
+                                width: "48",
+                                height: "48",
+                                "xlink:href":
+                                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADr0lEQVRoge2ZTYhVdRjGf+85c+494yiDjib0AdUqEqLUhYhzr5pUWEGbgRa2LkEwokUtIjIq0UFduGnTQqKNkEVkHwg6c2msKBuJplYSOY7ZEGEzc++ZO3fO62L8OIre/8c5Qy3uAxcOd57/+zzPff8v53/OQAcddLAoUEV0KN6rw6U3/msvztARunU4/kiHyrrwid9WRRZDq/CiOhQ/ABwFXXfLX44QNV+SjTSK1Cs0gJ4qDSDB+6DL70AZQ3RAKs2xojQLCaAnu+8l1AOoDljQ6yD7WZm8K2to5tXOFUBHWEEr3o3qq8ASx+WjpLwuW2a/zOPBK4DW4gdJdSfwIrAsjwFgFNV9LG1+Kuupuy42BtDjlFm6ZAWkDwMVVJ8DHvFxakADOInyOWHwIxqeo2/6smmbmQMMlVMb3iIhleps2I4QWBRpFWTGB0ZtmwAzBRjxhBi1bQJMFeDEEzptYnSZi8hF0PtcpXcPruGfqQiAvt45Dr7yi2sJQCdMDHMHVP/wUCbqSq9fl6K0DbMNJDBqmwMEeAUoRXr9OhvGCRY/nkUHfANkO6BtmG1x3kSwGGL5yUc56rphuuTbgVTOmijmAD3JD3jcC27ugFeAlO7kjIlkDHD1fPKzq3rWdOQXYEw28K+JZHMfAOFbV/Xstil1+cyAfm/DsguQymlX+fwzIAUGaEXHgXkX+dwzkMpXNjSrALJt6m8Epy7knIEzsiX53YZo1wGAlKMuDrKmI+cZ0I9tmdbnfD2xrI+oOQ7Ejm5ckUJwv1QbxpsYOHRgYRvJMX9ftkJ8bWserE6jWcwPQvA8Fp27MBnzWW01AjzTf4l7ViW2IodcHDk/Kupw+QuUp0y81w4/xMTkwm67e1XC3l2/2ZQfpTK7VgTrobEf4mtIgz1gFpiaiW573Raqe1zMg0cA2dw4jeiHJt6O7eP09rTo7WmxY/u4Teka1eYnzn5cFwDoiZ7VRPO/tnmF6IoW6FqpNp3PXO5bCJBtM5eAl33W3hYq7/mYB88AAFJNjoB+4Ls+g2H+St7y9pFHWUfoZq78DfCYZ4k/CcN1sqlufHi/E7w7ACAbaSDRk4DP6/LLSPp0HvOQMwCAVKYnaQVPAOccltVReVYqc8YnLhNyBwCQxxsXCMN+0O8s6BcJgq2yOakVoV1IAADZVJ9gplltO9jKWcJgg/Q3bILa6RZVKAs9Fb+A6CBw19WvWigHKc2++b/+H1kWWmM5Wn4H1UcJdKf0zxlfkXTQQQfuuAJ5Jy9oVaJtcgAAAABJRU5ErkJggg=="
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Продавец отказался предоставить VIN-код для проверки"
+                        )
+                      ])
+                    ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "y_verified" },
+                  [
+                    _vm._v(
+                      "\n                        Проверить авто\n                        "
+                    ),
+                    _c("yexpanded", {
+                      attrs: { text_color: "white", color: "white" }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(20)
+            ])
+          ])
+        ])
+      ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-slide_left" }, [
+      _c("h2", { staticClass: "yb_car-name" }, [_vm._v("Mercedes-Benz E 220")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb_header-price" }, [
+        _c("span", { staticClass: "yb_price-car" }, [_vm._v("8 200 $ ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_location-car" }, [_vm._v(" Киев ")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "y_check_item-car" }, [
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Марка, модель, год\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [
+          _vm._v(" Mercedes-Benz Coupe AMG 53 AT")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                        Двигатель\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Бензин")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v("\n                            Цвет\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Серый")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            В розыске\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Нет")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Пробег проверен\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [
+          _vm._v(
+            "19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Пробег от продавца\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("62 тыс.км")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Последняя операция\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [
+          _vm._v("27.07.2019 (11 мес. назад)")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-price_car" }, [
+      _c("span", { staticClass: "price_vis active" }, [_vm._v("8 200 $")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price_vis " }, [_vm._v("10 200 $")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price_vis " }, [_vm._v("898 200 $")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Пробег")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("331 тыс.км ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Локация")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v(" Киев ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Двигатель")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("Бензин ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Год выпуска")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("2019")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Кузов")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("Купе")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Коробка")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("Автомат")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-additional_car-opt" }, [
+      _c("div", { staticClass: "yadditional_i" }, [
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [
+            _vm._v("Просмотров авто:")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("120")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [_vm._v("Создано:")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("06 июня")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yadditional_i" }, [
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [
+            _vm._v("Добавлено в блокнот:")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("320")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [_vm._v("ID авто:")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("1234456")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "commercial",
+        staticStyle: {
+          "background-image":
+            "url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIWFRUVFhUVFRUVFhUXFxUVFxcWFxUVFRcYHSggGBolGxYVITIhJSkrLi4uFx83ODMtNygtLisBCgoKDg0OGBAQGi0dHyYtLS0rLS0tLSstLS0tLS0tKy0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLSstLS0tLf/AABEIAQMAwgMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIDBAUGBwj/xABMEAACAQIDBAYFCAcECAcAAAABAgMAEQQSIQUGMUETIlFhcYEHFDKRoRVCUmKSscHRI0NTcoKi4RYkk9JEVGOjsrPT8Bczc4PCw+L/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQMCBP/EACIRAQEBAQACAgICAwAAAAAAAAABEQIDEiExQVETMiJh8P/aAAwDAQACEQMRAD8A45Qo7ULV6XmFahR2oWoCoUKFAKFChQChQoUAoUKMGgKhR0VAKFChQChQpQFAmhSwtDLQIoUZoqAUKFCgFChQoFUKKjoDtQNGKOikGk0siitRCaFCjtRRUKO1C1AVCjtQtRBUdC1GKArUdAUoLQEKehjubdo0pKJU3A4ZmPV4g3A7xRUO1r0lhV/tDYjh2yqSGylAAdQyiT4BhfsqsmiVOJDP2D2V8+f3VNEArSTTjk3ps1UFQo6KgFCjtRUB2owKFCgWKO1JBpdEERXQtzvRi2IAlxbtEh1ESW6QjlnZgRH4WLa8BVV6PtkCacSMOrHqO4jn49nfryrsaY0KLDQDlWXXf4jXnj80xgdwdlxCwwkbd8heU+9yR7gKdxW4+y5BY4OJe9AUPvQg0cm1ABcsAO82ol2mDwa9cbWuMTvN6I0sXwMpDcehlNwe5H4j+K/iK5RisO8btHIpR0OVlYWKkciK9HfKPfWS393fTHR9JGv95QdQjjKBr0Tdp+ieR7ia757/AGz64n4cZoUAaFasQoUoULUC0e3KtbuNsg42cRBFCAZpJCGORdQLC4uzEWA7mPKs7sfZr4iQIoJ5tbkPzJ0rtW7ODjwcIjS2YnNIw+c1re4AADuFZ99Z8NOOd+aEPo8w6/PB8Yv/AN1ZYLc+BCLJCedzERa2t7iTTxpz5R76zvpE3p9WjGEQ/ppVzz/7OHisR7GfmOS+IribWlyD3s3wwjhsPHFGcpKBiWVZCtgVLIwI5WzXBI1ta9cwxm0I7keropB1HXv8WquknJGpvfXzub/fSTPmFn1twPMVrOcZXrSpsWp/VqPf+dRHkB5Wo3W1NmunIqFChRAoUKFAKFHQoAKWDSTUnZkWeaJPpSRr9pwPxorpG7CDDwhfnHj5f1ufOrdsfVBPNZ2HYzD3Eipmxx0k0SdrqD4Xua8z0szvvtyQymFGICWDkGxzHXKDyAFr9p8KzOC2jNC2eORlPcTY/vDgfOlY2bpZHl/aOz/aJb8aikVvJkx57ba6xszbfTRJJwzDUdjcGHkb1K+UD21hd2MQeiK9jH46/jVv6waxsyt5djO79YIR4x2UAJOq4hQOA6S/SAdwlEoHcBWfFbDftQYMDJzy4mI+CSrIP+eax9bc34Y9z5KFLjQsQqgliQAoFySTYADmSbC1IFb3cLADDRnaUoBe7R4JDzkGkmII+inAfW8jTq5E5m1d7M2UuAjEJsZzZsQw1s5GkQPYoNvG9STj++qJsSSSSSSSSSeJJ4kmpeyMI+IlWJSBe7M59mNF1eRuwAfhWFr0fS9TaqYaB8bKLrGcsMZ/X4gi6J+6PaY9grkWOxzzO8srFpJWLux5k6nwHAAcgAOVW+/G8K4uZUguMLhwY8Op+cPnzN9Zzr4W76zj1txzjHvrSm5Umk3pRNdswzUgigTRXoCoUZoqAUKFCgOjFFRigBqw3cI9bw1+HrGHv/ipVdSo3KkMpsykFT2MNQffUWfbo2MhIlkB5O49zGrPdRLYuC/Nwv2tB8TT+PhEkrSp7EpEy/uzASr8HFOYHDlHV1GqMrDxUgj7q870uSRwkKAeIAvSHStnvBsMpPIFXql2K/uk5l/lKnzrOY3D5dOzia9GvPVhu3AeiZu1z8AKtTGas9l7HMWHhVhZyvSMCLEGQ5lBHIhctPHBd1YdfbbmZGc34W2DwI7ZMa3lfDr+BrF1tvSe+RsJhh+qw2du58RI0hB78uT31i0Uk2AuToBW3H0y7/snbD2f08oUmyDWRuxRxA7zwH9K3WPnMjCwyoihI0HBI10VQKibt7GKR3I1bXx7/wAv61cjBd1ZdXa145yKgRmn98cd6lh/UEP94nCtjCOMUR1jw3cSDmbuIGoNXYkjwMDY6VQxU5MNGf1uI4gn6ie0T3dulcpxOJeV3kkYu7sXdjxZibk1eOd+XPfWfCPaiJpRFINbMRXoqFCgFChRWoAaFChQChQoUB0YoqVRLSacjWkKKscLBpRY6L6PseJ4BAx/SQDKL8WhJJQ/wkle4BO2tlDhLcq4pg8ZJh5FlibK6nQ8j2hhzB4WrtG5+8kGOQZSEmA60JOtxxZL+2neOF9bVj3zny346/C4bAQPEVdOsRYMvtKO6/PU1msLubg4pBKRJMym6rJkWMNyLKty9uwm1bMYY0lsJXO11kZqfBlmLMbkm5JpMWzkuWlYLEgMkrHgsai7k+X31op8OqoZHZURRdnchUUDiWY6CuQ+kXfhcQpwmEJ9XuDLLYg4hhqoUcREDrrqT3DVzNLZIxm8u1mxmKmxLC3SuWVfooLLGvkgUeVaTcPdUy2xEg6p9gHmOBbzOg8z2VW7jbsNtDEiM3EMYDzuOSXsEX67nqjzPKu+Q7NVAFVQqgABV4KALBR3AACtO7nxGXHO/wCVZobO7qdg2YCesQqgFnc6BEXVmJ7AK0fqVc09L28wjX5OhPWbK2KYchxSD7mb+EczWcm3GtuTWK343k9dxF4wVw8QMeGTsjvq7D6bnrHyHKqFaXgcHJK2SNSx7uQ7SeQre7G9FmKkAaQiMHtuD5CxPvy1tbOZjCS9XWCdaaZa7GvohS1jiDfujP8Anqr2n6IZwLwTK5+iwKE+HEe8094t8dcsIoqsdr7Jmw0hinjaNxrZhxHap4MO8VAIrqMyaFChVwChQoVMAoUKFMAFKohR1UGlT4JrCoAp1BRdSi+Y91ASm4YEgqbqQbFbcCCNQe+mi3KiqYa1ezvSDtKEADE51HKZEk/nIznzNTZ/ShtJhYPCnesKk/zlh8KxF6F6esX36/aw2xtvE4sg4nESTW1Ac9RT2qgsqnvAqBBh3kdY41Lu7BUUcWZjYAedJrrPoY3Vu3rsq62Ihv8ANU6Fx9ZtQPq3PzqlvrDmXqt5uPuqmAwqwizOevM4+fKRYkfVUdVe4X51oOgqQCKZxmLSJGkdgiopZmbgqqLsx7gK871Mvv8A7zJs7DNKLGZrpAh+dLa+Yj6CjrHyHE15ww8E2JnCLeSaeS2vF5JGuWY+JJJ5a1c787zttDFNMbiNbpAh+bGDe5H02PWPiByFar0FbGEuKlxLC4gQRp/6k2bMQeREauP/AHK3k9OdY2+/WOk7kbkw4KJdA76EuR7Tc37vqjkLc71qxAKeuKp97d4I8DhnncXtYKgNjJI2iIDyubknkFJrD7a/UWgho+grhcO/GNmkzPOyAnRIgqoO4Agk/wARJrsGwNtxyqkfSZ5ct2uADcWuDbS+o4d9dXmxJ1KRvPuvBj4TDMvejj2425Mh/DgeBrzNvHsSXBYiTDzDrIeI4Op1V17iPcbjlXrXNXKvTxsMPBHjFHWiYRue2NzZb+D5bfvmuvH1lxz5OdmuFkUVqdZaQRW+PORahSqFMCaFKoUwCjoqMUwGBTo0pC0qmBQo70m9HTAq9C9JpzDQNIyoguzEADvP4d9VFxujsJsZOqW6gIL9/Yt++xv2AHur0ds6JYY1jXgB4XPbblWL3J2OmDhA4uRcntJ4nzsPAAVo/W++vN31terjn1i6OIrj/pn3vzH5OhbRSGxJHNhZkgv3aM3fYciK1m+W9IwGFMwsZpLphlPN/nSkc1S9+82Fef5GLEsxLMxJZiblmJuSSeJJub114+du1z5O8mQ3XcfQbGEwLvzkxEh8lSJAPeH99cOtXavRLiLYAL2SSfFyfxFd+X6ceL7dO6euU+nLHEnCQ36v6WZh3jLGh/5vvrfet1y30vG+Jw7Hh6ufM9PLf8Ky8f8AZr5P6slhJ+jGb53ze763j2VqfR7tRlx8K30YuP8Aduw+IFYguSb1fbg67Swo/wBob+Ajcn4Ct+p8VhxfmPQ5xFUO/MXTbPxUdrnoJWA+sil1/mUU563UfHYi8Uw/2E//ACnrzR6nm1qbNPAaDwpBFet4jVFThFJIoE0KFqFAdGtEBSr0ChR09BgZX1SKR78MqO1/cKsYN1sc/s4SbzjZf+K1Ni5VTehV+u5O0T/oknmYx97UsbjbS/1U+ckI/wDnU9p+19b+metXQNwdhhB6xIOsw6gPJO3xb7rdpqBsfcTFmVfWIMsY1PXjbNbgtlY8efdet3JCV0It3aX91Z+Tv8Rp4+PzU71uncPOpzM75I41Mksh4Ii6k+PIDtqoyMSAAbkgADiSeAFUHpB2rlUbOia4UhsU44PMNViB5rHz+t4Vlzztxr116zWU3v24+OxDTMCqAZIY/wBnEvsr+8eJPaTyAql6OpnRUOir1T4+Hlt26hiKuh+jTF5YZY7+y+bwDKPxVqxSwXNgLk6ADmewVPwe02wzMsGUubKzsMy3B4IOBAN+seNjbTU8eT6d+L7dVi2iGYIMxJFxZWsR3G1jwPCqH0gbHnxK4dooyxTpUYXUEKcjIesRpfpKrNpb04posOxksXjneQgDrGNkC+1e2jGs4d6cQeLn3gfcBWPPxdb9TZiR/ZHG/sP95D/nq/3F3bxEOLE00YQRxylSZIjeRkMaqMrn6ZPlWW/tJP8ATb7b/gaI7wTftHHg7/iTXV8lsxxPHJddiyydg8mU/caY2kJRhsUQjlvVpVQBSSXkHRqBbj7ZPlXKV2xibZhO5XvbXjwI1+FS4N6Zhbrse+/51xjS1ncRs+SPR0ZSBcg8bdtuNqhla6Hhd75zoWZh2HIQfIrSNobOhx0ZaOOOKcC6lVCB/quFsuv0rVtPJ+2F8f6c8IpJqTJGQSpBBBIIPEEGxB773ppkrRlTVFSrUKqJ2yNjy4hrILDmx0UDtJ/74VvdjbPw2EHUVZZecrqpsfqX9ny1quGKVFCJZUHvblc0w2NBIXMADxNxoOJPkLmsLbWvxPiNRi96JVsM514AE+FR5t4nHFifeaxDY/PKW4AcBfQW0A8h91NYzHm9g3DsPOuHe3cbdt4jzPl91HDt92NlFz3AVgBimPOrHZW0ejPW99728qjq63L7WlRWcoLKCbdXU8hx5nTzqk3tOJukMTN1UDSMHyl3bgDrcgAXtw6/cLJ2bjPWcRDAourOrlr8k69reKgVZYvZskmOxLE6Fuqt73VVVEcAcAcnHvoTcZHZ20J4mQxzSDOLrZ2sHXjoTbUWPDkamLAJ87AASi7so0EgGrsByce0QNCLkAWN73EbosELBGuriRFUAXNzdBmIGo0temTjMJG6sjSZwbghALMOFw7Dna451ebidT9s10dH0dXe1MGoKSoto50EqD6N/bjvzytceFqixYcswVRdmIAAFySdABW8rHDODwz5WdFJb2Y7Ak520zfwg3vyJU0cWwpEzM6EKAFXgb5vauAdB0Yca82FdEk3XxmHhiGG9Xl6pM0cuZT0ht/5cgBDAHTUD2R31lNp7R2lDKmHxOFgRZyRGw9kkai8qlrW0vdR28Kx662vRzzkVu3Vyx4e/wDq2LPvlU3rJg99dbn3VE4gMheJo4ymVCrA5spYXK9axHG1CPcTCWs00wv9SDmLcejvXLpzJEvypz1cHkPdXUovR7gf205HcYf+n+NSl9HuBP6+c+cWniOjqufWuLtBblzI9xoKjXAvzrtQ9HeA/az+ZhP3x0P/AA62f+2mH+D/ANOouOSQBgw5X0PaPDvB+6tBBmjdWAsHGdbcOJWRR3CRXHgBW9Ho7wHLETeYj/y0/D6P8GOGKk07Qn5Vdc3m5jne+GyOkT1uMdYWEwHO2gfxGgPaLdlY9MNI4JWN2A4lVZgPEgaV6GTdCLKVGKBBBBBjGoPI9YVTbJ3CmwkUgw0sOJvIzrHKHgKkhRlDozX0UW0tryFdTvEvj37cHzDtHvoV1ubbmIVirbGxGYEhrAsMwNjZgbML8+dCu/5f9Of4p+2q+QsEP1S/YT8QaHydhB+qX7Mf+WoxnQi4ljIOos68PfTMko/aJ9pfzrBumnDYQfqU9woCPDcBh4z/AA1Uy4hF1aVAO0utqj43eGBVAhJbNpn4Zj2Ae0BoeCnxoLub1VfahhHcI1Y/Gq+XFYf5uEg8TFET/wANZfDbaEz5EdQT9RnJJ4AElRz4kCrbdLbUvTGCSCMMQzCVbh0A4ZwS1idOBFsw40Gk2WShEi4VVtrfKsd+ywAGnhWGh3BxGJxOaSdkjUAAoBnKi+UX4aX4kGtZt2fDwKJJ5shLDKcwFz33NaHA7TV4kkSRAhFrhbtm7QSStrW0saDPYD0bYZCC74iWxBtJLpprwQLp3Vb7LwWFykrCsVmIs8fRtccdHAJ8Rcdhp3EbXiHtMz+JIU/w6D4VXSbzBPYRF/77rCgLenZJmw0p6PJ0JLxnTrgC7EAG4BW/G2o7LE5n0fbKWfFAsRaMZwpOrEHjbmo4n+Ec6vtvb/nD4EyZQ8zy9Gi5RbJYFja1jwI17a59hN4zh8dhjDokiM38MqlV79APjXUvxji871K7XPu5BlVIWaIKVbqMRwNwCGuDfXW1++ixOx+qemkDRAXcyIpIUcwyZQLfuk1zLCbZdToxHgSKlbw74Sx4GfrEkhApOpDZtDr2NlPlUdtLg0CL+jOZCSVve2W+gseB+NM4zG5bHOCrC41DW8xfSqf0R7XbF4Z0mu8kTak2uyngW4crD+GspvEWhxUsEoS4IKn9IjMmUAMAtkOa4JIvrcdtBvU2hHx6RB4so+81KTFg6hwe8MD8RXMcNiSvCOQd6zx8uJsakvjXKkZ51uDa0iXU8iLN2/Cg6I+IJ5+6mWlfvrmjT4llDBcYPDF4eQ/ZyA/ChI2JChv7/wCTYdz9kDMKaOkGSTsNF0snYfcawWzM6yRtN670fWLZxDl0RmUHLqLsFHW01sbXvVvtLCu0OYXUqEGXC5AzTXPTAh1AVcskZVT7IQi/G7Rp/WJfre40qPaEy3tm1t28r2+81zREnzlf78Ldq4YDlwcnKePKiVsRcgDGaaanCr7iR1vKmjqXy1P3+6irkL7QxAJGabTtfD38+pxoU0aSX0bIzFnlVmYlmIut2Juxtc215U2fRtEPnD7f9K0R392GUIsM2W1zhSNbcdAba1hcNv1EqqDHISFUH2OIGp41yvtf+jRYHdVMOrIsMMmY3LNK2a1gAvs2te54jjTkmxpCLAYZBoLGRtQAQAbMx4XGltLjgSDRJ6QIOcMnuT/NUvG7zEAZY1U8SsjajuIUcfMflTUsbuhTm9aw8RH7KBpD9p0/GrDYqRYcO4kaV2td2UKbDkFBNh58hwtWLx2+06aJHhwTz6MPb/HL1L2FvXLNHIk+UkFWQqkaWGuYWjUA8By5mhtTdv7IxO0cS5QJkitGgka1zpnKgA6ltNbcBQ3Wx8mHjkw0l1aJ/YPFQeV+YvfXsIq6lmkxAaEZcO2XLG4Y5bIc6O7lbLdkIIFyAeZIvC3o2fE2MwxXEKolSSOaeQhI80Shy1vmg6gA68BRDOK2yTzqJHiJZDZFZj2KCfuq2wibPUlYVn2hIujdDG3Rqe1jwC95JFDEb1SIMqthsINRkhHrc4I4aRfolPc7LQN4LZ/TYiODERkrHE7Oh0IeVwqmx4dVWN+XGsniNnuHVzp6vFBmOgDD1lowR2Dj7q1O420PWMXiJJ5WJth1FyuZo85U3y3Gitche02qDvLKP0tvZfDwWsbDWaVxcc9L/GrEa0bkTMgkgkjnBF7xOGHkRxrFb6xSxBMO8bB3bNlI5L/U/A1lcDtWeFs0UrKR85WIPvBvWgwO0sRjpjPPKzyRRrGhazGxcnn4vr30Vq/RPgpMHjpI5CLSKYza/tx2bS/EfpBXQd4Z8P8A6T6ra9h0z28vY+Fc42ltUR4mOfPZc2dydBGWTKQ3ZdkXytVbvXhvlCRJY8ZgwqKVVJMQEe5N2YDKRYjKOPKg2wwOyHOsWCPekgJ+K+FSU3Y2TJwGX92Ww+Brl2y9xGklCy4nCrH85kmV2Pcota57ToOOvA6nHSx4NOjhTqIOqkXXJ77rfMTzNBsBuHsvKP0a+fRk+ZIuahYzcTZ5aNYoo2Z2K9YLYAIzX6o+rbzrmmK302jeyxMq8gYXY+ZPGo/9sNpkggOpU3BETAg2I0t3E02DqrejPDqC3RQDKCbhWvprpao53LwspVT0LkdVQ2divDQA8OIrm39uNsfTn+w1D+2u2Pp4j/DeoOmz+jTDoCehg0F/ZNLwW5OynRGMaDMqtb9FoWANtV765cd79sNoWxB/gkptNv7VAAWOWwFh/dzoBw5VdHYP/D3ZP0W8nUDyA0FCuRjejan7N/8AAehQZttjsP1i/wCHif8ApUk7MA4zRjxE4/8ArqCMZIOEjj+Jvzpa7SnHCaT7bfnXI0e7uyYc2ZsVhg41UySFET62q5mbsFtOPZbSHYGFIzNtAyn6GGiZvc8jIPhXO12tiBqJ5Qe0SP8AnRna854yyHxdz+NBocdus7MWVnseGeGdio7CY4mBobP2JKjPdo0UWGaaRIMx42SOVhI3A/N8bVlnxLHU2J7SL/fS4Jddbe4D7qDq8mzuhw8ZZw8jKwlfpM4jMxdoRHY6sqR5jx9rs4QvSPiYML6hHDkfosMGe6JIGeQABijjKfZY2YGxHCqDZ28SJleWEyuikKC9kJ5MQBo3adb2HIWNJjOlxLl2N78+XgByAFUtK2lvNiJxld2ZRwRjdB2ZYltGvktV0uKkksDqBpYCw9w0q6we7jNxHv8AwFaLZ+wESxIue+upzXN6kUu6nrkT54EZSytGXIWwVxZiMx4jiKu95pBHe9hmwyoo7MsgGn2wPOtBhkCjSq7ePYnrQSz5GQmxIzAg2uOI7BXXpkczv5czdyOFbDcOaPo8R0g61oSmtiMrOHt3WZSfDuqsx+7TxNYuG0v7JF/jTWBdsLIHygrqCOIII7+fA+VcY72NRvRhD0Da65M5W3BVZSWv26C9YqGbKb2B4Gxvy8Kv9ubbSSMRxkn2gW6w6pIJXW2p1FuFu2svJx/KlVoZdsCUOqYWFMx9rVsguSFXMNOy/GqxcERwZfIkfhVd0jDQMfeaPp2+kftN+dQTpIJr6SfztSehn/an7b1D6Zu0+9vzodIfpN7zQS+gm/a/ztSThpf2n87flTAf6x+0fzpyOe3K/iSfxpgBwb83H2m/Kk/J5+kvx/KpybQS2sKH7V/vqvw8qqSJAzDkQxBH50xNSBgu9fcfyoUPWMP9CX7X9aOilfJa9tD5KHbVkFpQWtPWM/ZWDZI+lShsdfpH3VaBKcRaesPZWLsVO01Ij2REOV/GreDBse4d/wCVWOHwiry17TVnLn2qpwmxV45Ao7SPuq5w2AReWvafwHKnwKWK6kkS2loop5aZQU8tVDiU+oplKfWoIm0sEJF7xqPyrL4rBhgVYeNbaoG0MCHFxx++ueosrCPsQcnPmBUZ9iHk/wAK00sRBsaZZK4xp7MvJsdhzpr5LatSVpBSmHszHya1D5PatKY6SYxTD2Zz1A0BgD21oTGKQUFMNUi7PPbTg2YDxNWxFFVnJqt+SV7/AHmjqzoU9U2khKWEp6OAnuqXFGBXeM9R4cIT3Cp0GHC/maUDSwauJp1acFNrTi1VLFKApApxRRDiinVFIUU4oqKcQU+tNoKeUUBgUCKWooyKgrcdgw2vOqOWAg2NaphUPF4QNRZWaKUkpU6aAg0yUqY6RClIZalslNMlc4IxFNsKkFaacUwMkUVLIorV0E0KO1CiJoalq1RwaWGrRikq1OKajIadU1FiUhp9TUVDT6Gjo8KeQUyhqRHQLUU6gpAFPIKinEFOqKSop1RUoUBQtRgUdqgQRTbLTxFJIqiDiMOGqqngIrQFaYngBosrPMlNOlWU+HIqK6VHSA6Uy61OdKYdaCGVpDU+y0y4ohuhSrUKJpYpYoUK0ZHEp5KOhSh1KkLQoVHZ5akx0KFBIWn0oUKinkp1aFCoHAKFChUBUmhQoCpBoUKCPOotVTKtChR1EaQVGehQoIz0ywoUKJTdChQoj//Z)"
+        }
+      },
+      [_c("h3", [_vm._v(" @ На правах реклами")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-slide_left" }, [
+      _c("h2", { staticClass: "yb_car-name" }, [_vm._v("Mercedes-Benz E 220")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb_header-price" }, [
+        _c("span", { staticClass: "yb_price-car" }, [_vm._v("8 200 $ ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb_location-car" }, [_vm._v(" Киев ")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-price_car" }, [
+      _c("span", { staticClass: "price_vis active" }, [_vm._v("8 200 $")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price_vis " }, [_vm._v("10 200 $")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price_vis " }, [_vm._v("898 200 $")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Пробег")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("331 тыс.км ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Локация")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v(" Киев ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Двигатель")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("Бензин ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Год выпуска")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("2019")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Кузов")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("Купе")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_name" }, [
+      _c("h2", [_vm._v("Коробка")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "y-option" }, [_vm._v("Автомат")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-additional_car-opt" }, [
+      _c("div", { staticClass: "yadditional_i" }, [
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [
+            _vm._v("Просмотров авто:")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("120")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [_vm._v("Создано:")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("06 июня")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yadditional_i" }, [
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [
+            _vm._v("Добавлено в блокнот:")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("320")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_item" }, [
+          _c("h2", { staticClass: "y-item name" }, [_vm._v("ID авто:")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "y-item count" }, [_vm._v("1234456")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "y_check_item-car" }, [
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Марка, модель, год\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [
+          _vm._v(" Mercedes-Benz Coupe AMG 53 AT")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Двигатель\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Бензин")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v("\n                            Цвет\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Серый")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            В розыске\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Нет")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Пробег проверен\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [
+          _vm._v(
+            "19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Пробег от продавца\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [_vm._v("62 тыс.км")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { staticClass: "y-check_title" }, [
+          _c("i", { staticClass: "fas fa-check" }),
+          _vm._v(
+            "\n                            Последняя операция\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "y-check_desc" }, [
+          _vm._v("27.07.2019 (11 мес. назад)")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -44862,48 +50672,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ycheck.vue?vue&type=template&id=0c81907e&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ycheck.vue?vue&type=template&id=0c81907e& ***!
-  \**************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "ycheck",
-      on: {
-        click: function($event) {
-          return _vm.changeCheck()
-        }
-      }
-    },
-    [
-      _c("i", {
-        staticClass: "fas",
-        class: _vm.checked ? "far fa-check-square" : "far fa-square"
-      }),
-      _vm._v(" "),
-      _c("span", { staticClass: "ycheck-label" }, [_vm._v(_vm._s(_vm.name))])
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ycheckbox.vue?vue&type=template&id=0c72e33d&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ycheckbox.vue?vue&type=template&id=0c72e33d& ***!
@@ -44920,19 +50688,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "change_resource" }, [
-    _c("span", { staticClass: "title_change" }, [_vm._v(_vm._s(_vm.name))]),
+    _c("span", { staticClass: "title_change" }, [_vm._v(_vm._s(_vm.text))]),
     _vm._v(" "),
-    _c("label", { staticClass: "ios7-switch" }, [
-      _c("input", {
-        attrs: { type: "checkbox" },
-        domProps: { checked: _vm.checked == true }
-      }),
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "ios7-switch" }, [
+      _c("input", { attrs: { type: "checkbox", checked: "" } }),
       _vm._v(" "),
       _c("span")
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 
 
@@ -44954,81 +50726,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "ydropdown", class: { black: _vm.shade !== undefined } },
-    [
-      _c(
-        "div",
-        {
-          staticClass: "name-dropdown",
-          on: {
-            click: function($event) {
-              _vm.openResults = !_vm.openResults
-            }
+  return _c("div", { staticClass: "ydropdown" }, [
+    _c(
+      "div",
+      {
+        staticClass: "value",
+        on: {
+          click: function($event) {
+            _vm.isOpen = !_vm.isOpen
           }
         },
-        [
-          _vm._v(
-            "\n        " + _vm._s(_vm.generatingPlaceholder) + "\n        "
-          ),
-          _c("i", {
-            staticClass: "yicon",
-            class: {
-              "arrow-up": _vm.openResults,
-              "arrow-down": !_vm.openResults
-            }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.openResults,
-              expression: "openResults"
-            }
-          ],
-          staticClass: "items"
-        },
-        [
-          _vm.options.length == 0
-            ? _c("div", { staticClass: "item" }, [
-                _vm._v("\n            Такого нет\n        ")
-              ])
-            : _vm._l(_vm.options, function(item, index) {
-                return _c(
-                  "div",
-                  {
-                    ref: "options",
-                    refInFor: true,
-                    staticClass: "item",
-                    class: { selected: _vm.choosedItem === item.val },
-                    on: {
-                      click: function($event) {
-                        return _vm.clickingResult(item.val)
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n            " + _vm._s(item.name) + "\n            "
-                    ),
-                    _vm.choosedItem === item.val
-                      ? _c("i", { staticClass: "fas fa-check" })
-                      : _vm._e()
-                  ]
-                )
-              })
+        model: {
+          value: _vm.itemSelected,
+          callback: function($$v) {
+            _vm.itemSelected = $$v
+          },
+          expression: "itemSelected"
+        }
+      },
+      [
+        _vm._v(
+          "\n    " + _vm._s(_vm.generatingPlaceholder || _vm.placeholder) + "\n"
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("i", {
+      staticClass: "ynav-list-toggle fas",
+      class: { "fa-chevron-up": _vm.isOpen, "fa-chevron-down": !_vm.isOpen },
+      on: {
+        click: function($event) {
+          _vm.isOpen = !_vm.isOpen
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isOpen,
+            expression: "isOpen"
+          }
         ],
-        2
-      )
-    ]
-  )
+        staticClass: "items"
+      },
+      _vm._l(_vm.filteredItems, function(item, index) {
+        return _c(
+          "div",
+          {
+            key: index,
+            staticClass: "item",
+            class: { checked: _vm.itemSelected == item.name },
+            on: {
+              click: function($event) {
+                return _vm.setItem(item)
+              }
+            }
+          },
+          [
+            _vm._v("\n            " + _vm._s(item.name) + "\n            "),
+            _vm.itemSelected === item.name
+              ? _c("i", { staticClass: "fas fa-check" })
+              : _vm._e()
+          ]
+        )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -45212,6 +50981,307 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfaqquestions.vue?vue&type=template&id=53be491e&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfaqquestions.vue?vue&type=template&id=53be491e& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.windowWidth > 600
+    ? _c("div", { staticClass: "yfaqquestions" }, [
+        _c("div", { staticClass: "yfaq_list-categories" }, [
+          _c(
+            "ul",
+            { staticClass: "ycat_list-items" },
+            _vm._l(_vm.questionsItems, function(catItem, catIndex) {
+              return _c(
+                "li",
+                {
+                  staticClass: "ycat_list-item",
+                  class: { "y_active-cat": _vm.catShowID === catIndex },
+                  on: {
+                    click: function($event) {
+                      _vm.catShowID = catIndex
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(catItem.title) +
+                      "\n                "
+                  ),
+                  _vm.catShowID === catIndex
+                    ? _c("i", { staticClass: "fas fa-angle-right" })
+                    : _vm._e()
+                ]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _vm.catShowID !== null
+          ? _c(
+              "div",
+              { staticClass: "yfaq_list-questions" },
+              _vm._l(_vm.questionsItems[_vm.catShowID].subquest, function(
+                catSub,
+                catSubIndex
+              ) {
+                return _c("ul", { staticClass: "yquest_list-items" }, [
+                  _c(
+                    "li",
+                    {
+                      staticClass: "yquest_list-item",
+                      class: { "shoosed-item": _vm.questionID === catSubIndex },
+                      on: {
+                        click: function($event) {
+                          _vm.questionID = catSubIndex
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(catSub.title) +
+                          "\n            "
+                      )
+                    ]
+                  )
+                ])
+              }),
+              0
+            )
+          : _c("div", { staticClass: "yfaq-prev_questions" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "280",
+                    height: "270",
+                    viewBox: "0 0 280 270",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d:
+                        "M51.4133 248.421C51.4133 237.034 100.881 227.757 161.895 227.757C222.909 227.757 272.376 237.011 272.376 248.421C272.376 259.831 222.909 269.086 161.895 269.086C100.881 269.086 51.4133 259.831 51.4133 248.421Z",
+                      fill: "#F0F0F0"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d:
+                        "M52.6886 44.3116C53.7666 42.7097 53.7438 40.5157 53.759 39.7566C53.7077 36.9211 53.2448 34.1081 52.3849 31.4057C51.565 28.4981 50.9577 25.5222 50.1074 22.6146C48.5891 17.3004 46.1522 12.176 44.2543 7.0061C43.2901 4.34901 42.3715 -1.3751 38.2872 0.302654C33.4437 2.27649 31.7508 7.21107 32.7605 12.1457C33.178 14.2258 34.3699 16.0705 35.2657 17.9685C36.784 21.2025 38.4618 24.2695 40.1472 27.4201C41.0809 29.1662 41.954 30.9502 42.9637 32.6583C44.9071 35.9759 46.1522 40.2348 48.7485 43.0437C49.2344 43.5752 51.6106 45.921 52.6886 44.3116Z",
+                      fill: "#56B3E6"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d:
+                        "M35.1594 56.8606C35.1594 54.9247 33.8764 52.7079 32.7453 51.2731C30.0047 47.7885 25.4724 43.5448 19.7863 39.4757C10.3423 32.7039 8.9302 31.7853 6.12129 34.1615C4.67128 35.361 4.36761 42.0416 9.91712 46.5663C17.8049 53.004 26.5581 58.6218 29.4505 59.6771C30.2476 59.9732 35.1594 60.8842 35.1594 56.8606Z",
+                      fill: "#56B3E6"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M10.6915 99.1993C37.2623 59.1457 116.785 52.2373 188.291 83.7654C259.797 115.294 296.229 173.317 269.621 213.37C243.012 253.424 163.565 260.332 92.0514 228.804C20.5379 197.276 -15.8869 139.253 10.6915 99.1993Z",
+                      stroke: "#DFDFDF",
+                      "stroke-width": "2.96",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-dasharray": "5 5 5 5 5 5"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d:
+                        "M129.061 39.8249L23.6505 206.007C23.6505 206.007 4.55744 247.487 49.6064 248.581L244.105 205.733C244.105 205.733 300.617 192.873 262.553 145.334L196.179 45.9893C196.179 45.9893 161.06 -2.09632 129.061 39.8249Z",
+                      fill: "#E6E4BE"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d:
+                        "M247.832 65.7884C247.832 65.7884 82.205 53.9454 62.6565 53.3001C43.108 52.6548 37.4901 73.5167 38.0747 82.0497L31.9254 164.943C31.9254 164.943 25.928 189.252 65.4047 193.23L122.904 200.328C122.904 200.328 130.184 222.579 119.791 239.326C119.791 239.326 118.174 245.574 126.434 243.456C134.694 241.338 163.36 221.159 166.442 203.182C166.442 202.993 214.885 203.403 229.901 204.139C244.917 204.875 256.608 201.626 258.263 187.559L260.693 170.925L272.156 92.4275C272.156 92.4275 276.567 64.3991 247.832 65.7884Z",
+                      fill: "#56B3E6"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M48.0045 78.3754L43.0775 151.908C43.0775 151.908 36.0097 182.715 60.8496 185.851L126.593 194.057C126.593 194.057 141.397 217.591 126.457 237.072C126.457 237.072 154.22 220.119 157.772 199.918L159.655 193.693L233.697 196.122C233.697 196.122 248.5 197.906 250.649 185.031L262.211 92.7844C262.211 92.7844 268.368 76.4851 250.3 72.5905C250.3 72.5905 83.4045 60.1934 78.4091 61.4004C75.456 62.1216 51.7927 54.864 48.0045 78.3754Z",
+                      stroke: "#0080C7",
+                      "stroke-width": "4.23",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-dasharray": "9 9 9 9 9 9"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d:
+                        "M75.9951 41.8215C77.6273 40.7814 78.8116 38.5115 79.4113 36.7882C80.8765 32.6052 82.0228 26.5091 82.448 19.5172C83.0933 7.90951 83.1009 6.22416 79.6011 5.093C77.8171 4.51604 72.0094 7.84119 71.1668 14.9622C69.9673 25.0743 69.9369 35.4597 70.5974 38.4963C70.7189 39.339 72.6016 43.9927 75.9951 41.8215Z",
+                      fill: "#56B3E6"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M154.182 143.8C154.119 145.179 153.766 146.53 153.144 147.762C152.523 148.995 151.647 150.082 150.576 150.952C149.476 151.856 148.208 152.534 146.845 152.946C145.482 153.357 144.051 153.495 142.635 153.351C139.818 153.189 137.174 151.943 135.256 149.874C134.288 148.903 133.544 147.734 133.074 146.446C132.605 145.159 132.422 143.784 132.538 142.419L133.175 133.309C133.454 129.381 134.198 126.876 135.407 125.793C136.326 124.896 137.415 124.194 138.611 123.728C139.532 123.434 142.756 123.055 148.283 122.589C153.81 122.124 156.78 118.945 157.195 113.054C157.313 111.743 157.123 110.423 156.643 109.197C156.162 107.972 155.402 106.875 154.425 105.994C152.4 104.055 149.634 102.965 146.127 102.722C143.875 102.519 141.608 102.869 139.522 103.739C137.127 104.916 134.984 106.548 133.213 108.545L131.073 110.685C130.046 111.711 128.811 112.504 127.452 113.012C126.092 113.521 124.64 113.731 123.192 113.631C121.912 113.59 120.654 113.288 119.495 112.743C118.336 112.199 117.3 111.424 116.451 110.465C115.609 109.464 114.981 108.301 114.605 107.047C114.229 105.794 114.113 104.477 114.265 103.177C114.69 97.104 118.268 92.0176 124.999 87.9181C131.731 83.8186 139.385 82.07 147.964 82.6722C158.147 83.3859 166.3 86.6503 172.424 92.4655C175.371 95.1474 177.655 98.4772 179.095 102.192C180.535 105.908 181.092 109.907 180.722 113.874C180.181 121.552 177.827 127.083 173.662 130.469C169.497 133.855 166.308 135.996 164.096 136.892C160.971 138.016 157.749 138.847 154.47 139.374L154.182 143.8ZM142.156 160.183C143.753 160.268 145.317 160.667 146.76 161.357C148.202 162.048 149.493 163.016 150.56 164.207C151.638 165.327 152.465 166.662 152.989 168.125C153.512 169.588 153.719 171.145 153.597 172.694C153.516 174.226 153.102 175.721 152.385 177.077C151.668 178.432 150.665 179.615 149.444 180.544C146.898 182.564 143.668 183.519 140.433 183.209C138.874 183.126 137.347 182.735 135.94 182.058C134.532 181.382 133.273 180.434 132.234 179.269C131.184 178.175 130.378 176.872 129.869 175.444C129.36 174.016 129.16 172.497 129.281 170.986C129.371 169.437 129.788 167.924 130.505 166.547C131.222 165.17 132.223 163.961 133.441 163C134.637 161.98 136.022 161.206 137.518 160.723C139.014 160.239 140.59 160.056 142.156 160.183Z",
+                      fill: "#8CCEF2"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M162.29 144.37C162.227 145.749 161.874 147.099 161.252 148.332C160.631 149.564 159.755 150.651 158.684 151.521C157.585 152.425 156.318 153.102 154.957 153.513C153.595 153.925 152.165 154.063 150.75 153.92C147.934 153.758 145.289 152.512 143.371 150.443C142.404 149.473 141.659 148.303 141.19 147.015C140.72 145.728 140.537 144.354 140.653 142.988L141.291 133.878C141.569 129.951 142.313 127.445 143.523 126.362C144.441 125.466 145.531 124.764 146.727 124.297C147.648 124.004 150.872 123.624 156.398 123.159C161.925 122.693 164.896 119.515 165.311 113.623C165.428 112.312 165.239 110.992 164.758 109.767C164.277 108.541 163.518 107.445 162.54 106.563C160.516 104.625 157.75 103.534 154.242 103.291C151.991 103.089 149.724 103.438 147.638 104.308C145.243 105.485 143.1 107.118 141.329 109.114L139.188 111.255C138.161 112.28 136.927 113.074 135.567 113.582C134.208 114.09 132.756 114.301 131.308 114.2C130.028 114.159 128.77 113.857 127.611 113.313C126.452 112.768 125.416 111.993 124.567 111.035C123.724 110.033 123.096 108.87 122.72 107.617C122.344 106.363 122.228 105.046 122.38 103.747C122.805 97.6734 126.383 92.5869 133.115 88.4874C139.846 84.3879 147.501 82.6393 156.08 83.2416C166.263 83.9552 174.416 87.2196 180.54 93.0349C183.492 95.7207 185.779 99.0568 187.219 102.779C188.659 106.501 189.213 110.508 188.838 114.481C188.296 122.159 185.943 127.691 181.777 131.077C177.612 134.463 174.431 136.593 172.235 137.469C169.1 138.595 165.867 139.426 162.578 139.951L162.29 144.37ZM150.264 160.753C151.861 160.837 153.425 161.236 154.867 161.926C156.31 162.617 157.601 163.585 158.668 164.776C159.746 165.896 160.573 167.231 161.097 168.694C161.62 170.157 161.827 171.715 161.705 173.264C161.624 174.795 161.21 176.29 160.493 177.646C159.776 179.001 158.773 180.185 157.552 181.113C155.006 183.133 151.776 184.088 148.541 183.778C146.982 183.695 145.455 183.304 144.048 182.628C142.64 181.952 141.381 181.003 140.342 179.838C139.289 178.749 138.478 177.449 137.964 176.024C137.45 174.599 137.243 173.081 137.359 171.571C137.448 170.021 137.866 168.508 138.583 167.132C139.3 165.755 140.3 164.546 141.519 163.584C142.717 162.558 144.107 161.779 145.608 161.293C147.109 160.807 148.692 160.623 150.264 160.753Z",
+                      fill: "#1889C7"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M158.236 144.081C158.173 145.46 157.82 146.81 157.198 148.043C156.577 149.276 155.701 150.363 154.63 151.233C153.531 152.136 152.264 152.813 150.903 153.225C149.541 153.637 148.111 153.775 146.696 153.632C143.88 153.47 141.235 152.224 139.317 150.155C138.35 149.184 137.605 148.014 137.136 146.727C136.666 145.439 136.483 144.065 136.599 142.7L137.237 133.59C137.515 129.662 138.259 127.157 139.469 126.074C140.387 125.177 141.477 124.475 142.673 124.009C143.594 123.715 146.818 123.336 152.344 122.87C157.871 122.405 160.842 119.226 161.257 113.335C161.374 112.024 161.185 110.703 160.704 109.478C160.223 108.253 159.464 107.156 158.486 106.275C156.462 104.336 153.696 103.246 150.188 103.003C147.943 102.798 145.682 103.142 143.599 104.005C141.204 105.182 139.061 106.814 137.29 108.81L135.149 110.951C134.122 111.977 132.888 112.77 131.528 113.278C130.169 113.786 128.717 113.997 127.269 113.897C125.989 113.855 124.731 113.553 123.572 113.009C122.413 112.465 121.377 111.69 120.528 110.731C119.686 109.73 119.057 108.566 118.681 107.313C118.305 106.06 118.19 104.743 118.341 103.443C118.766 97.3697 122.345 92.2833 129.076 88.1838C135.807 84.0843 143.462 82.3357 152.041 82.938C162.224 83.6516 170.377 86.916 176.501 92.7312C179.453 95.4171 181.74 98.7532 183.18 102.475C184.62 106.198 185.175 110.204 184.799 114.178C184.257 121.855 181.904 127.387 177.739 130.773C173.573 134.159 170.392 136.29 168.196 137.165C165.065 138.304 161.835 139.147 158.547 139.686L158.236 144.081ZM146.21 160.464C147.807 160.549 149.371 160.948 150.813 161.638C152.256 162.328 153.547 163.297 154.614 164.488C155.692 165.607 156.519 166.943 157.043 168.406C157.566 169.869 157.773 171.426 157.651 172.975C157.566 174.509 157.148 176.006 156.426 177.362C155.703 178.717 154.694 179.899 153.468 180.825C150.922 182.845 147.692 183.8 144.457 183.49C142.898 183.406 141.37 183.016 139.963 182.339C138.556 181.663 137.297 180.715 136.258 179.55C135.208 178.456 134.402 177.153 133.893 175.725C133.384 174.297 133.183 172.778 133.305 171.267C133.394 169.717 133.812 168.205 134.529 166.828C135.246 165.451 136.246 164.242 137.465 163.281C138.664 162.257 140.055 161.481 141.556 160.998C143.057 160.514 144.639 160.333 146.21 160.464Z",
+                      fill: "#E6E6E6"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", [_vm._v("Выберите категорию")])
+            ])
+      ])
+    : _c("div", { staticClass: "yfaqquestions mobile_faqquestions" }, [
+        _vm.showListQuestions === false
+          ? _c("div", { staticClass: "yfaq_list-categories" }, [
+              _c(
+                "ul",
+                { staticClass: "ycat_list-items" },
+                _vm._l(_vm.questionsItems, function(catItem, catIndex) {
+                  return _c(
+                    "li",
+                    {
+                      staticClass: "ycat_list-item",
+                      on: {
+                        click: function($event) {
+                          return _vm.openSub(catItem, catIndex)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(catItem.title) +
+                          "\n                "
+                      ),
+                      _c("i", { staticClass: "fas fa-angle-right" })
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.catShowID !== null && _vm.showListQuestions === true
+          ? _c(
+              "div",
+              { staticClass: "yfaq_list-questions" },
+              [
+                _c(
+                  "span",
+                  {
+                    staticClass: "yfaq_close",
+                    on: {
+                      click: function($event) {
+                        return _vm.closeSub()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-angle-left" }),
+                    _vm._v(" Назад\n        ")
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.questionsItems[_vm.catShowID].subquest, function(
+                  catSub,
+                  catSubIndex
+                ) {
+                  return _c("ul", { staticClass: "yquest_list-items" }, [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "yquest_list-item",
+                        class: {
+                          "shoosed-item": _vm.questionID === catSubIndex
+                        },
+                        on: {
+                          click: function($event) {
+                            _vm.questionID = catSubIndex
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(catSub.title) +
+                            "\n            "
+                        )
+                      ]
+                    )
+                  ])
+                })
+              ],
+              2
+            )
+          : _vm._e()
+      ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfavorite.vue?vue&type=template&id=e36606d4&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfavorite.vue?vue&type=template&id=e36606d4& ***!
@@ -45318,213 +51388,1224 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "yfilterextended" }, [
-    _c("div", { staticClass: "yexpanded_search" }, [
-      _c("h1", { staticClass: "ytitle-exp" }, [_vm._v("Расширенный поиск")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "yexpanded_search_filter" }, [
-        _c("aside", { staticClass: "yexpanded_sidebar" }, [
-          _c("div", { staticClass: "ysearch_filter" }, [
-            _c("div", { staticClass: "ysearch_type_btn" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "change_type",
-                  class: {
-                    active: _vm.searchDeatils.autoConditionChoosed == 1
-                  },
+    _vm.selectDropDown.length > 0
+      ? _c("div", { staticClass: "yfilter_selected-item" }, [
+          _c(
+            "div",
+            { staticClass: "yb-items_selected" },
+            _vm._l(_vm.selectDropDown.slice(0, _vm.showSelected), function(
+              item,
+              index
+            ) {
+              return _c("div", { staticClass: "item_selected" }, [
+                _c("span", [_vm._v(_vm._s(item.name))]),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-times",
                   on: {
                     click: function($event) {
-                      return _vm.SET_AUTO_CONDITION(1)
+                      return _vm.removeSelectedItem(index)
                     }
                   }
-                },
+                })
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("i", {
+            staticClass: "fas",
+            class: {
+              "fa-chevron-up": _vm.showSelectedItem,
+              "fa-chevron-down": !_vm.showSelectedItem
+            },
+            on: {
+              click: function($event) {
+                _vm.showSelectedItem = !_vm.showSelectedItem
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.showSelectedItem === true
+            ? _c(
+                "div",
+                { staticClass: "yfilter_selected-item show-drop_down" },
                 [
-                  _vm._v(
-                    "\n                                Все\n                            "
+                  _c(
+                    "div",
+                    { staticClass: "yb-items_selected" },
+                    _vm._l(_vm.selectDropDown, function(item, index) {
+                      return _c("div", { staticClass: "item_selected" }, [
+                        _c("span", [_vm._v(_vm._s(item.name))]),
+                        _vm._v(" "),
+                        _c("i", {
+                          staticClass: "fas fa-times",
+                          on: {
+                            click: function($event) {
+                              return _vm.removeSelectedItem(index)
+                            }
+                          }
+                        })
+                      ])
+                    }),
+                    0
                   )
                 ]
-              ),
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.windowWidth <= 601
+      ? _c("div", { staticClass: "ybexpanded_search show_mobile" }, [
+          _c("h1", { staticClass: "ytitle-exp" }, [
+            _vm._v("Расширенный поиск")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "yb-carsearch_items" },
+            [
+              _c("div", { staticClass: "yoptions_items" }, [
+                _c("div", { staticClass: "yoptions_items_mobile" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ycheckbox_options" },
+                    [
+                      _c("ycheckbox", {
+                        attrs: { text: "Поиск со всех ресурсов" }
+                      }),
+                      _vm._v(" "),
+                      _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                      _vm._v(" "),
+                      _c("ycheckbox", { attrs: { text: "С фото" } })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "y-transport_options" },
+                    [
+                      _c("h2", [_vm._v("Тип транспорта")]),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: {
+                          placeholder: "Не выбрано",
+                          items: _vm.transportType
+                        },
+                        on: { setItem: _vm.selectedItem }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "ychecked_options-mobile" }, [
+                  _c("h3", [_vm._v("Тип кузова")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yb-checked_type" }, [
+                    _c(
+                      "div",
+                      { staticClass: "yl-vis checkbox" },
+                      _vm._l(_vm.bodyType, function(item, id) {
+                        return _c("div", { staticClass: "yvis_checkbox" }, [
+                          _c("input", {
+                            staticClass: "ycheck",
+                            attrs: { id: item.name, type: "checkbox" },
+                            domProps: { value: item.name },
+                            on: {
+                              change: function($event) {
+                                return _vm.selectedItem(item)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "y-body_name",
+                              attrs: { for: item.name }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(item.name) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("h4", [_vm._v("Страна производитель")]),
+              _vm._v(" "),
+              _c("ydropdown", {
+                attrs: {
+                  placeholder: "Выберите страну",
+                  items: _vm.manufactureCountries
+                },
+                on: { setItem: _vm.selectedItem }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "add-cars_items" }, [
+                _c("div", { staticClass: "yflex_car-item" }, [
+                  _c(
+                    "div",
+                    { staticClass: "ycars-item marks" },
+                    [
+                      _c("h2", [_vm._v("Марка")]),
+                      _vm._v(" "),
+                      _c("yselect", {
+                        attrs: {
+                          placeholder: "Выберите марку",
+                          options: _vm.carBrandsArr
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ycars-item model" },
+                    [
+                      _c("h2", [_vm._v("Модель")]),
+                      _vm._v(" "),
+                      _c("yselect", {
+                        attrs: {
+                          placeholder: "Выберите модель",
+                          options: _vm.cars
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ycars-item years" }, [
+                    _c("h2", [_vm._v("Год")]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "ydrop_down-years" },
+                      [
+                        _c("ydropdown", {
+                          attrs: { placeholder: "От", items: _vm.reversedYears }
+                        }),
+                        _vm._v(" "),
+                        _c("ydropdown", {
+                          attrs: { placeholder: "До", items: _vm.reversedYears }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-region_price-items" }, [
+            _c("div", { staticClass: "ychange_price-container" }, [
+              _c("h2", [_vm._v("Цена")]),
               _vm._v(" "),
               _c(
-                "button",
-                {
-                  staticClass: "change_type",
-                  class: {
-                    active: _vm.searchDeatils.autoConditionChoosed == 2
-                  },
-                  on: {
-                    click: function($event) {
-                      return _vm.SET_AUTO_CONDITION(2)
-                    }
-                  }
-                },
+                "div",
+                { staticClass: "yrange_slider-container" },
                 [
-                  _vm._v(
-                    "\n                                Новые\n                            "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "change_type",
-                  class: {
-                    active: _vm.searchDeatils.autoConditionChoosed == 3
-                  },
-                  on: {
-                    click: function($event) {
-                      return _vm.SET_AUTO_CONDITION(3)
-                    }
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n                                Б/у\n                            "
-                  )
-                ]
+                  _c("yrange"),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "Возможен торг" } }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на автомобиль" }
+                  }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на недвижимость" }
+                  })
+                ],
+                1
               )
             ]),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "ycheckbox_options" },
+              { staticClass: "yreg_container" },
               [
-                _c("ycheckbox", {
+                _c("h2", [_vm._v("Регион")]),
+                _vm._v(" "),
+                _c("yselect", {
                   attrs: {
-                    name: "Поиск со всех ресурсов",
-                    checked: _vm.searchDeatils.searchPropsChoosed.fullResource
-                  }
+                    placeholder: "Выберите область",
+                    options: _vm.ukSityName
+                  },
+                  on: { setItem: _vm.selectedItem }
                 }),
                 _vm._v(" "),
-                _c("ycheckbox", {
+                _c("yselect", {
                   attrs: {
-                    name: "Провереные",
-                    checked: _vm.searchDeatils.searchPropsChoosed.verifiedAuto
-                  }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "С фото",
-                    checked: _vm.searchDeatils.searchPropsChoosed.withPhoto
-                  }
+                    placeholder: "Выберите город",
+                    options: _vm.ukSityName
+                  },
+                  on: { setItem: _vm.selectedItem }
                 })
               ],
               1
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "yprice_filter" }, [
-            _c("h2", { staticClass: "yfilter-aside-title" }, [_vm._v("Цена")]),
+          _c("div", { staticClass: "yb-condition_cars" }, [
+            _c("h2", [_vm._v("Состояние")]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "yprice_filter-box" },
-              [
-                _c("yprice"),
-                _vm._v(" "),
-                _c("ycheckbox", { attrs: { text: "Возможен торг" } }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: { text: "Возможен обмен на автомобиль" }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: { text: "Возможен обмен на недвижимость" }
-                })
-              ],
-              1
-            )
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "yb-status_checked-items" }, [
+              _c("h2", [_vm._v("Пригнан из")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb-select_items" },
+                [
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(3)
+                ],
+                1
+              )
+            ])
           ]),
-          _vm._v("\n.                ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yexpanded_content" }, [
-          _vm._v(
-            "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam atque beatae cupiditate debitis deleniti dignissimos et eum, eveniet impedit ipsum iusto, minus officia omnis quae qui suscipit voluptatem voluptatum!\n                "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-carsearch_items" }, [
-        _c("div", { staticClass: "yoptions_items" }, [
-          _c("div", { staticClass: "yfilter_view-option" }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "y-transport_options" },
-            [
-              _c("h2", [_vm._v("Тип транспорта")]),
+          _c("div", { staticClass: "yb-specifications_cars" }, [
+            _c("h2", [_vm._v("Технические характеристики")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yselect_specifications" }, [
+              _c(
+                "div",
+                { staticClass: "vis_l-specifications" },
+                [
+                  _c("h2", [_vm._v("Топливо")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("КПП")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transmission
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Тип привода")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.typeofdrive
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("yselectsearch", {
-                attrs: {
-                  deleteDis: true,
-                  placeholder: "Выберите тип транспорта",
-                  options: _vm.transportTypes,
-                  choosedItem: _vm.transportsArr.typeChoosed
-                },
-                on: {
-                  updateChoose: function($event) {
-                    return _vm.reInitFilterByClick($event)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Тип кузова")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yb-checked_type" }, [
+              _c("div", { staticClass: "vis_c-specifications y-double" }, [
+                _c("h3", [_vm._v("Росход топлива, л./100 км")]),
+                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "yl-vis checkbox" },
-                  _vm._l(_vm.transportBodies, function(body, i) {
-                    return _c("ycheck", {
-                      key: i,
-                      attrs: { name: body.name, checked: body.choosed },
-                      on: {
-                        checked: function($event) {
-                          return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
-                        }
-                      }
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
                     })
-                  }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Объём, л.")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Мощность")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
                   1
                 )
               ])
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "add-cars_items" },
-          [
-            _vm._l(_vm.rbmysArr, function(rbmy, i) {
-              return _c("div", { staticClass: "yflex_car-item" }, [
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yselect_specifications vis_mobile" }, [
+              _c("div", { staticClass: "vis_r-specifications y-double" }, [
+                _c("h3", [_vm._v("Пробег, тыс.км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество дверей")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество мест")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yother_specifications" }, [
+                _c("h3", [_vm._v("Цвет")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yvis_other" }, [
+                  _c("div", { staticClass: "yvis_other-left" }, [
+                    _c("div", { staticClass: "ycheck_color" }, [
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#742D05" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FFCB11" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: {
+                            "background-color": "rgba(80, 83, 83, 0.92)"
+                          },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FFFFFF" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#000000" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#0B3F8D" },
+                          attrs: { for: "" }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ycheck_color" }, [
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#5100B8" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#E30000" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#1D8D0B" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#0066FF" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FFF504" },
+                          attrs: { for: "" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ylabel_visible" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.picked,
+                              expression: "picked"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.picked)
+                              ? _vm._i(_vm.picked, null) > -1
+                              : _vm.picked
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.picked,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.picked = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.picked = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticStyle: { "background-color": "#FF007A" },
+                          attrs: { for: "" }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ycolor_more",
+                        on: {
+                          click: function($event) {
+                            _vm.colorOpen = !_vm.colorOpen
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fas",
+                          class: {
+                            "fa-chevron-up": _vm.colorOpen,
+                            "fa-chevron-down": !_vm.colorOpen
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yvis_other-right" }, [
+                    _c(
+                      "div",
+                      { staticClass: "yother_visl-btn" },
+                      _vm._l(_vm.accordionItems, function(accordion, idx) {
+                        return _c(
+                          "li",
+                          { key: idx, staticClass: "yb_list-options" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                on: {
+                                  click: function($event) {
+                                    _vm.otherShowID = idx
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(accordion.title) +
+                                    "\n                                            "
+                                ),
+                                _c("i", {
+                                  staticClass: "fas ",
+                                  class: {
+                                    "fa-chevron-up": _vm.otherShowID === idx,
+                                    "fa-chevron-down": _vm.otherShowID !== idx
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yspecification_results" }, [
+            _c("h3", [_vm._v("Результаты поиска")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yvisual_results" }, [
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Сортировка")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.sortBy }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Период подачи")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.deliveryPeriod
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Актуальность")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.isActual }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Показывать")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.amountShow }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(4)
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(5)
+        ])
+      : _vm.windowWidth <= 946
+      ? _c("div", { staticClass: "ybexpanded_search show_tablet" }, [
+          _c("h1", { staticClass: "ytitle-exp" }, [
+            _vm._v("Расширенный поиск")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-carsearch_items" }, [
+            _c("div", { staticClass: "yoptions_items" }, [
+              _c("div", { staticClass: "yoptions_items_mobile" }, [
+                _vm._m(6),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycheckbox_options" },
+                  [
+                    _c("ycheckbox", {
+                      attrs: { text: "Поиск со всех ресурсов" }
+                    }),
+                    _vm._v(" "),
+                    _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                    _vm._v(" "),
+                    _c("ycheckbox", { attrs: { text: "С фото" } })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "y-transport_options" },
+                [
+                  _c("h2", [_vm._v("Тип транспорта")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transportType
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "ychecked_options-mobile" }, [
+                _c("h3", [_vm._v("Тип кузова")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yb-checked_type" }, [
+                  _c(
+                    "div",
+                    { staticClass: "yl-vis checkbox" },
+                    _vm._l(_vm.bodyType, function(item, id) {
+                      return _c("div", { staticClass: "yvis_checkbox" }, [
+                        _c("input", {
+                          staticClass: "ycheck",
+                          attrs: { id: item.name, type: "checkbox" },
+                          domProps: { value: item.name },
+                          on: {
+                            change: function($event) {
+                              return _vm.selectedItem(item)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "y-body_name",
+                            attrs: { for: item.name }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(item.name) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "add-cars_items" }, [
+              _c("div", { staticClass: "yflex_car-item" }, [
                 _c(
                   "div",
                   { staticClass: "ycars-item countries" },
                   [
                     _c("h2", [_vm._v("Страна производитель")]),
                     _vm._v(" "),
-                    _c("yselectsearch", {
+                    _c("ydropdown", {
                       attrs: {
                         placeholder: "Выберите страну",
-                        options: _vm.manufactureRegions,
-                        choosedItem: rbmy.regionChoose
+                        items: _vm.manufactureCountries
                       },
-                      on: {
-                        updateChoose: function($event) {
-                          return _vm.SET_REGION_CHOOSE({
-                            choose: $event,
-                            index: i
-                          })
-                        },
-                        deleteChoose: function($event) {
-                          return _vm.DELETE_REGION_CHOOSE({ index: i })
-                        }
-                      }
+                      on: { setItem: _vm.selectedItem }
                     })
                   ],
                   1
@@ -45536,27 +52617,10 @@ var render = function() {
                   [
                     _c("h2", [_vm._v("Марка")]),
                     _vm._v(" "),
-                    _c("yselectsearch", {
+                    _c("yselect", {
                       attrs: {
                         placeholder: "Выберите марку",
-                        options:
-                          rbmy.brands.length > 0
-                            ? rbmy.brands
-                            : rbmy.regionChoose !== null
-                            ? []
-                            : _vm.brands,
-                        choosedItem: rbmy.brandChoose
-                      },
-                      on: {
-                        updateChoose: function($event) {
-                          return _vm.setBrandsAndGetModels({
-                            choose: $event,
-                            index: i
-                          })
-                        },
-                        deleteChoose: function($event) {
-                          return _vm.DELETE_BRAND_CHOOSE({ index: i })
-                        }
+                        options: _vm.carBrandsArr
                       }
                     })
                   ],
@@ -45569,25 +52633,10 @@ var render = function() {
                   [
                     _c("h2", [_vm._v("Модель")]),
                     _vm._v(" "),
-                    _c("yselectmultysearch", {
+                    _c("yselect", {
                       attrs: {
                         placeholder: "Выберите модель",
-                        options: rbmy.models,
-                        choosedItems: rbmy.modelsChoose
-                      },
-                      on: {
-                        updateChoose: function($event) {
-                          return _vm.SET_MODELS_CHOOSE({
-                            choose: $event,
-                            index: i
-                          })
-                        },
-                        deleteChoose: function($event) {
-                          return _vm.DELETE_MODELS_CHOOSE({
-                            choose: $event,
-                            index: i
-                          })
-                        }
+                        options: _vm.cars
                       }
                     })
                   ],
@@ -45601,783 +52650,1991 @@ var render = function() {
                     "div",
                     { staticClass: "ydrop_down-years" },
                     [
-                      _c("yselectsearch", {
-                        attrs: {
-                          placeholder: "От",
-                          options: _vm.years,
-                          choosedItem: rbmy.yearFrom
-                        },
-                        on: {
-                          updateChoose: function($event) {
-                            return _vm.SET_YEAR_FROM({
-                              choose: $event,
-                              index: i
-                            })
-                          },
-                          deleteChoose: function($event) {
-                            return _vm.DELETE_YEAR_FROM({
-                              choose: $event,
-                              index: i
-                            })
-                          }
-                        }
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
                       }),
                       _vm._v(" "),
-                      _c("yselectsearch", {
-                        attrs: {
-                          placeholder: "До",
-                          options: _vm.years,
-                          choosedItem: rbmy.yearTo
-                        },
-                        on: {
-                          updateChoose: function($event) {
-                            return _vm.SET_YEAR_TO({ choose: $event, index: i })
-                          },
-                          deleteChoose: function($event) {
-                            return _vm.DELETE_YEAR_TO({
-                              choose: $event,
-                              index: i
-                            })
-                          }
-                        }
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item remove" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item countries" },
+                  [
+                    _c("h2", [_vm._v("Страна производитель")]),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: {
+                        placeholder: "Выберите страну",
+                        items: _vm.manufactureCountries
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Марка")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.carBrandsArr
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
                       })
                     ],
                     1
                   )
                 ]),
                 _vm._v(" "),
-                i != 0
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "yremove_car-items",
-                        on: {
-                          click: function($event) {
-                            return _vm.DELETE_RBMY(i)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-trash-alt" })]
-                    )
-                  : _vm._e()
-              ])
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "yadded-car-item",
-                on: {
-                  click: function($event) {
-                    return _vm.CREATE_NEW_RBMY({ regionChoose: 1 })
-                  }
-                }
-              },
-              [_vm._v("Добавить марку")]
-            ),
-            _vm._v("\n                    " + _vm._s(_vm.generateLink) + "\n")
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-region_price-items" }, [
-        _c(
-          "div",
-          { staticClass: "yreg_container" },
-          [
-            _c("h2", [_vm._v("Регион")]),
-            _vm._v(" "),
-            _c("yselectmultysearch", {
-              attrs: {
-                placeholder: "Выберите город",
-                options: _vm.cities,
-                choosedItems: _vm.choosedCities
-              },
-              on: {
-                updateChoose: function($event) {
-                  return _vm.SET_CITIES_CHOOSE($event)
-                },
-                deleteChoose: function($event) {
-                  return _vm.DELETE_CITIES_CHOOSE($event)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "yreg-checkbox" }, [
+                _vm._m(7)
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item exclude" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Исключить марку")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item exclude" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "yflex_dir" },
-                _vm._l(_vm.regionAndPart, function(item) {
-                  return _c("div", { staticClass: "yside_country" }, [
-                    _c(
-                      "h2",
-                      [
-                        _c("ycheck", {
-                          attrs: {
-                            name: item.name,
-                            checked: item.choosed,
-                            checkHide: true
-                          },
-                          on: {
-                            checked: function($event) {
-                              return _vm.SET_CHOOSED_REGION_PARTS(item.val)
-                            }
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "yside_check" },
-                      _vm._l(item.children, function(child, i) {
-                        return _c("ycheck", {
-                          key: i,
-                          attrs: { name: child.name, checked: child.choosed },
-                          on: {
-                            checked: function($event) {
-                              return _vm.SET_CHOOSED_REGIONS(child.val)
-                            }
-                          }
-                        })
-                      }),
-                      1
-                    )
-                  ])
-                }),
-                0
-              )
-            ])
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-specifications_cars" }, [
-        _c("h2", [_vm._v("Технические характеристики")]),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "yother_specifications" }, [
-          _c("h3", [_vm._v("Цвет")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yvis_other" }, [
-            _c("div", { staticClass: "yvis_other-left" }, [
-              _c("div", { staticClass: "ycheck_color" }, [
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
+                { staticClass: "yexclude_country-car" },
+                [
+                  _c("h2", [_vm._v("Исключить страну")]),
                   _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#742D05" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.manufactureCountries
                     },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#FFCB11" },
-                    attrs: { for: "" }
+                    on: { setItem: _vm.selectedItem }
                   })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: {
-                      "background-color": "rgba(80, 83, 83, 0.92)"
-                    },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#FFFFFF" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#000000" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#0B3F8D" },
-                    attrs: { for: "" }
-                  })
-                ])
-              ]),
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "ycheck_color" }, [
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#5100B8" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#E30000" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#1D8D0B" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#0066FF" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#FFF504" },
-                    attrs: { for: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ylabel_visible" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.picked,
-                        expression: "picked"
-                      }
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.picked)
-                        ? _vm._i(_vm.picked, null) > -1
-                        : _vm.picked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.picked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.picked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.picked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.picked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", {
-                    staticStyle: { "background-color": "#FF007A" },
-                    attrs: { for: "" }
-                  })
-                ])
-              ]),
+              _c("button", { staticClass: "yadded-car-item exclude_counry" }, [
+                _vm._v("Добавить страну")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-region_price-items" }, [
+            _c("div", { staticClass: "ychange_price-container" }, [
+              _c("h2", [_vm._v("Цена")]),
               _vm._v(" "),
               _c(
-                "button",
-                {
-                  staticClass: "ycolor_more",
-                  on: {
-                    click: function($event) {
-                      _vm.colorOpen = !_vm.colorOpen
-                    }
-                  }
-                },
+                "div",
+                { staticClass: "yrange_slider-container" },
                 [
-                  _c("i", {
-                    staticClass: "fas",
-                    class: {
-                      "fa-chevron-up": _vm.colorOpen,
-                      "fa-chevron-down": !_vm.colorOpen
-                    }
+                  _c("yrange"),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "Возможен торг" } }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на автомобиль" }
+                  }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на недвижимость" }
                   })
-                ]
+                ],
+                1
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "yvis_other-right" }, [
+            _vm.regionArr.length != 0
+              ? _c(
+                  "div",
+                  { staticClass: "yreg_container" },
+                  [
+                    _c("h2", [_vm._v("Регион")]),
+                    _vm._v(" "),
+                    _c("yfsearch", {
+                      attrs: {
+                        placeholder: "Выберите город",
+                        options: _vm.regionArr
+                      },
+                      on: { responseResult: _vm.computeCityResult }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "yselect_region" },
+                      _vm._l(_vm.choosedCities, function(city, city_idx) {
+                        return _c(
+                          "div",
+                          { staticClass: "yselect_region-item" },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(city.name) +
+                                "\n                            "
+                            ),
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "12",
+                                  height: "12",
+                                  viewBox: "0 0 12 12",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.removeChoosedCities(city_idx)
+                                  }
+                                }
+                              },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "6",
+                                    cy: "6",
+                                    r: "6",
+                                    fill: "white"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  { attrs: { "clip-path": "url(#clip0)" } },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z",
+                                        fill: "#0B3F8D"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("defs", [
+                                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                                    _c("rect", {
+                                      attrs: {
+                                        width: "6",
+                                        height: "6",
+                                        fill: "white",
+                                        transform: "translate(3 3)"
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yreg-checkbox" }, [
+                      _c(
+                        "div",
+                        { staticClass: "yflex_dir" },
+                        _vm._l(_vm.regionAndPart, function(item) {
+                          return _c("div", { staticClass: "yside_country" }, [
+                            _c("h2", [_vm._v(_vm._s(item.name))]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "yside_check" },
+                              _vm._l(item.children, function(child) {
+                                return _c("div", { staticClass: "y-check " }, [
+                                  _c(
+                                    "input",
+                                    _vm._b(
+                                      {
+                                        attrs: {
+                                          id: child.alias,
+                                          type: "checkbox"
+                                        },
+                                        on: {
+                                          change: function($event) {
+                                            return _vm.SET_CHOOSED_REGIONS(
+                                              child.val
+                                            )
+                                          }
+                                        }
+                                      },
+                                      "input",
+                                      { checked: child.choosed == true },
+                                      false
+                                    )
+                                  ),
+                                  _vm._v(" "),
+                                  _c("label", { attrs: { for: child.alias } }, [
+                                    _vm._v(_vm._s(child.name))
+                                  ])
+                                ])
+                              }),
+                              0
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  ],
+                  1
+                )
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-condition_cars" }, [
+            _c("h2", [_vm._v("Состояние")]),
+            _vm._v(" "),
+            _vm._m(8),
+            _vm._v(" "),
+            _c("div", { staticClass: "yb-status_checked-items" }, [
+              _c("h2", [_vm._v("Пригнан из")]),
+              _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "yother_visl-btn" },
-                _vm._l(_vm.accordionItems, function(accordion, idx) {
-                  return _c(
+                { staticClass: "yb-select_items" },
+                [
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(9)
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-specifications_cars" }, [
+            _c("h2", [_vm._v("Технические характеристики")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yselect_specifications" }, [
+              _c(
+                "div",
+                { staticClass: "vis_l-specifications" },
+                [
+                  _c("h2", [_vm._v("Топливо")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("КПП")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transmission
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Тип привода")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.typeofdrive
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_c-specifications y-double" }, [
+                _c("h3", [_vm._v("Росход топлива, л./100 км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Объём, л.")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Мощность")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_r-specifications y-double" }, [
+                _c("h3", [_vm._v("Пробег, тыс.км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество дверей")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество мест")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yother_specifications" }, [
+              _c("h3", [_vm._v("Цвет")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_other" }, [
+                _c("div", { staticClass: "yvis_other-left" }, [
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _vm._m(11),
+                  _vm._v(" "),
+                  _c(
                     "button",
                     {
+                      staticClass: "ycolor_more",
                       on: {
                         click: function($event) {
-                          _vm.otherShowID = idx
+                          _vm.colorOpen = !_vm.colorOpen
                         }
                       }
                     },
                     [
-                      _vm._v(
-                        "\n                                    " +
-                          _vm._s(accordion.title) +
-                          "\n                                    "
-                      ),
                       _c("i", {
-                        staticClass: "fas ",
+                        staticClass: "fas",
                         class: {
-                          "fa-angle-right": _vm.otherShowID === idx,
-                          "fa-angle-left": _vm.otherShowID != idx
+                          "fa-chevron-up": _vm.colorOpen,
+                          "fa-chevron-down": !_vm.colorOpen
                         }
                       })
                     ]
                   )
-                }),
-                0
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yvis_other-right" }, [
+                  _c(
+                    "div",
+                    { staticClass: "yother_visl-btn" },
+                    _vm._l(_vm.accordionItems, function(accordion, idx) {
+                      return _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.otherShowID = idx
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(accordion.title) +
+                              "\n                                    "
+                          ),
+                          _c("i", {
+                            staticClass: "fas ",
+                            class: {
+                              "fa-angle-right": _vm.otherShowID === idx,
+                              "fa-angle-left": _vm.otherShowID != idx
+                            }
+                          })
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yother_visr-options" })
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yspecification_results" }, [
+            _c("h3", [_vm._v("Результаты поиска")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yvisual_results" }, [
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Сортировка")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.sortBy }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Период подачи")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.deliveryPeriod
+                    }
+                  })
+                ],
+                1
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "yother_visr-options" })
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Актуальность")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.isActual }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Показывать")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.amountShow }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(12)
             ])
-          ])
+          ]),
+          _vm._v(" "),
+          _vm._m(13)
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _vm._m(3)
-    ])
+      : _c("div", { staticClass: "ybexpanded_search" }, [
+          _c("h1", { staticClass: "ytitle-exp" }, [
+            _vm._v("Расширенный поиск")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-carsearch_items" }, [
+            _c("div", { staticClass: "yoptions_items" }, [
+              _vm._m(14),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "ycheckbox_options" },
+                [
+                  _c("ycheckbox", {
+                    attrs: { text: "Поиск со всех ресурсов" }
+                  }),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "С фото" } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "y-transport_options" },
+                [
+                  _c("h2", [_vm._v("Тип транспорта")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transportType
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Тип кузова")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yb-checked_type" }, [
+                    _c(
+                      "div",
+                      { staticClass: "yl-vis checkbox" },
+                      _vm._l(_vm.bodyType, function(item, index) {
+                        return _c("div", { staticClass: "yvis_checkbox" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.transportTypeChecked[index],
+                                expression: "transportTypeChecked[index]"
+                              }
+                            ],
+                            staticClass: "ycheck",
+                            attrs: { id: item.name, type: "checkbox" },
+                            domProps: {
+                              value: item.name,
+                              checked: Array.isArray(
+                                _vm.transportTypeChecked[index]
+                              )
+                                ? _vm._i(
+                                    _vm.transportTypeChecked[index],
+                                    item.name
+                                  ) > -1
+                                : _vm.transportTypeChecked[index]
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.addToArray(item, index)
+                              },
+                              change: function($event) {
+                                var $$a = _vm.transportTypeChecked[index],
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = item.name,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.transportTypeChecked,
+                                        index,
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.transportTypeChecked,
+                                        index,
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(_vm.transportTypeChecked, index, $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "y-body_name",
+                              attrs: { for: item.name }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(item.name) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ])
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "add-cars_items" }, [
+              _c("div", { staticClass: "yflex_car-item" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item countries" },
+                  [
+                    _c("h2", [_vm._v("Страна производитель")]),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: {
+                        placeholder: "Выберите страну",
+                        items: _vm.manufactureCountries
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Марка")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.carBrandsArr
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item remove" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item countries" },
+                  [
+                    _c("h2", [_vm._v("Страна производитель")]),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: {
+                        placeholder: "Выберите страну",
+                        items: _vm.manufactureCountries
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Марка")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.carBrandsArr
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      },
+                      on: { setItem: _vm.selectedItem }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(15)
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yflex_car-item exclude" }, [
+                _c(
+                  "div",
+                  { staticClass: "ycars-item marks" },
+                  [
+                    _c("h2", [_vm._v("Исключить марку")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите марку",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ycars-item model" },
+                  [
+                    _c("h2", [_vm._v("Модель")]),
+                    _vm._v(" "),
+                    _c("yselect", {
+                      attrs: {
+                        placeholder: "Выберите модель",
+                        options: _vm.cars
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ycars-item years" }, [
+                  _c("h2", [_vm._v("Год")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ydrop_down-years" },
+                    [
+                      _c("ydropdown", {
+                        attrs: { placeholder: "От", items: _vm.reversedYears }
+                      }),
+                      _vm._v(" "),
+                      _c("ydropdown", {
+                        attrs: { placeholder: "До", items: _vm.reversedYears }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item exclude" }, [
+                _vm._v("Добавить марку")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yexclude_country-car" },
+                [
+                  _c("h2", [_vm._v("Исключить страну")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "yadded-car-item exclude_counry" }, [
+                _vm._v("Добавить страну")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-region_price-items" }, [
+            _c("div", { staticClass: "ychange_price-container" }, [
+              _c("h2", [_vm._v("Цена")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yrange_slider-container" },
+                [
+                  _c("yrange"),
+                  _vm._v(" "),
+                  _c("ycheckbox", { attrs: { text: "Возможен торг" } }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на автомобиль" }
+                  }),
+                  _vm._v(" "),
+                  _c("ycheckbox", {
+                    attrs: { text: "Возможен обмен на недвижимость" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _vm.regionArr.length != 0
+              ? _c(
+                  "div",
+                  { staticClass: "yreg_container" },
+                  [
+                    _c("h2", [_vm._v("Регион")]),
+                    _vm._v(" "),
+                    _c("yfsearch", {
+                      attrs: {
+                        placeholder: "Выберите город",
+                        options: _vm.regionArr
+                      },
+                      on: { responseResult: _vm.computeCityResult }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "yselect_region" },
+                      _vm._l(_vm.choosedCities, function(city, city_idx) {
+                        return _c(
+                          "div",
+                          { staticClass: "yselect_region-item" },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(city.name) +
+                                "\n                            "
+                            ),
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "12",
+                                  height: "12",
+                                  viewBox: "0 0 12 12",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.removeChoosedCities(city_idx)
+                                  }
+                                }
+                              },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "6",
+                                    cy: "6",
+                                    r: "6",
+                                    fill: "white"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  { attrs: { "clip-path": "url(#clip0)" } },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z",
+                                        fill: "#0B3F8D"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("defs", [
+                                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                                    _c("rect", {
+                                      attrs: {
+                                        width: "6",
+                                        height: "6",
+                                        fill: "white",
+                                        transform: "translate(3 3)"
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yreg-checkbox" }, [
+                      _c(
+                        "div",
+                        { staticClass: "yflex_dir" },
+                        _vm._l(_vm.regionAndPart, function(item) {
+                          return _c("div", { staticClass: "yside_country" }, [
+                            _c("h2", [_vm._v(_vm._s(item.name))]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "yside_check" },
+                              _vm._l(item.children, function(child) {
+                                return _c("div", { staticClass: "y-check " }, [
+                                  _c(
+                                    "input",
+                                    _vm._b(
+                                      {
+                                        attrs: {
+                                          id: child.alias,
+                                          type: "checkbox"
+                                        },
+                                        on: {
+                                          change: function($event) {
+                                            return _vm.SET_CHOOSED_REGIONS(
+                                              child.val
+                                            )
+                                          }
+                                        }
+                                      },
+                                      "input",
+                                      { checked: child.choosed == true },
+                                      false
+                                    )
+                                  ),
+                                  _vm._v(" "),
+                                  _c("label", { attrs: { for: child.alias } }, [
+                                    _vm._v(_vm._s(child.name))
+                                  ])
+                                ])
+                              }),
+                              0
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  ],
+                  1
+                )
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-condition_cars" }, [
+            _c("h2", [_vm._v("Состояние")]),
+            _vm._v(" "),
+            _vm._m(16),
+            _vm._v(" "),
+            _c("div", { staticClass: "yb-status_checked-items" }, [
+              _c("h2", [_vm._v("Пригнан из")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yb-select_items" },
+                [
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Выберите страну",
+                      items: _vm.countryName
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(17)
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yb-specifications_cars" }, [
+            _c("h2", [_vm._v("Технические характеристики")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yselect_specifications" }, [
+              _c(
+                "div",
+                { staticClass: "vis_l-specifications" },
+                [
+                  _c("h2", [_vm._v("Топливо")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.fuel },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("КПП")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.transmission
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Тип привода")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.typeofdrive
+                    },
+                    on: { setItem: _vm.selectedItem }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_c-specifications y-double" }, [
+                _c("h3", [_vm._v("Росход топлива, л./100 км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Объём, л.")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Мощность")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "vis_r-specifications y-double" }, [
+                _c("h3", [_vm._v("Пробег, тыс.км")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество дверей")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Количество мест")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydouble_dropdown" },
+                  [
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test, placeholder: "От" }
+                    }),
+                    _vm._v(" "),
+                    _c("ydropdown", {
+                      attrs: { items: _vm.test2, placeholder: "До" }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yother_specifications" }, [
+              _c("h3", [_vm._v("Цвет")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_other" }, [
+                _c("div", { staticClass: "yvis_other-left" }, [
+                  _c("div", { staticClass: "ycheck_color" }, [
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#742D05" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FFCB11" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: {
+                          "background-color": "rgba(80, 83, 83, 0.92)"
+                        },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FFFFFF" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#000000" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#0B3F8D" },
+                        attrs: { for: "" }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ycheck_color" }, [
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#5100B8" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#E30000" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#1D8D0B" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#0066FF" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FFF504" },
+                        attrs: { for: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ylabel_visible" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.picked)
+                            ? _vm._i(_vm.picked, null) > -1
+                            : _vm.picked
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.picked,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.picked = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.picked = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.picked = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", {
+                        staticStyle: { "background-color": "#FF007A" },
+                        attrs: { for: "" }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ycolor_more",
+                      on: {
+                        click: function($event) {
+                          _vm.colorOpen = !_vm.colorOpen
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fas",
+                        class: {
+                          "fa-chevron-up": _vm.colorOpen,
+                          "fa-chevron-down": !_vm.colorOpen
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yvis_other-right" }, [
+                  _c(
+                    "div",
+                    { staticClass: "yother_visl-btn" },
+                    _vm._l(_vm.accordionItems, function(accordion, idx) {
+                      return _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.otherShowID = idx
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(accordion.title) +
+                              "\n                                    "
+                          ),
+                          _c("i", {
+                            staticClass: "fas ",
+                            class: {
+                              "fa-angle-right": _vm.otherShowID === idx,
+                              "fa-angle-left": _vm.otherShowID != idx
+                            }
+                          })
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yother_visr-options" })
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yspecification_results" }, [
+            _c("h3", [_vm._v("Результаты поиска")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yvisual_results" }, [
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Сортировка")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.sortBy }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Период подачи")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: {
+                      placeholder: "Не выбрано",
+                      items: _vm.deliveryPeriod
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "yvis_res-select" },
+                [
+                  _c("h2", [_vm._v("Актуальность")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.isActual }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Показывать")]),
+                  _vm._v(" "),
+                  _c("ydropdown", {
+                    attrs: { placeholder: "Не выбрано", items: _vm.amountShow }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(18)
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(19)
+        ])
   ])
 }
 var staticRenderFns = [
@@ -46385,181 +54642,175 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-condition_cars" }, [
-      _c("h2", [_vm._v("Состояние")]),
+    return _c("div", { staticClass: "yoption_btn" }, [
+      _c("button", { staticClass: "change_type active" }, [_vm._v("Все")]),
       _vm._v(" "),
-      _c("div", { staticClass: "yb-status_car-items" }, [
-        _c("div", { staticClass: "status_items" }, [
-          _c("h2", [_vm._v("Авто не в Украине")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "change_vis-btn" }, [
-            _c("button", { staticClass: " btn_s  active" }, [
-              _vm._v("Показать")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-          ])
-        ]),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "y-cut_added-item" }, [
+      _c("button", { staticClass: "car-items_btn y-added " }, [
+        _vm._v("Добавить марку")
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "car-items_btn y-сut" }, [
+        _vm._v("Исключить марку")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-status_car-items" }, [
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Авто не в Украине")]),
         _vm._v(" "),
-        _c("div", { staticClass: "status_items" }, [
-          _c("h2", [_vm._v("В кредите")]),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
           _vm._v(" "),
-          _c("div", { staticClass: "change_vis-btn" }, [
-            _c("button", { staticClass: " btn_s  active" }, [
-              _vm._v("Показать")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "status_items" }, [
-          _c("h2", [_vm._v("Нерастаможеные")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "change_vis-btn" }, [
-            _c("button", { staticClass: " btn_s  active" }, [
-              _vm._v("Показать")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "status_items" }, [
-          _c("h2", [_vm._v("Конфискат")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "change_vis-btn" }, [
-            _c("button", { staticClass: " btn_s  active" }, [
-              _vm._v("Показать")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "status_items" }, [
-          _c("h2", [_vm._v("После ДТП")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "change_vis-btn" }, [
-            _c("button", { staticClass: " btn_s  active" }, [
-              _vm._v("Показать")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "status_items" }, [
-          _c("h2", [_vm._v("Не на ходу")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "change_vis-btn" }, [
-            _c("button", { staticClass: " btn_s  active" }, [
-              _vm._v("Показать")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "status_items" }, [
-          _c("h2", [_vm._v("Продавец")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "change_vis-btn" }, [
-            _c("button", { staticClass: "btn_s large active" }, [
-              _vm._v("Частное лицо")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
-          ])
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "yb-status_checked-items" }, [
-        _c("h2", [_vm._v("Пригнан из")]),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("В кредите")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yb-select_items" }, [
-          _c("div", { staticClass: "yb-cheked_items" }, [
-            _c("div", { staticClass: "ycheked vis_l" }, [
-              _c("div", { staticClass: "yvis_l checkbox" }, [
-                _c("input", { attrs: { id: "1", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "1" } }, [
-                  _vm._v("Гаражное хранение")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yvis_l checkbox" }, [
-                _c("input", { attrs: { id: "2", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "2" } }, [
-                  _vm._v("Индивидуальная комплектация")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yvis_l checkbox" }, [
-                _c("input", { attrs: { id: "3", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yvis_l checkbox" }, [
-                _c("input", { attrs: { id: "4", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ycheked vis_c" }, [
-              _c("div", { staticClass: "yvis_c checkbox" }, [
-                _c("input", { attrs: { id: "5", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "5" } }, [
-                  _vm._v("Первая регистрация")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yvis_c checkbox" }, [
-                _c("input", { attrs: { id: "6", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "6" } }, [
-                  _vm._v("Первый владелец")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yvis_c checkbox" }, [
-                _c("input", { attrs: { id: "7", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "7" } }, [
-                  _vm._v("Пригоню под заказ")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yvis_c checkbox" }, [
-                _c("input", { attrs: { id: "8", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "8" } }, [
-                  _vm._v("Сервисная книжка")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ycheked vis_r" }, [
-              _c("div", { staticClass: "yvis_r checkbox" }, [
-                _c("input", { attrs: { id: "9", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "9" } }, [
-                  _vm._v("Ручное управление для инвалдов")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yvis_r checkbox" }, [
-                _c("input", { attrs: { id: "10", type: "checkbox" } }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "10" } }, [
-                  _vm._v("Требует ремонта")
-                ])
-              ])
-            ])
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Нерастаможеные")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Конфискат")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("После ДТП")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Не на ходу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Продавец")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: "btn_s large active" }, [
+            _vm._v("Частное лицо")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-cheked_items" }, [
+      _c("div", { staticClass: "ycheked vis_l" }, [
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "1", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "1" } }, [_vm._v("Гаражное хранение")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "2", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "2" } }, [
+            _vm._v("Индивидуальная комплектация")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "3", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "4", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "10", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_c" }, [
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "5", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "5" } }, [_vm._v("Первая регистрация")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "6", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "6" } }, [_vm._v("Первый владелец")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "7", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "7" } }, [_vm._v("Пригоню под заказ")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "8", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "8" } }, [_vm._v("Сервисная книжка")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "9", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "9" } }, [
+            _vm._v("Ручное управление для инвалдов")
           ])
         ])
       ])
@@ -46569,41 +54820,58 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yselectsearch_specifications" }, [
-      _c("div", { staticClass: "vis_l-specifications" }, [
-        _c("h2", [_vm._v("Топливо")]),
+    return _c("div", { staticClass: "yseach_card-id" }, [
+      _c("h3", [_vm._v("Поиск по ID")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "y_seach-id",
+        attrs: { type: "text", placeholder: "Введите ID объявления" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ysearch_results" }, [
+      _c("h2", [_vm._v("Вы ищите:")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-repeat_selected" }, [
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
         _vm._v(" "),
-        _c("h2", [_vm._v("КПП")]),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
         _vm._v(" "),
-        _c("h2", [_vm._v("Тип привода")])
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "vis_c-specifications y-double" }, [
-        _c("h3", [_vm._v("Росход топлива, л./100 км")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ydouble_dropdown" }),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Объём, л.")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ydouble_dropdown" }),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Мощность")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ydouble_dropdown" })
+      _c("button", { staticClass: "yclear_form" }, [
+        _vm._v("Сбросить все фильтры")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "vis_r-specifications y-double" }, [
-        _c("h3", [_vm._v("Пробег, тыс.км")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ydouble_dropdown" }),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Количество дверей")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ydouble_dropdown" }),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Количество мест")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ydouble_dropdown" })
+      _c("div", { staticClass: "yb-count_result" }, [
+        _vm._v(" Найдено 178 978 авто")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "y_form-search" }, [
+        _c("button", [_vm._v("Поиск")])
       ])
     ])
   },
@@ -46611,31 +54879,540 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yspecification_results" }, [
-      _c("h3", [_vm._v("Результаты поиска")]),
+    return _c("div", { staticClass: "yoption_btn" }, [
+      _c("button", { staticClass: "change_type active" }, [_vm._v("Все")]),
       _vm._v(" "),
-      _c("div", { staticClass: "yvisual_results" }, [
-        _c("div", { staticClass: "yvis_res-select" }, [
-          _c("h2", [_vm._v("Сортировка")]),
-          _vm._v(" "),
-          _c("h2", [_vm._v("Период подачи")])
-        ]),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "yremove_car-items" }, [
+      _c("i", { staticClass: "fas fa-trash-alt" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-status_car-items" }, [
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Авто не в Украине")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yvis_res-select" }, [
-          _c("h2", [_vm._v("Актуальность")]),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
           _vm._v(" "),
-          _c("h2", [_vm._v("Показывать")])
-        ]),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("В кредите")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yseach_card-id" }, [
-          _c("h3", [_vm._v("Поиск по ID")]),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "y_seach-id",
-            attrs: { type: "text", placeholder: "Введите ID объявления" }
-          })
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Нерастаможеные")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Конфискат")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("После ДТП")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Не на ходу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Продавец")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: "btn_s large active" }, [
+            _vm._v("Частное лицо")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-cheked_items" }, [
+      _c("div", { staticClass: "ycheked vis_l" }, [
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "1", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "1" } }, [_vm._v("Гаражное хранение")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "2", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "2" } }, [
+            _vm._v("Индивидуальная комплектация")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "3", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "4", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_c" }, [
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "5", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "5" } }, [_vm._v("Первая регистрация")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "6", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "6" } }, [_vm._v("Первый владелец")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "7", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "7" } }, [_vm._v("Пригоню под заказ")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "8", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "8" } }, [_vm._v("Сервисная книжка")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_r" }, [
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "9", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "9" } }, [
+            _vm._v("Ручное управление для инвалдов")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "10", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycheck_color" }, [
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#742D05" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFCB11" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "rgba(80, 83, 83, 0.92)" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFFFFF" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#000000" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#0B3F8D" },
+          attrs: { for: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycheck_color" }, [
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#5100B8" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#E30000" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#1D8D0B" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#0066FF" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FFF504" },
+          attrs: { for: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ylabel_visible" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v(" "),
+        _c("label", {
+          staticStyle: { "background-color": "#FF007A" },
+          attrs: { for: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yseach_card-id" }, [
+      _c("h3", [_vm._v("Поиск по ID")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "y_seach-id",
+        attrs: { type: "text", placeholder: "Введите ID объявления" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ysearch_results" }, [
+      _c("h2", [_vm._v("Вы ищите:")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "yb-repeat_selected" }, [
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item_selected" }, [
+          _c("span", [_vm._v("Легковые")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-times" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yb-count_result" }, [
+          _vm._v(" Найдено 178 978 авто")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "yclear_form" }, [
+        _vm._v("Сбросить все фильтры")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "y_form-search" }, [
+        _c("button", [_vm._v("Поиск")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yoption_btn" }, [
+      _c("button", { staticClass: "change_type active" }, [_vm._v("Все")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "yremove_car-items" }, [
+      _c("i", { staticClass: "fas fa-trash-alt" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-status_car-items" }, [
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Авто не в Украине")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("В кредите")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Нерастаможеные")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Конфискат")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("После ДТП")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Не на ходу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status_items" }, [
+        _c("h2", [_vm._v("Продавец")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "change_vis-btn" }, [
+          _c("button", { staticClass: "btn_s large active" }, [
+            _vm._v("Частное лицо")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-cheked_items" }, [
+      _c("div", { staticClass: "ycheked vis_l" }, [
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "1", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "1" } }, [_vm._v("Гаражное хранение")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "2", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "2" } }, [
+            _vm._v("Индивидуальная комплектация")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "3", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_l checkbox" }, [
+          _c("input", { attrs: { id: "4", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_c" }, [
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "5", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "5" } }, [_vm._v("Первая регистрация")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "6", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "6" } }, [_vm._v("Первый владелец")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "7", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "7" } }, [_vm._v("Пригоню под заказ")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_c checkbox" }, [
+          _c("input", { attrs: { id: "8", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "8" } }, [_vm._v("Сервисная книжка")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycheked vis_r" }, [
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "9", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "9" } }, [
+            _vm._v("Ручное управление для инвалдов")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_r checkbox" }, [
+          _c("input", { attrs: { id: "10", type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yseach_card-id" }, [
+      _c("h3", [_vm._v("Поиск по ID")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "y_seach-id",
+        attrs: { type: "text", placeholder: "Введите ID объявления" }
+      })
     ])
   },
   function() {
@@ -48563,10 +57340,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yprice.vue?vue&type=template&id=760b543f&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yprice.vue?vue&type=template&id=760b543f& ***!
-  \**************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yrangeslider.vue?vue&type=template&id=39988254&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yrangeslider.vue?vue&type=template&id=39988254& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -48578,28 +57355,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "yprice" },
-    [
+  return _c("div", { staticClass: "yprice_container" }, [
+    _c("div", { staticClass: "input_change" }, [
       _c("input", {
         directives: [
           {
             name: "model",
-            rawName: "v-model",
+            rawName: "v-model.number",
             value: _vm.minRange,
-            expression: "minRange"
+            expression: "minRange",
+            modifiers: { number: true }
           }
         ],
         staticClass: "change",
         attrs: { type: "number", placeholder: "От" },
         domProps: { value: _vm.minRange },
         on: {
+          change: _vm.updateSlider,
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.minRange = $event.target.value
+            _vm.minRange = _vm._n($event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$forceUpdate()
           }
         }
       }),
@@ -48608,39 +57388,39 @@ var render = function() {
         directives: [
           {
             name: "model",
-            rawName: "v-model",
+            rawName: "v-model.number",
             value: _vm.maxRange,
-            expression: "maxRange"
+            expression: "maxRange",
+            modifiers: { number: true }
           }
         ],
         staticClass: "change",
         attrs: { type: "number", placeholder: "До" },
         domProps: { value: _vm.maxRange },
         on: {
+          change: _vm.updateSlider,
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.maxRange = $event.target.value
+            _vm.maxRange = _vm._n($event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$forceUpdate()
           }
         }
       }),
       _vm._v(" "),
-      _c("ydropdown", {
-        attrs: {
-          options: _vm.curencies,
-          placeholder: "Валюта",
-          choosedItem: _vm.searchDeatils.currencyChoosed
-        },
-        on: {
-          updateChoosed: function($event) {
-            return _vm.SET_CURRENCY_CHOOSED($event)
-          }
-        }
-      })
-    ],
-    1
-  )
+      _c(
+        "div",
+        { staticClass: "currency_change" },
+        [_c("ydropdown", { attrs: { items: _vm.currency } })],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { ref: "slider", attrs: { id: "slider" } })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48845,164 +57625,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yselectmultysearch.vue?vue&type=template&id=4386b4aa&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yselectmultysearch.vue?vue&type=template&id=4386b4aa& ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "yselectmultysearch" }, [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.search,
-          expression: "search"
-        }
-      ],
-      ref: "yselectsearch",
-      staticClass: "input-dropdown",
-      attrs: { type: "text", placeholder: _vm.generatingPlaceholder },
-      domProps: { value: _vm.search },
-      on: {
-        mousedown: _vm.focusSelectSearch,
-        focus: _vm.focusSelectSearch,
-        keyup: [
-          function($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.selectingResult($event)
-          },
-          function($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])
-            ) {
-              return null
-            }
-            return _vm.cleanTextField($event)
-          }
-        ],
-        keydown: [
-          function($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "down", 40, $event.key, [
-                "Down",
-                "ArrowDown"
-              ])
-            ) {
-              return null
-            }
-            return _vm.onDown($event)
-          },
-          function($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "up", 38, $event.key, ["Up", "ArrowUp"])
-            ) {
-              return null
-            }
-            return _vm.onUp($event)
-          }
-        ],
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.search = $event.target.value
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("i", {
-      staticClass: "fas",
-      class: _vm.openResults ? "fa-search" : "fa-chevron-down",
-      on: {
-        click: function($event) {
-          return _vm.$refs.yselectsearch.focus()
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c(
-      "ul",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.openResults,
-            expression: "openResults"
-          }
-        ],
-        ref: "scrollContainer",
-        staticClass: "options-list",
-        attrs: { id: "scrollContainer" }
-      },
-      [
-        _vm.results.length == 0 ? _c("li", [_vm._v("Такого нет")]) : _vm._e(),
-        _vm._v(" "),
-        _vm._l(_vm.results, function(result, i) {
-          return _c(
-            "li",
-            {
-              ref: "options",
-              refInFor: true,
-              class: {
-                selected: i === _vm.selected,
-                selectedMouse: i === _vm.mouseSelected,
-                checked: _vm.isPresent(result.val)
-              },
-              on: {
-                mouseenter: function($event) {
-                  _vm.mouseSelected = i
-                },
-                mouseleave: function($event) {
-                  _vm.mouseSelected = null
-                },
-                click: function($event) {
-                  return _vm.clickingResult(result.val)
-                }
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fas",
-                class: _vm.isPresent(result.val)
-                  ? "far fa-check-square"
-                  : "far fa-square"
-              }),
-              _vm._v(" " + _vm._s(result.name || result) + "\n        ")
-            ]
-          )
-        })
-      ],
-      2
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yselectsearch.vue?vue&type=template&id=34a648c4&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yselectsearch.vue?vue&type=template&id=34a648c4& ***!
@@ -49018,7 +57640,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "yselectsearch" }, [
+  return _c("div", { staticClass: "autocomplete" }, [
     _c("input", {
       directives: [
         {
@@ -49028,13 +57650,23 @@ var render = function() {
           expression: "search"
         }
       ],
-      ref: "yselectsearch",
+      ref: "dropdown",
       staticClass: "input-dropdown",
       attrs: { type: "text", placeholder: _vm.generatingPlaceholder },
       domProps: { value: _vm.search },
       on: {
-        mousedown: _vm.focusSelectSearch,
-        focus: _vm.focusSelectSearch,
+        input: [
+          function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.search = $event.target.value
+          },
+          _vm.onChange
+        ],
+        blur: function($event) {
+          _vm.isOpened = true
+        },
         keyup: [
           function($event) {
             if (
@@ -49043,7 +57675,16 @@ var render = function() {
             ) {
               return null
             }
-            return _vm.selectingResult($event)
+            return _vm.select($event)
+          },
+          function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "tab", 9, $event.key, "Tab")
+            ) {
+              return null
+            }
+            return _vm.select($event)
           },
           function($event) {
             if (
@@ -49052,7 +57693,7 @@ var render = function() {
             ) {
               return null
             }
-            return _vm.cleanTextField($event)
+            _vm.isOpen = false
           }
         ],
         keydown: [
@@ -49078,39 +57719,21 @@ var render = function() {
             return _vm.onUp($event)
           }
         ],
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.search = $event.target.value
-        }
+        click: _vm.onChange
       }
     }),
     _vm._v(" "),
-    (_vm.search.length !== 0 && _vm.openResults) ||
-    (_vm.getChoosedObject !== undefined && _vm.deleteDis !== true)
-      ? _c("i", {
-          staticClass: "fas fa-times",
-          class: {
-            delete: _vm.getChoosedObject !== undefined && _vm.deleteDis !== true
-          },
-          on: {
-            click: function($event) {
-              if ($event.target !== $event.currentTarget) {
-                return null
-              }
-              return _vm.clearInput($event)
-            }
-          }
-        })
+    _vm.search.length !== 0 && _vm.isOpened
+      ? _c("i", { staticClass: "fas fa-times", on: { click: _vm.clearInput } })
+      : _vm.isOpened
+      ? _c("i", { staticClass: "fas fa-search" })
       : _c("i", {
-          staticClass: "fas",
-          class: _vm.openResults ? "fa-search" : "fa-chevron-down",
-          on: {
-            click: function($event) {
-              return _vm.$refs.yselectsearch.focus()
-            }
-          }
+          staticClass: "ynav-list-toggle fas",
+          class: {
+            "fa-chevron-up": _vm.isOpened,
+            "fa-chevron-down": !_vm.isOpened
+          },
+          on: { click: _vm.toggle }
         }),
     _vm._v(" "),
     _c(
@@ -49120,59 +57743,41 @@ var render = function() {
           {
             name: "show",
             rawName: "v-show",
-            value: _vm.openResults,
-            expression: "openResults"
+            value: _vm.isOpened,
+            expression: "isOpened"
           }
         ],
         ref: "scrollContainer",
-        staticClass: "options-list",
-        attrs: { id: "scrollContainer" }
+        staticClass: "options-list"
       },
-      [
-        _vm.getChoosedObject !== undefined
-          ? _c("li", { staticClass: "choosed" }, [
-              _vm._v(_vm._s(_vm.getChoosedObject.name)),
-              _c("i", { staticClass: "fas fa-check" })
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.results.length == 0 ? _c("li", [_vm._v("Такого нет")]) : _vm._e(),
-        _vm._v(" "),
-        _vm._l(_vm.results, function(result, i) {
-          return _c(
-            "li",
-            {
-              ref: "options",
-              refInFor: true,
-              class: {
-                selected: i === _vm.selected,
-                selectedMouse: i === _vm.mouseSelected,
-                faded:
-                  _vm.getChoosedObject !== undefined
-                    ? _vm.getChoosedObject.val == result.val
-                    : false
+      _vm._l(_vm.results, function(result, i) {
+        return _c(
+          "li",
+          {
+            ref: "options",
+            refInFor: true,
+            class: { selected: i === _vm.selected },
+            on: {
+              mouseenter: function($event) {
+                _vm.selected = i
               },
-              on: {
-                mouseenter: function($event) {
-                  _vm.mouseSelected = i
-                },
-                mouseleave: function($event) {
-                  _vm.mouseSelected = null
-                },
-                click: function($event) {
-                  return _vm.clickingResult(result.val)
-                }
+              click: function($event) {
+                return _vm.setResult(result)
               }
-            },
-            [
-              _vm._v(
-                "\n            " + _vm._s(result.name || result) + "\n        "
-              )
-            ]
-          )
-        })
-      ],
-      2
+            }
+          },
+          [
+            _vm._v(
+              "\n            " +
+                _vm._s(result.name || result) +
+                "\n            "
+            ),
+            _vm._t("item", null, { title: result })
+          ],
+          2
+        )
+      }),
+      0
     )
   ])
 }
@@ -71882,266 +80487,20 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/STORE/modules/RBMY.js":
-/*!********************************************!*\
-  !*** ./resources/js/STORE/modules/RBMY.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./public/img/system/static/withoutPhoto.png":
+/*!***************************************************!*\
+  !*** ./public/img/system/static/withoutPhoto.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-var state = {
-  rbmyFullStore: [{
-    regionChoose: null,
-    brandChoose: null,
-    modelsChoose: [],
-    yearFrom: null,
-    yearTo: null,
-    brands: [],
-    models: []
-  }],
-  manufactureRegions: [],
-  //one load
-  brands: [],
-  years: []
-};
-var getters = {
-  GET_RBMYS: function GET_RBMYS(state) {
-    return state.rbmyFullStore;
-  },
-  GET_MANUFACTURE_REGIONS: function GET_MANUFACTURE_REGIONS(state) {
-    return state.manufactureRegions;
-  },
-  //if absent RBMY brand units
-  GET_BRANDS: function GET_BRANDS(state) {
-    return state.brands;
-  },
-  GET_YEARS: function GET_YEARS(state) {
-    return state.years;
-  }
-};
-var mutations = {
-  SET_NEW_RBMY: function SET_NEW_RBMY(state, payload) {
-    state.rbmyFullStore = payload;
-  },
-  CREATE_NEW_RBMY: function CREATE_NEW_RBMY(state, payload) {
-    state.rbmyFullStore.push({
-      regionChoose: null,
-      brandChoose: null,
-      modelsChoose: [],
-      yearFrom: null,
-      yearTo: null,
-      brands: [],
-      models: []
-    });
-  },
-  DELETE_RBMY: function DELETE_RBMY(state, payload) {
-    state.rbmyFullStore.splice(payload, 1);
-  },
-  SET_REGION_CHOOSE: function SET_REGION_CHOOSE(state, payload) {
-    state.rbmyFullStore[payload.index].regionChoose = payload.choose;
-    var manufactureBrands = [];
-    state.brands.forEach(function (el) {
-      if (el.manufacture == payload.choose && el.manufacture !== null) {
-        manufactureBrands.push(el);
-      }
-    });
-    state.rbmyFullStore[payload.index].brands = manufactureBrands;
-    state.rbmyFullStore[payload.index].brandChoose = null;
-    state.rbmyFullStore[payload.index].models = [];
-    state.rbmyFullStore[payload.index].modelsChoose = [];
-  },
-  DELETE_REGION_CHOOSE: function DELETE_REGION_CHOOSE(state, payload) {
-    state.rbmyFullStore[payload.index].regionChoose = null;
-    state.rbmyFullStore[payload.index].brands = [];
-    state.rbmyFullStore[payload.index].brandChoose = null;
-    state.rbmyFullStore[payload.index].models = [];
-    state.rbmyFullStore[payload.index].modelsChoose = [];
-  },
-  CLEAR_BRANDS_MODELS: function CLEAR_BRANDS_MODELS(state, payload) {
-    state.rbmyFullStore = [{
-      regionChoose: null,
-      brandChoose: null,
-      modelsChoose: [],
-      yearFrom: null,
-      yearTo: null,
-      brands: [],
-      models: []
-    }];
-  },
-  SET_BRAND_CHOSE: function SET_BRAND_CHOSE(state, payload) {
-    state.rbmyFullStore[payload.index].brandChoose = payload.choose;
-    state.rbmyFullStore[payload.index].models = [];
-    state.rbmyFullStore[payload.index].modelsChoose = [];
-  },
-  DELETE_BRAND_CHOOSE: function DELETE_BRAND_CHOOSE(state, payload) {
-    state.rbmyFullStore[payload.index].brandChoose = null;
-    state.rbmyFullStore[payload.index].models = [];
-    state.rbmyFullStore[payload.index].modelsChoose = [];
-  },
-  SET_MODELS_CHOOSE: function SET_MODELS_CHOOSE(state, payload) {
-    state.rbmyFullStore[payload.index].modelsChoose.push(payload.choose);
-  },
-  DELETE_MODELS_CHOOSE: function DELETE_MODELS_CHOOSE(state, payload) {
-    state.rbmyFullStore[payload.index].modelsChoose.splice(state.rbmyFullStore[payload.index].modelsChoose.indexOf(payload.choose), 1);
-  },
-  SET_YEAR_FROM: function SET_YEAR_FROM(state, payload) {
-    var smartLink = state.rbmyFullStore[payload.index];
-
-    if (smartLink.yearTo !== null && payload.choose > smartLink.yearTo) {
-      var temp = smartLink.yearTo;
-      smartLink.yearTo = payload.choose;
-      smartLink.yearFrom = temp;
-    } else {
-      state.rbmyFullStore[payload.index].yearFrom = payload.choose;
-    }
-  },
-  DELETE_YEAR_FROM: function DELETE_YEAR_FROM(state, payload) {
-    state.rbmyFullStore[payload.index].yearFrom = null;
-  },
-  SET_YEAR_TO: function SET_YEAR_TO(state, payload) {
-    var smartLink = state.rbmyFullStore[payload.index];
-
-    if (smartLink.yearFrom !== null && payload.choose < smartLink.yearFrom) {
-      var temp = smartLink.yearFrom;
-      smartLink.yearFrom = payload.choose;
-      smartLink.yearTo = temp;
-    } else {
-      state.rbmyFullStore[payload.index].yearTo = payload.choose;
-    }
-  },
-  DELETE_YEAR_TO: function DELETE_YEAR_TO(state, payload) {
-    state.rbmyFullStore[payload.index].yearTo = null;
-  },
-  SET_MANUFACTURE_REGIONS_FROM_API: function SET_MANUFACTURE_REGIONS_FROM_API(state, payload) {
-    state.manufactureRegions = payload;
-  },
-  SET_BRANDS_FROM_API: function SET_BRANDS_FROM_API(state, payload) {
-    state.brands = payload;
-  },
-  SET_MODELS_FROM_API: function SET_MODELS_FROM_API(state, payload) {
-    state.rbmyFullStore[payload.index].models = payload.models;
-  },
-  SET_YEAR_FROM_GENERATOR: function SET_YEAR_FROM_GENERATOR(state, payload) {
-    state.years = payload;
-  }
-};
-var actions = {
-  MANUFACTURE_REGIONS_FROM_API: function () {
-    var _MANUFACTURE_REGIONS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_MANUFACTURE_REGIONS_FROM_API', response.data);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    function MANUFACTURE_REGIONS_FROM_API(_x, _x2) {
-      return _MANUFACTURE_REGIONS_FROM_API.apply(this, arguments);
-    }
-
-    return MANUFACTURE_REGIONS_FROM_API;
-  }(),
-  BRANDS_FROM_API: function () {
-    var _BRANDS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_BRANDS_FROM_API', response.data);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    function BRANDS_FROM_API(_x3, _x4) {
-      return _BRANDS_FROM_API.apply(this, arguments);
-    }
-
-    return BRANDS_FROM_API;
-  }(),
-  MODELS_FROM_API: function () {
-    var _MODELS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload['url']).then(function (response) {
-                payload['models'] = response.data;
-                context.commit('SET_MODELS_FROM_API', payload);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    function MODELS_FROM_API(_x5, _x6) {
-      return _MODELS_FROM_API.apply(this, arguments);
-    }
-
-    return MODELS_FROM_API;
-  }(),
-  GENERATE_YEAR: function GENERATE_YEAR(context, payload) {
-    var YearArr = [];
-
-    for (var i = payload; i >= 1900; i--) {
-      YearArr.push({
-        'name': '' + i,
-        'val': i
-      });
-    }
-
-    context.commit('SET_YEAR_FROM_GENERATOR', YearArr);
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = ({
-  state: state,
-  getters: getters,
-  mutations: mutations,
-  actions: actions
-});
+module.exports = "/images/withoutPhoto.png?aac205395a0d7fa96bbdb6781b781f97";
 
 /***/ }),
 
-/***/ "./resources/js/STORE/modules/REGIONS.js":
+/***/ "./resources/js/STORE/modules/regions.js":
 /*!***********************************************!*\
-  !*** ./resources/js/STORE/modules/REGIONS.js ***!
+  !*** ./resources/js/STORE/modules/regions.js ***!
   \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -72161,13 +80520,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var state = {
   choosedCities: [],
   choosedRegions: [],
-  choosedRegionParts: [],
-  cities: [],
-  FULL_REGIONS: []
+  regionAndParts: [],
+  FULL_REGIONS: [] // VerifyPageName: null,
+  // lastVerify: [], // data || isNew
+  // teapotLogin: null,
+  // user: [],
+
 };
 var getters = {
-  GET_CITIES: function GET_CITIES(state) {
-    var sortedCities = state.cities.sort(function (a, b) {
+  // AUTH_VERIFY_ID_COUNTER: state => {
+  //     return state.VerifyIDCounter;
+  // },
+  // AUTH_VERIFY: state => {
+  //     return state.lastVerify;
+  // },
+  // AUTH_TEAPOT_LOGIN: state => {
+  //     return state.teapotLogin;
+  // },
+  // AUTH_USER: state => {
+  //     return state.user;
+  // },
+  GET_CHOOSED_CITIES_FROM_STORE: function GET_CHOOSED_CITIES_FROM_STORE(state) {
+    var sortedCities = state.choosedCities.sort(function (a, b) {
       var nameA = a.name.toLowerCase(),
           nameB = b.name.toLowerCase();
       if (nameA < nameB) return -1;
@@ -72176,56 +80550,56 @@ var getters = {
     });
     return sortedCities;
   },
-  GET_CHOOSED_CITIES: function GET_CHOOSED_CITIES(state) {
-    return state.choosedCities;
-  },
-  GET_CHOOSED_REGIONS: function GET_CHOOSED_REGIONS(state) {
-    return state.choosedRegions;
+  GET_FULL_REGION_FROM_STORE: function GET_FULL_REGION_FROM_STORE(state) {
+    return state.FULL_REGIONS;
   },
   GET_REGION_AND_PART_FROM_STORE: function GET_REGION_AND_PART_FROM_STORE(state) {
-    var regionAndParts = [];
+    state.regionAndParts = [];
     state.FULL_REGIONS.forEach(function (el, i) {
-      var regionNewArr = [],
-          partsChoosed = state.choosedRegionParts.indexOf(el.val) !== -1,
-          countChoosed = 0;
+      var regionNewArr = [];
       el.children.forEach(function (reg_el, reg_i) {
-        var choosed = state.choosedRegions.indexOf(reg_el.val) !== -1;
-        if (choosed) countChoosed++;
+        //функция включения регионов, если регион включен принудительно
+        var condition = state.choosedRegions.find(function (chr, i) {
+          if (chr === reg_el.val) return true;
+        }); //функция включения регионов, если город включен, а регион нет
+
+        var choosedRegionByCity = false;
+        state.choosedCities.forEach(function (chc, i) {
+          if (chc.parent === reg_el.val) {
+            choosedRegionByCity = true;
+          }
+        });
         regionNewArr.push({
           'val': reg_el.val,
           'alias': reg_el.alias,
           'name': reg_el.name,
-          'choosed': choosed
+          'choosed': choosedRegionByCity || condition !== undefined
         });
       });
-
-      if (el.children.length == countChoosed && !partsChoosed) {
-        state.choosedRegionParts.push(el.val);
-      } else if (el.children.length !== countChoosed && partsChoosed) {
-        state.choosedRegionParts.splice(state.choosedRegionParts.indexOf(el.val), 1);
-      }
-
-      partsChoosed = state.choosedRegionParts.indexOf(el.val) !== -1;
-      regionAndParts.push({
+      state.regionAndParts.push({
         'val': el.val,
         'alias': el.alias,
         'name': el.name,
-        'choosed': partsChoosed,
+        'choosed': false,
         'children': regionNewArr
       });
     });
-    return regionAndParts;
+    return state.regionAndParts;
   }
 };
 var mutations = {
-  SET_REGION_ARR: function SET_REGION_ARR(state, payload) {
-    state.choosedRegions = payload.choosedRegions, state.choosedCities = payload.choosedCities;
+  SET_CITIES_TO_STORE: function SET_CITIES_TO_STORE(state, payload) {
+    var condition = state.choosedCities.find(function (el, i) {
+      if (payload.val === el.val) return true;
+      console.log(payload.val === el.val);
+    });
+
+    if (!condition) {
+      state.choosedCities.push(payload);
+    }
   },
-  SET_CITIES_CHOOSE: function SET_CITIES_CHOOSE(state, payload) {
-    state.choosedCities.push(payload);
-  },
-  DELETE_CITIES_CHOOSE: function DELETE_CITIES_CHOOSE(state, payload) {
-    state.choosedCities.splice(state.choosedCities.indexOf(payload), 1);
+  SET_REGIONS: function SET_REGIONS(state, payload) {
+    state.FULL_REGIONS = payload;
   },
   SET_CHOOSED_REGIONS: function SET_CHOOSED_REGIONS(state, payload) {
     var condition = state.choosedRegions.find(function (el) {
@@ -72237,33 +80611,25 @@ var mutations = {
     } else {
       state.choosedRegions.push(payload);
     }
-  },
-  SET_CHOOSED_REGION_PARTS: function SET_CHOOSED_REGION_PARTS(state, payload) {
-    var choosedPartPos = state.choosedRegionParts.indexOf(payload),
-        regionPartID = payload - 1;
+  } // SET_VERIFY_PAGE_NAME: (state, payload) => {
+  //     state.VerifyPageName = payload;
+  // },
+  // SET_AUIH_VERIFY: (state, payload) => {
+  //     state.lastVerify = payload;
+  // },
+  // SET_AUIH_VERIFY_CODE: (state, payload) => {
+  //     state.lastVerify = payload;
+  // },
+  // SET_AUTH_TEAPOT_LOGIN: (state, payload) => {
+  //     state.teapotLogin = payload;
+  // },
+  // SET_AUTH_USER: (state, payload) => {
+  //     state.user = payload;
+  // },
+  // ADD_TODO: (state, payload) => {
+  //     state.todos.push(payload);
+  // },
 
-    if (state.choosedRegionParts.indexOf(payload) !== -1) {
-      state.choosedRegionParts.splice(choosedPartPos, 1);
-      state.FULL_REGIONS[regionPartID].children.forEach(function (el) {
-        state.choosedRegions.splice(state.choosedRegions.indexOf(el.val), 1);
-      });
-    } else {
-      state.FULL_REGIONS[regionPartID].children.forEach(function (el) {
-        if (state.choosedRegions.indexOf(el.val) == -1) state.choosedRegions.push(el.val);
-      });
-      state.choosedRegionParts.push(payload);
-    }
-  },
-  SET_REGIONS_FROM_API: function SET_REGIONS_FROM_API(state, payload) {
-    state.FULL_REGIONS = payload;
-    payload.forEach(function (el) {
-      el.children.forEach(function (el_reg) {
-        el_reg.children.forEach(function (el_city) {
-          state.cities.push(el_city);
-        });
-      });
-    });
-  }
 };
 var actions = {
   FULL_REGIONS_FROM_API: function () {
@@ -72273,7 +80639,7 @@ var actions = {
           switch (_context.prev = _context.next) {
             case 0:
               _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_REGIONS_FROM_API', response.data);
+                context.commit('SET_REGIONS', response.data);
               })["catch"](function (error) {
                 console.log('error', error);
               });
@@ -72291,247 +80657,39 @@ var actions = {
     }
 
     return FULL_REGIONS_FROM_API;
-  }()
-};
-/* harmony default export */ __webpack_exports__["default"] = ({
-  state: state,
-  getters: getters,
-  mutations: mutations,
-  actions: actions
-});
-
-/***/ }),
-
-/***/ "./resources/js/STORE/modules/SEARCHDETAILS.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/STORE/modules/SEARCHDETAILS.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-
-var state = {
-  currencies: [{
-    val: 1,
-    name: '$'
-  }, {
-    val: 2,
-    name: '₴'
-  }, {
-    val: 3,
-    name: '€'
-  }],
-  searchDetailFullStore: {
-    autoConditionChoosed: null,
-    searchPropsChoosed: {
-      fullResource: null,
-      verifiedAuto: null,
-      withPhoto: null
-    },
-    currencyChoosed: null
-  }
-};
-var getters = {
-  GET_SEARCHDETAILS: function GET_SEARCHDETAILS(state) {
-    return state.searchDetailFullStore;
-  },
-  GET_CURRENCIES: function GET_CURRENCIES(state) {
-    return state.currencies;
-  }
-};
-var mutations = {
-  SET_AUTO_CONDITION: function SET_AUTO_CONDITION(state, payload) {
-    state.searchDetailFullStore.autoConditionChoosed = payload;
-  },
-  SET_CURRENCY_CHOOSED: function SET_CURRENCY_CHOOSED(state, payload) {
-    console.log(payload);
-    state.searchDetailFullStore.currencyChoosed = payload;
-  } // SET_TRANPORT_ARR: (state, payload) => {
-  //     state.transportTypes = payload.transportTypes;
-  //     state.transportBodies = payload.transportBodies;
-  //     state.transportFullStore.typeChoosed = payload.typeChoosed;
-  //     state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
-  // },
-  // SET_TRANSPORT_BODY_CHOOSE: (state, payload) => {
-  //     const condition = state.transportFullStore.bodiesChoosed.find(function(el){
-  //         if(payload === el) return true;
+  }() // GET_AUTH_VERIFY:  (context, payload) => {
+  //     let verify_page_name = context.state.VerifyPageName;
+  //     HTTP.post(`auth/verify`, payload).then(response => {
+  //         context.commit('SET_AUIH_VERIFY', {verify_page_name: verify_page_name, status: 1, data: response.data, sended_data: payload});
+  //     }).catch(error => {
+  //         context.commit('SET_AUIH_VERIFY', {verify_page_name: verify_page_name, status: 0, data: error.response, sended_data: payload});
   //     })
-  //
-  //     if(condition !== undefined){
-  //         state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
-  //     } else{
-  //         state.transportFullStore.bodiesChoosed.push(payload)
-  //     }
+  // },
+  // GET_AUTH_VERIFY_CODE: async (context, payload) => {
+  //     let verify_page_name = context.state.VerifyPageName;
+  //     HTTP.post(`auth/verify/code`, payload).then(response => {
+  //         context.commit('SET_AUIH_VERIFY_CODE', {verify_page_name: verify_page_name, status: 1, data: response.data, sended_data: payload});
+  //     }).catch(error => {
+  //         context.commit('SET_AUIH_VERIFY_CODE', {verify_page_name: verify_page_name, status: 0, data: error.response, sended_data: payload});
+  //     })
+  // },
+  // GET_AUTH_USER: (context, payload) => {
+  //     HTTP.post(`auth/get/user`, payload).then(response => {
+  //         context.commit('SET_AUTH_USER', {status: 1, data: response.data, sended_data: payload});
+  //     }).catch(error => {
+  //         context.commit('SET_AUTH_USER', {status: 0, data: error.response, sended_data: payload});
+  //     })
+  // },
+  // GET_TODO: async (context, payload) => {
+  //     let {data} = await Axios.get('http://yourwebsite.com/api/todo');
+  //     context.commit('SET_TODO', data);
   // },
   //
-  // SET_TRANSPORT_TYPES_FROM_API: (state, payload) => {
-  //     state.transportTypes = payload;
+  // SAVE_TODO: async (context, payload) => {
+  //     let {data} = await Axios.post('http://yourwebsite.com/api/todo');
+  //     context.commit('ADD_TODO', payload);
   // },
-  //
-  // SET_TRANSPORT_BODIES_FROM_API: (state, payload) => {
-  //     state.transportBodies = payload;
-  // }
 
-};
-var actions = {// TRANSPORT_TYPES_FROM_API: async (context, payload) => {
-  //     HTTP.get(payload)
-  //         .then(response => {
-  //             context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
-  //         })
-  //         .catch(error =>{
-  //             console.log('error', error)
-  //         })
-  // },
-  //
-  // BODIES_FROM_API: async (context, payload) => {
-  //     HTTP.get(payload)
-  //         .then(response => {
-  //             context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
-  //         })
-  //         .catch(error =>{
-  //             console.log('error', error)
-  //         })
-  // },
-};
-/* harmony default export */ __webpack_exports__["default"] = ({
-  state: state,
-  getters: getters,
-  mutations: mutations,
-  actions: actions
-});
-
-/***/ }),
-
-/***/ "./resources/js/STORE/modules/TRANSPORT.js":
-/*!*************************************************!*\
-  !*** ./resources/js/STORE/modules/TRANSPORT.js ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-var state = {
-  transportTypes: [],
-  transportBodies: [],
-  transportFullStore: {
-    typeChoosed: null,
-    bodiesChoosed: []
-  }
-};
-var getters = {
-  GET_TRANSPORT_TYPES: function GET_TRANSPORT_TYPES(state) {
-    return state.transportTypes;
-  },
-  GET_TRANSPORT_BODIES: function GET_TRANSPORT_BODIES(state) {
-    state.transportBodies.forEach(function (el) {
-      if (state.transportFullStore.bodiesChoosed.indexOf(el.val) !== -1) {
-        el['choosed'] = true;
-      } else {
-        el['choosed'] = false;
-      }
-    });
-    return state.transportBodies;
-  },
-  GET_TRANSPORTS: function GET_TRANSPORTS(state) {
-    return state.transportFullStore;
-  }
-};
-var mutations = {
-  SET_TRANSPORT_TYPE: function SET_TRANSPORT_TYPE(state, payload) {
-    state.transportFullStore.typeChoosed = payload;
-    state.transportFullStore.bodiesChoosed = [];
-  },
-  SET_TRANPORT_ARR: function SET_TRANPORT_ARR(state, payload) {
-    state.transportTypes = payload.transportTypes;
-    state.transportBodies = payload.transportBodies;
-    state.transportFullStore.typeChoosed = payload.typeChoosed;
-    state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
-  },
-  SET_TRANSPORT_BODY_CHOOSE: function SET_TRANSPORT_BODY_CHOOSE(state, payload) {
-    var condition = state.transportFullStore.bodiesChoosed.find(function (el) {
-      if (payload === el) return true;
-    });
-
-    if (condition !== undefined) {
-      state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
-    } else {
-      state.transportFullStore.bodiesChoosed.push(payload);
-    }
-  },
-  SET_TRANSPORT_TYPES_FROM_API: function SET_TRANSPORT_TYPES_FROM_API(state, payload) {
-    state.transportTypes = payload;
-  },
-  SET_TRANSPORT_BODIES_FROM_API: function SET_TRANSPORT_BODIES_FROM_API(state, payload) {
-    state.transportBodies = payload;
-  }
-};
-var actions = {
-  TRANSPORT_TYPES_FROM_API: function () {
-    var _TRANSPORT_TYPES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    function TRANSPORT_TYPES_FROM_API(_x, _x2) {
-      return _TRANSPORT_TYPES_FROM_API.apply(this, arguments);
-    }
-
-    return TRANSPORT_TYPES_FROM_API;
-  }(),
-  BODIES_FROM_API: function () {
-    var _BODIES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    function BODIES_FROM_API(_x3, _x4) {
-      return _BODIES_FROM_API.apply(this, arguments);
-    }
-
-    return BODIES_FROM_API;
-  }()
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: state,
@@ -72555,13 +80713,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _modules_REGIONS__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/REGIONS */ "./resources/js/STORE/modules/REGIONS.js");
-/* harmony import */ var _modules_RBMY__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/RBMY */ "./resources/js/STORE/modules/RBMY.js");
-/* harmony import */ var _modules_TRANSPORT__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/TRANSPORT */ "./resources/js/STORE/modules/TRANSPORT.js");
-/* harmony import */ var _modules_SEARCHDETAILS__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/SEARCHDETAILS */ "./resources/js/STORE/modules/SEARCHDETAILS.js");
-
-
-
+/* harmony import */ var _modules_regions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/regions */ "./resources/js/STORE/modules/regions.js");
 
 
 
@@ -72572,10 +80724,7 @@ var services = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   mutations: {},
   actions: {},
   modules: {
-    REGIONS: _modules_REGIONS__WEBPACK_IMPORTED_MODULE_2__["default"],
-    RBMY: _modules_RBMY__WEBPACK_IMPORTED_MODULE_3__["default"],
-    TRANSPORT: _modules_TRANSPORT__WEBPACK_IMPORTED_MODULE_4__["default"],
-    SEARCHDEATAILS: _modules_SEARCHDETAILS__WEBPACK_IMPORTED_MODULE_5__["default"]
+    regions: _modules_regions__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -72616,8 +80765,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-  // baseURL: `http://10.0.0.140:1709/v1`,
-  baseURL: "http://yboard.loc/v1",
+  baseURL: "http://10.0.0.140:1709/v1",
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -73043,75 +81191,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/site/components/ycheck.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/site/components/ycheck.vue ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ycheck_vue_vue_type_template_id_0c81907e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ycheck.vue?vue&type=template&id=0c81907e& */ "./resources/js/site/components/ycheck.vue?vue&type=template&id=0c81907e&");
-/* harmony import */ var _ycheck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ycheck.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ycheck.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ycheck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ycheck_vue_vue_type_template_id_0c81907e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ycheck_vue_vue_type_template_id_0c81907e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/site/components/ycheck.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/site/components/ycheck.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/site/components/ycheck.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycheck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ycheck.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ycheck.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ycheck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/site/components/ycheck.vue?vue&type=template&id=0c81907e&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/site/components/ycheck.vue?vue&type=template&id=0c81907e& ***!
-  \********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ycheck_vue_vue_type_template_id_0c81907e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ycheck.vue?vue&type=template&id=0c81907e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ycheck.vue?vue&type=template&id=0c81907e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ycheck_vue_vue_type_template_id_0c81907e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ycheck_vue_vue_type_template_id_0c81907e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/site/components/ycheckbox.vue":
 /*!****************************************************!*\
   !*** ./resources/js/site/components/ycheckbox.vue ***!
@@ -73383,6 +81462,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yexpanded_vue_vue_type_template_id_50060933___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yexpanded_vue_vue_type_template_id_50060933___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfaqquestions.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/site/components/yfaqquestions.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _yfaqquestions_vue_vue_type_template_id_53be491e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yfaqquestions.vue?vue&type=template&id=53be491e& */ "./resources/js/site/components/yfaqquestions.vue?vue&type=template&id=53be491e&");
+/* harmony import */ var _yfaqquestions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yfaqquestions.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yfaqquestions.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _yfaqquestions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _yfaqquestions_vue_vue_type_template_id_53be491e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _yfaqquestions_vue_vue_type_template_id_53be491e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/yfaqquestions.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfaqquestions.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/site/components/yfaqquestions.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfaqquestions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfaqquestions.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfaqquestions.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfaqquestions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/yfaqquestions.vue?vue&type=template&id=53be491e&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/site/components/yfaqquestions.vue?vue&type=template&id=53be491e& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfaqquestions_vue_vue_type_template_id_53be491e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfaqquestions.vue?vue&type=template&id=53be491e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfaqquestions.vue?vue&type=template&id=53be491e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfaqquestions_vue_vue_type_template_id_53be491e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfaqquestions_vue_vue_type_template_id_53be491e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -74062,17 +82210,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/site/components/yprice.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/site/components/yprice.vue ***!
-  \*************************************************/
+/***/ "./resources/js/site/components/yrangeslider.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/site/components/yrangeslider.vue ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _yprice_vue_vue_type_template_id_760b543f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yprice.vue?vue&type=template&id=760b543f& */ "./resources/js/site/components/yprice.vue?vue&type=template&id=760b543f&");
-/* harmony import */ var _yprice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yprice.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yprice.vue?vue&type=script&lang=js&");
+/* harmony import */ var _yrangeslider_vue_vue_type_template_id_39988254___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yrangeslider.vue?vue&type=template&id=39988254& */ "./resources/js/site/components/yrangeslider.vue?vue&type=template&id=39988254&");
+/* harmony import */ var _yrangeslider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yrangeslider.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -74082,9 +82230,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _yprice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _yprice_vue_vue_type_template_id_760b543f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _yprice_vue_vue_type_template_id_760b543f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _yrangeslider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _yrangeslider_vue_vue_type_template_id_39988254___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _yrangeslider_vue_vue_type_template_id_39988254___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -74094,38 +82242,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/site/components/yprice.vue"
+component.options.__file = "resources/js/site/components/yrangeslider.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/site/components/yprice.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/site/components/yprice.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yprice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yprice.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yprice.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yprice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yrangeslider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yrangeslider.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yrangeslider.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yrangeslider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/site/components/yprice.vue?vue&type=template&id=760b543f&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/site/components/yprice.vue?vue&type=template&id=760b543f& ***!
-  \********************************************************************************/
+/***/ "./resources/js/site/components/yrangeslider.vue?vue&type=template&id=39988254&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/site/components/yrangeslider.vue?vue&type=template&id=39988254& ***!
+  \**************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yprice_vue_vue_type_template_id_760b543f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./yprice.vue?vue&type=template&id=760b543f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yprice.vue?vue&type=template&id=760b543f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yprice_vue_vue_type_template_id_760b543f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yrangeslider_vue_vue_type_template_id_39988254___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./yrangeslider.vue?vue&type=template&id=39988254& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yrangeslider.vue?vue&type=template&id=39988254&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yrangeslider_vue_vue_type_template_id_39988254___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yprice_vue_vue_type_template_id_760b543f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yrangeslider_vue_vue_type_template_id_39988254___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -74195,75 +82343,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yregionsearch_vue_vue_type_template_id_33c9b796___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yregionsearch_vue_vue_type_template_id_33c9b796___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/site/components/yselectmultysearch.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/site/components/yselectmultysearch.vue ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _yselectmultysearch_vue_vue_type_template_id_4386b4aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yselectmultysearch.vue?vue&type=template&id=4386b4aa& */ "./resources/js/site/components/yselectmultysearch.vue?vue&type=template&id=4386b4aa&");
-/* harmony import */ var _yselectmultysearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yselectmultysearch.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yselectmultysearch.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _yselectmultysearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _yselectmultysearch_vue_vue_type_template_id_4386b4aa___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _yselectmultysearch_vue_vue_type_template_id_4386b4aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/site/components/yselectmultysearch.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/site/components/yselectmultysearch.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/site/components/yselectmultysearch.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yselectmultysearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yselectmultysearch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yselectmultysearch.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yselectmultysearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/site/components/yselectmultysearch.vue?vue&type=template&id=4386b4aa&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/site/components/yselectmultysearch.vue?vue&type=template&id=4386b4aa& ***!
-  \********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yselectmultysearch_vue_vue_type_template_id_4386b4aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./yselectmultysearch.vue?vue&type=template&id=4386b4aa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yselectmultysearch.vue?vue&type=template&id=4386b4aa&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yselectmultysearch_vue_vue_type_template_id_4386b4aa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yselectmultysearch_vue_vue_type_template_id_4386b4aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -74349,7 +82428,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ystatus_vue_vue_type_template_id_9803cf28___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ystatus.vue?vue&type=template&id=9803cf28& */ "./resources/js/site/components/ystatus.vue?vue&type=template&id=9803cf28&");
 /* harmony import */ var _ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ystatus.vue?vue&type=script&lang=js& */ "./resources/js/site/components/ystatus.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -74387,7 +82466,7 @@ component.options.__file = "resources/js/site/components/ystatus.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ystatus.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ystatus.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -74686,106 +82765,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/site/routingSplicerBus.js":
-/*!************************************************!*\
-  !*** ./resources/js/site/routingSplicerBus.js ***!
-  \************************************************/
-/*! exports provided: routingSplicerBus */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routingSplicerBus", function() { return routingSplicerBus; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.js */ "./resources/js/http.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-var routingSplicerBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
-  methods: {
-    //deconstrucot
-    ValidateUri: function ValidateUri(search) {
-      return /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                return _context.abrupt("return", _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].post('/validateSearch', {
-                  uri: search.substring(1)
-                }).then(function (response) {
-                  return response.data;
-                }));
-
-              case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-    },
-    //constructor
-    creatingTRANSPORTsProps: function creatingTRANSPORTsProps(arr) {
-      var strProps = '';
-      strProps += 'transport[type]=' + arr.typeChoosed + '&';
-
-      if (arr.bodiesChoosed.length > 0) {
-        arr.bodiesChoosed.forEach(function (el, i) {
-          strProps += 'transport[bodies][' + i + ']=' + el + '&';
-        });
-      }
-
-      return strProps.substring(0, strProps.length - 1);
-    },
-    creatingRBMYsProps: function creatingRBMYsProps(arr) {
-      var strProps = '';
-      arr.forEach(function (el, i) {
-        if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-          strProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
-          strProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
-
-          if (el.brandChoose !== null && el.modelsChoose.length > 0) {
-            el.modelsChoose.forEach(function (el_model, i_model) {
-              strProps += 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&';
-            });
-          }
-
-          strProps += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]=' + el.yearFrom + '&' : '';
-          strProps += el.yearTo !== null ? 'rbmy[' + i + '][yearT]=' + el.yearTo + '&' : '';
-        }
-      });
-      return strProps.substring(0, strProps.length - 1);
-    },
-    creatingREGIONsProps: function creatingREGIONsProps(regions, cities) {
-      var strProps = '';
-
-      if (regions.length > 0) {
-        regions.forEach(function (el, i) {
-          strProps += 'region[reg][' + i + ']=' + el + '&';
-        });
-      }
-
-      if (cities.length > 0) {
-        cities.forEach(function (el, i) {
-          strProps += 'region[city][' + i + ']=' + el + '&';
-        });
-      }
-
-      return strProps.substring(0, strProps.length - 1);
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/site/site.js":
 /*!***********************************!*\
   !*** ./resources/js/site/site.js ***!
@@ -74795,69 +82774,51 @@ var routingSplicerBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _STORE_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../STORE/services */ "./resources/js/STORE/services.js");
-
-
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _STORE_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../STORE/services */ "./resources/js/STORE/services.js");
 __webpack_require__(/*! ../bootstrap.js */ "./resources/js/bootstrap.js");
 
 
- //modules
+ // //modules
 
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymenu', __webpack_require__(/*! ./modules/header/ymenu.vue */ "./resources/js/site/modules/header/ymenu.vue")["default"]); //mobile
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymenu', __webpack_require__(/*! ./modules/header/ymenu.vue */ "./resources/js/site/modules/header/ymenu.vue")["default"]); //
+// //mobile
 
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymobilesticker', __webpack_require__(/*! ./components/ymobilesticker */ "./resources/js/site/components/ymobilesticker.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymobilecatalog', __webpack_require__(/*! ./components/ymobilecatalog */ "./resources/js/site/components/ymobilecatalog.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ymobileanalitics', __webpack_require__(/*! ./components/ymobileanalitics */ "./resources/js/site/components/ymobileanalitics.vue")["default"]); //finish mobile
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilesticker', __webpack_require__(/*! ./components/ymobilesticker */ "./resources/js/site/components/ymobilesticker.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobilecatalog', __webpack_require__(/*! ./components/ymobilecatalog */ "./resources/js/site/components/ymobilecatalog.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymobileanalitics', __webpack_require__(/*! ./components/ymobileanalitics */ "./resources/js/site/components/ymobileanalitics.vue")["default"]); //finish mobile
 //change visible
 
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ychangeoffers', __webpack_require__(/*! ./components/ybestofferschange */ "./resources/js/site/components/ybestofferschange.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ynewschange', __webpack_require__(/*! ./components/ynewschange */ "./resources/js/site/components/ynewschange.vue")["default"]); //finish change visible
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ychangeoffers', __webpack_require__(/*! ./components/ybestofferschange */ "./resources/js/site/components/ybestofferschange.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynewschange', __webpack_require__(/*! ./components/ynewschange */ "./resources/js/site/components/ynewschange.vue")["default"]); // //finish change visible
+//
 
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ysearch', __webpack_require__(/*! ./modules/header/ysearch.vue */ "./resources/js/site/modules/header/ysearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ylocation', __webpack_require__(/*! ./components/ylocation.vue */ "./resources/js/site/components/ylocation.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ystatus', __webpack_require__(/*! ./components/ystatus */ "./resources/js/site/components/ystatus.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yexpanded', __webpack_require__(/*! ./components/yexpanded */ "./resources/js/site/components/yexpanded.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yform', __webpack_require__(/*! ./components/yform */ "./resources/js/site/components/yform.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycheckbox', __webpack_require__(/*! ./components/ycheckbox */ "./resources/js/site/components/ycheckbox.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ytitle', __webpack_require__(/*! ./components/ytitle */ "./resources/js/site/components/ytitle.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ybestoffer', __webpack_require__(/*! ./components/ybestoffers */ "./resources/js/site/components/ybestoffers.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycatalog', __webpack_require__(/*! ./components/ycatalog */ "./resources/js/site/components/ycatalog.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfavorite', __webpack_require__(/*! ./components/yfavorite */ "./resources/js/site/components/yfavorite.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yanalitics', __webpack_require__(/*! ./components/yanalitics */ "./resources/js/site/components/yanalitics.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ynews', __webpack_require__(/*! ./components/ynews */ "./resources/js/site/components/ynews.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yselectsearch', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yselectmultysearch', __webpack_require__(/*! ./components/yselectmultysearch */ "./resources/js/site/components/yselectmultysearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycheck', __webpack_require__(/*! ./components/ycheck */ "./resources/js/site/components/ycheck.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yprice', __webpack_require__(/*! ./components/yprice */ "./resources/js/site/components/yprice.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfsearch', __webpack_require__(/*! ./components/yregionsearch */ "./resources/js/site/components/yregionsearch.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ydropdown', __webpack_require__(/*! ./components/ydropdown */ "./resources/js/site/components/ydropdown.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycardauto', __webpack_require__(/*! ./components/ycardauto */ "./resources/js/site/components/ycardauto.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfilterextended', __webpack_require__(/*! ./components/yfilterextended */ "./resources/js/site/components/yfilterextended.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('yfilterform', __webpack_require__(/*! ./components/yfilterform */ "./resources/js/site/components/yfilterform.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ycardfilter', __webpack_require__(/*! ./components/ycardfilter */ "./resources/js/site/components/ycardfilter.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('ydropdowfilter', __webpack_require__(/*! ./components/ydropdownfilter */ "./resources/js/site/components/ydropdownfilter.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.directive('click-outside', {
-  bind: function bind(el, binding, vnode) {
-    el.clickOutsideEvent = function (event) {
-      // here I check that click was outside the el and his childrens
-      if (!(el == event.target || el.contains(event.target))) {
-        // and if it did, call method provided in attribute value
-        vnode.context[binding.expression](event);
-      }
-    };
-
-    document.body.addEventListener('click', el.clickOutsideEvent);
-  },
-  unbind: function unbind(el) {
-    document.body.removeEventListener('click', el.clickOutsideEvent);
-  }
-});
-new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
-  store: _STORE_services__WEBPACK_IMPORTED_MODULE_2__["services"]
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ysearch', __webpack_require__(/*! ./modules/header/ysearch.vue */ "./resources/js/site/modules/header/ysearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ylocation', __webpack_require__(/*! ./components/ylocation.vue */ "./resources/js/site/components/ylocation.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystatus', __webpack_require__(/*! ./components/ystatus */ "./resources/js/site/components/ystatus.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yexpanded', __webpack_require__(/*! ./components/yexpanded */ "./resources/js/site/components/yexpanded.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yform', __webpack_require__(/*! ./components/yform */ "./resources/js/site/components/yform.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycheckbox', __webpack_require__(/*! ./components/ycheckbox */ "./resources/js/site/components/ycheckbox.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ytitle', __webpack_require__(/*! ./components/ytitle */ "./resources/js/site/components/ytitle.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ybestoffer', __webpack_require__(/*! ./components/ybestoffers */ "./resources/js/site/components/ybestoffers.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yrange', __webpack_require__(/*! ./components/yrangeslider */ "./resources/js/site/components/yrangeslider.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycatalog', __webpack_require__(/*! ./components/ycatalog */ "./resources/js/site/components/ycatalog.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfavorite', __webpack_require__(/*! ./components/yfavorite */ "./resources/js/site/components/yfavorite.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yanalitics', __webpack_require__(/*! ./components/yanalitics */ "./resources/js/site/components/yanalitics.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ynews', __webpack_require__(/*! ./components/ynews */ "./resources/js/site/components/ynews.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfaqquestions', __webpack_require__(/*! ./components/yfaqquestions */ "./resources/js/site/components/yfaqquestions.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yselect', __webpack_require__(/*! ./components/yselectsearch */ "./resources/js/site/components/yselectsearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfsearch', __webpack_require__(/*! ./components/yregionsearch */ "./resources/js/site/components/yregionsearch.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdown', __webpack_require__(/*! ./components/ydropdown */ "./resources/js/site/components/ydropdown.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ystickers', __webpack_require__(/*! ./components/ystickers */ "./resources/js/site/components/ystickers.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycardauto', __webpack_require__(/*! ./components/ycardauto */ "./resources/js/site/components/ycardauto.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfilterextended', __webpack_require__(/*! ./components/yfilterextended */ "./resources/js/site/components/yfilterextended.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfilterform', __webpack_require__(/*! ./components/yfilterform */ "./resources/js/site/components/yfilterform.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycardfilter', __webpack_require__(/*! ./components/ycardfilter */ "./resources/js/site/components/ycardfilter.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ydropdowfilter', __webpack_require__(/*! ./components/ydropdownfilter */ "./resources/js/site/components/ydropdownfilter.vue")["default"]);
+new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  store: _STORE_services__WEBPACK_IMPORTED_MODULE_1__["services"]
 }).$mount('#yb-site');
 
 /***/ }),
@@ -74880,8 +82841,8 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/js/site/site.js */"./resources/js/site/site.js");
-module.exports = __webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
+__webpack_require__(/*! D:\OSPanel\domains\Yboard\autoyboard\resources\js\site\site.js */"./resources/js/site/site.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\Yboard\autoyboard\resources\sass\auto\site.scss */"./resources/sass/auto/site.scss");
 
 
 /***/ })
