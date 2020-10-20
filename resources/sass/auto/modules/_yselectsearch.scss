@@ -12,17 +12,23 @@
         height: 42px;
         padding: 10px 40px 10px 20px;
         font-family: $aleg;
-        font-weight: 500;
-        font-size: 1.125em;
+        font-weight: 400;
+        font-size: em(16);
         color: rgba(34, 34, 34, 0.8);
         border-radius: 10px;
-        border: 1px solid #E2E2E2;
+        border: 1px solid $select-border;
     }
     i {
+        cursor: pointer;
         position: absolute;
         right: 15px;
-        color: #C7C7C7;
-
+        color: $i-color;
+        &.fa-search{
+            cursor: text;
+        }
+        &.delete{
+            color: $darkblue;
+        }
     }
     &:last-child{
         margin-bottom: 0;
@@ -31,7 +37,7 @@
         font-family: $aleg;
         background: #FFFFFF;
         box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
-        border-radius: 5px;
+        border-radius: 3px;
         position: absolute;
         padding: 0;
         margin: 0;
@@ -40,43 +46,43 @@
         overflow: auto;
         top: 50px;
         z-index: 2;
+        scrollbar-width: none;
+        &::-webkit-scrollbar { width: 0; }
         li {
             height: 35px;
             display: flex;
             align-items: center;
             padding: 0px 0px 0px 20px;
             cursor: pointer;
-            color: rgba(34, 34, 34, 0.79);
-            cursor: pointer;
-            transition: 0.3s all ease;
-        }
-        li.selected {
-            background-color: #111E6C;
-            color: #fff;
+            color: $select-text-color;
+            border-left: 4px solid transparent;
+            border-bottom: 1px solid rgba(199, 199, 199, 0.33);
 
-        }
-    }
-}
-@media only screen and (max-width: 1366px){
-    .autocomplete {
-        margin-bottom: 10px;
-        .input-dropdown {
-            height: 38px;
-            font-size: 16px;
-        }
-        i {
-
-
-        }
-
-        .options-list {
-
-            li {
-
+            &.faded{
+                background-color: rgba(199, 199, 199, 0.5);
+                color: $select-text-color;
+                opacity: 0.8;
             }
-            li.selected {
 
+            &.selectedMouse{
+                background-color: $select-hover-item;
+                color: $select-text-color;
+            }
 
+            &.selected{
+                background-color: $titleblue;
+                color: #fff;
+            }
+
+            &.choosed{
+                cursor: default;
+                border-left: 4px solid $darkblue;
+                border-bottom: 1px solid rgba(199, 199, 199, 0.7);
+                font-weight: 600;
+                i{
+                    color: $dgreen;
+                    cursor: default;
+                }
             }
         }
     }
