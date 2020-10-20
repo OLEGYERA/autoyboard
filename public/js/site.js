@@ -71887,9 +71887,255 @@ module.exports = function(module) {
   !*** ./resources/js/STORE/modules/RBMY.js ***!
   \********************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/STORE/modules/RBMY.js'");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  rbmyFullStore: [{
+    regionChoose: null,
+    brandChoose: null,
+    modelsChoose: [],
+    yearFrom: null,
+    yearTo: null,
+    brands: [],
+    models: []
+  }],
+  manufactureRegions: [],
+  //one load
+  brands: [],
+  years: []
+};
+var getters = {
+  GET_RBMYS: function GET_RBMYS(state) {
+    return state.rbmyFullStore;
+  },
+  GET_MANUFACTURE_REGIONS: function GET_MANUFACTURE_REGIONS(state) {
+    return state.manufactureRegions;
+  },
+  //if absent RBMY brand units
+  GET_BRANDS: function GET_BRANDS(state) {
+    return state.brands;
+  },
+  GET_YEARS: function GET_YEARS(state) {
+    return state.years;
+  }
+};
+var mutations = {
+  SET_NEW_RBMY: function SET_NEW_RBMY(state, payload) {
+    state.rbmyFullStore = payload;
+  },
+  CREATE_NEW_RBMY: function CREATE_NEW_RBMY(state, payload) {
+    state.rbmyFullStore.push({
+      regionChoose: null,
+      brandChoose: null,
+      modelsChoose: [],
+      yearFrom: null,
+      yearTo: null,
+      brands: [],
+      models: []
+    });
+  },
+  DELETE_RBMY: function DELETE_RBMY(state, payload) {
+    state.rbmyFullStore.splice(payload, 1);
+  },
+  SET_REGION_CHOOSE: function SET_REGION_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].regionChoose = payload.choose;
+    var manufactureBrands = [];
+    state.brands.forEach(function (el) {
+      if (el.manufacture == payload.choose && el.manufacture !== null) {
+        manufactureBrands.push(el);
+      }
+    });
+    state.rbmyFullStore[payload.index].brands = manufactureBrands;
+    state.rbmyFullStore[payload.index].brandChoose = null;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  DELETE_REGION_CHOOSE: function DELETE_REGION_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].regionChoose = null;
+    state.rbmyFullStore[payload.index].brands = [];
+    state.rbmyFullStore[payload.index].brandChoose = null;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  CLEAR_BRANDS_MODELS: function CLEAR_BRANDS_MODELS(state, payload) {
+    state.rbmyFullStore = [{
+      regionChoose: null,
+      brandChoose: null,
+      modelsChoose: [],
+      yearFrom: null,
+      yearTo: null,
+      brands: [],
+      models: []
+    }];
+  },
+  SET_BRAND_CHOSE: function SET_BRAND_CHOSE(state, payload) {
+    state.rbmyFullStore[payload.index].brandChoose = payload.choose;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  DELETE_BRAND_CHOOSE: function DELETE_BRAND_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].brandChoose = null;
+    state.rbmyFullStore[payload.index].models = [];
+    state.rbmyFullStore[payload.index].modelsChoose = [];
+  },
+  SET_MODELS_CHOOSE: function SET_MODELS_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].modelsChoose.push(payload.choose);
+  },
+  DELETE_MODELS_CHOOSE: function DELETE_MODELS_CHOOSE(state, payload) {
+    state.rbmyFullStore[payload.index].modelsChoose.splice(state.rbmyFullStore[payload.index].modelsChoose.indexOf(payload.choose), 1);
+  },
+  SET_YEAR_FROM: function SET_YEAR_FROM(state, payload) {
+    var smartLink = state.rbmyFullStore[payload.index];
+
+    if (smartLink.yearTo !== null && payload.choose > smartLink.yearTo) {
+      var temp = smartLink.yearTo;
+      smartLink.yearTo = payload.choose;
+      smartLink.yearFrom = temp;
+    } else {
+      state.rbmyFullStore[payload.index].yearFrom = payload.choose;
+    }
+  },
+  DELETE_YEAR_FROM: function DELETE_YEAR_FROM(state, payload) {
+    state.rbmyFullStore[payload.index].yearFrom = null;
+  },
+  SET_YEAR_TO: function SET_YEAR_TO(state, payload) {
+    var smartLink = state.rbmyFullStore[payload.index];
+
+    if (smartLink.yearFrom !== null && payload.choose < smartLink.yearFrom) {
+      var temp = smartLink.yearFrom;
+      smartLink.yearFrom = payload.choose;
+      smartLink.yearTo = temp;
+    } else {
+      state.rbmyFullStore[payload.index].yearTo = payload.choose;
+    }
+  },
+  DELETE_YEAR_TO: function DELETE_YEAR_TO(state, payload) {
+    state.rbmyFullStore[payload.index].yearTo = null;
+  },
+  SET_MANUFACTURE_REGIONS_FROM_API: function SET_MANUFACTURE_REGIONS_FROM_API(state, payload) {
+    state.manufactureRegions = payload;
+  },
+  SET_BRANDS_FROM_API: function SET_BRANDS_FROM_API(state, payload) {
+    state.brands = payload;
+  },
+  SET_MODELS_FROM_API: function SET_MODELS_FROM_API(state, payload) {
+    state.rbmyFullStore[payload.index].models = payload.models;
+  },
+  SET_YEAR_FROM_GENERATOR: function SET_YEAR_FROM_GENERATOR(state, payload) {
+    state.years = payload;
+  }
+};
+var actions = {
+  MANUFACTURE_REGIONS_FROM_API: function () {
+    var _MANUFACTURE_REGIONS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_MANUFACTURE_REGIONS_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function MANUFACTURE_REGIONS_FROM_API(_x, _x2) {
+      return _MANUFACTURE_REGIONS_FROM_API.apply(this, arguments);
+    }
+
+    return MANUFACTURE_REGIONS_FROM_API;
+  }(),
+  BRANDS_FROM_API: function () {
+    var _BRANDS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_BRANDS_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function BRANDS_FROM_API(_x3, _x4) {
+      return _BRANDS_FROM_API.apply(this, arguments);
+    }
+
+    return BRANDS_FROM_API;
+  }(),
+  MODELS_FROM_API: function () {
+    var _MODELS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload['url']).then(function (response) {
+                payload['models'] = response.data;
+                context.commit('SET_MODELS_FROM_API', payload);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    function MODELS_FROM_API(_x5, _x6) {
+      return _MODELS_FROM_API.apply(this, arguments);
+    }
+
+    return MODELS_FROM_API;
+  }(),
+  GENERATE_YEAR: function GENERATE_YEAR(context, payload) {
+    var YearArr = [];
+
+    for (var i = payload; i >= 1900; i--) {
+      YearArr.push({
+        'name': '' + i,
+        'val': i
+      });
+    }
+
+    context.commit('SET_YEAR_FROM_GENERATOR', YearArr);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
 
 /***/ }),
 
@@ -71909,9 +72155,101 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
   !*** ./resources/js/STORE/modules/SEARCHDETAILS.js ***!
   \*****************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/STORE/modules/SEARCHDETAILS.js'");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+
+var state = {
+  currencies: [{
+    val: 1,
+    name: '$'
+  }, {
+    val: 2,
+    name: '₴'
+  }, {
+    val: 3,
+    name: '€'
+  }],
+  searchDetailFullStore: {
+    autoConditionChoosed: null,
+    searchPropsChoosed: {
+      fullResource: null,
+      verifiedAuto: null,
+      withPhoto: null
+    },
+    currencyChoosed: null
+  }
+};
+var getters = {
+  GET_SEARCHDETAILS: function GET_SEARCHDETAILS(state) {
+    return state.searchDetailFullStore;
+  },
+  GET_CURRENCIES: function GET_CURRENCIES(state) {
+    return state.currencies;
+  }
+};
+var mutations = {
+  SET_AUTO_CONDITION: function SET_AUTO_CONDITION(state, payload) {
+    state.searchDetailFullStore.autoConditionChoosed = payload;
+  },
+  SET_CURRENCY_CHOOSED: function SET_CURRENCY_CHOOSED(state, payload) {
+    console.log(payload);
+    state.searchDetailFullStore.currencyChoosed = payload;
+  } // SET_TRANPORT_ARR: (state, payload) => {
+  //     state.transportTypes = payload.transportTypes;
+  //     state.transportBodies = payload.transportBodies;
+  //     state.transportFullStore.typeChoosed = payload.typeChoosed;
+  //     state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
+  // },
+  // SET_TRANSPORT_BODY_CHOOSE: (state, payload) => {
+  //     const condition = state.transportFullStore.bodiesChoosed.find(function(el){
+  //         if(payload === el) return true;
+  //     })
+  //
+  //     if(condition !== undefined){
+  //         state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
+  //     } else{
+  //         state.transportFullStore.bodiesChoosed.push(payload)
+  //     }
+  // },
+  //
+  // SET_TRANSPORT_TYPES_FROM_API: (state, payload) => {
+  //     state.transportTypes = payload;
+  // },
+  //
+  // SET_TRANSPORT_BODIES_FROM_API: (state, payload) => {
+  //     state.transportBodies = payload;
+  // }
+
+};
+var actions = {// TRANSPORT_TYPES_FROM_API: async (context, payload) => {
+  //     HTTP.get(payload)
+  //         .then(response => {
+  //             context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
+  //         })
+  //         .catch(error =>{
+  //             console.log('error', error)
+  //         })
+  // },
+  //
+  // BODIES_FROM_API: async (context, payload) => {
+  //     HTTP.get(payload)
+  //         .then(response => {
+  //             context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
+  //         })
+  //         .catch(error =>{
+  //             console.log('error', error)
+  //         })
+  // },
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
 
 /***/ }),
 
@@ -71920,9 +72258,135 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
   !*** ./resources/js/STORE/modules/TRANSPORT.js ***!
   \*************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/STORE/modules/TRANSPORT.js'");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  transportTypes: [],
+  transportBodies: [],
+  transportFullStore: {
+    typeChoosed: null,
+    bodiesChoosed: []
+  }
+};
+var getters = {
+  GET_TRANSPORT_TYPES: function GET_TRANSPORT_TYPES(state) {
+    return state.transportTypes;
+  },
+  GET_TRANSPORT_BODIES: function GET_TRANSPORT_BODIES(state) {
+    state.transportBodies.forEach(function (el) {
+      if (state.transportFullStore.bodiesChoosed.indexOf(el.val) !== -1) {
+        el['choosed'] = true;
+      } else {
+        el['choosed'] = false;
+      }
+    });
+    return state.transportBodies;
+  },
+  GET_TRANSPORTS: function GET_TRANSPORTS(state) {
+    return state.transportFullStore;
+  }
+};
+var mutations = {
+  SET_TRANSPORT_TYPE: function SET_TRANSPORT_TYPE(state, payload) {
+    state.transportFullStore.typeChoosed = payload;
+    state.transportFullStore.bodiesChoosed = [];
+  },
+  SET_TRANPORT_ARR: function SET_TRANPORT_ARR(state, payload) {
+    state.transportTypes = payload.transportTypes;
+    state.transportBodies = payload.transportBodies;
+    state.transportFullStore.typeChoosed = payload.typeChoosed;
+    state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
+  },
+  SET_TRANSPORT_BODY_CHOOSE: function SET_TRANSPORT_BODY_CHOOSE(state, payload) {
+    var condition = state.transportFullStore.bodiesChoosed.find(function (el) {
+      if (payload === el) return true;
+    });
+
+    if (condition !== undefined) {
+      state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
+    } else {
+      state.transportFullStore.bodiesChoosed.push(payload);
+    }
+  },
+  SET_TRANSPORT_TYPES_FROM_API: function SET_TRANSPORT_TYPES_FROM_API(state, payload) {
+    state.transportTypes = payload;
+  },
+  SET_TRANSPORT_BODIES_FROM_API: function SET_TRANSPORT_BODIES_FROM_API(state, payload) {
+    state.transportBodies = payload;
+  }
+};
+var actions = {
+  TRANSPORT_TYPES_FROM_API: function () {
+    var _TRANSPORT_TYPES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function TRANSPORT_TYPES_FROM_API(_x, _x2) {
+      return _TRANSPORT_TYPES_FROM_API.apply(this, arguments);
+    }
+
+    return TRANSPORT_TYPES_FROM_API;
+  }(),
+  BODIES_FROM_API: function () {
+    var _BODIES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function BODIES_FROM_API(_x3, _x4) {
+      return _BODIES_FROM_API.apply(this, arguments);
+    }
+
+    return BODIES_FROM_API;
+  }()
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
 
 /***/ }),
 

@@ -31,3 +31,5 @@ Route::get('/extended', 'Site\Auto\PageController@extended')->name('extended');
 
 
 
+
+//->name('m.ru.')->namespace('OLEGYERA\FrontBox')->namespace('OLEGYERA\FrontBox')
