@@ -12,4 +12,8 @@ class ModelOfBrand extends Model
         'title', 'rtitle', 'utitle', 'alias',
         'brand_id', 'transport_type_id', 'parent_id',
     ];
+
+    protected $hidden = [
+        'parent_id'
+    ];
 }

@@ -1,14 +1,12 @@
-import {mapGetters} from "vuex";
-
 require('../bootstrap.js');
 
 import Vue from 'vue';
 import {services} from '../STORE/services';
 
-// //modules
+//modules
 Vue.component('ymenu', require('./modules/header/ymenu.vue').default);
-//
-// //mobile
+
+//mobile
 Vue.component('ymobilesticker', require('./components/ymobilesticker').default);
 Vue.component('ymobilecatalog', require('./components/ymobilecatalog').default);
 Vue.component('ymobileanalitics', require('./components/ymobileanalitics').default);
@@ -16,8 +14,8 @@ Vue.component('ymobileanalitics', require('./components/ymobileanalitics').defau
 //change visible
 Vue.component('ychangeoffers', require('./components/ybestofferschange').default);
 Vue.component('ynewschange', require('./components/ynewschange').default);
-// //finish change visible
-//
+//finish change visible
+
 Vue.component('ysearch', require('./modules/header/ysearch.vue').default);
 Vue.component('ylocation', require('./components/ylocation.vue').default);
 Vue.component('ystatus', require('./components/ystatus').default);
@@ -32,15 +30,10 @@ Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
 Vue.component('yfaqquestions', require('./components/yfaqquestions').default);
 
-
-
 Vue.component('yselectsearch', require('./components/yselectsearch').default);
 Vue.component('yselectmultysearch', require('./components/yselectmultysearch').default);
 Vue.component('ycheck', require('./components/ycheck').default);
 Vue.component('yprice', require('./components/yprice').default);
-
-
-
 
 
 Vue.component('yfsearch', require('./components/yregionsearch').default);

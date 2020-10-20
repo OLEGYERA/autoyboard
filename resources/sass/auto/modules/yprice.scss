@@ -1,0 +1,77 @@
+@import '../clear';
+@import '../../vars';
+
+.yprice{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .change{
+        width: 32%;
+        height: 42px;
+        padding: 10px;
+        border: 1px solid $search-border;
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-family: $noto;
+        font-weight: 500;
+        font-size: em(18);
+        color: $site-grey;
+        -moz-appearance: textfield;
+        &::placeholder{
+            color: $site-grey;
+        }
+    }
+    .ydropdown{
+        width: 32%;
+        .name-dropdown{
+            background-color: #fff;
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yprice_container{
+        .input_change{
+            padding-bottom: 15px;
+            .change{
+                height: 38px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .yprice_container{
+        .input_change{
+            padding-bottom: 12px;
+            .change{
+                height: 35px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .yprice_container{
+        width: 80%;
+        margin: 0 auto;
+        .input_change{
+            justify-content: space-between;
+            padding-bottom: 20px;
+            .change{
+                width: 110px;
+                height: 40px;
+                font-size: em(16);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .yprice_container{
+        width: 90%;
+    }
+}
+
+
+
+
+
+
+
