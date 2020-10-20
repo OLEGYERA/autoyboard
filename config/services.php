@@ -42,4 +42,8 @@ return [
         'redirect' => env('FACEBOOK_REDIRECT'),
     ],
 
+    'yandex-translate' => [
+        'key' => env('YANDEX_TRANSLATE_KEY', ''),
+    ]
+
 ];

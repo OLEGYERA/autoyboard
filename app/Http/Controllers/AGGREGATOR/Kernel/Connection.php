@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\AGGREGATOR\Kernel;
 
 use Ixudra\Curl\Facades\Curl;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class Connection extends Controller
 {
