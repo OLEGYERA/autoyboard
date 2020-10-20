@@ -1,5 +1,3 @@
-import {mapGetters} from "vuex";
-
 require('../bootstrap.js');
 
 import Vue from 'vue';
@@ -30,15 +28,12 @@ Vue.component('ycatalog', require('./components/ycatalog').default);
 Vue.component('yfavorite', require('./components/yfavorite').default);
 Vue.component('yanalitics', require('./components/yanalitics').default);
 Vue.component('ynews', require('./components/ynews').default);
-
+Vue.component('yfaqquestions', require('./components/yfaqquestions').default);
 
 Vue.component('yselectsearch', require('./components/yselectsearch').default);
 Vue.component('yselectmultysearch', require('./components/yselectmultysearch').default);
 Vue.component('ycheck', require('./components/ycheck').default);
 Vue.component('yprice', require('./components/yprice').default);
-
-
-
 
 
 Vue.component('yfsearch', require('./components/yregionsearch').default);

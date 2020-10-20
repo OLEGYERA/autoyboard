@@ -1,0 +1,685 @@
+@import '../clear';
+@import '../../vars';
+
+
+.presentation_content{
+    .first_screen-present{
+        background-image: url('/img/system/static/backgroundPresentation.svg');
+        width: 100%;
+        padding-left: 17%;
+        display: flex;
+        align-items: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .vis-l_screen{
+            width: 50%;
+            display: flex;
+            padding: 70px 0 140px 0;
+            align-items: center;
+            flex-direction: column;
+            .ytitle_present{
+                font-family: $rale;
+                font-weight: bold;
+                font-size: em(64);
+                line-height: 143.4%;
+                color: #FFFFFF;
+                margin-bottom: 20px;
+                img{
+                    width: 200px;
+                }
+            }
+            .ydesc_present{
+                margin: 0;
+                font-family: $aleg;
+                font-weight: normal;
+                font-size: em(24);
+                line-height: 29px;
+                color: #FFFFFF;
+            }
+        }
+    }
+    .yb-scope_present{
+        background: #F8FBFF;
+        h1{
+            padding-top: 50px;
+            margin: 0;
+            text-align: center;
+            font-family: $rale;
+            font-weight: 500;
+            font-size: em(72);
+            line-height: 85px;
+            color: $darkblue;
+        }
+        .yb_opportunity {
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: 500px;
+            &.auto_demo{
+                img{
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                }
+            }
+            &.new_auto{
+                display: flex;
+                justify-content: flex-end;
+                img{
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                }
+                .y_write-up{
+                    padding-left: 0;
+                    width: 50%;
+                }
+            }
+            &.car_service{
+                display: flex;
+                img{
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                }
+            }
+            &.check_auto{
+                display: flex;
+                justify-content: flex-end;
+                .y_write-up{
+                    padding-left: 0;
+                    width: 60%;
+                }
+                img{
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                }
+            }
+            &.monitoring_price{
+                display: flex;
+                img{
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                }
+            }
+            &.analytics{
+                display: flex;
+                justify-content: flex-end;
+                .y_write-up{
+                    padding-left: 0;
+                    width: 60%;
+                }
+                img{
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                }
+            }
+            .y_write-up{
+                padding-left: 17%;
+                .yb_demo-title{
+                    font-family: $rale;
+                    font-weight: 600;
+                    font-size: em(48);
+                    line-height: 56px;
+                    color: $presentBlue;
+                    margin: 0 0 20px 0;
+                }
+                .yb_demo-desc{
+                    width: 55%;
+                    margin: 0 0 15px 0;
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(24);
+                    line-height: 34px;
+                    color: $present-gray;
+                }
+                .y_watch-more{
+                    display: flex;
+                    align-items: center;
+                    background: $darkblue;
+                    border-radius: 8px;
+                    font-family: $aleg;
+                    font-weight: bold;
+                    font-size: em(16);
+                    line-height: 19px;
+                    text-align: center;
+                    height: 45px;
+                    color: #FFFFFF;
+                    padding: 0 2%;
+                    .yexpended{
+                        .white{
+                            svg{
+                                width:30px;
+                            }
+                            .eclipse{
+                                &:after{
+                                    left: 20px;
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1600px){
+    .presentation_content{
+        .first_screen-present{
+            .vis-l_screen{
+                .ytitle_present{
+                    font-size: em(38);
+                    img{
+                        width: 150px;
+                    }
+                }
+                .ydesc_present{
+                    font-size: em(22);
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                padding-top: 40px;
+                font-size: em(64);
+            }
+            .yb_opportunity{
+                height: 600px;
+                .y_write-up{
+                    .yb_demo-title{
+                        font-size: em(42);
+                    }
+                    .yb_demo-desc{
+                        font-size: em(20);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1440px){
+    .presentation_content{
+        .first_screen-present{
+            padding-left: 10%;
+            .vis-l_screen{
+                padding: 50px 0 80px 0;
+                .ytitle_present{
+                      font-size: em(42);
+                }
+                .ydesc_present{
+                    font-size: em(20);
+                }
+            }
+        }
+        .yb-scope_present{
+            .yb_opportunity{
+                .y_write-up{
+                    padding-left: 10%;
+                }
+                &.new_auto{
+                    .y_write-up{
+                        width: 60%;
+                        .yb_demo-desc{
+                            width: 65%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .presentation_content{
+        .first_screen-present{
+            padding-left: 8%;
+        }
+        .yb-scope_present{
+            h1{
+                font-size: em(58);
+                line-height: 58px;
+            }
+            .yb_opportunity{
+                height: 550px;
+                .y_write-up{
+                    padding-left: 8%;
+                    .yb_demo-title{
+                        font-size: em(38);
+                        margin: 0 0 15px 0;
+                    }
+                    .yb_demo-desc{
+                        font-size: em(18);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1280px){
+    .presentation_content{
+        .first_screen-present{
+            padding-left: 6%;
+            .vis-l_screen{
+                padding: 45px 0 60px 0;
+            }
+        }
+        .yb-scope_present{
+            h1{
+                font-size: em(54);
+                line-height: 52px;
+                padding-top: 60px;
+            }
+            .yb_opportunity{
+                height: 500px;
+                .y_write-up{
+                    padding-left: 6%;
+                    .yb_demo-title{
+                        font-size: em(34);
+                    }
+                    .yb_demo-desc{
+                        width: 65%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    .presentation_content{
+        .first_screen-present{
+            background-position: right;
+            padding-left: 3%;
+            .vis-l_screen{
+                width: 55%;
+                .ytitle_present{
+                    font-size: em(34);
+                }
+                .ydesc_present{
+                    font-size: em(18);
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                font-size: em(48);
+                line-height: 46px;
+            }
+            .yb_opportunity{
+                height: 500px;
+                .y_write-up{
+                    padding-left: 3%;
+                    .yb_demo-title{
+                        font-size: em(28);
+                        margin: 0 0 5px 0;
+                    }
+                    .yb_demo-desc{
+                        width: 65%;
+                    }
+                }
+                &.new_auto{
+                    .y_write-up{
+                        .yb_demo-desc{
+                            width: 90%;
+                        }
+                    }
+                }
+                &.check_auto{
+                    .y_write-up{
+                        .yb_demo-desc{
+                            width: 90%;
+                        }
+                    }
+                }
+                &.analytics{
+                    .y_write-up{
+                        .yb_demo-desc{
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    .presentation_content{
+        .first_screen-present{
+            padding-left: 2%;
+            .vis-l_screen{
+                width: 55%;
+                .ytitle_present{
+                    font-size: em(32);
+                }
+                .ydesc_present{
+                    font-size: em(16);
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                font-size: em(42);
+                line-height: 39px;
+                padding-top: 40px;
+            }
+            .yb_opportunity{
+                height: 400px;
+                .y_write-up{
+                    padding-left: 2%;
+                    .yb_demo-title{
+                        font-size: em(26);
+                        margin:0;
+                    }
+                    .yb_demo-desc{
+                        line-height: 28px;
+                        font-size: em(16);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px){
+    .presentation_content{
+        .first_screen-present{
+            .vis-l_screen{
+                padding: 35px 0 25px 0;
+                width: 50%;
+                .ytitle_present{
+                    font-size: em(22);
+                    img{
+                        width: 100px;
+                    }
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                font-size: em(38);
+                line-height: 32px;
+                padding-top: 38px;
+            }
+            .yb_opportunity{
+                height: 350px;
+                .y_write-up{
+                    .yb_demo-title{
+                        font-size: em(26);
+                        margin:0;
+                    }
+                    .yb_demo-desc{
+                        line-height: 28px;
+                        font-size: em(16);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .presentation_content{
+        .first_screen-present{
+            background-image: url('/img/system/static/backgroundPresentationMobile.svg');
+            justify-content: center;
+            background-position: bottom;
+            .vis-l_screen{
+                width: 85%;
+                padding: 40px 0 220px 0;
+                .ytitle_present{
+                    font-size: em(36);
+                    img{
+                        width: 180px;
+                    }
+                }
+                .ydesc_present{
+                    font-size: em(24);
+                    margin-bottom: 36px;
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                font-size: em(42);
+                line-height: 32px;
+            }
+            .yb_opportunity{
+                height: 450px;
+                .y_write-up{
+                    width: 100%;
+                    padding-left: 2%!important;
+                    .yb_demo-title{
+                        font-size: em(36);
+                        line-height: 45px;
+                    }
+                    .yb_demo-desc{
+                        width: 95%;
+                    }
+                    .y_watch-more{
+                        padding: 0 5%;
+                        height: 40px;
+                    }
+                }
+                img{
+                    height: 85%!important;
+                    bottom: -145px;
+                }
+                &.new_auto{
+                    .y_write-up{
+                        width: 100%;
+                    }
+                    img{
+                        bottom: -210px;
+                    }
+                }
+                &.check_auto{
+                    .y_write-up{
+                        width: 100%;
+                    }
+                    img{
+                        bottom: -210px;
+                    }
+                }
+                &.analytics{
+                    .y_write-up{
+                        width: 100%;
+                    }
+                    img{
+                        bottom: -210px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 425px){
+    .presentation_content{
+        .first_screen-present{
+            .vis-l_screen{
+                width: 90%;
+                .ytitle_present{
+                    font-size: em(28);
+                    img{
+                        width: 160px;
+                    }
+                }
+                .ydesc_present{
+                    font-size: em(20);
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                padding-top: 26px;
+                font-size: em(54);
+                text-align: start;
+                padding-left: 15px;
+                line-height: 63px;
+            }
+            .yb_opportunity{
+                height: 480px;
+                .y_write-up{
+                    width: 100%;
+                    padding-left: 4%!important;
+                    .yb_demo-title{
+                        font-size: em(34);
+                        line-height: 39px;
+                        margin-bottom: 10px;
+                        padding-right: 15px;
+                    }
+                    .yb_demo-desc{
+                        width: 95%;
+                        line-height: 25px;
+                        font-size: em(18);
+
+                    }
+                    .y_watch-more{
+                        font-size: em(15);
+                        height: 35px;
+                    }
+                }
+                img{
+                    height: 70%!important;
+                    bottom: -145px;
+                }
+                &.new_auto{
+                    .y_write-up{
+                        width: 100%;
+                    }
+                    img{
+                        bottom: -210px;
+                    }
+                }
+                &.check_auto{
+                    .y_write-up{
+                        width: 100%;
+                    }
+                    img{
+                        bottom: -210px;
+                    }
+                }
+                &.analytics{
+                    .y_write-up{
+                        width: 100%;
+                    }
+                    img{
+                        bottom: -210px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px){
+    .presentation_content{
+        .first_screen-present{
+            .vis-l_screen{
+                width: 95%;
+                .ytitle_present{
+                    font-size: em(26);
+                    img{
+                        width: 140px;
+                    }
+                }
+                .ydesc_present{
+                    font-size: em(16);
+                    margin-bottom: 5px;
+                    line-height: 26px;
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                margin: 0;
+                padding-top: 38px;
+                margin-bottom: 26px;
+            }
+            .yb_opportunity{
+                height: auto;
+                flex-direction: column;
+                position: relative;
+                margin-bottom: -80px;
+                .y_write-up{
+                    width: 100%;
+                    .yb_demo-title{
+                        font-size: em(30);
+                        margin-bottom: 10px;
+                        line-height: 35px;
+                    }
+                    .yb_demo-desc{
+                        width: 95%;
+                        line-height: 24px;
+                        font-size: em(18);
+                    }
+                    .y_watch-more{
+                        font-size: em(15);
+                    }
+                }
+                img{
+                    height: 400px!important;
+                    bottom: 80px!important;
+                    position: relative!important;
+                    right: 0;
+                    width: 100%;
+                }
+                &.new_auto, &.check_auto, &.analytics{
+                    img{
+                        bottom: 40px !important;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 320px){
+    .presentation_content{
+        .first_screen-present{
+            .vis-l_screen{
+                width: 95%;
+                padding: 30px 0 150px 0;
+                .ytitle_present{
+                    font-size: em(22);
+                    img{
+                        width: 120px;
+                    }
+                }
+                .ydesc_present{
+                    font-size: em(15);
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        .yb-scope_present{
+            h1{
+                font-size: 44px;
+                line-height: 52px;
+                margin-bottom: 24px;
+            }
+            .yb_opportunity{
+                .y_write-up{
+                    .yb_demo-title{
+                        font-size: em(26);
+                        line-height: 31px;
+                        margin-bottom: 10px;
+                    }
+                    .yb_demo-desc{
+                        width: 95%;
+                        line-height: 20px;
+                        font-size: em(15);
+                    }
+                    .y_watch-more{
+                        font-size: em(16);
+                    }
+                }
+                img{
+                    height: 70%!important;
+                    bottom: -120px;
+                }
+            }
+        }
+    }
+}
+
+

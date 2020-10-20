@@ -39,6 +39,54 @@ class PageController extends BasicController
         $this->content = view('site.auto.extended.ru')->render();
         return $this->renderBasic();
     }
+    public function presentation(){
+
+        $this->content = view('site.auto.presentation.ru')->render();
+        return $this->renderBasic();
+    }
+    public function faq(){
+
+        $this->content = view('site.auto.faq.ru')->render();
+        return $this->renderBasic();
+    }
+    public function about(){
+
+        $this->content = view('site.auto.about.ru')->render();
+        return $this->renderBasic();
+    }
+    public function confidentiality(){
+
+        $this->content = view('site.auto.confidentiality.ru')->render();
+        return $this->renderBasic();
+    }
+    public function convention(){
+
+        $this->content = view('site.auto.convention.ru')->render();
+        return $this->renderBasic();
+    }
+    public function marks(){
+
+        $this->content = view('site.auto.marks.ru')->render();
+        return $this->renderBasic();
+    }
+    public function catbody(){
+
+        $this->content = view('site.auto.catbody.ru')->render();
+        return $this->renderBasic();
+    }
+    public function changelog(){
+
+        $this->content = view('site.auto.changelog.ru')->render();
+        return $this->renderBasic();
+    }
+    public function update(){
+
+        $this->content = view('site.auto.update.ru')->render();
+        return $this->renderBasic();
+    }
+
+
+
 
 
 

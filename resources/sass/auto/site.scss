@@ -3,10 +3,18 @@
 
 //components
 @import 'components/header';
-//@import 'components/filter';
+@import 'components/filter';
 @import 'components/yfilterextended';
-//@import 'components/home';
+@import 'components/home';
 @import 'components/presentation';
+@import 'components/faq';
+@import 'components/about';
+@import 'components/confidentiality';
+@import 'components/convention';
+@import 'components/marks';
+@import 'components/catbody';
+@import 'components/changelog';
+@import 'components/update';
 
 
 @import 'modules/yfilterform';
@@ -16,14 +24,14 @@
 
 
 
-//@import 'components/card';
-//@import 'components/favorite';
+@import 'components/card';
+@import 'components/favorite';
 //modules
-//@import 'modules/header/ymenu';
-//@import 'modules/header/ysearch';
-//@import 'modules/ylocation';
+@import 'modules/header/ymenu';
+@import 'modules/header/ysearch';
+@import 'modules/ylocation';
 
-
+@import 'modules/yfaqquestions';
 
 @import 'modules/yselectsearch';
 @import 'modules/yselectmultysearch';
@@ -37,11 +45,11 @@
 @import 'modules/ycheckbox';
 @import 'modules/yprice';
 @import 'modules/ydropdown';
-//@import 'modules/ybestoffers';
-//@import 'modules/ycatalog';
-//@import 'modules/yfavorite';
-//@import 'modules/yanalitics';
-//@import 'modules/ynews';
+@import 'modules/ybestoffers';
+@import 'modules/ycatalog';
+@import 'modules/yfavorite';
+@import 'modules/yanalitics';
+@import 'modules/ynews';
 
 .scroll-disallowed{
     overflow-y: hidden;
@@ -58,8 +66,8 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 0 15px;
         overflow-x: hidden;
+        padding: 0 17%;
         .ycatalog{
             &:after{
                 content: '';
@@ -68,6 +76,7 @@
                 bottom: 0;
                 width: 100%;
                 left: 0;
+
             }
         }
         .yanalytics{
