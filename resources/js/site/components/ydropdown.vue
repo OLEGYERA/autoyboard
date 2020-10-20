@@ -1,75 +1,65 @@
 <template>
     <div class="ydropdown" :class="{black: shade !== undefined}">
-        <div class="name-dropdown" @click="isOpen = !isOpen">
+        <div class="name-dropdown" @click="openResults = !openResults">
             {{generatingPlaceholder}}
-            <i class="yicon" :class="{'arrow-up' :isOpen, 'arrow-down':  !isOpen}" @click="isOpen = !isOpen"></i>
+            <i class="yicon" :class="{'arrow-up': openResults, 'arrow-down': !openResults}"></i>
         </div>
 
-        <div class="items" v-show="isOpen">
-            <div class="item"
-                 :class="{'checked' : itemSelected == item.name}"
+        <div class="items" v-show="openResults">
+            <div class="item" v-if="options.length == 0">
+                Такого нет
+            </div>
+            <div class="item" v-else ref="options"
+                 :class="{'selected' : choosedItem === item.val}"
                  v-for="(item, index) in options"
-                 :key="index"
-                 @click="setItem(item)"
-            >
+                 @click="clickingResult(item.val)">
                 {{ item.name }}
-                <i v-if="itemSelected === item.name" class="fas fa-check"></i>
+                <i v-if="choosedItem === item.val" class="fas fa-check"></i>
             </div>
         </div>
     </div>
 </template>
 <script>
     export default{
-        props: ['options', 'placeholder', 'selectedItem', 'shade'],
+        props: ['options', 'placeholder', 'choosedItem', 'shade'],
         mounted() {
             document.addEventListener('click', this.handleClickOutside);
-
-            document.addEventListener('keydown', this.test);
-
-
-        },
-        destroyed() {
-            document.removeEventListener('click', this.handleClickOutside)
         },
         data(){
             return{
-                itemSelected: null,
-                isOpen: false,
-                result: [],
+                openResults: false,
+                mouseSelected: null,
             }
         },
         methods: {
-            setItem(item) {
-                this.itemSelected = item.name
-                this.result = item
-                this.isOpen = false
-
-                this.$emit('setItem', item)
-                //
-                // this.$emit('setItem', {
-                //     selectItem: item.name,
-                //     selectId: item.id
-                // })
-            },
-            test(e){
-                console.log(e)
+            clickingResult(result) {
+                this.openResults = false
+                this.$emit('updateChoosed', result)
             },
             handleClickOutside(evt){
-                console.log(evt)
                 if (!this.$el.contains(evt.target)) {
-                    this.isOpen = false;
+                    this.openResults = false;
                 }
             },
-
         },
 
         computed: {
-            filteredItems() {
-                return this.items
+            getChoosedObject(){
+                return this.options.find(el => {
+                    if(el.val == this.choosedItem) return true;
+                })
             },
             generatingPlaceholder(){
-                return this.itemSelected === null ? this.placeholder : this.itemSelected;
+                return this.getChoosedObject !== undefined ? this.getChoosedObject.name : this.placeholder;
             },
+        },
+        watch: {
+            selected(to){
+                // console.log(to)
+            }
+        },
+        destroyed() {
+            document.removeEventListener('click', this.handleClickOutside)
         },
     }
 </script>

@@ -11,26 +11,32 @@
             type="number"
             placeholder="До">
         <ydropdown
-            :options="currency"
-            :placeholder="12"></ydropdown>
-
+            @updateChoosed="SET_CURRENCY_CHOOSED($event)"
+            :options="curencies"
+            :placeholder="'Валюта'"
+            :choosedItem="searchDeatils.currencyChoosed"></ydropdown>
     </div>
 </template>
 <script>
-
+import {mapGetters, mapActions, mapMutations} from 'vuex';
 export default{
-    mounted() {
-
-    },
     data() {
         return{
-            currency: [{name: '$'}, {name: '₴'}, {name: '€'} ],
             minRange: null,
             maxRange: null,
         }
     },
-
-
+    methods: {
+        ...mapMutations([
+            'SET_CURRENCY_CHOOSED'
+        ]),
+    },
+    computed: {
+        ...mapGetters({
+            'curencies': 'GET_CURRENCIES',
+            'searchDeatils': 'GET_SEARCHDETAILS'
+        }),
+    }
 }
 </script>
 

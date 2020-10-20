@@ -7,19 +7,34 @@
                 <aside class="yexpanded_sidebar">
                     <div class="ysearch_filter">
                         <div class="ysearch_type_btn">
-                            <button class="change_type active">Все</button>
-                            <button class="change_type">Новые</button>
-                            <button class="change_type">Б/у</button>
+                            <button class="change_type"
+                                    @click="SET_AUTO_CONDITION(1)"
+                                    :class="{active: searchDeatils.autoConditionChoosed == 1}">
+                                Все
+                            </button>
+                            <button class="change_type"
+                                    @click="SET_AUTO_CONDITION(2)"
+                                    :class="{active: searchDeatils.autoConditionChoosed == 2}">
+                                Новые
+                            </button>
+                            <button class="change_type"
+                                    @click="SET_AUTO_CONDITION(3)"
+                                    :class="{active: searchDeatils.autoConditionChoosed == 3}">
+                                Б/у
+                            </button>
                         </div>
                         <div class="ycheckbox_options">
                             <ycheckbox
-                                :text="'Поиск со всех ресурсов'">
+                                :name="'Поиск со всех ресурсов'"
+                                :checked="searchDeatils.searchPropsChoosed.fullResource">
                             </ycheckbox>
                             <ycheckbox
-                                :text="'Провереные'">
+                                :name="'Провереные'"
+                                :checked="searchDeatils.searchPropsChoosed.verifiedAuto">
                             </ycheckbox>
                             <ycheckbox
-                                :text="'С фото'">
+                                :name="'С фото'"
+                                :checked="searchDeatils.searchPropsChoosed.withPhoto">
                             </ycheckbox>
                         </div>
                     </div>
@@ -121,7 +136,6 @@
                                     :placeholder="'До'"
                                     :options="years"
                                     :choosedItem="rbmy.yearTo"></yselectsearch>
-<!--                                <ydropdown :placeholder="'До'" :items="reversedYears"></ydropdown>-->
                             </div>
                         </div>
                         <button class="yremove_car-items" v-if="i != 0" @click="DELETE_RBMY(i)">
@@ -272,7 +286,7 @@
                 <div class="yb-status_checked-items">
                         <h2>Пригнан из</h2>
                     <div class="yb-select_items">
-                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>
+<!--                        <ydropdown @setItem='selectedItem' :placeholder="'Выберите страну'" :items="countryName"></ydropdown>-->
                         <div class="yb-cheked_items">
                             <div class="ycheked vis_l">
                                 <div class="yvis_l checkbox">
@@ -329,44 +343,44 @@
                 <div class="yselectsearch_specifications">
                     <div class="vis_l-specifications">
                         <h2>Топливо</h2>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>
+<!--                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>-->
                         <h2>КПП</h2>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>
+<!--                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>-->
                         <h2>Тип привода</h2>
-                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>
+<!--                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>-->
                     </div>
                     <div class="vis_c-specifications y-double">
                         <h3>Росход топлива, л./100 км</h3>
                         <div class="ydouble_dropdown">
-                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
-                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+<!--                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>-->
+<!--                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>-->
                         </div>
                         <h3>Объём, л.</h3>
                         <div class="ydouble_dropdown">
-                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>
-                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+<!--                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>-->
+<!--                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>-->
                         </div>
                         <h3>Мощность</h3>
                         <div class="ydouble_dropdown">
-                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
-                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+<!--                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>-->
+<!--                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>-->
                         </div>
                     </div>
                     <div class="vis_r-specifications y-double">
                         <h3>Пробег, тыс.км</h3>
                         <div class="ydouble_dropdown">
-                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
-                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+<!--                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>-->
+<!--                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>-->
                         </div>
                         <h3>Количество дверей</h3>
                         <div class="ydouble_dropdown">
-                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
-                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+<!--                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>-->
+<!--                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>-->
                         </div>
                         <h3>Количество мест</h3>
                         <div class="ydouble_dropdown">
-                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>
-                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>
+<!--                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>-->
+<!--                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>-->
                         </div>
                     </div>
                 </div>
@@ -463,15 +477,15 @@
                 <div class="yvisual_results">
                     <div class="yvis_res-select">
                         <h2>Сортировка</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="sortBy"></ydropdown>
+<!--                        <ydropdown :placeholder="'Не выбрано'" :items="sortBy"></ydropdown>-->
                         <h2>Период подачи</h2>
-                        <ydropdown :placeholder="'Не выбрано'" :items="deliveryPeriod"></ydropdown>
+<!--                        <ydropdown :placeholder="'Не выбрано'" :items="deliveryPeriod"></ydropdown>-->
                     </div>
                     <div class="yvis_res-select">
                         <h2>Актуальность</h2>
-                        <ydropdown  :placeholder="'Не выбрано'" :items="isActual"></ydropdown>
+<!--                        <ydropdown  :placeholder="'Не выбрано'" :items="isActual"></ydropdown>-->
                         <h2>Показывать</h2>
-                        <ydropdown  :placeholder="'Не выбрано'" :items="amountShow" ></ydropdown>
+<!--                        <ydropdown  :placeholder="'Не выбрано'" :items="amountShow" ></ydropdown>-->
                     </div>
                     <div class="yseach_card-id">
                         <h3>Поиск по ID</h3>
@@ -879,6 +893,9 @@
         },
         methods: {
             ...mapMutations([
+                //search deataild
+                'SET_AUTO_CONDITION',
+                //regions
                 'SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS',
                 //RBMY
                 'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY',
@@ -1001,6 +1018,9 @@
         },
         computed: {
             ...mapGetters({
+                //search detail
+                'searchDeatils': 'GET_SEARCHDETAILS',
+
                 //RBMY
                 'rbmysArr': 'GET_RBMYS', 'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
                 'brands': 'GET_BRANDS', 'years': 'GET_YEARS',

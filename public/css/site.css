@@ -33,6 +33,10 @@ button {
   padding: 0;
 }
 
+.yicon {
+  font-size: 2em;
+}
+
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
   margin: 0px;
@@ -612,6 +616,10 @@ button {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+.yicon {
+  font-size: 2em;
 }
 
 h1.yb-main-title {
@@ -3419,6 +3427,10 @@ button {
   padding: 0;
 }
 
+.yicon {
+  font-size: 2em;
+}
+
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
   margin: 0px;
@@ -3691,6 +3703,10 @@ button {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+.yicon {
+  font-size: 2em;
 }
 
 h1.yb-main-title {
@@ -4462,6 +4478,10 @@ button {
   padding: 0;
 }
 
+.yicon {
+  font-size: 2em;
+}
+
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
   margin: 0px;
@@ -4592,6 +4612,10 @@ button {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+.yicon {
+  font-size: 2em;
 }
 
 h1.yb-main-title {
@@ -4748,6 +4772,10 @@ button {
   padding: 0;
 }
 
+.yicon {
+  font-size: 2em;
+}
+
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
   margin: 0px;
@@ -4782,8 +4810,8 @@ span.yb-gradient {
   height: 42px;
   padding: 10px 40px 10px 20px;
   font-family: "Alegreya Sans", sans-serif;
-  font-weight: 500;
-  font-size: 1.125em;
+  font-weight: 400;
+  font-size: 1em;
   color: rgba(34, 34, 34, 0.8);
   border-radius: 10px;
   border: 1px solid #E2E2E2;
@@ -4900,6 +4928,10 @@ button {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+.yicon {
+  font-size: 2em;
 }
 
 h1.yb-main-title {
@@ -5045,6 +5077,10 @@ button {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+.yicon {
+  font-size: 2em;
 }
 
 h1.yb-main-title {
@@ -5608,6 +5644,10 @@ button {
   padding: 0;
 }
 
+.yicon {
+  font-size: 2em;
+}
+
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
   margin: 0px;
@@ -5820,6 +5860,10 @@ button {
   padding: 0;
 }
 
+.yicon {
+  font-size: 2em;
+}
+
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
   margin: 0px;
@@ -5960,6 +6004,10 @@ button {
   padding: 0;
 }
 
+.yicon {
+  font-size: 2em;
+}
+
 h1.yb-main-title {
   font-family: "Fira Sans", sans-serif;
   margin: 0px;
@@ -5992,15 +6040,14 @@ span.yb-gradient {
 
 .ydropdown .name-dropdown {
   width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  padding: 10px 15px 10px 20px;
-  background-color: #f4f4f4;
+  height: 42px;
+  padding: 10px 5px 10px 5px;
   font-family: "Alegreya Sans", sans-serif;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 1em;
-  line-height: 18px;
-  color: #696969;
+  color: rgba(34, 34, 34, 0.8);
+  border-radius: 10px;
+  border: 1px solid #E2E2E2;
 }
 
 .ydropdown .name-dropdown i {
@@ -6087,9 +6134,9 @@ span.yb-gradient {
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow-x: hidden;
-  padding: 0 17%;
+  padding: 0 15px;
   width: 100%;
+  overflow-x: hidden;
 }
 
 #yb-site .yb-content .ycatalog:after {

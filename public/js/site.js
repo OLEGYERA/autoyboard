@@ -4675,7 +4675,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['name', 'checked', 'checkHide'],
   methods: {
@@ -4707,7 +4706,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['text']
+  props: ['name', 'checked'],
+  methods: {
+    changeCheck: function changeCheck() {
+      this.$emit('checked');
+    }
+  }
 });
 
 /***/ }),
@@ -4741,51 +4745,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['options', 'placeholder', 'selectedItem', 'shade'],
+  props: ['options', 'placeholder', 'choosedItem', 'shade'],
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
-    document.addEventListener('keydown', this.test);
-  },
-  destroyed: function destroyed() {
-    document.removeEventListener('click', this.handleClickOutside);
   },
   data: function data() {
     return {
-      itemSelected: null,
-      isOpen: false,
-      result: []
+      openResults: false,
+      mouseSelected: null
     };
   },
   methods: {
-    setItem: function setItem(item) {
-      this.itemSelected = item.name;
-      this.result = item;
-      this.isOpen = false;
-      this.$emit('setItem', item); //
-      // this.$emit('setItem', {
-      //     selectItem: item.name,
-      //     selectId: item.id
-      // })
-    },
-    test: function test(e) {
-      console.log(e);
+    clickingResult: function clickingResult(result) {
+      this.openResults = false;
+      this.$emit('updateChoosed', result);
     },
     handleClickOutside: function handleClickOutside(evt) {
-      console.log(evt);
-
       if (!this.$el.contains(evt.target)) {
-        this.isOpen = false;
+        this.openResults = false;
       }
     }
   },
   computed: {
-    filteredItems: function filteredItems() {
-      return this.items;
+    getChoosedObject: function getChoosedObject() {
+      var _this = this;
+
+      return this.options.find(function (el) {
+        if (el.val == _this.choosedItem) return true;
+      });
     },
     generatingPlaceholder: function generatingPlaceholder() {
-      return this.itemSelected === null ? this.placeholder : this.itemSelected;
+      return this.getChoosedObject !== undefined ? this.getChoosedObject.name : this.placeholder;
     }
+  },
+  watch: {
+    selected: function selected(to) {// console.log(to)
+    }
+  },
+  destroyed: function destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
   }
 });
 
@@ -4946,6 +4946,20 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5989,7 +6003,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])([//search deataild
+  'SET_AUTO_CONDITION', //regions
+  'SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
   'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
   'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['FULL_REGIONS_FROM_API', //RBMY
   'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
@@ -6100,6 +6116,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    //search detail
+    'searchDeatils': 'GET_SEARCHDETAILS',
     //RBMY
     'rbmysArr': 'GET_RBMYS',
     'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
@@ -7123,6 +7141,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -7141,21 +7166,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {},
   data: function data() {
     return {
-      currency: [{
-        name: '$'
-      }, {
-        name: '₴'
-      }, {
-        name: '€'
-      }],
       minRange: null,
       maxRange: null
     };
-  }
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['SET_CURRENCY_CHOOSED'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    'curencies': 'GET_CURRENCIES',
+    'searchDeatils': 'GET_SEARCHDETAILS'
+  }))
 });
 
 /***/ }),
@@ -44896,23 +44920,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "change_resource" }, [
-    _c("span", { staticClass: "title_change" }, [_vm._v(_vm._s(_vm.text))]),
+    _c("span", { staticClass: "title_change" }, [_vm._v(_vm._s(_vm.name))]),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "ios7-switch" }, [
-      _c("input", { attrs: { type: "checkbox", checked: "" } }),
+    _c("label", { staticClass: "ios7-switch" }, [
+      _c("input", {
+        attrs: { type: "checkbox" },
+        domProps: { checked: _vm.checked == true }
+      }),
       _vm._v(" "),
       _c("span")
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -44944,7 +44964,7 @@ var render = function() {
           staticClass: "name-dropdown",
           on: {
             click: function($event) {
-              _vm.isOpen = !_vm.isOpen
+              _vm.openResults = !_vm.openResults
             }
           }
         },
@@ -44954,11 +44974,9 @@ var render = function() {
           ),
           _c("i", {
             staticClass: "yicon",
-            class: { "arrow-up": _vm.isOpen, "arrow-down": !_vm.isOpen },
-            on: {
-              click: function($event) {
-                _vm.isOpen = !_vm.isOpen
-              }
+            class: {
+              "arrow-up": _vm.openResults,
+              "arrow-down": !_vm.openResults
             }
           })
         ]
@@ -44971,34 +44989,43 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: _vm.isOpen,
-              expression: "isOpen"
+              value: _vm.openResults,
+              expression: "openResults"
             }
           ],
           staticClass: "items"
         },
-        _vm._l(_vm.options, function(item, index) {
-          return _c(
-            "div",
-            {
-              key: index,
-              staticClass: "item",
-              class: { checked: _vm.itemSelected == item.name },
-              on: {
-                click: function($event) {
-                  return _vm.setItem(item)
-                }
-              }
-            },
-            [
-              _vm._v("\n            " + _vm._s(item.name) + "\n            "),
-              _vm.itemSelected === item.name
-                ? _c("i", { staticClass: "fas fa-check" })
-                : _vm._e()
-            ]
-          )
-        }),
-        0
+        [
+          _vm.options.length == 0
+            ? _c("div", { staticClass: "item" }, [
+                _vm._v("\n            Такого нет\n        ")
+              ])
+            : _vm._l(_vm.options, function(item, index) {
+                return _c(
+                  "div",
+                  {
+                    ref: "options",
+                    refInFor: true,
+                    staticClass: "item",
+                    class: { selected: _vm.choosedItem === item.val },
+                    on: {
+                      click: function($event) {
+                        return _vm.clickingResult(item.val)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n            " + _vm._s(item.name) + "\n            "
+                    ),
+                    _vm.choosedItem === item.val
+                      ? _c("i", { staticClass: "fas fa-check" })
+                      : _vm._e()
+                  ]
+                )
+              })
+        ],
+        2
       )
     ]
   )
@@ -45297,17 +45324,92 @@ var render = function() {
       _c("section", { staticClass: "yexpanded_search_filter" }, [
         _c("aside", { staticClass: "yexpanded_sidebar" }, [
           _c("div", { staticClass: "ysearch_filter" }, [
-            _vm._m(0),
+            _c("div", { staticClass: "ysearch_type_btn" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "change_type",
+                  class: {
+                    active: _vm.searchDeatils.autoConditionChoosed == 1
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.SET_AUTO_CONDITION(1)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                                Все\n                            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "change_type",
+                  class: {
+                    active: _vm.searchDeatils.autoConditionChoosed == 2
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.SET_AUTO_CONDITION(2)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                                Новые\n                            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "change_type",
+                  class: {
+                    active: _vm.searchDeatils.autoConditionChoosed == 3
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.SET_AUTO_CONDITION(3)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                                Б/у\n                            "
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
             _c(
               "div",
               { staticClass: "ycheckbox_options" },
               [
-                _c("ycheckbox", { attrs: { text: "Поиск со всех ресурсов" } }),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Поиск со всех ресурсов",
+                    checked: _vm.searchDeatils.searchPropsChoosed.fullResource
+                  }
+                }),
                 _vm._v(" "),
-                _c("ycheckbox", { attrs: { text: "Провереные" } }),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Провереные",
+                    checked: _vm.searchDeatils.searchPropsChoosed.verifiedAuto
+                  }
+                }),
                 _vm._v(" "),
-                _c("ycheckbox", { attrs: { text: "С фото" } })
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "С фото",
+                    checked: _vm.searchDeatils.searchPropsChoosed.withPhoto
+                  }
+                })
               ],
               1
             )
@@ -45653,171 +45755,12 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "yb-condition_cars" }, [
-        _c("h2", [_vm._v("Состояние")]),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb-status_checked-items" }, [
-          _c("h2", [_vm._v("Пригнан из")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "yb-select_items" },
-            [
-              _c("ydropdown", {
-                attrs: {
-                  placeholder: "Выберите страну",
-                  items: _vm.countryName
-                },
-                on: { setItem: _vm.selectedItem }
-              }),
-              _vm._v(" "),
-              _vm._m(2)
-            ],
-            1
-          )
-        ])
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "yb-specifications_cars" }, [
         _c("h2", [_vm._v("Технические характеристики")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yselectsearch_specifications" }, [
-          _c(
-            "div",
-            { staticClass: "vis_l-specifications" },
-            [
-              _c("h2", [_vm._v("Топливо")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.fuel },
-                on: { setItem: _vm.selectedItem }
-              }),
-              _vm._v(" "),
-              _c("h2", [_vm._v("КПП")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.transmission },
-                on: { setItem: _vm.selectedItem }
-              }),
-              _vm._v(" "),
-              _c("h2", [_vm._v("Тип привода")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.typeofdrive },
-                on: { setItem: _vm.selectedItem }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "vis_c-specifications y-double" }, [
-            _c("h3", [_vm._v("Росход топлива, л./100 км")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ydouble_dropdown" },
-              [
-                _c("ydropdown", {
-                  attrs: { items: _vm.test, placeholder: "От" }
-                }),
-                _vm._v(" "),
-                _c("ydropdown", {
-                  attrs: { items: _vm.test2, placeholder: "До" }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Объём, л.")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ydouble_dropdown" },
-              [
-                _c("ydropdown", {
-                  attrs: { items: _vm.test, placeholder: "От" }
-                }),
-                _vm._v(" "),
-                _c("ydropdown", {
-                  attrs: { items: _vm.test2, placeholder: "До" }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Мощность")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ydouble_dropdown" },
-              [
-                _c("ydropdown", {
-                  attrs: { items: _vm.test, placeholder: "От" }
-                }),
-                _vm._v(" "),
-                _c("ydropdown", {
-                  attrs: { items: _vm.test2, placeholder: "До" }
-                })
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "vis_r-specifications y-double" }, [
-            _c("h3", [_vm._v("Пробег, тыс.км")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ydouble_dropdown" },
-              [
-                _c("ydropdown", {
-                  attrs: { items: _vm.test, placeholder: "От" }
-                }),
-                _vm._v(" "),
-                _c("ydropdown", {
-                  attrs: { items: _vm.test2, placeholder: "До" }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Количество дверей")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ydouble_dropdown" },
-              [
-                _c("ydropdown", {
-                  attrs: { items: _vm.test, placeholder: "От" }
-                }),
-                _vm._v(" "),
-                _c("ydropdown", {
-                  attrs: { items: _vm.test2, placeholder: "До" }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Количество мест")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ydouble_dropdown" },
-              [
-                _c("ydropdown", {
-                  attrs: { items: _vm.test, placeholder: "От" }
-                }),
-                _vm._v(" "),
-                _c("ydropdown", {
-                  attrs: { items: _vm.test2, placeholder: "До" }
-                })
-              ],
-              1
-            )
-          ])
-        ]),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "yother_specifications" }, [
           _c("h3", [_vm._v("Цвет")]),
@@ -46431,53 +46374,9 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "yspecification_results" }, [
-        _c("h3", [_vm._v("Результаты поиска")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yvisual_results" }, [
-          _c(
-            "div",
-            { staticClass: "yvis_res-select" },
-            [
-              _c("h2", [_vm._v("Сортировка")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.sortBy }
-              }),
-              _vm._v(" "),
-              _c("h2", [_vm._v("Период подачи")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.deliveryPeriod }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "yvis_res-select" },
-            [
-              _c("h2", [_vm._v("Актуальность")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.isActual }
-              }),
-              _vm._v(" "),
-              _c("h2", [_vm._v("Показывать")]),
-              _vm._v(" "),
-              _c("ydropdown", {
-                attrs: { placeholder: "Не выбрано", items: _vm.amountShow }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(3)
-        ])
-      ]),
+      _vm._m(2),
       _vm._v(" "),
-      _vm._m(4)
+      _vm._m(3)
     ])
   ])
 }
@@ -46486,88 +46385,182 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ysearch_type_btn" }, [
-      _c("button", { staticClass: "change_type active" }, [_vm._v("Все")]),
+    return _c("div", { staticClass: "yb-condition_cars" }, [
+      _c("h2", [_vm._v("Состояние")]),
       _vm._v(" "),
-      _c("button", { staticClass: "change_type" }, [_vm._v("Новые")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "change_type" }, [_vm._v("Б/у")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-status_car-items" }, [
-      _c("div", { staticClass: "status_items" }, [
-        _c("h2", [_vm._v("Авто не в Украине")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "change_vis-btn" }, [
-          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
+      _c("div", { staticClass: "yb-status_car-items" }, [
+        _c("div", { staticClass: "status_items" }, [
+          _c("h2", [_vm._v("Авто не в Украине")]),
           _vm._v(" "),
-          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+          _c("div", { staticClass: "change_vis-btn" }, [
+            _c("button", { staticClass: " btn_s  active" }, [
+              _vm._v("Показать")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "status_items" }, [
+          _c("h2", [_vm._v("В кредите")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "change_vis-btn" }, [
+            _c("button", { staticClass: " btn_s  active" }, [
+              _vm._v("Показать")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "status_items" }, [
+          _c("h2", [_vm._v("Нерастаможеные")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "change_vis-btn" }, [
+            _c("button", { staticClass: " btn_s  active" }, [
+              _vm._v("Показать")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "status_items" }, [
+          _c("h2", [_vm._v("Конфискат")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "change_vis-btn" }, [
+            _c("button", { staticClass: " btn_s  active" }, [
+              _vm._v("Показать")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "status_items" }, [
+          _c("h2", [_vm._v("После ДТП")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "change_vis-btn" }, [
+            _c("button", { staticClass: " btn_s  active" }, [
+              _vm._v("Показать")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "status_items" }, [
+          _c("h2", [_vm._v("Не на ходу")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "change_vis-btn" }, [
+            _c("button", { staticClass: " btn_s  active" }, [
+              _vm._v("Показать")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "status_items" }, [
+          _c("h2", [_vm._v("Продавец")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "change_vis-btn" }, [
+            _c("button", { staticClass: "btn_s large active" }, [
+              _vm._v("Частное лицо")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "status_items" }, [
-        _c("h2", [_vm._v("В кредите")]),
+      _c("div", { staticClass: "yb-status_checked-items" }, [
+        _c("h2", [_vm._v("Пригнан из")]),
         _vm._v(" "),
-        _c("div", { staticClass: "change_vis-btn" }, [
-          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
-          _vm._v(" "),
-          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "status_items" }, [
-        _c("h2", [_vm._v("Нерастаможеные")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "change_vis-btn" }, [
-          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
-          _vm._v(" "),
-          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "status_items" }, [
-        _c("h2", [_vm._v("Конфискат")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "change_vis-btn" }, [
-          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
-          _vm._v(" "),
-          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "status_items" }, [
-        _c("h2", [_vm._v("После ДТП")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "change_vis-btn" }, [
-          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
-          _vm._v(" "),
-          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "status_items" }, [
-        _c("h2", [_vm._v("Не на ходу")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "change_vis-btn" }, [
-          _c("button", { staticClass: " btn_s  active" }, [_vm._v("Показать")]),
-          _vm._v(" "),
-          _c("button", { staticClass: " btn_s " }, [_vm._v("Скрыть")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "status_items" }, [
-        _c("h2", [_vm._v("Продавец")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "change_vis-btn" }, [
-          _c("button", { staticClass: "btn_s large active" }, [
-            _vm._v("Частное лицо")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: " btn_s " }, [_vm._v("Компания")])
+        _c("div", { staticClass: "yb-select_items" }, [
+          _c("div", { staticClass: "yb-cheked_items" }, [
+            _c("div", { staticClass: "ycheked vis_l" }, [
+              _c("div", { staticClass: "yvis_l checkbox" }, [
+                _c("input", { attrs: { id: "1", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "1" } }, [
+                  _vm._v("Гаражное хранение")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_l checkbox" }, [
+                _c("input", { attrs: { id: "2", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "2" } }, [
+                  _vm._v("Индивидуальная комплектация")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_l checkbox" }, [
+                _c("input", { attrs: { id: "3", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_l checkbox" }, [
+                _c("input", { attrs: { id: "4", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "ycheked vis_c" }, [
+              _c("div", { staticClass: "yvis_c checkbox" }, [
+                _c("input", { attrs: { id: "5", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "5" } }, [
+                  _vm._v("Первая регистрация")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_c checkbox" }, [
+                _c("input", { attrs: { id: "6", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "6" } }, [
+                  _vm._v("Первый владелец")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_c checkbox" }, [
+                _c("input", { attrs: { id: "7", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "7" } }, [
+                  _vm._v("Пригоню под заказ")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_c checkbox" }, [
+                _c("input", { attrs: { id: "8", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "8" } }, [
+                  _vm._v("Сервисная книжка")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "ycheked vis_r" }, [
+              _c("div", { staticClass: "yvis_r checkbox" }, [
+                _c("input", { attrs: { id: "9", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "9" } }, [
+                  _vm._v("Ручное управление для инвалдов")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yvis_r checkbox" }, [
+                _c("input", { attrs: { id: "10", type: "checkbox" } }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "10" } }, [
+                  _vm._v("Требует ремонта")
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])
@@ -46576,75 +46569,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-cheked_items" }, [
-      _c("div", { staticClass: "ycheked vis_l" }, [
-        _c("div", { staticClass: "yvis_l checkbox" }, [
-          _c("input", { attrs: { id: "1", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "1" } }, [_vm._v("Гаражное хранение")])
-        ]),
+    return _c("div", { staticClass: "yselectsearch_specifications" }, [
+      _c("div", { staticClass: "vis_l-specifications" }, [
+        _c("h2", [_vm._v("Топливо")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yvis_l checkbox" }, [
-          _c("input", { attrs: { id: "2", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "2" } }, [
-            _vm._v("Индивидуальная комплектация")
-          ])
-        ]),
+        _c("h2", [_vm._v("КПП")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yvis_l checkbox" }, [
-          _c("input", { attrs: { id: "3", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "3" } }, [_vm._v("Не бит")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yvis_l checkbox" }, [
-          _c("input", { attrs: { id: "4", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "4" } }, [_vm._v("Не крашен")])
-        ])
+        _c("h2", [_vm._v("Тип привода")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "ycheked vis_c" }, [
-        _c("div", { staticClass: "yvis_c checkbox" }, [
-          _c("input", { attrs: { id: "5", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "5" } }, [_vm._v("Первая регистрация")])
-        ]),
+      _c("div", { staticClass: "vis_c-specifications y-double" }, [
+        _c("h3", [_vm._v("Росход топлива, л./100 км")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yvis_c checkbox" }, [
-          _c("input", { attrs: { id: "6", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "6" } }, [_vm._v("Первый владелец")])
-        ]),
+        _c("div", { staticClass: "ydouble_dropdown" }),
         _vm._v(" "),
-        _c("div", { staticClass: "yvis_c checkbox" }, [
-          _c("input", { attrs: { id: "7", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "7" } }, [_vm._v("Пригоню под заказ")])
-        ]),
+        _c("h3", [_vm._v("Объём, л.")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yvis_c checkbox" }, [
-          _c("input", { attrs: { id: "8", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "8" } }, [_vm._v("Сервисная книжка")])
-        ])
+        _c("div", { staticClass: "ydouble_dropdown" }),
+        _vm._v(" "),
+        _c("h3", [_vm._v("Мощность")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ydouble_dropdown" })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "ycheked vis_r" }, [
-        _c("div", { staticClass: "yvis_r checkbox" }, [
-          _c("input", { attrs: { id: "9", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "9" } }, [
-            _vm._v("Ручное управление для инвалдов")
-          ])
-        ]),
+      _c("div", { staticClass: "vis_r-specifications y-double" }, [
+        _c("h3", [_vm._v("Пробег, тыс.км")]),
         _vm._v(" "),
-        _c("div", { staticClass: "yvis_r checkbox" }, [
-          _c("input", { attrs: { id: "10", type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "10" } }, [_vm._v("Требует ремонта")])
-        ])
+        _c("div", { staticClass: "ydouble_dropdown" }),
+        _vm._v(" "),
+        _c("h3", [_vm._v("Количество дверей")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ydouble_dropdown" }),
+        _vm._v(" "),
+        _c("h3", [_vm._v("Количество мест")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ydouble_dropdown" })
       ])
     ])
   },
@@ -46652,13 +46611,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yseach_card-id" }, [
-      _c("h3", [_vm._v("Поиск по ID")]),
+    return _c("div", { staticClass: "yspecification_results" }, [
+      _c("h3", [_vm._v("Результаты поиска")]),
       _vm._v(" "),
-      _c("input", {
-        staticClass: "y_seach-id",
-        attrs: { type: "text", placeholder: "Введите ID объявления" }
-      })
+      _c("div", { staticClass: "yvisual_results" }, [
+        _c("div", { staticClass: "yvis_res-select" }, [
+          _c("h2", [_vm._v("Сортировка")]),
+          _vm._v(" "),
+          _c("h2", [_vm._v("Период подачи")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yvis_res-select" }, [
+          _c("h2", [_vm._v("Актуальность")]),
+          _vm._v(" "),
+          _c("h2", [_vm._v("Показывать")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "yseach_card-id" }, [
+          _c("h3", [_vm._v("Поиск по ID")]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "y_seach-id",
+            attrs: { type: "text", placeholder: "Введите ID объявления" }
+          })
+        ])
+      ])
     ])
   },
   function() {
@@ -48649,7 +48626,18 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("ydropdown", { attrs: { options: _vm.currency, placeholder: 12 } })
+      _c("ydropdown", {
+        attrs: {
+          options: _vm.curencies,
+          placeholder: "Валюта",
+          choosedItem: _vm.searchDeatils.currencyChoosed
+        },
+        on: {
+          updateChoosed: function($event) {
+            return _vm.SET_CURRENCY_CHOOSED($event)
+          }
+        }
+      })
     ],
     1
   )
@@ -72151,146 +72139,9 @@ var actions = {
 
 /***/ }),
 
-/***/ "./resources/js/STORE/modules/TRANSPORT.js":
-/*!*************************************************!*\
-  !*** ./resources/js/STORE/modules/TRANSPORT.js ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-var state = {
-  transportTypes: [],
-  transportBodies: [],
-  transportFullStore: {
-    typeChoosed: null,
-    bodiesChoosed: []
-  }
-};
-var getters = {
-  GET_TRANSPORT_TYPES: function GET_TRANSPORT_TYPES(state) {
-    return state.transportTypes;
-  },
-  GET_TRANSPORT_BODIES: function GET_TRANSPORT_BODIES(state) {
-    state.transportBodies.forEach(function (el) {
-      if (state.transportFullStore.bodiesChoosed.indexOf(el.val) !== -1) {
-        el['choosed'] = true;
-      } else {
-        el['choosed'] = false;
-      }
-    });
-    return state.transportBodies;
-  },
-  GET_TRANSPORTS: function GET_TRANSPORTS(state) {
-    return state.transportFullStore;
-  }
-};
-var mutations = {
-  SET_TRANSPORT_TYPE: function SET_TRANSPORT_TYPE(state, payload) {
-    state.transportFullStore.typeChoosed = payload;
-    state.transportFullStore.bodiesChoosed = [];
-  },
-  SET_TRANPORT_ARR: function SET_TRANPORT_ARR(state, payload) {
-    state.transportTypes = payload.transportTypes;
-    state.transportBodies = payload.transportBodies;
-    state.transportFullStore.typeChoosed = payload.typeChoosed;
-    state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
-  },
-  SET_TRANSPORT_BODY_CHOOSE: function SET_TRANSPORT_BODY_CHOOSE(state, payload) {
-    var condition = state.transportFullStore.bodiesChoosed.find(function (el) {
-      if (payload === el) return true;
-    });
-
-    if (condition !== undefined) {
-      state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
-    } else {
-      state.transportFullStore.bodiesChoosed.push(payload);
-    }
-  },
-  SET_TRANSPORT_TYPES_FROM_API: function SET_TRANSPORT_TYPES_FROM_API(state, payload) {
-    state.transportTypes = payload;
-  },
-  SET_TRANSPORT_BODIES_FROM_API: function SET_TRANSPORT_BODIES_FROM_API(state, payload) {
-    state.transportBodies = payload;
-  }
-};
-var actions = {
-  TRANSPORT_TYPES_FROM_API: function () {
-    var _TRANSPORT_TYPES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    function TRANSPORT_TYPES_FROM_API(_x, _x2) {
-      return _TRANSPORT_TYPES_FROM_API.apply(this, arguments);
-    }
-
-    return TRANSPORT_TYPES_FROM_API;
-  }(),
-  BODIES_FROM_API: function () {
-    var _BODIES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    function BODIES_FROM_API(_x3, _x4) {
-      return _BODIES_FROM_API.apply(this, arguments);
-    }
-
-    return BODIES_FROM_API;
-  }()
-};
-/* harmony default export */ __webpack_exports__["default"] = ({
-  state: state,
-  getters: getters,
-  mutations: mutations,
-  actions: actions
-});
-
-/***/ }),
-
-/***/ "./resources/js/STORE/modules/regions.js":
+/***/ "./resources/js/STORE/modules/REGIONS.js":
 /*!***********************************************!*\
-  !*** ./resources/js/STORE/modules/regions.js ***!
+  !*** ./resources/js/STORE/modules/REGIONS.js ***!
   \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -72451,6 +72302,246 @@ var actions = {
 
 /***/ }),
 
+/***/ "./resources/js/STORE/modules/SEARCHDETAILS.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/STORE/modules/SEARCHDETAILS.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+
+var state = {
+  currencies: [{
+    val: 1,
+    name: '$'
+  }, {
+    val: 2,
+    name: '₴'
+  }, {
+    val: 3,
+    name: '€'
+  }],
+  searchDetailFullStore: {
+    autoConditionChoosed: null,
+    searchPropsChoosed: {
+      fullResource: null,
+      verifiedAuto: null,
+      withPhoto: null
+    },
+    currencyChoosed: null
+  }
+};
+var getters = {
+  GET_SEARCHDETAILS: function GET_SEARCHDETAILS(state) {
+    return state.searchDetailFullStore;
+  },
+  GET_CURRENCIES: function GET_CURRENCIES(state) {
+    return state.currencies;
+  }
+};
+var mutations = {
+  SET_AUTO_CONDITION: function SET_AUTO_CONDITION(state, payload) {
+    state.searchDetailFullStore.autoConditionChoosed = payload;
+  },
+  SET_CURRENCY_CHOOSED: function SET_CURRENCY_CHOOSED(state, payload) {
+    console.log(payload);
+    state.searchDetailFullStore.currencyChoosed = payload;
+  } // SET_TRANPORT_ARR: (state, payload) => {
+  //     state.transportTypes = payload.transportTypes;
+  //     state.transportBodies = payload.transportBodies;
+  //     state.transportFullStore.typeChoosed = payload.typeChoosed;
+  //     state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
+  // },
+  // SET_TRANSPORT_BODY_CHOOSE: (state, payload) => {
+  //     const condition = state.transportFullStore.bodiesChoosed.find(function(el){
+  //         if(payload === el) return true;
+  //     })
+  //
+  //     if(condition !== undefined){
+  //         state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
+  //     } else{
+  //         state.transportFullStore.bodiesChoosed.push(payload)
+  //     }
+  // },
+  //
+  // SET_TRANSPORT_TYPES_FROM_API: (state, payload) => {
+  //     state.transportTypes = payload;
+  // },
+  //
+  // SET_TRANSPORT_BODIES_FROM_API: (state, payload) => {
+  //     state.transportBodies = payload;
+  // }
+
+};
+var actions = {// TRANSPORT_TYPES_FROM_API: async (context, payload) => {
+  //     HTTP.get(payload)
+  //         .then(response => {
+  //             context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
+  //         })
+  //         .catch(error =>{
+  //             console.log('error', error)
+  //         })
+  // },
+  //
+  // BODIES_FROM_API: async (context, payload) => {
+  //     HTTP.get(payload)
+  //         .then(response => {
+  //             context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
+  //         })
+  //         .catch(error =>{
+  //             console.log('error', error)
+  //         })
+  // },
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/STORE/modules/TRANSPORT.js":
+/*!*************************************************!*\
+  !*** ./resources/js/STORE/modules/TRANSPORT.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  transportTypes: [],
+  transportBodies: [],
+  transportFullStore: {
+    typeChoosed: null,
+    bodiesChoosed: []
+  }
+};
+var getters = {
+  GET_TRANSPORT_TYPES: function GET_TRANSPORT_TYPES(state) {
+    return state.transportTypes;
+  },
+  GET_TRANSPORT_BODIES: function GET_TRANSPORT_BODIES(state) {
+    state.transportBodies.forEach(function (el) {
+      if (state.transportFullStore.bodiesChoosed.indexOf(el.val) !== -1) {
+        el['choosed'] = true;
+      } else {
+        el['choosed'] = false;
+      }
+    });
+    return state.transportBodies;
+  },
+  GET_TRANSPORTS: function GET_TRANSPORTS(state) {
+    return state.transportFullStore;
+  }
+};
+var mutations = {
+  SET_TRANSPORT_TYPE: function SET_TRANSPORT_TYPE(state, payload) {
+    state.transportFullStore.typeChoosed = payload;
+    state.transportFullStore.bodiesChoosed = [];
+  },
+  SET_TRANPORT_ARR: function SET_TRANPORT_ARR(state, payload) {
+    state.transportTypes = payload.transportTypes;
+    state.transportBodies = payload.transportBodies;
+    state.transportFullStore.typeChoosed = payload.typeChoosed;
+    state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
+  },
+  SET_TRANSPORT_BODY_CHOOSE: function SET_TRANSPORT_BODY_CHOOSE(state, payload) {
+    var condition = state.transportFullStore.bodiesChoosed.find(function (el) {
+      if (payload === el) return true;
+    });
+
+    if (condition !== undefined) {
+      state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
+    } else {
+      state.transportFullStore.bodiesChoosed.push(payload);
+    }
+  },
+  SET_TRANSPORT_TYPES_FROM_API: function SET_TRANSPORT_TYPES_FROM_API(state, payload) {
+    state.transportTypes = payload;
+  },
+  SET_TRANSPORT_BODIES_FROM_API: function SET_TRANSPORT_BODIES_FROM_API(state, payload) {
+    state.transportBodies = payload;
+  }
+};
+var actions = {
+  TRANSPORT_TYPES_FROM_API: function () {
+    var _TRANSPORT_TYPES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function TRANSPORT_TYPES_FROM_API(_x, _x2) {
+      return _TRANSPORT_TYPES_FROM_API.apply(this, arguments);
+    }
+
+    return TRANSPORT_TYPES_FROM_API;
+  }(),
+  BODIES_FROM_API: function () {
+    var _BODIES_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
+                context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
+              })["catch"](function (error) {
+                console.log('error', error);
+              });
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function BODIES_FROM_API(_x3, _x4) {
+      return _BODIES_FROM_API.apply(this, arguments);
+    }
+
+    return BODIES_FROM_API;
+  }()
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
 /***/ "./resources/js/STORE/services.js":
 /*!****************************************!*\
   !*** ./resources/js/STORE/services.js ***!
@@ -72464,9 +72555,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _modules_regions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/regions */ "./resources/js/STORE/modules/regions.js");
+/* harmony import */ var _modules_REGIONS__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/REGIONS */ "./resources/js/STORE/modules/REGIONS.js");
 /* harmony import */ var _modules_RBMY__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/RBMY */ "./resources/js/STORE/modules/RBMY.js");
 /* harmony import */ var _modules_TRANSPORT__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/TRANSPORT */ "./resources/js/STORE/modules/TRANSPORT.js");
+/* harmony import */ var _modules_SEARCHDETAILS__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/SEARCHDETAILS */ "./resources/js/STORE/modules/SEARCHDETAILS.js");
+
 
 
 
@@ -72479,9 +72572,10 @@ var services = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   mutations: {},
   actions: {},
   modules: {
-    regions: _modules_regions__WEBPACK_IMPORTED_MODULE_2__["default"],
+    REGIONS: _modules_REGIONS__WEBPACK_IMPORTED_MODULE_2__["default"],
     RBMY: _modules_RBMY__WEBPACK_IMPORTED_MODULE_3__["default"],
-    TRANSPORT: _modules_TRANSPORT__WEBPACK_IMPORTED_MODULE_4__["default"]
+    TRANSPORT: _modules_TRANSPORT__WEBPACK_IMPORTED_MODULE_4__["default"],
+    SEARCHDEATAILS: _modules_SEARCHDETAILS__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 });
 
@@ -72522,8 +72616,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-  baseURL: "http://10.0.0.140:1709/v1",
-  // baseURL: `http://yboard.loc/v1`,
+  // baseURL: `http://10.0.0.140:1709/v1`,
+  baseURL: "http://yboard.loc/v1",
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
