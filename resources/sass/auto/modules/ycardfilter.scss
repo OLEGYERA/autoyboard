@@ -94,7 +94,7 @@
                 margin: 0;
                 padding: 0;
                 img{
-                    width: 145%;
+                    width: 105%;
                 }
             }
             .ycard-desc{
@@ -112,7 +112,7 @@
                         color: $darkgray-filter;
                         font-family: $mont;
                         font-weight: 600;
-                        font-size: em(18);
+                        font-size: em(22);
                         line-height: 142.5%;
                         margin: 0;
                         text-overflow: ellipsis;
@@ -124,12 +124,13 @@
                         font-weight: 500;
                         font-size: em(22);
                         line-height: 29px;
+                        width: auto;
                     }
                 }
                 .ycard-relation{
                     font-family: $aleg;
                     font-weight: normal;
-                    font-size: em(16);
+                    font-size: em(20);
                     line-height: 19px;
                     color: rgba(0, 0, 0, 0.8);
                     margin: 0;
@@ -163,7 +164,7 @@
                 .show_more{
                     font-family: $mont;
                     font-weight: 500;
-                    font-size: em(14);
+                    font-size: em(18);
                     line-height: 20px;
                     color: $darkblue;
                     display: flex;
@@ -211,20 +212,20 @@
                 margin-right: 10px;
                 .ycard_image{
                     width: 100%;
-                    height: 200px;
+                    height: 230px;
                     img{
-                        width: 120%;
+                        width: 100%;
                     }
                 }
                 .ycard-desc{
                     width: 100%;
-                    padding: 10px 15px;
+                    padding: 15px;
                     .ycard_name-price{
                         h2{
-                            font-size: em(16);
+                            font-size: em(22);
                         }
                         .yprice{
-                            font-size: em(18);
+                            font-size: em(22);
                         }
                     }
                     .ycard-relation{
@@ -268,15 +269,7 @@
 
                 }
                 .ycard-desc{
-                    padding: 15px 10px;
-                    .ycard_name-price{
-                        h2{
-                            font-size: em(16);
-                        }
-                        .yprice{
-                            font-size: em(20);
-                        }
-                    }
+                    padding: 15px 20px;
                     .yequipment_car{
                         margin: 10px 0px;
                         .yequipment_item{
@@ -294,14 +287,17 @@
         .change{
             .ycard_reverse{
                 .ycard{
+                    .ycard_image{
+                        height: 200px;
+                    }
                     .ycard-desc{
                         padding: 10px 10px;
                         .ycard_name-price{
                             h2{
-                                font-size: em(16);
+                                font-size: em(20);
                             }
                             .yprice{
-                                font-size: em(16);
+                                font-size: em(20);
                             }
                         }
                         .yequipment_car{
@@ -325,7 +321,7 @@
         .ycard_filter{
             .ycard{
                 .ycard-desc{
-                    padding: 15px 15px;
+                    padding: 20px 20px;
                     .yequipment_car{
                         margin: 15px 0px;
                         .yequipment_item{
@@ -348,7 +344,6 @@
             .ycard{
                .ycard_image{
                    img{
-                       width: 150%;
                    }
                }
             }
@@ -376,14 +371,34 @@
         .ycard_filter{
             .ycard{
                 .ycard-desc{
-                    padding: 10px 15px;
                     .yequipment_car{
                         margin: 20px 0;
                     }
                 }
             }
         }
-
+        .change{
+            .ycard_reverse{
+                .ycard{
+                    .ycard-desc{
+                        .yequipment_car{
+                            .yequipment_item{
+                                margin-bottom: 5px;
+                                svg{
+                                    width:15px ;
+                                    height: 17px;
+                                }
+                                span{}
+                                font-size: em(14);
+                            }
+                        }
+                        .show_more{
+                            font-size: em(15);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 @media only screen and (max-width: 1024px){
@@ -391,11 +406,14 @@
         .ycard_filter{
             .ycard{
                 .ycard-desc{
-                    padding: 8px 10px;
+                    padding: 15px 20px;
                     .ycard_name-price{
                         h2{
-                            font-size: em(14);
+                            font-size: em(20);
                         }
+                    }
+                    .ycard-relation{
+                        font-size: em(16);
                     }
                     .yequipment_car{
                         margin: 10px 0;
@@ -408,7 +426,26 @@
                 }
             }
         }
-
+        .change{
+            .ycard_reverse{
+               .ycard{
+                   .ycard_image{
+                       height: 190px;
+                   }
+                 .ycard-desc{
+                     .ycard_name-price{
+                         margin-bottom: 5px;
+                         h2{
+                             font-size: em(18);
+                         }
+                         span{
+                             font-size: em(18);
+                         }
+                     }
+                 }
+               }
+            }
+        }
     }
 }
 @media only screen and (max-width: 945px){
@@ -507,19 +544,16 @@
             .ycard{
                 .ycard_image{
                     img{
-                        width: 140%;
                     }
                 }
                 .ycard-desc{
-                    padding: 20px 25px;
                     h2{
                         font-family: $mont;
                         font-weight: 500;
-                        font-size: em(24);
-                        line-height: 142.5%;
+                        font-size: em(18);
+                        line-height: 91.5%;
                         color: #222222;
-                        margin: 0;
-                        margin-bottom: 10px;
+                        margin: 0 0 10px 0;
                     }
                     .yprice_city_name{
                         display: flex;
@@ -527,7 +561,7 @@
                         .yprice{
                             font-family: $mont;
                             font-weight: 500;
-                            font-size: em(22);
+                            font-size: em(18);
                             line-height: 27px;
                             color: $dgreen;
                             margin-right: 10px;
@@ -536,24 +570,24 @@
                             color: $crumbsgray;
                             font-family: $mont;
                             font-weight: 500;
-                            font-size: em(18);
+                            font-size: em(16);
                             line-height: 22px;
                         }
                     }
                     .yequipment_car{
                         width: 80%;
-                        margin: 10px 0 20px;
+                        margin: 8px 0 5px;
                         .yequipment_item{
                             flex-direction: inherit;
                             svg{
-                                width: 25px;
+                                width: 20px;
                                 margin-right: 10px;
                             }
                             span{
                                 font-family: $mont;
                                 font-weight: 500;
-                                font-size: em(16);
-                                line-height: 28px;
+                                font-size: em(15);
+                                line-height: 21px;
                                 color: #000000;
                             }
                         }
@@ -588,27 +622,29 @@
             .ycard{
                 .ycard_image{
                     img{
-                        width: 125%;
+                        width: 100%;
                     }
                 }
                 .ycard-desc{
+                    padding: 15px 20px;
+
                     h2{
-                        font-size: em(26);
+                        font-size: em(22);
                     }
                     .yprice_city_name{
                         .yprice{
-                            font-size: em(24);
+                            font-size: em(22);
                         }
                     }
                     .yequipment_car{
                         width: 75%;
-                        margin: 12px 0 20px;
+                        margin: 7px 0 6px;
                         .yequipment_item{
                             svg{
-                                width: 30px;
+                                width: 20px;
                             }
                             span{
-                                font-size: em(18);
+                                font-size: em(16);
                             }
                         }
                     }
@@ -629,17 +665,17 @@
             .ycard{
                 .ycard_image{
                     img{
-                        width: 142%;
+                        width: 100%;
                     }
                 }
                 .ycard-desc{
-                    padding: 15px 20px;
+                    padding: 12px 15px;
                     h2{
-                        font-size: em(22);
+                        font-size: em(18);
                     }
                     .yprice_city_name{
                         .yprice{
-                            font-size: em(22);
+                            font-size: em(18);
                         }
                         .city-name{
                             font-size: em(15);
@@ -647,7 +683,23 @@
                     }
                     .yequipment_car{
                         width: 100%;
-                        margin: 12px 0 10px;
+                        margin: 8px 0 0px;
+                        .yequipment_item{
+                            svg{
+                                height: 22px;
+                                width: 15px;
+                            }
+                            span{
+                                font-size: em(15);
+                            }
+                        }
+                    }
+                    .ydate_added-favorite{
+                        margin-top: 5px;
+                        .favorite{
+                            width: 30px;
+                            height: 30px;
+                        }
                     }
                 }
             }

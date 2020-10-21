@@ -627,7 +627,7 @@
                     color: #FFFFFF;
                     background: linear-gradient(180deg, rgba(34, 34, 34, 0.18) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
                     box-shadow: 0 4px 8px rgba(8, 34, 73, 0.16);
-                    border-radius: 15px;
+                    border-radius: 0 0px 15px 15px;
                     .yexpended{
                         .white{
                             .arrow{
@@ -1127,7 +1127,7 @@
                                 }
                                 .yb_verified_content{
                                     h2{
-                                        font-size: em(18);
+                                        font-size: em(16);
                                     }
                                     .y-vin_code{
                                         font-size: em(14);
@@ -1202,8 +1202,8 @@
                         }
                     }
                     .yb_go_to{
-                        padding: 7% 7%;
-                        font-size: em(18);
+                        padding: 6% 7%;
+                        font-size: em(16);
                     }
                     .commercial{
                         height: 400px;
@@ -1229,6 +1229,7 @@
                             }
                             .yvis_items_column{
                                 .y_item-label{
+                                    width: 50%;
                                     font-size: em(14);
                                 }
                                 .y_item{
@@ -1315,7 +1316,25 @@
         }
     }
 }
-
+@media only screen and (max-width: 1366px){
+    .yb-content{
+        .yb-card_auto{
+            .yb_auto-item{
+                .yb_auto_vis-l{
+                    .y-visl_items{
+                        .y-auto_options{
+                            .yb_verified_car{
+                                .yb_verified_content{
+                                    width: 72%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media only screen and (max-width: 1280px){
     .yb-content{

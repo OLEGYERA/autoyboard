@@ -83,7 +83,7 @@
             display: flex;
             justify-content: space-between;
             .yfilter_form{
-                width: 24%;
+                width: 25%;
                 background: #FFFFFF;
                 box-shadow: 1px 1px 3px rgba(11, 63, 141, 0.34);
                 border-radius: 8px;
@@ -100,30 +100,7 @@
 
             }
             .yb-list_items{
-                width: 48%;
-            }
-            .yb-commercial{
-                width: 25%;
-                height: 610px;
-                background-color: black;
-                border-radius: 10px;
-                overflow: hidden;
-                max-height: 610px;
-                position: relative;
-                text-align: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                h3{
-                    font-family: $rale;
-                    font-weight: 600;
-                    position: absolute;
-                    font-size: em(38);
-                    line-height: 56px;
-                    color: #FFFFFF;
-                    bottom: 0;
-                    margin: 0;
-                    margin-bottom: 45px;
-                }
+                width: 73%;
             }
         }
     }
@@ -144,9 +121,6 @@
                 }
                 .yb-list_items{
                     width: 68%;
-                }
-                .yb-commercial{
-                    display: none;
                 }
             }
         }

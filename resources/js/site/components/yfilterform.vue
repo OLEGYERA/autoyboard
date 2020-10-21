@@ -9,13 +9,13 @@
         </div>
         <div class="yresource_options">
             <ycheckbox
-                :text="'Поиск со всех ресурсов'">
+                :name="'Поиск со всех ресурсов'">
             </ycheckbox>
             <ycheckbox
-                :text="'Провереные'">
+                :name="'Провереные'">
             </ycheckbox>
             <ycheckbox
-                :text="'С фото'">
+                :name="'С фото'">
             </ycheckbox>
         </div>
         <div class="y-selector_rows">
@@ -31,7 +31,7 @@
         <div class="yprice_options">
             <h3 class="ytitle_option">Цена, $</h3>
             <div class="change_price">
-                <yrange></yrange>
+                <yprice></yprice>
             </div>
         </div>
         <div class="y-selector_rows">

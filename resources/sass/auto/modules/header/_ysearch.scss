@@ -78,6 +78,7 @@
         background: #FFFFFF;
         border-radius: 0px 0px 13px 13px;
         padding: 13px 23px 10px 26px;
+        overflow: scroll;
         .yb-last_requests{
             display: flex;
             align-items: center;
@@ -123,11 +124,11 @@
 
     }
     .yb_best-title{
-        font-family: $aleg;
-        font-weight: 500;
+        font-family: $rale;
+        font-weight: 600;
         margin: 0 0 20px 0;
         font-size: em(18);
-        line-height: 22px;
+        line-height: 21px;
         color: $darkblue;
     }
     .yb_best-offers{
@@ -136,11 +137,10 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        padding-right: 120px;
         .yb-offer_item{
             display: flex;
-            border-radius: 15px;
-            width: 260px;
+            border-radius: 10px;
+            width: 49%;
             margin-bottom: 10px;
             overflow: hidden;
             box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
@@ -162,27 +162,28 @@
                 box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
                 .yb-item_name{
                     font-family: $mont;
-                    font-weight: 500;
-                    font-size: em(10);
+                    font-weight: 600;
+                    font-size: em(14);
                     line-height: 142.5%;
                     color: #222222;
-                    margin: 0 0 10px 0;
+                    margin: 0 0 30px 0;
                 }
                 .yb-item_location{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    width: 70%;
                     .yb-loc{
                         font-family: $mont;
                         font-weight: normal;
-                        font-size: em(10);
+                        font-size: em(18);
                         line-height: 18px;
                         color: rgba(34, 34, 34, 0.74);
                     }
                     .yb-price{
-                        font-family: $mont;
+                        font-family: $noto;
                         font-weight: normal;
-                        font-size: em(10);
+                        font-size: em(20);
                         line-height: 22px;
                         color: #10A667;
                     }
@@ -208,7 +209,6 @@
             .yb_best-offers{
                 padding-right: 0;
                 .yb-offer_item{
-                    width: 245px;
                     .yb-offer_img{
                         width: 35%;
                     }
@@ -408,4 +408,14 @@
     //        }
     //    }
     //}
+}
+@media only screen and (max-width: 320px){
+  .ysearch{
+      .ysearch_items-list{
+          .ysearch_expanded{
+              padding: 15px 8px 0 8px;
+              font-size: em(14);
+          }
+      }
+  }
 }

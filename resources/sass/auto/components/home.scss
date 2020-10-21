@@ -52,13 +52,13 @@
 
     .yb-stickers{
         width: 100%;
-        margin: 30px 0 45px;
         display: flex;
         .ystickers{
             width: 100%;
             display: flex;
+            justify-content: space-between;
             overflow: hidden;
-
+            padding: 30px 0 45px;
             .yb-sticker{
                 max-width: 400px;
                 display: flex !important;
@@ -127,11 +127,8 @@
         display: none;
     }
     .yb-best_offers{
-        box-shadow: 0px -2px 4px rgba(78, 78, 78, 0.15);
         padding-bottom: 40px;
-        //border-top: 1px solid #C7C7C7;
         width: 100%;
-        background: linear-gradient(179.87deg, rgba(255, 255, 255, 0.97) -67.8%, rgba(255, 255, 255, 0.94) 103.31%), #697C8C;
     }
 
     .yb-catalog{
@@ -175,18 +172,39 @@
                 .yform{
                     width: 53%;
                     top: 24px;
+                    .yresource_options{
+                        .change_resource{
+                            .title_change{
+                                font-size: em(16);
+                            }
+                        }
+                    }
                 }
                 .yb-form_right{
                     width: 23%;
                     margin-bottom: 40px;
+                    .yexpended{
+                        .ex_search {
+                            &.white{
+                                .eclipse{
+                                    padding-left: 30px;
+                                    &:after{
+                                        left: 18px;
+                                        width: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
         .yb-stickers{
             .ystickers{
+                padding: 20px 0 35px;
                 .yb-sticker{
-                    max-width: 340px;
-                    max-height: 190px;
+                    max-width: 320px;
+                    max-height: 160px;
                     .yb-sticker_title{
                         font-size: em(20);
                         padding: 20px;
@@ -208,9 +226,6 @@
                     width: 55%;
                     top: 22px;
                     left: 22%;
-                    .left_options{
-
-                    }
                     .another_options{
                         .yoption_btn{
                             .change_type{
@@ -269,21 +284,6 @@
                     margin-bottom: 0px;
                 }
             }
-        }
-        .yb-stickers{
-            //padding: 0px 8%;
-        }
-        .yb-best_offers{
-            //padding: 0px 8%;
-        }
-        .yb-catalog{
-            //padding: 0px 8%;
-        }
-        .yb-analytics{
-
-        }
-        .yb-news{
-            //padding: 0px 8%;
         }
     }
 }
@@ -413,8 +413,8 @@
             }
         }
         .yb-stickers{
-            margin: 15px 0 30px;
             .ystickers{
+                padding: 15px 0 30px;
                 .yb-sticker{
                     max-width: 290px;
                     max-height: 150px;
@@ -572,10 +572,11 @@
         }
         .yb-stickers-mobile{
             position: relative;
-            margin: 15px 0 35px;
             display: flex;
             width: 100%;
             .ystickers{
+                padding: 15px 0 35px;
+
                 width: 100%;
                 overflow: hidden;
                 display: flex;
@@ -797,8 +798,9 @@
             }
         }
         .yb-stickers-mobile{
-            margin: 17px 0 30px;
+
             .ystickers{
+                padding: 17px 0 30px;
                 .slick-slider{
                     .slick-arrow{
                         top: 50%;
@@ -883,8 +885,8 @@
             }
         }
         .yb-stickers-mobile{
-            padding: 0px 14px;
             .ystickers{
+                padding: 14px 0px;
                 .slick-slider{
                     .slick-arrow{
                         top: 50%;
@@ -945,7 +947,6 @@
             }
         }
         .yb-stickers-mobile{
-            padding: 0px 14px;
             .ystickers{
                 .slick-slider{
                     .slick-list{

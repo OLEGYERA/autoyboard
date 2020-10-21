@@ -61,7 +61,7 @@
                  }
              }
         .custom-dot-class{
-            bottom: -50px;
+            bottom: -45px;
             width: 90%;
             margin: 0 auto;
             li{
@@ -279,8 +279,8 @@
         .ybest-items{
             .slick-slider{
                 .ybest-item{
-                    max-width: 300px;
-                        .yb-icon_check{
+                    max-width: 280px;
+                    .yb-icon_check{
                             .item_check{
                                 width: 45px;
                                 height: 45px;
@@ -296,7 +296,7 @@
                         }
                     .item_image{
                         img{
-
+                            width: 120%;
                         }
                     }
                     .item_desc{
@@ -326,6 +326,9 @@
                         }
                         .item_desc{
                             padding: 15px;
+                            .item_name{
+                                font-size: em(16.5);
+                            }
                         }
                     }
                 }

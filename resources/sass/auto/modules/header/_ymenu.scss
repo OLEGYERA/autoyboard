@@ -57,11 +57,9 @@
         .yb_menu-collumn{
             position: relative;
             .y-menu-collumn_items{
-                padding: 0;
-                margin: 0;
-                padding: 25px 15px 25px 0;
+                padding: 15px 15px 15px 0;
                 position: relative;
-                margin-left: 20px;
+                margin: 0 0 0 15px;
                 .y-collumn_item{
                     font-family: $aleg;
                     font-weight: bold;
@@ -112,6 +110,8 @@
             .y-menu-collumn_items{
                 .y-collumn_item{
                     color: #2A2C2D;
+                    font-weight: normal;
+                    font-size: em(18);
                 }
             }
         }

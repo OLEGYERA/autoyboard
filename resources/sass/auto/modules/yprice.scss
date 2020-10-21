@@ -28,8 +28,18 @@
         }
     }
 }
+@media only screen and (max-width: 1600px){
+    .yprice{
+            .change{
+                font-size: em(14);
+                &::placeholder{
+                    font-size: em(16);
+                }
+            }
+    }
+}
 @media only screen and (max-width: 1366px){
-    .yprice_container{
+    .yprice{
         .input_change{
             padding-bottom: 15px;
             .change{
