@@ -34,43 +34,49 @@
 <!--                                :checked="searchDeatils.searchPropsChoosed.verifiedAuto"-->
 <!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'verifiedAuto', val: $event})">-->
 <!--                            </ycheckbox>-->
-                            <ycheckbox
-                                :name="'С фото'"
+                            <yratio
+                                :name="'Только с фото'"
                                 :checked="searchDeatils.searchPropsChoosed.withPhoto"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'withPhoto', val: $event})">
-                            </ycheckbox>
+                            </yratio>
 
 
-                            <ycheckbox
+                            <yratio
                                 :name="'Авто не в Украине'"
                                 :checked="searchDeatils.searchPropsChoosed.abroad"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'abroad', val: $event})">
-                            </ycheckbox>
-                            <ycheckbox
+                            </yratio>
+
+                            <yratio
+                                :name="'Авто не в Украине'"
+                                :checked="searchDeatils.searchPropsChoosed.abroad"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'abroad', val: $event})">
+                            </yratio>
+                            <yratio
                                 :name="'В кредите'"
                                 :checked="searchDeatils.searchPropsChoosed.credit"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'credit', val: $event})">
-                            </ycheckbox>
-                            <ycheckbox
+                            </yratio>
+                            <yratio
                                 :name="'Нерастаможеные'"
                                 :checked="searchDeatils.searchPropsChoosed.customsСleared"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'customsСleared', val: $event})">
-                            </ycheckbox>
-                            <ycheckbox
+                            </yratio>
+                            <yratio
                                 :name="'Конфискат'"
                                 :checked="searchDeatils.searchPropsChoosed.confiscated"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'confiscated', val: $event})">
-                            </ycheckbox>
-                            <ycheckbox
+                            </yratio>
+                            <yratio
                                 :name="'После ДТП'"
                                 :checked="searchDeatils.searchPropsChoosed.accident"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'accident', val: $event})">
-                            </ycheckbox>
-                            <ycheckbox
+                            </yratio>
+                            <yratio
                                 :name="'Не на ходу'"
                                 :checked="searchDeatils.searchPropsChoosed.noMotion"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'noMotion', val: $event})">
-                            </ycheckbox>
+                            </yratio>
 
                         </div>
                     </div>

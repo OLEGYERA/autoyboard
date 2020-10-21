@@ -16,11 +16,13 @@ export const routingSplicerBus = new Vue({
             // strProps += arr.searchPropsChoosed.verifiedAuto ? 'sch[va]=true&' : '';
             strProps += arr.searchPropsChoosed.withPhoto ? 'sch[wph]=true&' : '';
 
-            strProps += arr.searchPropsChoosed.abroad ? 'sch[ab]=true&' : '';
-            strProps += arr.searchPropsChoosed.credit ? 'sch[cr]=true&' : '';
-            strProps += arr.searchPropsChoosed.customsСleared ? 'sch[cc]=true&' : '';
-            strProps += arr.searchPropsChoosed.confiscated ? 'sch[cf]=true&' : '';
-            strProps += arr.searchPropsChoosed.accident ? 'sch[acc]=true&' : '';
+            strProps += arr.searchPropsChoosed.abroad !== null ? 'sch[ab]=' + arr.searchPropsChoosed.abroad + '&' : '';
+            strProps += arr.searchPropsChoosed.credit !== null ? 'sch[cr]=' + arr.searchPropsChoosed.credit + '&' : '';
+            strProps += arr.searchPropsChoosed.customsСleared !== null ? 'sch[cc]=' + arr.searchPropsChoosed.customsСleared + '&' : '';
+            strProps += arr.searchPropsChoosed.confiscated !== null ? 'sch[cf]=' + arr.searchPropsChoosed.confiscated + '&' : '';
+            strProps += arr.searchPropsChoosed.accident !== false ? 'sch[acc]=' + arr.searchPropsChoosed.accident + '&' : '';
+            strProps += arr.searchPropsChoosed.noMotion !== false ? 'sch[nom]=' + arr.searchPropsChoosed.noMotion + '&' : '';
+
             strProps += arr.searchPropsChoosed.noMotion ? 'sch[nom]=true&' : '';
 
 

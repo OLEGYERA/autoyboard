@@ -1,5 +1,5 @@
 <template>
-    <div class="change_resource">
+    <div class="ycheckbox">
         <span class="title_change">{{name}}</span>
         <label class="ios7-switch">
             <input type="checkbox" v-model="checkerModel">
@@ -21,7 +21,7 @@ export default {
     },
     watch: {
         checkerModel(to){
-            this.$emit('checked', this.checkerModel);
+            this.$emit('checked', to);
         },
         checked(to){
             this.checkerModel = this.checked;

@@ -141,18 +141,18 @@ class UriValidatorController extends BasicController
         $searchPropsChoosed = [];
 //        $searchPropsChoosed['fullResource'] = isset($uri['fr']) && boolval($uri['fr']);
 //        $searchPropsChoosed['verifiedAuto'] = isset($uri['va']) && boolval($uri['va']);
-        $searchPropsChoosed['withPhoto'] = isset($uri['wph']) && boolval($uri['wph']);
+        $searchPropsChoosed['withPhoto'] = isset($uri['wph']) ? $uri['wph'] : null;;
 
-        $searchPropsChoosed['abroad'] = isset($uri['ab']) && boolval($uri['ab']);
-        $searchPropsChoosed['credit'] = isset($uri['cr']) && boolval($uri['cr']);
-        $searchPropsChoosed['customsСleared'] = isset($uri['cc']) && boolval($uri['cc']);
-        $searchPropsChoosed['confiscated'] = isset($uri['cf']) && boolval($uri['cf']);
-        $searchPropsChoosed['accident'] = isset($uri['acc']) && boolval($uri['acc']);
-        $searchPropsChoosed['noMotion'] = isset($uri['nom']) && boolval($uri['nom']);
+        $searchPropsChoosed['abroad'] = isset($uri['ab']) ? $this->bollStr($uri['ab']) : null;
+        $searchPropsChoosed['credit'] = isset($uri['cr']) ? $this->bollStr($uri['cr']) : null;
+        $searchPropsChoosed['customsСleared'] = isset($uri['cc']) ? $this->bollStr($uri['cc']) : null;
+        $searchPropsChoosed['confiscated'] = isset($uri['cf']) ? $this->bollStr($uri['cf']) : null;
+        $searchPropsChoosed['accident'] = isset($uri['acc']) ? $this->bollStr($uri['acc']) : false; // принудительный запрет
+        $searchPropsChoosed['noMotion'] = isset($uri['nom']) ? $this->bollStr($uri['nom']) : false; // принудительный запрет
 
-        $searchPropsChoosed['bargain'] = isset($uri['b']) && boolval($uri['b']);
-        $searchPropsChoosed['exchangeCar'] = isset($uri['ec']) && boolval($uri['ec']);
-        $searchPropsChoosed['exchangeHouse'] = isset($uri['eh']) && boolval($uri['eh']);
+        $searchPropsChoosed['bargain'] = isset($uri['b']) && $this->bollStr($uri['b']);
+        $searchPropsChoosed['exchangeCar'] = isset($uri['ec']) && $this->bollStr($uri['ec']);
+        $searchPropsChoosed['exchangeHouse'] = isset($uri['eh']) && $this->bollStr($uri['eh']);
 
         $priceChoosed = [];
         $priceChoosed['currency'] = $this->verifiedData['curr'];
@@ -190,4 +190,9 @@ class UriValidatorController extends BasicController
         }
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
+
+    private function bollStr($str){
+        return $str == 'true' ? true : $str == 'null' ? null : false;
+    }
+
 }

@@ -1,0 +1,68 @@
+@import '../clear';
+@import '../../vars';
+
+.yratio{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+    .ratio-name{
+        font-family: $aleg;
+        font-style: normal;
+        font-weight: 500;
+        font-size: em(18);
+        color: $site-grey;
+    }
+    .ratio-box{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 3px;
+        width: 60px;
+        height: 20px;
+        background: rgba(97, 97, 97, 0.51);
+        box-shadow: inset 0 0 0 0.0625em #e9e9e9;
+        border-radius: 0.7em;
+        vertical-align: -0.15em;
+        transition: all 0.40s cubic-bezier(.17,.67,.43,.98);
+        &::after{
+            position: absolute;
+            display: block;
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            left: 41%;
+            background: white;
+            box-shadow: inset 0 0 0 0.03em rgba(0,0,0,0.1),
+            0 0 0.05em rgba(0,0,0,0.05),
+            0 0.1em 0.2em rgba(0,0,0,0.2);
+            transition: all 0.25s ease-out;
+        }
+
+        &.falseBox{
+            box-shadow: inset 0 0 0 0.73em $red;
+            &:after{
+                left: 8%;
+            }
+        }
+        &.trueBox{
+            box-shadow: inset 0 0 0 0.73em #33be4b;
+            &:after{
+                left: 75%;
+            }
+        }
+
+
+
+        .ratio-item{
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #000;
+            opacity: 0.15;
+        }
+    }
+}
