@@ -343,6 +343,7 @@ header.yb-header{
 @media only screen and (max-width: 600px){
     header.yb-header{
         .yb-header-left{
+            position: initial;
             .yb-logo{
                 margin-right: 0;
             }
