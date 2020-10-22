@@ -8180,7 +8180,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
     this.onResize();
-    console.log(this.windowWidth);
   },
   destroyed: function destroyed() {
     document.removeEventListener('click', this.handleClickOutside);
@@ -8189,7 +8188,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       showMenu: false,
       windowWidth: 0,
-      idxShowItem: 0,
+      idxShowItem: null,
       showSubItem: false,
       selectedItem: '',
       topmenu: [{
@@ -8299,17 +8298,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     onResize: function onResize() {
       this.windowWidth = document.documentElement.clientWidth;
-      console.log(this.windowWidth);
     },
     openSub: function openSub(index, item) {
       this.idxShowItem = index;
       this.showSubItem = true;
       this.selectedItem = item;
-      console.log(this.showSubItem);
-      console.log('click');
     },
     closeSub: function closeSub() {
       this.showSubItem = false;
+      this.selectedItem = '';
+      this.idxShowItem = null;
     }
   },
   watch: {
@@ -52425,7 +52423,7 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm.toggle
+    _vm.toggle && _vm.search.length <= 0
       ? _c("div", { staticClass: "ysearch_items-res" }, [
           _c("div", { staticClass: "yb-last_requests" }, [
             _vm._v(

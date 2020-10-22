@@ -26,7 +26,7 @@
             </button>
         </ul>
 <!--        drop down when search with bestOffer card and last search-->
-        <div v-if="toggle"  class="ysearch_items-res">
+        <div v-if="toggle && search.length <= 0"  class="ysearch_items-res">
             <div  class="yb-last_requests">
                 Недавние поисковые запросы
                 <svg @click="lastReguest = false" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

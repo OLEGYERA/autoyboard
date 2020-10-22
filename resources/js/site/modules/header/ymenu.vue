@@ -86,7 +86,6 @@
         mounted() {
             document.addEventListener('click', this.handleClickOutside)
             this.onResize();
-            console.log(this.windowWidth)
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)
@@ -95,7 +94,7 @@
             return{
                 showMenu: false,
                 windowWidth: 0,
-                idxShowItem: 0,
+                idxShowItem: null,
                 showSubItem: false,
                 selectedItem: '',
 
@@ -179,17 +178,16 @@
             },
             onResize() {
                 this.windowWidth = document.documentElement.clientWidth;
-                console.log(this.windowWidth)
             },
-            openSub: function (index, item) {
+            openSub(index, item) {
                 this.idxShowItem = index;
                 this.showSubItem = true;
                 this.selectedItem = item
-                console.log(this.showSubItem)
-                console.log('click')
             },
             closeSub(){
                 this.showSubItem = false;
+                this.selectedItem = ''
+                this.idxShowItem = null;
             }
         },
         watch:{
