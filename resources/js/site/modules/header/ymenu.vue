@@ -15,7 +15,7 @@
                     class="fas"></i>
             </div>
         </div>
-        <div @click.stop v-if="showMenu && windowWidth > 768" class="ydrop-menu_vis">
+        <div @click.stop v-if="showMenu  && windowWidth > 768" class="ydrop-menu_vis">
             <div class="yb_menu-collumn first_choice">
                 <ul class="y-menu-collumn_items">
                     <li
@@ -30,8 +30,8 @@
                 </ul>
             </div>
             <div class="yb_menu-collumn second_choice">
-                <ul class="y-menu-collumn_items">
-                    <li v-for="subitem in topmenu[idxShowItem].submenu"
+                <ul v-if="idxShowItem != null" class="y-menu-collumn_items">
+                    <li  v-for="subitem in topmenu[idxShowItem].submenu"
                         class="y-collumn_item"
                     > {{ subitem.title }}
                         <i class="fas fa-angle-right"></i>

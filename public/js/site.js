@@ -8495,6 +8495,7 @@ __webpack_require__.r(__webpack_exports__);
     handleClickOutside: function handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
         this.toggle = false;
+        this.search - '';
       }
     }
   },
@@ -8515,12 +8516,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     toggle: function toggle(to) {
-      to ? $('.ylocation-box').addClass('search_hide') : $('.ylocation-box').removeClass('search_hide');
+      if (to === false) {
+        this.search = '';
+      }
+
+      to ? $('.search_toggle').addClass('fa-times') : $('.search_toggle').removeClass('fa-times');
       to ? $('.ysearch').addClass('search_long') : $('.ysearch').removeClass('search_long');
-      to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute');
-    },
-    mutableValue: function mutableValue(to) {
-      this.searchEngine();
+      to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute'); //add class from .yb-header-right when ysearch is opened, this class push (right: 0;) to yb-header-right
+
+      to ? $('.yb-header-right').addClass('yb-fullright_zero') : $('.yb-header-right').removeClass('yb-fullright_zero');
     }
   }
 });
@@ -52155,21 +52159,25 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "yb_menu-collumn second_choice" }, [
-                _c(
-                  "ul",
-                  { staticClass: "y-menu-collumn_items" },
-                  _vm._l(_vm.topmenu[_vm.idxShowItem].submenu, function(
-                    subitem
-                  ) {
-                    return _c("li", { staticClass: "y-collumn_item" }, [
-                      _vm._v(
-                        " " + _vm._s(subitem.title) + "\n                    "
-                      ),
-                      _c("i", { staticClass: "fas fa-angle-right" })
-                    ])
-                  }),
-                  0
-                )
+                _vm.idxShowItem != null
+                  ? _c(
+                      "ul",
+                      { staticClass: "y-menu-collumn_items" },
+                      _vm._l(_vm.topmenu[_vm.idxShowItem].submenu, function(
+                        subitem
+                      ) {
+                        return _c("li", { staticClass: "y-collumn_item" }, [
+                          _vm._v(
+                            " " +
+                              _vm._s(subitem.title) +
+                              "\n                    "
+                          ),
+                          _c("i", { staticClass: "fas fa-angle-right" })
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e()
               ])
             ]
           )
@@ -52375,7 +52383,7 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("i", {
-      staticClass: " fas fa-search",
+      staticClass: " search_toggle fas fa-search",
       on: {
         click: function($event) {
           _vm.toggle = !_vm.toggle
@@ -52421,292 +52429,10 @@ var render = function() {
           ],
           2
         )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.toggle && _vm.search.length <= 0
-      ? _c("div", { staticClass: "ysearch_items-res" }, [
-          _c("div", { staticClass: "yb-last_requests" }, [
-            _vm._v(
-              "\n                Недавние поисковые запросы\n                "
-            ),
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "12",
-                  height: "12",
-                  viewBox: "0 0 12 12",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                },
-                on: {
-                  click: function($event) {
-                    _vm.lastReguest = false
-                  }
-                }
-              },
-              [
-                _c("circle", {
-                  attrs: { cx: "6", cy: "6", r: "6", fill: "#0B3F8D" }
-                }),
-                _vm._v(" "),
-                _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z",
-                      fill: "white"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("defs", [
-                  _c("clipPath", { attrs: { id: "clip0" } }, [
-                    _c("rect", {
-                      attrs: {
-                        width: "6",
-                        height: "6",
-                        fill: "white",
-                        transform: "translate(3 3)"
-                      }
-                    })
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.lastReguest
-            ? _c("ul", { staticClass: "yb-requests_items" }, [
-                _c("li", { staticClass: "yb-requests_item" }, [
-                  _vm._v("audi ")
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "yb-requests_item" }, [
-                  _vm._v("автомобили б/у")
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "yb-requests_item" }, [
-                  _vm._v("audi Киев")
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "yb-requests_item" }, [
-                  _vm._v("автомобили б/у")
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "yb-requests_item" }, [_vm._v("audi ")])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("h2", { staticClass: "yb_best-title" }, [
-            _vm._v("Лучшие предложения")
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
-        ])
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb_best-offers" }, [
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb-offer_item" }, [
-        _c("figure", { staticClass: "yb-offer_img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_item-desc" }, [
-          _c("h2", { staticClass: "yb-item_name" }, [
-            _vm._v(" Mercedes-Benz E 220,2009")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yb-item_location price" }, [
-            _c("span", { staticClass: "yb-loc" }, [_vm._v("Киев")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "yb-price" }, [_vm._v("8 200 $")])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
