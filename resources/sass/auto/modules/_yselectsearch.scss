@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin-bottom: 15px;
+    height: 100%;
     width: 100%;
     .input-dropdown {
         width: 100%;
@@ -17,13 +17,17 @@
         color: rgba(34, 34, 34, 0.8);
         border-radius: 10px;
         border: 1px solid $select-border;
+        &::placeholder{
+            font-family: $aleg;
+        }
     }
     i {
+        font-size: em(22);
         cursor: pointer;
         position: absolute;
         right: 15px;
         color: $i-color;
-        &.fa-search{
+        &.search{
             cursor: text;
         }
         &.delete{
@@ -78,11 +82,24 @@
                 cursor: default;
                 border-left: 4px solid $darkblue;
                 border-bottom: 1px solid rgba(199, 199, 199, 0.7);
-                font-weight: 600;
+                font-weight: 500;
                 i{
+                    position: absolute;
+                    right: 13px;
+                    font-size: em(26);
                     color: $dgreen;
                     cursor: default;
                 }
+            }
+        }
+    }
+    &.black{
+        .input-dropdown{
+            background-color: $box-bg;
+            border-color: transparent;
+            color: $input-shade-color;
+            &::placeholder{
+                color: $input-shade-color;
             }
         }
     }

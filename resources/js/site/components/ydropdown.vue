@@ -14,7 +14,7 @@
                  v-for="(item, index) in options"
                  @click="clickingResult(item.val)">
                 {{ item.name }}
-                <i v-if="choosedItem === item.val" class="fas fa-check"></i>
+                <i v-if="choosedItem === item.val" class="yicon success"></i>
             </div>
         </div>
     </div>

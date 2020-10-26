@@ -1,0 +1,35 @@
+@import '../../vars';
+
+.ydoublenuminput{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .input-field{
+        width: 49%;
+        height: 42px;
+        padding: 5px 8px;
+        border: 1px solid $search-border;
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-family: $noto;
+        font-weight: 400;
+        font-size: em(16);
+        color: $input-shade-color;
+        -moz-appearance: textfield;
+        &::placeholder{
+            color: $input-shade-color;
+        }
+    }
+
+
+    &.black{
+        .input-field{
+           background-color: $box-bg;
+            border-color: transparent;
+            color: $input-shade-color;
+            &::placeholder{
+                color: $input-shade-color;
+            }
+        }
+    }
+}

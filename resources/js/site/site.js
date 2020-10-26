@@ -37,6 +37,7 @@ Vue.component('yselectmultysearch', require('./components/yselectmultysearch').d
 Vue.component('ycheck', require('./components/ycheck').default);
 Vue.component('yprice', require('./components/yprice').default);
 Vue.component('ydropdown', require('./components/ydropdown').default);
+Vue.component('ydoublenuminput', require('./components/ydoublenuminput').default);
 
 //
 // Vue.component('yfsearch', require('./components/yregionsearch').default);

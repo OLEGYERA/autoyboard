@@ -1,5 +1,5 @@
 <template>
-    <div class="yselectmultysearch">
+    <div class="yselectmultysearch" :class="{black: shade !== undefined}">
         <input
             type="text"
             class="input-dropdown"
@@ -14,7 +14,7 @@
             :placeholder="generatingPlaceholder"
         />
 
-        <i @click="$refs.yselectsearch.focus()" class="fas" :class="openResults ? 'fa-search' : 'fa-chevron-down'" ></i>
+        <i @click="$refs.yselectsearch.focus()" class="yicon" :class="openResults ? 'search' : 'arrow-down'" ></i>
         <ul class="options-list" id="scrollContainer" ref="scrollContainer" v-show="openResults">
             <li v-if="(results.length == 0)">Такого нет</li>
             <li v-for="(result, i) in results"
@@ -27,14 +27,17 @@
                     'selectedMouse': i === mouseSelected,
                     'checked': isPresent(result.val)
                 }">
-                <i class="fas" :class="isPresent(result.val) ? 'far fa-check-square' : 'far fa-square'"></i> {{ result.name || result  }}
+                {{ result.name || result  }}
+                <span class="checkbox">
+                    <i class="yicon success"></i>
+                </span>
             </li>
         </ul>
     </div>
 </template>
 <script>
     export  default  {
-        props: ['options', 'placeholder', 'choosedItems'],
+        props: ['options', 'placeholder', 'choosedItems', 'shade'],
         mounted() {
             this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);

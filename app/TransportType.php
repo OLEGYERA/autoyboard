@@ -21,5 +21,9 @@ class TransportType extends Model
     public function bodies(){
         return $this->hasMany('App\TranportBody', 'type_id','val');
     }
+
+    public function transmissions(){
+        return $this->hasManyThrough('App\TranportChTransmission' , 'App\TranportChTransmissionPivotType', 'type_id','id', 'val', 'id');
+    }
 }
 //        return $this->hasOne('App\BrandPivotType', 'type_id', 'val');

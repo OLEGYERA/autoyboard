@@ -29,38 +29,44 @@
             .yexpanded_sidebar{
                 display: flex;
                 flex-direction: column;
-                width: 27%;
+                width: 23%;
 
-                .ysearch_filter{
-                    .ysearch_type_btn{
+                h2.yfilter-aside-title{
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(20);
+                    line-height: 26px;
+                    color: $filtergray;
+                    margin: 0 0 8px;
+                }
+
+                .ycheckbox .title_change{
+                    font-size: em(16);
+                    font-weight: 500;
+                }
+
+                .ysearch_type_btn{
+                    width: 100%;
+                    display: flex;
+                    background-color: $box-bg;
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    .change_type{
                         width: 100%;
-                        display: flex;
-                        background-color: $box-bg;
-                        border-radius: 10px 10px 0px 0px;
-                        margin-bottom: 15px;
-                        overflow: hidden;
-                        .change_type{
-                            width: 100%;
-                            height: 42px;
-                            font-family: $aleg;
-                            font-weight: 500;
-                            font-size: em(15);
-                            line-height: 18px;
-                            &.active{
-                                background: #0B3F8D;
-                                color: #FFFEFE;
-                            }
+                        height: 42px;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(15);
+                        line-height: 18px;
+                        &.active{
+                            background: #0B3F8D;
+                            color: #FFFEFE;
                         }
                     }
-                    .ycheckbox_options{
-                        background-color: $box-bg;
-                        border-radius: 0px 0px 10px 10px;
-                        padding: 15px;
-                        width: 100%;
-                        margin-bottom: 15px;
-                    }
                 }
-                .yprice_filter{
+                .ygroup-box{
+                    margin-bottom: 15px;
                     .yprice_filter-box{
                         width: 100%;
                         background-color: $box-bg;
@@ -71,17 +77,14 @@
                         }
                         .yprice_container{
                             margin-bottom: 20px;
-                            .input_change{
-                                .change{
-                                    width: 30%;
-                                    height: 40px;
-                                }
-                                .currency_change{
-                                    display: flex;
-                                    width: 25%;
-                                }
-                            }
                         }
+                    }
+                    .ycheckbox_options{
+                        background-color: $box-bg;
+                        border-radius: 0px 0px 10px 10px;
+                        padding: 15px;
+                        width: 100%;
+                        margin-bottom: 15px;
                     }
                 }
             }
@@ -89,21 +92,127 @@
             .yexpanded_content{
                 display: flex;
                 flex-direction: column;
-                width: 71%;
+                width: 75%;
+                h2.category-title{
+                    font-family: $aleg;
+                    line-height: em(22);
+                    font-weight: 500;
+                    font-size: em(20);
+                    color: $darkblue;
+                    margin: 0 0 15px;
+                }
+                hr{
+                    border-width: 0px;
+                    height: 1px;
+                    width: 100%;
+                    margin: 0px 0px 15px;
+                    background-color: #E7E7E7;
+                }
+                .option-row{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    .option-box{
+                        display: flex;
+                        flex-direction: column;
+                        h2.option-title{
+                            font-family: $aleg;
+                            line-height: em(22);
+                            font-weight: 500;
+                            font-size: em(18);
+                            color: $filtergray;
+                            margin: 0 0 8px;
+                        }
+                        &.full-width{
+                            width: 100%;
+                        }
+                        &.mono-block{
+                            width: 40%;
+                        }
+                        &.hide-list{
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            .ycheck{
+                                width: 33%;
+                                margin-bottom: 15px;
+                                margin-right: 0.33%;
+                                &:nth-child(3n){
+                                    margin-right: 0%;
+                                }
+                            }
+                            .toggleHideKist{
+                                font-family: $aleg;
+                                font-weight: 500;
+                                color: $titleblue;
+                                text-decoration: underline;
+                                &:hover{
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                        &.rbmy{
+                            width: 24.2%;
+                            .option-row{
+                                justify-content: flex-start;
+                                margin-bottom: 0;
+                                .yselectsearch{
+                                    width: calc(48% - 11px);
+                                    &:first-child{
+                                        margin-right: 2%;
+                                    }
+                                }
+                                .delRbmy{
+                                    width: 22px;
+                                    i{
+                                        color: $darkblue;
+                                        font-size: em(22);
+                                    }
+                                }
+                            }
+                        }
+                        &.tech{
+                            width: 32.5%;
+                        }
+                    }
+                    .addRbmy{
+                        font-size: em(16);
+                        cursor: pointer;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        color: $titleblue;
+                        text-decoration: underline;
+                        &:hover{
+                            text-decoration: none;
+                        }
+                    }
+                    &.regions{
+                        align-items: flex-start;
+                        .option-box{
+                            width: 24%;
+                            h2.option-title{
+                                margin-bottom: 15px;
+                                .ycheck .ycheck-label{
+                                    font-weight: 500;
+                                    text-decoration: underline;
+                                }
+                            }
+                            .regionsList{
+                                .ycheck{
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
 
 
 
-        h2.yfilter-aside-title{
-            font-family: $aleg;
-            font-weight: 500;
-            font-size: em(22);
-            line-height: 26px;
-            color: rgba(91, 91, 91, 0.9);
-            margin: 0 0 15px;
-        }
+
 
         .yb-carsearch_items{
             width: 100%;

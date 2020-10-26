@@ -14,17 +14,14 @@ export const routingSplicerBus = new Vue({
             strProps += 'sch[autoCond]=' + arr.autoConditionChoosed + '&';
             // strProps += arr.searchPropsChoosed.fullResource ? 'sch[fr]=true&' : '';
             // strProps += arr.searchPropsChoosed.verifiedAuto ? 'sch[va]=true&' : '';
-            strProps += arr.searchPropsChoosed.withPhoto ? 'sch[wph]=true&' : '';
+            strProps += arr.searchPropsChoosed.withPhoto !== true ? 'sch[wph]=false&' : '';
 
-            strProps += arr.searchPropsChoosed.abroad !== null ? 'sch[ab]=' + arr.searchPropsChoosed.abroad + '&' : '';
-            strProps += arr.searchPropsChoosed.credit !== null ? 'sch[cr]=' + arr.searchPropsChoosed.credit + '&' : '';
-            strProps += arr.searchPropsChoosed.customsСleared !== null ? 'sch[cc]=' + arr.searchPropsChoosed.customsСleared + '&' : '';
-            strProps += arr.searchPropsChoosed.confiscated !== null ? 'sch[cf]=' + arr.searchPropsChoosed.confiscated + '&' : '';
-            strProps += arr.searchPropsChoosed.accident !== false ? 'sch[acc]=' + arr.searchPropsChoosed.accident + '&' : '';
-            strProps += arr.searchPropsChoosed.noMotion !== false ? 'sch[nom]=' + arr.searchPropsChoosed.noMotion + '&' : '';
-
-            strProps += arr.searchPropsChoosed.noMotion ? 'sch[nom]=true&' : '';
-
+            strProps += arr.searchPropsChoosed.abroad !== false ? 'sch[ab]=true&' : '';
+            strProps += arr.searchPropsChoosed.credit !== false ? 'sch[cr]=true&' : '';
+            strProps += arr.searchPropsChoosed.customsСleared !== false ? 'sch[cc]=true&' : '';
+            strProps += arr.searchPropsChoosed.confiscated !== false ? 'sch[cf]=true&' : '';
+            strProps += arr.searchPropsChoosed.accident !== false ? 'sch[acc]=true&' : '';
+            strProps += arr.searchPropsChoosed.noMotion !== false ? 'sch[nom]=true&' : '';
 
             strProps += arr.searchPropsChoosed.bargain ? 'sch[b]=true&' : '';
             strProps += arr.searchPropsChoosed.exchangeCar ? 'sch[ec]=true&' : '';
@@ -34,12 +31,6 @@ export const routingSplicerBus = new Vue({
             strProps += arr.priceChoosed.from ? 'sch[priceF]=' + arr.priceChoosed.from + '&' : '';
             strProps += arr.priceChoosed.to ? 'sch[priceT]=' + arr.priceChoosed.to + '&' : '';
 
-            // strProps += 'transport[type]=' + arr.typeChoosed + '&';
-            // if(arr.bodiesChoosed.length > 0){
-            //     arr.bodiesChoosed.forEach((el, i) =>{
-            //         strProps += 'transport[bodies][' + i + ']=' + el + '&';
-            //     });
-            // }
             return strProps.substring(0, strProps.length - 1);
         },
         creatingTRANSPORTsProps(arr) {
@@ -50,6 +41,28 @@ export const routingSplicerBus = new Vue({
                     strProps += 'transport[bodies][' + i + ']=' + el + '&';
                 });
             }
+            if(arr.importersChoosed.length > 0){
+                arr.importersChoosed.forEach((el, i) =>{
+                    strProps += 'transport[imp][' + i + ']=' + el + '&';
+                });
+            }
+            if(arr.statesChoosed.length > 0){
+                arr.statesChoosed.forEach((el, i) =>{
+                    strProps += 'transport[states][' + i + ']=' + el + '&';
+                });
+            }
+            if(arr.fuelsChoosed.length > 0){
+                arr.fuelsChoosed.forEach((el, i) =>{
+                    strProps += 'transport[fuels][' + i + ']=' + el + '&';
+                });
+            }
+
+            strProps += arr.fuelConsumptionChoosed.from ? 'transport[fuelsF]=' + arr.fuelConsumptionChoosed.from + '&' : '';
+            strProps += arr.fuelConsumptionChoosed.to ? 'transport[fuelsT]=' + arr.fuelConsumptionChoosed.to + '&' : '';
+
+            strProps += arr.mileageChoosed.from ? 'transport[mileageF]=' + arr.mileageChoosed.from + '&' : '';
+            strProps += arr.mileageChoosed.to ? 'transport[mileageT]=' + arr.mileageChoosed.to + '&' : '';
+
             return strProps.substring(0, strProps.length - 1);
         },
         creatingRBMYsProps(arr) {

@@ -12,18 +12,19 @@
         height: 42px;
         padding: 10px 40px 10px 20px;
         font-family: $aleg;
-        font-weight: 500;
-        font-size: 1.125em;
+        font-weight: 400;
+        font-size: em(16);
         color: rgba(34, 34, 34, 0.8);
         border-radius: 10px;
         border: 1px solid $select-border;
     }
     i {
+        font-size: em(22);
         cursor: pointer;
         position: absolute;
         right: 15px;
         color: $i-color;
-        &.fa-search{
+        &.search{
             cursor: text;
         }
         &.delete{
@@ -47,6 +48,7 @@
         top: 50px;
         z-index: 2;
         li {
+            position: relative;
             height: 35px;
             display: flex;
             align-items: center;
@@ -55,12 +57,33 @@
             color: $select-text-color;
             border-bottom: 1px solid rgba(199, 199, 199, 0.33);
 
+            .checkbox{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                right: 13px;
+                width: 18px;
+                height: 18px;
+                border-radius: 4px;
+                background-color: $box-bg;
+                i{
+                    right: unset;
+                    opacity: 0;
+                    font-size: em(20);
+                    color: #fff;
+                }
+            }
+
             &.checked{
                 background-color: #fff;
                 color: $select-text-color;
-                font-weight: 600;
-                i{
-                    color: $dgreen;
+                font-weight: 500;
+                .checkbox{
+                    background-color: $dgreen;
+                    i{
+                        opacity: 1;
+                    }
                 }
                 &.selected{
                     background-color: $titleblue;
@@ -76,6 +99,16 @@
             &.selected{
                 background-color: $titleblue;
                 color: #fff;
+            }
+        }
+    }
+    &.black{
+        .input-dropdown{
+            background-color: $box-bg;
+            border-color: transparent;
+            color: $input-shade-color;
+            &::placeholder{
+                color: $input-shade-color;
             }
         }
     }

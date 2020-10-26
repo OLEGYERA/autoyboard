@@ -1,6 +1,8 @@
 <template>
-    <div class="ycheck" @click="changeCheck()">
-        <i class="fas" :class="checked ? 'far fa-check-square' : 'far fa-square'"></i>
+    <div class="ycheck" @click="changeCheck()" :class="{checked: checked}">
+        <span class="checkbox">
+            <i class="yicon success"></i>
+        </span>
         <span class="ycheck-label">{{name}}</span>
     </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div class="yselectsearch">
+    <div class="yselectsearch" :class="{black: shade !== undefined}">
         <input
             type="text"
             class="input-dropdown"
@@ -16,13 +16,13 @@
 
         <i v-if="(search.length !== 0 && openResults) || (getChoosedObject !== undefined && deleteDis !== true)"
            @click.self="clearInput"
-           class="fas fa-times"
+           class="yicon cancel"
            :class="{delete: (getChoosedObject !== undefined && deleteDis !== true)}"
         >
         </i>
-        <i @click="$refs.yselectsearch.focus()" v-else="openResults" class="fas" :class="openResults ? 'fa-search' : 'fa-chevron-down'"></i>
+        <i @click="$refs.yselectsearch.focus()" v-else="openResults" class="yicon" :class="openResults ? 'search' : 'arrow-down'"></i>
         <ul class="options-list" id="scrollContainer" ref="scrollContainer" v-show="openResults">
-            <li v-if="getChoosedObject !== undefined" class="choosed">{{getChoosedObject.name}}<i class="fas fa-check"></i></li>
+            <li v-if="getChoosedObject !== undefined" class="choosed">{{getChoosedObject.name}}<i class="yicon success"></i></li>
             <li v-if="(results.length == 0)">Такого нет</li>
             <li v-for="(result, i) in results"
                 ref="options"
@@ -42,7 +42,7 @@
 </template>
 <script>
     export  default  {
-        props: ['options', 'placeholder', 'choosedItem', 'deleteDis'],
+        props: ['options', 'placeholder', 'choosedItem', 'deleteDis', 'shade'],
         mounted() {
             this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);

@@ -5,6 +5,8 @@ use App\Brand;
 use App\Http\Controllers\API\BasicController;
 
 use App\TransportType;
+use App\TransportChState;
+use App\TransportChFuel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -141,12 +143,12 @@ class UriValidatorController extends BasicController
         $searchPropsChoosed = [];
 //        $searchPropsChoosed['fullResource'] = isset($uri['fr']) && boolval($uri['fr']);
 //        $searchPropsChoosed['verifiedAuto'] = isset($uri['va']) && boolval($uri['va']);
-        $searchPropsChoosed['withPhoto'] = isset($uri['wph']) ? $uri['wph'] : null;;
+        $searchPropsChoosed['withPhoto'] = isset($uri['wph']) ? false : true;
 
-        $searchPropsChoosed['abroad'] = isset($uri['ab']) ? $this->bollStr($uri['ab']) : null;
-        $searchPropsChoosed['credit'] = isset($uri['cr']) ? $this->bollStr($uri['cr']) : null;
-        $searchPropsChoosed['customsСleared'] = isset($uri['cc']) ? $this->bollStr($uri['cc']) : null;
-        $searchPropsChoosed['confiscated'] = isset($uri['cf']) ? $this->bollStr($uri['cf']) : null;
+        $searchPropsChoosed['abroad'] = isset($uri['ab']) ? $this->bollStr($uri['ab']) : false;
+        $searchPropsChoosed['credit'] = isset($uri['cr']) ? $this->bollStr($uri['cr']) : false;
+        $searchPropsChoosed['customsСleared'] = isset($uri['cc']) ? $this->bollStr($uri['cc']) : false;
+        $searchPropsChoosed['confiscated'] = isset($uri['cf']) ? $this->bollStr($uri['cf']) : false;
         $searchPropsChoosed['accident'] = isset($uri['acc']) ? $this->bollStr($uri['acc']) : false; // принудительный запрет
         $searchPropsChoosed['noMotion'] = isset($uri['nom']) ? $this->bollStr($uri['nom']) : false; // принудительный запрет
 
@@ -156,8 +158,8 @@ class UriValidatorController extends BasicController
 
         $priceChoosed = [];
         $priceChoosed['currency'] = $this->verifiedData['curr'];
-        $priceChoosed['from'] = (isset($uri['priceF']) && intval($uri['priceF']) !== 0) ? intval($uri['priceF']) : null;
-        $priceChoosed['to'] = (isset($uri['priceT']) && intval($uri['priceT']) !== 0) ? intval($uri['priceT']) : null;
+        $priceChoosed['from'] = (isset($uri['priceF']) && intval($uri['priceF']) !== 0) ? intval(substr($uri['priceF'], 0,10)) : null;
+        $priceChoosed['to'] = (isset($uri['priceT']) && intval($uri['priceT']) !== 0) ? intval(substr($uri['priceT'], 0,5)) : null;
 
         if($priceChoosed['from'] > $priceChoosed['to'] && $priceChoosed['to'] !== null){
             $tempFrom = $priceChoosed['from'];
@@ -175,9 +177,6 @@ class UriValidatorController extends BasicController
         $transportFullStores = [];
         $transportFullStores = Arr::add($transportFullStores, 'typeChoosed', $this->verifiedData['transport_type']->val);
         $transportFullStores = Arr::add($transportFullStores, 'transportTypes', TransportType::select(['id as val', 'rtitle as name'])->get());
-        $bodies = $this->verifiedData['transport_type']->bodies()->select('id as val', 'rtitle as name')->get();
-        $transportFullStores = Arr::add($transportFullStores, 'transportBodies', $bodies);
-
         if(isset($uri['bodies'])){
             $bodyArr = [];
             foreach ($uri['bodies'] as $body){
@@ -188,11 +187,71 @@ class UriValidatorController extends BasicController
         else{
             $transportFullStores = Arr::add($transportFullStores, 'bodiesChoosed', []);
         }
+        $bodies = $this->verifiedData['transport_type']->bodies()->select('id as val', 'rtitle as name')->get();
+        $transportFullStores = Arr::add($transportFullStores, 'transportBodies', $bodies);
+
+
+        if(isset($uri['imp'])){
+            $importerArr = [];
+            foreach ($uri['imp'] as $importer){
+                array_push($importerArr, intval($importer));
+            }
+            $transportFullStores = Arr::add($transportFullStores, 'importersChoosed', $importerArr);
+        }
+        else{
+            $transportFullStores = Arr::add($transportFullStores, 'importersChoosed', []);
+        }
+
+        if(isset($uri['states'])){
+            $stateArr = [];
+            foreach ($uri['states'] as $state){
+                array_push($stateArr, intval($state));
+            }
+            $transportFullStores = Arr::add($transportFullStores, 'statesChoosed', $stateArr);
+        }
+        else{
+            $transportFullStores = Arr::add($transportFullStores, 'statesChoosed', []);
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'transportStates', TransportChState::select(['id as val', 'rtitle as name'])->get());
+
+        if(isset($uri['fuels'])){
+            $fuelsArr = [];
+            foreach ($uri['fuels'] as $fuel){
+                array_push($fuelsArr, intval($fuel));
+            }
+            $transportFullStores = Arr::add($transportFullStores, 'fuelsChoosed', $fuelsArr);
+        }
+        else{
+            $transportFullStores = Arr::add($transportFullStores, 'fuelsChoosed', []);
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'transportFuels', TransportChFuel::select(['id as val', 'rtitle as name'])->get());
+
+        $fuelConsumptionChoosed = [];
+        $fuelConsumptionChoosed['from'] = isset($uri['fuelsF']) ? intval(substr($uri['fuelsF'], 0,5)) : null;
+        $fuelConsumptionChoosed['to'] = isset($uri['fuelsT']) ? intval(substr($uri['fuelsT'], 0,5)) : null;
+        if($fuelConsumptionChoosed['from'] > $fuelConsumptionChoosed['to'] && $fuelConsumptionChoosed['to'] !== null){
+            $tempFrom = $fuelConsumptionChoosed['from'];
+            $fuelConsumptionChoosed['from'] = $fuelConsumptionChoosed['to'];
+            $fuelConsumptionChoosed['to'] = $tempFrom;
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'fuelConsumptionChoosed', $fuelConsumptionChoosed);
+        $mileageChoosed = [];
+        $mileageChoosed['from'] = isset($uri['mileageF']) ? intval(substr($uri['mileageF'], 0,5)) : null;
+        $mileageChoosed['to'] = isset($uri['mileageT']) ? intval(substr($uri['mileageT'], 0,5)) : null;
+        if($mileageChoosed['from'] > $mileageChoosed['to'] && $mileageChoosed['to'] !== null){
+            $tempFrom = $mileageChoosed['from'];
+            $mileageChoosed['from'] = $mileageChoosed['to'];
+            $mileageChoosed['to'] = $tempFrom;
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'mileageChoosed', $mileageChoosed);
+
+        $transportFullStores = Arr::add($transportFullStores, 'transportTransmissions', $this->verifiedData['transport_type']->transmissions()->select('tranport_ch_transmissions.id as val', 'rtitle as name')->get());
+
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
 
     private function bollStr($str){
-        return $str == 'true' ? true : $str == 'null' ? null : false;
+        return $str == 'true' ? true : false;
     }
 
 }
