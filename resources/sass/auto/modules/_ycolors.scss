@@ -1,0 +1,68 @@
+@import '../../vars';
+
+.ycolors{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .ycolor{
+        padding: 5px 8px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        //margin-bottom: 5px;
+        cursor: pointer;
+        .color-checkbox{
+            width: 28px;
+            height: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #fff;
+            position: relative;
+            .color-bg{
+                width: 100%;
+                height: 100%;
+                opacity: 0.3;
+            }
+            .yicon{
+                overflow: hidden;
+                height: 0;
+                position: absolute;
+                color: $box-bg;
+                font-size: em(26);
+                transition: 0.2s all ease-in-out;
+            }
+        }
+
+        .ycolor-label{
+            font-family: $aleg;
+            font-style: normal;
+            font-weight: 500;
+            font-size: em(18);
+            color: $site-grey;
+        }
+
+        &:hover{
+            box-shadow: 0 0 10px #c9c9c9;
+            border-radius: 8px;
+            .color-checkbox{
+                .color-bg{
+                    opacity: 1;
+                }
+            }
+        }
+        &.selected{
+            .color-checkbox{
+                .color-bg{
+                    opacity: 1;
+                }
+                .yicon{
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

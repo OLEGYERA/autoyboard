@@ -95,7 +95,37 @@
 
                         </div>
                     </div>
-.                </aside>
+                    <div class="ygroup-box">
+                        <h2 class="yfilter-aside-title">Цвет</h2>
+                        <div class="ycolors_options">
+                            <ycolors
+                                @updateChoose="SET_COLORS_CHOOSE($event)"
+                                @deleteChoose="DELETE_COLORS_CHOOSE($event)"
+                                :options="transportColors"
+                                :choosedItems="transportsArr.colorsChoosed"
+                            >
+                            </ycolors>
+                        </div>
+<!--                        <div class="yprice_filter-box">-->
+<!--                            <yprice></yprice>-->
+<!--                            <ycheckbox-->
+<!--                                :name="'Возможен торг'"-->
+<!--                                :checked="searchDeatils.searchPropsChoosed.bargain"-->
+<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'bargain', val: $event})">-->
+<!--                            </ycheckbox>-->
+<!--                            <ycheckbox-->
+<!--                                :name="'Возможен обмен на автомобиль'"-->
+<!--                                :checked="searchDeatils.searchPropsChoosed.exchangeCar"-->
+<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeCar', val: $event})">-->
+<!--                            </ycheckbox>-->
+<!--                            <ycheckbox-->
+<!--                                :name="'Возможен обмен на недвижимость'"-->
+<!--                                :checked="searchDeatils.searchPropsChoosed.exchangeHouse"-->
+<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeHouse', val: $event})">-->
+<!--                            </ycheckbox>-->
+<!--                        </div>-->
+                    </div>
+                </aside>
                 <div class="yexpanded_content">
                     <div class="option-row">
                         <div class="option-box mono-block">
@@ -277,220 +307,67 @@
                                 КПП
                             </h2>
                             <yselectmultysearch
-                                @updateChoose='SET_FUELS_CHOOSE($event)'
-                                @deleteChoose='DELETE_FUELS_CHOOSE($event)'
+                                @updateChoose='SET_TRANSMISSIONS_CHOOSE($event)'
+                                @deleteChoose='DELETE_TRANSMISSIONS_CHOOSE($event)'
                                 :shade="true"
                                 :placeholder="'Выберите КПП'"
                                 :options="transportTransmissions"
                                 :choosedItems="transportsArr.transmissionsChoosed"></yselectmultysearch>
                         </div>
-<!--                        <div class="option-box tech">-->
-<!--                            <h2 class="option-title">-->
-<!--                                Росход топлива,л./100 км-->
-<!--                            </h2>-->
-<!--                            <ydoublenuminput-->
-<!--                                :doubleChoosed="transportsArr.fuelConsumptionChoosed"-->
-<!--                                :shade="true"-->
-<!--                            ></ydoublenuminput>-->
-<!--                        </div>-->
-<!--                        <div class="option-box tech">-->
-<!--                            <h2 class="option-title">-->
-<!--                                Пробег, тыс.км-->
-<!--                            </h2>-->
-<!--                            <ydoublenuminput-->
-<!--                                :doubleChoosed="transportsArr.mileageChoosed"-->
-<!--                                :shade="true"-->
-<!--                            ></ydoublenuminput>-->
-<!--                        </div>-->
+                        <div class="option-box tech">
+                            <h2 class="option-title">
+                                Объём, л.
+                            </h2>
+                            <ydoublenuminput
+                                :doubleChoosed="transportsArr.volumeChoosed"
+                                :shade="true"
+                            ></ydoublenuminput>
+                        </div>
+                        <div class="option-box tech">
+                            <h2 class="option-title">
+                                Количество дверей
+                            </h2>
+                            <ydoublenuminput
+                                :doubleChoosed="transportsArr.doorsChoosed"
+                                :shade="true"
+                            ></ydoublenuminput>
+                        </div>
+                    </div>
+                    <div class="option-row tech">
+                        <div class="option-box tech">
+                            <h2 class="option-title">
+                                Тип привода
+                            </h2>
+                            <yselectmultysearch
+                                @updateChoose='SET_GERAS_CHOOSE($event)'
+                                @deleteChoose='DELETE_GEARS_CHOOSE($event)'
+                                :shade="true"
+                                :placeholder="'Выберите привод'"
+                                :options="transportGears"
+                                :choosedItems="transportsArr.gearsChoosed"></yselectmultysearch>
+                        </div>
+                        <div class="option-box tech">
+                            <h2 class="option-title">
+                                Мощность, л.с.
+                            </h2>
+                            <ydoublenuminput
+                                :doubleChoosed="transportsArr.powerChoosed"
+                                :shade="true"
+                            ></ydoublenuminput>
+                        </div>
+                        <div class="option-box tech">
+                            <h2 class="option-title">
+                                Количество мест
+                            </h2>
+                            <ydoublenuminput
+                                :doubleChoosed="transportsArr.seatsChoosed"
+                                :shade="true"
+                            ></ydoublenuminput>
+                        </div>
                     </div>
                 </div>
             </section>
             {{generateLink}}
-<!--            <div class="yb-specifications_cars">-->
-<!--                <h2>Технические характеристики</h2>-->
-<!--                <div class="yselectsearch_specifications">-->
-<!--                    <div class="vis_l-specifications">-->
-<!--                        <h2>Топливо</h2>-->
-<!--&lt;!&ndash;                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="fuel"></ydropdown>&ndash;&gt;-->
-<!--                        <h2>КПП</h2>-->
-<!--&lt;!&ndash;                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="transmission"></ydropdown>&ndash;&gt;-->
-<!--                        <h2>Тип привода</h2>-->
-<!--&lt;!&ndash;                        <ydropdown @setItem='selectedItem' :placeholder="'Не выбрано'" :items="typeofdrive"></ydropdown>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                    <div class="vis_c-specifications y-double">-->
-<!--                        <h3>Росход топлива, л./100 км</h3>-->
-<!--                        <div class="ydouble_dropdown">-->
-<!--&lt;!&ndash;                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                        <h3>Объём, л.</h3>-->
-<!--                        <div class="ydouble_dropdown">-->
-<!--&lt;!&ndash;                            <ydropdown :items="test" :placeholder="'От'" ></ydropdown>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                        <h3>Мощность</h3>-->
-<!--                        <div class="ydouble_dropdown">-->
-<!--&lt;!&ndash;                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="vis_r-specifications y-double">-->
-<!--                        <h3>Пробег, тыс.км</h3>-->
-<!--                        <div class="ydouble_dropdown">-->
-<!--&lt;!&ndash;                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                        <h3>Количество дверей</h3>-->
-<!--                        <div class="ydouble_dropdown">-->
-<!--&lt;!&ndash;                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                        <h3>Количество мест</h3>-->
-<!--                        <div class="ydouble_dropdown">-->
-<!--&lt;!&ndash;                            <ydropdown :items="test" :placeholder="'От'"></ydropdown>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <ydropdown :items="test2" :placeholder="'До'"></ydropdown>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="yother_specifications">-->
-<!--                    <h3>Цвет</h3>-->
-<!--                    <div class="yvis_other">-->
-<!--                        <div class="yvis_other-left">-->
-<!--                            <div class="ycheck_color">-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input  class="" v-model="picked"  type="checkbox">-->
-<!--                                    <label style="background-color: #742D05"  for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked"  type="checkbox">-->
-<!--                                    <label style="background-color: #FFCB11" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked"  type="checkbox">-->
-<!--                                    <label style="background-color: rgba(80, 83, 83, 0.92)" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked" type="checkbox">-->
-<!--                                    <label style="background-color: #FFFFFF" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked" type="checkbox">-->
-<!--                                    <label style="background-color: #000000" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked" type="checkbox">-->
-<!--                                    <label style="background-color: #0B3F8D" for=""></label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="ycheck_color">-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked"  type="checkbox">-->
-<!--                                    <label style="background-color: #5100B8" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked"  type="checkbox">-->
-<!--                                    <label style="background-color: #E30000" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked" type="checkbox">-->
-<!--                                    <label style="background-color: #1D8D0B" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked"  type="checkbox">-->
-<!--                                    <label style="background-color: #0066FF" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked" type="checkbox">-->
-<!--                                    <label style="background-color: #FFF504" for=""></label>-->
-<!--                                </div>-->
-<!--                                <div class="ylabel_visible">-->
-<!--                                    <input class="" v-model="picked" type="checkbox">-->
-<!--                                    <label style="background-color: #FF007A" for=""></label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <button @click="colorOpen = !colorOpen" class="ycolor_more">-->
-<!--                                <i class="fas"-->
-<!--                                   :class="{'fa-chevron-up' : colorOpen, 'fa-chevron-down':  !colorOpen}"></i>-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                        <div class="yvis_other-right">-->
-<!--                            <div class="yother_visl-btn">-->
-<!--                                <button-->
-<!--                                    v-for="(accordion, idx) in accordionItems"-->
-<!--                                    @click="otherShowID = idx"-->
-<!--                                >-->
-<!--                                    {{accordion.title}}-->
-<!--                                    <i class="fas "-->
-<!--                                       :class="{'fa-angle-right' : otherShowID === idx, 'fa-angle-left':  otherShowID != idx}"-->
-<!--                                    ></i>-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                            <div class="yother_visr-options">-->
-<!--&lt;!&ndash;                                <div class="ycars_options" >&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div&ndash;&gt;-->
-<!--&lt;!&ndash;                                        class="yoption"&ndash;&gt;-->
-<!--&lt;!&ndash;                                        v-for="(accordion) in accordionItems[otherShowID].items"&ndash;&gt;-->
-<!--&lt;!&ndash;                                    >&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <input :id="accordion.title" type="checkbox">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <label :for="accordion.title">{{accordion.title}}</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div >&ndash;&gt;-->
-<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="yspecification_results">-->
-<!--                <h3>Результаты поиска</h3>-->
-<!--                <div class="yvisual_results">-->
-<!--                    <div class="yvis_res-select">-->
-<!--                        <h2>Сортировка</h2>-->
-<!--&lt;!&ndash;                        <ydropdown :placeholder="'Не выбрано'" :items="sortBy"></ydropdown>&ndash;&gt;-->
-<!--                        <h2>Период подачи</h2>-->
-<!--&lt;!&ndash;                        <ydropdown :placeholder="'Не выбрано'" :items="deliveryPeriod"></ydropdown>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                    <div class="yvis_res-select">-->
-<!--                        <h2>Актуальность</h2>-->
-<!--&lt;!&ndash;                        <ydropdown  :placeholder="'Не выбрано'" :items="isActual"></ydropdown>&ndash;&gt;-->
-<!--                        <h2>Показывать</h2>-->
-<!--&lt;!&ndash;                        <ydropdown  :placeholder="'Не выбрано'" :items="amountShow" ></ydropdown>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                    <div class="yseach_card-id">-->
-<!--                        <h3>Поиск по ID</h3>-->
-<!--                            <input-->
-<!--                                class="y_seach-id"-->
-<!--                                type="text"-->
-<!--                                placeholder="Введите ID объявления"-->
-<!--                            />-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="ysearch_results">-->
-<!--                <h2>Вы ищите:</h2>-->
-<!--                <div class="yb-repeat_selected">-->
-<!--                    <div class="item_selected">-->
-<!--                        <span>Легковые</span>-->
-<!--                        <i class="fas fa-times"></i>-->
-<!--                    </div>-->
-<!--                    <div class="item_selected">-->
-<!--                        <span>Легковые</span>-->
-<!--                        <i class="fas fa-times"></i>-->
-<!--                    </div>-->
-<!--                    <div class="item_selected">-->
-<!--                        <span>Легковые</span>-->
-<!--                        <i class="fas fa-times"></i>-->
-<!--                    </div>-->
-<!--                    <div class="item_selected">-->
-<!--                        <span>Легковые</span>-->
-<!--                        <i class="fas fa-times"></i>-->
-<!--                    </div>-->
-<!--                    <div class="yb-count_result"> Найдено 178 978 авто</div>-->
-<!--                </div>-->
-<!--                <button class="yclear_form">Сбросить все фильтры</button>-->
-<!--                <div class="y_form-search">-->
-<!--                    <button>Поиск</button>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </div>
 </template>
@@ -504,14 +381,13 @@
             this.initFilter();
         },
         mounted () {
-            document.addEventListener('click', this.clickOutside);
             window.addEventListener('resize', this.changeResize)
-            this.changeResize();
-            this.getYears()
-            // this.getRegion()
-            this.getTransportType();
-            this.getManufactureCounries()
-            this.getCarBrands()
+            // this.changeResize();
+            // this.getYears()
+            // // this.getRegion()
+            // this.getTransportType();
+            // this.getManufactureCounries()
+            // this.getCarBrands()
         },
         data(){
             return{
@@ -519,48 +395,6 @@
                 bodyFullList: false,
                 initPage: false,
                 langType: 3,
-
-                yearsList: [],
-                manufactureCountries: [],
-                carBrandsArr: [],
-
-
-                showSelected: 6,
-                selectDropDown: [], /// accepts data from child component <dropdown></dropdown> && <select></select>
-                picked: [],
-                selectedTypeBody: [],
-                showSelectedItem: false,
-                windowWidth: 0,
-                colorOpen: false,
-                otherShowID: 0,
-                test: [{name: '100'}],
-                test2: [{name: '200'}],
-                isActual: [{name:'Все'}, {name:'Скрыть проданные'}, {name:'Только проданные'}],
-                amountShow: [{name:'По 10'}, {name:'По 20'}, {name:'По 30'}, {name:'По 50'}, {name:'По 100'}],
-                sortBy:[
-                    {name:'Обычная'},
-                    {name:'От дешевых к дорогим'},
-                    {name:'От дорогих к дешевым'},
-                    {name:'Дата добавления'},
-                    {name:'Год выпуска, по возрастанию'},
-                    {name:'Год выпуска, по убыванию'},
-                    {name:'Пробег, по возрастанию'},
-                    {name:'Пробег, по убыванию'},
-                ],
-                deliveryPeriod: [
-                    {id:'all', name:'Все'},
-                    {id:'one_hour', name:'За час'},
-                    {id:'three_hour', name:'За 3 часа'},
-                    {id:'six_hour', name:'За 6 часов'},
-                    {id:'twelve_hour', name:'За 12 часов'},
-                    {id:'today', name:'За сегодня'},
-                    {id:'for_day', name:'За сутки'},
-                    {id:'for_two_day', name:'За 2 дня'},
-                    {id:'for_three_day', name:'За 3 дня'},
-                    {id:'for_week', name:'За неделю'},
-                    {id:'for_mounth', name:'За месяц'},
-                    {id:'for_three_mounth', name:'За 3 месяца'}
-                ],
             }
         },
         methods: {
@@ -577,8 +411,8 @@
                 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE',
                 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO',
                 //TRANSPORT
-                'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE', 'SET_TRANSPORT_STATE_CHOOSE', 'SET_IMPORTERS_CHOOSE', 'DELETE_IMPORTERS_CHOOSE',
-                'SET_FUELS_CHOOSE', 'DELETE_FUELS_CHOOSE',
+                'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE', 'SET_COLORS_CHOOSE', 'DELETE_COLORS_CHOOSE', 'SET_TRANSPORT_STATE_CHOOSE', 'SET_IMPORTERS_CHOOSE', 'DELETE_IMPORTERS_CHOOSE',
+                'SET_FUELS_CHOOSE', 'DELETE_FUELS_CHOOSE', 'SET_TRANSMISSIONS_CHOOSE', 'DELETE_TRANSMISSIONS_CHOOSE', 'SET_GERAS_CHOOSE', 'DELETE_GEARS_CHOOSE',
 
             ]),
             ...mapActions([
@@ -590,71 +424,7 @@
                 //TRANSPORT
                 'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API',
             ]),
-            check(e){
-            },
-            addToArray(item, index){
-                this.selectDropDown.push({
-                    name: item.name,
-                    id: index
-                })
-            },
-            removeSelectedItem(index){
-                this.$delete(this.selectDropDown, index)
-            },
-            selectedItem(e){
-                const select = this.selectDropDown.find(item =>{
-                    if(item.name === e.name) return  true
-                })
-                if(!select){
-                    this.selectDropDown.push(e)
-                }
-            },
-            changeResize(event) {
-                this.windowWidth = document.documentElement.clientWidth;
-                if(this.windowWidth <= 1024) this.showSelected = 5
-                if(this.windowWidth <= 945) this.showSelected = 4
-                if(this.windowWidth <= 600) this.showSelected = 3
-                if(this.windowWidth <= 425) this.showSelected = 2
-                if(this.windowWidth <= 320) this.showSelected = 1
-            },
-            clickOutside(evt){
-                if (!this.$el.contains(evt.target)) {
-                    this.otherShowID = null;
-                }
-            },
-            getYears(){
-                var y1 = new Date("1900").getFullYear();
-                var y2 = new Date().getFullYear();
-                if(y1 < y2){
-                    for(let i = y1; i <= y2; i++){
-                        this.yearsList.push({
-                            name: i
-                        });
-                    }
-                }else{
-                    for(let i = y2; i <= y1; i++){
-                        this.yearsList.push({
-                            name: i
-                        })
-                    }
-                }
-            },
-            getCarBrands(){
-            },
-            getManufactureCounries(){
-                let lang = 3,
-                    query = "?langType=" + lang ;
 
-                HTTP.get('/manufacture_countries' + query)
-                    .then(response => {
-                        this.manufactureCountries = response.data;
-                    }).catch(error =>{
-                    console.log('error', error)
-
-                })
-            },
-            getTransportType(){
-            },
             setBrandsAndGetModels(data){
                 this.SET_BRAND_CHOSE(data);
                 data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
@@ -704,6 +474,7 @@
                 'transportsArr': 'GET_TRANSPORTS',
                 'transportTypes': 'GET_TRANSPORT_TYPES',
                 'transportBodies': 'GET_TRANSPORT_BODIES',
+                'transportColors': 'GET_TRANSPORT_COLORS',
                 'transportImporters': 'GET_TRANSPORT_IMPORTERS',
                 'transportStates': 'GET_TRANSPORT_STATES',
                 'transportFuels': 'GET_TRANSPORT_FUELS',
@@ -727,11 +498,8 @@
         },
         watch: {
             transportArr(to) {
-                console.log(to, 'watch')
+                // console.log(to, 'watch')
             }
-        },
-        destroyed() {
-            document.removeEventListener('click', this.clickOutside)
         },
     }
 </script>

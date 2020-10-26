@@ -41,6 +41,11 @@ export const routingSplicerBus = new Vue({
                     strProps += 'transport[bodies][' + i + ']=' + el + '&';
                 });
             }
+            if(arr.colorsChoosed.length > 0){
+                arr.colorsChoosed.forEach((el, i) =>{
+                    strProps += 'transport[colors][' + i + ']=' + el + '&';
+                });
+            }
             if(arr.importersChoosed.length > 0){
                 arr.importersChoosed.forEach((el, i) =>{
                     strProps += 'transport[imp][' + i + ']=' + el + '&';
@@ -51,6 +56,7 @@ export const routingSplicerBus = new Vue({
                     strProps += 'transport[states][' + i + ']=' + el + '&';
                 });
             }
+
             if(arr.fuelsChoosed.length > 0){
                 arr.fuelsChoosed.forEach((el, i) =>{
                     strProps += 'transport[fuels][' + i + ']=' + el + '&';
@@ -62,6 +68,28 @@ export const routingSplicerBus = new Vue({
 
             strProps += arr.mileageChoosed.from ? 'transport[mileageF]=' + arr.mileageChoosed.from + '&' : '';
             strProps += arr.mileageChoosed.to ? 'transport[mileageT]=' + arr.mileageChoosed.to + '&' : '';
+
+            if(arr.transmissionsChoosed.length > 0){
+                arr.transmissionsChoosed.forEach((el, i) =>{
+                    strProps += 'transport[trans][' + i + ']=' + el + '&';
+                });
+            }
+            strProps += arr.volumeChoosed.from ? 'transport[volF]=' + arr.volumeChoosed.from + '&' : '';
+            strProps += arr.volumeChoosed.to ? 'transport[volT]=' + arr.volumeChoosed.to + '&' : '';
+
+            strProps += arr.doorsChoosed.from ? 'transport[doorsF]=' + arr.doorsChoosed.from + '&' : '';
+            strProps += arr.doorsChoosed.to ? 'transport[doorsT]=' + arr.doorsChoosed.to + '&' : '';
+
+            if(arr.gearsChoosed.length > 0){
+                arr.gearsChoosed.forEach((el, i) =>{
+                    strProps += 'transport[gears][' + i + ']=' + el + '&';
+                });
+            }
+            strProps += arr.powerChoosed.from ? 'transport[powF]=' + arr.powerChoosed.from + '&' : '';
+            strProps += arr.powerChoosed.to ? 'transport[powT]=' + arr.powerChoosed.to + '&' : '';
+
+            strProps += arr.seatsChoosed.from ? 'transport[seatsF]=' + arr.seatsChoosed.from + '&' : '';
+            strProps += arr.seatsChoosed.to ? 'transport[seatsT]=' + arr.seatsChoosed.to + '&' : '';
 
             return strProps.substring(0, strProps.length - 1);
         },

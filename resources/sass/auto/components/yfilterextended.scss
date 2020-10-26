@@ -1,8 +1,4 @@
-@import '../clear';
 @import '../../vars';
-
-
-
 
 .yfilterextended{
     width: 100%;
@@ -67,7 +63,9 @@
                 }
                 .ygroup-box{
                     margin-bottom: 15px;
-                    .yprice_filter-box{
+                    .yprice_filter-box,
+                    .ycheckbox_options,
+                    .ycolors_options{
                         width: 100%;
                         background-color: $box-bg;
                         border-radius: 10px;
@@ -75,16 +73,10 @@
                         .yprice{
                             margin-bottom: 10px;
                         }
-                        .yprice_container{
-                            margin-bottom: 20px;
-                        }
                     }
-                    .ycheckbox_options{
-                        background-color: $box-bg;
-                        border-radius: 0px 0px 10px 10px;
-                        padding: 15px;
-                        width: 100%;
-                        margin-bottom: 15px;
+                    .ycolors_options{
+                        padding: 15px 6px;
+
                     }
                 }
             }

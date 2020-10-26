@@ -25,5 +25,9 @@ class TransportType extends Model
     public function transmissions(){
         return $this->hasManyThrough('App\TranportChTransmission' , 'App\TranportChTransmissionPivotType', 'type_id','id', 'val', 'id');
     }
+
+    public function gears(){
+        return $this->hasManyThrough('App\TranportChGear' , 'App\TranportChGearPivotType', 'type_id','id', 'val', 'ch_gear_id');
+    }
 }
 //        return $this->hasOne('App\BrandPivotType', 'type_id', 'val');

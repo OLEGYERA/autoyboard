@@ -5,6 +5,7 @@ use App\Brand;
 use App\Http\Controllers\API\BasicController;
 
 use App\TransportType;
+use App\TransportChColor;
 use App\TransportChState;
 use App\TransportChFuel;
 use Illuminate\Http\Request;
@@ -190,6 +191,18 @@ class UriValidatorController extends BasicController
         $bodies = $this->verifiedData['transport_type']->bodies()->select('id as val', 'rtitle as name')->get();
         $transportFullStores = Arr::add($transportFullStores, 'transportBodies', $bodies);
 
+        if(isset($uri['colors'])){
+            $colorsArr = [];
+            foreach ($uri['colors'] as $color){
+                array_push($colorsArr, intval($color));
+            }
+            $transportFullStores = Arr::add($transportFullStores, 'colorsChoosed', $colorsArr);
+        }
+        else{
+            $transportFullStores = Arr::add($transportFullStores, 'colorsChoosed', []);
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'transportColors', TransportChColor::select(['id as val', 'rtitle as name', 'color', 'bg_color as bg'])->get());
+
 
         if(isset($uri['imp'])){
             $importerArr = [];
@@ -245,7 +258,69 @@ class UriValidatorController extends BasicController
         }
         $transportFullStores = Arr::add($transportFullStores, 'mileageChoosed', $mileageChoosed);
 
+        if(isset($uri['trans'])){
+            $transmissionArr = [];
+            foreach ($uri['trans'] as $transmission){
+                array_push($transmissionArr, intval($transmission));
+            }
+            $transportFullStores = Arr::add($transportFullStores, 'transmissionsChoosed', $transmissionArr);
+        }
+        else{
+            $transportFullStores = Arr::add($transportFullStores, 'transmissionsChoosed', []);
+        }
         $transportFullStores = Arr::add($transportFullStores, 'transportTransmissions', $this->verifiedData['transport_type']->transmissions()->select('tranport_ch_transmissions.id as val', 'rtitle as name')->get());
+
+        $volumeChoosed = [];
+        $volumeChoosed['from'] = isset($uri['volF']) ? intval(substr($uri['volF'], 0,5)) : null;
+        $volumeChoosed['to'] = isset($uri['volT']) ? intval(substr($uri['volT'], 0,5)) : null;
+        if($volumeChoosed['from'] > $volumeChoosed['to'] && $volumeChoosed['to'] !== null){
+            $tempFrom = $volumeChoosed['from'];
+            $volumeChoosed['from'] = $volumeChoosed['to'];
+            $volumeChoosed['to'] = $tempFrom;
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'volumeChoosed', $volumeChoosed);
+
+        $doorsChoosed = [];
+        $doorsChoosed['from'] = isset($uri['doorsF']) ? intval(substr($uri['doorsF'], 0,5)) : null;
+        $doorsChoosed['to'] = isset($uri['doorsT']) ? intval(substr($uri['doorsT'], 0,5)) : null;
+        if($doorsChoosed['from'] > $doorsChoosed['to'] && $doorsChoosed['to'] !== null){
+            $tempFrom = $doorsChoosed['from'];
+            $doorsChoosed['from'] = $doorsChoosed['to'];
+            $doorsChoosed['to'] = $tempFrom;
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'doorsChoosed', $doorsChoosed);
+
+        if(isset($uri['gears'])){
+            $gearsArr = [];
+            foreach ($uri['gears'] as $gear){
+                array_push($gearsArr, intval($gear));
+            }
+            $transportFullStores = Arr::add($transportFullStores, 'gearsChoosed', $gearsArr);
+        }
+        else{
+            $transportFullStores = Arr::add($transportFullStores, 'gearsChoosed', []);
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'transportGears', $this->verifiedData['transport_type']->gears()->select('tranport_ch_gears.id as val', 'rtitle as name')->get());
+
+        $powerChoosed = [];
+        $powerChoosed['from'] = isset($uri['powF']) ? intval(substr($uri['powF'], 0,5)) : null;
+        $powerChoosed['to'] = isset($uri['powT']) ? intval(substr($uri['powT'], 0,5)) : null;
+        if($powerChoosed['from'] > $powerChoosed['to'] && $powerChoosed['to'] !== null){
+            $tempFrom = $powerChoosed['from'];
+            $powerChoosed['from'] = $powerChoosed['to'];
+            $powerChoosed['to'] = $tempFrom;
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'powerChoosed', $powerChoosed);
+
+        $seatsChoosed = [];
+        $seatsChoosed['from'] = isset($uri['doorsF']) ? intval(substr($uri['doorsF'], 0,5)) : null;
+        $seatsChoosed['to'] = isset($uri['doorsT']) ? intval(substr($uri['doorsT'], 0,5)) : null;
+        if($seatsChoosed['from'] > $seatsChoosed['to'] && $seatsChoosed['to'] !== null){
+            $tempFrom = $seatsChoosed['from'];
+            $seatsChoosed['from'] = $seatsChoosed['to'];
+            $seatsChoosed['to'] = $tempFrom;
+        }
+        $transportFullStores = Arr::add($transportFullStores, 'seatsChoosed', $seatsChoosed);
 
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
