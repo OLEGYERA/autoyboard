@@ -31,14 +31,13 @@
 .icon-help-4-83574:before {
   content: "\e901";
 }
-.icon-arrow-73-83544:before {
+.arrow-left:before { /*icon-arrow-73-83544*/
   content: "\e902";
 }
-
 .arrow-down:before { /*icon-arrow-74-83548*/
   content: "\e903";
 }
-.icon-arrow-75-83549:before {
+.arrow-right:before { /*icon-arrow-75-83549*/
   content: "\e904";
 }
 .arrow-up:before { /*icon-arrow-76-83550*/

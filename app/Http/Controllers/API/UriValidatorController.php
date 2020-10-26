@@ -322,6 +322,57 @@ class UriValidatorController extends BasicController
         }
         $transportFullStores = Arr::add($transportFullStores, 'seatsChoosed', $seatsChoosed);
 
+
+
+        $techsChoosed = [];
+        if(isset($uri['secur'])){
+            $techsChoosed['security'] = [];
+            foreach ($uri['secur'] as $security){
+                array_push($techsChoosed['security'], intval($security));
+            }
+        }
+        else{
+            $techsChoosed['security'] = [];
+        }
+        if(isset($uri['comf'])){
+            $techsChoosed['comfort'] = [];
+            foreach ($uri['comf'] as $security){
+                array_push($techsChoosed['comfort'], intval($security));
+            }
+        }
+        else{
+            $techsChoosed['comfort'] = [];
+        }
+        if(isset($uri['mult'])){
+            $techsChoosed['multimedia'] = [];
+            foreach ($uri['mult'] as $security){
+                array_push($techsChoosed['multimedia'], intval($security));
+            }
+        }
+        else{
+            $techsChoosed['multimedia'] = [];
+        }
+        if(isset($uri['oth'])){
+            $techsChoosed['others'] = [];
+            foreach ($uri['oth'] as $security){
+                array_push($techsChoosed['others'], intval($security));
+            }
+        }
+        else{
+            $techsChoosed['others'] = [];
+        }
+
+        $transportFullStores = Arr::add($transportFullStores, 'techsChoosed', $techsChoosed);
+
+
+        $transportTechs['security'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'security')->get();
+        $transportTechs['comfort'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'comfort')->get();
+        $transportTechs['multimedia'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'multimedia')->get();
+        $transportTechs['others'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'others')->get();
+        $transportFullStores = Arr::add($transportFullStores, 'transportTechs', $transportTechs);
+
+
+
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
 

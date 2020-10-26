@@ -8,6 +8,12 @@ let state = {
     transportFuels: [],
     transportTransmissions: [],
     transportGears: [],
+    transportTechs: {
+        security: [],
+        comfort: [],
+        multimedia: [],
+        others: [],
+    },
     transportFullStore: {
         typeChoosed: null,
         bodiesChoosed: [],
@@ -23,10 +29,17 @@ let state = {
         gearsChoosed: [],
         powerChoosed: {from: null, to: null},
         seatsChoosed: {from: null, to: null},
+        techsChoosed: {
+            security: [],
+            comfort: [],
+            multimedia: [],
+            others: [],
+        }
     }
 };
 
 let getters = {
+    GET_TRANSPORTS: state => state.transportFullStore,
     GET_TRANSPORT_TYPES: state => state.transportTypes,
     GET_TRANSPORT_COLORS: state => state.transportColors,
     GET_TRANSPORT_BODIES: state => {
@@ -57,7 +70,7 @@ let getters = {
 
     GET_TRANSPORT_TRANSMISSIONS: state => state.transportTransmissions,
     GET_TRANSPORT_GEARS: state => state.transportGears,
-    GET_TRANSPORTS: state => state.transportFullStore,
+    GET_TRANSPORT_TECHS: state => state.transportTechs,
 };
 
 let mutations = {
@@ -72,6 +85,7 @@ let mutations = {
         state.transportStates = payload.transportStates;
         state.transportFuels = payload.transportFuels;
         state.transportGears = payload.transportGears;
+        state.transportTechs = payload.transportTechs;
         state.transportTransmissions = payload.transportTransmissions;
         state.transportFullStore.typeChoosed = payload.typeChoosed;
         state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
@@ -87,6 +101,7 @@ let mutations = {
         state.transportFullStore.gearsChoosed = payload.gearsChoosed;
         state.transportFullStore.powerChoosed = payload.powerChoosed;
         state.transportFullStore.seatsChoosed = payload.seatsChoosed;
+        state.transportFullStore.techsChoosed = payload.techsChoosed;
     },
     SET_TRANSPORT_BODY_CHOOSE: (state, payload) => {
         const condition = state.transportFullStore.bodiesChoosed.find(function(el){
@@ -142,6 +157,19 @@ let mutations = {
     },
     DELETE_GEARS_CHOOSE: (state, payload) => {
         state.transportFullStore.gearsChoosed.splice(state.transportFullStore.gearsChoosed.indexOf(payload), 1);
+    },
+
+    SET_TRANSPORT_TECHS_CHOOSE: (state, payload) => {
+        const condition = state.transportFullStore.techsChoosed[payload.alias].find(function(el){
+            if(payload.val === el) return true;
+        })
+
+        if(condition !== undefined){
+            state.transportFullStore.techsChoosed[payload.alias].splice(state.transportFullStore.techsChoosed[payload.alias].indexOf(condition), 1);
+        } else{
+            state.transportFullStore.techsChoosed[payload.alias].push(payload.val)
+        }
+
     },
 
 

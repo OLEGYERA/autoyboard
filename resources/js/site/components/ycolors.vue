@@ -1,5 +1,5 @@
 <template>
-    <div class="ycolors"  :class="{black: shade !== undefined}">
+    <div class="ycolors">
         <div class="ycolor" v-for="(option, i) in options" @click="selectingResult(option.val)" :class="{selected: isPresent(option.val)}">
             <span class="ycolor-label">{{option.name}}</span>
             <div class="color-checkbox">
@@ -11,7 +11,7 @@
 </template>
 <script>
     export default{
-        props: ['options', 'choosedItems', 'shade'],
+        props: ['options', 'choosedItems'],
         mounted(){
         },
         data() {

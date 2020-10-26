@@ -44,7 +44,19 @@
                         </div>
                     </div>
                     <div class="ygroup-box">
-                        <h2 class="yfilter-aside-title">Детализация поиска</h2>
+                        <h2 class="yfilter-aside-title">Цвет</h2>
+                        <div class="ycolors_options">
+                            <ycolors
+                                @updateChoose="SET_COLORS_CHOOSE($event)"
+                                @deleteChoose="DELETE_COLORS_CHOOSE($event)"
+                                :options="transportColors"
+                                :choosedItems="transportsArr.colorsChoosed"
+                            >
+                            </ycolors>
+                        </div>
+                    </div>
+                    <div class="ygroup-box">
+                        <h2 class="yfilter-aside-title">Скрыть / Показать</h2>
                         <div class="ycheckbox_options">
                             <!--                            <ycheckbox-->
                             <!--                                :name="'Поиск со всех ресурсов'"-->
@@ -96,34 +108,53 @@
                         </div>
                     </div>
                     <div class="ygroup-box">
-                        <h2 class="yfilter-aside-title">Цвет</h2>
-                        <div class="ycolors_options">
-                            <ycolors
-                                @updateChoose="SET_COLORS_CHOOSE($event)"
-                                @deleteChoose="DELETE_COLORS_CHOOSE($event)"
-                                :options="transportColors"
-                                :choosedItems="transportsArr.colorsChoosed"
-                            >
-                            </ycolors>
+                        <h2 class="yfilter-aside-title">Выдача результата</h2>
+                        <div class="ysearch_options">
+                            <div class="ygroup-col-box">
+                                <h3 class="sidebar-title">
+                                    Сортировка
+                                </h3>
+                                <yselectsearch
+                                    :deleteDis="true"
+                                    :placeholder="'Выберите сортировку'"
+                                    :options="transportTypes"
+                                    :choosedItem="transportsArr.typeChoosed">
+                                </yselectsearch>
+                            </div>
+                            <div class="ygroup-col-box">
+                                <h3 class="sidebar-title">
+                                    Период подачи
+                                </h3>
+                                <yselectsearch
+                                    :deleteDis="true"
+                                    :placeholder="'Выберите период подачи'"
+                                    :options="transportTypes"
+                                    :choosedItem="transportsArr.typeChoosed">
+                                </yselectsearch>
+                            </div>
+                            <div class="ygroup-col-box">
+                                <h3 class="sidebar-title">
+                                    Актуальность
+                                </h3>
+                                <yselectsearch
+                                    :deleteDis="true"
+                                    :placeholder="'Выберите актуальность'"
+                                    :options="transportTypes"
+                                    :choosedItem="transportsArr.typeChoosed">
+                                </yselectsearch>
+                            </div>
+                            <div class="ygroup-col-box">
+                                <h3 class="sidebar-title">
+                                    Показать
+                                </h3>
+                                <yselectsearch
+                                    :deleteDis="true"
+                                    :placeholder="'Выберите показать'"
+                                    :options="transportTypes"
+                                    :choosedItem="transportsArr.typeChoosed">
+                                </yselectsearch>
+                            </div>
                         </div>
-<!--                        <div class="yprice_filter-box">-->
-<!--                            <yprice></yprice>-->
-<!--                            <ycheckbox-->
-<!--                                :name="'Возможен торг'"-->
-<!--                                :checked="searchDeatils.searchPropsChoosed.bargain"-->
-<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'bargain', val: $event})">-->
-<!--                            </ycheckbox>-->
-<!--                            <ycheckbox-->
-<!--                                :name="'Возможен обмен на автомобиль'"-->
-<!--                                :checked="searchDeatils.searchPropsChoosed.exchangeCar"-->
-<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeCar', val: $event})">-->
-<!--                            </ycheckbox>-->
-<!--                            <ycheckbox-->
-<!--                                :name="'Возможен обмен на недвижимость'"-->
-<!--                                :checked="searchDeatils.searchPropsChoosed.exchangeHouse"-->
-<!--                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeHouse', val: $event})">-->
-<!--                            </ycheckbox>-->
-<!--                        </div>-->
                     </div>
                 </aside>
                 <div class="yexpanded_content">
@@ -269,7 +300,7 @@
                     </div>
                     <hr>
                     <h2 class="category-title">Технические характеристики</h2>
-                    <div class="option-row tech">
+                    <div class="option-row">
                         <div class="option-box tech">
                             <h2 class="option-title">
                                 Топливо
@@ -301,7 +332,7 @@
                             ></ydoublenuminput>
                         </div>
                     </div>
-                    <div class="option-row tech">
+                    <div class="option-row">
                         <div class="option-box tech">
                             <h2 class="option-title">
                                 КПП
@@ -333,7 +364,7 @@
                             ></ydoublenuminput>
                         </div>
                     </div>
-                    <div class="option-row tech">
+                    <div class="option-row">
                         <div class="option-box tech">
                             <h2 class="option-title">
                                 Тип привода
@@ -363,6 +394,14 @@
                                 :doubleChoosed="transportsArr.seatsChoosed"
                                 :shade="true"
                             ></ydoublenuminput>
+                        </div>
+                    </div>
+                    <div class="option-row">
+                        <div class="option-box full-width mt">
+                            <ychaccordion
+                                :options="transportTechs"
+                                :choosedItems="transportsArr.techsChoosed"
+                            ></ychaccordion>
                         </div>
                     </div>
                 </div>
@@ -480,6 +519,7 @@
                 'transportFuels': 'GET_TRANSPORT_FUELS',
                 'transportTransmissions': 'GET_TRANSPORT_TRANSMISSIONS',
                 'transportGears': 'GET_TRANSPORT_GEARS',
+                'transportTechs': 'GET_TRANSPORT_TECHS',
 
                 'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
                 'cities': 'GET_CITIES',

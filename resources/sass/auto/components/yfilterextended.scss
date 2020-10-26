@@ -63,9 +63,27 @@
                 }
                 .ygroup-box{
                     margin-bottom: 15px;
+                    .ygroup-col-box{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 10px;
+                        .sidebar-title{
+                            font-family: $aleg;
+                            font-weight: 500;
+                            font-size: em(16);
+                            line-height: 22px;
+                            color: $filtergray;
+                            margin: 0 0 5px;
+                        }
+
+                    }
+
+
                     .yprice_filter-box,
                     .ycheckbox_options,
-                    .ycolors_options{
+                    .ycolors_options,
+                    .ysearch_options{
                         width: 100%;
                         background-color: $box-bg;
                         border-radius: 10px;
@@ -119,6 +137,9 @@
                         }
                         &.full-width{
                             width: 100%;
+                        }
+                        &.mt{
+                            margin-top: 15px;
                         }
                         &.mono-block{
                             width: 40%;

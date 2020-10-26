@@ -1,0 +1,49 @@
+@import '../../vars';
+
+.ychaccordion{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .accordion-titles{
+        width: 140px;
+        display: flex;
+        flex-direction: column;
+        .accordion-title{
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0px 0px 10px;
+            color: $darkblue;
+            font-weight: 500;
+            font-family: $aleg;
+            font-size: em(18);
+            span{
+                border-bottom: 1px dashed $darkblue;
+            }
+            i{
+                font-size: em(24);
+            }
+            &.selected{
+                span{
+                    border-bottom: 1px solid transparent;
+                }
+            }
+        }
+    }
+    .accordion-checks{
+        width: calc(100% - 165px);
+        display: flex;
+        align-items: flex-start;
+       .accordion-checks-box{
+           width: 100%;
+           display: flex;
+           flex-wrap: wrap;
+           .ycheck{
+               width: 33%;
+               margin-bottom: 15px;
+           }
+       }
+    }
+}

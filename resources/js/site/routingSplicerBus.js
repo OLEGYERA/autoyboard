@@ -91,6 +91,27 @@ export const routingSplicerBus = new Vue({
             strProps += arr.seatsChoosed.from ? 'transport[seatsF]=' + arr.seatsChoosed.from + '&' : '';
             strProps += arr.seatsChoosed.to ? 'transport[seatsT]=' + arr.seatsChoosed.to + '&' : '';
 
+            if(arr.techsChoosed.security.length > 0){
+                arr.techsChoosed.security.forEach((el, i) =>{
+                    strProps += 'transport[secur][' + i + ']=' + el + '&';
+                });
+            }
+            if(arr.techsChoosed.comfort.length > 0){
+                arr.techsChoosed.comfort.forEach((el, i) =>{
+                    strProps += 'transport[comf][' + i + ']=' + el + '&';
+                });
+            }
+            if(arr.techsChoosed.multimedia.length > 0){
+                arr.techsChoosed.multimedia.forEach((el, i) =>{
+                    strProps += 'transport[mult][' + i + ']=' + el + '&';
+                });
+            }
+            if(arr.techsChoosed.others.length > 0){
+                arr.techsChoosed.others.forEach((el, i) =>{
+                    strProps += 'transport[oth][' + i + ']=' + el + '&';
+                });
+            }
+
             return strProps.substring(0, strProps.length - 1);
         },
         creatingRBMYsProps(arr) {
