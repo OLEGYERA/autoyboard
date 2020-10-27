@@ -65,4 +65,18 @@
             }
         }
     }
+    .ycolors-toggler{
+        cursor: pointer;
+        width: 100%;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $search-border;
+        border-radius: 10px;
+        font-size: em(16);
+        color: $input-shade-color;
+        margin-top: 5px;
+        background-color: #fff;
+    }
 }

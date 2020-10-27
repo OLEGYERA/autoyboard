@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="ygroup-box">
-                        <h2 class="yfilter-aside-title">Скрыть / Показать</h2>
+                        <h2 class="yfilter-aside-title">Скрыть / Показать только</h2>
                         <div class="ycheckbox_options">
                             <!--                            <ycheckbox-->
                             <!--                                :name="'Поиск со всех ресурсов'"-->
