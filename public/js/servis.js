@@ -1,9 +1,11 @@
 
 accordion();
 dropDown();
+scrollConvention()
 $(window).resize(function() {
     accordion();
     dropDown();
+    scrollConvention();
 });
 //accordion function from page Convention
 function accordion(){
@@ -53,7 +55,6 @@ function accordion(){
 //         }
 //     });
 // });
-
 function dropDown(){
     if( $(window).width() <= 601 ){
         $('.yb_selected-body').click(function () {
@@ -61,24 +62,67 @@ function dropDown(){
 
             $(this).attr('tabindex', 1).focus();
             $(this).toggleClass('show');
-            $(this).find('.yb-body_list').slideToggle(300);
+            $(this).find('.yb-body_list')
+                // .show("slide", { direction: "right" }, 1000)
+                .slideToggle(200);
         });
         $('.yb_selected-body').focusout(function () {
             $(this).removeClass('show');
-            $(this).find('.yb-body_list').slideUp(300);
+            $(this).find('.yb-body_list')
+                // .hide("slide", { direction: "right" }, 1000)
+                .slideUp(200);
         });
-        $('.yb_selected-body .yb-body_list .yb-body_item').click(function (e) {
+        $('.yb_selected-body .yb-body_list .yb-body_item').click(function () {
+            $(".yb_selected-body .yb-body_list .yb-body_item").removeClass("active_body").find('.fa-check').removeClass('active_check'); //remove active class and hide check
+            $(this).toggleClass("active_body").find('.fa-check').toggleClass('active_check') //show fa-check
 
-            // $(this).parents('.yb_selected-body').find('.yb-body_choice').text($(this).text());
-            // $(this).parents('.yb_selected-body').find('.fa-check').toggleClass('active_check')
             shoose = $(this).parents('.yb_selected-body').find('.yb-body_choice')
             shoose.text($(this).text())
-            if( shoose.text($(this).text()) ){
-               $(this).parents('.yb_selected-body').find('.yb-body_item ').toggleClass('active_item');
-                $(this).parents('.yb_selected-body').find('.fa-check').toggleClass('active_check')
+            if(shoose.text($(this).text())){
+                $(this).find('.yb-body_list').hide()
+                console.log($(this).find('.yb-body_list'))
             }
         });
     }
 }
 
 /*End DropdownList form page CatBody*/
+/*Start func from page Convention*/
+function scrollConvention() {
+    $(document).ready(function(e) {
+        //SCROLL TO ANCHOR TAG
+
+        var $root = $('html, body');
+        console.log($root)
+
+        $('.yb-scroll_item').click(function(e) {
+            e.preventDefault();
+            var $gotoid = $(this).prop('id');
+            var $justid = $gotoid.replace('goto','');
+            if(typeof $("#" + $justid) != undefined){
+                // test if target exists
+                $root.animate({
+                    scrollTop: $("#"+$justid).offset().top - 60  //add static px 60 when scroll down
+            }, 1000);
+            }
+            else{
+                $root.animate({
+                    scrollTop: $("#"-$justid).offset().top + 60 //add static px 60 when scroll up
+                }, 1000);
+            }
+            return false;
+        });
+    });
+}
+/*End func from page Convention*/
+
+$(window).scroll(function(){
+    if ($(window).scrollTop() > 450) {
+        console.log($(window).scrollTop() > 450)
+        $('.yb-scroll_terms').addClass('scroll-fixed'); //Convention page add position fixed when page scroll down
+    }
+    else {
+        $('.yb-scroll_terms').removeClass('scroll-fixed'); //Convention page add position fixed when page scroll down
+    }
+});
+
