@@ -10,7 +10,8 @@
                 <figure class="img-context">
                     <img src="https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg" alt="">
                 </figure>
-                <h4 class="yb-sticker_title" style="color: #fff;">Новый Mercedes-Benz </h4>
+                <h4 v-if="lang === 'ru'" class="yb-sticker_title" style="color: #fff;">Новый Mercedes-Benz </h4>
+                <h4 v-else class="yb-sticker_title" style="color: #fff;">Новий Mercedes-Benz </h4>
             </div>
             <div  class="yb-sticker">
                 <div class="yb-sticker_logo">
@@ -21,7 +22,8 @@
                 <figure class="img-context">
                     <img src="https://carexpert.ru/img/foto600/vw/vwar001.jpg" alt="">
                 </figure>
-                <h4 class="yb-sticker_title" style="color: #1B1B1B;">Новый Volkswagen Arteon </h4>
+                <h4 v-if="lang === 'ru'"  class="yb-sticker_title" style="color: #1B1B1B;">Новый Volkswagen Arteon </h4>
+                <h4 v-else class="yb-sticker_title" style="color: #1B1B1B;">Новий Volkswagen Arteon </h4>
             </div>
             <div  class="yb-sticker">
                 <div class="yb-sticker_logo">
@@ -32,7 +34,8 @@
                 <figure class="img-context">
                     <img src="https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg" alt="">
                 </figure>
-                <h4 class="yb-sticker_title" style="color: #fff;">Новая Audi TT RS</h4>
+                <h4 v-if="lang === 'ru'" class="yb-sticker_title" style="color: #fff;">Новая Audi TT RS</h4>
+                <h4 v-else class="yb-sticker_title" style="color: #fff;">Нова Audi TT RS</h4>
             </div>
 
         </Slick>
@@ -43,6 +46,7 @@
     import Slick from "vue-slick";
     // import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
     export default {
+        props: ['lang'],
         components: {
             Slick
         },

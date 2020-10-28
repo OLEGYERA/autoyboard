@@ -183,6 +183,7 @@
         }
     }
 }
+
 @media only screen and (max-width: 1330px){
     .yb-content{
         .yb-convention_desc{
@@ -191,6 +192,34 @@
                     &.scroll-fixed{
                         width: 25%;
                         right: 8%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yb-content{
+        .yb-convention_desc{
+            .yb-content_terms{
+                .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 25%;
+                        right: 8%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1280px){
+    .yb-content{
+        .yb-convention_desc{
+            .yb-content_terms{
+                .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 26%;
+                        right: 7%;
                     }
                 }
             }
@@ -212,6 +241,22 @@
                 font-size: em(46);
             }
         }
+        .yb-convention_desc{
+            .yb-content_terms{
+               .yb-scroll_terms{
+                   &.scroll-fixed{
+                       width: 28%;
+                       right: 4%;
+                   }
+                   .yb-scroll_items{
+                       .yb-scroll_item{
+                           font-size: em(15);
+                           line-height: 19px;
+                       }
+                   }
+               }
+            }
+        }
     }
 }
 @media only screen and (max-width: 945px){
@@ -219,6 +264,10 @@
         .yb-convention_desc{
             .yb-content_terms{
                 .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 30%;
+                        right: 2%;
+                    }
                     .yb-scroll_items{
                         .yb-scroll_item{
                            font-size: em(15);

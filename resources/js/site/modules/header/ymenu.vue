@@ -83,6 +83,7 @@
 
 <script>
     export  default {
+        props: ['lang'],
         mounted() {
             document.addEventListener('click', this.handleClickOutside)
             this.onResize();
@@ -191,6 +192,8 @@
             }
         },
         watch:{
+            windowWidth: function(res){
+            },
             showMenu: function (to){
                 to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute')
             }

@@ -94,49 +94,5 @@
                 </div>
             </article>
         </div>
-
-<!--        <div class="right_items">-->
-<!--            <article class="news" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);">-->
-<!--                <figure class="news-image" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);">-->
-<!--                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg" alt="">-->
-<!--                </figure>-->
-<!--                <div class="news_desc">-->
-<!--                    <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>-->
-<!--                    <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>-->
-<!--                    <button class="read_more">-->
-<!--                        Читать дальше-->
-<!--                        <img src="img/system/icons/arrow_right.png" alt="">-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </article>-->
-<!--            <div class="flex_bottom">-->
-<!--                <article class="news">-->
-<!--                    <figure class="news-image" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);">-->
-<!--                        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg" alt="">-->
-<!--                    </figure>-->
-<!--                    <div class="news_desc">-->
-<!--                        <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>-->
-<!--                        <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>-->
-<!--                        <button class="read_more">-->
-<!--                            Читать дальше-->
-<!--                            <img src="img/system/icons/arrow_right.png" alt="">-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                </article>-->
-<!--                <article class="news">-->
-<!--                    <figure class="news-image" style="background: linear-gradient(180deg, rgba(34, 34, 34, 0) 31.93%, rgba(34, 34, 34, 0.81) 63.48%);">-->
-<!--                        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg" alt="">-->
-<!--                    </figure>-->
-<!--                    <div class="news_desc">-->
-<!--                        <h2>Opel продолжает понемногу рассекречивать кроссовер Mokka</h2>-->
-<!--                        <p class="hovering">Компания Acura представила обновленный вариант компактного кроссовера</p>-->
-<!--                        <button class="read_more">-->
-<!--                            Читать дальше-->
-<!--                            <img src="img/system/icons/arrow_right.png" alt="">-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                </article>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 </template>

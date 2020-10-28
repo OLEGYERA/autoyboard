@@ -7,7 +7,8 @@
                     <h2 class="yb_car-name">Mercedes-Benz E 220</h2>
                     <div class="yb_header-price">
                         <span class="yb_price-car">8 200 $ </span>
-                        <div class="yb_location-car"> Киев </div>
+                        <div v-if="lang == 'ru' " class="yb_location-car"> Киев </div>
+                        <div v-else class="yb_location-car"> Київ </div>
                     </div>
                 </div>
                 <i
@@ -54,7 +55,7 @@
         <div class="yb_auto-preview">
             <div class="yb_auto_vis-l">
                 <div class="y-visl_items">
-                    <span v-if="soldCar" class="yb_sold-car">Продано</span>
+                    <span v-if="soldCar">Продано</span>
                     <figure
                         :class="{'blur' : soldCar}"
                         v-if="withPhotos === true"
@@ -81,7 +82,8 @@
                                 <i class="far fa-image"></i>
                                 <div class="yb_count">
                                     <span class="count">{{currImgIdx + 1}}</span>
-                                    из
+                                    <span v-if="lang == 'ru' ">из</span>
+                                    <span v-else>з</span>
                                     <span class="count">{{imgList.length}}</span>
                                 </div>
                             </div>
@@ -112,7 +114,8 @@
                         <div class="yb_img-fulllist" v-if="imgList.length > 5"  @click="imgFullList = !imgFullList">
                             <span class="y-image_all"
                                   v-if="!imgFullList">
-                                Смотреть все фото
+                                <span v-if="lang == 'ru' ">Смотреть все фото</span>
+                                <span v-else>Дивитися всі фото</span>
                                  <i
                                      class="fas fa-chevron-down"
                                      @click="!imgFullList"
@@ -120,7 +123,8 @@
                             </i>
                             </span>
                             <span class="y-image_all" v-else>
-                                Скрыть
+                                <span v-if="lang == 'ru' ">Скрыть</span>
+                                <span v-else>Приховати</span>
                                    <i
                                        class="fas fa-chevron-up"
                                        @click="imgFullList = !imgFullList"
@@ -132,7 +136,8 @@
                     <div class="y-auto_options">
                         <div class="yb_verified_car">
                             <div v-if="verifiedCar" class="yb_verified_content">
-                                <h2>Проверено по реестрам МВД</h2>
+                                <h2 v-if="lang == 'ru' ">Проверено по реестрам МВД</h2>
+                                <h2 v-else>Перевірено за реєстрами МВС</h2>
                                 <span class="y-vin_code">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0)">
@@ -158,10 +163,12 @@
                                         <image id="image0" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADr0lEQVRoge2ZTYhVdRjGf+85c+494yiDjib0AdUqEqLUhYhzr5pUWEGbgRa2LkEwokUtIjIq0UFduGnTQqKNkEVkHwg6c2msKBuJplYSOY7ZEGEzc++ZO3fO62L8OIre/8c5Qy3uAxcOd57/+zzPff8v53/OQAcddLAoUEV0KN6rw6U3/msvztARunU4/kiHyrrwid9WRRZDq/CiOhQ/ABwFXXfLX44QNV+SjTSK1Cs0gJ4qDSDB+6DL70AZQ3RAKs2xojQLCaAnu+8l1AOoDljQ6yD7WZm8K2to5tXOFUBHWEEr3o3qq8ASx+WjpLwuW2a/zOPBK4DW4gdJdSfwIrAsjwFgFNV9LG1+Kuupuy42BtDjlFm6ZAWkDwMVVJ8DHvFxakADOInyOWHwIxqeo2/6smmbmQMMlVMb3iIhleps2I4QWBRpFWTGB0ZtmwAzBRjxhBi1bQJMFeDEEzptYnSZi8hF0PtcpXcPruGfqQiAvt45Dr7yi2sJQCdMDHMHVP/wUCbqSq9fl6K0DbMNJDBqmwMEeAUoRXr9OhvGCRY/nkUHfANkO6BtmG1x3kSwGGL5yUc56rphuuTbgVTOmijmAD3JD3jcC27ugFeAlO7kjIlkDHD1fPKzq3rWdOQXYEw28K+JZHMfAOFbV/Xstil1+cyAfm/DsguQymlX+fwzIAUGaEXHgXkX+dwzkMpXNjSrALJt6m8Epy7knIEzsiX53YZo1wGAlKMuDrKmI+cZ0I9tmdbnfD2xrI+oOQ7Ejm5ckUJwv1QbxpsYOHRgYRvJMX9ftkJ8bWserE6jWcwPQvA8Fp27MBnzWW01AjzTf4l7ViW2IodcHDk/Kupw+QuUp0y81w4/xMTkwm67e1XC3l2/2ZQfpTK7VgTrobEf4mtIgz1gFpiaiW573Raqe1zMg0cA2dw4jeiHJt6O7eP09rTo7WmxY/u4Teka1eYnzn5cFwDoiZ7VRPO/tnmF6IoW6FqpNp3PXO5bCJBtM5eAl33W3hYq7/mYB88AAFJNjoB+4Ls+g2H+St7y9pFHWUfoZq78DfCYZ4k/CcN1sqlufHi/E7w7ACAbaSDRk4DP6/LLSPp0HvOQMwCAVKYnaQVPAOccltVReVYqc8YnLhNyBwCQxxsXCMN+0O8s6BcJgq2yOakVoV1IAADZVJ9gplltO9jKWcJgg/Q3bILa6RZVKAs9Fb+A6CBw19WvWigHKc2++b/+H1kWWmM5Wn4H1UcJdKf0zxlfkXTQQQfuuAJ5Jy9oVaJtcgAAAABJRU5ErkJggg=="/>
                                     </defs>
                                 </svg>
-                                <span>Продавец отказался предоставить VIN-код для проверки</span>
+                                <span v-if="lang == 'ru' ">Продавец отказался предоставить VIN-код для проверки</span>
+                                <span v-else>Продавець відмовився надати VIN-код для перевірки</span>
                             </div>
                             <button class="y_verified">
-                                Проверить авто
+                                <span v-if="lang == 'ru' ">Проверить авто</span>
+                                <span v-else>Перевірити</span>
                                 <yexpanded  :text_color="'white'"  :color="'white'"></yexpanded>
                             </button>
                         </div>
@@ -169,51 +176,64 @@
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Марка, модель, год
+                                    <span v-if="lang == 'ru' ">Марка, модель, год</span>
+                                    <span v-else>Марка, модель, рік</span>
                                 </th>
                                 <th class="y-check_desc"> Mercedes-Benz Coupe AMG 53 AT</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Двигатель
+                                    <span v-if="lang == 'ru' ">Двигатель</span>
+                                    <span v-else>Двигун</span>
                                 </th>
-                                <th class="y-check_desc">Бензин</th>
+                                <th v-if="lang == 'ru' " class="y-check_desc">Электро</th>
+                                <th v-else class="y-check_desc">Електро</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Цвет
+                                    <span v-if="lang == 'ru' ">Цвет</span>
+                                    <span v-else>Колір</span>
                                 </th>
-                                <th class="y-check_desc">Серый</th>
+                                <th v-if="lang == 'ru' " class="y-check_desc">Серый</th>
+                                <th v-else class="y-check_desc">Сірий</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    В розыске
+                                   <span v-if="lang == 'ru' ">В розыске</span>
+                                   <span e-else>В розшуку</span>
                                 </th>
-                                <th class="y-check_desc">Нет</th>
+                                <th v-if="lang == 'ru' " class="y-check_desc">Нет</th>
+                                <th e-else class="y-check_desc">Ні</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Пробег проверен
+                                    <span v-if="lang == 'ru'"> Пробег проверен</span>
+                                    <span e-else>Пробіг перевірений</span>
                                 </th>
-                                <th class="y-check_desc">19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018</th>
+                                <th v-if="lang == 'ru'" class="y-check_desc">19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018</th>
+                                <th v-else class="y-check_desc">19 тис.км (2 роки, 4 міс. назад). Остання наявна фіксація пробігу більше року назад - 02.02.2018</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Пробег от продавца
+                                    <span v-if="lang == 'ru'">Пробег от продавца</span>
+                                    <span v-else>Пробіг від продавця</span>
                                 </th>
-                                <th class="y-check_desc">62 тыс.км</th>
+                                <th v-if="lang == 'ru'" class="y-check_desc">62 тыс.км</th>
+                                <th v-else class="y-check_desc">62 тис.км</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Последняя операция
+                                    <span v-if="lang == 'ru'">Последняя операция</span>
+                                    <span v-else>Остання операція</span>
                                 </th>
-                                <th class="y-check_desc">27.07.2019 (11 мес. назад)</th>
+                                <th v-if="lang == 'ru'" class="y-check_desc">27.07.2019 (11 мес. назад)</th>
+                                <th v-else class="y-check_desc">27.07.2019 (11 міс. назад)</th>
                             </tr>
                         </table>
                     </div>
@@ -231,8 +251,11 @@
                             </div>
                             <yfavorite></yfavorite>
                         </div>
-                        <button class="price_monitoring">
+                        <button v-if="lang =='ru' " class="price_monitoring">
                             Мониториг цен на авто
+                        </button>
+                        <button v-else class="price_monitoring">
+                            Моніторинг цін на авто
                         </button>
 
                     </div>
@@ -244,8 +267,10 @@
                                 <path d="M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z" fill="#0B3F8D"/>
                             </svg>
                             <div class="yoption_name">
-                                <h2>Пробег</h2>
-                                <span class="y-option">331 тыс.км </span>
+                                <h2 v-if="lang == 'ru'">Пробег</h2>
+                                <h2 v-else>Пробіг</h2>
+                                <span v-if="lang == 'ru'" class="y-option">331 тыс.км </span>
+                                <span v-else class="y-option">331 тис.км </span>
                             </div>
 
                         </div>
@@ -254,8 +279,10 @@
                                 <path d="M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z" fill="#0B3F8D"/>
                             </svg>
                             <div class="yoption_name">
-                                <h2>Локация</h2>
-                                <span class="y-option"> Киев </span>
+                                <h2 v-if="lang == 'ru' ">Локация</h2>
+                                <h2 v-else >Локація</h2>
+                                <span v-if="lang == 'ru'" class="y-option"> Киев </span>
+                                <span v-else class="y-option"> Київ </span>
                             </div>
                         </div>
                         <div class="y-car_option">
@@ -267,8 +294,10 @@
                                 <path d="M11.859 5.62897L11.0857 6.40225L11.8289 7.14545C11.5281 7.12631 11.2268 7.10936 10.9255 7.10936C6.69484 7.10936 2.7125 8.97475 0 12.2276L0.84 12.9281C3.34414 9.92521 7.01969 8.20311 10.9255 8.20311C11.2038 8.20311 11.4816 8.21897 11.7595 8.23647L11.0857 8.91021L11.859 9.6835L13.8863 7.65623L11.859 5.62897Z" fill="#0B3F8D"/>
                             </svg>
                             <div class="yoption_name">
-                                <h2>Двигатель</h2>
-                                <span class="y-option">Бензин </span>
+                                <h2 v-if="lang == 'ru'">Двигатель</h2>
+                                <h2 v-else>Двигун</h2>
+                                <span v-if="lang == 'ru'" class="y-option">Электро </span>
+                                <span v-else class="y-option">Електро </span>
                             </div>
                         </div>
                         <div class="y-car_option">
@@ -279,7 +308,8 @@
                                 <path d="M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z" fill="#0B3F8D"/>
                             </svg>
                             <div class="yoption_name">
-                                <h2>Год выпуска</h2>
+                                <h2 v-if="lang == 'ru' ">Год выпуска</h2>
+                                <h2 v-else>Рік випуску</h2>
                                 <span class="y-option">2019</span>
                             </div>
 
@@ -292,7 +322,8 @@
                             </svg>
                             <div class="yoption_name">
                                 <h2>Кузов</h2>
-                                <span class="y-option">Купе</span>
+                                <span v-if="lang =='ru'" class="y-option">Хэтчбек</span>
+                                <span v-else class="y-option">Хетчбек</span>
                             </div>
                         </div>
                         <div class="y-car_option">
@@ -304,24 +335,29 @@
                             </svg>
                             <div class="yoption_name">
                                 <h2>Коробка</h2>
-                                <span class="y-option">Автомат</span>
+                                <span v-if="lang =='ru'"  class="y-option">Ручная / Механика</span>
+                                <span v-else class="y-option">Ручна / Механіка</span>
                             </div>
                         </div>
                     </div>
                     <div class="yb-additional_car-opt">
                         <div class="yadditional_i">
                             <div class="yvis_item">
-                                <h2 class="y-item name">Просмотров авто:</h2>
+                                <h2 v-if="lang == 'ru'" class="y-item name">Просмотров авто:</h2>
+                                <h2 v-else class="y-item name">Переглядів авто:</h2>
                                 <span class="y-item count">120</span>
                             </div>
                             <div class="yvis_item">
-                                <h2 class="y-item name">Создано:</h2>
-                                <span class="y-item count">06 июня</span>
+                                <h2 v-if="lang == 'ru'" class="y-item name">Создано:</h2>
+                                <h2 v-else class="y-item name">Створено:</h2>
+                                <span v-if="lang == 'ru'" class="y-item count">06 июня</span>
+                                <span v-else class="y-item count">06 червня</span>
                             </div>
                         </div>
                         <div class="yadditional_i">
                             <div class="yvis_item">
-                                <h2 class="y-item name">Добавлено в блокнот:</h2>
+                                <h2 v-if="lang == 'ru'" class="y-item name">Добавлено в блокнот:</h2>
+                                <h2 v-else class="y-item name">Додано в блокнот:</h2>
                                 <span class="y-item count">320</span>
                             </div>
                             <div class="yvis_item">
@@ -332,11 +368,13 @@
                     </div>
                 </div>
                 <button class="yb_go_to">
-                    Перейти на сайт объявления
+                    <span v-if="lang =='ru'">Перейти на сайт объявления</span>
+                    <span v-else>Перейти на сайт оголошення</span>
                     <yexpanded  :text_color="'white'"  :color="'white'"></yexpanded>
                 </button>
                 <div style="background-image: url(data:image/jpeg;base64,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)"  class="commercial">
-                    <h3> @ На правах реклами</h3>
+                    <h3 v-if="lang =='ru'">  @ На правах рекламы</h3>
+                    <h3 v-else> @ На правах рекламы</h3>
                 </div>
             </div>
         </div>
@@ -348,7 +386,8 @@
                     <h2 class="yb_car-name">Mercedes-Benz E 220</h2>
                     <div class="yb_header-price">
                         <span class="yb_price-car">8 200 $ </span>
-                        <div class="yb_location-car"> Киев </div>
+                        <div v-if="lang =='ru'" class="yb_location-car"> Киев </div>
+                        <div v-else class="yb_location-car"> Київ </div>
                     </div>
                 </div>
                 <i
@@ -399,7 +438,10 @@
         <div class="yb_auto-preview">
             <div class="yb_auto_vis-l">
                 <div class="y-visl_items">
-                    <span v-if="soldCar" class="yb_sold-car">Продано</span>
+                    <span v-if="soldCar" class="yb_sold-car">
+                        <span v-if="lang === 'ru'">Продано</span>
+                        <span v-else>Продано</span>
+                    </span>
                     <figure
                         :class="{'blur' : soldCar}"
                         v-if="withPhotos === true"
@@ -426,7 +468,8 @@
                                 <i class="far fa-image"></i>
                                 <div class="yb_count">
                                     <span class="count">{{currImgIdx + 1}}</span>
-                                    из
+                                    <span v-if="lang =='ru'">из</span>
+                                    <span v-else>з</span>
                                     <span class="count">{{imgList.length}}</span>
                                 </div>
                             </div>
@@ -451,8 +494,11 @@
                                     </div>
                                     <yfavorite></yfavorite>
                                 </div>
-                                <button class="price_monitoring">
+                                <button v-if="lang =='ru'" class="price_monitoring">
                                     Мониториг цен на авто
+                                </button>
+                                <button v-else class="price_monitoring">
+                                    Моніторинг цін на авто
                                 </button>
 
                             </div>
@@ -464,8 +510,10 @@
                                         <path d="M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z" fill="#0B3F8D"/>
                                     </svg>
                                     <div class="yoption_name">
-                                        <h2>Пробег</h2>
-                                        <span class="y-option">331 тыс.км </span>
+                                        <h2 v-if="lang == 'ru'">Пробег</h2>
+                                        <h2 v-else>Пробіг</h2>
+                                        <span v-if="lang == 'ru'" class="y-option">331 тыс.км </span>
+                                        <span v-else class="y-option">331 тис.км </span>
                                     </div>
 
                                 </div>
@@ -474,8 +522,10 @@
                                         <path d="M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z" fill="#0B3F8D"/>
                                     </svg>
                                     <div class="yoption_name">
-                                        <h2>Локация</h2>
-                                        <span class="y-option"> Киев </span>
+                                        <h2 v-if="lang == 'ru' ">Локация</h2>
+                                        <h2 v-else >Локація</h2>
+                                        <span v-if="lang == 'ru'" class="y-option"> Киев </span>
+                                        <span v-else class="y-option"> Київ </span>
                                     </div>
                                 </div>
                                 <div class="y-car_option">
@@ -487,8 +537,10 @@
                                         <path d="M11.859 5.62897L11.0857 6.40225L11.8289 7.14545C11.5281 7.12631 11.2268 7.10936 10.9255 7.10936C6.69484 7.10936 2.7125 8.97475 0 12.2276L0.84 12.9281C3.34414 9.92521 7.01969 8.20311 10.9255 8.20311C11.2038 8.20311 11.4816 8.21897 11.7595 8.23647L11.0857 8.91021L11.859 9.6835L13.8863 7.65623L11.859 5.62897Z" fill="#0B3F8D"/>
                                     </svg>
                                     <div class="yoption_name">
-                                        <h2>Двигатель</h2>
-                                        <span class="y-option">Бензин </span>
+                                        <h2 v-if="lang == 'ru'">Двигатель</h2>
+                                        <h2 v-else>Двигун</h2>
+                                        <span v-if="lang == 'ru'" class="y-option">Электро </span>
+                                        <span v-else class="y-option">Електро </span>
                                     </div>
                                 </div>
                                 <div class="y-car_option">
@@ -499,7 +551,8 @@
                                         <path d="M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z" fill="#0B3F8D"/>
                                     </svg>
                                     <div class="yoption_name">
-                                        <h2>Год выпуска</h2>
+                                        <h2 v-if="lang == 'ru' ">Год выпуска</h2>
+                                        <h2 v-else>Рік випуску</h2>
                                         <span class="y-option">2019</span>
                                     </div>
 
@@ -512,7 +565,8 @@
                                     </svg>
                                     <div class="yoption_name">
                                         <h2>Кузов</h2>
-                                        <span class="y-option">Купе</span>
+                                        <span v-if="lang =='ru'" class="y-option">Хэтчбек</span>
+                                        <span v-else class="y-option">Хетчбек</span>
                                     </div>
                                 </div>
                                 <div class="y-car_option">
@@ -524,24 +578,29 @@
                                     </svg>
                                     <div class="yoption_name">
                                         <h2>Коробка</h2>
-                                        <span class="y-option">Автомат</span>
+                                        <span v-if="lang =='ru'"  class="y-option">Ручная / Механика</span>
+                                        <span v-else class="y-option">Ручна / Механіка</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="yb-additional_car-opt">
                                 <div class="yadditional_i">
                                     <div class="yvis_item">
-                                        <h2 class="y-item name">Просмотров авто:</h2>
+                                        <h2 v-if="lang == 'ru'" class="y-item name">Просмотров авто:</h2>
+                                        <h2 v-else class="y-item name">Переглядів авто:</h2>
                                         <span class="y-item count">120</span>
                                     </div>
                                     <div class="yvis_item">
-                                        <h2 class="y-item name">Создано:</h2>
-                                        <span class="y-item count">06 июня</span>
+                                        <h2 v-if="lang == 'ru'" class="y-item name">Создано:</h2>
+                                        <h2 v-else class="y-item name">Створено:</h2>
+                                        <span v-if="lang == 'ru'" class="y-item count">06 июня</span>
+                                        <span v-else class="y-item count">06 червня</span>
                                     </div>
                                 </div>
                                 <div class="yadditional_i">
                                     <div class="yvis_item">
-                                        <h2 class="y-item name">Добавлено в блокнот:</h2>
+                                        <h2 v-if="lang == 'ru'" class="y-item name">Добавлено в блокнот:</h2>
+                                        <h2 v-else class="y-item name">Додано в блокнот:</h2>
                                         <span class="y-item count">320</span>
                                     </div>
                                     <div class="yvis_item">
@@ -552,14 +611,16 @@
                             </div>
                         </div>
                         <button class="yb_go_to">
-                            Перейти на сайт объявления
+                            <span v-if="lang =='ru'">Перейти на сайт объявления</span>
+                            <span v-else>Перейти на сайт оголошення</span>
                             <yexpanded  :text_color="'white'"  :color="'white'"></yexpanded>
                         </button>
                     </div>
                     <div class="y-auto_options">
                         <div class="yb_verified_car">
-                            <div v-if="verifiedCar"  class="yb_verified_content">
-                                <h2>Проверено по реестрам МВД</h2>
+                            <div v-if="verifiedCar" class="yb_verified_content">
+                                <h2 v-if="lang == 'ru' ">Проверено по реестрам МВД</h2>
+                                <h2 v-else>Перевірено за реєстрами МВС</h2>
                                 <span class="y-vin_code">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0)">
@@ -575,7 +636,7 @@
                             5YJSA1E4хFFхххх17
                         </span>
                             </div>
-                            <div v-else class="yb_disable-verified">
+                            <div v-else  class="yb_disable-verified">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <rect width="48" height="48" fill="url(#pattern0)"/>
                                     <defs>
@@ -585,10 +646,12 @@
                                         <image id="image0" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADr0lEQVRoge2ZTYhVdRjGf+85c+494yiDjib0AdUqEqLUhYhzr5pUWEGbgRa2LkEwokUtIjIq0UFduGnTQqKNkEVkHwg6c2msKBuJplYSOY7ZEGEzc++ZO3fO62L8OIre/8c5Qy3uAxcOd57/+zzPff8v53/OQAcddLAoUEV0KN6rw6U3/msvztARunU4/kiHyrrwid9WRRZDq/CiOhQ/ABwFXXfLX44QNV+SjTSK1Cs0gJ4qDSDB+6DL70AZQ3RAKs2xojQLCaAnu+8l1AOoDljQ6yD7WZm8K2to5tXOFUBHWEEr3o3qq8ASx+WjpLwuW2a/zOPBK4DW4gdJdSfwIrAsjwFgFNV9LG1+Kuupuy42BtDjlFm6ZAWkDwMVVJ8DHvFxakADOInyOWHwIxqeo2/6smmbmQMMlVMb3iIhleps2I4QWBRpFWTGB0ZtmwAzBRjxhBi1bQJMFeDEEzptYnSZi8hF0PtcpXcPruGfqQiAvt45Dr7yi2sJQCdMDHMHVP/wUCbqSq9fl6K0DbMNJDBqmwMEeAUoRXr9OhvGCRY/nkUHfANkO6BtmG1x3kSwGGL5yUc56rphuuTbgVTOmijmAD3JD3jcC27ugFeAlO7kjIlkDHD1fPKzq3rWdOQXYEw28K+JZHMfAOFbV/Xstil1+cyAfm/DsguQymlX+fwzIAUGaEXHgXkX+dwzkMpXNjSrALJt6m8Epy7knIEzsiX53YZo1wGAlKMuDrKmI+cZ0I9tmdbnfD2xrI+oOQ7Ejm5ckUJwv1QbxpsYOHRgYRvJMX9ftkJ8bWserE6jWcwPQvA8Fp27MBnzWW01AjzTf4l7ViW2IodcHDk/Kupw+QuUp0y81w4/xMTkwm67e1XC3l2/2ZQfpTK7VgTrobEf4mtIgz1gFpiaiW573Raqe1zMg0cA2dw4jeiHJt6O7eP09rTo7WmxY/u4Teka1eYnzn5cFwDoiZ7VRPO/tnmF6IoW6FqpNp3PXO5bCJBtM5eAl33W3hYq7/mYB88AAFJNjoB+4Ls+g2H+St7y9pFHWUfoZq78DfCYZ4k/CcN1sqlufHi/E7w7ACAbaSDRk4DP6/LLSPp0HvOQMwCAVKYnaQVPAOccltVReVYqc8YnLhNyBwCQxxsXCMN+0O8s6BcJgq2yOakVoV1IAADZVJ9gplltO9jKWcJgg/Q3bILa6RZVKAs9Fb+A6CBw19WvWigHKc2++b/+H1kWWmM5Wn4H1UcJdKf0zxlfkXTQQQfuuAJ5Jy9oVaJtcgAAAABJRU5ErkJggg=="/>
                                     </defs>
                                 </svg>
-                                <span>Продавец отказался предоставить VIN-код для проверки</span>
+                                <span v-if="lang == 'ru' ">Продавец отказался предоставить VIN-код для проверки</span>
+                                <span v-else>Продавець відмовився надати VIN-код для перевірки</span>
                             </div>
                             <button class="y_verified">
-                                Проверить авто
+                                <span v-if="lang == 'ru' ">Проверить авто</span>
+                                <span v-else>Перевірити</span>
                                 <yexpanded  :text_color="'white'"  :color="'white'"></yexpanded>
                             </button>
                         </div>
@@ -596,51 +659,64 @@
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Марка, модель, год
+                                    <span v-if="lang == 'ru' ">Марка, модель, год</span>
+                                    <span v-else>Марка, модель, рік</span>
                                 </th>
                                 <th class="y-check_desc"> Mercedes-Benz Coupe AMG 53 AT</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Двигатель
+                                    <span v-if="lang == 'ru' ">Двигатель</span>
+                                    <span v-else>Двигун</span>
                                 </th>
-                                <th class="y-check_desc">Бензин</th>
+                                <th v-if="lang == 'ru' " class="y-check_desc">Электро</th>
+                                <th v-else class="y-check_desc">Електро</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Цвет
+                                    <span v-if="lang == 'ru' ">Цвет</span>
+                                    <span v-else>Колір</span>
                                 </th>
-                                <th class="y-check_desc">Серый</th>
+                                <th v-if="lang == 'ru' " class="y-check_desc">Серый</th>
+                                <th v-else class="y-check_desc">Сірий</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    В розыске
+                                    <span v-if="lang == 'ru' ">В розыске</span>
+                                    <span e-else>В розшуку</span>
                                 </th>
-                                <th class="y-check_desc">Нет</th>
+                                <th v-if="lang == 'ru' " class="y-check_desc">Нет</th>
+                                <th e-else class="y-check_desc">Ні</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Пробег проверен
+                                    <span v-if="lang == 'ru'"> Пробег проверен</span>
+                                    <span e-else>Пробіг перевірений</span>
                                 </th>
-                                <th class="y-check_desc">19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018</th>
+                                <th v-if="lang == 'ru'" class="y-check_desc">19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018</th>
+                                <th v-else class="y-check_desc">19 тис.км (2 роки, 4 міс. назад). Остання наявна фіксація пробігу більше року назад - 02.02.2018</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Пробег от продавца
+                                    <span v-if="lang == 'ru'">Пробег от продавца</span>
+                                    <span v-else>Пробіг від продавця</span>
                                 </th>
-                                <th class="y-check_desc">62 тыс.км</th>
+                                <th v-if="lang == 'ru'" class="y-check_desc">62 тыс.км</th>
+                                <th v-else class="y-check_desc">62 тис.км</th>
                             </tr>
                             <tr>
                                 <th class="y-check_title">
                                     <i class="fas fa-check"></i>
-                                    Последняя операция
+                                    <span v-if="lang == 'ru'">Последняя операция</span>
+                                    <span v-else>Остання операція</span>
                                 </th>
-                                <th class="y-check_desc">27.07.2019 (11 мес. назад)</th>
+                                <th v-if="lang == 'ru'" class="y-check_desc">27.07.2019 (11 мес. назад)</th>
+                                <th v-else class="y-check_desc">27.07.2019 (11 міс. назад)</th>
                             </tr>
                         </table>
                     </div>
@@ -652,6 +728,7 @@
 
 <script>
 export default {
+    props:['lang'],
     mounted () {
         window.addEventListener('resize', this.onResize)
         this.onResize();

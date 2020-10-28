@@ -1,6 +1,7 @@
 <template>
     <div class="ytitle">
-        <h2>{{title}}</h2>
+        <h2 v-if="lang==='ru'">{{title}}</h2>
+        <h2 v-else>{{uatitle}}</h2>
         <div class="change_visible">
             <button
                 @click="changeVisible = false"
@@ -22,7 +23,7 @@
 
 <script>
 export default{
-    props: ['title'],
+    props: ['title', 'lang', 'uatitle'],
     data(){
         return{
             changeVisible: false,

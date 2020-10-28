@@ -2,6 +2,7 @@
     <div class="yb_auto_news">
         <ytitle
             :title="'Новости'"
+            :uatitle="'Новини'"
             @getStatus="changeStatus">
         >
         </ytitle>

@@ -1948,8 +1948,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   components: {
     Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -2184,9 +2198,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   components: {
     Slick: vue_slick__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
@@ -2443,7 +2512,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   data: function data() {
     return {
       favorite: false
@@ -3114,7 +3238,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   mounted: function mounted() {
     var _this = this;
 
@@ -4458,7 +4659,770 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   mounted: function mounted() {
     window.addEventListener('resize', this.onResize);
     this.onResize();
@@ -4638,8 +5602,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   components: {
     Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -4995,6 +5963,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   mounted: function mounted() {
     this.onResize();
   },
@@ -7221,9 +8190,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
  // import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   components: {
     Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -7263,6 +8236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -7958,9 +8932,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ystatus.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -7991,6 +8967,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang']
+});
 
 /***/ }),
 
@@ -8041,7 +9030,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang']
+});
 
 /***/ }),
 
@@ -8076,8 +9070,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title'],
+  props: ['title', 'lang', 'uatitle'],
   data: function data() {
     return {
       changeVisible: false
@@ -8186,6 +9181,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lang'],
   mounted: function mounted() {
     document.addEventListener('click', this.handleClickOutside);
     this.onResize();
@@ -8320,6 +9316,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
+    windowWidth: function windowWidth(res) {},
     showMenu: function showMenu(to) {
       to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute');
     }
@@ -38450,11 +39447,91 @@ var render = function() {
     "div",
     { staticClass: "yanalitic" },
     [
-      _c("ytitle", { attrs: { title: "Аналитика" } }),
+      _c("ytitle", { attrs: { title: "Аналитика", uatitle: "Аналітика" } }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "yanalitics_nav" }, [
+        _c("ul", { staticClass: "ynavigation" }, [
+          _vm.lang == "ru"
+            ? _c("li", { staticClass: "nav_item", attrs: { tabindex: "0" } }, [
+                _vm._v("Лучшая цена")
+              ])
+            : _c("li", { staticClass: "nav_item", attrs: { tabindex: "0" } }, [
+                _vm._v("Найкраща ціна")
+              ]),
+          _vm._v(" "),
+          _vm.lang == "ru"
+            ? _c(
+                "li",
+                {
+                  directives: [{ name: "else", rawName: "v-else" }],
+                  staticClass: "nav_item",
+                  attrs: { tabindex: "1" }
+                },
+                [_vm._v("Популярные авто")]
+              )
+            : _c("li", { staticClass: "nav_item", attrs: { tabindex: "1" } }, [
+                _vm._v("Популярні авто")
+              ]),
+          _vm._v(" "),
+          _vm.lang == "ru"
+            ? _c("li", { staticClass: "nav_item", attrs: { tabindex: "2" } }, [
+                _vm._v("Проверенные авто")
+              ])
+            : _c("li", { staticClass: "nav_item", attrs: { tabindex: "2" } }, [
+                _vm._v("Перевірені авто")
+              ]),
+          _vm._v(" "),
+          _vm.lang == "ru"
+            ? _c("li", { staticClass: "nav_item", attrs: { tabindex: "3" } }, [
+                _vm._v("Поиск автомобилей")
+              ])
+            : _c("li", { staticClass: "nav_item", attrs: { tabindex: "3" } }, [
+                _vm._v("Пошук автомобілів")
+              ]),
+          _vm._v(" "),
+          _vm.lang == "ru"
+            ? _c("li", { staticClass: "nav_item", attrs: { tabindex: "4" } }, [
+                _vm._v("Сравнение автомобилей")
+              ])
+            : _c("li", { staticClass: "nav_item", attrs: { tabindex: "4" } }, [
+                _vm._v("Порівняння автомобілів")
+              ])
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(1)
+      _c("div", { staticClass: "analitics_content" }, [
+        _c("div", { staticClass: "analitics_desc" }, [
+          _vm.lang == "ru"
+            ? _c("h3", { staticClass: "analitics_subtitle" }, [
+                _vm._v("Заглавие")
+              ])
+            : _c("h3", { staticClass: "analitics_subtitle" }, [
+                _vm._v("Назва")
+              ]),
+          _vm._v(" "),
+          _vm.lang == "ru"
+            ? _c("p", { staticClass: "subtitle_desc" }, [
+                _vm._v(
+                  "\n                С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n            "
+                )
+              ])
+            : _c("p", { staticClass: "subtitle_desc" }, [
+                _vm._v(
+                  "\n                За допомогою нашого онлайн сервісу ви можете порівняти будь-бу і новий автомобіль по будь-якими параметрами, цінами і відгуками користувачів в Україні. Порівнюйте нові моделі авто, оцінюйте технічні характеристики і вибирайте вподобаний автомобіль.\n            "
+                )
+              ]),
+          _vm._v(" "),
+          _vm.lang == "ru"
+            ? _c("button", { staticClass: "yverify_btn" }, [
+                _vm._v("Проверить")
+              ])
+            : _c("button", { staticClass: "yverify_btn" }, [
+                _vm._v("Перевірити")
+              ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
     ],
     1
   )
@@ -38464,52 +39541,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yanalitics_nav" }, [
-      _c("ul", { staticClass: "ynavigation" }, [
-        _c("li", { staticClass: "nav_item", attrs: { tabindex: "0" } }, [
-          _vm._v("Лучшая цена")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav_item", attrs: { tabindex: "1" } }, [
-          _vm._v("Популярные авто")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav_item", attrs: { tabindex: "2" } }, [
-          _vm._v("Проверенные авто")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav_item", attrs: { tabindex: "3" } }, [
-          _vm._v("Поиск автомобилей")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav_item", attrs: { tabindex: "4" } }, [
-          _vm._v("Сравнение автомобилей")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "analitics_content" }, [
-      _c("div", { staticClass: "analitics_desc" }, [
-        _c("h3", { staticClass: "analitics_subtitle" }, [_vm._v("Заголовок")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "subtitle_desc" }, [
-          _vm._v(
-            "\n                С помощью нашего онлайн сервиса вы можете сравнить любой бу и новый автомобиль по любым параметрам, ценам и отзывам пользователей в Украине. Сравнивайте новые модели авто, оценивайте технические характеристики и выбирайте понравившийся автомобиль.\n            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "yverify_btn" }, [_vm._v("Проверить")])
-      ]),
-      _vm._v(" "),
-      _c("figure", { staticClass: "analitics_prev" }, [
-        _c("img", {
-          attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
-        })
-      ])
+    return _c("figure", { staticClass: "analitics_prev" }, [
+      _c("img", {
+        attrs: { src: "img/system/static/analitics_prev.png", alt: "" }
+      })
     ])
   }
 ]
@@ -38539,7 +39574,7 @@ var render = function() {
     { staticClass: "ybestoffer" },
     [
       _c("ytitle", {
-        attrs: { title: "Лучшие предложения" },
+        attrs: { title: "Лучшие предложения", uatitle: "Кращі пропозиції" },
         on: { getStatus: _vm.changeStatus }
       }),
       _vm._v(" "),
@@ -38601,65 +39636,129 @@ var render = function() {
                           _vm._v("8 200 $")
                         ]),
                         _vm._v(" "),
-                        _c("button", { staticClass: "show_more" }, [
-                          _vm._v(
-                            "\n                                Подробнее\n                                "
-                          ),
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "arrow_right",
-                              staticStyle: { fill: "#000000" },
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                x: "0px",
-                                y: "0px",
-                                width: "40",
-                                height: "40",
-                                viewBox: "0 0 172 172"
-                              }
-                            },
-                            [
+                        _vm.lang == "ru"
+                          ? _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Подробнее\n                                "
+                              ),
                               _c(
-                                "g",
+                                "svg",
                                 {
-                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
                                   attrs: {
-                                    fill: "none",
-                                    "fill-rule": "nonzero",
-                                    stroke: "none",
-                                    "stroke-width": "1",
-                                    "stroke-linecap": "butt",
-                                    "stroke-linejoin": "miter",
-                                    "stroke-miterlimit": "10",
-                                    "stroke-dasharray": "",
-                                    "stroke-dashoffset": "0",
-                                    "font-family": "none",
-                                    "font-weight": "none",
-                                    "font-size": "none",
-                                    "text-anchor": "none"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
                                   }
                                 },
                                 [
-                                  _c("path", {
-                                    attrs: {
-                                      d: "M0,172v-172h172v172z",
-                                      fill: "none"
-                                    }
-                                  }),
-                                  _c("g", { attrs: { fill: "#111e6c" } }, [
-                                    _c("path", {
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
                                       attrs: {
-                                        d:
-                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
                                       }
-                                    })
-                                  ])
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
                                 ]
                               )
-                            ]
-                          )
-                        ])
+                            ])
+                          : _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Детальніше\n                                "
+                              ),
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
+                                      attrs: {
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
                       ])
                     ])
                   ]),
@@ -38713,65 +39812,129 @@ var render = function() {
                           _vm._v("8 200 $")
                         ]),
                         _vm._v(" "),
-                        _c("button", { staticClass: "show_more" }, [
-                          _vm._v(
-                            "\n                                Подробнее\n                                "
-                          ),
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "arrow_right",
-                              staticStyle: { fill: "#000000" },
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                x: "0px",
-                                y: "0px",
-                                width: "40",
-                                height: "40",
-                                viewBox: "0 0 172 172"
-                              }
-                            },
-                            [
+                        _vm.lang == "ru"
+                          ? _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Подробнее\n                                "
+                              ),
                               _c(
-                                "g",
+                                "svg",
                                 {
-                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
                                   attrs: {
-                                    fill: "none",
-                                    "fill-rule": "nonzero",
-                                    stroke: "none",
-                                    "stroke-width": "1",
-                                    "stroke-linecap": "butt",
-                                    "stroke-linejoin": "miter",
-                                    "stroke-miterlimit": "10",
-                                    "stroke-dasharray": "",
-                                    "stroke-dashoffset": "0",
-                                    "font-family": "none",
-                                    "font-weight": "none",
-                                    "font-size": "none",
-                                    "text-anchor": "none"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
                                   }
                                 },
                                 [
-                                  _c("path", {
-                                    attrs: {
-                                      d: "M0,172v-172h172v172z",
-                                      fill: "none"
-                                    }
-                                  }),
-                                  _c("g", { attrs: { fill: "#111e6c" } }, [
-                                    _c("path", {
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
                                       attrs: {
-                                        d:
-                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
                                       }
-                                    })
-                                  ])
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
                                 ]
                               )
-                            ]
-                          )
-                        ])
+                            ])
+                          : _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Детальніше\n                                "
+                              ),
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
+                                      attrs: {
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
                       ])
                     ])
                   ]),
@@ -38825,65 +39988,129 @@ var render = function() {
                           _vm._v("8 200 $")
                         ]),
                         _vm._v(" "),
-                        _c("button", { staticClass: "show_more" }, [
-                          _vm._v(
-                            "\n                                Подробнее\n                                "
-                          ),
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "arrow_right",
-                              staticStyle: { fill: "#000000" },
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                x: "0px",
-                                y: "0px",
-                                width: "40",
-                                height: "40",
-                                viewBox: "0 0 172 172"
-                              }
-                            },
-                            [
+                        _vm.lang == "ru"
+                          ? _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Подробнее\n                                "
+                              ),
                               _c(
-                                "g",
+                                "svg",
                                 {
-                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
                                   attrs: {
-                                    fill: "none",
-                                    "fill-rule": "nonzero",
-                                    stroke: "none",
-                                    "stroke-width": "1",
-                                    "stroke-linecap": "butt",
-                                    "stroke-linejoin": "miter",
-                                    "stroke-miterlimit": "10",
-                                    "stroke-dasharray": "",
-                                    "stroke-dashoffset": "0",
-                                    "font-family": "none",
-                                    "font-weight": "none",
-                                    "font-size": "none",
-                                    "text-anchor": "none"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
                                   }
                                 },
                                 [
-                                  _c("path", {
-                                    attrs: {
-                                      d: "M0,172v-172h172v172z",
-                                      fill: "none"
-                                    }
-                                  }),
-                                  _c("g", { attrs: { fill: "#111e6c" } }, [
-                                    _c("path", {
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
                                       attrs: {
-                                        d:
-                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
                                       }
-                                    })
-                                  ])
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
                                 ]
                               )
-                            ]
-                          )
-                        ])
+                            ])
+                          : _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Детальніше\n                                "
+                              ),
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
+                                      attrs: {
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
                       ])
                     ])
                   ]),
@@ -38937,65 +40164,129 @@ var render = function() {
                           _vm._v("8 200 $")
                         ]),
                         _vm._v(" "),
-                        _c("button", { staticClass: "show_more" }, [
-                          _vm._v(
-                            "\n                                Подробнее\n                                "
-                          ),
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "arrow_right",
-                              staticStyle: { fill: "#000000" },
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                x: "0px",
-                                y: "0px",
-                                width: "40",
-                                height: "40",
-                                viewBox: "0 0 172 172"
-                              }
-                            },
-                            [
+                        _vm.lang == "ru"
+                          ? _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Подробнее\n                                "
+                              ),
                               _c(
-                                "g",
+                                "svg",
                                 {
-                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
                                   attrs: {
-                                    fill: "none",
-                                    "fill-rule": "nonzero",
-                                    stroke: "none",
-                                    "stroke-width": "1",
-                                    "stroke-linecap": "butt",
-                                    "stroke-linejoin": "miter",
-                                    "stroke-miterlimit": "10",
-                                    "stroke-dasharray": "",
-                                    "stroke-dashoffset": "0",
-                                    "font-family": "none",
-                                    "font-weight": "none",
-                                    "font-size": "none",
-                                    "text-anchor": "none"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
                                   }
                                 },
                                 [
-                                  _c("path", {
-                                    attrs: {
-                                      d: "M0,172v-172h172v172z",
-                                      fill: "none"
-                                    }
-                                  }),
-                                  _c("g", { attrs: { fill: "#111e6c" } }, [
-                                    _c("path", {
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
                                       attrs: {
-                                        d:
-                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
                                       }
-                                    })
-                                  ])
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
                                 ]
                               )
-                            ]
-                          )
-                        ])
+                            ])
+                          : _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Детальніше\n                                "
+                              ),
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
+                                      attrs: {
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
                       ])
                     ])
                   ]),
@@ -39049,65 +40340,129 @@ var render = function() {
                           _vm._v("8 200 $")
                         ]),
                         _vm._v(" "),
-                        _c("button", { staticClass: "show_more" }, [
-                          _vm._v(
-                            "\n                                Подробнее\n                                "
-                          ),
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "arrow_right",
-                              staticStyle: { fill: "#000000" },
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                x: "0px",
-                                y: "0px",
-                                width: "40",
-                                height: "40",
-                                viewBox: "0 0 172 172"
-                              }
-                            },
-                            [
+                        _vm.lang == "ru"
+                          ? _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Подробнее\n                                "
+                              ),
                               _c(
-                                "g",
+                                "svg",
                                 {
-                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
                                   attrs: {
-                                    fill: "none",
-                                    "fill-rule": "nonzero",
-                                    stroke: "none",
-                                    "stroke-width": "1",
-                                    "stroke-linecap": "butt",
-                                    "stroke-linejoin": "miter",
-                                    "stroke-miterlimit": "10",
-                                    "stroke-dasharray": "",
-                                    "stroke-dashoffset": "0",
-                                    "font-family": "none",
-                                    "font-weight": "none",
-                                    "font-size": "none",
-                                    "text-anchor": "none"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
                                   }
                                 },
                                 [
-                                  _c("path", {
-                                    attrs: {
-                                      d: "M0,172v-172h172v172z",
-                                      fill: "none"
-                                    }
-                                  }),
-                                  _c("g", { attrs: { fill: "#111e6c" } }, [
-                                    _c("path", {
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
                                       attrs: {
-                                        d:
-                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
                                       }
-                                    })
-                                  ])
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
                                 ]
                               )
-                            ]
-                          )
-                        ])
+                            ])
+                          : _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Детальніше\n                                "
+                              ),
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
+                                      attrs: {
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
                       ])
                     ])
                   ]),
@@ -39161,65 +40516,129 @@ var render = function() {
                           _vm._v("8 200 $")
                         ]),
                         _vm._v(" "),
-                        _c("button", { staticClass: "show_more" }, [
-                          _vm._v(
-                            "\n                                Подробнее\n                                "
-                          ),
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "arrow_right",
-                              staticStyle: { fill: "#000000" },
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                x: "0px",
-                                y: "0px",
-                                width: "40",
-                                height: "40",
-                                viewBox: "0 0 172 172"
-                              }
-                            },
-                            [
+                        _vm.lang == "ru"
+                          ? _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Подробнее\n                                "
+                              ),
                               _c(
-                                "g",
+                                "svg",
                                 {
-                                  staticStyle: { "mix-blend-mode": "normal" },
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
                                   attrs: {
-                                    fill: "none",
-                                    "fill-rule": "nonzero",
-                                    stroke: "none",
-                                    "stroke-width": "1",
-                                    "stroke-linecap": "butt",
-                                    "stroke-linejoin": "miter",
-                                    "stroke-miterlimit": "10",
-                                    "stroke-dasharray": "",
-                                    "stroke-dashoffset": "0",
-                                    "font-family": "none",
-                                    "font-weight": "none",
-                                    "font-size": "none",
-                                    "text-anchor": "none"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
                                   }
                                 },
                                 [
-                                  _c("path", {
-                                    attrs: {
-                                      d: "M0,172v-172h172v172z",
-                                      fill: "none"
-                                    }
-                                  }),
-                                  _c("g", { attrs: { fill: "#111e6c" } }, [
-                                    _c("path", {
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
                                       attrs: {
-                                        d:
-                                          "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
                                       }
-                                    })
-                                  ])
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
                                 ]
                               )
-                            ]
-                          )
-                        ])
+                            ])
+                          : _c("button", { staticClass: "show_more" }, [
+                              _vm._v(
+                                "\n                                Детальніше\n                                "
+                              ),
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "arrow_right",
+                                  staticStyle: { fill: "#000000" },
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    x: "0px",
+                                    y: "0px",
+                                    width: "40",
+                                    height: "40",
+                                    viewBox: "0 0 172 172"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      staticStyle: {
+                                        "mix-blend-mode": "normal"
+                                      },
+                                      attrs: {
+                                        fill: "none",
+                                        "fill-rule": "nonzero",
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        "stroke-linecap": "butt",
+                                        "stroke-linejoin": "miter",
+                                        "stroke-miterlimit": "10",
+                                        "stroke-dasharray": "",
+                                        "stroke-dashoffset": "0",
+                                        "font-family": "none",
+                                        "font-weight": "none",
+                                        "font-size": "none",
+                                        "text-anchor": "none"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0,172v-172h172v172z",
+                                          fill: "none"
+                                        }
+                                      }),
+                                      _c("g", { attrs: { fill: "#111e6c" } }, [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
                       ])
                     ])
                   ])
@@ -39287,62 +40706,119 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _c("button", { staticClass: "show_more" }, [
-              _vm._v(
-                "\n                        Подробнее\n                        "
-              ),
-              _c(
-                "svg",
-                {
-                  staticClass: "arrow_right",
-                  staticStyle: { fill: "#000000" },
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    x: "0px",
-                    y: "0px",
-                    width: "40",
-                    height: "40",
-                    viewBox: "0 0 172 172"
-                  }
-                },
-                [
+            _vm.lang == "ru"
+              ? _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Подробнее\n                        "
+                  ),
                   _c(
-                    "g",
+                    "svg",
                     {
-                      staticStyle: { "mix-blend-mode": "normal" },
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
                       attrs: {
-                        fill: "none",
-                        "fill-rule": "nonzero",
-                        stroke: "none",
-                        "stroke-width": "1",
-                        "stroke-linecap": "butt",
-                        "stroke-linejoin": "miter",
-                        "stroke-miterlimit": "10",
-                        "stroke-dasharray": "",
-                        "stroke-dashoffset": "0",
-                        "font-family": "none",
-                        "font-weight": "none",
-                        "font-size": "none",
-                        "text-anchor": "none"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                      }),
-                      _c("g", { attrs: { fill: "#111e6c" } }, [
-                        _c("path", {
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
                           attrs: {
-                            d:
-                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
                           }
-                        })
-                      ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
+                ])
+              : _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Детальніше\n                        "
+                  ),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
+                      }
+                    },
+                    [
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
+                          attrs: {
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
           ])
         ])
       ]),
@@ -39377,62 +40853,119 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _c("button", { staticClass: "show_more" }, [
-              _vm._v(
-                "\n                        Подробнее\n                        "
-              ),
-              _c(
-                "svg",
-                {
-                  staticClass: "arrow_right",
-                  staticStyle: { fill: "#000000" },
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    x: "0px",
-                    y: "0px",
-                    width: "40",
-                    height: "40",
-                    viewBox: "0 0 172 172"
-                  }
-                },
-                [
+            _vm.lang == "ru"
+              ? _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Подробнее\n                        "
+                  ),
                   _c(
-                    "g",
+                    "svg",
                     {
-                      staticStyle: { "mix-blend-mode": "normal" },
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
                       attrs: {
-                        fill: "none",
-                        "fill-rule": "nonzero",
-                        stroke: "none",
-                        "stroke-width": "1",
-                        "stroke-linecap": "butt",
-                        "stroke-linejoin": "miter",
-                        "stroke-miterlimit": "10",
-                        "stroke-dasharray": "",
-                        "stroke-dashoffset": "0",
-                        "font-family": "none",
-                        "font-weight": "none",
-                        "font-size": "none",
-                        "text-anchor": "none"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                      }),
-                      _c("g", { attrs: { fill: "#111e6c" } }, [
-                        _c("path", {
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
                           attrs: {
-                            d:
-                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
                           }
-                        })
-                      ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
+                ])
+              : _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Детальніше\n                        "
+                  ),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
+                      }
+                    },
+                    [
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
+                          attrs: {
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
           ])
         ])
       ]),
@@ -39467,62 +41000,119 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _c("button", { staticClass: "show_more" }, [
-              _vm._v(
-                "\n                        Подробнее\n                        "
-              ),
-              _c(
-                "svg",
-                {
-                  staticClass: "arrow_right",
-                  staticStyle: { fill: "#000000" },
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    x: "0px",
-                    y: "0px",
-                    width: "40",
-                    height: "40",
-                    viewBox: "0 0 172 172"
-                  }
-                },
-                [
+            _vm.lang == "ru"
+              ? _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Подробнее\n                        "
+                  ),
                   _c(
-                    "g",
+                    "svg",
                     {
-                      staticStyle: { "mix-blend-mode": "normal" },
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
                       attrs: {
-                        fill: "none",
-                        "fill-rule": "nonzero",
-                        stroke: "none",
-                        "stroke-width": "1",
-                        "stroke-linecap": "butt",
-                        "stroke-linejoin": "miter",
-                        "stroke-miterlimit": "10",
-                        "stroke-dasharray": "",
-                        "stroke-dashoffset": "0",
-                        "font-family": "none",
-                        "font-weight": "none",
-                        "font-size": "none",
-                        "text-anchor": "none"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                      }),
-                      _c("g", { attrs: { fill: "#111e6c" } }, [
-                        _c("path", {
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
                           attrs: {
-                            d:
-                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
                           }
-                        })
-                      ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
+                ])
+              : _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Детальніше\n                        "
+                  ),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
+                      }
+                    },
+                    [
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
+                          attrs: {
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
           ])
         ])
       ])
@@ -39559,62 +41149,119 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _c("button", { staticClass: "show_more" }, [
-              _vm._v(
-                "\n                        Подробнее\n                        "
-              ),
-              _c(
-                "svg",
-                {
-                  staticClass: "arrow_right",
-                  staticStyle: { fill: "#000000" },
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    x: "0px",
-                    y: "0px",
-                    width: "40",
-                    height: "40",
-                    viewBox: "0 0 172 172"
-                  }
-                },
-                [
+            _vm.lang == "ru"
+              ? _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Подробнее\n                        "
+                  ),
                   _c(
-                    "g",
+                    "svg",
                     {
-                      staticStyle: { "mix-blend-mode": "normal" },
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
                       attrs: {
-                        fill: "none",
-                        "fill-rule": "nonzero",
-                        stroke: "none",
-                        "stroke-width": "1",
-                        "stroke-linecap": "butt",
-                        "stroke-linejoin": "miter",
-                        "stroke-miterlimit": "10",
-                        "stroke-dasharray": "",
-                        "stroke-dashoffset": "0",
-                        "font-family": "none",
-                        "font-weight": "none",
-                        "font-size": "none",
-                        "text-anchor": "none"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                      }),
-                      _c("g", { attrs: { fill: "#111e6c" } }, [
-                        _c("path", {
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
                           attrs: {
-                            d:
-                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
                           }
-                        })
-                      ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
+                ])
+              : _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Детальніше\n                        "
+                  ),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
+                      }
+                    },
+                    [
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
+                          attrs: {
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
           ])
         ])
       ]),
@@ -39649,62 +41296,119 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _c("button", { staticClass: "show_more" }, [
-              _vm._v(
-                "\n                        Подробнее\n                        "
-              ),
-              _c(
-                "svg",
-                {
-                  staticClass: "arrow_right",
-                  staticStyle: { fill: "#000000" },
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    x: "0px",
-                    y: "0px",
-                    width: "40",
-                    height: "40",
-                    viewBox: "0 0 172 172"
-                  }
-                },
-                [
+            _vm.lang == "ru"
+              ? _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Подробнее\n                        "
+                  ),
                   _c(
-                    "g",
+                    "svg",
                     {
-                      staticStyle: { "mix-blend-mode": "normal" },
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
                       attrs: {
-                        fill: "none",
-                        "fill-rule": "nonzero",
-                        stroke: "none",
-                        "stroke-width": "1",
-                        "stroke-linecap": "butt",
-                        "stroke-linejoin": "miter",
-                        "stroke-miterlimit": "10",
-                        "stroke-dasharray": "",
-                        "stroke-dashoffset": "0",
-                        "font-family": "none",
-                        "font-weight": "none",
-                        "font-size": "none",
-                        "text-anchor": "none"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                      }),
-                      _c("g", { attrs: { fill: "#111e6c" } }, [
-                        _c("path", {
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
                           attrs: {
-                            d:
-                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
                           }
-                        })
-                      ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
+                ])
+              : _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Детальніше\n                        "
+                  ),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
+                      }
+                    },
+                    [
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
+                          attrs: {
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
           ])
         ])
       ]),
@@ -39739,62 +41443,119 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _c("button", { staticClass: "show_more" }, [
-              _vm._v(
-                "\n                        Подробнее\n                        "
-              ),
-              _c(
-                "svg",
-                {
-                  staticClass: "arrow_right",
-                  staticStyle: { fill: "#000000" },
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    x: "0px",
-                    y: "0px",
-                    width: "40",
-                    height: "40",
-                    viewBox: "0 0 172 172"
-                  }
-                },
-                [
+            _vm.lang == "ru"
+              ? _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Подробнее\n                        "
+                  ),
                   _c(
-                    "g",
+                    "svg",
                     {
-                      staticStyle: { "mix-blend-mode": "normal" },
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
                       attrs: {
-                        fill: "none",
-                        "fill-rule": "nonzero",
-                        stroke: "none",
-                        "stroke-width": "1",
-                        "stroke-linecap": "butt",
-                        "stroke-linejoin": "miter",
-                        "stroke-miterlimit": "10",
-                        "stroke-dasharray": "",
-                        "stroke-dashoffset": "0",
-                        "font-family": "none",
-                        "font-weight": "none",
-                        "font-size": "none",
-                        "text-anchor": "none"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: { d: "M0,172v-172h172v172z", fill: "none" }
-                      }),
-                      _c("g", { attrs: { fill: "#111e6c" } }, [
-                        _c("path", {
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
                           attrs: {
-                            d:
-                              "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
                           }
-                        })
-                      ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
+                ])
+              : _c("button", { staticClass: "show_more" }, [
+                  _vm._v(
+                    "\n                        Детальніше\n                        "
+                  ),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "arrow_right",
+                      staticStyle: { fill: "#000000" },
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        x: "0px",
+                        y: "0px",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 172 172"
+                      }
+                    },
+                    [
+                      _c(
+                        "g",
+                        {
+                          staticStyle: { "mix-blend-mode": "normal" },
+                          attrs: {
+                            fill: "none",
+                            "fill-rule": "nonzero",
+                            stroke: "none",
+                            "stroke-width": "1",
+                            "stroke-linecap": "butt",
+                            "stroke-linejoin": "miter",
+                            "stroke-miterlimit": "10",
+                            "stroke-dasharray": "",
+                            "stroke-dashoffset": "0",
+                            "font-family": "none",
+                            "font-weight": "none",
+                            "font-size": "none",
+                            "text-anchor": "none"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M0,172v-172h172v172z", fill: "none" }
+                          }),
+                          _c("g", { attrs: { fill: "#111e6c" } }, [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M130.84094,48.11969c-1.3975,-0.02687 -2.67406,0.80625 -3.23844,2.08281c-0.55094,1.29 -0.26875,2.78156 0.71219,3.77594l27.43938,28.58156h-148.79344c-1.23625,-0.01344 -2.39188,0.63156 -3.01,1.70656c-0.63156,1.075 -0.63156,2.39187 0,3.46687c0.61812,1.075 1.77375,1.72 3.01,1.70656h148.79344l-27.43938,28.58156c-1.31687,1.37062 -1.26312,3.5475 0.1075,4.86437c1.37063,1.31688 3.5475,1.27656 4.86438,-0.1075l35.31375,-36.77844l-35.31375,-36.77844c-0.63156,-0.68531 -1.51844,-1.075 -2.44563,-1.10188z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
           ])
         ])
       ])
@@ -39917,7 +41678,25 @@ var render = function() {
         _vm.showSlider
           ? _c("div", { staticClass: "yb_fullpage-visual" }, [
               _c("div", { staticClass: "yb_slide-header" }, [
-                _vm._m(0),
+                _c("div", { staticClass: "yb-slide_left" }, [
+                  _c("h2", { staticClass: "yb_car-name" }, [
+                    _vm._v("Mercedes-Benz E 220")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yb_header-price" }, [
+                    _c("span", { staticClass: "yb_price-car" }, [
+                      _vm._v("8 200 $ ")
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("div", { staticClass: "yb_location-car" }, [
+                          _vm._v(" Киев ")
+                        ])
+                      : _c("div", { staticClass: "yb_location-car" }, [
+                          _vm._v(" Київ ")
+                        ])
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("i", {
                   staticClass: "fas fa-times",
@@ -40130,11 +41909,7 @@ var render = function() {
         _c("div", { staticClass: "yb_auto-preview" }, [
           _c("div", { staticClass: "yb_auto_vis-l" }, [
             _c("div", { staticClass: "y-visl_items" }, [
-              _vm.soldCar
-                ? _c("span", { staticClass: "yb_sold-car" }, [
-                    _vm._v("Продано")
-                  ])
-                : _vm._e(),
+              _vm.soldCar ? _c("span", [_vm._v("Продано")]) : _vm._e(),
               _vm._v(" "),
               _vm.withPhotos === true
                 ? _c(
@@ -40214,9 +41989,11 @@ var render = function() {
                             _c("span", { staticClass: "count" }, [
                               _vm._v(_vm._s(_vm.currImgIdx + 1))
                             ]),
-                            _vm._v(
-                              "\n                                из\n                                "
-                            ),
+                            _vm._v(" "),
+                            _vm.lang == "ru"
+                              ? _c("span", [_vm._v("из")])
+                              : _c("span", [_vm._v("з")]),
+                            _vm._v(" "),
                             _c("span", { staticClass: "count" }, [
                               _vm._v(_vm._s(_vm.imgList.length))
                             ])
@@ -40310,9 +42087,14 @@ var render = function() {
                             [
                               !_vm.imgFullList
                                 ? _c("span", { staticClass: "y-image_all" }, [
-                                    _vm._v(
-                                      "\n                            Смотреть все фото\n                             "
-                                    ),
+                                    _vm.lang == "ru"
+                                      ? _c("span", [
+                                          _vm._v("Смотреть все фото")
+                                        ])
+                                      : _c("span", [
+                                          _vm._v("Дивитися всі фото")
+                                        ]),
+                                    _vm._v(" "),
                                     _c("i", {
                                       staticClass: "fas fa-chevron-down",
                                       on: {
@@ -40323,9 +42105,10 @@ var render = function() {
                                     })
                                   ])
                                 : _c("span", { staticClass: "y-image_all" }, [
-                                    _vm._v(
-                                      "\n                            Скрыть\n                               "
-                                    ),
+                                    _vm.lang == "ru"
+                                      ? _c("span", [_vm._v("Скрыть")])
+                                      : _c("span", [_vm._v("Приховати")]),
+                                    _vm._v(" "),
                                     _c("i", {
                                       staticClass: "fas fa-chevron-up",
                                       on: {
@@ -40346,7 +42129,9 @@ var render = function() {
                 _c("div", { staticClass: "yb_verified_car" }, [
                   _vm.verifiedCar
                     ? _c("div", { staticClass: "yb_verified_content" }, [
-                        _c("h2", [_vm._v("Проверено по реестрам МВД")]),
+                        _vm.lang == "ru"
+                          ? _c("h2", [_vm._v("Проверено по реестрам МВД")])
+                          : _c("h2", [_vm._v("Перевірено за реєстрами МВС")]),
                         _vm._v(" "),
                         _c("span", { staticClass: "y-vin_code" }, [
                           _c(
@@ -40458,20 +42243,27 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _c("span", [
-                          _vm._v(
-                            "Продавец отказался предоставить VIN-код для проверки"
-                          )
-                        ])
+                        _vm.lang == "ru"
+                          ? _c("span", [
+                              _vm._v(
+                                "Продавец отказался предоставить VIN-код для проверки"
+                              )
+                            ])
+                          : _c("span", [
+                              _vm._v(
+                                "Продавець відмовився надати VIN-код для перевірки"
+                              )
+                            ])
                       ]),
                   _vm._v(" "),
                   _c(
                     "button",
                     { staticClass: "y_verified" },
                     [
-                      _vm._v(
-                        "\n                            Проверить авто\n                            "
-                      ),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Проверить авто")])
+                        : _c("span", [_vm._v("Перевірити")]),
+                      _vm._v(" "),
                       _c("yexpanded", {
                         attrs: { text_color: "white", color: "white" }
                       })
@@ -40480,7 +42272,145 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _c("table", { staticClass: "y_check_item-car" }, [
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Марка, модель, год")])
+                        : _c("span", [_vm._v("Марка, модель, рік")])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "y-check_desc" }, [
+                      _vm._v(" Mercedes-Benz Coupe AMG 53 AT")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Двигатель")])
+                        : _c("span", [_vm._v("Двигун")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Электро")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Електро")
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Цвет")])
+                        : _c("span", [_vm._v("Колір")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Серый")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Сірий")
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("В розыске")])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { attrs: { "e-else": "" } }, [
+                        _vm._v("В розшуку")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Нет")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      { staticClass: "y-check_desc", attrs: { "e-else": "" } },
+                      [_vm._v("Ні")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v(" Пробег проверен")])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { attrs: { "e-else": "" } }, [
+                        _vm._v("Пробіг перевірений")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v(
+                            "19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018"
+                          )
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v(
+                            "19 тис.км (2 роки, 4 міс. назад). Остання наявна фіксація пробігу більше року назад - 02.02.2018"
+                          )
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Пробег от продавца")])
+                        : _c("span", [_vm._v("Пробіг від продавця")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("62 тыс.км")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("62 тис.км")
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Последняя операция")])
+                        : _c("span", [_vm._v("Остання операція")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("27.07.2019 (11 мес. назад)")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("27.07.2019 (11 міс. назад)")
+                        ])
+                  ])
+                ])
               ])
             ])
           ]),
@@ -40495,15 +42425,21 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "yb_flex-price" },
-                  [_vm._m(2), _vm._v(" "), _c("yfavorite")],
+                  [_vm._m(0), _vm._v(" "), _c("yfavorite")],
                   1
                 ),
                 _vm._v(" "),
-                _c("button", { staticClass: "price_monitoring" }, [
-                  _vm._v(
-                    "\n                        Мониториг цен на авто\n                    "
-                  )
-                ])
+                _vm.lang == "ru"
+                  ? _c("button", { staticClass: "price_monitoring" }, [
+                      _vm._v(
+                        "\n                        Мониториг цен на авто\n                    "
+                      )
+                    ])
+                  : _c("button", { staticClass: "price_monitoring" }, [
+                      _vm._v(
+                        "\n                        Моніторинг цін на авто\n                    "
+                      )
+                    ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "yvis-car_options" }, [
@@ -40546,7 +42482,19 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(3)
+                  _c("div", { staticClass: "yoption_name" }, [
+                    _vm.lang == "ru"
+                      ? _c("h2", [_vm._v("Пробег")])
+                      : _c("h2", [_vm._v("Пробіг")]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("span", { staticClass: "y-option" }, [
+                          _vm._v("331 тыс.км ")
+                        ])
+                      : _c("span", { staticClass: "y-option" }, [
+                          _vm._v("331 тис.км ")
+                        ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "y-car_option" }, [
@@ -40572,7 +42520,19 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(4)
+                  _c("div", { staticClass: "yoption_name" }, [
+                    _vm.lang == "ru"
+                      ? _c("h2", [_vm._v("Локация")])
+                      : _c("h2", [_vm._v("Локація")]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("span", { staticClass: "y-option" }, [
+                          _vm._v(" Киев ")
+                        ])
+                      : _c("span", { staticClass: "y-option" }, [
+                          _vm._v(" Київ ")
+                        ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "y-car_option" }, [
@@ -40630,7 +42590,19 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _c("div", { staticClass: "yoption_name" }, [
+                    _vm.lang == "ru"
+                      ? _c("h2", [_vm._v("Двигатель")])
+                      : _c("h2", [_vm._v("Двигун")]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("span", { staticClass: "y-option" }, [
+                          _vm._v("Электро ")
+                        ])
+                      : _c("span", { staticClass: "y-option" }, [
+                          _vm._v("Електро ")
+                        ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "y-car_option" }, [
@@ -40680,7 +42652,13 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(6)
+                  _c("div", { staticClass: "yoption_name" }, [
+                    _vm.lang == "ru"
+                      ? _c("h2", [_vm._v("Год выпуска")])
+                      : _c("h2", [_vm._v("Рік випуску")]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "y-option" }, [_vm._v("2019")])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "y-car_option" }, [
@@ -40722,7 +42700,17 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(7)
+                  _c("div", { staticClass: "yoption_name" }, [
+                    _c("h2", [_vm._v("Кузов")]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("span", { staticClass: "y-option" }, [
+                          _vm._v("Хэтчбек")
+                        ])
+                      : _c("span", { staticClass: "y-option" }, [
+                          _vm._v("Хетчбек")
+                        ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "y-car_option" }, [
@@ -40772,20 +42760,79 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(8)
+                  _c("div", { staticClass: "yoption_name" }, [
+                    _c("h2", [_vm._v("Коробка")]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("span", { staticClass: "y-option" }, [
+                          _vm._v("Ручная / Механика")
+                        ])
+                      : _c("span", { staticClass: "y-option" }, [
+                          _vm._v("Ручна / Механіка")
+                        ])
+                  ])
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(9)
+              _c("div", { staticClass: "yb-additional_car-opt" }, [
+                _c("div", { staticClass: "yadditional_i" }, [
+                  _c("div", { staticClass: "yvis_item" }, [
+                    _vm.lang == "ru"
+                      ? _c("h2", { staticClass: "y-item name" }, [
+                          _vm._v("Просмотров авто:")
+                        ])
+                      : _c("h2", { staticClass: "y-item name" }, [
+                          _vm._v("Переглядів авто:")
+                        ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "y-item count" }, [_vm._v("120")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yvis_item" }, [
+                    _vm.lang == "ru"
+                      ? _c("h2", { staticClass: "y-item name" }, [
+                          _vm._v("Создано:")
+                        ])
+                      : _c("h2", { staticClass: "y-item name" }, [
+                          _vm._v("Створено:")
+                        ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("span", { staticClass: "y-item count" }, [
+                          _vm._v("06 июня")
+                        ])
+                      : _c("span", { staticClass: "y-item count" }, [
+                          _vm._v("06 червня")
+                        ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yadditional_i" }, [
+                  _c("div", { staticClass: "yvis_item" }, [
+                    _vm.lang == "ru"
+                      ? _c("h2", { staticClass: "y-item name" }, [
+                          _vm._v("Добавлено в блокнот:")
+                        ])
+                      : _c("h2", { staticClass: "y-item name" }, [
+                          _vm._v("Додано в блокнот:")
+                        ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "y-item count" }, [_vm._v("320")])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              ])
             ]),
             _vm._v(" "),
             _c(
               "button",
               { staticClass: "yb_go_to" },
               [
-                _vm._v(
-                  "\n                Перейти на сайт объявления\n                "
-                ),
+                _vm.lang == "ru"
+                  ? _c("span", [_vm._v("Перейти на сайт объявления")])
+                  : _c("span", [_vm._v("Перейти на сайт оголошення")]),
+                _vm._v(" "),
                 _c("yexpanded", {
                   attrs: { text_color: "white", color: "white" }
                 })
@@ -40793,7 +42840,21 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(10)
+            _c(
+              "div",
+              {
+                staticClass: "commercial",
+                staticStyle: {
+                  "background-image":
+                    "url(data:image/jpeg;base64,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)"
+                }
+              },
+              [
+                _vm.lang == "ru"
+                  ? _c("h3", [_vm._v("  @ На правах рекламы")])
+                  : _c("h3", [_vm._v(" @ На правах рекламы")])
+              ]
+            )
           ])
         ])
       ])
@@ -40801,7 +42862,25 @@ var render = function() {
         _vm.showSlider
           ? _c("div", { staticClass: "yb_fullpage-visual" }, [
               _c("div", { staticClass: "yb_slide-header" }, [
-                _vm._m(11),
+                _c("div", { staticClass: "yb-slide_left" }, [
+                  _c("h2", { staticClass: "yb_car-name" }, [
+                    _vm._v("Mercedes-Benz E 220")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yb_header-price" }, [
+                    _c("span", { staticClass: "yb_price-car" }, [
+                      _vm._v("8 200 $ ")
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("div", { staticClass: "yb_location-car" }, [
+                          _vm._v(" Киев ")
+                        ])
+                      : _c("div", { staticClass: "yb_location-car" }, [
+                          _vm._v(" Київ ")
+                        ])
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("i", {
                   staticClass: "fas fa-times",
@@ -41033,7 +43112,9 @@ var render = function() {
             _c("div", { staticClass: "y-visl_items" }, [
               _vm.soldCar
                 ? _c("span", { staticClass: "yb_sold-car" }, [
-                    _vm._v("Продано")
+                    _vm.lang === "ru"
+                      ? _c("span", [_vm._v("Продано")])
+                      : _c("span", [_vm._v("Продано")])
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -41115,9 +43196,11 @@ var render = function() {
                             _c("span", { staticClass: "count" }, [
                               _vm._v(_vm._s(_vm.currImgIdx + 1))
                             ]),
-                            _vm._v(
-                              "\n                                из\n                                "
-                            ),
+                            _vm._v(" "),
+                            _vm.lang == "ru"
+                              ? _c("span", [_vm._v("из")])
+                              : _c("span", [_vm._v("з")]),
+                            _vm._v(" "),
                             _c("span", { staticClass: "count" }, [
                               _vm._v(_vm._s(_vm.imgList.length))
                             ])
@@ -41168,15 +43251,21 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "yb_flex-price" },
-                      [_vm._m(12), _vm._v(" "), _c("yfavorite")],
+                      [_vm._m(2), _vm._v(" "), _c("yfavorite")],
                       1
                     ),
                     _vm._v(" "),
-                    _c("button", { staticClass: "price_monitoring" }, [
-                      _vm._v(
-                        "\n                                Мониториг цен на авто\n                            "
-                      )
-                    ])
+                    _vm.lang == "ru"
+                      ? _c("button", { staticClass: "price_monitoring" }, [
+                          _vm._v(
+                            "\n                                Мониториг цен на авто\n                            "
+                          )
+                        ])
+                      : _c("button", { staticClass: "price_monitoring" }, [
+                          _vm._v(
+                            "\n                                Моніторинг цін на авто\n                            "
+                          )
+                        ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "yvis-car_options" }, [
@@ -41219,7 +43308,19 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(13)
+                      _c("div", { staticClass: "yoption_name" }, [
+                        _vm.lang == "ru"
+                          ? _c("h2", [_vm._v("Пробег")])
+                          : _c("h2", [_vm._v("Пробіг")]),
+                        _vm._v(" "),
+                        _vm.lang == "ru"
+                          ? _c("span", { staticClass: "y-option" }, [
+                              _vm._v("331 тыс.км ")
+                            ])
+                          : _c("span", { staticClass: "y-option" }, [
+                              _vm._v("331 тис.км ")
+                            ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "y-car_option" }, [
@@ -41245,7 +43346,19 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(14)
+                      _c("div", { staticClass: "yoption_name" }, [
+                        _vm.lang == "ru"
+                          ? _c("h2", [_vm._v("Локация")])
+                          : _c("h2", [_vm._v("Локація")]),
+                        _vm._v(" "),
+                        _vm.lang == "ru"
+                          ? _c("span", { staticClass: "y-option" }, [
+                              _vm._v(" Киев ")
+                            ])
+                          : _c("span", { staticClass: "y-option" }, [
+                              _vm._v(" Київ ")
+                            ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "y-car_option" }, [
@@ -41303,7 +43416,19 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(15)
+                      _c("div", { staticClass: "yoption_name" }, [
+                        _vm.lang == "ru"
+                          ? _c("h2", [_vm._v("Двигатель")])
+                          : _c("h2", [_vm._v("Двигун")]),
+                        _vm._v(" "),
+                        _vm.lang == "ru"
+                          ? _c("span", { staticClass: "y-option" }, [
+                              _vm._v("Электро ")
+                            ])
+                          : _c("span", { staticClass: "y-option" }, [
+                              _vm._v("Електро ")
+                            ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "y-car_option" }, [
@@ -41353,7 +43478,15 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(16)
+                      _c("div", { staticClass: "yoption_name" }, [
+                        _vm.lang == "ru"
+                          ? _c("h2", [_vm._v("Год выпуска")])
+                          : _c("h2", [_vm._v("Рік випуску")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "y-option" }, [
+                          _vm._v("2019")
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "y-car_option" }, [
@@ -41395,7 +43528,17 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(17)
+                      _c("div", { staticClass: "yoption_name" }, [
+                        _c("h2", [_vm._v("Кузов")]),
+                        _vm._v(" "),
+                        _vm.lang == "ru"
+                          ? _c("span", { staticClass: "y-option" }, [
+                              _vm._v("Хэтчбек")
+                            ])
+                          : _c("span", { staticClass: "y-option" }, [
+                              _vm._v("Хетчбек")
+                            ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "y-car_option" }, [
@@ -41445,20 +43588,83 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(18)
+                      _c("div", { staticClass: "yoption_name" }, [
+                        _c("h2", [_vm._v("Коробка")]),
+                        _vm._v(" "),
+                        _vm.lang == "ru"
+                          ? _c("span", { staticClass: "y-option" }, [
+                              _vm._v("Ручная / Механика")
+                            ])
+                          : _c("span", { staticClass: "y-option" }, [
+                              _vm._v("Ручна / Механіка")
+                            ])
+                      ])
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(19)
+                  _c("div", { staticClass: "yb-additional_car-opt" }, [
+                    _c("div", { staticClass: "yadditional_i" }, [
+                      _c("div", { staticClass: "yvis_item" }, [
+                        _vm.lang == "ru"
+                          ? _c("h2", { staticClass: "y-item name" }, [
+                              _vm._v("Просмотров авто:")
+                            ])
+                          : _c("h2", { staticClass: "y-item name" }, [
+                              _vm._v("Переглядів авто:")
+                            ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "y-item count" }, [
+                          _vm._v("120")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "yvis_item" }, [
+                        _vm.lang == "ru"
+                          ? _c("h2", { staticClass: "y-item name" }, [
+                              _vm._v("Создано:")
+                            ])
+                          : _c("h2", { staticClass: "y-item name" }, [
+                              _vm._v("Створено:")
+                            ]),
+                        _vm._v(" "),
+                        _vm.lang == "ru"
+                          ? _c("span", { staticClass: "y-item count" }, [
+                              _vm._v("06 июня")
+                            ])
+                          : _c("span", { staticClass: "y-item count" }, [
+                              _vm._v("06 червня")
+                            ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "yadditional_i" }, [
+                      _c("div", { staticClass: "yvis_item" }, [
+                        _vm.lang == "ru"
+                          ? _c("h2", { staticClass: "y-item name" }, [
+                              _vm._v("Добавлено в блокнот:")
+                            ])
+                          : _c("h2", { staticClass: "y-item name" }, [
+                              _vm._v("Додано в блокнот:")
+                            ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "y-item count" }, [
+                          _vm._v("320")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3)
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(
                   "button",
                   { staticClass: "yb_go_to" },
                   [
-                    _vm._v(
-                      "\n                        Перейти на сайт объявления\n                        "
-                    ),
+                    _vm.lang == "ru"
+                      ? _c("span", [_vm._v("Перейти на сайт объявления")])
+                      : _c("span", [_vm._v("Перейти на сайт оголошення")]),
+                    _vm._v(" "),
                     _c("yexpanded", {
                       attrs: { text_color: "white", color: "white" }
                     })
@@ -41471,7 +43677,9 @@ var render = function() {
                 _c("div", { staticClass: "yb_verified_car" }, [
                   _vm.verifiedCar
                     ? _c("div", { staticClass: "yb_verified_content" }, [
-                        _c("h2", [_vm._v("Проверено по реестрам МВД")]),
+                        _vm.lang == "ru"
+                          ? _c("h2", [_vm._v("Проверено по реестрам МВД")])
+                          : _c("h2", [_vm._v("Перевірено за реєстрами МВС")]),
                         _vm._v(" "),
                         _c("span", { staticClass: "y-vin_code" }, [
                           _c(
@@ -41583,20 +43791,27 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _c("span", [
-                          _vm._v(
-                            "Продавец отказался предоставить VIN-код для проверки"
-                          )
-                        ])
+                        _vm.lang == "ru"
+                          ? _c("span", [
+                              _vm._v(
+                                "Продавец отказался предоставить VIN-код для проверки"
+                              )
+                            ])
+                          : _c("span", [
+                              _vm._v(
+                                "Продавець відмовився надати VIN-код для перевірки"
+                              )
+                            ])
                       ]),
                   _vm._v(" "),
                   _c(
                     "button",
                     { staticClass: "y_verified" },
                     [
-                      _vm._v(
-                        "\n                            Проверить авто\n                            "
-                      ),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Проверить авто")])
+                        : _c("span", [_vm._v("Перевірити")]),
+                      _vm._v(" "),
                       _c("yexpanded", {
                         attrs: { text_color: "white", color: "white" }
                       })
@@ -41605,7 +43820,145 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(20)
+                _c("table", { staticClass: "y_check_item-car" }, [
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Марка, модель, год")])
+                        : _c("span", [_vm._v("Марка, модель, рік")])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "y-check_desc" }, [
+                      _vm._v(" Mercedes-Benz Coupe AMG 53 AT")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Двигатель")])
+                        : _c("span", [_vm._v("Двигун")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Электро")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Електро")
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Цвет")])
+                        : _c("span", [_vm._v("Колір")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Серый")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Сірий")
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("В розыске")])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { attrs: { "e-else": "" } }, [
+                        _vm._v("В розшуку")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("Нет")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      { staticClass: "y-check_desc", attrs: { "e-else": "" } },
+                      [_vm._v("Ні")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v(" Пробег проверен")])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { attrs: { "e-else": "" } }, [
+                        _vm._v("Пробіг перевірений")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v(
+                            "19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018"
+                          )
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v(
+                            "19 тис.км (2 роки, 4 міс. назад). Остання наявна фіксація пробігу більше року назад - 02.02.2018"
+                          )
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Пробег от продавца")])
+                        : _c("span", [_vm._v("Пробіг від продавця")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("62 тыс.км")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("62 тис.км")
+                        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { staticClass: "y-check_title" }, [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" "),
+                      _vm.lang == "ru"
+                        ? _c("span", [_vm._v("Последняя операция")])
+                        : _c("span", [_vm._v("Остання операція")])
+                    ]),
+                    _vm._v(" "),
+                    _vm.lang == "ru"
+                      ? _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("27.07.2019 (11 мес. назад)")
+                        ])
+                      : _c("th", { staticClass: "y-check_desc" }, [
+                          _vm._v("27.07.2019 (11 міс. назад)")
+                        ])
+                  ])
+                ])
               ])
             ])
           ])
@@ -41617,105 +43970,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-slide_left" }, [
-      _c("h2", { staticClass: "yb_car-name" }, [_vm._v("Mercedes-Benz E 220")]),
+    return _c("div", { staticClass: "yb-price_car" }, [
+      _c("span", { staticClass: "price_vis active" }, [_vm._v("8 200 $")]),
       _vm._v(" "),
-      _c("div", { staticClass: "yb_header-price" }, [
-        _c("span", { staticClass: "yb_price-car" }, [_vm._v("8 200 $ ")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_location-car" }, [_vm._v(" Киев ")])
-      ])
+      _c("span", { staticClass: "price_vis " }, [_vm._v("10 200 $")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price_vis " }, [_vm._v("898 200 $")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("table", { staticClass: "y_check_item-car" }, [
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Марка, модель, год\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [
-          _vm._v(" Mercedes-Benz Coupe AMG 53 AT")
-        ])
-      ]),
+    return _c("div", { staticClass: "yvis_item" }, [
+      _c("h2", { staticClass: "y-item name" }, [_vm._v("ID авто:")]),
       _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Двигатель\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Бензин")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Цвет\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Серый")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                В розыске\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Нет")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Пробег проверен\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [
-          _vm._v(
-            "19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Пробег от продавца\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("62 тыс.км")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Последняя операция\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [
-          _vm._v("27.07.2019 (11 мес. назад)")
-        ])
-      ])
+      _c("span", { staticClass: "y-item count" }, [_vm._v("1234456")])
     ])
   },
   function() {
@@ -41734,329 +44004,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Пробег")]),
+    return _c("div", { staticClass: "yvis_item" }, [
+      _c("h2", { staticClass: "y-item name" }, [_vm._v("ID авто:")]),
       _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("331 тыс.км ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Локация")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v(" Киев ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Двигатель")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("Бензин ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Год выпуска")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("2019")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Кузов")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("Купе")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Коробка")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("Автомат")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-additional_car-opt" }, [
-      _c("div", { staticClass: "yadditional_i" }, [
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [
-            _vm._v("Просмотров авто:")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("120")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [_vm._v("Создано:")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("06 июня")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yadditional_i" }, [
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [
-            _vm._v("Добавлено в блокнот:")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("320")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [_vm._v("ID авто:")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("1234456")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "commercial",
-        staticStyle: {
-          "background-image":
-            "url(data:image/jpeg;base64,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)"
-        }
-      },
-      [_c("h3", [_vm._v(" @ На правах реклами")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-slide_left" }, [
-      _c("h2", { staticClass: "yb_car-name" }, [_vm._v("Mercedes-Benz E 220")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yb_header-price" }, [
-        _c("span", { staticClass: "yb_price-car" }, [_vm._v("8 200 $ ")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yb_location-car" }, [_vm._v(" Киев ")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-price_car" }, [
-      _c("span", { staticClass: "price_vis active" }, [_vm._v("8 200 $")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "price_vis " }, [_vm._v("10 200 $")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "price_vis " }, [_vm._v("898 200 $")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Пробег")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("331 тыс.км ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Локация")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v(" Киев ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Двигатель")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("Бензин ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Год выпуска")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("2019")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Кузов")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("Купе")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yoption_name" }, [
-      _c("h2", [_vm._v("Коробка")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "y-option" }, [_vm._v("Автомат")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yb-additional_car-opt" }, [
-      _c("div", { staticClass: "yadditional_i" }, [
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [
-            _vm._v("Просмотров авто:")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("120")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [_vm._v("Создано:")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("06 июня")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "yadditional_i" }, [
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [
-            _vm._v("Добавлено в блокнот:")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("320")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "yvis_item" }, [
-          _c("h2", { staticClass: "y-item name" }, [_vm._v("ID авто:")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "y-item count" }, [_vm._v("1234456")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("table", { staticClass: "y_check_item-car" }, [
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Марка, модель, год\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [
-          _vm._v(" Mercedes-Benz Coupe AMG 53 AT")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Двигатель\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Бензин")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Цвет\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Серый")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                В розыске\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("Нет")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Пробег проверен\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [
-          _vm._v(
-            "19 тыс.км (2 года, 4 мес. назад). Последняя имеющаяся фиксация пробега больше года назад - 02.02.2018"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Пробег от продавца\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [_vm._v("62 тыс.км")])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("th", { staticClass: "y-check_title" }, [
-          _c("i", { staticClass: "fas fa-check" }),
-          _vm._v(
-            "\n                                Последняя операция\n                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "y-check_desc" }, [
-          _vm._v("27.07.2019 (11 мес. назад)")
-        ])
-      ])
+      _c("span", { staticClass: "y-item count" }, [_vm._v("1234456")])
     ])
   }
 ]
@@ -42138,7 +44089,9 @@ var render = function() {
               }
             },
             [
-              _vm._v("\n                " + _vm._s(item) + "\n            "),
+              _vm._v(
+                "\n                " + _vm._s(item) + "\n                "
+              ),
               _vm.itemSort == item
                 ? _c("i", { staticClass: "fas fa-check" })
                 : _vm._e()
@@ -42209,7 +44162,13 @@ var render = function() {
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(2),
+          _c("div", { staticClass: "yprice_city_name" }, [
+            _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _vm.lang == "ru"
+              ? _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
+              : _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -42259,7 +44218,280 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("span", [_vm._v("Автомат")])
+              _vm.lang == "ru"
+                ? _c("span", [_vm._v("Ручная / Механика")])
+                : _c("span", [_vm._v("Ручна / Механіка")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "36",
+                    height: "35",
+                    viewBox: "0 0 36 35",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.lang == "ru" ? _c("span", [_vm._v("331 тыс. км")]) : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yequipment_car" }, [
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "31",
+                    height: "30",
+                    viewBox: "0 0 31 30",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", [_vm._v("2009")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "36",
+                    height: "35",
+                    viewBox: "0 0 36 35",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d: "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.lang == "ru"
+                ? _c("span", [_vm._v("Электро, "), _c("span", [_vm._v("2л")])])
+                : _c("span", [_vm._v("Электро, "), _c("span", [_vm._v("2л")])])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "ydate_added-favorite" },
+            [
+              _c("span", { staticClass: "ydate" }, [_vm._v("5 мая 2020 ")]),
+              _vm._v(" "),
+              _c("yfavorite")
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycard" }, [
+        _c("div", { staticClass: "yb-icon_check" }, [
+          _c("button", { staticClass: "item_check" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "40",
+                  height: "40",
+                  viewBox: "0 0 40 40",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                      fill: "white"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                      fill: "white"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("defs", [
+                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                    _c("rect", {
+                      attrs: {
+                        width: "39.5652",
+                        height: "39.5652",
+                        fill: "white",
+                        transform: "translate(0.217773 0.35376)"
+                      }
+                    })
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "new_item" }, [
+            _vm._v("\n                    NEW\n                ")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "ycard-desc" }, [
+          _c("h2", [_vm._v("Mercedes-Benz E 220")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yprice_city_name" }, [
+            _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _vm.lang == "ru"
+              ? _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
+              : _c("span", { staticClass: "city-name" }, [_vm._v("Київ")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yequipment_car" }, [
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "26",
+                    height: "35",
+                    viewBox: "0 0 26 35",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.lang == "ru"
+                ? _c("span", [_vm._v("Ручная / Механика")])
+                : _c("span", [_vm._v("Ручна / Механіка")])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "yequipment_item" }, [
@@ -42394,7 +44626,12 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("span", [_vm._v("Дизель, 2л.")])
+              _vm.lang == "ru"
+                ? _c("span", [
+                    _vm._v("Электро, "),
+                    _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+                  ])
+                : _vm._e()
             ])
           ]),
           _vm._v(" "),
@@ -42470,7 +44707,13 @@ var render = function() {
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(4),
+          _c("div", { staticClass: "yprice_city_name" }, [
+            _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _vm.lang == "ru"
+              ? _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
+              : _c("span", { staticClass: "city-name" }, [_vm._v("Київ")])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -42520,7 +44763,9 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("span", [_vm._v("Автомат")])
+              _vm.lang == "ru"
+                ? _c("span", [_vm._v("Ручная / Механика")])
+                : _c("span", [_vm._v("Ручна / Механіка")])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "yequipment_item" }, [
@@ -42655,7 +44900,286 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("span", [_vm._v("Дизель, 2л.")])
+              _vm.lang == "ru"
+                ? _c("span", [
+                    _vm._v("Электро, "),
+                    _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+                  ])
+                : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "ydate_added-favorite" },
+            [
+              _c("span", { staticClass: "ydate" }, [_vm._v("5 мая 2020 ")]),
+              _vm._v(" "),
+              _c("yfavorite")
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ycard" }, [
+        _c("div", { staticClass: "yb-icon_check" }, [
+          _c("button", { staticClass: "item_check" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "40",
+                  height: "40",
+                  viewBox: "0 0 40 40",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                      fill: "white"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                      fill: "white"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("defs", [
+                  _c("clipPath", { attrs: { id: "clip0" } }, [
+                    _c("rect", {
+                      attrs: {
+                        width: "39.5652",
+                        height: "39.5652",
+                        fill: "white",
+                        transform: "translate(0.217773 0.35376)"
+                      }
+                    })
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "new_item" }, [
+            _vm._v("\n                    NEW\n                ")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "ycard-desc" }, [
+          _c("h2", [_vm._v("Mercedes-Benz E 220")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yprice_city_name" }, [
+            _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _vm.lang == "ru"
+              ? _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
+              : _c("span", { staticClass: "city-name" }, [_vm._v("Київ")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yequipment_car" }, [
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "26",
+                    height: "35",
+                    viewBox: "0 0 26 35",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.lang == "ru"
+                ? _c("span", [_vm._v("Ручная / Механика")])
+                : _c("span", [_vm._v("Ручна / Механіка")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "36",
+                    height: "35",
+                    viewBox: "0 0 36 35",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", [_vm._v("331 тыс. км")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "yequipment_car" }, [
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "31",
+                    height: "30",
+                    viewBox: "0 0 31 30",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", [_vm._v("2009")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "yequipment_item" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "36",
+                    height: "35",
+                    viewBox: "0 0 36 35",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d: "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
+                      fill: "#0B3F8D"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
+                      fill: "#0B3F8D"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.lang == "ru"
+                ? _c("span", [
+                    _vm._v("Электро, "),
+                    _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+                  ])
+                : _vm._e()
             ])
           ]),
           _vm._v(" "),
@@ -42731,7 +45255,13 @@ var render = function() {
         _c("div", { staticClass: "ycard-desc" }, [
           _c("h2", [_vm._v("Mercedes-Benz E 220")]),
           _vm._v(" "),
-          _vm._m(6),
+          _c("div", { staticClass: "yprice_city_name" }, [
+            _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
+            _vm._v(" "),
+            _vm.lang == "ru"
+              ? _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
+              : _c("span", { staticClass: "city-name" }, [_vm._v("Київ")])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "yequipment_car" }, [
             _c("div", { staticClass: "yequipment_item" }, [
@@ -42781,7 +45311,9 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("span", [_vm._v("Автомат")])
+              _vm.lang == "ru"
+                ? _c("span", [_vm._v("Ручная / Механика")])
+                : _c("span", [_vm._v("Ручна / Механіка")])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "yequipment_item" }, [
@@ -42916,529 +45448,12 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("span", [_vm._v("Дизель, 2л.")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "ydate_added-favorite" },
-            [
-              _c("span", { staticClass: "ydate" }, [_vm._v("5 мая 2020 ")]),
-              _vm._v(" "),
-              _c("yfavorite")
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycard" }, [
-        _c("div", { staticClass: "yb-icon_check" }, [
-          _c("button", { staticClass: "item_check" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "40",
-                  height: "40",
-                  viewBox: "0 0 40 40",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
-                      fill: "white"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
-                      fill: "white"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("defs", [
-                  _c("clipPath", { attrs: { id: "clip0" } }, [
-                    _c("rect", {
-                      attrs: {
-                        width: "39.5652",
-                        height: "39.5652",
-                        fill: "white",
-                        transform: "translate(0.217773 0.35376)"
-                      }
-                    })
+              _vm.lang == "ru"
+                ? _c("span", [
+                    _vm._v("Электро, "),
+                    _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
                   ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "new_item" }, [
-            _vm._v("\n                    NEW\n                ")
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(7),
-        _vm._v(" "),
-        _c("div", { staticClass: "ycard-desc" }, [
-          _c("h2", [_vm._v("Mercedes-Benz E 220")]),
-          _vm._v(" "),
-          _vm._m(8),
-          _vm._v(" "),
-          _c("div", { staticClass: "yequipment_car" }, [
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "26",
-                    height: "35",
-                    viewBox: "0 0 26 35",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("Автомат")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "36",
-                    height: "35",
-                    viewBox: "0 0 36 35",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("331 тыс. км")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yequipment_car" }, [
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "31",
-                    height: "30",
-                    viewBox: "0 0 31 30",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("2009")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "36",
-                    height: "35",
-                    viewBox: "0 0 36 35",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d: "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("Дизель, 2л.")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "ydate_added-favorite" },
-            [
-              _c("span", { staticClass: "ydate" }, [_vm._v("5 мая 2020 ")]),
-              _vm._v(" "),
-              _c("yfavorite")
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ycard" }, [
-        _c("div", { staticClass: "yb-icon_check" }, [
-          _c("button", { staticClass: "item_check" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "40",
-                  height: "40",
-                  viewBox: "0 0 40 40",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
-                      fill: "white"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
-                      fill: "white"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("defs", [
-                  _c("clipPath", { attrs: { id: "clip0" } }, [
-                    _c("rect", {
-                      attrs: {
-                        width: "39.5652",
-                        height: "39.5652",
-                        fill: "white",
-                        transform: "translate(0.217773 0.35376)"
-                      }
-                    })
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "new_item" }, [
-            _vm._v("\n                    NEW\n                ")
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(9),
-        _vm._v(" "),
-        _c("div", { staticClass: "ycard-desc" }, [
-          _c("h2", [_vm._v("Mercedes-Benz E 220")]),
-          _vm._v(" "),
-          _vm._m(10),
-          _vm._v(" "),
-          _c("div", { staticClass: "yequipment_car" }, [
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "26",
-                    height: "35",
-                    viewBox: "0 0 26 35",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("Автомат")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "36",
-                    height: "35",
-                    viewBox: "0 0 36 35",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("331 тыс. км")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "yequipment_car" }, [
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "31",
-                    height: "30",
-                    viewBox: "0 0 31 30",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("2009")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "yequipment_item" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "36",
-                    height: "35",
-                    viewBox: "0 0 36 35",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d: "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
-                      fill: "#0B3F8D"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
-                      fill: "#0B3F8D"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("Дизель, 2л.")])
+                : _vm._e()
             ])
           ]),
           _vm._v(" "),
@@ -43512,10 +45527,10 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(11),
+            _vm._m(6),
             _vm._v(" "),
             _c("div", { staticClass: "ycard-desc" }, [
-              _vm._m(12),
+              _vm._m(7),
               _vm._v(" "),
               _c("p", { staticClass: "ycard-relation" }, [
                 _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -43729,34 +45744,63 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("span", [_vm._v("Дизель, 2л.")])
+                  _vm._m(8)
                 ])
               ]),
               _vm._v(" "),
-              _c("button", { staticClass: "show_more" }, [
-                _vm._v("\n                    Подробнее\n                    "),
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      width: "54",
-                      height: "8",
-                      viewBox: "0 0 54 8",
-                      fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                        fill: "#0B3F8D"
-                      }
-                    })
-                  ]
-                )
-              ]),
+              _vm.lang == "ru"
+                ? _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Подробнее\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                : _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Детальніше\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -43825,10 +45869,10 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(13),
+            _vm._m(9),
             _vm._v(" "),
             _c("div", { staticClass: "ycard-desc" }, [
-              _vm._m(14),
+              _vm._m(10),
               _vm._v(" "),
               _c("p", { staticClass: "ycard-relation" }, [
                 _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -44042,34 +46086,405 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("span", [_vm._v("Дизель, 2л.")])
+                  _vm._m(11)
                 ])
               ]),
               _vm._v(" "),
-              _c("button", { staticClass: "show_more" }, [
-                _vm._v("\n                    Подробнее\n                    "),
+              _vm.lang == "ru"
+                ? _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Подробнее\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                : _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Детальніше\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "ydate_added-favorite" },
+                [
+                  _c("span", { staticClass: "ydate" }, [_vm._v("5 мая 2020 ")]),
+                  _vm._v(" "),
+                  _c("yfavorite")
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ycard" }, [
+            _c("div", { staticClass: "yb-icon_check" }, [
+              _c("button", { staticClass: "item_check" }, [
                 _c(
                   "svg",
                   {
                     attrs: {
-                      width: "54",
-                      height: "8",
-                      viewBox: "0 0 54 8",
+                      width: "40",
+                      height: "40",
+                      viewBox: "0 0 40 40",
                       fill: "none",
                       xmlns: "http://www.w3.org/2000/svg"
                     }
                   },
                   [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                        fill: "#0B3F8D"
-                      }
-                    })
+                    _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                          fill: "white"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                          fill: "white"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("defs", [
+                      _c("clipPath", { attrs: { id: "clip0" } }, [
+                        _c("rect", {
+                          attrs: {
+                            width: "39.5652",
+                            height: "39.5652",
+                            fill: "white",
+                            transform: "translate(0.217773 0.35376)"
+                          }
+                        })
+                      ])
+                    ])
                   ]
                 )
               ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "new_item" }, [
+                _vm._v("\n                    NEW\n                ")
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(12),
+            _vm._v(" "),
+            _c("div", { staticClass: "ycard-desc" }, [
+              _vm._m(13),
+              _vm._v(" "),
+              _c("p", { staticClass: "ycard-relation" }, [
+                _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "yequipment_car" }, [
+                _c("div", { staticClass: "yequipment_item" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "26",
+                        height: "36",
+                        viewBox: "0 0 26 36",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z",
+                          fill: "#0B3F8D"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Киев")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yequipment_item" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "26",
+                        height: "35",
+                        viewBox: "0 0 26 35",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
+                          fill: "#0B3F8D"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Автомат")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yequipment_item" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "36",
+                        height: "35",
+                        viewBox: "0 0 36 35",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
+                          fill: "#0B3F8D"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("331 тыс. км")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yequipment_item" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "31",
+                        height: "30",
+                        viewBox: "0 0 31 30",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
+                          fill: "#0B3F8D"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("2009")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yequipment_item" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "36",
+                        height: "35",
+                        viewBox: "0 0 36 35",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
+                          fill: "#0B3F8D"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
+                          fill: "#0B3F8D"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(14)
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.lang == "ru"
+                ? _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Подробнее\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                : _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Детальніше\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -44355,347 +46770,63 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("span", [_vm._v("Дизель, 2л.")])
+                  _vm._m(17)
                 ])
               ]),
               _vm._v(" "),
-              _c("button", { staticClass: "show_more" }, [
-                _vm._v("\n                    Подробнее\n                    "),
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      width: "54",
-                      height: "8",
-                      viewBox: "0 0 54 8",
-                      fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                        fill: "#0B3F8D"
-                      }
-                    })
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "ydate_added-favorite" },
-                [
-                  _c("span", { staticClass: "ydate" }, [_vm._v("5 мая 2020 ")]),
-                  _vm._v(" "),
-                  _c("yfavorite")
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ycard" }, [
-            _c("div", { staticClass: "yb-icon_check" }, [
-              _c("button", { staticClass: "item_check" }, [
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      width: "40",
-                      height: "40",
-                      viewBox: "0 0 40 40",
-                      fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    }
-                  },
-                  [
-                    _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
-                      _c("path", {
+              _vm.lang == "ru"
+                ? _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Подробнее\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
                         attrs: {
-                          d:
-                            "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
-                          fill: "white"
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
-                          fill: "white"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("defs", [
-                      _c("clipPath", { attrs: { id: "clip0" } }, [
-                        _c("rect", {
+                      },
+                      [
+                        _c("path", {
                           attrs: {
-                            width: "39.5652",
-                            height: "39.5652",
-                            fill: "white",
-                            transform: "translate(0.217773 0.35376)"
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
                           }
                         })
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "new_item" }, [
-                _vm._v("\n                    NEW\n                ")
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(17),
-            _vm._v(" "),
-            _c("div", { staticClass: "ycard-desc" }, [
-              _vm._m(18),
-              _vm._v(" "),
-              _c("p", { staticClass: "ycard-relation" }, [
-                _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yequipment_car" }, [
-                _c("div", { staticClass: "yequipment_item" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "26",
-                        height: "36",
-                        viewBox: "0 0 26 36",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
+                      ]
+                    )
+                  ])
+                : _c("button", { staticClass: "show_more" }, [
+                    _vm._v(
+                      "\n                    Детальніше\n                    "
+                    ),
+                    _c(
+                      "svg",
+                      {
                         attrs: {
-                          d:
-                            "M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z",
-                          fill: "#0B3F8D"
+                          width: "54",
+                          height: "8",
+                          viewBox: "0 0 54 8",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
                         }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Киев")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "yequipment_item" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "26",
-                        height: "35",
-                        viewBox: "0 0 26 35",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Автомат")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "yequipment_item" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "36",
-                        height: "35",
-                        viewBox: "0 0 36 35",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("331 тыс. км")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "yequipment_item" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "31",
-                        height: "30",
-                        viewBox: "0 0 31 30",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("2009")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "yequipment_item" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "36",
-                        height: "35",
-                        viewBox: "0 0 36 35",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
-                          fill: "#0B3F8D"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Дизель, 2л.")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "show_more" }, [
-                _vm._v("\n                    Подробнее\n                    "),
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      width: "54",
-                      height: "8",
-                      viewBox: "0 0 54 8",
-                      fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                        fill: "#0B3F8D"
-                      }
-                    })
-                  ]
-                )
-              ]),
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -44766,10 +46897,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(19),
+              _vm._m(18),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(20),
+                _vm._m(19),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -44983,36 +47114,63 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Дизель, 2л.")])
+                    _vm._m(20)
                   ])
                 ]),
                 _vm._v(" "),
-                _c("button", { staticClass: "show_more" }, [
-                  _vm._v(
-                    "\n                        Подробнее\n                        "
-                  ),
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "54",
-                        height: "8",
-                        viewBox: "0 0 54 8",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  )
-                ]),
+                _vm.lang == "ru"
+                  ? _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Подробнее\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  : _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Детальніше\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -45300,36 +47458,63 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Дизель, 2л.")])
+                    _vm._m(23)
                   ])
                 ]),
                 _vm._v(" "),
-                _c("button", { staticClass: "show_more" }, [
-                  _vm._v(
-                    "\n                        Подробнее\n                        "
-                  ),
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "54",
-                        height: "8",
-                        viewBox: "0 0 54 8",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  )
-                ]),
+                _vm.lang == "ru"
+                  ? _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Подробнее\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  : _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Детальніше\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -45402,10 +47587,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(23),
+              _vm._m(24),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(24),
+                _vm._m(25),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -45619,36 +47804,63 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Дизель, 2л.")])
+                    _vm._m(26)
                   ])
                 ]),
                 _vm._v(" "),
-                _c("button", { staticClass: "show_more" }, [
-                  _vm._v(
-                    "\n                        Подробнее\n                        "
-                  ),
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "54",
-                        height: "8",
-                        viewBox: "0 0 54 8",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  )
-                ]),
+                _vm.lang == "ru"
+                  ? _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Подробнее\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  : _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Детальніше\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -45665,325 +47877,6 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "ycard" }, [
-              _c("div", { staticClass: "yb-icon_check" }, [
-                _c("button", { staticClass: "item_check" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "40",
-                        height: "40",
-                        viewBox: "0 0 40 40",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
-                            fill: "white"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
-                            fill: "white"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("defs", [
-                        _c("clipPath", { attrs: { id: "clip0" } }, [
-                          _c("rect", {
-                            attrs: {
-                              width: "39.5652",
-                              height: "39.5652",
-                              fill: "white",
-                              transform: "translate(0.217773 0.35376)"
-                            }
-                          })
-                        ])
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "new_item" }, [
-                  _vm._v("\n                        NEW\n                    ")
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(25),
-              _vm._v(" "),
-              _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(26),
-                _vm._v(" "),
-                _c("p", { staticClass: "ycard-relation" }, [
-                  _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "yequipment_car" }, [
-                  _c("div", { staticClass: "yequipment_item" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "26",
-                          height: "36",
-                          viewBox: "0 0 26 36",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z",
-                            fill: "#0B3F8D"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Киев")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "yequipment_item" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "26",
-                          height: "35",
-                          viewBox: "0 0 26 35",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
-                            fill: "#0B3F8D"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Автомат")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "yequipment_item" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "36",
-                          height: "35",
-                          viewBox: "0 0 36 35",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
-                            fill: "#0B3F8D"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("331 тыс. км")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "yequipment_item" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "31",
-                          height: "30",
-                          viewBox: "0 0 31 30",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
-                            fill: "#0B3F8D"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("2009")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "yequipment_item" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "36",
-                          height: "35",
-                          viewBox: "0 0 36 35",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
-                            fill: "#0B3F8D"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
-                            fill: "#0B3F8D"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Дизель, 2л.")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "show_more" }, [
-                  _vm._v(
-                    "\n                        Подробнее\n                        "
-                  ),
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "54",
-                        height: "8",
-                        viewBox: "0 0 54 8",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "ydate_added-favorite" },
-                  [
-                    _c("span", { staticClass: "ydate" }, [
-                      _vm._v("5 мая 2020 ")
-                    ]),
-                    _vm._v(" "),
-                    _c("yfavorite")
-                  ],
-                  1
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ycard_reverse" }, [
             _c("div", { staticClass: "ycard" }, [
               _c("div", { staticClass: "yb-icon_check" }, [
                 _c("button", { staticClass: "item_check" }, [
@@ -46255,36 +48148,63 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Дизель, 2л.")])
+                    _vm._m(29)
                   ])
                 ]),
                 _vm._v(" "),
-                _c("button", { staticClass: "show_more" }, [
-                  _vm._v(
-                    "\n                        Подробнее\n                        "
-                  ),
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "54",
-                        height: "8",
-                        viewBox: "0 0 54 8",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
-                    ]
-                  )
-                ]),
+                _vm.lang == "ru"
+                  ? _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Подробнее\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  : _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Детальніше\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -46299,8 +48219,10 @@ var render = function() {
                   1
                 )
               ])
-            ]),
-            _vm._v(" "),
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ycard_reverse" }, [
             _c("div", { staticClass: "ycard" }, [
               _c("div", { staticClass: "yb-icon_check" }, [
                 _c("button", { staticClass: "item_check" }, [
@@ -46355,10 +48277,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(29),
+              _vm._m(30),
               _vm._v(" "),
               _c("div", { staticClass: "ycard-desc" }, [
-                _vm._m(30),
+                _vm._m(31),
                 _vm._v(" "),
                 _c("p", { staticClass: "ycard-relation" }, [
                   _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
@@ -46572,36 +48494,407 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Дизель, 2л.")])
+                    _vm._m(32)
                   ])
                 ]),
                 _vm._v(" "),
-                _c("button", { staticClass: "show_more" }, [
-                  _vm._v(
-                    "\n                        Подробнее\n                        "
-                  ),
+                _vm.lang == "ru"
+                  ? _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Подробнее\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  : _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Детальніше\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ydate_added-favorite" },
+                  [
+                    _c("span", { staticClass: "ydate" }, [
+                      _vm._v("5 мая 2020 ")
+                    ]),
+                    _vm._v(" "),
+                    _c("yfavorite")
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "ycard" }, [
+              _c("div", { staticClass: "yb-icon_check" }, [
+                _c("button", { staticClass: "item_check" }, [
                   _c(
                     "svg",
                     {
                       attrs: {
-                        width: "54",
-                        height: "8",
-                        viewBox: "0 0 54 8",
+                        width: "40",
+                        height: "40",
+                        viewBox: "0 0 40 40",
                         fill: "none",
                         xmlns: "http://www.w3.org/2000/svg"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
-                          fill: "#0B3F8D"
-                        }
-                      })
+                      _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z",
+                            fill: "white"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z",
+                            fill: "white"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("defs", [
+                        _c("clipPath", { attrs: { id: "clip0" } }, [
+                          _c("rect", {
+                            attrs: {
+                              width: "39.5652",
+                              height: "39.5652",
+                              fill: "white",
+                              transform: "translate(0.217773 0.35376)"
+                            }
+                          })
+                        ])
+                      ])
                     ]
                   )
                 ]),
+                _vm._v(" "),
+                _c("button", { staticClass: "new_item" }, [
+                  _vm._v("\n                        NEW\n                    ")
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(33),
+              _vm._v(" "),
+              _c("div", { staticClass: "ycard-desc" }, [
+                _vm._m(34),
+                _vm._v(" "),
+                _c("p", { staticClass: "ycard-relation" }, [
+                  _vm._v("Продам свой автомобиль в очень хорошем состоянии...")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "yequipment_car" }, [
+                  _c("div", { staticClass: "yequipment_item" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "26",
+                          height: "36",
+                          viewBox: "0 0 26 36",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M23.4061 5.99632C21.1997 2.33062 17.2805 0.091101 12.9223 0.00551513C12.7362 0.00182373 12.549 0.00182373 12.3629 0.00551513C8.00472 0.091101 4.08556 2.33062 1.879 5.99632C-0.376402 9.74323 -0.438109 14.244 1.71391 18.036L10.7295 33.9218C10.7335 33.9288 10.7376 33.9359 10.7418 33.9428C11.1384 34.6065 11.849 35.0027 12.6427 35.0027C13.4363 35.0027 14.1469 34.6065 14.5435 33.9428C14.5477 33.9359 14.5517 33.9288 14.5558 33.9218L23.5714 18.036C25.7232 14.244 25.6615 9.74323 23.4061 5.99632ZM12.6426 15.8621C9.82342 15.8621 7.52988 13.6542 7.52988 10.9403C7.52988 8.22634 9.82342 6.0184 12.6426 6.0184C15.4617 6.0184 17.7553 8.22634 17.7553 10.9403C17.7553 13.6542 15.4618 15.8621 12.6426 15.8621Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Киев")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yequipment_item" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "26",
+                          height: "35",
+                          viewBox: "0 0 26 35",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Автомат")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yequipment_item" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "36",
+                          height: "35",
+                          viewBox: "0 0 36 35",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M17.9037 24.4374C15.4796 24.4365 13.0865 24.9835 10.9036 26.0375C8.91112 26.995 7.12772 28.3372 5.65625 29.9869C12.4512 36.6692 23.3485 36.6714 30.1461 29.9917C27.0606 26.457 22.5957 24.4313 17.9037 24.4374Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M17.9034 18.6423C18.5342 18.6423 19.0456 18.1309 19.0456 17.5001C19.0456 16.8693 18.5342 16.3579 17.9034 16.3579C17.2726 16.3579 16.7612 16.8693 16.7612 17.5001C16.7612 18.1309 17.2726 18.6423 17.9034 18.6423Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M17.9038 0C8.25429 0 0.403814 7.85048 0.403814 17.5C0.400357 21.7431 1.9451 25.8417 4.74833 29.027C6.3218 27.2852 8.21922 25.8663 10.3348 24.8495C17.3999 21.4548 25.8599 23.1626 31.0549 29.0322C33.8609 25.8461 35.4073 21.7455 35.4038 17.5C35.4038 7.85048 27.5533 0 17.9038 0ZM17.2452 3.61356C17.2452 3.24985 17.5401 2.95496 17.9038 2.95496C18.2675 2.95496 18.5624 3.24985 18.5624 3.61356V8.57016C18.5624 8.93387 18.2675 9.22875 17.9038 9.22875C17.5401 9.22875 17.2452 8.93387 17.2452 8.57016V3.61356ZM8.97406 18.1586H4.01737C3.65366 18.1586 3.35877 17.8637 3.35877 17.5C3.35877 17.1363 3.65366 16.8414 4.01737 16.8414H8.97406C9.33777 16.8414 9.63265 17.1363 9.63265 17.5C9.63265 17.8637 9.33777 18.1586 8.97406 18.1586ZM12.0752 11.6714C11.818 11.9286 11.4011 11.9286 11.1438 11.6714L7.60352 8.13145C7.34625 7.87419 7.34625 7.45696 7.60352 7.1997C7.86078 6.94244 8.278 6.94244 8.53526 7.1997L12.0752 10.7402C12.3323 10.9973 12.3323 11.4142 12.0752 11.6714ZM19.1163 19.6404C18.7465 19.8498 18.3288 19.9597 17.9038 19.9594C16.5455 19.9606 15.4435 18.8604 15.4423 17.5021C15.4411 16.1439 16.5413 15.0418 17.8995 15.0406C18.3247 15.0402 18.7428 15.1501 19.1129 15.3596L27.2724 7.1997C27.5297 6.94244 27.9469 6.94244 28.2042 7.1997C28.4614 7.45696 28.4614 7.87419 28.2042 8.13145L20.0443 16.291C20.713 17.4722 20.2975 18.9718 19.1163 19.6404ZM31.7902 18.1586H26.8336C26.4699 18.1586 26.175 17.8637 26.175 17.5C26.175 17.1363 26.4699 16.8414 26.8336 16.8414H31.7902C32.154 16.8414 32.4488 17.1363 32.4488 17.5C32.4488 17.8637 32.154 18.1586 31.7902 18.1586Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("331 тыс. км")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yequipment_item" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "31",
+                          height: "30",
+                          viewBox: "0 0 31 30",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M29.1467 2.78204H25.4101V7.24079C25.4101 8.23867 24.4846 9.05143 23.346 9.05143H21.9377C20.7991 9.05143 19.8736 8.24043 19.8736 7.24079V2.78204H10.677V7.24079C10.677 8.23867 9.74973 9.05143 8.61291 9.05143H7.20282C6.06417 9.05143 5.13869 8.24043 5.13869 7.24079V2.78204H1.4003C0.77906 2.78204 0.274414 3.27041 0.274414 3.87161V28.9086C0.274414 29.5081 0.77906 29.9999 1.4003 29.9999H29.1467C29.7698 29.9999 30.2744 29.5081 30.2744 28.9086V3.87161C30.2762 3.27041 29.7698 2.78204 29.1467 2.78204ZM28.7532 28.4679C28.7532 28.653 28.5929 28.8081 28.3979 28.8081H2.15272C1.95778 28.8081 1.79746 28.653 1.79746 28.4679V13.0342C1.79746 12.8455 1.95596 12.6904 2.15272 12.6904H28.3961C28.591 12.6904 28.7514 12.8455 28.7514 13.0342L28.7532 28.4679Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M7.20276 7.26551H8.61103C9.12843 7.26551 9.54927 6.94288 9.54927 6.54619V0.719323C9.54927 0.320874 9.12843 0 8.61103 0H7.20276C6.68354 0 6.2627 0.320874 6.2627 0.719323V6.54795C6.2627 6.94288 6.68354 7.26551 7.20276 7.26551Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M21.9376 7.26551H23.3459C23.8651 7.26551 24.286 6.94288 24.286 6.54619V0.719323C24.286 0.320874 23.8669 0 23.3459 0H21.9376C21.4184 0 20.9976 0.320874 20.9976 0.719323V6.54795C21.0012 6.94288 21.4184 7.26551 21.9376 7.26551Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M21.723 14.8201C21.477 14.5839 21.0817 14.5839 20.8376 14.8201L13.4956 21.9287L9.71351 18.2404C9.46939 18.006 9.07587 18.006 8.83175 18.2404L7.50546 19.5222C7.26315 19.7567 7.26315 20.1428 7.50546 20.3755L13.0493 25.7775C13.2916 26.012 13.6887 26.012 13.9329 25.7775L23.0475 16.9552C23.2934 16.7207 23.2934 16.3346 23.0475 16.0983L21.723 14.8201Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("2009")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yequipment_item" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "36",
+                          height: "35",
+                          viewBox: "0 0 36 35",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19.1503 4.63342H7.24414V13.1767H19.1503V4.63342Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M26.3242 22.1887C26.3242 22.1974 26.3242 22.2062 26.3241 22.2149V24.5551C26.3241 26.9376 28.0127 28.869 30.0956 28.869C32.1786 28.869 33.8672 26.9376 33.8672 24.5551V11.176C33.87 9.8293 33.428 8.53098 32.6297 7.54115L26.8451 0L25.9549 0.892389L30.6236 6.9806C29.0667 7.10367 27.8919 8.64712 27.9995 10.4278C28.102 12.1235 29.3352 13.4386 30.8212 13.437C31.506 13.4335 32.1669 13.149 32.6839 12.6352V24.5551C32.6839 26.1901 31.5251 27.5156 30.0956 27.5156C28.6662 27.5156 27.5074 26.1901 27.5074 24.5551V22.2149C27.5152 20.1286 26.0429 18.4299 24.2188 18.4209C24.2121 18.4209 24.2054 18.4209 24.1986 18.4209H22.2568V19.7743H24.1986C25.3685 19.7697 26.3202 20.8506 26.3242 22.1887ZM32.4614 10.2045C32.4604 11.2418 31.7254 12.0824 30.8185 12.0836C29.9111 12.0836 29.1756 11.2423 29.1756 10.2044C29.1756 9.16657 29.9111 8.32527 30.8185 8.32527C31.7259 8.32527 32.4614 9.16657 32.4614 10.2044V10.2045Z",
+                            fill: "#0B3F8D"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M35.3933 33.6467H21.6648V2.47751C21.6702 1.38803 20.9042 0.49869 19.9518 0.488708H6.20899C5.25805 0.488708 4.50811 1.38973 4.50811 2.47751V33.6467H1.57647C1.24976 33.6467 0.984863 33.9496 0.984863 34.3234C0.984863 34.6971 1.24976 35 1.57647 35H35.3933C35.72 35 35.9849 34.6971 35.9849 34.3234C35.9849 33.9496 35.72 33.6467 35.3933 33.6467ZM20.3336 13.8534C20.3336 14.2271 20.0687 14.5301 19.742 14.5301H6.65269C6.32598 14.5301 6.06109 14.2271 6.06109 13.8534V3.95676C6.06109 3.58306 6.32598 3.28007 6.65269 3.28007H19.742C20.0687 3.28007 20.3336 3.58306 20.3336 3.95676V13.8534Z",
+                            fill: "#0B3F8D"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(35)
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm.lang == "ru"
+                  ? _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Подробнее\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  : _c("button", { staticClass: "show_more" }, [
+                      _vm._v(
+                        "\n                        Детальніше\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "54",
+                            height: "8",
+                            viewBox: "0 0 54 8",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z",
+                              fill: "#0B3F8D"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -46648,10 +48941,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yprice_city_name" }, [
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
+    return _c("figure", { staticClass: "ycard_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+          alt: ""
+        }
+      })
     ])
   },
   function() {
@@ -46672,16 +48969,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yprice_city_name" }, [
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("figure", { staticClass: "ycard_image" }, [
       _c("img", {
         attrs: {
@@ -46696,16 +48983,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yprice_city_name" }, [
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("figure", { staticClass: "ycard_image" }, [
       _c("img", {
         attrs: {
@@ -46714,40 +48991,6 @@ var staticRenderFns = [
           alt: ""
         }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yprice_city_name" }, [
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("figure", { staticClass: "ycard_image" }, [
-      _c("img", {
-        attrs: {
-          src:
-            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-          alt: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "yprice_city_name" }, [
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "city-name" }, [_vm._v("Киев")])
     ])
   },
   function() {
@@ -46778,24 +49021,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("figure", { staticClass: "ycard_image" }, [
-      _c("img", {
-        attrs: {
-          src:
-            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-          alt: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycard_name-price" }, [
-      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    return _c("span", [
+      _vm._v("Электро, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
     ])
   },
   function() {
@@ -46826,24 +49054,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("figure", { staticClass: "ycard_image" }, [
-      _c("img", {
-        attrs: {
-          src:
-            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-          alt: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycard_name-price" }, [
-      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    return _c("span", [
+      _vm._v("Электро, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
     ])
   },
   function() {
@@ -46874,24 +49087,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("figure", { staticClass: "ycard_image" }, [
-      _c("img", {
-        attrs: {
-          src:
-            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-          alt: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycard_name-price" }, [
-      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    return _c("span", [
+      _vm._v("Электро, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
     ])
   },
   function() {
@@ -46922,24 +49120,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("figure", { staticClass: "ycard_image" }, [
-      _c("img", {
-        attrs: {
-          src:
-            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
-          alt: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ycard_name-price" }, [
-      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    return _c("span", [
+      _vm._v("Электро, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
     ])
   },
   function() {
@@ -46970,6 +49153,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("Дизель, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("figure", { staticClass: "ycard_image" }, [
       _c("img", {
         attrs: {
@@ -46988,6 +49180,147 @@ var staticRenderFns = [
       _c("h2", [_vm._v("Mercedes-Benz E 220")]),
       _vm._v(" "),
       _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("Дизель, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "ycard_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycard_name-price" }, [
+      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("Дизель, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "ycard_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycard_name-price" }, [
+      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("Дизель, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "ycard_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycard_name-price" }, [
+      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("Дизель, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "ycard_image" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ycard_name-price" }, [
+      _c("h2", [_vm._v("Mercedes-Benz E 220")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "yprice" }, [_vm._v("8 200 $")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("Дизель, "),
+      _c("span", { staticClass: "volume" }, [_vm._v("2л.")])
     ])
   }
 ]
@@ -47016,7 +49349,7 @@ var render = function() {
     "div",
     { staticClass: "ycatalog_block" },
     [
-      _c("ytitle", { attrs: { title: "Каталог" } }),
+      _c("ytitle", { attrs: { title: "Каталог", uatitle: "Каталог" } }),
       _vm._v(" "),
       _c("div", { staticClass: "y-cat-bottom" }, [
         _vm._m(0),
@@ -50370,14 +52703,23 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новый Mercedes-Benz ")]
-            )
+            _vm.lang === "ru"
+              ? _c(
+                  "h4",
+                  {
+                    staticClass: "yb-sticker_title",
+                    staticStyle: { color: "#fff" }
+                  },
+                  [_vm._v("Новый Mercedes-Benz ")]
+                )
+              : _c(
+                  "h4",
+                  {
+                    staticClass: "yb-sticker_title",
+                    staticStyle: { color: "#fff" }
+                  },
+                  [_vm._v("Новий Mercedes-Benz ")]
+                )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "yb-sticker" }, [
@@ -50408,14 +52750,23 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#1B1B1B" }
-              },
-              [_vm._v("Новый Volkswagen Arteon ")]
-            )
+            _vm.lang === "ru"
+              ? _c(
+                  "h4",
+                  {
+                    staticClass: "yb-sticker_title",
+                    staticStyle: { color: "#1B1B1B" }
+                  },
+                  [_vm._v("Новый Volkswagen Arteon ")]
+                )
+              : _c(
+                  "h4",
+                  {
+                    staticClass: "yb-sticker_title",
+                    staticStyle: { color: "#1B1B1B" }
+                  },
+                  [_vm._v("Новий Volkswagen Arteon ")]
+                )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "yb-sticker" }, [
@@ -50444,14 +52795,23 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c(
-              "h4",
-              {
-                staticClass: "yb-sticker_title",
-                staticStyle: { color: "#fff" }
-              },
-              [_vm._v("Новая Audi TT RS")]
-            )
+            _vm.lang === "ru"
+              ? _c(
+                  "h4",
+                  {
+                    staticClass: "yb-sticker_title",
+                    staticStyle: { color: "#fff" }
+                  },
+                  [_vm._v("Новая Audi TT RS")]
+                )
+              : _c(
+                  "h4",
+                  {
+                    staticClass: "yb-sticker_title",
+                    staticStyle: { color: "#fff" }
+                  },
+                  [_vm._v("Нова Audi TT RS")]
+                )
           ])
         ]
       )
@@ -50487,7 +52847,10 @@ var render = function() {
     [
       _c(
         "ytitle",
-        { attrs: { title: "Новости" }, on: { getStatus: _vm.changeStatus } },
+        {
+          attrs: { title: "Новости", uatitle: "Новини" },
+          on: { getStatus: _vm.changeStatus }
+        },
         [_vm._v("\n    >\n    ")]
       ),
       _vm._v(" "),
@@ -50847,9 +53210,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", { staticClass: "read_more" }, [
-            _vm._v(
-              "\n                        Читать дальше\n                        "
-            ),
+            _vm._v("\n                    Читать дальше\n                    "),
             _c(
               "svg",
               {
@@ -50890,9 +53251,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", { staticClass: "read_more" }, [
-            _vm._v(
-              "\n                        Читать дальше\n                        "
-            ),
+            _vm._v("\n                    Читать дальше\n                    "),
             _c(
               "svg",
               {
@@ -50933,9 +53292,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", { staticClass: "read_more" }, [
-            _vm._v(
-              "\n                        Читать дальше\n                        "
-            ),
+            _vm._v("\n                    Читать дальше\n                    "),
             _c(
               "svg",
               {
@@ -50978,9 +53335,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", { staticClass: "read_more" }, [
-            _vm._v(
-              "\n                        Читать дальше\n                        "
-            ),
+            _vm._v("\n                    Читать дальше\n                    "),
             _c(
               "svg",
               {
@@ -51021,9 +53376,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", { staticClass: "read_more" }, [
-            _vm._v(
-              "\n                        Читать дальше\n                        "
-            ),
+            _vm._v("\n                    Читать дальше\n                    "),
             _c(
               "svg",
               {
@@ -51064,9 +53417,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", { staticClass: "read_more" }, [
-            _vm._v(
-              "\n                        Читать дальше\n                        "
-            ),
+            _vm._v("\n                    Читать дальше\n                    "),
             _c(
               "svg",
               {
@@ -51881,46 +54232,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ystatus" }, [
-      _c("div", { staticClass: "status_item" }, [
-        _c("div", { staticClass: "count_number" }, [
-          _vm._v("\n           + 5 246\n       ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "count_title" }, [
-          _vm._v("\n           Последних поисков за день\n       ")
-        ])
+  return _c("div", { staticClass: "ystatus" }, [
+    _c("div", { staticClass: "status_item" }, [
+      _c("div", { staticClass: "count_number" }, [
+        _vm._v("\n           + 5 246\n       ")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "status_item" }, [
-        _c("div", { staticClass: "count_number" }, [
-          _vm._v("\n           + 1100\n       ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "count_title" }, [
-          _vm._v("\n           Последних поисков за час\n       ")
-        ])
+      _vm.lang === "ru"
+        ? _c("div", { staticClass: "count_title" }, [
+            _vm._v("\n           Последних поисков за день\n       ")
+          ])
+        : _c("div", { staticClass: "count_title" }, [
+            _vm._v("\n           Останніх пошуків за день\n       ")
+          ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "status_item" }, [
+      _c("div", { staticClass: "count_number" }, [
+        _vm._v("\n           + 1100\n       ")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "status_item" }, [
-        _c("div", { staticClass: "count_number" }, [
-          _vm._v("\n           + 8 600\n       ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "count_title" }, [
-          _vm._v("\n           Проверено авто\n           по VIN-коду\n       ")
-        ])
-      ])
+      _vm.lang === "ru"
+        ? _c("div", { staticClass: "count_title" }, [
+            _vm._v("\n           Последних поисков за час\n       ")
+          ])
+        : _c("div", { staticClass: "count_title" }, [
+            _vm._v("\n           Останніх пошуків за годину\n       ")
+          ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "status_item" }, [
+      _c("div", { staticClass: "count_number" }, [
+        _vm._v("\n           + 8 600\n       ")
+      ]),
+      _vm._v(" "),
+      _vm.lang === "ru"
+        ? _c("div", { staticClass: "count_title" }, [
+            _vm._v(
+              "\n           Проверено авто\n           по VIN-коду\n       "
+            )
+          ])
+        : _c("div", { staticClass: "count_title" }, [
+            _vm._v(
+              "\n           Перевірено авто\n           по VIN-коду\n       "
+            )
+          ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -51942,116 +54302,162 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "ystickers" }, [
+    _c("div", { staticClass: "yb-sticker" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm.lang === "ru"
+        ? _c(
+            "h4",
+            { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+            [_vm._v("Новый Mercedes-Benz ")]
+          )
+        : _c(
+            "h4",
+            { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+            [_vm._v("Новий Mercedes-Benz ")]
+          )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "yb-sticker" }, [
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%)"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _vm.lang === "ru"
+        ? _c(
+            "h4",
+            {
+              staticClass: "yb-sticker_title",
+              staticStyle: { color: "#1B1B1B" }
+            },
+            [_vm._v("Новый Volkswagen Arteon ")]
+          )
+        : _c(
+            "h4",
+            {
+              staticClass: "yb-sticker_title",
+              staticStyle: { color: "#1B1B1B" }
+            },
+            [_vm._v("Новий Volkswagen Arteon ")]
+          )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "yb-sticker" }, [
+      _vm._m(4),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "background_style",
+        staticStyle: {
+          background:
+            "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _vm.lang === "ru"
+        ? _c(
+            "h4",
+            { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+            [_vm._v("Новая Audi TT RS")]
+          )
+        : _c(
+            "h4",
+            { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
+            [_vm._v("Нова Audi TT RS")]
+          )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ystickers" }, [
-      _c("div", { staticClass: "yb-sticker" }, [
-        _c("div", { staticClass: "yb-sticker_logo" }, [
-          _c("span", { staticClass: "brand_title" }, [_vm._v("Mercedes-Benz")]),
-          _vm._v(" "),
-          _c("img", {
-            attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "background_style",
-          staticStyle: {
-            background:
-              "linear-gradient(180.17deg, rgba(27, 27, 27, 0.56) 57.5%, rgba(27, 27, 27, 0.85) 93.18%)"
-          }
-        }),
-        _vm._v(" "),
-        _c("figure", { staticClass: "img-context" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "h4",
-          { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
-          [_vm._v("Новый Mercedes-Benz ")]
-        )
-      ]),
+    return _c("div", { staticClass: "yb-sticker_logo" }, [
+      _c("span", { staticClass: "brand_title" }, [_vm._v("Mercedes-Benz")]),
       _vm._v(" "),
-      _c("div", { staticClass: "yb-sticker" }, [
-        _c("div", { staticClass: "yb-sticker_logo" }, [
-          _c("span", { staticClass: "brand_title" }, [_vm._v("Volkswagen")]),
-          _vm._v(" "),
-          _c("img", {
-            attrs: { src: "img/system/static/vw_logo.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "background_style",
-          staticStyle: {
-            background:
-              "linear-gradient(180deg, rgba(27, 27, 27, 0.096) 40.82%, rgba(227, 199, 120, 0.8) 71.23%)"
-          }
-        }),
-        _vm._v(" "),
-        _c("figure", { staticClass: "img-context" }, [
-          _c("img", {
-            attrs: {
-              src: "https://carexpert.ru/img/foto600/vw/vwar001.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "h4",
-          {
-            staticClass: "yb-sticker_title",
-            staticStyle: { color: "#1B1B1B" }
-          },
-          [_vm._v("Новый Volkswagen Arteon ")]
-        )
-      ]),
+      _c("img", {
+        attrs: { src: "img/brands_logo/mercedes-benz.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "img-context" }, [
+      _c("img", {
+        attrs: {
+          src: "https://www.autocentre.ua/wp-content/uploads/2017/11/cls-3.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-sticker_logo" }, [
+      _c("span", { staticClass: "brand_title" }, [_vm._v("Volkswagen")]),
       _vm._v(" "),
-      _c("div", { staticClass: "yb-sticker" }, [
-        _c("div", { staticClass: "yb-sticker_logo" }, [
-          _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
-          _vm._v(" "),
-          _c("img", {
-            attrs: { src: "img/system/static/audi_logo.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "background_style",
-          staticStyle: {
-            background:
-              "linear-gradient(180deg, rgba(255, 255, 255, 0.136) 16.67%, rgba(44, 133, 219, 0.8) 85.94%)"
-          }
-        }),
-        _vm._v(" "),
-        _c("figure", { staticClass: "img-context" }, [
-          _c("img", {
-            attrs: {
-              src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "h4",
-          { staticClass: "yb-sticker_title", staticStyle: { color: "#fff" } },
-          [_vm._v("Новая Audi TT RS")]
-        )
-      ])
+      _c("img", { attrs: { src: "img/system/static/vw_logo.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "img-context" }, [
+      _c("img", {
+        attrs: {
+          src: "https://carexpert.ru/img/foto600/vw/vwar001.jpg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "yb-sticker_logo" }, [
+      _c("span", { staticClass: "brand_title" }, [_vm._v("Audi")]),
+      _vm._v(" "),
+      _c("img", { attrs: { src: "img/system/static/audi_logo.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "img-context" }, [
+      _c("img", {
+        attrs: {
+          src: "https://i.ytimg.com/vi/wVqgL8ly9BE/maxresdefault.jpg",
+          alt: ""
+        }
+      })
     ])
   }
 ]
@@ -52077,7 +54483,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ytitle" }, [
-    _c("h2", [_vm._v(_vm._s(_vm.title))]),
+    _vm.lang === "ru"
+      ? _c("h2", [_vm._v(_vm._s(_vm.title))])
+      : _c("h2", [_vm._v(_vm._s(_vm.uatitle))]),
     _vm._v(" "),
     _c("div", { staticClass: "change_visible" }, [
       _c(
@@ -76873,9 +79281,7 @@ component.options.__file = "resources/js/site/components/ystatus.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ystatus.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ystatus.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ystatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

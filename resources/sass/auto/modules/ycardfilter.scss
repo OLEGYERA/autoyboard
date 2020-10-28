@@ -92,7 +92,7 @@
                 margin: 0;
                 padding: 0;
                 img{
-                    width: 105%;
+                    width: 100%;
                 }
             }
             .ycard-desc{
@@ -244,6 +244,9 @@
                             span{
                                 margin-left: 10px;
                             }
+                            .volume{
+                                margin-left: 0!important;
+                            }
                         }
                     }
                 }
@@ -351,8 +354,9 @@
                 .ycard{
                     .ycard-desc{
                         .yequipment_car{
-                            justify-content: space-evenly;
+                            justify-content: space-between;
                             .yequipment_item{
+                                margin-right: 0;
                                 span{
                                     font-size: em(15);
                                 }
@@ -680,7 +684,7 @@
                         }
                     }
                     .yequipment_car{
-                        width: 100%;
+                        width: 80%;
                         margin: 8px 0 0px;
                         .yequipment_item{
                             svg{
@@ -753,6 +757,7 @@
                         font-size: em(20);
                     }
                     .yequipment_car{
+                        width: 100%;
                         .yequipment_item{
                             span{
                                 font-size: em(16);

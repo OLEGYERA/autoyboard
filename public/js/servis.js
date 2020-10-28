@@ -1,11 +1,10 @@
 
 accordion();
 dropDown();
-scrollConvention()
+scrollConvention();
 $(window).resize(function() {
     accordion();
     dropDown();
-    scrollConvention();
 });
 //accordion function from page Convention
 function accordion(){
