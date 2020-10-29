@@ -46,25 +46,25 @@ abstract class Lexeme
     }
 
     private function mainCardCollection(){
-        $scriptData = $this->DOM_TREE->find('script[data-base-url]');
-        if(count($scriptData) === 0) throw new \Exception('Отсоединение парсера карты автомобиля');
-
-        $locationData = $this->DOM_TREE->find('.breadcrumbs a');
-        if(count($locationData) === 0) throw new \Exception('Отсоединение парсера карты автомобиля');
-
-        $this->mainCardCollection =  [
-            'brand' => $scriptData->getAttribute('data-mark-name'),
-            'model' => $scriptData->getAttribute('data-model-name'),
-            'modification' => $scriptData->getAttribute('data-modification'),
-            'year' => $scriptData->getAttribute('data-year'),
-            'chat_link' => $scriptData->getAttribute('data-chat-link'),
-            'price_value' => $scriptData->getAttribute('data-seller-price'),
-            'price_type' => $scriptData->getAttribute('data-currency'),
-            'service_add_date' => $scriptData->getAttribute('data-add-date'),
-            'service_update_date' => $scriptData->getAttribute('data-update-date'),
-            'region' => $locationData[1]->firstChild()->text,
-            'city' => $locationData[2]->firstChild()->text,
-        ];
+//        $scriptData = $this->DOM_TREE->find('script[data-base-url]');
+//        if(count($scriptData) === 0) throw new \Exception('Отсоединение парсера карты автомобиля');
+//
+//        $locationData = $this->DOM_TREE->find('.breadcrumbs a');
+//        if(count($locationData) === 0) throw new \Exception('Отсоединение парсера карты автомобиля');
+//
+//        $this->mainCardCollection =  [
+//            'brand' => $scriptData->getAttribute('data-mark-name'),
+//            'model' => $scriptData->getAttribute('data-model-name'),
+//            'modification' => $scriptData->getAttribute('data-modification'),
+//            'year' => $scriptData->getAttribute('data-year'),
+//            'chat_link' => $scriptData->getAttribute('data-chat-link'),
+//            'price_value' => $scriptData->getAttribute('data-seller-price'),
+//            'price_type' => $scriptData->getAttribute('data-currency'),
+//            'service_add_date' => $scriptData->getAttribute('data-add-date'),
+//            'service_update_date' => $scriptData->getAttribute('data-update-date'),
+//            'region' => $locationData[1]->firstChild()->text,
+//            'city' => $locationData[2]->firstChild()->text,
+//        ];
 
         $decriptionData = $this->DOM_TREE->find('#full-description');
         if(count($decriptionData) !== 0){
@@ -73,164 +73,165 @@ abstract class Lexeme
     }
 
     private function photoCardCollection(){
-        $photoData = $this->DOM_TREE->find('.carousel-inner .photo-620x465 picture img');
-
-        if(count($photoData) === 1 && strpos($photoData->getAttribute('src'), 'nophoto') !== false) return false;
-
-        foreach($photoData as $key=>$photo_item){
-            array_push($this->photoCardCollection, $photo_item->getAttribute('src'));
-        }
+//        $photoData = $this->DOM_TREE->find('.carousel-inner .photo-620x465 picture img');
+//
+//        if(count($photoData) === 1 && strpos($photoData->getAttribute('src'), 'nophoto') !== false) return false;
+//
+//        foreach($photoData as $key=>$photo_item){
+//            array_push($this->photoCardCollection, $photo_item->getAttribute('src'));
+//        }
     }
 
     private function specialLabelCardCollection(){
         $specialLabelData = $this->DOM_TREE->find('.label-param');
+//
+//        if(count($specialLabelData) !== 0) {
+//            foreach ($specialLabelData->getChildren() as $specialLabel) {
+//                $label = $specialLabel->text;
+//                if ($label == ' ') continue;
+//                if (strpos($label, 'Пригнан из ') !== false) {
+//                    $this->labelCardCollection['special']['driven_from'] = explode('Пригнан из ', $label)[1];
+//                } elseif (strpos($label, 'Первая регистрация') !== false) {
+//                    $this->labelCardCollection['special']['first_registration'] = true;
+//                } elseif (strpos($label, 'Обмен') !== false) {
+//                    $this->labelCardCollection['special']['exchange'] = true;
+//                } elseif (strpos($label, 'Торг') !== false) {
+//
+//                    $this->labelCardCollection['special']['bargain'] = true;
+//                } elseif (strpos($label, 'Авто не в Украине') !== false) {
+//                    $this->labelCardCollection['special']['not_in_ukraine'] = true;
+//                } elseif (strpos($label, 'После ДТП') !== false) {
+//                    $this->labelCardCollection['special']['after_crash'] = true;
+//                } elseif (strpos($label, 'Не на ходу') !== false) {
+//                    $this->labelCardCollection['special']['for_parts'] = true;
+//                } elseif (strpos($label, 'Взято в кредит') !== false) {
+//                    $this->labelCardCollection['special']['car_credit'] = true;
+//                }
+//            }
+//        }
 
-        if(count($specialLabelData) !== 0) {
-            foreach ($specialLabelData->getChildren() as $specialLabel) {
-                $label = $specialLabel->text;
-                if ($label == ' ') continue;
-                if (strpos($label, 'Пригнан из ') !== false) {
-                    $this->labelCardCollection['special']['driven_from'] = explode('Пригнан из ', $label)[1];
-                } elseif (strpos($label, 'Первая регистрация') !== false) {
-                    $this->labelCardCollection['special']['first_registration'] = true;
-                } elseif (strpos($label, 'Обмен') !== false) {
-                    $this->labelCardCollection['special']['exchange'] = true;
-                } elseif (strpos($label, 'Торг') !== false) {
-                    $this->labelCardCollection['special']['bargain'] = true;
-                } elseif (strpos($label, 'Авто не в Украине') !== false) {
-                    $this->labelCardCollection['special']['not_in_ukraine'] = true;
-                } elseif (strpos($label, 'После ДТП') !== false) {
-                    $this->labelCardCollection['special']['after_crash'] = true;
-                } elseif (strpos($label, 'Не на ходу') !== false) {
-                    $this->labelCardCollection['special']['for_parts'] = true;
-                } elseif (strpos($label, 'Взято в кредит') !== false) {
-                    $this->labelCardCollection['special']['car_credit'] = true;
-                }
-            }
-        }
-
-        $customsCleared = $this->DOM_TREE->find('.not-cleared');
-
-        if(count($customsCleared) !== 0 && $customsCleared->firstChild()->text == "Авто не растаможено"){
-            $this->labelCardCollection['special']['customs_cleared'] = false;
-        }
-        else{
-            $this->labelCardCollection['special']['customs_cleared'] = true;
-        }
+//        $customsCleared = $this->DOM_TREE->find('.not-cleared');
+//
+//        if(count($customsCleared) !== 0 && $customsCleared->firstChild()->text == "Авто не растаможено"){
+//            $this->labelCardCollection['special']['customs_cleared'] = false;
+//        }
+//        else{
+//            $this->labelCardCollection['special']['customs_cleared'] = true;
+//        }
 
 
     }
 
     private function techCardCollection(){
-        $techData = $this->DOM_TREE->find('#description_v3 dd');
-        $tech_current_flow = '';
-        $stage = 0;
+//        $techData = $this->DOM_TREE->find('#description_v3 dd');
+//        $tech_current_flow = '';
+//        $stage = 0;
 
-        foreach($techData as $key => $tech_item){
-            $itemChildren = $tech_item->getChildren();
-            if(count($itemChildren) === 0) continue;
-
-            if($key == 0){
-                foreach($itemChildren as $sub_tech_item){
-                    $sub_class = $sub_tech_item->getAttribute('class');
-                    if($sub_class !== null) continue;
-
-                    $sub_text = $sub_tech_item->text;
-                    if(strpos($sub_text, 'двер') !== false){
-                        $this->techCardCollection['body']['doors'] = trim(explode(' двер', $sub_text)[0]);
-                    }
-                    elseif(strpos($sub_text, 'мест') !== false){
-                        $this->techCardCollection['body']['seat_place'] = trim(explode(' мест', $sub_text)[0]);
-                    }
-                    else{
-                        $this->techCardCollection['body']['body'] = trim($sub_text);
-                    }
-                }
-            }
-            else{
-                if($itemChildren[0]->getAttribute('class') == 'label'){
-                    $tech_current_flow = $itemChildren[0]->text;
-                    $stage = 0;
-                }
-                elseif(count($itemChildren) > 1 && $itemChildren[1]->getAttribute('class') == 'label'){
-                    continue;
-                }
-                else{
-                    if(count($itemChildren) > 1 && $itemChildren[1]->getTag() !== 'span') continue;
-                    $stage++;
-                }
-
-                switch($tech_current_flow){
-                    case 'Пробег':
-                        $this->techCardCollection['body']['mileage'] = trim(explode('тыс. км', $itemChildren[2]->text)[0]);
-                        break;
-                    case 'Двигатель':
-                        if($stage == 0){
-                            $sub_stage = 0;
-                            foreach ($itemChildren[2]->getChildren() as $sub_tech_item){
-                                if($sub_tech_item->text == '•') continue;
-                                if($sub_stage == 0){
-                                    $engine_specifications = explode('(', $sub_tech_item->text);
-                                    if(count($engine_specifications) > 1){
-                                        $engine_volume = trim($engine_specifications[0]);
-                                        if($engine_volume !== ''){
-                                            $this->techCardCollection['engine']['specification']['volume'] = trim(explode('л', $engine_volume)[0]);
-                                        }
-                                        $engine_power = explode('/', explode(')', $engine_specifications[1])[0]);
-
-                                        if($engine_power[0] !== ''){
-                                            $this->techCardCollection['engine']['specification']['horse'] = trim(explode('л.с.', $engine_power[0])[0]);
-                                        }
-
-                                        if($engine_power[1] !== ''){
-                                            $this->techCardCollection['engine']['specification']['kilowatt'] = trim(explode('кВт', $engine_power[1])[0]);
-                                        }
-
-                                    }else{
-                                        $engine_volume = trim($engine_specifications[0]);
-                                        if($engine_volume !== ''){
-                                            $this->techCardCollection['engine']['specification']['volume'] = trim(explode('л', $engine_volume)[0]);
-                                        }
-                                    }
-                                    $sub_stage++;
-                                }
-                                else{
-                                    $this->techCardCollection['engine']['specification']['type'] = $sub_tech_item->text;
-                                }
-                            }
-                        }
-                        else{
-                            //without label tag, we strong push first child
-                            foreach($itemChildren[0]->getChildren() as $sub_tech_item){
-                                $subItemText = $sub_tech_item->text;
-                                if($subItemText == null) continue;
-                                if(strpos($subItemText, 'город') !== false){
-                                    $this->techCardCollection['engine']['consumption']['city'] = trim(explode('город', $subItemText)[1]);
-                                }
-                                elseif(strpos($subItemText, 'трасса') !== false){
-                                    $this->techCardCollection['engine']['consumption']['track'] = trim(explode('трасса', $subItemText)[1]);
-                                }
-                                elseif(strpos($subItemText, 'смешанный') !== false){
-                                    $this->techCardCollection['engine']['consumption']['mixed'] = trim(explode('смешанный', $subItemText)[1]);
-                                }
-                            }
-                        }
-                        break;
-                    case 'Коробка передач':
-                        $this->techCardCollection['body']['transmission'] = trim($itemChildren[2]->text);
-                        break;
-                    case 'Привод':
-                        $this->techCardCollection['body']['gear'] = trim($itemChildren[2]->text);
-                        break;
-                    case 'Цвет':
-                        if(strpos($itemChildren[1]->text, 'металлик') !== false){
-                            $this->techCardCollection['body']['color']['metallic'] = true;
-                            $this->techCardCollection['body']['color']['color'] = trim(explode('металлик', $itemChildren[1]->text)[0]);
-                        }else{
-                            $this->techCardCollection['body']['color']['metallic'] = false;
-                            $this->techCardCollection['body']['color']['color'] = trim($itemChildren[1]->text);
-                        }
-                        break;
+//        foreach($techData as $key => $tech_item){
+//            $itemChildren = $tech_item->getChildren();
+//            if(count($itemChildren) === 0) continue;
+//
+//            if($key == 0){
+//                foreach($itemChildren as $sub_tech_item){
+//                    $sub_class = $sub_tech_item->getAttribute('class');
+//                    if($sub_class !== null) continue;
+//
+//                    $sub_text = $sub_tech_item->text;
+//                    if(strpos($sub_text, 'двер') !== false){
+//                        $this->techCardCollection['body']['doors'] = trim(explode(' двер', $sub_text)[0]);
+//                    }
+//                    elseif(strpos($sub_text, 'мест') !== false){
+//                        $this->techCardCollection['body']['seat_place'] = trim(explode(' мест', $sub_text)[0]);
+//                    }
+//                    else{
+//                        $this->techCardCollection['body']['body'] = trim($sub_text);
+//                    }
+//                }
+//            }
+//            else{
+//                if($itemChildren[0]->getAttribute('class') == 'label'){
+//                    $tech_current_flow = $itemChildren[0]->text;
+//                    $stage = 0;
+//                }
+//                elseif(count($itemChildren) > 1 && $itemChildren[1]->getAttribute('class') == 'label'){
+//                    continue;
+//                }
+//                else{
+//                    if(count($itemChildren) > 1 && $itemChildren[1]->getTag() !== 'span') continue;
+//                    $stage++;
+//                }
+//
+//                switch($tech_current_flow){
+//                    case 'Пробег':
+//                        $this->techCardCollection['body']['mileage'] = trim(explode('тыс. км', $itemChildren[2]->text)[0]);
+//                        break;
+//                    case 'Двигатель':
+//                        if($stage == 0){
+//                            $sub_stage = 0;
+//                            foreach ($itemChildren[2]->getChildren() as $sub_tech_item){
+//                                if($sub_tech_item->text == '•') continue;
+//                                if($sub_stage == 0){
+//                                    $engine_specifications = explode('(', $sub_tech_item->text);
+//                                    if(count($engine_specifications) > 1){
+//                                        $engine_volume = trim($engine_specifications[0]);
+//                                        if($engine_volume !== ''){
+//                                            $this->techCardCollection['engine']['specification']['volume'] = trim(explode('л', $engine_volume)[0]);
+//                                        }
+//                                        $engine_power = explode('/', explode(')', $engine_specifications[1])[0]);
+//
+//                                        if($engine_power[0] !== ''){
+//                                            $this->techCardCollection['engine']['specification']['horse'] = trim(explode('л.с.', $engine_power[0])[0]);
+//                                        }
+//
+//                                        if($engine_power[1] !== ''){
+//                                            $this->techCardCollection['engine']['specification']['kilowatt'] = trim(explode('кВт', $engine_power[1])[0]);
+//                                        }
+//
+//                                    }else{
+//                                        $engine_volume = trim($engine_specifications[0]);
+//                                        if($engine_volume !== ''){
+//                                            $this->techCardCollection['engine']['specification']['volume'] = trim(explode('л', $engine_volume)[0]);
+//                                        }
+//                                    }
+//                                    $sub_stage++;
+//                                }
+//                                else{
+//                                    $this->techCardCollection['engine']['specification']['type'] = $sub_tech_item->text;
+//                                }
+//                            }
+//                        }
+//                        else{
+//                            //without label tag, we strong push first child
+//                            foreach($itemChildren[0]->getChildren() as $sub_tech_item){
+//                                $subItemText = $sub_tech_item->text;
+//                                if($subItemText == null) continue;
+//                                if(strpos($subItemText, 'город') !== false){
+//                                    $this->techCardCollection['engine']['consumption']['city'] = trim(explode('город', $subItemText)[1]);
+//                                }
+//                                elseif(strpos($subItemText, 'трасса') !== false){
+//                                    $this->techCardCollection['engine']['consumption']['track'] = trim(explode('трасса', $subItemText)[1]);
+//                                }
+//                                elseif(strpos($subItemText, 'смешанный') !== false){
+//                                    $this->techCardCollection['engine']['consumption']['mixed'] = trim(explode('смешанный', $subItemText)[1]);
+//                                }
+//                            }
+//                        }
+//                        break;
+//                    case 'Коробка передач':
+//                        $this->techCardCollection['body']['transmission'] = trim($itemChildren[2]->text);
+//                        break;
+//                    case 'Привод':
+//                        $this->techCardCollection['body']['gear'] = trim($itemChildren[2]->text);
+//                        break;
+//                    case 'Цвет':
+//                        if(strpos($itemChildren[1]->text, 'металлик') !== false){
+//                            $this->techCardCollection['body']['color']['metallic'] = true;
+//                            $this->techCardCollection['body']['color']['color'] = trim(explode('металлик', $itemChildren[1]->text)[0]);
+//                        }else{
+//                            $this->techCardCollection['body']['color']['metallic'] = false;
+//                            $this->techCardCollection['body']['color']['color'] = trim($itemChildren[1]->text);
+//                        }
+//                        break;
                     case 'Состояние':
                         $this->techLabelAnalizer($itemChildren[2]->getChildren(), 'condition');
                         break;

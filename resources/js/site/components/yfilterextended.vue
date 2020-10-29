@@ -115,10 +115,11 @@
                                     Сортировка
                                 </h3>
                                 <yselectsearch
+                                    @updateChoose="SET_SORTING_CHOOSED($event)"
                                     :deleteDis="true"
                                     :placeholder="'Выберите сортировку'"
-                                    :options="transportTypes"
-                                    :choosedItem="transportsArr.typeChoosed">
+                                    :options="searchDeatils.systemSorting"
+                                    :choosedItem="searchDeatils.sortingChoosed">
                                 </yselectsearch>
                             </div>
                             <div class="ygroup-col-box">
@@ -126,10 +127,11 @@
                                     Период подачи
                                 </h3>
                                 <yselectsearch
+                                    @updateChoose="SET_PERIOD_CHOOSED($event)"
                                     :deleteDis="true"
                                     :placeholder="'Выберите период подачи'"
-                                    :options="transportTypes"
-                                    :choosedItem="transportsArr.typeChoosed">
+                                    :options="searchDeatils.systemPeriod"
+                                    :choosedItem="searchDeatils.periodChoosed">
                                 </yselectsearch>
                             </div>
                             <div class="ygroup-col-box">
@@ -137,10 +139,11 @@
                                     Актуальность
                                 </h3>
                                 <yselectsearch
+                                    @updateChoose="SET_RELEVANCE_CHOOSED($event)"
                                     :deleteDis="true"
                                     :placeholder="'Выберите актуальность'"
-                                    :options="transportTypes"
-                                    :choosedItem="transportsArr.typeChoosed">
+                                    :options="searchDeatils.systemRelevance"
+                                    :choosedItem="searchDeatils.relevanceChoosed">
                                 </yselectsearch>
                             </div>
                             <div class="ygroup-col-box">
@@ -148,10 +151,11 @@
                                     Показать
                                 </h3>
                                 <yselectsearch
+                                    @updateChoose="SET_SHOW_CHOOSED($event)"
                                     :deleteDis="true"
                                     :placeholder="'Выберите показать'"
-                                    :options="transportTypes"
-                                    :choosedItem="transportsArr.typeChoosed">
+                                    :options="searchDeatils.systemShow"
+                                    :choosedItem="searchDeatils.showChoosed">
                                 </yselectsearch>
                             </div>
                         </div>
@@ -439,7 +443,8 @@
         methods: {
             ...mapMutations([
                 //search deataild
-                'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED',
+                'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED', 'SET_SORTING_CHOOSED',
+                'SET_PERIOD_CHOOSED', 'SET_RELEVANCE_CHOOSED', 'SET_SHOW_CHOOSED',
                 //regions
                 'SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS',
                 //RBMY
@@ -461,7 +466,7 @@
                 'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API',
                 'MODELS_FROM_API', 'GENERATE_YEAR',
                 //TRANSPORT
-                'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API',
+                'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'
             ]),
 
             setBrandsAndGetModels(data){
@@ -499,6 +504,9 @@
                 this.CLEAR_BRANDS_MODELS();
                 this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1')
                 this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1')
+                this.TRANSMISSIONS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/transmissions?langType=3&alias=1')
+                this.GEARS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/gears?langType=3&alias=1')
+                this.TECHS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/techs?langType=3&alias=1')
             },
         },
         computed: {

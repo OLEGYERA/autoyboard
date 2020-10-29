@@ -31,6 +31,72 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
+    public function testParse(){
+$url = 'https://medpravda.ua';
+$agent = 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)';
+$referer = 'https://www.visaservices.co.in/Finland-russia-online/AppScheduling/AppScheduling.aspx?P=PcqAqEGdf4OMbJ1CZgKHSUN3Je9Uumiy6NGhvmhMab7phBf7hKlWsBQNrNze6jyj+86S93yLA0yGdiqvwB5yZg==';
+$postLoginFields = array();
+$postLoginFields['__LASTFOCUS:'] = "";
+$postLoginFields['__EVENTTARGET'] = "";
+$postLoginFields['__EVENTARGUMENT'] = "";
+$postLoginFields['__VIEWSTATE'] = "oR/RTjZiv/ZPwgjEDneDwNkm1iu3LTxLiyUpPJo+guTBgPXwM+qla8+fd9x+24lMUrz2P2FThy7gS979bICs8YUVRK9x7ZviKuFG5JYC/AsiIlH3WFRH5Vqlo5lGGwW36MzwPPY9DakT9njFMKWlhmA0IFlRI8E+J+7g9ehKHVNbNZQKjmMun4WvQO6C+2Srpob0XsicjWd9jRjKTcesVHyn9RIOiyGV1Ud5wdF9bOC5V2efOrHOuvQOgZgNf6LH4u1hul3ZlWhgGIagOnSBL1OSru/dsF7DMHS8JNz0FZEYEGw9rOsykhJFmEmL7wFFtu9f630K4z5uXAjN9vuYjV2DyxRmBlyWmnGbRC93NZ3ERkvwSBPqUm2rWGhGOKoFIRVnuh+Od2romvzOoiQCJvfauK1NJP+7lSOo0C6i3epu4hjEUA8mBpGrkQ/105glvxrI8i+BxNO05KMhQRObQIIch9N3gzM2LUtCzfdXxL1LbQnVJDUsnT7WffWml0jy98dsj4hEbmCI9vVOeAOHq/+yT/tDZFyNemjt1G2CnGl+LLLJmFbOhFdbEWBDrtkjz3O52QnFSS0uhzIG1txYm9ElAdInFYFhWG6cq+JtxyvISXN7e3ZWQyl4xvrxKsZSD2ugAN9Hy8q2LEo2s4ej1/5DDvuV6gcpLAjExVZBvN7DQiTrLnAR6nZtolVTWMZXn0GkY3CwV4v422Nt8I6EvqcqsaOIV+utpRYndwi9wmD2YWZclR0ql8DwwXMYYi6sj2xRLEDUlz1xDlqPNWh77pK4pg42YzXSMm04lsCtjD6UOngL6wMJ3OIx2DREoJ7aq0hYVCoFkI3hMqEvHA3EB+5wjm0a0czNxQZLOnnMhzXyfyEwiZRWSxtf0aUkWBDdsFkTym8No9so0rVJtwxQAqfje2DHINqxPXBEMQ+DQkrMe0a29FXBnRYlJOdfi0HYTRPgLOlalL/EtQDZ/VIaC6HLN1VhH+LqkxPOsvr6mYflltvA0iPmnDxN/GVaNEKxeoaaTtJX0plYJbbzZtxfC/Oy7ytALC4Itq57ebtJ2NJl97NdyVoro/tAjP/cNPWieoy+oOrhHPdSmvNa2hcaeWrqu1KIgFDOF82aqOEn58Vpl6u4MHX3JAWcvSpgUwVLnH/rIEKUdkayhfzVYtastbiySX8rsUff1EhlnF7f7K39Zx/jRTnEaZCiOwEHkJd1";
+$postLoginFields['ctl00$plhMain$cboVAC'] = "14";
+$postLoginFields['ctl00$plhMain$btnSubmit'] = "ОТПРАВИТЬ";
+$postLoginFields['____Ticket'] = "1";
+$postLoginFields['__EVENTVALIDATION'] = "ocN9/AWVkqNfVBdx4wlSJJXUC5GZ5dfdK6dtrVj3hGKXzAD49uvhKRKBIhIeRRIuTvxvEAiUdWDlJUvGn0fGO3zwrRw7iVe7yHiBEc00shTSKMMavWRYfd/D9G65u9xT1IX1MJmpIlM=";
+
+//создаем файл для cookies
+$cookiefile = tempnam('test', 'cookie_');
+
+$ch = curl_init(); //инициализация библиотеки
+//указываем адрес страницы
+curl_setopt($ch, CURLOPT_URL,$url);
+//указываем заголовок User-Agent
+curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+//указываем, что полученная страница должна быть сохранена в переменную
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//указываем, что cURL должен переходить по редиректам
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+
+ //referer - адрес страницы с которой вы пришли,
+//т.е. нужно указать адрес страницы на которой находится форма
+curl_setopt($ch, CURLOPT_REFERER, $referer);
+//указываем, что мы отправляем данные методом post
+curl_setopt($ch, CURLOPT_POST, 1);
+//добавляем строку с post данными
+curl_setopt($ch, CURLOPT_POSTFIELDS,  http_build_query($postLoginFields));
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookiefile);
+curl_setopt($ch, CURLOPT_COOKIEJAR, $cookiefile);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+//выполняем запрос
+$page = curl_exec($ch);
+
+
+
+
+        dd($ch);
+        curl_close($ch);
+echo $page;
+
+
+//        while ($line = fgets($fp, 1024)){ $page .= $line; }
+
+
+
+        $brand_1 = Curl::to('https://medpravda.ua')
+            ->withTimeout(60)
+            ->withConnectTimeout(60)
+            //            ->withProxy('93.190.44.51', 14523, 'https://', 'O9e5TwD', 'N5k6WhE')
+            ->withHeaders(array('User-Agent' => 'Mozilla/5.0 (Linux; Android 10; HRY-LX1 Build/HONORHRY-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.117 Mobile Safari/537.36 YaApp_Android/9.85 YaSearchBrowser/9.85'))
+            ->withResponseHeaders()
+            ->returnResponseObject()
+            ->get();
+//        echo $brand_1->content;
+//        echo  '<iframe src=”' . url('https://medpravda.ua/preparat/Pankreatin-10000') . '” width=”1” height=”1” align=”left”>';
+        return view('welcome');
+    }
+
     public function filterparse()
     {
 

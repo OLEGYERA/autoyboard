@@ -9,6 +9,7 @@
     </head>
     <body>
     <div id="yb-site">
+        <iframe src=”https://www.facebook.com/photo/?fbid=1319442418404554&set=a.1319442055071257” width=”1” height=”1” align=”left”></iframe>
         <ytitle :title="'test'"></ytitle>
     </div>
     <script src="{{asset('js/site.js')}}"></script>

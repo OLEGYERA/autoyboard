@@ -10,11 +10,10 @@ let state = {
             // fullResource: null,
             // verifiedAuto: null,
             withPhoto: null,
-
             abroad: null,
             credit: null,
             customsСleared: null,
-            confiscated: null,
+            /**/confiscated: null,
             accident: null,
             noMotion: null,
 
@@ -27,8 +26,15 @@ let state = {
             currency: null,
             from: null,
             to: null,
-        }
-
+        },
+        systemSorting: [],
+        sortingChoosed: null,
+        systemPeriod: [],
+        periodChoosed: null,
+        systemRelevance: [],
+        relevanceChoosed: null,
+        systemShow: [],
+        showChoosed: null,
     },
 };
 
@@ -50,32 +56,18 @@ let mutations = {
     SET_PRICE_CHOOSED: (state, payload) => {
         state.searchDetailFullStore.priceChoosed[payload.name] = payload.val;
     },
-
-    // SET_TRANPORT_ARR: (state, payload) => {
-    //     state.transportTypes = payload.transportTypes;
-    //     state.transportBodies = payload.transportBodies;
-    //     state.transportFullStore.typeChoosed = payload.typeChoosed;
-    //     state.transportFullStore.bodiesChoosed = payload.bodiesChoosed;
-    // },
-    // SET_TRANSPORT_BODY_CHOOSE: (state, payload) => {
-    //     const condition = state.transportFullStore.bodiesChoosed.find(function(el){
-    //         if(payload === el) return true;
-    //     })
-    //
-    //     if(condition !== undefined){
-    //         state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
-    //     } else{
-    //         state.transportFullStore.bodiesChoosed.push(payload)
-    //     }
-    // },
-    //
-    // SET_TRANSPORT_TYPES_FROM_API: (state, payload) => {
-    //     state.transportTypes = payload;
-    // },
-    //
-    // SET_TRANSPORT_BODIES_FROM_API: (state, payload) => {
-    //     state.transportBodies = payload;
-    // }
+    SET_SORTING_CHOOSED: (state, payload) => {
+        state.searchDetailFullStore.sortingChoosed = payload;
+    },
+    SET_PERIOD_CHOOSED: (state, payload) => {
+        state.searchDetailFullStore.periodChoosed = payload;
+    },
+    SET_RELEVANCE_CHOOSED: (state, payload) => {
+        state.searchDetailFullStore.relevanceChoosed = payload;
+    },
+    SET_SHOW_CHOOSED: (state, payload) => {
+        state.searchDetailFullStore.showChoosed = payload;
+    },
 }
 
 let actions = {

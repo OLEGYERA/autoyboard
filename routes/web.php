@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::get('/parseLinks', 'Aggregator\Parse@runParseLinks');
+Route::get('/parseCards', 'Aggregator\Parse@runParseCards');
 
 //Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
 //Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
@@ -38,7 +40,7 @@ Route::get('/catbody', 'Site\Auto\PageController@catbody')->name('catbody');
 Route::get('/changelog', 'Site\Auto\PageController@changelog')->name('changelog');
 Route::get('/update', 'Site\Auto\PageController@update')->name('update');
 
-//Route::get('/img/{alias}', 'Auto\PageController@generateURL')->name('lol');
+Route::get('/getimg', 'Auto\PageController@generateURL')->name('lol');
 
 
 

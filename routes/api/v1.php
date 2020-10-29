@@ -25,9 +25,11 @@ $appRoutes = function() {
     Route::get('/transport_types/{id}/brands/{brand_id}', 'API\FilterController@GET_transport_brand');
     Route::get('/transport_types/{id}/brands/{brand_id}/models', 'API\FilterController@GET_transport_models');
     Route::get('/transport_types/{id}/brands/{brand_id}/models/{model_id}', 'API\FilterController@GET_transport_model');
+    Route::get('/transport_types/{id}/transmissions', 'API\FilterController@GET_transport_transmissions');
+    Route::get('/transport_types/{id}/gears', 'API\FilterController@GET_transport_gears');
+    Route::get('/transport_types/{id}/techs', 'API\FilterController@GET_transport_techs');
 
     Route::get('/manufacture_countries', 'API\FilterController@GET_manufacture_countries');
-
     Route::get('/regions', 'API\RegionController@GET_region');
 
 

@@ -77,6 +77,26 @@ let mutations = {
     SET_TRANSPORT_TYPE: (state, payload) => {
         state.transportFullStore.typeChoosed = payload;
         state.transportFullStore.bodiesChoosed = [];
+
+        state.transportFullStore.fuelsChoosed = [];
+        state.transportFullStore.fuelConsumptionChoosed = {from: null, to: null};
+        state.transportFullStore.mileageChoosed = {from: null, to: null};
+
+        state.transportFullStore.transmissionsChoosed = [];
+        state.transportFullStore.volumeChoosed = {from: null, to: null};
+        state.transportFullStore.doorsChoosed = {from: null, to: null};
+
+        state.transportFullStore.gearsChoosed = [];
+        state.transportFullStore.powerChoosed = {from: null, to: null};
+        state.transportFullStore.seatsChoosed = {from: null, to: null};
+
+        state.transportFullStore.techsChoosed = {
+            security: [],
+            comfort: [],
+            multimedia: [],
+            others: [],
+        }
+
     },
     SET_TRANPORT_ARR: (state, payload) => {
         state.transportTypes = payload.transportTypes;
@@ -104,13 +124,13 @@ let mutations = {
         state.transportFullStore.techsChoosed = payload.techsChoosed;
     },
     SET_TRANSPORT_BODY_CHOOSE: (state, payload) => {
-        const condition = state.transportFullStore.bodiesChoosed.find(function(el){
-            if(payload === el) return true;
+        const condition = state.transportFullStore.bodiesChoosed.find(function (el) {
+            if (payload === el) return true;
         })
 
-        if(condition !== undefined){
+        if (condition !== undefined) {
             state.transportFullStore.bodiesChoosed.splice(state.transportFullStore.bodiesChoosed.indexOf(condition), 1);
-        } else{
+        } else {
             state.transportFullStore.bodiesChoosed.push(payload)
         }
     },
@@ -123,13 +143,13 @@ let mutations = {
     },
 
     SET_TRANSPORT_STATE_CHOOSE: (state, payload) => {
-        const condition = state.transportFullStore.statesChoosed.find(function(el){
-            if(payload === el) return true;
+        const condition = state.transportFullStore.statesChoosed.find(function (el) {
+            if (payload === el) return true;
         })
 
-        if(condition !== undefined){
+        if (condition !== undefined) {
             state.transportFullStore.statesChoosed.splice(state.transportFullStore.statesChoosed.indexOf(condition), 1);
-        } else{
+        } else {
             state.transportFullStore.statesChoosed.push(payload)
         }
     },
@@ -160,13 +180,13 @@ let mutations = {
     },
 
     SET_TRANSPORT_TECHS_CHOOSE: (state, payload) => {
-        const condition = state.transportFullStore.techsChoosed[payload.alias].find(function(el){
-            if(payload.val === el) return true;
+        const condition = state.transportFullStore.techsChoosed[payload.alias].find(function (el) {
+            if (payload.val === el) return true;
         })
 
-        if(condition !== undefined){
+        if (condition !== undefined) {
             state.transportFullStore.techsChoosed[payload.alias].splice(state.transportFullStore.techsChoosed[payload.alias].indexOf(condition), 1);
-        } else{
+        } else {
             state.transportFullStore.techsChoosed[payload.alias].push(payload.val)
         }
 
@@ -178,7 +198,18 @@ let mutations = {
     },
     SET_TRANSPORT_BODIES_FROM_API: (state, payload) => {
         state.transportBodies = payload;
-    }
+    },
+    SET_TRANSMISSIONS_FROM_API: (state, payload) => {
+        state.transportTransmissions = payload;
+    },
+    SET_GEARS_FROM_API: (state, payload) => {
+        state.transportGears = payload;
+    },
+    SET_TECHS_FROM_API: (state, payload) => {
+        state.transportTechs = payload;
+    },
+
+
 }
 
 let actions = {
@@ -201,6 +232,37 @@ let actions = {
                 console.log('error', error)
             })
     },
+    TRANSMISSIONS_FROM_API: async (context, payload) => {
+        HTTP.get(payload)
+            .then(response => {
+                context.commit('SET_TRANSMISSIONS_FROM_API', response.data);
+            })
+            .catch(error =>{
+                console.log('error', error)
+            })
+    },
+
+    GEARS_FROM_API: async (context, payload) => {
+        HTTP.get(payload)
+            .then(response => {
+                context.commit('SET_GEARS_FROM_API', response.data);
+            })
+            .catch(error =>{
+                console.log('error', error)
+            })
+    },
+
+    TECHS_FROM_API: async (context, payload) => {
+        HTTP.get(payload)
+            .then(response => {
+                context.commit('SET_TECHS_FROM_API', response.data);
+            })
+            .catch(error =>{
+                console.log('error', error)
+            })
+    },
+
+
 };
 
 export default {

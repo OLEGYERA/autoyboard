@@ -193,6 +193,64 @@ class FilterController extends BasicController
         return $this->JSON($selecting_data->get(),200);
     }
 
+    public function GET_transport_transmissions($id, Request $request){
+        $tt = $this->GET_transport_type($id, $request, true);
+        if(empty($tt)) return $this->JSON([],200);
+
+        $requests = $this->RequestExplode($request);
+
+        $selecting_query = ['tranport_ch_transmissions.id as val', $requests['langType'] . ' as name'];
+
+        if($requests['alias']){
+            array_push($selecting_query, 'alias');
+        }
+
+        $transmissions = $tt->transmissions()->select($selecting_query)->get();
+
+        return $this->JSON(empty($transmissions) ? [] : $transmissions,200);
+    }
+
+    public function GET_transport_gears($id, Request $request){
+        $tt = $this->GET_transport_type($id, $request, true);
+        if(empty($tt)) return $this->JSON([],200);
+
+        $requests = $this->RequestExplode($request);
+
+        $selecting_query = ['tranport_ch_gears.id as val', $requests['langType'] . ' as name'];
+
+        if($requests['alias']){
+            array_push($selecting_query, 'alias');
+        }
+
+        $gears = $tt->gears()->select($selecting_query)->get();
+
+        return $this->JSON(empty($gears) ? [] : $gears,200);
+    }
+
+    public function GET_transport_techs($id, Request $request){
+        $tt = $this->GET_transport_type($id, $request, true);
+        if(empty($tt)) return $this->JSON([],200);
+
+        $requests = $this->RequestExplode($request);
+
+        $selecting_query = ['tranport_ch_gears.id as val', $requests['langType'] . ' as name'];
+
+        if($requests['alias']){
+            array_push($selecting_query, 'alias');
+        }
+
+        $transportTechs = [];
+        $transportTechs['security'] = $tt->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'security')->get();
+        $transportTechs['comfort'] = $tt->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'comfort')->get();
+        $transportTechs['multimedia'] = $tt->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'multimedia')->get();
+        $transportTechs['others'] = $tt->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'others')->get();
+
+        return $this->JSON(empty($transportTechs) ? [] : $transportTechs,200);
+    }
+
+
+
+
 
 
 

@@ -31,6 +31,12 @@ export const routingSplicerBus = new Vue({
             strProps += arr.priceChoosed.from ? 'sch[priceF]=' + arr.priceChoosed.from + '&' : '';
             strProps += arr.priceChoosed.to ? 'sch[priceT]=' + arr.priceChoosed.to + '&' : '';
 
+            strProps += arr.sortingChoosed ? 'sch[sort]=' + arr.sortingChoosed + '&' : '';
+            strProps += arr.periodChoosed ? 'sch[period]=' + arr.periodChoosed + '&' : '';
+            strProps += arr.relevanceChoosed ? 'sch[rel]=' + arr.relevanceChoosed + '&' : '';
+            strProps += arr.showChoosed ? 'sch[show]=' + arr.showChoosed + '&' : '';
+
+
             return strProps.substring(0, strProps.length - 1);
         },
         creatingTRANSPORTsProps(arr) {

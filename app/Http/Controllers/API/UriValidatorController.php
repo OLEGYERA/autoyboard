@@ -8,6 +8,10 @@ use App\TransportType;
 use App\TransportChColor;
 use App\TransportChState;
 use App\TransportChFuel;
+use App\SystemSorting;
+use App\SystemPeriod;
+use App\SystemRelevance;
+use App\SystemShow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -112,6 +116,10 @@ class UriValidatorController extends BasicController
     protected function validateSearchDetailMain($data){
         $this->verifiedData['autoCond'] = (isset($data['sch']['autoCond']) && $data['sch']['autoCond'] <= 3 && $data['sch']['autoCond'] >= 1) ? intval($data['sch']['autoCond']) : 1;
         $this->verifiedData['curr'] = (isset($data['sch']['curr']) && $data['sch']['curr'] <= 3 && $data['sch']['curr'] >= 1) ? intval($data['sch']['curr']) : 1;
+        $this->verifiedData['sorting'] = (isset($data['sch']['sort']) && $data['sch']['sort'] <= SystemSorting::count() && $data['sch']['sort'] >= 1) ? intval($data['sch']['sort']) : 1;
+        $this->verifiedData['period'] = (isset($data['sch']['period']) && $data['sch']['period'] <= SystemPeriod::count() && $data['sch']['period'] >= 1) ? intval($data['sch']['period']) : 1;
+        $this->verifiedData['relevance'] = (isset($data['sch']['rel']) && $data['sch']['rel'] <= SystemRelevance::count() && $data['sch']['rel'] >= 1) ? intval($data['sch']['rel']) : 1;
+        $this->verifiedData['show'] = (isset($data['sch']['show']) && $data['sch']['show'] <= SystemShow::count() && $data['sch']['show'] >= 1) ? intval($data['sch']['show']) : 1;
 
         if(!isset($data['sch'])){
             $this->analizeSearchDetailAlias();
@@ -170,6 +178,20 @@ class UriValidatorController extends BasicController
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'autoConditionChoosed', $this->verifiedData['autoCond']);
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'searchPropsChoosed', $searchPropsChoosed);
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'priceChoosed', $priceChoosed);
+
+
+
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'sortingChoosed', $this->verifiedData['sorting']);
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemSorting', SystemSorting::select(['id as val', 'rtitle as name'])->get());
+
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'periodChoosed', $this->verifiedData['period']);
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemPeriod', SystemPeriod::select(['id as val', 'rtitle as name'])->get());
+
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'relevanceChoosed', $this->verifiedData['relevance']);
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemRelevance', SystemRelevance::select(['id as val', 'rtitle as name'])->get());
+
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'showChoosed', $this->verifiedData['show']);
+        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemShow', SystemShow::select(['id as val', 'rtitle as name'])->get());
 
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'searchDetailFullStore', $searchDetailFullStores);
     }
@@ -370,8 +392,6 @@ class UriValidatorController extends BasicController
         $transportTechs['multimedia'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'multimedia')->get();
         $transportTechs['others'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'others')->get();
         $transportFullStores = Arr::add($transportFullStores, 'transportTechs', $transportTechs);
-
-
 
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
