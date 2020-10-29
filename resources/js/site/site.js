@@ -34,6 +34,7 @@ Vue.component('yselectsearch', require('./components/yselectsearch').default);
 Vue.component('yselectmultysearch', require('./components/yselectmultysearch').default);
 Vue.component('ycheck', require('./components/ycheck').default);
 Vue.component('yprice', require('./components/yprice').default);
+Vue.component('ypaginaton', require('./components/ypagination').default);
 
 
 Vue.component('yfsearch', require('./components/yregionsearch').default);

@@ -779,6 +779,104 @@
                     cursor: pointer;
                 }
             }
+            .yb-full_img{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 4%;
+                .yb-full_carousel {
+                    width: 10%;
+                    position: relative;
+                    overflow: hidden;
+                    max-height: 700px;
+                    .chunk_item{
+                        width: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        border-radius: 12px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0;
+                        .yb_count-img{
+                            position: absolute;
+                            box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-family: $noto;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: em(20);
+                            line-height: 33px;
+                            color: #FFFFFF;
+                            span{
+                                margin: 8px;
+                            }
+                        }
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                        img{
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .yb-carousel_chunk{
+                        width: 100%;
+                        overflow: scroll;
+                        position: relative;
+                        margin: 0;
+                        padding: 0;
+                        align-items: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        flex-direction: column;
+
+                    }
+                }
+                //.yb-carousel_vis{
+                //    position: relative;
+                //    width: 10%;
+                //    display: flex;
+                //    align-items: center;
+                //    justify-content: center;
+                //    flex-direction: column;
+                //    max-height: 680px;
+                //
+                //
+                //}
+                .y-current_img{
+                    width: 50%;
+                    max-height: 540px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 auto;
+                    padding: 0;
+                    justify-content: center;
+                    position: relative;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                    .yb_prev{
+                        position: absolute;
+                        left: 0;
+                        cursor: pointer;
+                    }
+                    .yb_next{
+                        position: absolute;
+                        right: 0;
+                        cursor: pointer;
+                    }
+                }
+            }
             .yb-full_box{
                 cursor: pointer;
                 -webkit-user-select: none;
@@ -829,161 +927,6 @@
                     }
                 }
             }
-                .y-current_img{
-                    width: 50%;
-                    max-height: 540px;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    margin: 0 auto;
-                    padding: 0;
-                    justify-content: center;
-                    position: relative;
-                    overflow: hidden;
-                    img{
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                        .yb_prev{
-                            position: absolute;
-                            left: 0;
-                            cursor: pointer;
-                        }
-                        .yb_next{
-                            position: absolute;
-                            right: 0;
-                            cursor: pointer;
-                        }
-                }
-                .yb-carousel_vis{
-                    position: relative;
-                    width: 60%;
-                    margin: 0 auto;
-                    padding: 20px 0 0;
-                    display: flex;
-                    align-items: center;
-                    .y_vis-controls{
-                        position: absolute;
-                        z-index: 2;
-                        cursor: pointer;
-                    }
-                    .prev{
-                        left: -80px;
-                    }
-                    .next{
-                        right: -80px;
-                    }
-                    .yb-full_carousel {
-                        width: 100%;
-                        height: 120px;
-                        position: relative;
-                        overflow: hidden;
-                        .yb-carousel_chunk{
-                            overflow: hidden;
-                            position: relative;
-                            width: 100%;
-                            height: 100%;
-                            display: flex;
-                            margin: 0;
-                            padding: 0;
-                            align-items: center;
-                            scrollbar-width: none;
-                            -webkit-overflow-scrolling: touch;
-                            .chunk_item{
-                                width: 16%;
-                                height: 100%;
-                                overflow: hidden;
-                                position: relative;
-                                margin-right: 10px;
-                                border-radius: 12px;
-                                cursor: pointer;
-                                display: flex;
-                                .yb_count-img{
-                                    position: absolute;
-                                    box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
-                                    width: 100%;
-                                    height: 100%;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-family: $noto;
-                                    font-style: normal;
-                                    font-weight: 600;
-                                    font-size: em(20);
-                                    line-height: 33px;
-                                    color: #FFFFFF;
-                                    span{
-                                        margin: 8px;
-                                    }
-                                }
-                                &:last-child{
-                                    margin-right: 0;
-                                }
-                                img{
-                                    width: 100%;
-                                    object-fit: cover;
-                                }
-                            }
-                        }
-                    }
-                    //transition to slides
-                    .slide_next-enter-active,
-                    .slide_prev-enter-active {
-                        -webkit-transition: -webkit-transform 0.5s;
-                        transition: -webkit-transform 0.5s;
-                        transition: transform 0.5s;
-                        transition: transform 0.5s, -webkit-transform 0.5s;
-                    }
-                    .slide_next-enter {
-                        -webkit-transform: translateX(100%);
-                        transform: translateX(100%);
-                    }
-                    .slide_prev-enter {
-                        -webkit-transform: translateX(-100%);
-                        transform: translateX(-100%);
-                    }
-                    //end transition
-                }
-                .yb_carousel-controls{
-                    -webkit-user-select: none;
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                    user-select: none;
-                    display: -webkit-box;
-                    display: flex;
-                    width: 60%;
-                    margin: 0 auto;
-                    -webkit-box-pack: justify;
-                    justify-content: space-between;
-                    -webkit-box-align: center;
-                    align-items: center;
-                    margin-top: 15px;
-                    .yb_controls_dot{
-                        border-radius: 12%;
-                        width: 25px;
-                        height: 25px;
-                        cursor: pointer;
-                        line-height: 1.2rem;
-                        text-align: center;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-family: $aleg;
-                        font-size: em(16);
-                        background: #FFFF;
-                        color: black;
-                        &.active_dot{
-                            cursor: none;
-                            background-color: $darkblue;
-                            color: #ffffff;
-                            font-weight: bold;
-                            -webkit-transform: scale(1.4, 1.4);
-                            transform: scale(1.4, 1.4);
-                        }
-                    }
-                }
-
-
         }
         .mobile_vis{
             display: none;

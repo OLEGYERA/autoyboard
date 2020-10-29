@@ -16,41 +16,55 @@
                    class="fas fa-times">
                 </i>
             </div>
-                <figure class="y-current_img">
-                    <img class="currImg" :src="imgList[currImgIdx]"  alt=""/>
-                        <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
-                        </svg>
-                        <svg class="yb_next" @click="nextImage" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-                            <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
-                        </svg>
-                </figure>
-                <div class="yb-carousel_vis">
-                    <svg class="y_vis-controls prev" @click="prevChunk" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
-                    </svg>
-                    <transition-group ref="scrollTo" class="yb-full_carousel" :name="transition_name" tag="div">
-                        <ul class="yb-carousel_chunk" v-for="(chunk, i) in arrImage" v-show="currSlide === i" :key="i">
-                            <li class="chunk_item"
-                                v-for="(item,j) in chunk" :key="j"
-                                @click="currImgIdx = j+(i*imgShow)"
-                                :class="{active_item: item === imgList[currImgIdx]}">
-                                <img  :src="item" alt=""/>
+            <div class="yb-full_img">
+                    <div ref="scrollTo" class="yb-full_carousel" >
+                            <figure class="chunk_item"
+                                v-for="(item,j) in imgList"
+                                :key="j"
+                                @click="currImgIdx = j"
+                                :class="{active_item: item === imgList[currImgIdx]}"
+                            >
                                 <div v-if="item === imgList[currImgIdx]" class="yb_count-img">
                                     <span>{{currImgIdx + 1}}</span>
-                                    из
+                                                из
                                     <span>{{imgList.length}}</span>
                                 </div>
-                            </li>
-                        </ul>
-                    </transition-group>
-                    <svg class="y_vis-controls next" @click="nextChunk" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                                <img  :src="item" alt=""/>
+                            </figure>
+
+<!--                        <ul class="yb-carousel_chunk" -->
+<!--                            v-for="(chunk, i) in arrImage" -->
+<!--                            v-show="currSlide === i" :key="i"-->
+<!--                        >-->
+<!--                            <li class="chunk_item"-->
+<!--                                v-for="(item,j) in chunk" :key="j"-->
+<!--                                @click="currImgIdx = j+(i*imgShow)"-->
+<!--                                :class="{active_item: item === imgList[currImgIdx]}">-->
+<!--                                <img  :src="item" alt=""/>-->
+<!--                                <div v-if="item === imgList[currImgIdx]" class="yb_count-img">-->
+<!--                                    <span>{{currImgIdx + 1}}</span>-->
+<!--                                    из-->
+<!--                                    <span>{{imgList.length}}</span>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+                    </div>
+
+                <figure class="y-current_img">
+                    <img class="currImg" :src="imgList[currImgIdx]"  alt=""/>
+                    <svg class="yb_prev" @click="prevImage" width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z" fill="white"/>
+                    </svg>
+                    <svg class="yb_next" @click="nextImage" width="30" height="57" viewBox="0 0 30 57" fill="none" xmlns="http://www.w3.org/2000/svg">-->
                         <path d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z" fill="white"/>
                     </svg>
-                </div>
-                <div class="yb_carousel-controls">
-                    <div class="yb_controls_dot" v-for="(dot, i) in arrImage" :class="{active_dot : currSlide === i}" @click="goToChunk(i)">{{i+1}}</div>
-                </div>
+                </figure>
+            </div>
+
+
+<!--                <div class="yb_carousel-controls">-->
+<!--                    <div class="yb_controls_dot" v-for="(dot, i) in arrImage" :class="{active_dot : currSlide === i}" @click="goToChunk(i)">{{i+1}}</div>-->
+<!--                </div>-->
             </div>
         <div class="yb_auto-preview">
             <div class="yb_auto_vis-l">
@@ -803,7 +817,7 @@ export default {
                 endX: 0
             }, // obj from touch slider in mobile visible
             //end slider fullPage
-            showSlider: false,
+            showSlider: true,
             imgFullList: false, //show all small img
             windowWidth: 0,
             verifiedCar: true,
