@@ -5,9 +5,16 @@ use App\Http\Controllers\Aggregator\Kernel\Core;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
 use App\TransportType;
 use App\ParserUrlList;
+use App\ParserMainCard;
+use App\ParserBodyCard;
+use App\ParserStateCard;
+use App\ParserSecurityCard;
+use App\ParserComfortCard;
+use App\ParserMultimediaCard;
+use App\ParserOtherCard;
+
 
 class AutoRia extends Core
 {
@@ -27,7 +34,7 @@ class AutoRia extends Core
     }
     protected function collectLinks($page, $resource_type_id, $transport_type){
         $url = $this->resource_domain . 'search/?indexName=auto&categories.main.id=' . $resource_type_id . '&price.currency=1&sort[0].order=dates.created.desc&top=1&abroad.not=-1&custom.not=-1&page=' . $page . '&size=100';
-        $content = $this->getPage('https://auto.ria.com/search?indexName=auto&categories.main.id=6&price.currency=1&sort[0].order=dates.created.desc&top=1&abroad.not=-1&custom.not=-1&page=0&size=10');
+        $content = $this->getPage($url);
         if(!$content) return false;
 
         $dom = $this->readPage($content);
@@ -51,10 +58,10 @@ class AutoRia extends Core
     }
 
     public function runCollectCards(){
-        $cardURLs = ParserUrlList::where('status', 1)->get();
+        $cardURLs = $this->prepareUrlList($_SERVER['SERVER_PORT']);
         if($cardURLs->count() != 0){
             foreach ($cardURLs as $key=> $cardURL){
-                if($key !== 3) continue;
+                $cardURL->status = 2; $cardURL->save();
                 $this->cardData = [];
                 $this->cardData['state'] = [];
                 $this->cardData['security'] = [];
@@ -66,36 +73,133 @@ class AutoRia extends Core
         }
     }
 
+    protected function prepareUrlList($port){
+//        foreach (ParserUrlList::all() as $i){
+//            $i->status = 1; $i->save();
+//        }
+//        dd(13);
+        $cardURLs = ParserUrlList::where('status', 1)->take(90)->get();
+        foreach ($cardURLs as $cardURL){
+            $cardURL->status = $port;
+            $cardURL->save();
+        }
+        return $cardURLs;
+    }
+
     protected function CollectCard($cardURL){
         $content = $this->getPage($cardURL->url);
-        if(!$content) echo 'Error';
-
+        if(!$content){
+            $cardURL->status = -1;
+            $cardURL->save();
+            return false;
+        }
         $dom = $this->readPage($content, false);
-        $this->cardData['mainProps'] = $this->collectMainProps($dom, $cardURL);
-        if($this->cardData['mainProps'] == false) echo 'Error';
-        $this->collectPhotos($dom, $cardURL);
-        $this->collectLabels($dom, $cardURL);
-        $this->collectTechs($dom, $cardURL);
 
-        dd($this->cardData);
+        if(!$this->collectMainProps($dom, $cardURL)){
+            $cardURL->status = 0;
+            $cardURL->save();
+            return false;
+        }
+        $this->collectLabels($dom, $cardURL);
+        $this->collectPhotos($dom, $cardURL);
+        $this->collectTechs($dom, $cardURL);
+        $this->createParserCard($cardURL);
+        $cardURL->status = 3; $cardURL->save();
+    }
+
+    protected function createParserCard($cardURL){
+        echo $cardURL->url . '<br/>';
+        $main = (new ParserMainCard)->create([
+            'id' => $cardURL->id,
+            'brand_id' => $this->cardData['mainProps']['brandModel']['brandID'],
+            'model_id' => $this->cardData['mainProps']['brandModel']['modelID'],
+            'region_id' => $this->cardData['mainProps']['regions']['regionID'],
+            'city_id' => $this->cardData['mainProps']['regions']['cityID'],
+            'manufacture_id' => isset($this->cardData['manufacureID']) ? $this->cardData['manufacureID'] : null,
+            'modification' => $this->cardData['mainProps']['additional']['mod'],
+            'year' => intval($this->cardData['mainProps']['additional']['year']),
+            'chat_link' => $this->cardData['mainProps']['additional']['chat_link'],
+            'price_value' => intval($this->cardData['mainProps']['additional']['priceVal']),
+            'price_currency' => intval($this->cardData['mainProps']['additional']['priceCur']),
+            'resource_created' => Carbon::create($this->cardData['mainProps']['additional']['resource_create_date']),
+            'resource_updated' => Carbon::create($this->cardData['mainProps']['additional']['resource_update_date']),
+            'description' => $this->cardData['mainProps']['description'],
+            'abroad' => isset($this->cardData['special']['abroad']) ? $this->cardData['special']['abroad'] : false,
+            'credit' => isset($this->cardData['special']['credit']) ? $this->cardData['special']['credit'] : false,
+            'accident' => isset($this->cardData['special']['accident']) ? $this->cardData['special']['accident'] : false,
+            'noMotion' => isset($this->cardData['special']['noMotion']) ? $this->cardData['special']['noMotion'] : false,
+            'exchange' => isset($this->cardData['special']['exchange']) ? $this->cardData['special']['exchange'] : false,
+            'bargain' => isset($this->cardData['special']['bargain']) ? $this->cardData['special']['bargain'] : false,
+            'customsСleared' => isset($this->cardData['special']['customsСleared']) ? $this->cardData['special']['customsСleared'] : false,
+        ]);
+
+        $body = (new ParserBodyCard)->create([
+            'id' => $cardURL->id,
+            'body_id' => isset($this->cardData['body']['body']) ? $this->cardData['body']['body'] : null,
+            'fuel_id' => isset($this->cardData['body']['fuels']['type']) ? $this->cardData['body']['fuels']['type'] : null,
+            'transmission_id' => isset($this->cardData['body']['transmission']) ? $this->cardData['body']['transmission'] : null,
+            'gear_id' => isset($this->cardData['body']['gear']) ? $this->cardData['body']['gear'] : null,
+            'color_id' => isset($this->cardData['body']['color']['color']) ? $this->cardData['body']['color']['color'] : null,
+            'doors' => isset($this->cardData['body']['doors']) ? intval($this->cardData['body']['doors']) : null,
+            'seats' => isset($this->cardData['body']['seats']) ? intval($this->cardData['body']['seats']) : null,
+            'mileage' => isset($this->cardData['body']['mileage']) ? intval($this->cardData['body']['mileage']) : null,
+            'volume' => isset($this->cardData['body']['volume']) ? intval($this->cardData['body']['volume']) : null,
+            'horse' => isset($this->cardData['body']['horse']) ? intval($this->cardData['body']['horse']) : null,
+            'kilowatt' => isset($this->cardData['body']['kilowatt']) ? intval($this->cardData['body']['kilowatt']) : null,
+            'cons_city' => isset($this->cardData['body']['city']) ? intval($this->cardData['body']['city']) : null,
+            'cons_track' => isset($this->cardData['body']['track']) ? intval($this->cardData['body']['track']) : null,
+            'cons_mixed' => isset($this->cardData['body']['mixed']) ? intval($this->cardData['body']['mixed']) : null,
+            'metalic' => isset($this->cardData['body']['metalic']) ? $this->cardData['body']['metalic'] : false,
+        ]);
+
+        if(count($this->cardData['state']) > 0){
+            foreach ($this->cardData['state'] as $state){
+                $state = (new ParserStateCard)->create(['url_id' => $cardURL->id, 'state_id' => $state]);
+            }
+        }
+
+        if(count($this->cardData['security']) > 0){
+            foreach ($this->cardData['security'] as $state){
+                $security = (new ParserSecurityCard)->create(['url_id' => $cardURL->id, 'security_id' => $state]);
+            }
+        }
+
+        if(count($this->cardData['comfort']) > 0){
+            foreach ($this->cardData['comfort'] as $state){
+                $comfort = (new ParserComfortCard)->create(['url_id' => $cardURL->id, 'comfort_id' => $state]);
+            }
+        }
+
+        if(count($this->cardData['multimedia']) > 0){
+            foreach ($this->cardData['multimedia'] as $state){
+                $multimedia = (new ParserMultimediaCard)->create(['url_id' => $cardURL->id, 'multimedia_id' => $state]);
+            }
+        }
+
+        if(count($this->cardData['other']) > 0){
+            foreach ($this->cardData['other'] as $state){
+                $oher = (new ParserOtherCard)->create(['url_id' => $cardURL->id, 'other_id' => $state]);
+            }
+        }
     }
 
     private function collectMainProps($dom, $cardURL){
         $scriptData = $dom->find('script[data-base-url]');
         if(count($scriptData) === 0) return false;
         $brandModelArrID = $this->getBrandModelArrID($scriptData->getAttribute('data-mark-name'), $scriptData->getAttribute('data-model-name'), $cardURL);
-        // создать условия
+        if($brandModelArrID['brandID'] == null || $brandModelArrID['modelID'] == null) return false;
+
         $locationData = $dom->find('.breadcrumbs a');
         if(count($locationData) === 0) return false;
         $regionArrID = $this->getRegionsArrID($locationData[1]->firstChild()->text, $locationData[2]->firstChild()->text);
-        // создать условия
+        if($regionArrID['regionID'] == null || $regionArrID['cityID'] == null) return false;
 
         $transportAddArr = [
             'mod' => $scriptData->getAttribute('data-modification') !== '' ? $scriptData->getAttribute('data-modification') : null,
             'year' => $scriptData->getAttribute('data-year') !== '' ? $scriptData->getAttribute('data-year') : null,
             'chat_link' => $scriptData->getAttribute('data-chat-link') !== '' ? $scriptData->getAttribute('data-chat-link') : null,
             'priceVal' => $scriptData->getAttribute('data-seller-price') !== '' ? $scriptData->getAttribute('data-seller-price') : null,
-            'priceCur' => $scriptData->getAttribute('data-currency') !== '' ? $scriptData->getAttribute('data-currency') : null,
+            'priceCur' => $this->getCurrency($scriptData->getAttribute('data-currency')),
             'resource_create_date' => $scriptData->getAttribute('data-add-date') !== '' ? $scriptData->getAttribute('data-add-date') : null,
             'resource_update_date' => $scriptData->getAttribute('data-update-date') !== '' ? $scriptData->getAttribute('data-update-date') : null,
         ];
@@ -106,28 +210,13 @@ class AutoRia extends Core
             $description = $decriptionData->text;
         }
 
-        return [
+        $this->cardData['mainProps'] = [
             'description' => $description,
             'brandModel' => $brandModelArrID,
             'regions' => $regionArrID,
             'additional' => $transportAddArr
         ];
-    }
-
-    private function collectPhotos($dom, $cardURL){
-        $photoData = $dom->find('.carousel-inner .photo-620x465 picture img');
-
-        if(count($photoData) === 1 && strpos($photoData->getAttribute('src'), 'nophoto') !== false){
-            return $this->performImages(false, $cardURL->id);
-        };
-
-        $photoArr = [];
-        foreach($photoData as $key=>$photo_item){
-            array_push($photoArr, $photo_item->getAttribute('src'));
-        }
-
-        return $this->performImages($photoArr, $cardURL->id);
-
+        return true;
     }
 
     private function collectLabels($dom, $cardURL){
@@ -163,12 +252,25 @@ class AutoRia extends Core
         if(count($customsCleared) !== 0 && $customsCleared->firstChild()->text == "Авто не розмитнено"){
             $this->cardData['special']['customsСleared'] = true;
         }
-        else{
-            $this->cardData['special']['customsСleared'] = false;
-        }
 
         return true;
     }
+
+    private function collectPhotos($dom, $cardURL){
+        $photoData = $dom->find('.carousel-inner .photo-620x465 picture img');
+
+        if(count($photoData) === 1 && strpos($photoData->getAttribute('src'), 'nophoto') !== false){
+            return $this->performImages(false, $cardURL->id);
+        };
+
+        $photoArr = [];
+        foreach($photoData as $key=>$photo_item){
+            array_push($photoArr, $photo_item->getAttribute('src'));
+        }
+
+        $photoUrls = $this->performImages($photoArr, $cardURL->id);
+    }
+
 
     private function collectTechs($dom, $cardURL){
         $techData = $dom->find('#description_v3 dd');
@@ -321,7 +423,6 @@ class AutoRia extends Core
                         array_push($this->cardData['multimedia'], $this->getTechID($sub_text, 'multimedia', $cardURL));
                         break;
                     case 'others':
-                        echo $sub_text . '<br/>';
                         array_push($this->cardData['other'], $this->getTechID($sub_text, 'others', $cardURL));
                         break;
                 }
@@ -329,6 +430,22 @@ class AutoRia extends Core
             }
         }
         return true;
+    }
+
+    private function getCurrency($val){
+        switch ($val){
+            case 'USD':
+                return 1;
+                break;
+            case 'UAH':
+                return 2;
+                break;
+            case 'EUR':
+                return 3;
+                break;
+            default:
+                return null;
+        }
     }
 }
 

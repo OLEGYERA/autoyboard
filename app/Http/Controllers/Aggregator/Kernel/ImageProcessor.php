@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Storage;
+use App\ParserPhotoCard;
 
 use App\TransportType;
 use App\UkrainianRegion;
@@ -15,21 +16,28 @@ class ImageProcessor extends Controller
         if($imageArr !== false){
             foreach ($imageArr as $key => $image_url){
                 $trusUrl = $this->createTrusUrl($image_url);
-                $image = Image::make($trusUrl);
+                try {
+                    $image = Image::make($trusUrl);
+                } catch (\Exception $e){
+                    continue;
+                }
+
                 $watermark = Image::make('img/system/logos/logo_white.png');
                 $image->insert($watermark, 'bottom-left', 5, 5);
 
                 $size = $this->createTrusSize($image->getWidth(), $image->getHeight());
-                $large = $image->resize($size['w'], $size['h']);
+                $auto_photo = $image->resize($size['w'], $size['h']);
+                $auto_photo = $auto_photo->encode('jpg', 70);
+                $auto_photo_path = 'auto/' . $id . '/' . 'photo_' . $key . '.jpg';
 
-                $large = $large->encode('jpg', 70);
-                Storage::disk('webdav')->put('folder/' . $id . '/' . $key . '-large.jpg', $large->__toString());
+                if(Storage::disk('webdav')->put($auto_photo_path, $auto_photo)) (new ParserPhotoCard)->create([
+                    'url_id' => $id,
+                    'path' => $auto_photo_path
+                ]);
             }
-            return true;
         }
-        else{
-            return false;
-        }
+
+        return true;
     }
 
     protected function createTrusUrl($image_url){
