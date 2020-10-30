@@ -741,9 +741,8 @@
             background: #010E22;
             .yb_slide-header{
                 display: flex;
-                align-items: center;
                 justify-content: space-between;
-                padding: 15px 35px 0 35px;
+                padding: 25px 30px 0 35px;
                 .yb-slide_left{
                     .yb_car-name{
                         font-family: $rale;
@@ -784,60 +783,72 @@
                 align-items: center;
                 justify-content: space-between;
                 padding: 0 4%;
-                .yb-full_carousel {
-                    width: 10%;
-                    position: relative;
-                    overflow: hidden;
-                    max-height: 700px;
-                    .chunk_item{
+                margin-top: 20px;
+                .yb-scroll_vis{
+                    width: 15%;
+                    //vue scroll library custom style
+                    .__vuescroll{
+                        .__rail-is-horizontal{
+                            display: none;
+                        }
+                    }
+                    // end vue scroll library custom style
+                    .yb-full_carousel {
                         width: 100%;
-                        overflow: hidden;
                         position: relative;
-                        border-radius: 12px;
-                        cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 0;
-                        .yb_count-img{
-                            position: absolute;
-                            box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
+                        max-height: 670px;
+                        padding-right: 20px;
+                        .chunk_item{
                             width: 100%;
-                            height: 100%;
+                            overflow: hidden;
+                            position: relative;
+                            border-radius: 12px;
+                            cursor: pointer;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            font-family: $noto;
-                            font-style: normal;
-                            font-weight: 600;
-                            font-size: em(20);
-                            line-height: 33px;
-                            color: #FFFFFF;
-                            span{
-                                margin: 8px;
+                            margin: 0 0 20px 0;
+                            .yb_count-img{
+                                position: absolute;
+                                box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-family: $noto;
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: em(20);
+                                line-height: 33px;
+                                color: #FFFFFF;
+                                span{
+                                    margin: 8px;
+                                }
+                            }
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                            img{
+                                width: 100%;
+                                object-fit: cover;
                             }
                         }
-                        &:last-child{
-                            margin-right: 0;
-                        }
-                        img{
+                        .yb-carousel_chunk{
                             width: 100%;
-                            object-fit: cover;
+                            overflow: scroll;
+                            position: relative;
+                            margin: 0;
+                            padding: 0;
+                            align-items: center;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            flex-direction: column;
+
                         }
                     }
-                    .yb-carousel_chunk{
-                        width: 100%;
-                        overflow: scroll;
-                        position: relative;
-                        margin: 0;
-                        padding: 0;
-                        align-items: center;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        flex-direction: column;
 
-                    }
                 }
                 //.yb-carousel_vis{
                 //    position: relative;
@@ -851,9 +862,7 @@
                 //
                 //}
                 .y-current_img{
-                    width: 50%;
-                    max-height: 540px;
-                    height: 100%;
+                    width: 60%;
                     display: flex;
                     align-items: center;
                     margin: 0 auto;
@@ -867,13 +876,29 @@
                     }
                     .yb_prev{
                         position: absolute;
-                        left: 0;
+                        left: 30px;
                         cursor: pointer;
                     }
                     .yb_next{
                         position: absolute;
-                        right: 0;
+                        right: 30px;
                         cursor: pointer;
+                    }
+                    .yb-link_increase{
+                        position: absolute;
+                        right: 38px;
+                        bottom: 23px;
+                        z-index: 2;
+                        background: rgba(0, 0, 0, 0.64);
+                        border-radius: 12px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1% 2%;
+                        i{
+                            font-size: 25px;
+                            color: #ffffff;
+                        }
                     }
                 }
             }
@@ -1084,6 +1109,13 @@
                                 .yb_location-car{
                                     font-size: em(20);
                                 }
+                            }
+                        }
+                    }
+                    .yb-full_img{
+                        .yb-scroll_vis{
+                            .yb-full_carousel{
+                                max-height: 550px;
                             }
                         }
                     }
@@ -2145,9 +2177,9 @@
                     .y-current_img{
                         width: 100%;
                         height: auto;
-                        margin-top: 80px;
-                        svg{
-                            display: none;
+                        margin: 60px 0 0 0;
+                        img{
+                            width: 100%;
                         }
                     }
                     .yb_count-image{
@@ -2163,12 +2195,6 @@
                             color: #FFFFFF;
                             margin: 0 7px;
                         }
-                    }
-                    .yb-carousel_vis{
-                        display: none;
-                    }
-                    .yb_carousel-controls{
-                        display: none;
                     }
                 }
             }
