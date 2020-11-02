@@ -74,9 +74,9 @@ return [
 
         'webdav' => [
             'driver'     => 'webdav',
-            'baseUri'    => 'https://nx12279.your-storageshare.de/remote.php/dav/files/Admin/',
+            'baseUri'    => 'https://nx14052.your-storageshare.de/remote.php/dav/files/Admin/',
             'userName'   => 'Admin',
-            'password'   => 'iY59q4wWwsxBbLPC',
+            'password'   => 'CZ2kUNRDSx329eiz',
         ],
 
     ],

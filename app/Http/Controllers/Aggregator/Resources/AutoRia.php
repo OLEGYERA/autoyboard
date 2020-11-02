@@ -73,7 +73,8 @@ class AutoRia extends Core
 //            $i->status = 1; $i->save();
 //        }
 //        dd(13);
-        $cardURLs = ParserUrlList::where('status', 1)->take(50)->get();
+        $cardURLs = ParserUrlList::where('status', 1)->take(60)->get();
+
         foreach ($cardURLs as $cardURL){
             $cardURL->status = $port;
             $cardURL->save();
@@ -82,29 +83,43 @@ class AutoRia extends Core
     }
 
     protected function CollectCard($cardURL){
-        $content = $this->getPage($cardURL->url);
-        if(!$content){
-            $cardURL->status = -1;
+        try {
+            $content = $this->getPage($cardURL->url);
+        } catch (\Exception $e){
+            $cardURL->status = -3;
             $cardURL->save();
             return false;
         }
-        $dom = $this->readPage($content, false);
 
-        if($dom->find('#autoDeletedTopBlock')->count() !== 0){
-            $cardURL->status = -2;
+        try {
+            if (!$content) {
+                $cardURL->status = -1;
+                $cardURL->save();
+                return false;
+            }
+            $dom = $this->readPage($content, false);
+            if ($dom->find('#autoDeletedTopBlock')->count() !== 0) {
+                $cardURL->status = -2;
+                $cardURL->save();
+                return false;
+            }
+            if (!$this->collectMainProps($dom, $cardURL)) {
+                $cardURL->status = 0;
+                $cardURL->save();
+                return false;
+            }
+            $this->collectLabels($dom, $cardURL);
+            $this->collectPhotos($dom, $cardURL);
+            $this->collectTechs($dom, $cardURL);
+            $this->createParserCard($cardURL);
+            $cardURL->status = 3;
+            $cardURL->save();
+        }
+        catch (\Exception $e){
+            $cardURL->status = -4;
             $cardURL->save();
             return false;
         }
-        if(!$this->collectMainProps($dom, $cardURL)){
-            $cardURL->status = 0;
-            $cardURL->save();
-            return false;
-        }
-        $this->collectLabels($dom, $cardURL);
-        $this->collectPhotos($dom, $cardURL);
-        $this->collectTechs($dom, $cardURL);
-        $this->createParserCard($cardURL);
-        $cardURL->status = 3; $cardURL->save();
     }
 
     protected function createParserCard($cardURL){

@@ -20,7 +20,6 @@ class Connection extends Controller
         $response = $this->createGateway($parseURL, 'object');
         //['status' => $response->status, 'headers' => $response->headers, 'content' => $response->content];
         if($response->status == 301 || $response->status == 302){
-
             return $this->connect_to_gateway_object($response->headers['Location']);
         }
 
