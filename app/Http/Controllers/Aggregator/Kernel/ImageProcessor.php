@@ -21,7 +21,7 @@ class ImageProcessor extends Controller
                 } catch (\Exception $e){
                     continue;
                 }
-
+                
                 $watermark = Image::make(asset('img/system/logos/logo_white.png'));
                 $image->insert($watermark, 'bottom-left', 5, 5);
 
@@ -36,7 +36,6 @@ class ImageProcessor extends Controller
                 ]);
             }
         }
-
         return true;
     }
 
