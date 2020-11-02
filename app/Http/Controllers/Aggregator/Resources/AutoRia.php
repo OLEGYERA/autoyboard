@@ -107,6 +107,7 @@ class AutoRia extends Core
     }
 
     protected function createParserCard($cardURL){
+        echo $cardURL->url . '<br/>';
         $main = (new ParserMainCard)->create([
             'id' => $cardURL->id,
             'brand_id' => $this->cardData['mainProps']['brandModel']['brandID'],
