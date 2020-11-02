@@ -73,7 +73,7 @@ class AutoRia extends Core
 //            $i->status = 1; $i->save();
 //        }
 //        dd(13);
-        $cardURLs = ParserUrlList::where('status', 1)->take(1)->get();
+        $cardURLs = ParserUrlList::where('status', 1)->take(50)->get();
         foreach ($cardURLs as $cardURL){
             $cardURL->status = $port;
             $cardURL->save();
