@@ -2,16 +2,17 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\Aggregator\Parse;
 use Illuminate\Console\Command;
 
-class FooCommand extends Command
+class AutoriaParseCard extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'parse:image';
+    protected $signature = 'parse_card:autoria';
 
     /**
      * The console command description.
@@ -33,10 +34,11 @@ class FooCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return int
      */
     public function handle()
     {
-        echo 123;
+        (new Parse())->runParseCards();
+        return 0;
     }
 }

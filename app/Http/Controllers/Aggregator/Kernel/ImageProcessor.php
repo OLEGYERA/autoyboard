@@ -22,7 +22,7 @@ class ImageProcessor extends Controller
                     continue;
                 }
 
-                $watermark = Image::make('img/system/logos/logo_white.png');
+                $watermark = Image::make(asset('img/system/logos/logo_white.png'));
                 $image->insert($watermark, 'bottom-left', 5, 5);
 
                 $size = $this->createTrusSize($image->getWidth(), $image->getHeight());

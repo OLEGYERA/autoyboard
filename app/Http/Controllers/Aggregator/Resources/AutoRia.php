@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Aggregator\Resources;
 use App\Http\Controllers\Aggregator\Kernel\Core;
 
+use Dirape\Token\Token;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\TransportType;
@@ -57,7 +58,7 @@ class AutoRia extends Core
     }
 
     public function runCollectCards(){
-        $cardURLs = $this->prepareUrlList($_SERVER['SERVER_PORT']);
+        $cardURLs = $this->prepareUrlList((new Token())->UniqueNumber('parser_url_lists', 'status', 4));
         if($cardURLs->count() != 0){
             foreach ($cardURLs as $key=> $cardURL){
                 $cardURL->status = 2; $cardURL->save();
@@ -72,7 +73,7 @@ class AutoRia extends Core
 //            $i->status = 1; $i->save();
 //        }
 //        dd(13);
-        $cardURLs = ParserUrlList::where('status', 1)->take(90)->get();
+        $cardURLs = ParserUrlList::where('status', 1)->take(1)->get();
         foreach ($cardURLs as $cardURL){
             $cardURL->status = $port;
             $cardURL->save();
@@ -107,7 +108,6 @@ class AutoRia extends Core
     }
 
     protected function createParserCard($cardURL){
-        echo $cardURL->url . '<br/>';
         $main = (new ParserMainCard)->create([
             'id' => $cardURL->id,
             'brand_id' => $this->cardData['mainProps']['brandModel']['brandID'],
