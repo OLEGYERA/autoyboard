@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/parseLinks', 'Aggregator\Parse@runParseLinks');
 Route::get('/parseCards', 'Aggregator\Parse@runParseCards');
 
-//Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
+Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
 //Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
 //Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
 //Route::get('/home', 'HomeController@index')->name('home');

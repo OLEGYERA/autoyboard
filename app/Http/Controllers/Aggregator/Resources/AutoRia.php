@@ -23,7 +23,7 @@ class AutoRia extends Core
     //change обмен 2 на 1 общий обмен
     public $cardData;
     protected $resource_name = 'AutoRia';
-    protected $resource_domain = 'https://auto.ria.com/'; //изображение возвращается без домена
+    protected $resource_domain = 'https://auto.ria.com/';
 
     public function runCollectLinks(){
         foreach (TransportType::all() as $tt){
@@ -43,7 +43,6 @@ class AutoRia extends Core
         foreach ($transportCards as $transportCard) {
             $href = $transportCard->find('.address')->getAttribute('href');
             if((new ParserUrlList)->isUnique($href)){
-                echo $href . '<br/>';
                 (new ParserUrlList)->create([
                     'autoCondition' => 3,
                     'transport_type' => $transport_type->id,
@@ -62,12 +61,7 @@ class AutoRia extends Core
         if($cardURLs->count() != 0){
             foreach ($cardURLs as $key=> $cardURL){
                 $cardURL->status = 2; $cardURL->save();
-                $this->cardData = [];
-                $this->cardData['state'] = [];
-                $this->cardData['security'] = [];
-                $this->cardData['comfort'] = [];
-                $this->cardData['multimedia'] = [];
-                $this->cardData['other'] = [];
+                $this->cardData = ['state' => [], 'security' => [], 'comfort' => [], 'multimedia' => [], 'other' => []];
                 $this->CollectCard($cardURL);
             }
         }
@@ -95,6 +89,11 @@ class AutoRia extends Core
         }
         $dom = $this->readPage($content, false);
 
+        if($dom->find('#autoDeletedTopBlock')->count() !== 0){
+            $cardURL->status = -2;
+            $cardURL->save();
+            return false;
+        }
         if(!$this->collectMainProps($dom, $cardURL)){
             $cardURL->status = 0;
             $cardURL->save();
@@ -108,7 +107,6 @@ class AutoRia extends Core
     }
 
     protected function createParserCard($cardURL){
-        echo $cardURL->url . '<br/>';
         $main = (new ParserMainCard)->create([
             'id' => $cardURL->id,
             'brand_id' => $this->cardData['mainProps']['brandModel']['brandID'],

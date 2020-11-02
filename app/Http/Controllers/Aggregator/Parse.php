@@ -16,18 +16,12 @@ class Parse extends Controller
     public function runParseLinks(){
         ini_set('max_execution_time', 3600);
         (new AutoRia)->runCollectLinks();
-//        (new UkrHealth)->run();
-//        (new Unews)->run();
-
     }
 
 
     public function runParseCards(){
         ini_set('max_execution_time', 9600);
         (new AutoRia)->runCollectCards();
-//        (new UkrHealth)->run();
-//        (new Unews)->run();
-
     }
 
 }

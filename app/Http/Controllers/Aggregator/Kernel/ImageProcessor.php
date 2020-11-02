@@ -51,10 +51,6 @@ class ImageProcessor extends Controller
     }
 
     protected function createTrusSize($width, $height){
-        if($width > $height){
-
-
-        }
         return $width > $height ? ['w' => 620, 'h' => 465] : ['w' => 450, 'h' => 600];
     }
 
