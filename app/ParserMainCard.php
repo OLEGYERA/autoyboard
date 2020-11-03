@@ -25,7 +25,7 @@ class ParserMainCard extends Model
         return $this->belongsTo('App\UkrainianRegion', 'region_id');
     }
 
-    protected function city(){
+    public function city(){
         return $this->belongsTo('App\UkrainianCity', 'city_id');
     }
 
