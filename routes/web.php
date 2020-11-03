@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/parseLinks', 'Aggregator\Parse@runParseLinks');
 Route::get('/parseCards', 'Aggregator\Parse@runParseCards');
+Route::get('/cardTest/{id}', 'Auto\SearchController@cardTest');
 
 Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
 //Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
@@ -27,7 +28,7 @@ Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
 
 Route::get('/', 'Site\Auto\PageController@start');
 Route::get('/filter', 'Site\Auto\PageController@filter')->name('filter');
-Route::get('/card', 'Site\Auto\PageController@card')->name('card');
+Route::get('/card/{id}', 'Site\Auto\PageController@card')->name('card');
 Route::get('/favorite', 'Site\Auto\PageController@favorite')->name('favorite');
 Route::get('/extended', 'Site\Auto\PageController@extended')->name('extended');
 Route::get('/presentation', 'Site\Auto\PageController@presentation')->name('presentation');
@@ -40,7 +41,7 @@ Route::get('/catbody', 'Site\Auto\PageController@catbody')->name('catbody');
 Route::get('/changelog', 'Site\Auto\PageController@changelog')->name('changelog');
 Route::get('/update', 'Site\Auto\PageController@update')->name('update');
 
-Route::get('/getimg', 'Auto\PageController@generateURL')->name('lol');
+Route::get('/auto/{card_id}/photo_{num}.jpg', 'Auto\ImageConnector@getImage')->name('getImage');
 
 
 

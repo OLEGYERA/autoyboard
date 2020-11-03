@@ -16,13 +16,23 @@ class SearchController extends Controller
         if($autoCondition !== 1) $query = $query->where('autoCondition', $autoCondition);
         $query = $query->where('transport_type', $transportType);
 
-        $query = $query->whereHas('body', function ($q){
-            $q->whereIn('body_id', [1,3]);
-        });
+//        $query = $query->whereHas('body', function ($q){
+////            $q->whereIn('body_id', [1,3]);
+//        });
 
 
 
 //        ParserUrlList::where('')
         return $query->get()->count();
     }
+
+
+    public function cardTest($id){
+
+
+//        dd($base->other);
+
+
+    }
 }
+

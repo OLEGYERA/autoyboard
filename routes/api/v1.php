@@ -43,5 +43,6 @@ $appRoutes = function() {
 
 Route::group(array('domain' => 'api.yboard.com.ua'), $appRoutes);
 Route::group(array('domain' => '10.0.0.137'), $appRoutes);
+Route::group(array('domain' => '127.0.0.1'), $appRoutes);
 Route::group(array('domain' => 'yboard.loc'), $appRoutes);
 

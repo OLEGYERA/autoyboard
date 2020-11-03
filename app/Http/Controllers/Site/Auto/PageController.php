@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site\Auto;
 
+use App\ParserUrlList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,10 +25,38 @@ class PageController extends BasicController
         return $this->renderBasic();
     }
 
-    public function card(){
-
-        $this->content = view('site.auto.card.ru')->render();
+    public function card($id){
+        $card = ParserUrlList::findOrFail($id);
+        $this->content = view('site.auto.card.ru')->with(['card' => $card])->render();
         return $this->renderBasic();
+        //Body
+        //$base->body->typeBody
+        //$base->body->typeFuel
+        //$base->body->typeTransmission
+        //$base->body->typeGear
+        //$base->body->typeColor
+
+        //Main
+        //$base->main->brand
+        //$base->main->model
+        //$base->main->region
+        //$base->main->manufacture
+
+        //Photos
+        //$base->photos
+
+        //$base->state
+        //$base->security
+        //$base->comfort
+        //$base->comfort
+        //$base->other
+
+
+
+        //@if($base->body->typeBody !== null)
+        //
+        //@endif
+
     }
     public function favorite(){
 

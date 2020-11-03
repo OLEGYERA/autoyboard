@@ -12,4 +12,25 @@ class ParserMainCard extends Model
         'resource_created', 'resource_updated', 'description',
         'abroad', 'credit', 'accident', 'noMotion', 'exchange', 'bargain', 'customsСleared'
     ];
+
+    protected function brand(){
+        return $this->belongsTo('App\Brand', 'brand_id');
+    }
+
+    protected function model(){
+        return $this->belongsTo('App\ModelOfBrand', 'model_id');
+    }
+
+    protected function region(){
+        return $this->belongsTo('App\UkrainianRegion', 'region_id');
+    }
+
+    protected function city(){
+        return $this->belongsTo('App\UkrainianCity', 'city_id');
+    }
+
+    protected function manufacture(){
+        return $this->belongsTo('App\ManufactureCountry', 'manufacture_id');
+    }
+
 }
