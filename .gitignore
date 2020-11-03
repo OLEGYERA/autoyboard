@@ -1,7 +1,8 @@
 /node_modules
 /public/hot
-/public/js/site.js
-/public/css/site.css
+public/js/site.js
+public/css/site.css
+resource/js/http.js
 
 /public/storage
 /storage/*.key
