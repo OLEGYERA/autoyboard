@@ -18,4 +18,8 @@ class ParserUrlList extends Model
             return false;
         }
     }
+
+    public function body(){
+        return $this->hasOne('App\ParserBodyCard', 'id');
+    }
 }

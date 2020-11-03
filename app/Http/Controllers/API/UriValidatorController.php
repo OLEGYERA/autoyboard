@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\API;
-use App\Brand;
 use App\Http\Controllers\API\BasicController;
+use App\Http\Controllers\Auto\SearchController;
 
 use App\TransportType;
 use App\TransportChColor;
@@ -12,6 +12,7 @@ use App\SystemSorting;
 use App\SystemPeriod;
 use App\SystemRelevance;
 use App\SystemShow;
+use App\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -103,6 +104,8 @@ class UriValidatorController extends BasicController
             }
         }
 
+        $search_response = (new SearchController)->dataCollection($this->jSON_RESPONSE);
+        $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'searchResponse', $search_response);
 
         return response()->json($this->jSON_RESPONSE, 200);
     }
