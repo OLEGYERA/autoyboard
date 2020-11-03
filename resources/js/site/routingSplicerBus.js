@@ -19,13 +19,11 @@ export const routingSplicerBus = new Vue({
             strProps += arr.searchPropsChoosed.abroad !== false ? 'sch[ab]=true&' : '';
             strProps += arr.searchPropsChoosed.credit !== false ? 'sch[cr]=true&' : '';
             strProps += arr.searchPropsChoosed.customsСleared !== false ? 'sch[cc]=true&' : '';
-            strProps += arr.searchPropsChoosed.confiscated !== false ? 'sch[cf]=true&' : '';
             strProps += arr.searchPropsChoosed.accident !== false ? 'sch[acc]=true&' : '';
             strProps += arr.searchPropsChoosed.noMotion !== false ? 'sch[nom]=true&' : '';
 
             strProps += arr.searchPropsChoosed.bargain ? 'sch[b]=true&' : '';
-            strProps += arr.searchPropsChoosed.exchangeCar ? 'sch[ec]=true&' : '';
-            strProps += arr.searchPropsChoosed.exchangeHouse ? 'sch[eh]=true&' : '';
+            strProps += arr.searchPropsChoosed.exchange ? 'sch[e]=true&' : '';
 
             strProps += 'sch[curr]=' + arr.priceChoosed.currency + '&'
             strProps += arr.priceChoosed.from ? 'sch[priceF]=' + arr.priceChoosed.from + '&' : '';

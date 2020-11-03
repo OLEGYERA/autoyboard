@@ -13,14 +13,11 @@ let state = {
             abroad: null,
             credit: null,
             customsСleared: null,
-            /**/confiscated: null,
             accident: null,
             noMotion: null,
 
             bargain: null,
-            exchangeCar: null,
-            exchangeHouse: null,
-
+            exchange: null,
         },
         priceChoosed: {
             currency: null,

@@ -79,7 +79,6 @@ function dropDown(){
             shoose.text($(this).text())
             if(shoose.text($(this).text())){
                 $(this).find('.yb-body_list').hide()
-                console.log($(this).find('.yb-body_list'))
             }
         });
     }
@@ -92,7 +91,6 @@ function scrollConvention() {
         //SCROLL TO ANCHOR TAG
 
         var $root = $('html, body');
-        console.log($root)
 
         $('.yb-scroll_item').click(function(e) {
             e.preventDefault();
@@ -117,7 +115,6 @@ function scrollConvention() {
 
 $(window).scroll(function(){
     if ($(window).scrollTop() > 450) {
-        console.log($(window).scrollTop() > 450)
         $('.yb-scroll_terms').addClass('scroll-fixed'); //Convention page add position fixed when page scroll down
     }
     else {

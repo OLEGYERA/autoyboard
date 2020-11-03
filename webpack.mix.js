@@ -11,8 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.browserSync('http://127.0.0.1:8000/');
-// mix.browserSync('http://yboard.loc/');
+// mix.browserSync('http://127.0.0.1:8000/');
+mix.browserSync('http://yboard.loc/');
 
 // mix.js('resources/js/auth/auth.js', 'public/js')
 //     .sass('resources/sass/auth.scss', 'public/css/');

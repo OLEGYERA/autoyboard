@@ -160,13 +160,11 @@ class UriValidatorController extends BasicController
         $searchPropsChoosed['abroad'] = isset($uri['ab']) ? $this->bollStr($uri['ab']) : false;
         $searchPropsChoosed['credit'] = isset($uri['cr']) ? $this->bollStr($uri['cr']) : false;
         $searchPropsChoosed['customsСleared'] = isset($uri['cc']) ? $this->bollStr($uri['cc']) : false;
-        $searchPropsChoosed['confiscated'] = isset($uri['cf']) ? $this->bollStr($uri['cf']) : false;
         $searchPropsChoosed['accident'] = isset($uri['acc']) ? $this->bollStr($uri['acc']) : false; // принудительный запрет
         $searchPropsChoosed['noMotion'] = isset($uri['nom']) ? $this->bollStr($uri['nom']) : false; // принудительный запрет
 
         $searchPropsChoosed['bargain'] = isset($uri['b']) && $this->bollStr($uri['b']);
-        $searchPropsChoosed['exchangeCar'] = isset($uri['ec']) && $this->bollStr($uri['ec']);
-        $searchPropsChoosed['exchangeHouse'] = isset($uri['eh']) && $this->bollStr($uri['eh']);
+        $searchPropsChoosed['exchange'] = isset($uri['e']) && $this->bollStr($uri['e']);
 
         $priceChoosed = [];
         $priceChoosed['currency'] = $this->verifiedData['curr'];

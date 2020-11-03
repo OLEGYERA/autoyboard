@@ -32,14 +32,9 @@
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'bargain', val: $event})">
                             </ycheckbox>
                             <ycheckbox
-                                :name="'Возможен обмен на автомобиль'"
-                                :checked="searchDeatils.searchPropsChoosed.exchangeCar"
-                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeCar', val: $event})">
-                            </ycheckbox>
-                            <ycheckbox
-                                :name="'Возможен обмен на недвижимость'"
-                                :checked="searchDeatils.searchPropsChoosed.exchangeHouse"
-                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchangeHouse', val: $event})">
+                                :name="'Возможен обмен'"
+                                :checked="searchDeatils.searchPropsChoosed.exchange"
+                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'exchange', val: $event})">
                             </ycheckbox>
                         </div>
                     </div>
@@ -88,11 +83,6 @@
                                 :name="'Нерастаможеные'"
                                 :checked="searchDeatils.searchPropsChoosed.customsСleared"
                                 @checked="SET_SEARCH_PROPS_CHOOSED({name: 'customsСleared', val: $event})">
-                            </ycheckbox>
-                            <ycheckbox
-                                :name="'Конфискат'"
-                                :checked="searchDeatils.searchPropsChoosed.confiscated"
-                                @checked="SET_SEARCH_PROPS_CHOOSED({name: 'confiscated', val: $event})">
                             </ycheckbox>
                             <ycheckbox
                                 :name="'После ДТП'"

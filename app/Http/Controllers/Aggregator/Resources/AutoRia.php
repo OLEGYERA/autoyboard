@@ -19,9 +19,6 @@ use App\ParserOtherCard;
 
 class AutoRia extends Core
 {
-
-    //delete confiscate
-    //change обмен 2 на 1 общий обмен
     public $cardData;
     protected $resource_name = 'AutoRia';
     protected $resource_domain = 'https://auto.ria.com/';
