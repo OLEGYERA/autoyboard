@@ -47,13 +47,13 @@
                 justify-content: space-between;
                 display: flex;
                 align-items: center;
-                padding: 10px 40px 10px 20px;
+                padding: 10px 40px 10px 15px;
                 border-radius: 10px;
                 border: 1px solid #E2E2E2;
                 position: relative;
                 background: none;
                 box-shadow: none;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
                 .value{
                     font-family: $aleg;
                     font-weight: 500;
@@ -113,6 +113,7 @@
             border: 1px solid #E2E2E2;
             width: 100%;
             border-radius: 12px;
+
             .ytitle_option{
                 margin: 0;
                 font-family: $aleg;
@@ -121,6 +122,17 @@
                 line-height: 19px;
                 color: rgba(91, 91, 91, 0.9);
                 margin-bottom: 10px;
+            }
+            .change_price{
+               .yprice{
+                   width: 90%;
+                   .change{
+                       width: 45%;
+                   }
+                  .ydropdown{
+                      display: none;
+                  }
+               }
             }
         }
         .yselect-car_colors{
@@ -190,7 +202,23 @@
     }
 }
 
-@media only screen and (max-width:768px){
-
+@media only screen and (max-width:1600px){
+    .yfilter{
+       .yfilterform{
+           .yresource_options{
+               .change_resource{
+                   .title_change{
+                       font-size: em(15);
+                   }
+               }
+           }
+           .yb-confirm_btn{
+               button{
+                   height: 35px;
+                   font-size: em(16);
+               }
+           }
+       }
+    }
 }
 

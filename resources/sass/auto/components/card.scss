@@ -1,9 +1,8 @@
 @import '../../vars';
 
-.yb-card_content{
-    padding: 0 17%;
-    width: 100%;
+.yb-content{
     position: relative;
+    background: none;
     .yb-card_auto{
         width: 100%;
         position: relative;
@@ -12,7 +11,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 35px 0 25px;
+            margin: 20px 0 25px;
             .yb-bread_crumbs{
                 display: flex;
                 .yb-crumbs{
@@ -72,197 +71,217 @@
             }
         }
         .yb_auto-item{
-            display: flex;
-            justify-content: space-between;
-            .yb_auto_vis-l{
-                width: 64%;
-                .y-auto_name{
-                    margin: 0 0 35px;
-                    font-family: $rale;
-                    font-weight: 600;
-                    font-size: em(48);
-                    line-height: 68px;
-                    color: #222222;
-                    padding: 0;
-                }
-                .y-visl_items{
-                    background: #FFFFFF;
-                    box-shadow: -3px -3px 6px rgba(210, 210, 210, 0.21), 3px 3px 6px rgba(186, 186, 186, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
-                    border-radius: 0 0 47px 47px;
-                    width: 100%;
-                    align-items: center;
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    position: relative;
-                    .blur{
-                        filter: blur(8px);
-                    }
-                    .yb_sold-car{
-                        top: 20%;
-                        position: absolute;
-                        border: 7px solid #CE0808;
-                        font-family: $rale;
-                        font-weight: bold;
-                        font-size: em(64);
-                        line-height: 75px;
-                        padding: 20px;
-                        text-align: center;
-                        text-transform: uppercase;
-                        color: #DF0905;
-                        text-shadow: 0 4px 4px rgba(255, 255, 255, 0.39);
-                        z-index: 2;
-                    }
-                    .y-image_large{
-                        position: relative;
-                        overflow: hidden;
+            .y-auto_name {
+                margin: 22px 0 11px;
+                font-family: $rale;
+                font-weight: 600;
+                font-size: em(48);
+                line-height: 68px;
+                color: #222222;
+                padding: 0;
+            }
+            .yb_auto-preview {
+                display: flex;
+                justify-content: space-between;
+                .yb_auto_vis-l {
+                    width: 64%;
+                    height: max-content;
+                    .y-visl_items {
+                        background: #FFFFFF;
+                        box-shadow: -3px -3px 6px rgba(210, 210, 210, 0.21), 3px 3px 6px rgba(186, 186, 186, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
+                        border-radius: 0 0 47px 47px;
                         width: 100%;
-                        display: flex;
                         align-items: center;
+                        display: flex;
                         justify-content: center;
-                        border-radius: 12px;
-                        margin: 0;
-                        padding: 0;
-                        img{
-                            width: 100%;
-                            object-fit: cover;
-                        }
-                        .yb-icon_check{
-                            position: absolute;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            top: 15px;
-                            left: 15px;
-                            .icon{
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                color: #FFFFFF;
-                                font-family: $mont;
-                                font-weight: bold;
-                                font-size: em(20);
-                                line-height: 24px;
-                                width: 60px;
-                                height: 60px;
-                                border-radius: 50%;
-                                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
-                            }
+                        flex-direction: column;
+                        position: relative;
 
-                            .check{
-                                background: #0549CE;
-                            }
+                        .blur {
+                            filter: blur(8px);
                         }
-                        .yb-sold_carout{
+
+                        .yb_sold-car {
+                            top: 20%;
                             position: absolute;
-                            z-index: 1;
+                            border: 7px solid #CE0808;
+                            font-family: $rale;
+                            font-weight: bold;
+                            font-size: em(64);
+                            line-height: 75px;
+                            padding: 20px;
+                            text-align: center;
+                            text-transform: uppercase;
+                            color: #DF0905;
+                            text-shadow: 0 4px 4px rgba(255, 255, 255, 0.39);
+                            z-index: 2;
+                        }
+
+                        .y-image_large {
+                            position: relative;
+                            overflow: hidden;
                             width: 100%;
-                            height: 100%;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            background-color: #000000;
-                            opacity: 0.6;
-                        }
-                        .yb-count_increase-img{
-                            width: 100%;
-                            justify-content: space-between;
-                            display: flex;
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            padding: 0 20px;
-                            margin: 0 0 15px;
-                            .yb_count-img{
+                            border-radius: 12px;
+                            margin: 0;
+                            padding: 0;
+                            background-color: #080708;
+                            img {
+                                width: 100%;
+                                object-fit: cover;
+                            }
+
+                            .yb-icon_check {
+                                position: absolute;
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-between;
-                                background: rgba(0, 0, 0, 0.85);
-                                opacity: 0.6;
-                                height: 47px;
-                                border-radius: 12px;
-                                font-family: $noto;
-                                font-weight: bold;
-                                font-size: em(16);
-                                line-height: 22px;
-                                color: #FFFFFF;
-                                padding: 11px 14px;
-                                i{
+                                top: 15px;
+                                left: 15px;
+
+                                .icon {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
                                     color: #FFFFFF;
-                                    font-size: em(25);
-                                    margin-right: 5px;
+                                    font-family: $mont;
+                                    font-weight: bold;
+                                    font-size: em(20);
+                                    line-height: 24px;
+                                    width: 60px;
+                                    height: 60px;
+                                    border-radius: 50%;
+                                    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
                                 }
-                                .yb_count{
+
+                                .check {
+                                    background: #0549CE;
+                                }
+                            }
+
+                            .yb-sold_carout {
+                                position: absolute;
+                                z-index: 1;
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: #000000;
+                                opacity: 0.6;
+                            }
+
+                            .yb-count_increase-img {
+                                width: 100%;
+                                justify-content: space-between;
+                                display: flex;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                padding: 0 20px;
+                                margin: 0 0 15px;
+
+                                .yb_count-img {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    background: rgba(0, 0, 0, 0.85);
+                                    opacity: 0.6;
+                                    height: 47px;
+                                    border-radius: 12px;
                                     font-family: $noto;
                                     font-weight: bold;
                                     font-size: em(16);
                                     line-height: 22px;
                                     color: #FFFFFF;
+                                    padding: 11px 14px;
+
+                                    i {
+                                        color: #FFFFFF;
+                                        font-size: em(25);
+                                        margin-right: 5px;
+                                    }
+
+                                    .yb_count {
+                                        font-family: $noto;
+                                    }
+                                }
+
+                                .yb-increase {
+                                    height: 47px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background: rgba(0, 0, 0, 0.85);
+                                    opacity: 0.6;
+                                    border-radius: 12px;
+                                    padding: 11px 20px;
+                                    cursor: pointer;
+
+                                    i {
+                                        font-size: em(35);
+                                        color: #FFFFFF;
+                                    }
                                 }
                             }
-                            .yb-increase{
-                                height: 47px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                background: rgba(0, 0, 0, 0.85);
-                                opacity: 0.6;
-                                border-radius: 12px;
-                                padding: 11px 20px;
-                                cursor: pointer;
-                                i{
-                                    font-size: em(35);
-                                    color: #FFFFFF;
-                                }
-                            }
                         }
-                    }
-                    .without_photos{
-                        margin: 0 0 25px;
-                        display: flex;
-                        align-items: center;
-                        flex-direction: column;
-                        justify-content: center;
-                        box-shadow: 0 6px 8px rgba(11, 63, 141, 0.26), 0 2px 5px #000000, 0 2px 31px rgba(220, 222, 222, 0.24), 1px -11px 0px rgba(255, 255, 255, 0.9), 7px 2px 2px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
-                        background: linear-gradient(0deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), linear-gradient(143.75deg, #EEEEEE -35.55%, rgba(255, 255, 255, 0.97) 85.88%);
-                        width: 100%;
-                        padding-top: 40px;
-                        border-radius: 13px;
-                        img{
-                            width: 50%!important;
-                        }
-                        h2{
-                            font-family: $rale;
-                            font-weight: 500;
-                            font-size: em(40);
-                            margin: 40px 0 30px 0;
-                            line-height: 55px;
-                            text-transform: uppercase;
-                            color: $darkblue;
-                        }
-                    }
-                    .y_vis-image{
-                        width: 100%;
-                        position: relative;
-                        .y-image_small{
+
+                        .without_photos {
+                            margin: 0 0 25px;
                             display: flex;
                             align-items: center;
-                            margin: 15px 0 10px;
-                            padding: 0 15px;
-                            justify-content: space-between;
-                            .y-item_image{
-                                width: 19.5%;
-                                overflow: hidden;
-                                border-radius: 12px;
-                                position: relative;
+                            flex-direction: column;
+                            justify-content: center;
+                            box-shadow: 0 6px 8px rgba(11, 63, 141, 0.26), 0 2px 5px #000000, 0 2px 31px rgba(220, 222, 222, 0.24), 1px -11px 0px rgba(255, 255, 255, 0.9), 7px 2px 2px rgba(220, 222, 222, 0.17), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px #DCDEDE;
+                            background: linear-gradient(0deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), linear-gradient(143.75deg, #EEEEEE -35.55%, rgba(255, 255, 255, 0.97) 85.88%);
+                            width: 100%;
+                            padding-top: 40px;
+                            border-radius: 13px;
+
+                            img {
+                                width: 50% !important;
+                            }
+
+                            h2 {
+                                font-family: $rale;
+                                font-weight: 500;
+                                font-size: em(40);
+                                margin: 40px 0 30px 0;
+                                line-height: 55px;
+                                text-transform: uppercase;
+                                color: $darkblue;
+                            }
+                        }
+
+                        .y_vis-image {
+                            width: 100%;
+                            position: relative;
+
+                            .y-image_small {
                                 display: flex;
                                 align-items: center;
-                                justify-content: center;
-                                padding: 0;
-                                img{
-                                    width: 100%;
-                                }
-                                    .yb-sold_carout{
+                                margin: 15px 0 10px;
+                                padding: 0 15px;
+                                justify-content: space-between;
+                                flex-flow: wrap;
+                                .y-item_image {
+                                    width: 19.5%;
+                                    height: 100px;
+                                    overflow: hidden;
+                                    border-radius: 12px;
+                                    position: relative;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    padding: 0;
+                                    margin: 0 0 5px 0;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                    .yb-sold_carout {
                                         position: absolute;
                                         z-index: 1;
                                         width: 100%;
@@ -273,401 +292,442 @@
                                         background-color: #000000;
                                         opacity: 0.6;
                                     }
-                                &:last-child{
-                                    margin-right: 0;
-                                }
-                            }
-                        }
-                        .y-image_all{
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            font-family: $aleg;
-                            font-weight: 500;
-                            font-size: em(18);
-                            line-height: 22px;
-                            color: $darkblue;
-                            margin-bottom: 15px;
-                            padding-left: 15px;
-                            i{
-                                color: $darkblue;
-                                margin-left: 7px;
-                            }
-                        }
-                        .is_show{
-                            padding: 0 15px;
-                            flex-wrap: wrap;
-                            height: auto;
-                            .yb-is_show-items{
-                                margin-bottom: 10px;
-                                width: 19.5%;
-                                overflow: hidden;
-                                border-radius: 12px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                img{
-                                    width: 100%;
-                                }
-                            }
-                        }
-                    }
-                    .y-auto_options{
-                        width: 100%;
-                        padding: 0 15px 35px 15px;
-                        .yb_verified_car{
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            width: 100%;
-                            margin-bottom: 25px;
-                            .yb_disable-verified{
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                width: 65%;
-                                svg{
-                                    width: 35px;
-                                }
-                                span{
-                                    font-family: $aleg;
-                                    font-weight: normal;
-                                    font-size: em(20);
-                                    line-height: 29px;
-                                    color: #414242
-                                }
-                            }
-                            .yb_verified_content{
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                h2{
-                                    font-family: $rale;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    font-size: em(24);
-                                    line-height: 28px;
-                                    color: #000000;
-                                    margin: 0 8px 0 0;
-                                }
-                                .y-vin_code{
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: space-between;
-                                    background: #FFFFFF;
-                                    height: 35px;
-                                    border: 2px solid $darkblue;
-                                    border-radius: 8px;
-                                    font-family: $noto;
-                                    font-weight: 600;
-                                    font-size: em(15);
-                                    line-height: 20px;
-                                    color: $darkgray-filter;
-                                    padding: 0 12px 0 8px;
-                                    svg{
-                                        width: 30px;
-                                        height: 30px;
-                                        margin-right: 8px;
+                                    &:last-child {
+                                        margin-right: 0;
                                     }
                                 }
                             }
-                            .y_verified{
+                            .yb_img-fulllist{
+                                .y-image_all {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    width: max-content;
+                                    font-family: $aleg;
+                                    font-weight: 500;
+                                    font-size: em(18);
+                                    line-height: 22px;
+                                    color: $darkblue;
+                                    margin-bottom: 15px;
+                                    padding-left: 15px;
+                                    i {
+                                        color: $darkblue;
+                                        margin-left: 7px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .y-auto_options {
+                            width: 100%;
+                            padding: 0 15px 35px 15px;
+
+                            .yb_verified_car {
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-between;
-                                background: #0A3980;
-                                border-radius: 8px;
-                                padding: 0 15px 0 25px;
-                                height: 35px;
-                                font-family: $aleg;
-                                font-weight: bold;
-                                font-size: em(15);
-                                line-height: 18px;
-                                color: #FFFFFF;
-                                .yexpended{
-                                    .white{
-                                        .arrow{
-                                            right: 7px;
-                                            width: 25px;
+                                width: 100%;
+                                margin-bottom: 25px;
+
+                                .yb_disable-verified {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    width: 65%;
+
+                                    svg {
+                                        width: 35px;
+                                    }
+
+                                    span {
+                                        font-family: $aleg;
+                                        font-weight: normal;
+                                        font-size: em(20);
+                                        line-height: 29px;
+                                        color: #414242
+                                    }
+                                }
+
+                                .yb_verified_content {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+
+                                    h2 {
+                                        font-family: $rale;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: em(24);
+                                        line-height: 28px;
+                                        color: #000000;
+                                        margin: 0 8px 0 0;
+                                    }
+
+                                    .y-vin_code {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        background: #FFFFFF;
+                                        height: 35px;
+                                        border: 2px solid $darkblue;
+                                        border-radius: 8px;
+                                        font-family: $noto;
+                                        font-weight: 600;
+                                        font-size: em(15);
+                                        line-height: 20px;
+                                        color: $darkgray-filter;
+                                        padding: 0 12px 0 8px;
+                                        box-sizing: border-box;
+                                        svg {
+                                            width: 30px;
+                                            height: 25px;
+                                            margin-right: 8px;
                                         }
-                                        .eclipse{
-                                            font-size: em(24);
-                                            &:after{
-                                                left: 20px;
-                                                width: 20px;
+                                    }
+                                }
+
+                                .y_verified {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    background: #0A3980;
+                                    border-radius: 8px;
+                                    padding: 0 15px 0 25px;
+                                    height: 35px;
+                                    font-family: $aleg;
+                                    font-weight: bold;
+                                    font-size: em(15);
+                                    line-height: 18px;
+                                    color: #FFFFFF;
+
+                                    .yexpended {
+                                        .white {
+                                            .arrow {
+                                                right: 7px;
+                                                width: 25px;
+                                            }
+
+                                            .eclipse {
+                                                font-size: em(24);
+
+                                                &:after {
+                                                    left: 20px;
+                                                    width: 20px;
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
-                        }
-                        .y_check_item-car{
-                            width: 100%;
-                            tr{
-                                display: flex;
-                                margin-bottom: 15px;
-                                .y-check_title{
+
+                            .y_check_item-car {
+                                width: 100%;
+
+                                tr {
                                     display: flex;
-                                    width: 35%;
-                                    text-align: start;
-                                    font-family: $mont;
-                                    font-weight: 500;
-                                    font-size: em(18);
-                                    line-height: 28px;
-                                    color: #000000;
-                                    i{
-                                        color: $dgreen;
-                                        font-size: em(20);
-                                        margin-right: 15px;
+                                    margin-bottom: 15px;
+
+                                    .y-check_title {
+                                        display: flex;
+                                        height: max-content;
+                                        align-items: center;
+                                        width: 35%;
+                                        text-align: start;
+                                        font-family: $mont;
+                                        font-weight: 500;
+                                        font-size: em(18);
+                                        line-height: 28px;
+                                        color: #000000;
+
+                                        i {
+                                            color: $dgreen;
+                                            margin-right: 15px;
+                                        }
+                                    }
+
+                                    .y-check_desc {
+                                        display: flex;
+                                        align-items: center;
+                                        text-align: start;
+                                        width: 60%;
+                                        font-family: $aleg;
+                                        font-weight: normal;
+                                        font-size: em(18);
+                                        line-height: 22px;
+                                        color: #414242;
+                                    }
+
+                                    &:last-child {
+                                        margin-bottom: 0;
                                     }
                                 }
-                                .y-check_desc{
+                            }
+
+                            .yb_specifications-verified {
+                                width: 80%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 10px;
+
+                                .y_vis-left {
+                                    width: 40%;
                                     display: flex;
                                     align-items: center;
-                                    text-align: start;
-                                    width: 60%;
-                                    font-family: $aleg;
-                                    font-weight: normal;
-                                    font-size: em(18);
-                                    line-height: 22px;
-                                    color: #414242;
+                                    justify-content: space-between;
+
+                                    i {
+                                        color: $dgreen;
+                                        font-size: em(25);
+                                    }
+
+                                    span {
+                                        font-family: $mont;
+                                        font-weight: 500;
+                                        font-size: em(18);
+                                        line-height: 28px;
+                                        color: #000000;
+                                    }
                                 }
-                                &:last-child{
+
+                                .y_vis-right {
+                                    width: 50%;
+
+
+                                }
+
+                                &:last-child {
                                     margin-bottom: 0;
                                 }
                             }
                         }
-                        .yb_specifications-verified{
-                          width: 80%;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            margin-bottom: 10px;
-                            .y_vis-left{
-                                width: 40%;
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                i{
-                                    color: $dgreen;
-                                    font-size: em(25);
-                                }
-                                span{
-                                    font-family: $mont;
-                                    font-weight: 500;
-                                    font-size: em(18);
-                                    line-height: 28px;
-                                    color: #000000;
-                                }
-                            }
-                            .y_vis-right{
-                                width: 50%;
-
-
-                            }
-                            &:last-child{
-                                margin-bottom: 0;
-                            }
-                        }
                     }
                 }
-            }
-            .yb_auto_vis-r{
-                width: 35%;
-                background: #FFFFFF;
-                margin-top: 100px;
-               .yvis_item-car{
-                   position: relative;
-                   background: #FFFFFF;
-                   width: 100%;
-                   box-shadow: -3px -3px 6px rgba(192, 192, 192, 0.2), 3px 3px 6px rgba(192, 192, 192, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), 3px -3px 8px rgba(192, 192, 192, 0.54), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
-                   border-radius: 0 0 15px 15px;
-                   .vis_car-price{
-                       width: 100%;
-                       background: #FFFFFF;
-                       box-shadow: -5px 5px 10px rgba(224, 224, 224, 0.2), 5px -5px 10px rgba(224, 224, 224, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(224, 224, 224, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(224, 224, 224, 0.5);
-                       border-radius: 12px;
-                       padding: 25px 20px 25px 30px;
-                       .car_name{
-                           display: none;
-                       }
-                       .yb_flex-price{
-                           width: 100%;
-                           display: flex;
-                           justify-content: space-between;
-                           .yb-price_car{
-                               width: 70%;
-                               display: flex;
-                               align-items: center;
-                               justify-content: space-between;
-                               .price_vis{
-                                   font-family: $noto;
-                                   font-weight: 300;
-                                   font-size: em(18);
-                                   line-height: 25px;
-                                   color: $admin-grey;
-                                   &.active{
-                                       font-family: $mont;
-                                       font-weight: 600;
-                                       font-size: em(28);
-                                       line-height: 34px;
-                                       color: #10A667;
-                                   }
-                               }
-                           }
-                           .favorite{
-                               position: inherit;
-                               box-shadow: none;
-                               svg{
-                                   width: 40px;
-                                   fill: #C7C7C7 ;
-                               }
-                           }
-                       }
-                       .price_monitoring{
-                           font-family: $aleg;
-                           font-weight: 500;
-                           font-size: em(16);
-                           line-height: 28px;
-                           color: #052BB0;
-                           opacity: 0.8;
-                       }
-                   }
-                   .yvis-car_options{
-                       width: 100%;
-                       padding: 23px 25px 17px 25px;
-                       .y-car_option{
-                           display: flex;
-                           align-items: center;
-                           justify-content: space-between;
-                           padding: 15px 0 15px;
-                           position: relative;
-                           svg{
-                               margin-right: 15px;
-                               width: 10%;
-                           }
-                           .yoption_name{
-                               width: 85%;
-                               display: flex;
-                               align-items: center;
-                               justify-content: space-between;
-                               h2{
-                                   font-family: $mont;
-                                   font-weight: 500;
-                                   font-size: em(18);
-                                   line-height: 28px;
-                                   color: #999E9F;
-                                   margin: 0;
-                               }
-                               .y-option{
-                                   font-family: $mont;
-                                   font-weight: 600;
-                                   font-size: em(18);
-                                   line-height: 28px;
-                                   color: #414242;
-                               }
-                           }
-                           &:after{
-                               content: '';
-                               position: absolute;
-                               bottom: 0;
-                               left: 0;
-                               width: 100%;
-                               height: 1px;
-                               background: #DCE1EB;
-                           }
-                       }
-                   }
-                   .yb-additional_car-opt{
-                       padding: 0 48px 30px 30px;
-                       width: 100%;
-                        .yadditional_i{
-                            width: 100%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            margin-bottom: 10px;
-                            .yvis_item{
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                .y-item{
-                                    font-family: $mont;
-                                    font-weight: 500;
-                                    font-size: em(14);
-                                    line-height: 28px;
-                                }
-                                .name{
-                                    margin: 0;
-                                    margin-right: 5px ;
-                                    color: #414242;
-                                }
-                                .count{
-                                    color: #737373;
-                                }
-                            }
-                            &:last-child{
-                                margin-bottom: 0;
-                            }
-                        }
-                   }
-               }
-                .yb_go_to{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 90%;
-                    margin: 0 auto 40px auto;
-                    padding: 6% 10%;
-                    font-family: $aleg;
-                    font-weight: bold;
-                    font-size: em(18);
-                    line-height: 22px;
-                    text-align: center;
-                    color: #FFFFFF;
-                    background: linear-gradient(180deg, rgba(34, 34, 34, 0.18) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
-                    box-shadow: 0 4px 8px rgba(8, 34, 73, 0.16);
-                    border-radius: 15px;
-                    .yexpended{
-                        .white{
-                            .arrow{
-                                right: 7px;
-                                width: 25px;
-                            }
-                            .eclipse{
-                                font-size: em(24);
-                                &:after{
-                                    left: 20px;
-                                    width: 20px;
-                                }
-                            }
-                        }
-                    }
-                }
-                .commercial{
-                    width: 100%;
-                    height: 480px;
-                    border-radius: 10px;
-                    overflow: hidden;
-                    max-height: 610px;
-                    position: relative;
-                    text-align: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    h3{
+                .yb_auto_vis-r {
+                    width: 35%;
+                    height: max-content;
+                    .yvis_item-car {
+                        position: relative;
+                        background: #FFFFFF;
                         width: 100%;
-                        font-family: $rale;
-                        font-weight: 600;
-                        position: absolute;
-                        font-size: em(38);
-                        line-height: 56px;
-                        color: #FFFFFF;
-                        padding: 0;
-                        bottom: 0;
-                        margin: 0;
-                        margin-bottom: 45px;
+                        box-shadow: -3px -3px 6px rgba(192, 192, 192, 0.2), 3px 3px 6px rgba(192, 192, 192, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), 3px -3px 8px rgba(192, 192, 192, 0.54), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
+                        border-radius: 0 0 15px 15px;
+
+                        .vis_car-price {
+                            width: 100%;
+                            background: #FFFFFF;
+                            box-shadow: -5px 5px 10px rgba(224, 224, 224, 0.2), 5px -5px 10px rgba(224, 224, 224, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(224, 224, 224, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(224, 224, 224, 0.5);
+                            border-radius: 12px;
+                            padding: 25px 20px 25px 30px;
+
+                            .car_name {
+                                display: none;
+                            }
+
+                            .yb_flex-price {
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+
+                                .yb-price_car {
+                                    width: 70%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+
+                                    .price_vis {
+                                        font-family: $noto;
+                                        font-weight: 300;
+                                        font-size: em(18);
+                                        line-height: 25px;
+                                        color: $admin-grey;
+
+                                        &.active {
+                                            font-family: $mont;
+                                            font-weight: 600;
+                                            font-size: em(28);
+                                            line-height: 34px;
+                                            color: #10A667;
+                                        }
+                                    }
+                                }
+
+                                .favorite {
+                                    position: inherit;
+                                    box-shadow: none;
+
+                                    svg {
+                                        width: 40px;
+                                        fill: #C7C7C7;
+                                    }
+                                }
+                            }
+
+                            .price_monitoring {
+                                font-family: $aleg;
+                                font-weight: 500;
+                                font-size: em(16);
+                                line-height: 28px;
+                                color: #052BB0;
+                                opacity: 0.8;
+                            }
+                        }
+
+                        .yvis-car_options {
+                            width: 100%;
+                            padding: 23px 25px 17px 25px;
+
+                            .y-car_option {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding: 15px 0 15px;
+                                position: relative;
+
+                                svg {
+                                    margin-right: 15px;
+                                    width: 10%;
+                                }
+
+                                .yoption_name {
+                                    width: 85%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+
+                                    h2 {
+                                        font-family: $mont;
+                                        font-weight: 500;
+                                        font-size: em(18);
+                                        line-height: 28px;
+                                        color: #999E9F;
+                                        margin: 0;
+                                    }
+
+                                    .y-option {
+                                        font-family: $mont;
+                                        font-weight: 600;
+                                        font-size: em(18);
+                                        line-height: 28px;
+                                        color: #414242;
+                                    }
+                                }
+
+                                &:after {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 1px;
+                                    background: #DCE1EB;
+                                }
+                            }
+                        }
+
+                        .yb-additional_car-opt {
+                            padding: 0 48px 30px 30px;
+                            width: 100%;
+
+                            .yadditional_i {
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                margin-bottom: 10px;
+
+                                .yvis_item {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+
+                                    .y-item {
+                                        font-family: $mont;
+                                        font-weight: 500;
+                                        font-size: em(14);
+                                        line-height: 28px;
+                                    }
+
+                                    .name {
+                                        margin: 0;
+                                        margin-right: 5px;
+                                        color: #414242;
+                                    }
+
+                                    .count {
+                                        color: #737373;
+                                    }
+                                }
+
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
                     }
 
+                    .yb_go_to {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 90%;
+                        margin: 0 auto 40px auto;
+                        padding: 6% 10%;
+                        font-family: $aleg;
+                        font-weight: bold;
+                        font-size: em(18);
+                        line-height: 22px;
+                        text-align: center;
+                        color: #FFFFFF;
+                        background: linear-gradient(180deg, rgba(34, 34, 34, 0.18) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
+                        box-shadow: 0 4px 8px rgba(8, 34, 73, 0.16);
+                        border-radius: 0 0px 15px 15px;
+
+                        .yexpended {
+                            .white {
+                                .arrow {
+                                    right: 7px;
+                                    width: 25px;
+                                }
+
+                                .eclipse {
+                                    font-size: em(24);
+
+                                    &:after {
+                                        left: 20px;
+                                        width: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .commercial {
+                        width: 100%;
+                        height: 400px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        max-height: 610px;
+                        position: relative;
+                        text-align: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+
+                        h3 {
+                            width: 100%;
+                            font-family: $rale;
+                            font-weight: 600;
+                            position: absolute;
+                            font-size: em(38);
+                            line-height: 56px;
+                            color: #FFFFFF;
+                            padding: 0;
+                            bottom: 0;
+                            margin: 0;
+                            margin-bottom: 45px;
+                        }
+
+                    }
                 }
             }
         }
@@ -681,9 +741,8 @@
             background: #010E22;
             .yb_slide-header{
                 display: flex;
-                align-items: center;
                 justify-content: space-between;
-                padding: 15px 35px 0 35px;
+                padding: 25px 30px 0 35px;
                 .yb-slide_left{
                     .yb_car-name{
                         font-family: $rale;
@@ -717,6 +776,130 @@
                     color: #FFFFFF;
                     font-size: em(40);
                     cursor: pointer;
+                }
+            }
+            .yb-full_img{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 4%;
+                margin-top: 20px;
+                .yb-scroll_vis{
+                    width: 15%;
+                    //vue scroll library custom style
+                    .__vuescroll{
+                        .__rail-is-horizontal{
+                            display: none;
+                        }
+                    }
+                    // end vue scroll library custom style
+                    .yb-full_carousel {
+                        width: 100%;
+                        position: relative;
+                        max-height: 670px;
+                        padding-right: 20px;
+                        .chunk_item{
+                            width: 100%;
+                            overflow: hidden;
+                            position: relative;
+                            border-radius: 12px;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 0 0 20px 0;
+                            .yb_count-img{
+                                position: absolute;
+                                box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-family: $noto;
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: em(20);
+                                line-height: 33px;
+                                color: #FFFFFF;
+                                span{
+                                    margin: 8px;
+                                }
+                            }
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                            img{
+                                width: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                        .yb-carousel_chunk{
+                            width: 100%;
+                            overflow: scroll;
+                            position: relative;
+                            margin: 0;
+                            padding: 0;
+                            align-items: center;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            flex-direction: column;
+
+                        }
+                    }
+
+                }
+                //.yb-carousel_vis{
+                //    position: relative;
+                //    width: 10%;
+                //    display: flex;
+                //    align-items: center;
+                //    justify-content: center;
+                //    flex-direction: column;
+                //    max-height: 680px;
+                //
+                //
+                //}
+                .y-current_img{
+                    width: 60%;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 auto;
+                    padding: 0;
+                    justify-content: center;
+                    position: relative;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                    .yb_prev{
+                        position: absolute;
+                        left: 30px;
+                        cursor: pointer;
+                    }
+                    .yb_next{
+                        position: absolute;
+                        right: 30px;
+                        cursor: pointer;
+                    }
+                    .yb-link_increase{
+                        position: absolute;
+                        right: 38px;
+                        bottom: 23px;
+                        z-index: 2;
+                        background: rgba(0, 0, 0, 0.64);
+                        border-radius: 12px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1% 2%;
+                        i{
+                            font-size: 25px;
+                            color: #ffffff;
+                        }
+                    }
                 }
             }
             .yb-full_box{
@@ -769,168 +952,13 @@
                     }
                 }
             }
-                .y-current_img{
-                    width: 50%;
-                    max-height: 540px;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    margin: 0 auto;
-                    padding: 0;
-                    justify-content: center;
-                    position: relative;
-                    overflow: hidden;
-                    img{
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                        .yb_prev{
-                            position: absolute;
-                            left: 0;
-                            cursor: pointer;
-                        }
-                        .yb_next{
-                            position: absolute;
-                            right: 0;
-                            cursor: pointer;
-                        }
-                }
-                .yb-carousel_vis{
-                    position: relative;
-                    width: 60%;
-                    margin: 0 auto;
-                    padding: 20px 0 0;
-                    display: flex;
-                    align-items: center;
-                    .y_vis-controls{
-                        position: absolute;
-                        z-index: 2;
-                        cursor: pointer;
-                    }
-                    .prev{
-                        left: -80px;
-                    }
-                    .next{
-                        right: -80px;
-                    }
-                    .yb-full_carousel {
-                        width: 100%;
-                        height: 120px;
-                        position: relative;
-                        overflow: hidden;
-                        .yb-carousel_chunk{
-                            overflow: hidden;
-                            position: relative;
-                            width: 100%;
-                            height: 100%;
-                            display: flex;
-                            margin: 0;
-                            padding: 0;
-                            align-items: center;
-                            scrollbar-width: none;
-                            -webkit-overflow-scrolling: touch;
-                            .chunk_item{
-                                width: 16%;
-                                height: 100%;
-                                overflow: hidden;
-                                position: relative;
-                                margin-right: 10px;
-                                border-radius: 12px;
-                                cursor: pointer;
-                                display: flex;
-                                .yb_count-img{
-                                    position: absolute;
-                                    box-shadow: inset 0px -129px 4px rgba(93, 137, 204, 0.53);
-                                    width: 100%;
-                                    height: 100%;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-family: $noto;
-                                    font-style: normal;
-                                    font-weight: 600;
-                                    font-size: em(20);
-                                    line-height: 33px;
-                                    color: #FFFFFF;
-                                    span{
-                                        margin: 8px;
-                                    }
-                                }
-                                &:last-child{
-                                    margin-right: 0;
-                                }
-                                img{
-                                    width: 100%;
-                                    object-fit: cover;
-                                }
-                            }
-                        }
-                    }
-                    //transition to slides
-                    .slide_next-enter-active,
-                    .slide_prev-enter-active {
-                        -webkit-transition: -webkit-transform 0.5s;
-                        transition: -webkit-transform 0.5s;
-                        transition: transform 0.5s;
-                        transition: transform 0.5s, -webkit-transform 0.5s;
-                    }
-                    .slide_next-enter {
-                        -webkit-transform: translateX(100%);
-                        transform: translateX(100%);
-                    }
-                    .slide_prev-enter {
-                        -webkit-transform: translateX(-100%);
-                        transform: translateX(-100%);
-                    }
-                    //end transition
-                }
-                .yb_carousel-controls{
-                    -webkit-user-select: none;
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                    user-select: none;
-                    display: -webkit-box;
-                    display: flex;
-                    width: 60%;
-                    margin: 0 auto;
-                    -webkit-box-pack: justify;
-                    justify-content: space-between;
-                    -webkit-box-align: center;
-                    align-items: center;
-                    margin-top: 15px;
-                    .yb_controls_dot{
-                        border-radius: 12%;
-                        width: 25px;
-                        height: 25px;
-                        cursor: pointer;
-                        line-height: 1.2rem;
-                        text-align: center;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-family: $aleg;
-                        font-size: em(16);
-                        background: #FFFF;
-                        color: black;
-                        &.active_dot{
-                            cursor: none;
-                            background-color: $darkblue;
-                            color: #ffffff;
-                            font-weight: bold;
-                            -webkit-transform: scale(1.4, 1.4);
-                            transform: scale(1.4, 1.4);
-                        }
-                    }
-                }
-
-
         }
         .mobile_vis{
             display: none;
         }
     }
     h3{
-        margin: 35px 0 25px;
+        margin: 15px 0 25px;
         padding-left: 15px;
         font-family: $rale;
         font-weight: 500;
@@ -1061,9 +1089,13 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_auto-item{
+                .y-auto_name{
+                    font-size: em(38);
+                    line-height: 48px;
+                }
                 .yb_fullpage-visual{
                     .yb_slide-header{
                         .yb-slide_left{
@@ -1080,6 +1112,13 @@
                             }
                         }
                     }
+                    .yb-full_img{
+                        .yb-scroll_vis{
+                            .yb-full_carousel{
+                                max-height: 550px;
+                            }
+                        }
+                    }
                         .y-current_img{
                             max-height: 475px;
                         }
@@ -1089,17 +1128,9 @@
                             }
                         }
                 }
-                .yb_auto_vis-l{
-                    .y-auto_name{
-                        font-size: em(36);
-                        margin: 0 0 20px;
-                        line-height: 48px;
-                    }
-                    .y-visl_items{
-                        .yb_sold-car{
-                            font-size: em(50);
-                        }
-                        .y_vis-image{
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
                             .y-image_large{
                                 .yb-icon_check{
                                     .icon{
@@ -1117,99 +1148,119 @@
 
                                 }
                             }
-                        }
-                        .y-auto_options{
-                            .yb_verified_car{
-                                .yb_disable-verified{
-                                    span{
-                                        font-size: em(16);
+                            .yb_sold-car{
+                                font-size: em(50);
+                            }
+                            .y_vis-image{
+                                .y-image_small{
+                                    .y-item_image{
+                                        height: 80px;
                                     }
                                 }
-                                .yb_verified_content{
-                                    h2{
-                                        font-size: em(18);
-                                    }
-                                    .y-vin_code{
-                                        font-size: em(14);
-                                        height: 30px;
-                                        svg{
-                                            width: 20px;
-                                            height: 20px;
+                            }
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    .yb_disable-verified{
+                                        span{
+                                            font-size: em(16);
                                         }
                                     }
-                                }
-                                .y_verified{
-                                    padding: 0 15px 0 15px;
-                                    font-size: em(14);
-                                    .yexpended{
-                                        .white{
-                                            .eclipse{
-                                                padding-left: 25px;
-                                                &:after{
-                                                    left: 10px;
-                                                    width: 15px;
+                                    .yb_verified_content{
+                                        width: 71%;
+                                        h2{
+                                            font-size: em(16);
+                                            margin: 0;
+                                            font-weight: 600;
+                                        }
+                                        .y-vin_code{
+                                            font-size: em(14);
+                                            svg{
+                                                width: 20px;
+                                                height: 20px;
+                                            }
+                                        }
+                                    }
+                                    .y_verified{
+                                        padding: 0 15px 0 15px;
+                                        font-size: em(14);
+                                        .yexpended{
+                                            .white{
+                                                .eclipse{
+                                                    padding-left: 25px;
+                                                    &:after{
+                                                        left: 10px;
+                                                        width: 15px;
+                                                    }
                                                 }
                                             }
                                         }
                                     }
                                 }
-                            }
-                            .y_check_item-car{
-                                tr{
-                                    .y-check_title{
-                                        width: 40%;
-                                        i{
-                                            font-size: em(18);
+                                .y_check_item-car{
+                                    tr{
+                                        .y-check_title{
+                                            width: 40%;
                                         }
-                                    }
-                                    .y-check_desc{
-                                        width: 50%;
-                                        font-size: em(16);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .yb_auto_vis-r{
-                    margin-top: 70px;
-                    .yvis_item-car{
-                        .vis_car-price{
-                            padding: 20px 15px 20px 15px;
-                            .yb_flex-price{
-                                .yb-price_car{
-                                    .price_vis{
-                                        font-size: em(16);
-                                        &.active{
-                                            font-size: em(22);
+                                        .y-check_desc{
+                                            width: 50%;
+                                            font-size: em(16);
                                         }
                                     }
                                 }
                             }
                         }
-                        .yvis-car_options{
-                            .y-car_option{
-                                .yoption_name{
-
+                    }
+                    .yb_auto_vis-r{
+                        .yvis_item-car{
+                            .vis_car-price{
+                                padding: 20px 15px 20px 15px;
+                                .yb_flex-price{
+                                    .yb-price_car{
+                                        .price_vis{
+                                            font-size: em(15);
+                                            &.active{
+                                                font-size: em(24);
+                                            }
+                                        }
+                                    }
                                 }
-                                .y-option{
+                            }
+                            .yvis-car_options{
+                                .y-car_option{
+                                    .yoption_name{
 
+                                    }
+                                    .y-option{
+
+                                    }
+                                }
+                            }
+                            .yb-additional_car-opt{
+                                padding: 0 25px 25px 15px;
+                            }
+                        }
+                        .yb_go_to{
+                            padding: 6% 7%;
+                            font-size: em(16);
+                            .yexpended{
+                                .ex_search{
+                                    &.white{
+                                        .eclipse{
+                                            &:after{
+                                                left: 26px;
+                                                width: 15px;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
-                        .yb-additional_car-opt{
-                            padding: 0 25px 25px 15px;
-                        }
-                    }
-                    .yb_go_to{
-                        padding: 7% 7%;
-                        font-size: em(18);
-                    }
-                    .commercial{
-                        height: 400px;
-                        h3{
-                            font-size: em(28);
-                            margin-bottom: 35px;
+                        .commercial{
+                            height: 330px;
+                            h3{
+                                font-size: em(28);
+                                margin-bottom: 35px;
+                            }
                         }
                     }
                 }
@@ -1229,6 +1280,7 @@
                             }
                             .yvis_items_column{
                                 .y_item-label{
+                                    width: 50%;
                                     font-size: em(14);
                                 }
                                 .y_item{
@@ -1261,13 +1313,9 @@
         }
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb-card_content{
-        padding: 0 10%;
-    }
-}
+
 @media only screen and (max-width: 1440px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_auto-item{
                 .yb_fullpage-visual{
@@ -1296,22 +1344,29 @@
                         }
                     }
                 }
-                .yb_auto_vis-l{
-                    .y-visl_items{
-                        .y-auto_options{
-                            .yb_verified_car{
-                                .yb_disable-verified{
-                                    span{
-                                        font-size: em(18);
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    .yb_disable-verified{
+                                        span{
+                                            font-size: em(18);
+                                        }
                                     }
-                                }
-                                .yb_verified_content{
-                                    width: 70%;
-                                    h2{
-                                        font-size: em(20);
+                                    .yb_verified_content{
+                                        width: 72%;
+                                        h2{
+                                            font-size: em(20);
+                                        }
                                     }
                                 }
                             }
+                        }
+                    }
+                    .yb_auto_vis-r{
+                        .yb_go_to{
+                            width: 80%;
                         }
                     }
                 }
@@ -1320,17 +1375,34 @@
     }
 }
 @media only screen and (max-width: 1366px){
-    .yb-card_content{
-        padding: 0 8%;
+    .yb-content{
+        .yb-card_auto{
+            .yb_auto-item{
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    .yb_verified_content{
+                                        width: 70%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .yb_auto_vis-r{
+                        .yb_go_to{
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-@media only screen and (max-width: 1330px){
-    .yb-card_content{
-        padding: 0 6%;
-    }
-}
+
 @media only screen and (max-width: 1280px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 span{
@@ -1338,13 +1410,15 @@
                 }
             }
             .yb_auto-item{
-                .yb_auto_vis-l{
-                    .y-visl_items{
-                        .y-auto_options{
-                            .yb_verified_car{
-                                .yb_verified_content{
-                                    h2{
-                                        font-size: em(18);
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    .yb_verified_content{
+                                        h2{
+                                            font-size: em(18);
+                                        }
                                     }
                                 }
                             }
@@ -1356,8 +1430,7 @@
     }
 }
 @media only screen and (max-width: 1024px){
-    .yb-card_content{
-        padding: 0 2.5%;
+    .yb-content{
         .yb-card_auto{
             .yb_auto-item{
                 .yb_fullpage-visual{
@@ -1391,64 +1464,66 @@
                         }
                     }
                 }
-                .yb_auto_vis-l{
-                    .y-visl_items{
-                        .yb_sold-car{
-                            top: 15%;
-                        }
-                        .y-auto_options{
-                            .yb_verified_car{
-                                .yb_disable-verified{
-                                    span{
-                                        font-size: em(15);
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .yb_sold-car{
+                                top: 15%;
+                            }
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    .yb_disable-verified{
+                                        span{
+                                            font-size: em(15);
+                                        }
+                                    }
+                                    .yb_verified_content{
+                                        h2{
+                                            font-size: em(15);
+                                        }
+                                        .y-vin_code{
+                                            padding: 0 8px 0 4px;
+                                        }
+                                    }
+                                    .y_verified{
+                                        .yexpended{
+                                            .white{
+                                                .arrow{
+                                                    right: 5px;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
-                                .yb_verified_content{
-                                    h2{
-                                        font-size: em(15);
-                                    }
-                                    .y-vin_code{
-                                        padding: 0 8px 0 4px;
-                                    }
-                                }
-                                .y_verified{
-                                    .yexpended{
-                                        .white{
-                                            .arrow{
-                                                right: 5px;
+                                .y_check_item-car{
+                                    tr{
+                                        .y-check_title{
+                                            width: 50%;
+                                            i{
+                                                font-size: em(18);
                                             }
                                         }
                                     }
                                 }
                             }
-                            .y_check_item-car{
-                                tr{
-                                    .y-check_title{
-                                        width: 50%;
-                                        i{
-                                            font-size: em(18);
-                                        }
+                        }
+                    }
+                    .yb_auto_vis-r{
+                        .yvis_item-car{
+                            .vis_car-price{
+                                .yb_flex-price{
+                                    .yb-price_car{
+                                        width: 75%;
                                     }
                                 }
                             }
-                        }
-                    }
-                }
-                .yb_auto_vis-r{
-                    .yvis_item-car{
-                        .vis_car-price{
-                            .yb_flex-price{
-                                .yb-price_car{
-                                    width: 75%;
-                                }
+                            .yb-additional_car-opt{
+                                padding: 0 10px 20px 10px;
                             }
                         }
-                        .yb-additional_car-opt{
-                            padding: 0 10px 20px 10px;
+                        .yb_go_to{
+                            padding: 6% 4%;
                         }
-                    }
-                    .yb_go_to{
-                        padding: 6% 4%;
                     }
                 }
             }
@@ -1459,8 +1534,7 @@
     }
 }
 @media only screen and (max-width: 945px){
-    .yb-card_content{
-        padding: 0 15px;
+    .yb-content{
         .yb-card_auto{
             .yb-bread_next-card{
                 margin: 15px 0 15px;
@@ -1493,176 +1567,199 @@
                 margin-bottom: 20px;
             }
             .yb_auto-item{
-                .yb_auto_vis-l{
-                    .y-auto_name{
-                        display: none;
-                    }
-                    .y-visl_items{
-                        .y-image_large{
-                            .yb-count_increase-img{
-                            }
-                        }
-                        .y_vis-image{
+                .y-auto_name{
+                    display: none;
+                }
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-auto_name{
                             display: none;
                         }
-                        .y-auto_options{
-                            position: relative;
-                            padding: 0 0 70px 28px;
-                            .yb_verified_car{
-                                margin: 15px 0 10px;
-                                .yb_verified_content{
-                                    flex-direction: column;
-                                    align-items: end;
-                                    h2{
-                                        font-size: em(24);
-                                        line-height: 28px;
-                                        margin-bottom: 15px;
-                                    }
-                                    .y-vin_code{
-                                        padding: 0 44px 0 44px;
-                                        height: 43px;
-                                        font-size: em(16);
-                                        line-height: 22px;
-                                        svg{
-                                            width: 36px;
-                                            height: 26px;
-                                            margin-right: 15px;
+                        .y-visl_items{
+                            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                            .y-image_large{
+                                .yb-count_increase-img{
+                                }
+                            }
+                            .y_vis-image{
+                                display: none;
+                            }
+                            .y-auto_options{
+                                position: relative;
+                                padding: 0 0 70px 28px;
+                                .yb_verified_car{
+                                    margin: 15px 0 10px;
+                                    .yb_verified_content{
+                                        flex-direction: column;
+                                        align-items: end;
+                                        h2{
+                                            font-size: em(24);
+                                            line-height: 28px;
+                                            margin: 0 0 10px 0;
+                                        }
+                                        .y-vin_code{
+                                            padding: 0 44px 0 44px;
+                                            height: 43px;
+                                            font-size: em(16);
+                                            line-height: 22px;
+                                            svg{
+                                                width: 36px;
+                                                height: 35px;
+                                                margin-right: 15px;
+                                            }
                                         }
                                     }
-                                }
-                                .y_verified{
-                                    position: absolute;
-                                    bottom: 35px;
-                                    left:28px;
-                                    padding: 22px 65px;
-                                    font-size: em(16);
-                                    line-height: 19px;
-                                    .yexpended{
-                                        .white{
-                                            svg{
+                                    .y_verified{
+                                        position: absolute;
+                                        bottom: 35px;
+                                        left:28px;
+                                        padding: 22px 65px;
+                                        font-size: em(16);
+                                        line-height: 19px;
+                                        .yexpended{
+                                            .white{
+                                                svg{
 
+                                                }
+                                                .eclipse{
+                                                    font-size: em(29);
+                                                }
                                             }
-                                            .eclipse{
-                                                font-size: em(29);
+                                        }
+                                    }
+                                    .yb_disable-verified{
+                                        width: 75%;
+                                    }
+                                }
+                                .y_check_item-car{
+                                    margin-bottom: 25px;
+                                    tr{
+                                        .y-check_title{
+                                            i{
+                                                font-size: em(15);
                                             }
+                                        }
+                                        .y-check_desc{
+                                            width: 40%;
                                         }
                                     }
                                 }
                             }
-                            .y_check_item-car{
-                                margin-bottom: 25px;
-                                tr{
-                                    .y-check_title{
-                                        i{
+                        }
+                    }
+                    .yb_auto_vis-r{
+                        .yvis_item-car{
+                            position: relative;
+                            .vis_car-price{
+                                position: relative;
+                                padding: 10px 15px 10px 15px;
+                                .car_name{
+                                    display: flex;
+                                    font-family: $rale;
+                                    font-weight: 600;
+                                    font-size: em(20);
+                                    line-height: 142.5%;
+                                    color: #222222;
+                                }
+                                .yb_flex-price{
+                                    margin: 5px 0;
+                                    .yb-price_car{
+                                        width: 80%;
+                                        .price_vis{
+                                            font-size: em(14);
+                                        }
+                                    }
+
+                                    .favorite{
+                                        position: absolute;
+                                        right: 15px;
+                                        top: 15px;
+                                        svg{
+                                            width: 30px;
+                                        }
+                                    }
+                                }
+                                .price_monitoring{
+                                    font-size: em(15);
+                                    line-height: 18px;
+                                }
+                            }
+                            .yvis-car_options{
+                                padding: 23px 15px 15px 15px;
+                                .y-car_option{
+                                    .yoption_name{
+                                        h2{
+                                            font-size: em(16);
+                                        }
+                                        .y-option{
                                             font-size: em(15);
                                         }
                                     }
-                                    .y-check_desc{
-                                        width: 40%;
-                                    }
                                 }
                             }
-                        }
-                    }
-                }
-                .yb_auto_vis-r{
-                    margin-top: 0;
-                    .yvis_item-car{
-                        .vis_car-price{
-                            position: relative;
-                            padding: 10px 15px 10px 15px;
-                            .car_name{
-                                display: flex;
-                                font-family: $rale;
-                                font-weight: 600;
-                                font-size: em(20);
-                                line-height: 142.5%;
-                                color: #222222;
-                            }
-                            .yb_flex-price{
-                                margin: 5px 0;
-                                .yb-price_car{
-                                    width: 80%;
-                                    .price_vis{
-                                        font-size: em(14);
-                                    }
-                                }
-
-                                .favorite{
-                                    position: absolute;
-                                    right: 15px;
-                                    top: 15px;
-                                    svg{
-                                        width: 30px;
-                                    }
-                                }
-                            }
-                            .price_monitoring{
-                                font-size: em(15);
-                                line-height: 18px;
-                            }
-                        }
-                        .yvis-car_options{
-                            padding: 23px 15px 15px 15px;
-                            .y-car_option{
-                                .yoption_name{
-                                    h2{
-                                        font-size: em(16);
-                                    }
-                                    .y-option{
-                                        font-size: em(15);
-                                    }
-                                }
-                            }
-                        }
-                        .yb-additional_car-opt{
-                            padding: 0 0 20px 15px;
-                            .yadditional_i{
-                                flex-direction: column;
-                                width: 75%;
-                                .yvis_item{
-                                    width: 100%;
-                                    justify-content: end;
-                                    margin-bottom: 10px;
-                                    .y-item{
-                                        margin-right: 10px;
+                            .yb-additional_car-opt{
+                                padding: 0 0 20px 15px;
+                                .yadditional_i{
+                                    flex-direction: column;
+                                    width: 75%;
+                                    .yvis_item{
+                                        width: 100%;
+                                        justify-content: end;
+                                        margin-bottom: 10px;
+                                        .y-item{
+                                            margin-right: 10px;
+                                        }
+                                        &:last-child{
+                                            margin-bottom: 0;
+                                        }
                                     }
                                     &:last-child{
                                         margin-bottom: 0;
                                     }
                                 }
-                                &:last-child{
-                                    margin-bottom: 0;
-                                }
                             }
                         }
-                    }
-                    .yb_go_to{
-                        font-size: em(16);
-                        line-height: 19px;
-                        padding: 6% 7%;
-                        .yexpended{
-                            .white{
-                                svg{
+                        .yb_go_to{
+                            font-size: em(16);
+                            line-height: 19px;
+                            padding: 6% 7%;
+                            margin: 0 auto 25px auto;
+                            .yexpended{
+                                .ex_search{
+                                    &.white{
+                                        svg{
 
-                                }
-                                .eclipse{
-                                    padding-left: 5px;
-                                    font-size: 30px;
-                                    &:after{
-                                        left: -10px;
-                                        width: 16px;
+                                        }
+                                        .eclipse{
+                                            padding-left: 5px;
+                                            font-size: 25px;
+                                            &:after{
+                                                left: -10px;
+                                                width: 15px;
+                                            }
+                                        }
                                     }
                                 }
+
                             }
+                        }
+                        .commercial{
+                            position: absolute;
+                            bottom: -270px;
+                            width: 35%;
+                            height: 450px;
                         }
                     }
                 }
             }
         }
+        h3{
+            margin: 25px 0 25px;
+        }
         .yb-options{
+            width: 64%;
             .yb-technical_info{
-                width: 64%;
+                width: 100%;
                 .yb-vis_info{
                     .y-info_column{
                         flex-direction: column;
@@ -1700,7 +1797,7 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 margin-bottom: 15px;
@@ -1732,106 +1829,119 @@
                         }
                     }
                 }
-                .yb_auto_vis-l{
-                    .y-visl_items{
-                        .yb_sold-car{
-                            top: 10%;
-                            font-size: 38px;
-                            padding: 15px;
-                        }
-                        .y-image_large{
-                            .yb-icon_check{
-                                .icon{
-                                    width: 45px;
-                                    height: 45px;
-                                    svg{
-                                        width: 25px;
-                                    }
-                                }
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .yb_sold-car{
+                                top: 10%;
+                                font-size: 38px;
+                                padding: 15px;
                             }
-                            .yb-count_increase-img{
-                                .yb_count-img{
-                                    height: 40px;
-                                    i{
-                                        font-size: em(20);
-                                    }
-                                    .yb_count{
-                                        font-size: em(15);
-                                        .count{
-                                            font-size: em(15);
+                            .y-image_large{
+                                .yb-icon_check{
+                                    .icon{
+                                        width: 45px;
+                                        height: 45px;
+                                        svg{
+                                            width: 25px;
                                         }
                                     }
                                 }
-                                .yb-increase{
-                                    height: 40px;
-                                    i{
-                                        font-size: em(26);
+                                .yb-count_increase-img{
+                                    .yb_count-img{
+                                        height: 40px;
+                                        i{
+                                            font-size: em(20);
+                                        }
+                                        .yb_count{
+                                            font-size: em(15);
+                                            .count{
+                                                font-size: em(15);
+                                            }
+                                        }
+                                    }
+                                    .yb-increase{
+                                        height: 40px;
+                                        i{
+                                            font-size: em(26);
+                                        }
                                     }
                                 }
                             }
-                        }
-                        .y-auto_options{
-                            padding: 0 0 70px 20px;
-                            .yb_verified_car{
-                                .yb_verified_content{
-                                    width: 90%;
-                                }
-                            }
-                            .y_check_item-car{
-                                tr{
-                                    .y-check_title{
-                                        font-size: em(16);
+                            .y-auto_options{
+                                padding: 0 0 70px 20px;
+                                .yb_verified_car{
+                                    .yb_verified_content{
+                                        width: 90%;
                                     }
-                                    .y-check_desc{
+                                    .yb_disable-verified{
+                                        width: 90%;
                                     }
                                 }
-                            }
-                        }
-                    }
-                }
-                .yb_auto_vis-r{
-                    .yvis_item-car{
-                        .vis_car-price{
-                            .car_name{
-                                font-size: em(18);
-                            }
-                            .yb_flex-price{
-                                .yb-price_car{
-                                    width: 95%;
-                                }
-                                .favorite{
-                                    right: 10px;
-                                    top: 5px;
-                                }
-                            }
-                        }
-                        .yb-additional_car-opt{
-                            .yadditional_i{
-                                width: 100%;
-                            }
-                        }
-                    }
-                    .yb_go_to{
-                        padding: 6% 3%;
-                        font-size: em(15);
-                        .yexpended{
-                            .white{
-                                .arrow{
-                                    right: 5px;
-                                    width: 20px;
-                                }
-                                .eclipse{
-                                    font-size: em(25);
-                                    &:after{
-                                        left: -5px;
-                                        width: 10px;
+                                .y_check_item-car{
+                                    tr{
+                                        .y-check_title{
+                                            font-size: em(16);
+
+                                        }
+                                        .y-check_desc{
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                    .commercial{
-                        display: none;
+                    .yb_auto_vis-r{
+                        .yvis_item-car{
+                            .vis_car-price{
+                                .car_name{
+                                    font-size: em(18);
+                                }
+                                .yb_flex-price{
+                                    .yb-price_car{
+                                        width: 100%;
+                                        .price_vis{
+                                            &.active{
+                                                font-size: em(20);
+                                                line-height: 23px;
+                                            }
+                                        }
+                                    }
+                                    .favorite{
+                                        right: 10px;
+                                        top: 5px;
+                                    }
+                                }
+                            }
+                            .yb-additional_car-opt{
+                                .yadditional_i{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        .yb_go_to{
+                            padding: 6% 3%;
+                            font-size: em(15);
+                            width: 95%;
+                            .yexpended{
+                                .white{
+                                    .arrow{
+                                        right: 5px;
+                                        width: 20px;
+                                    }
+                                    .eclipse{
+                                        font-size: em(25);
+                                        &:after{
+                                            left: -5px;
+                                            width: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .commercial{
+                            display: none;
+                        }
                     }
                 }
             }
@@ -1864,8 +1974,8 @@
             }
         }
         .yb-options{
+            width: 80%;
             .yb-technical_info{
-                width: 70%;
             }
         }
         .yb_more-offers{
@@ -1876,7 +1986,7 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb-bread_next-card{
                 margin: 10px 0 15px;
@@ -1887,152 +1997,156 @@
                 }
             }
             .yb-visible_mobile{
-                .yb_auto_vis-l{
-                    width: 100%;
-                    .y-visl_items{
-                        box-shadow: none;
-                        .y-image_large{
-                            .yb-count_increase-img{
-                                padding: 0 10px;
-                                margin: 0 0 5px;
-                                .yb_count-img{
-                                    height: 35px;
-                                    .yb_count{
-                                        font-size: em(14);
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        width: 100%;
+                        .y-visl_items{
+                            box-shadow: none;
+                            .y-image_large{
+                                .yb-count_increase-img{
+                                    padding: 0 10px;
+                                    margin: 0 0 5px;
+                                    .yb_count-img{
+                                        height: 35px;
+                                        .yb_count{
+                                            font-size: em(14);
+                                        }
                                     }
-                                }
-                                .yb-increase{
-                                    height: 35px;
-                                    i{
-                                        font-size: em(24);
+                                    .yb-increase{
+                                        height: 35px;
+                                        i{
+                                            font-size: em(24);
+                                        }
                                     }
                                 }
                             }
-                        }
-                        .yb_sold-car{
-                            top: 5%;
-                        }
-                        .without_photos{
-                            margin: 0;
-                        }
-                        .yb_auto_vis-r{
-                            width: 100%;
-                            margin-top: 10px;
-                            .yvis_item-car{
-                                .vis_car-price{
-                                    padding: 15px;
-                                    .car_name{
-                                        font-size: em(20);
+                            .yb_sold-car{
+                                top: 5%;
+                            }
+                            .without_photos{
+                                margin: 0;
+                            }
+                            .yb_auto_vis-r{
+                                width: 100%;
+                                margin-top: 10px;
+                                .yvis_item-car{
+                                    .vis_car-price{
+                                        padding: 15px;
+                                        .car_name{
+                                            font-size: em(20);
+                                        }
+                                        .yb_flex-price{
+                                            width: 100%;
+                                            .yb-price_car{
+                                                width: 45%;
+                                                .price_vis{
+                                                    font-size: em(15);
+                                                    line-height: 20px;
+                                                    &.active{
+                                                        font-size: em(24);
+                                                        line-height: 29px;
+                                                        font-weight: 500;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .price_monitoring{
+                                            font-size: em(16);
+                                            line-height: 19px;
+                                        }
                                     }
-                                    .yb_flex-price{
-                                       width: 100%;
-                                        .yb-price_car{
-                                            width: 45%;
-                                            .price_vis{
-                                                font-size: em(15);
-                                                line-height: 20px;
-                                                &.active{
-                                                    font-size: em(24);
-                                                    line-height: 29px;
-                                                    font-weight: 500;
+                                    .yvis-car_options{
+                                        padding: 15px;
+                                        .y-car_option{
+                                            svg{
+                                                width: 35px;
+                                                height: 35px;
+                                            }
+                                            .yoption_name{
+                                                width: 90%;
+                                                h2{
+                                                    font-size: em(18);
+                                                }
+                                                .y-option{
+                                                    width: 35%;
+                                                    font-size: em(18);
+                                                }
+                                            }
+                                            &:first-child{
+                                                padding: 0 0 15px;
+                                            }
+                                        }
+                                    }
+                                    .yb-additional_car-opt{
+                                        .yadditional_i{
+                                            flex-direction: inherit;
+                                            width: 90%;
+                                            .yvis_item{
+                                                &:first-child{
+                                                    margin-bottom: 0;
                                                 }
                                             }
                                         }
                                     }
-                                    .price_monitoring{
-                                        font-size: em(16);
-                                        line-height: 19px;
-                                    }
                                 }
-                                .yvis-car_options{
-                                    padding: 15px;
-                                    .y-car_option{
-                                        svg{
-                                            width: 35px;
-                                            height: 35px;
-                                        }
-                                        .yoption_name{
-                                            width: 90%;
-                                            h2{
-                                                font-size: em(18);
-                                            }
-                                            .y-option{
-                                                font-size: em(18);
-                                            }
-                                        }
-                                        &:first-child{
-                                            padding: 0 0 15px;
-                                        }
-                                    }
-                                }
-                                .yb-additional_car-opt{
-                                    .yadditional_i{
-                                        flex-direction: inherit;
-                                        width: 90%;
-                                        .yvis_item{
-                                            &:first-child{
-                                                margin-bottom: 0;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            .yb_go_to{
-                                width: 95%;
-                                padding: 4% 22%;
-                                font-size: em(18);
-                                line-height: 22px;
-                                margin: 0 auto 35px auto;
-                                .yexpended{
-                                    display: flex;
-                                    .white{
-                                        .arrow{
-                                            right: 13px;
-                                            width: 25px;
-                                        }
-                                        .eclipse{
-                                            font-size: em(38);
-                                            &:after{
-                                                left: -10px;
-                                                width: 15px;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .y-auto_options{
-                            .yb_verified_car{
-                                margin: 0 0 15px;
-                                .yb_disable-verified{
+                                .yb_go_to{
                                     width: 95%;
-                                    span{
-                                        font-size: em(20);
-                                    }
-                                }
-                                .yb_verified_content{
-                                    .y-vin_code{
-                                        svg{
-                                            width: 32px;
-                                            height: 35px;
-                                        }
-                                    }
-                                }
-                                .y_verified{
-                                    line-height: 19px;
+                                    padding: 4% 22%;
+                                    font-size: em(18);
+                                    line-height: 22px;
+                                    margin: 0 auto 35px auto;
                                     .yexpended{
                                         display: flex;
+                                        .white{
+                                            .arrow{
+                                                right: 13px;
+                                                width: 25px;
+                                            }
+                                            .eclipse{
+                                                font-size: em(38);
+                                                &:after{
+                                                    left: -10px;
+                                                    width: 15px;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
-                            .y_check_item-car{
-                                tr{
-                                    .y-check_title{
-                                        font-size: em(18);
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    margin: 0 0 15px;
+                                    .yb_disable-verified{
+                                        width: 95%;
+                                        span{
+                                            font-size: em(20);
+                                        }
                                     }
-                                    .y-check_desc{
-                                        font-size: em(18);
-                                        line-height: 22px;
+                                    .yb_verified_content{
+                                        .y-vin_code{
+                                            svg{
+                                                width: 32px;
+                                                height: 35px;
+                                            }
+                                        }
+                                    }
+                                    .y_verified{
+                                        line-height: 19px;
+                                        .yexpended{
+                                            display: flex;
+                                        }
+                                    }
+                                }
+                                .y_check_item-car{
+                                    tr{
+                                        .y-check_title{
+                                            font-size: em(18);
+                                        }
+                                        .y-check_desc{
+                                            font-size: em(18);
+                                            line-height: 22px;
+                                            width: 45%;
+                                        }
                                     }
                                 }
                             }
@@ -2063,9 +2177,9 @@
                     .y-current_img{
                         width: 100%;
                         height: auto;
-                        margin-top: 80px;
-                        svg{
-                            display: none;
+                        margin: 60px 0 0 0;
+                        img{
+                            width: 100%;
                         }
                     }
                     .yb_count-image{
@@ -2082,12 +2196,6 @@
                             margin: 0 7px;
                         }
                     }
-                    .yb-carousel_vis{
-                        display: none;
-                    }
-                    .yb_carousel-controls{
-                        display: none;
-                    }
                 }
             }
             .mobile_vis{
@@ -2096,6 +2204,7 @@
         }
         .yb-options{
             padding: 25px 25px;
+            width: 100%;
             .yb-technical_info{
                 width: 100%;
                 .yb-vis_info{
@@ -2115,7 +2224,7 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb-bread_next-card{
                 display: none;
@@ -2152,94 +2261,108 @@
                         }
                     }
                 }
-                .yb_auto_vis-l{
-                    .y-visl_items{
-                        .y-image_large{
-                            .yb-count_increase-img{
-                                .yb_count-img{
-                                    padding: 7px 10px;
-                                    i{
-                                        font-size: em(16);
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .y-image_large{
+                                .yb-count_increase-img{
+                                    .yb_count-img{
+                                        padding: 7px 10px;
+                                        i{
+                                            font-size: em(16);
+                                        }
+                                        .yb_count{
+                                            font-size: em(12);
+                                        }
                                     }
-                                    .yb_count{
-                                        font-size: em(12);
-                                    }
-                                }
-                                .yb-increase{
-                                    i{
+                                    .yb-increase{
+                                        i{
 
-                                    }
-                                }
-                            }
-                        }
-                        .without_photos{
-                            padding: 30px 0 30px;
-                            h2{
-                                margin: 25px 0 0 0;
-                                font-size: em(30);
-                            }
-                        }
-                        .yb_sold-car{
-                            top: 3%;
-                        }
-                        .yb_auto_vis-r{
-                            .yvis_item-car{
-                                .vis_car-price{
-                                    .yb_flex-price{
-                                        .yb-price_car{
-                                            width: 65%;
-                                        }
-                                        .favorite{
-                                            top: 15px;
-                                            right: 15px;
                                         }
                                     }
                                 }
-                                .yb-additional_car-opt{
-                                    .yadditional_i{
+                            }
+                            .without_photos{
+                                padding: 30px 0 30px;
+                                h2{
+                                    margin: 25px 0 0 0;
+                                    font-size: em(30);
+                                }
+                            }
+                            .yb_sold-car{
+                                top: 3%;
+                            }
+                            .yb_auto_vis-r{
+                                .yvis_item-car{
+                                    .vis_car-price{
+                                        .yb_flex-price{
+                                            .yb-price_car{
+                                                width: 65%;
+                                            }
+                                            .favorite{
+                                                top: 15px;
+                                                right: 15px;
+                                            }
+                                        }
+                                    }
+                                    .yvis-car_options{
+                                        .y-car_option{
+                                            .yoption_name{
+                                                .y-option{
+                                                    width: 40%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .yb-additional_car-opt{
+                                        .yadditional_i{
+                                            width: 100%;
+                                            flex-direction: column;
+                                        }
+                                    }
+                                }
+                                .yb_go_to{
+                                    padding: 3% 10%;
+                                }
+                            }
+                            .y-auto_options{
+                                padding: 0 0 70px 0;
+                                .yb_verified_car{
+                                    .yb_verified_content{
+                                        width: 100%;
+                                        align-items: center;
+                                        h2{
+                                            font-weight: 600;
+                                        }
+                                    }
+                                    .y_verified{
+                                        bottom: 30px;
+                                        left: 55px;
+                                    }
+                                    .yb_disable-verified{
                                         width: 100%;
                                         flex-direction: column;
+                                        svg{
+                                            width: 40px;
+                                        }
+                                        span{
+                                            font-size: 15px;
+                                            font-weight: 600;
+                                        }
                                     }
                                 }
-                            }
-                            .yb_go_to{
-                                padding: 3% 10%;
-                            }
-                        }
-                        .y-auto_options{
-                            padding: 0 0 70px 0;
-                            .yb_verified_car{
-                                .yb_verified_content{
-                                    width: 100%;
-                                    align-items: center;
-                                }
-                                .y_verified{
-                                    bottom: 30px;
-                                    left: 55px;
-                                }
-                                .yb_disable-verified{
-                                    width: 100%;
-                                    flex-direction: column;
-                                    svg{
-                                        width: 40px;
-                                    }
-                                    span{
-                                        font-size: 15px;
-                                        font-weight: 600;
-                                    }
-                                }
-                            }
-                            .y_check_item-car{
-                                tr {
-                                    flex-direction: column;
+                                .y_check_item-car{
+                                    tr {
+                                        flex-direction: column;
 
-                                    .y-check_title {
-                                        width: 70%;
-                                        align-items: center;
-                                    }
-                                    .y-check_desc {
-                                        width: 90%;
-                                        padding-left: 35px;
+                                        .y-check_title {
+                                            width: 70%;
+                                            align-items: center;
+                                        }
+                                        .y-check_desc {
+                                            width: 90%;
+                                            padding-left: 35px;
+                                        }
                                     }
                                 }
                             }
@@ -2280,7 +2403,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 flex-direction: column;
@@ -2291,81 +2414,87 @@
                 }
             }
             .yb-visible_mobile{
-                .yb_auto_vis-l{
-                    .y-visl_items{
-                        .yb_sold-car{
-                            padding: 10px;
-                            font-size: 30px;
-                            top: 2%;
-                            line-height: 56px;
-                        }
-                        .without_photos{
-                            padding: 25px 0 25px;
-                            h2{
-                                margin: 20px 0 0 0;
-                                font-size: em(22);
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .yb_sold-car{
+                                padding: 10px;
+                                font-size: 30px;
+                                top: 2%;
+                                line-height: 56px;
                             }
-                        }
-                        .yb_auto_vis-r{
-                            .yvis_item-car{
-                                .vis_car-price{
-                                    .yb_flex-price{
-                                        .yb-price_car{
-                                            width: 80%;
-                                        }
-                                    }
+                            .without_photos{
+                                padding: 25px 0 25px;
+                                h2{
+                                    margin: 20px 0 0 0;
+                                    font-size: em(22);
                                 }
-                                .yvis-car_options{
-                                    .y-car_option{
-                                        svg{
-                                            width: 32px;
-                                            height: 32px;
-                                            margin-right: 14px;
-                                        }
-                                        .yoption_name{
-                                            h2{
-                                                font-size: em(16);
-                                            }
-                                            .y-option{
-                                                font-size: em(15);
+                            }
+                            .yb_auto_vis-r{
+                                .yvis_item-car{
+                                    .vis_car-price{
+                                        .yb_flex-price{
+                                            .yb-price_car{
+                                                width: 80%;
                                             }
                                         }
                                     }
+                                    .yvis-car_options{
+                                        .y-car_option{
+                                            svg{
+                                                width: 32px;
+                                                height: 32px;
+                                                margin-right: 14px;
+                                            }
+                                            .yoption_name{
+                                                h2{
+                                                    font-size: em(16);
+                                                }
+                                                .y-option{
+                                                    font-size: em(15);
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
-                            }
-                            .yb_go_to{
-                                display: flex;
-                                justify-content: center;
-                                width: 90%;
-                                height: 43px;
-                                border-radius: 10px;
-                                font-size: em(16);
-                                line-height: 19px;
-                                .yexpended{
-                                    display: none;
-                                }
-                            }
-                        }
-                        .y-auto_options{
-                            .yb_verified_car{
-                                .y_verified{
-                                    left: 60px;
-                                    padding: 0 55px 0 55px;
+                                .yb_go_to{
+                                    display: flex;
+                                    justify-content: center;
+                                    width: 90%;
                                     height: 43px;
+                                    font-size: em(16);
+                                    line-height: 19px;
                                     .yexpended{
                                         display: none;
                                     }
                                 }
-                                .yb_disable-verified{
-                                    span{
-                                        font-size: em(14);
+                            }
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    .yb_verified_content{
+                                        h2{
+                                            font-size: em(22);
+                                        }
+                                    }
+                                    .y_verified{
+                                        left: 60px;
+                                        padding: 0 55px 0 55px;
+                                        height: 43px;
+                                        .yexpended{
+                                            display: none;
+                                        }
+                                    }
+                                    .yb_disable-verified{
+                                        span{
+                                            font-size: em(14);
+                                        }
                                     }
                                 }
-                            }
-                            .y_check_item-car{
-                                tr{
-                                    .y-check_title{
-                                        width: 100%;
+                                .y_check_item-car{
+                                    tr{
+                                        .y-check_title{
+                                            width: 100%;
+                                        }
                                     }
                                 }
                             }
@@ -2392,7 +2521,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .yb-card_content{
+    .yb-content{
         .yb-card_auto{
             .yb_status-bar{
                 padding-bottom: 5px;
@@ -2430,60 +2559,67 @@
                         margin: 5px 0 0 5px;
                     }
                 }
-                .yb_auto_vis-l{
-                    .y-visl_items{
-                        .y-image_large{
-                            .yb-icon_check{
-                                top: 10px;
-                                left: 10px;
-                                .icon{
-                                    width: 35px;
-                                    height: 35px;
-                                    svg{
-                                        width: 20px;
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .y-visl_items{
+                            .y-image_large{
+                                .yb-icon_check{
+                                    top: 10px;
+                                    left: 10px;
+                                    .icon{
+                                        width: 35px;
+                                        height: 35px;
+                                        svg{
+                                            width: 20px;
+                                        }
                                     }
                                 }
-                            }
-                            .yb-count_increase-img{
-                                .yb_count-img{
-                                    height: 30px;
-                                    i{
-                                        font-size: em(16);
+                                .yb-count_increase-img{
+                                    .yb_count-img{
+                                        height: 30px;
+                                        i{
+                                            font-size: em(16);
+                                        }
+                                        .yb_count{
+                                            font-size: em(12);
+                                        }
                                     }
-                                    .yb_count{
-                                        font-size: em(12);
-                                    }
-                                }
-                                .yb-increase{
-                                    height: 30px;
-                                    i{
-                                        font-size: em(16);
-                                    }
-                                }
-                            }
-                        }
-                        .without_photos{
-                            padding: 20px 0 15px;
-                        }
-                        .yb_auto_vis-r{
-                            .yvis_item-car{
-                                .vis_car-price{
-                                    .yb_flex-price{
-                                        .yb-price_car{
-                                            width: 95%;
+                                    .yb-increase{
+                                        height: 30px;
+                                        i{
+                                            font-size: em(16);
                                         }
                                     }
                                 }
                             }
-                        }
-                        .y-auto_options{
-                            .yb_verified_car{
-                                .y_verified{
-                                    left: 40px;
+                            .without_photos{
+                                padding: 20px 0 15px;
+                            }
+                            .yb_auto_vis-r{
+                                .yvis_item-car{
+                                    .vis_car-price{
+                                        .yb_flex-price{
+                                            .yb-price_car{
+                                                width: 95%;
+                                            }
+                                        }
+                                    }
                                 }
-                                .yb_disable-verified{
-                                    span{
-                                        font-size: em(12);
+                            }
+                            .y-auto_options{
+                                .yb_verified_car{
+                                    .yb_verified_content{
+                                        h2{
+                                            font-size: em(20);
+                                        }
+                                    }
+                                    .y_verified{
+                                        left: 40px;
+                                    }
+                                    .yb_disable-verified{
+                                        span{
+                                            font-size: em(12);
+                                        }
                                     }
                                 }
                             }
@@ -2493,4 +2629,5 @@
             }
         }
     }
+
 }

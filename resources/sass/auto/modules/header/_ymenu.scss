@@ -48,8 +48,8 @@
     .ydrop-menu_vis{
         position: absolute;
         background: #FFFFFF;
-        box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.35), 3px -2px 4px rgba(11, 63, 141, 0.4), -2px 3px 5px rgba(11, 63, 141, 0.54);
-        border-radius: 8px;
+        //box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.35), 3px -2px 4px rgba(11, 63, 141, 0.4), -2px 3px 5px rgba(11, 63, 141, 0.54);
+        border-radius: 0 0 8px 8px;
         display: flex;
         top: 45px;
         left: 0;
@@ -57,11 +57,9 @@
         .yb_menu-collumn{
             position: relative;
             .y-menu-collumn_items{
-                padding: 0;
-                margin: 0;
-                padding: 25px 15px 25px 0;
+                padding: 15px 15px 15px 0;
                 position: relative;
-                margin-left: 20px;
+                margin: 0 0 0 15px;
                 .y-collumn_item{
                     font-family: $aleg;
                     font-weight: bold;
@@ -112,6 +110,8 @@
             .y-menu-collumn_items{
                 .y-collumn_item{
                     color: #2A2C2D;
+                    font-weight: normal;
+                    font-size: em(18);
                 }
             }
         }
@@ -119,7 +119,6 @@
 }
 @media only screen and (max-width: 1600px){
     .ymenu{
-        position: initial;
         .ydrop-menu_vis{
             .yb_menu-collumn{
                 .y-menu-collumn_items{
@@ -195,41 +194,8 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    margin: 10px 10px 0 10px;
-                    width: 250px;
-                    .ylocation-box{
-                        display: flex;
-                        align-items: center;
-                        width: 125px;
-                        .ylocation {
-                            .dropdown-input {
-                                padding-left: 30px;
-                            }
-                        }
-                        .loc_icon{
-                            color: $darkblue;
-                            font-size: 1.125em;
-                            position: absolute;
-                            padding-right: 10px;
-                            left: 15px;
-                            z-index: 3;
-                        }
-                        .list-toggle{
-                            color: rgba(91, 91, 91, 0.54);
-                            font-size: em(14);
-                            &.arrow_hide{
-                                display: none;
-                            }
-                        }
-                        &.loc_long{
-                            width: 250px;
-                            .ylocation{
-                                .autocomplete-results{
-                                    margin: 50px 0 0 0;
-                                }
-                            }
-                        }
-                    }
+                    border-bottom: 1px solid #E2E2E2;
+                    padding: 16px 20px 15px 20px;
                     .yb-lang-switcher{
                         &.yvis_menu{
                             display: flex;
@@ -268,6 +234,7 @@
                         }
 
                     }
+
                 }
                 .ymenu_item-row{
                     display: flex;
@@ -315,16 +282,39 @@
 }
 @media only screen and (max-width: 600px){
     .ymenu{
+        position: inherit;
         .ydrop-menu_vis{
             &.mobile{
-                top: 40px;
-                .yb_menu-collumn{
-                    .y-menu-collumn_items{
-                        margin-left: 5px;
-                        padding: 10px 5px 10px 0;
-                        .y-collumn_item{
-                            font-size: em(10);
-                            height: 20px;
+                top: 60px;
+                border-radius: 0 0 15px 15px;
+                width: 100%;
+                .ymenu_item-row{
+                    .yb_menu-collumn{
+                        width: 100%;
+                        .y-menu-collumn_items{
+                            margin-left: 5px;
+                            padding: 15px 15px 17px 0;
+                            .y-collumn_item{
+                                margin-bottom: 15px;
+                                padding: 0 10px 0 19px;
+                                height: auto;
+                                i{
+                                    font-size: 14px;
+                                    color: $darkblue;
+                                }
+                                &.active{
+                                    background: none;
+                                    box-shadow: none;
+                                    color: $darkblue;
+                                    height: auto;
+                                    i{
+                                        color: $darkblue;
+                                    }
+                                }
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                            }
                         }
                     }
                 }
@@ -332,17 +322,12 @@
         }
     }
 }
-@media only screen and (max-width: 375px){
+@media only screen and (max-width: 425px){
     .ymenu{
         .ydrop-menu_vis{
             &.mobile{
-                width: 100%;
                 top: 50px;
-                padding: 10px;
                 .yheader_item-menu{
-                    width: 100%;
-                    margin: 0;
-                    padding: 0 10px;
                     .ylocation-box{
                         &.loc_long{
                             width: 100%;
@@ -352,14 +337,10 @@
                         }
                     }
                 }
-                .ymenu_item-row{
-                    .yb_menu-collumn{
-                        width: 100%;
-                    }
-                }
             }
         }
     }
 }
+
 
 

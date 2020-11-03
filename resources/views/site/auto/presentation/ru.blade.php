@@ -1,4 +1,4 @@
-<main class="presentation_content">
+<main class="yb-content">
     <section class="first_screen-present">
         <div class="vis-l_screen">
             <div class="ytitle_present">

@@ -1,8 +1,6 @@
 @import '../../vars';
 
-.yb_favorite-content{
-    padding: 0 17%;
-    width: 100%;
+.yb-content{
     position: relative;
     .yb_bread-links{
         width: 100%;
@@ -118,7 +116,7 @@
         align-items: center;
         justify-content: space-between;
         .yb_favorite-item{
-            width: 22%;
+            width: 23%;
             border-radius: 15px;
             overflow: hidden;
             margin-bottom: 15px;
@@ -214,7 +212,7 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .yb_favorite-content{
+    .yb-content{
         .yb_content-title{
             font-size: em(40);
             line-height: 38px;
@@ -238,26 +236,14 @@
 }
 
 @media only screen and (max-width: 1500px){
-    .yb_favorite-content{
-        padding: 0 10%;
+    .yb-content{
         .yb_bread-links{
             margin: 25px 0;
         }
     }
 }
-@media only screen and (max-width: 1366px){
-    .yb_favorite-content{
-        padding: 0 8%;
-    }
-}
-@media only screen and (max-width: 1330px){
-    .yb_favorite-content{
-        padding: 0 6%;
-    }
-}
 @media only screen and (max-width: 1024px){
-    .yb_favorite-content{
-        padding: 0 2.5%;
+    .yb-content{
         .yb-row_items{
             .yb_favorite-item{
                 .yb-fv_image{
@@ -288,8 +274,8 @@
     }
 }
 @media only screen and (max-width: 945px){
-    .yb_favorite-content{
-        padding: 0 15px;
+    .yb-content{
+
         .yb-row_items{
             .yb_favorite-item{
                 width: 24%;
@@ -298,7 +284,7 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .yb_favorite-content{
+    .yb-content{
         .yb-row_items{
             .yb_favorite-item{
                 width: 32%;
@@ -307,9 +293,9 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb_favorite-content{
+    .yb-content{
         .yb_bread-links{
-            margin: 15px 0;
+            display: none;
             .yb_links-items{
                 .yb_links-item{
                     a{
@@ -324,7 +310,7 @@
         }
         .yb_content-title{
             font-size: em(32);
-            margin-bottom: 10px;
+            margin: 20px 0px 10px 0px;
         }
         .yb-row_end{
             margin-bottom: 15px;
@@ -374,7 +360,7 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb_favorite-content{
+    .yb-content{
         .yb_content-title{
             font-size: em(28);
             margin-bottom: 15px;
@@ -428,7 +414,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .yb_favorite-content{
+    .yb-content{
         .yb_content-title{
             font-size: em(26);
         }

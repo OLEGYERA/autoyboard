@@ -2,11 +2,13 @@
 @import '../../vars';
 
 
-.yb-convention_content{
+.yb-content{
     .yb-convention_prev{
         background: linear-gradient(91.14deg, #0B3F8D 49.02%, #072F6A 67.4%);
         box-shadow: 9px 4px 5px #021531;
-        padding: 0 17%;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
+        padding: 0 26%;
         .yb-convention_crumbs{
             display: flex;
             align-items: center;
@@ -40,7 +42,9 @@
     }
     .yb-convention_desc{
         background: $bgfaq;
-        padding: 0 17%;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
+        padding: 0 26%;
         h2{
             font-family: $rale;
             font-weight: 500;
@@ -62,6 +66,7 @@
         .yb-content_terms{
             display: flex;
             justify-content: space-between;
+            position: relative;
             .yb-definition_terms{
                 width: 68%;
                 background: #FBFCFC;
@@ -119,15 +124,26 @@
                 }
             }
             .yb-scroll_terms{
-                width: 30%;
                 height: fit-content;
+                position: absolute;
+                right: 0;
+                width: 30%;
                 background: #07306B;
                 box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
                 border-radius: 8px;
+                &.scroll-fixed{
+                    position: fixed;
+                    top: 60px;
+                    right: 12%;
+                    width: 25%;
+                }
                 .yb-scroll_items{
                     counter-reset: LiCounter;
                     margin: 0;
                     padding: 20px;
+                    background: #07306B;
+                    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
                     .yb-scroll_item{
                         font-family: $rale;
                         font-style: normal;
@@ -154,41 +170,65 @@
         }
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb-convention_content{
-        .yb-convention_prev{
-            padding: 0 10%;
-        }
+@media only screen and (max-width: 1440px){
+    .yb-content{
         .yb-convention_desc{
-            padding: 0 10%;
-        }
-    }
-}
-@media only screen and (max-width: 1366px){
-    .yb-convention_content{
-        .yb-convention_prev{
-            padding: 0 8%;
-        }
-        .yb-convention_desc{
-            padding: 0 8%;
-        }
-    }
-}
-@media only screen and (max-width: 1300px){
-    .yb-convention_content{
-        .yb-convention_prev{
-            padding: 0 6%;
-        }
-        .yb-convention_desc{
-            padding: 0 6%;
+            .yb-content_terms{
+                .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 22%;
+                    }
+                }
+            }
         }
     }
 }
 
+@media only screen and (max-width: 1330px){
+    .yb-content{
+        .yb-convention_desc{
+            .yb-content_terms{
+                .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 25%;
+                        right: 8%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .yb-content{
+        .yb-convention_desc{
+            .yb-content_terms{
+                .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 25%;
+                        right: 8%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1280px){
+    .yb-content{
+        .yb-convention_desc{
+            .yb-content_terms{
+                .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 26%;
+                        right: 7%;
+                    }
+                }
+            }
+        }
+    }
+}
 @media only screen and (max-width: 1024px){
-    .yb-convention_content{
+    .yb-content{
         .yb-convention_prev{
-            padding: 0 3%;
             .yb-convention_crumbs{
                 padding: 10px 0;
                 span{
@@ -202,19 +242,32 @@
             }
         }
         .yb-convention_desc{
-            padding: 0 3%;
+            .yb-content_terms{
+               .yb-scroll_terms{
+                   &.scroll-fixed{
+                       width: 28%;
+                       right: 4%;
+                   }
+                   .yb-scroll_items{
+                       .yb-scroll_item{
+                           font-size: em(15);
+                           line-height: 19px;
+                       }
+                   }
+               }
+            }
         }
     }
 }
 @media only screen and (max-width: 945px){
-    .yb-convention_content{
-        .yb-convention_prev{
-            padding: 0 2%;
-        }
+    .yb-content{
         .yb-convention_desc{
-            padding: 0 2%;
             .yb-content_terms{
                 .yb-scroll_terms{
+                    &.scroll-fixed{
+                        width: 30%;
+                        right: 2%;
+                    }
                     .yb-scroll_items{
                         .yb-scroll_item{
                            font-size: em(15);
@@ -226,7 +279,7 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .yb-convention_content{
+    .yb-content{
         .yb-convention_prev{
             .yb-convention_crumbs{
                 display: none;
@@ -292,7 +345,7 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb-convention_content{
+    .yb-content{
         .yb-convention_desc{
             .yb-content_terms{
                 .yb-definition_terms{
@@ -310,9 +363,8 @@
 }
 
 @media only screen and (max-width: 425px){
-    .yb-convention_content{
+    .yb-content{
         .yb-convention_prev{
-            padding: 0 4%;
             h1{
                 font-size: em(42);
                 line-height: 49px;
@@ -320,7 +372,6 @@
             }
         }
         .yb-convention_desc{
-            padding: 0 4%;
             .yb-use_content{
                 font-size: em(16);
                 line-height: 25px;
@@ -347,7 +398,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .yb-convention_content{
+    .yb-content{
         .yb-convention_prev{
             h1{
                 font-size: em(36);
@@ -381,7 +432,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .yb-convention_content{
+    .yb-content{
         .yb-convention_prev{
             h1{
                 font-size: em(32);

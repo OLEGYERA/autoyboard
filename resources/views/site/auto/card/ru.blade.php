@@ -1,4 +1,4 @@
-<main class="yb-card_content">
+<main class="yb-content">
     <section class="yb-card_auto">
         <div class="yb-bread_next-card">
             <div class="yb-bread_crumbs">

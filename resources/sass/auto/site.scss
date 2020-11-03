@@ -32,7 +32,12 @@
 @import 'modules/header/ysearch';
 @import 'modules/ylocation';
 
+<<<<<<< HEAD
 //@import 'modules/yfaqquestions';
+=======
+@import 'modules/yfaqquestions';
+@import 'modules/pagination';
+>>>>>>> 76e70d42d1e71ee50ecf1562a5a5106d7ab3f792
 
 @import 'modules/yselectsearch';
 @import 'modules/yselectmultysearch';
@@ -80,7 +85,6 @@
                 bottom: 0;
                 width: 100%;
                 left: 0;
-
             }
         }
         .yanalytics{
@@ -738,11 +742,47 @@
         }
     }
 }
-
-
+@media only screen and (max-width: 1500px){
+    #yb-site{
+        .yb-content{
+            padding: 0 10%;
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    #yb-site{
+        .yb-content{
+            padding: 0 8%;
+        }
+    }
+}
+@media only screen and (max-width: 1330px){
+    #yb-site{
+        .yb-content{
+            padding: 0 6%;
+        }
+    }
+}
+@media only screen and (max-width: 1024px){
+    #yb-site{
+        .yb-content{
+            padding: 0 3%;
+        }
+    }
+}
+@media only screen and (max-width: 945px){
+    #yb-site{
+        .yb-content{
+            padding: 0 2%;
+        }
+    }
+}
 @media only screen and (max-width: 425px){
     #yb-site{
         padding-top: 50px;
+        .yb-content{
+            padding: 0 4%;
+        }
     }
 }
 

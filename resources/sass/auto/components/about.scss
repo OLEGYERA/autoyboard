@@ -1,7 +1,7 @@
 @import '../clear';
 @import '../../vars';
 
-.yb_about-content{
+.yb-content{
     .y-about_prev{
         display: flex;
         align-items: center;
@@ -9,6 +9,8 @@
         flex-direction: column;
         padding: 40px 0 50px 0;
         background: linear-gradient(180deg, #0B3F8D 0%, #052960 100%);
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
         img{
             width: 200px;
         }
@@ -25,11 +27,12 @@
     }
     .y-about_desc{
         background: $bgfaq;
-        padding: 0 17%;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
         .y-about_crumbs{
             display: flex;
             align-items: center;
-            padding: 15px 0 22px 0;
+            padding: 15px 17% 22px 17%;
             span{
                 display: flex;
                 align-items: center;
@@ -56,9 +59,11 @@
             font-size: em(48);
             line-height: 56px;
             color: $darkblue;
+            padding: 0 17%;
             margin: 0 0 16px 0;
         }
         .yb_about-title{
+            padding: 0 17%;
             margin-bottom: 11px;
             span{
                 font-family: $rale;
@@ -81,9 +86,10 @@
             }
         }
         .yb-contacts_data{
+            padding: 0 17%;
             display: flex;
             align-items: center;
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             .yb-contacts_details{
                 margin-right: 30px;
@@ -91,6 +97,7 @@
                     font-family: $rale ;
                     font-weight: bold;
                     font-size: em(36);
+                    padding: 0;
                     line-height: 42px;
                     color: $darkblue;
                     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -138,7 +145,7 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             img{
                 width: 180px;
@@ -149,7 +156,7 @@
         }
         .y-about_desc{
             .y-about_crumbs{
-                padding: 10px 0 20px 0;
+                padding: 10px 17% 20px 17%;
             }
             h2{
                 font-size: em(46);
@@ -198,15 +205,9 @@
         }
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb_about-content{
-        .y-about_desc{
-            padding: 0 10%;
-        }
-    }
-}
+
 @media only screen and (max-width: 1440px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             img{
                 width: 170px;
@@ -240,15 +241,8 @@
         }
     }
 }
-@media only screen and (max-width: 1366px){
-    .yb_about-content{
-        .y-about_desc{
-            padding: 0 8%;
-        }
-    }
-}
 @media only screen and (max-width: 1330px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             img{
                 width: 160px;
@@ -259,9 +253,8 @@
             }
         }
         .y-about_desc{
-            padding: 0 6%;
             .y-about_crumbs{
-                padding: 8px 0 15px 0;
+                padding: 8px 17% 15px 17%;
                 .span{
                     a{
                         font-size: em(16);
@@ -273,7 +266,6 @@
                 line-height: 49px;
             }
             .yb_about-title{
-                width: 80%;
                 span{
                     font-size: em(26);
                 }
@@ -285,14 +277,8 @@
     }
 }
 @media only screen and (max-width: 1024px){
-    .yb_about-content{
-        .y-about_prev{
-            h1{
-                width: 70%;
-            }
-        }
+    .yb-content{
         .y-about_desc{
-            padding: 0 3%;
             .yb_about-title{
                 width: 90%;
             }
@@ -331,9 +317,8 @@
     }
 }
 @media only screen and (max-width: 945px){
-    .yb_about-content{
+    .yb-content{
         .y-about_desc{
-            padding: 0 2%;
             .yb_about-title{
                 width: 90%;
                 span{
@@ -361,13 +346,10 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             img{
                 width: 150px;
-            }
-            h1{
-                width: 85%;
             }
         }
         .y-about_desc{
@@ -383,6 +365,9 @@
             }
             h2{
                 text-align: center;
+            }
+            .yb_about-title{
+                width: 100%;
             }
             .yb-contacts_data{
                 .yb-contacts_details{
@@ -407,13 +392,12 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             img{
                 width: 215px;
             }
             h1{
-                width: 90%;
                 font-size: em(24);
                 line-height: 28px;
             }
@@ -428,8 +412,6 @@
                 padding-top: 10px;
             }
             .yb_about-title{
-                width: 100%;
-                display: inline;
                 p{
                     font-size: em(24);
                     line-height: 34px;
@@ -477,18 +459,16 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             img{
                 width: 200px;
             }
             h1{
                 font-size: em(18);
-                width: 95%;
             }
         }
         .y-about_desc{
-            padding: 0 4%;
             .yb_about-title{
                 p{
                     font-size: em(17);
@@ -506,7 +486,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             img{
                 width: 180px;
@@ -545,7 +525,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .yb_about-content{
+    .yb-content{
         .y-about_prev{
             padding: 30px 0 35px 0;
             img{

@@ -1,4 +1,4 @@
-<main class="yb-confidentiality_content">
+<main class="yb-content">
     <section class="yb-confidentiality_prev">
         <div class="yb-confidentiality_crumbs">
             <span class="yb-crumbs_items">

@@ -1,4 +1,4 @@
-<main class="yb_faq-content">
+<main class="yb-content">
     <section class="yb_faq-search">
         <h1>FAQ</h1>
         <span class="yb_about-faq">

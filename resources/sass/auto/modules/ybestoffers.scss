@@ -61,7 +61,7 @@
                  }
              }
         .custom-dot-class{
-            bottom: -50px;
+            bottom: -45px;
             width: 90%;
             margin: 0 auto;
             li{
@@ -211,8 +211,8 @@
                 .ybest-item{
                     display: flex;
                     max-width: 100% !important;
-                    border-radius: 0px 15px 15px 0px;
-                    margin-bottom: 30px;
+                    border-radius: 0 15px 15px 0;
+                    margin-bottom: 15px;
                     overflow: hidden;
                     .yb-icon_check{
                         top: 10px;
@@ -233,6 +233,7 @@
                     }
                     .item_image{
                         width: 45%;
+                        height: auto;
                         border-radius: 15px 0px 0px 15px;
                         img{
                         }
@@ -279,8 +280,8 @@
         .ybest-items{
             .slick-slider{
                 .ybest-item{
-                    max-width: 300px;
-                        .yb-icon_check{
+                    max-width: 280px;
+                    .yb-icon_check{
                             .item_check{
                                 width: 45px;
                                 height: 45px;
@@ -296,7 +297,7 @@
                         }
                     .item_image{
                         img{
-
+                            width: 120%;
                         }
                     }
                     .item_desc{
@@ -319,13 +320,21 @@
             .ybest-items{
                 .ybest-items_flex{
                     .ybest-item{
-                        .item_image{
-                            img{
-                                width: 120%;
-                            }
-                        }
                         .item_desc{
                             padding: 15px;
+                            .item_name{
+                                font-size: em(16.5);
+                                margin-bottom: 10px;
+                            }
+                            .price_more{
+                                margin-top: 10px;
+                              .show_more{
+                                  margin-top: 10px;
+                                .arrow_right{
+                                    height: 25px;
+                                }
+                              }
+                            }
                         }
                     }
                 }
@@ -439,20 +448,42 @@
             .ybest-items{
                 .ybest-items_flex{
                     .ybest-item{
-                        .item_image{
-                            img{
-                                width: 125%;
+                        .yb-icon_check{
+                            .item_check{
+                                width: 35px;
+                                height: 35px;
+                                margin-right: 10px;
+                                img{
+                                    width: 20px;
+                                }
                             }
+                            .new_item{
+                                width: 35px;
+                                height: 35px;
+                                font-size: em(10);
+                            }
+                        }
+                        .item_image{
                             .favorite{
-                                bottom: 25px;
+                                bottom: 10px;
                             }
                         }
                         .item_desc{
                             .item_name{
-                                font-size: em(16);
+                                font-size: em(15);
+                            }
+                            .sity-name_item{
+                                font-size: em(15);
                             }
                             .price_more{
-
+                                margin-top: 5px;
+                                .item_price{
+                                font-size: em(20);
+                            }
+                                .show_more{
+                                    margin-top: 5px;
+                                    font-size: em(14);
+                                }
                             }
                         }
                     }

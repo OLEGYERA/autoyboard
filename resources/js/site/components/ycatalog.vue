@@ -1,9 +1,12 @@
 <template>
     <div class="ycatalog_block">
-        <ytitle :title="'Каталог'"></ytitle>
+        <ytitle
+            :title="'Каталог'"
+            :uatitle="'Каталог'"
+        ></ytitle>
         <div class="y-cat-bottom">
             <div class="cat_categories">
-                    <h3 class="title">Категории</h3>
+                    <h3  class="title">Категории</h3>
                 <div class="cat_list-items">
                     <ul class="list_items">
                         <li  tabindex="0" class="cat_item">Легковые</li>
@@ -122,6 +125,7 @@
 <script>
     import Slick from "vue-slick";
 export default  {
+    props:['lang'],
     components: {
         Slick
     },

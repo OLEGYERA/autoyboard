@@ -33,7 +33,7 @@
                 <i class="fa fa-chevron-down"></i>
             </div>
             <div class="yb-body_list">
-                <div class="yb-body_item ">
+                <div class="yb-body_item  ">
                     <figure class="yb_body_img">
                         <img src="{{asset('img/system/static/passenger_car.png')}}" alt="">
                     </figure>

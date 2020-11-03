@@ -1,4 +1,4 @@
-<main class="yb-convention_content">
+<main class="yb-content">
     <section class="yb-convention_prev">
         <div class="yb-convention_crumbs">
             <span>
@@ -25,8 +25,8 @@
         <div class="yb-content_terms">
             <div class="yb-definition_terms">
                 <ol class="yb-terms_list">
-                    <li class="yb-terms_title">
-                        <button class="yb-title_btn">
+                    <li id="0" class="yb-terms_title">
+                        <button  class="yb-title_btn">
                             Визначення термінів
                             <i class="term_arrow fas fa-angle-down"></i>
                         </button>
@@ -92,8 +92,8 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
-                        <button class="yb-title_btn">
+                    <li id="1" class="yb-terms_title">
+                        <button  class="yb-title_btn">
                             Загальні положення
                             <i class=" term_arrow fas fa-angle-down"></i>
                         </button>
@@ -118,7 +118,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="2" class="yb-terms_title">
                         <button class="yb-title_btn">
                             Предмет угоди
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -144,7 +144,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="3" class="yb-terms_title">
                         <button class="yb-title_btn">
                             Аккаунт пользователя
                             <i class="term_arrow fas fa-angle-down"></i>
@@ -176,7 +176,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="4" class="yb-terms_title">
                         <button class="yb-title_btn">
                             Права и обязанности пользователей и администрации
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -300,7 +300,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="5"  class="yb-terms_title">
                         <button class="yb-title_btn">
                             Защита данных
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -320,7 +320,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="6"  class="yb-terms_title">
                         <button class="yb-title_btn">
                             Отказ от гарантий та ответственность сторон
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -377,7 +377,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="7"  class="yb-terms_title">
                         <button class="yb-title_btn">
                             Реклама
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -386,7 +386,7 @@
                             <li class="yb-subtitle_item">Інформаційні матеріали, поширені на Веб-сайті, визнаються рекламою, тільки якщо вони ідентифіковані позначкою «Реклама» або «На правах реклами».</li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="8" class="yb-terms_title">
                         <button class="yb-title_btn">
                             Расторжение договора
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -400,7 +400,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="9" class="yb-terms_title">
                         <button class="yb-title_btn">
                             Контактная информация
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -409,7 +409,7 @@
                             <li class="yb-subtitle_item">Якщо у Користувача є будь-які питання або скарги щодо дотримання Адміністрацією або Партнерами умов цієї Угоди, або Користувач хоче надати будь-які рекомендації або коментарі, він може направити листа електронною поштою за адресою: _______________</li>
                         </ol>
                     </li>
-                    <li class="yb-terms_title">
+                    <li id="10" class="yb-terms_title">
                         <button class="yb-title_btn">
                             Разрешение контактировать пользователем
                             <i class=" term_arrow fas fa-angle-down"></i>
@@ -424,37 +424,37 @@
             </div>
             <div class="yb-scroll_terms">
                 <ol class="yb-scroll_items">
-                    <li class="yb-scroll_item">
+                    <li  id="goto0" class="yb-scroll_item">
                         Визначення термінів
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto1" class="yb-scroll_item goto">
                         Загальні положення
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto2" class="yb-scroll_item">
                         Предмет угоди
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto3" class="yb-scroll_item">
                         Аккаунт пользователя
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto4" class="yb-scroll_item">
                          Права и обязаности пользователей и администации
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto5" class="yb-scroll_item">
                         Защита данных
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto6" class="yb-scroll_item">
                         Отказ от гарантий и ответственность сторон
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto7" class="yb-scroll_item">
                         Реклама
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto8" class="yb-scroll_item">
                         Расторжение договора
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto9" class="yb-scroll_item">
                         Контактная информация
                     </li>
-                    <li class="yb-scroll_item">
+                    <li id="goto10" class="yb-scroll_item">
                         Разрешение контактировать пользователем
                     </li>
                 </ol>

@@ -6,7 +6,10 @@
     align-items: center;
     position: relative;
     height: 35px;
-
+    width: 60%;
+    &.search_long{
+        width: 85%;
+    }
     .search{
         height: 100%;
         width: 100%;
@@ -32,6 +35,9 @@
         right: 15px;
         font-size: em(18);
         color: $lightgray;
+        &.fa-times{
+            color: $darkblue;
+        }
     }
     .ysearch_items-list{
         position: absolute;
@@ -69,65 +75,66 @@
             }
         }
     }
-    .ysearch_items-res{
-        max-height: 550px;
-        width: 100%;
-        overflow: hidden;
-        top: 36px;
-        position: absolute;
-        background: #FFFFFF;
-        border-radius: 0px 0px 13px 13px;
-        padding: 13px 23px 10px 26px;
-        .yb-last_requests{
-            display: flex;
-            align-items: center;
-            font-family: $aleg;
-            font-weight: normal;
-            font-size: em(18);
-            line-height: 22px;
-            color: #606E75;
-            margin-bottom: 15px;
-            svg{
-                margin-left: 10px;
-                cursor: pointer;
-            }
-        }
-        .yb-requests_items{
-            display: flex;
-            align-items: center;
-            padding: 0;
-            width: 100%;
-            flex-wrap: wrap;
-            margin: 0 0 15px auto;
-            .yb-requests_item{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: $aleg;
-                font-weight: 500;
-                font-size: em(16);
-                height: 35px;
-                margin-bottom: 5px;
-                padding: 0 15px;
-                line-height: 22px;
-                color: $darkblue;
-                background: #F9F9FA;
-                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-                border-radius: 8px;
-                margin-right: 10px;
-                &:last-child{
-                    margin-right: 0;
-                }
-            }
-        }
-
-    }
+    //.ysearch_items-res{
+    //    max-height: 550px;
+    //    width: 100%;
+    //    overflow: hidden;
+    //    top: 36px;
+    //    position: absolute;
+    //    background: #FFFFFF;
+    //    border-radius: 0px 0px 13px 13px;
+    //    padding: 13px 23px 10px 26px;
+    //    overflow: scroll;
+    //    .yb-last_requests{
+    //        display: flex;
+    //        align-items: center;
+    //        font-family: $aleg;
+    //        font-weight: normal;
+    //        font-size: em(18);
+    //        line-height: 22px;
+    //        color: #606E75;
+    //        margin-bottom: 15px;
+    //        svg{
+    //            margin-left: 10px;
+    //            cursor: pointer;
+    //        }
+    //    }
+    //    .yb-requests_items{
+    //        display: flex;
+    //        align-items: center;
+    //        padding: 0;
+    //        width: 100%;
+    //        flex-wrap: wrap;
+    //        margin: 0 0 15px auto;
+    //        .yb-requests_item{
+    //            display: flex;
+    //            align-items: center;
+    //            justify-content: center;
+    //            font-family: $aleg;
+    //            font-weight: 500;
+    //            font-size: em(16);
+    //            height: 35px;
+    //            margin-bottom: 5px;
+    //            padding: 0 15px;
+    //            line-height: 22px;
+    //            color: $darkblue;
+    //            background: #F9F9FA;
+    //            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    //            border-radius: 8px;
+    //            margin-right: 10px;
+    //            &:last-child{
+    //                margin-right: 0;
+    //            }
+    //        }
+    //    }
+    //
+    //}
     .yb_best-title{
-        font-family: $aleg;
-        font-weight: 500;
+        font-family: $rale;
+        font-weight: 600;
         margin: 0 0 20px 0;
         font-size: em(18);
-        line-height: 22px;
+        line-height: 21px;
         color: $darkblue;
     }
     .yb_best-offers{
@@ -136,11 +143,10 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        padding-right: 120px;
         .yb-offer_item{
             display: flex;
-            border-radius: 15px;
-            width: 260px;
+            border-radius: 10px;
+            width: 49%;
             margin-bottom: 10px;
             overflow: hidden;
             box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
@@ -162,27 +168,28 @@
                 box-shadow: 0px 16px 77px rgba(0, 0, 0, 0.06), 0px 9px 23px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
                 .yb-item_name{
                     font-family: $mont;
-                    font-weight: 500;
-                    font-size: em(10);
+                    font-weight: 600;
+                    font-size: em(14);
                     line-height: 142.5%;
                     color: #222222;
-                    margin: 0 0 10px 0;
+                    margin: 0 0 30px 0;
                 }
                 .yb-item_location{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    width: 70%;
                     .yb-loc{
                         font-family: $mont;
                         font-weight: normal;
-                        font-size: em(10);
+                        font-size: em(18);
                         line-height: 18px;
                         color: rgba(34, 34, 34, 0.74);
                     }
                     .yb-price{
-                        font-family: $mont;
+                        font-family: $noto;
                         font-weight: normal;
-                        font-size: em(10);
+                        font-size: em(20);
                         line-height: 22px;
                         color: #10A667;
                     }
@@ -193,219 +200,369 @@
 }
 @media only screen and (max-width: 1600px){
     .ysearch{
-        .ysearch_items-res{
-            padding: 13px 15px 10px 26px;
-            .yb-requests_items{
-                .yb-requests_item{
-                    font-size: em(14);
-                    height: 30px;
-                    line-height: 18px;
-                }
-            }
-            .yb_best-title{
-                margin: 0 0 15px 0;
-            }
-            .yb_best-offers{
-                padding-right: 0;
-                .yb-offer_item{
-                    width: 245px;
-                    .yb-offer_img{
-                        width: 35%;
-                    }
-                    .yb_item-desc{
-                        padding:13px 10px 5px 12px;
-                        .yb-item_name{
-                            margin: 0 0 5px 0;
-                        }
-                        .yb-item_location{
-                            .yb-loc{
-
-                            }
-                            .yb-price{
-
-                            }
-                        }
-                    }
-                }
-            }
+        &.search_long{
+            width: 82%;
         }
+        //.ysearch_items-res{
+        //    padding: 13px 15px 10px 26px;
+        //    .yb-requests_items{
+        //        .yb-requests_item{
+        //            font-size: em(14);
+        //            height: 30px;
+        //            line-height: 18px;
+        //        }
+        //    }
+        //    .yb_best-title{
+        //        margin: 0 0 15px 0;
+        //    }
+        //    .yb_best-offers{
+        //        padding-right: 0;
+        //        .yb-offer_item{
+        //            width: 100%;
+        //            .yb-offer_img{
+        //                width: 35%;
+        //            }
+        //            .yb_item-desc{
+        //                width: 65%;
+        //                padding: 15px 15px 15px 15px;
+        //                .yb-item_name{
+        //                    font-size: em(20);
+        //                    margin: 0 0 25px 0;
+        //                }
+        //                .yb-item_location{
+        //                    .yb-loc{
+        //                        font-size: em(20);
+        //                    }
+        //                    .yb-price{
+        //                        font-size: em(22);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
 @media only screen and (max-width: 1440px){
     .ysearch{
-        .ysearch_items-res{
-            .yb-requests_items{
-                .yb-requests_item{
-                    height: 25px;
-                    padding: 0 12px;
-                }
-            }
-            .yb_best-offers{
-                padding-right: 70px;
-                .yb-offer_item{
-                    .yb-offer_img{
-                    }
-                    .yb_item-desc{
-                        .yb-item_name{
-                        }
-                        .yb-item_location{
-                            .yb-loc{
-
-                            }
-                            .yb-price{
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //.ysearch_items-res{
+        //    .yb-requests_items{
+        //        .yb-requests_item{
+        //            height: 25px;
+        //            padding: 0 12px;
+        //        }
+        //    }
+        //    .yb_best-offers{
+        //        .yb-offer_item{
+        //            .yb-offer_img{
+        //                width: 30%;
+        //            }
+        //            .yb_item-desc{
+        //                width: 70%;
+        //                .yb-item_name{
+        //                    font-size: em(22);
+        //                }
+        //                .yb-item_location{
+        //                    .yb-price{
+        //                        font-size: em(24);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
 @media only screen and (max-width: 1280px){
     .ysearch{
-        .ysearch_items-res{
-            .yb-requests_items{
-                .yb-requests_item{
-                }
-            }
-            .yb_best-offers{
-                .yb-offer_item{
-                    .yb-offer_img{    width: 30%;
-                    }
-                    .yb_item-desc{
-                        .yb-item_name{
-                        }
-                        .yb-item_location{
-                            .yb-loc{
-
-                            }
-                            .yb-price{
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //.ysearch_items-res{
+        //    .yb-requests_items{
+        //        .yb-requests_item{
+        //        }
+        //    }
+        //    .yb_best-offers{
+        //        .yb-offer_item{
+        //            .yb-offer_img{    width: 30%;
+        //            }
+        //            .yb_item-desc{
+        //                .yb-item_name{
+        //                }
+        //                .yb-item_location{
+        //                    .yb-loc{
+        //
+        //                    }
+        //                    .yb-price{
+        //
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
 @media only screen and (max-width: 1024px){
     .ysearch{
-        .ysearch_items-res{
-            .yb_best-offers{    padding-right: 30px;
-                .yb-offer_item{
-                    width:210px;.yb-offer_img{
-                    width: 35%;}
-                    .yb_item-desc{    padding: 10px 15px 5px 12px;
-                        .yb-item_name{
-                            font-size: em(8);
-                        }
-                    }
-                }
-            }
-        }
+        //.ysearch_items-res{
+        //    .yb_best-offers{
+        //
+        //        .yb-offer_item{
+        //            .yb-offer_img{
+        //            }
+        //            .yb_item-desc{
+        //                .yb-item_name{
+        //                    font-size: em(18);
+        //                }
+        //                .yb-item_location{
+        //                    .yb-loc{
+        //                        font-size: em(18);
+        //                    }
+        //                    .yb-price{
+        //                        font-size: em(20);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
 @media only screen and (max-width: 945px){
     .ysearch{
-        .ysearch_items-res{
-            overflow: scroll;
-            .yb-requests_items{
-                .yb-requests_item{
-
-                }
-            }
-            .yb_best-offers{    padding-right: 0;
-                .yb-offer_item{
-                    width: 100%;
-                    .yb-offer_img{
-                        width: 32%;
-                    }
-                    .yb_item-desc{
-                        padding: 10px 33px 10px 25px;
-                        .yb-item_name{
-                            font-size: em(17);margin: 0 0 10px 0;
-                        }
-                        .yb-item_location{
-                            .yb-loc{
-                                font-size: em(16);
-                            }
-                            .yb-price{
-                                font-size: em(16);
-                            }
-                        }
-                    }
-                }
-            }
+        &.search_long{
+            width: 79%;
         }
+        .search{
+            height: 35px;
+
+        }
+        //.ysearch_items-res{
+        //    overflow: scroll;
+        //    .yb-requests_items{
+        //        .yb-requests_item{
+        //
+        //        }
+        //    }
+        //    .yb_best-offers{
+        //        .yb-offer_item{
+        //            .yb-offer_img{
+        //                width: 32%;
+        //            }
+        //            .yb_item-desc{
+        //                .yb-item_name{
+        //                    font-size: em(17);
+        //                    margin: 0 0 20px 0;
+        //                }
+        //                .yb-item_location{
+        //                    .yb-loc{
+        //                        font-size: em(18);
+        //                    }
+        //                    .yb-price{
+        //                        font-size: em(20);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
     }
 }
 @media only screen and (max-width: 768px){
     .ysearch{
-        .ysearch_items-res{
-            .yb_best-offers{
-                padding-right: 35px;
-                .yb-offer_item{
-                    .yb-offer_img{
-                        width: 35%;
-                    }
-                    .yb_item-desc{
-                        padding: 20px 15px 20px 15px;
-                        .yb-item_name{
-                            font-size: em(22);
-                            margin: 0 0 10px 0;
-                        }
-                        .yb-item_location {
-                            .yb-price{
-                                font-size: em(20);
-                            }
-                        }
-                    }
-                }
+        &.search_long{
+            width: 92%;
+            margin-right: 20px;
+            .focus{
+                display: flex;
+            }
+            i{
+                font-size: em(16);
             }
         }
+        .search{
+            display: none;
+        }
+        i{
+            color: $darkblue;
+            font-weight: 600;
+            font-size: em(24);
+        }
+        //.ysearch_items-res{
+        //    .yb_best-offers{
+        //        .yb-offer_item{
+        //            .yb-offer_img{
+        //                width: 35%;
+        //            }
+        //            .yb_item-desc{
+        //                padding: 20px 15px 20px 15px;
+        //                .yb-item_name{
+        //                    font-size: em(20);
+        //                }
+        //                .yb-item_location {
+        //                    .yb-price{
+        //                        font-size: em(24);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
 @media only screen and (max-width: 600px){
-    //.ysearch{
-    //    .ysearch_items-res{
-    //        max-height: 475px;
-    //        .yb-last_requests{
-    //            font-size: em(14);
-    //        }
-    //        .yb-requests_items{
-    //            .yb-requests_item{
-    //                font-size: em(12);
-    //                line-height: 16px;
-    //            }
-    //        }
-    //        .yb_best-title{
-    //            font-size: em(16);
-    //            margin: 0 0 10px 0;
-    //        }
-    //        .yb_best-offers{
-    //            .yb-offer_item{
-    //                width: 100%;
-    //                .yb-offer_img{
-    //                    width: 50%;
-    //                }
-    //                .yb_item-desc{
-    //                    padding: 5px 10px 5px 10px;
-    //                    .yb-item_name{
-    //                        font-size: em(10);
-    //                    }
-    //                    .yb-item_location{
-    //                        .yb-loc{
-    //                            font-size: em(10);
-    //                        }
-    //                        .yb-price{
-    //                            font-size: em(10);
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
+    .ysearch{
+        &.search_long{
+            width: 90%;
+            margin-right: 15px;
+        }
+        //.ysearch_items-res{
+        //    max-height: 475px;
+        //    .yb-last_requests{
+        //        font-size: em(14);
+        //    }
+        //    .yb-requests_items{
+        //        .yb-requests_item{
+        //            font-size: em(12);
+        //            line-height: 16px;
+        //        }
+        //    }
+        //    .yb_best-title{
+        //        font-size: em(16);
+        //        margin: 0 0 10px 0;
+        //    }
+        //    .yb_best-offers{
+        //        .yb-offer_item{
+        //            .yb-offer_img{
+        //                width: 30%;
+        //            }
+        //            .yb_item-desc{
+        //                padding: 15px 15px 10px 15px;
+        //                width: 70%;
+        //                .yb-item_name{
+        //                    font-size: em(16);
+        //                }
+        //                .yb-item_location{
+        //                    .yb-loc{
+        //                        font-size: em(15);
+        //                    }
+        //                    .yb-price{
+        //                        font-size: em(20);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+    }
+}
+@media only screen and (max-width: 425px){
+    .ysearch{
+        &.search_long{
+            position: absolute;
+            z-index: 4;
+            width: 100%;
+            margin-right: 0;
+            .focus{
+                border-right: none;
+                border-left: none;
+                border-top: none;
+                border-bottom: 1px solid #E2E2E2;
+                height: 50px;
+                border-radius: 0;
+            }
+        }
+        .ysearch_items-list{
+            top: 42px;
+        }
+        //.ysearch_items-res{
+        //    top: 42px;
+        //    height: 100vh;
+        //    max-height: inherit;
+        //    .yb_best-offers{
+        //        .yb-offer_item{
+        //            flex-direction: inherit;
+        //            .yb_item-desc{
+        //                padding: 10px;
+        //                .yb-item_name{
+        //                    font-size: em(15);
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+    }
+}
+@media only screen and (max-width: 375px){
+    .ysearch{
+        &.search_long{
+            //.ysearch_items-res{
+            //    padding: 10px;
+            //    .yb-last_requests{
+            //        font-size: em(10);
+            //    }
+            //    .yb-requests_items{
+            //        .yb-requests_item{
+            //            font-size: em(10);
+            //            height: 20px;
+            //        }
+            //    }
+            //    .yb_best-offers{
+            //        .yb-offer_item{
+            //            .yb_item-desc{
+            //                .yb-item_name{
+            //                    font-size: em(12);
+            //                }
+            //                .yb-item_location{
+            //                    .yb-price{
+            //                        font-size: em(18);
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+        }
+    }
+}
+@media only screen and (max-width: 320px){
+  .ysearch{
+      &.search_long{
+          //.ysearch_items-res{
+          //    .yb-requests_items{
+          //        .yb-requests_item{
+          //            font-size: em(10);
+          //            height: 20px;
+          //        }
+          //    }
+          //    .yb_best-offers{
+          //        .yb-offer_item{
+          //            .yb-offer_img{
+          //                width: 35%;
+          //            }
+          //            .yb_item-desc{
+          //                .yb-item_name{
+          //                    font-size: em(10);
+          //                }
+          //                .yb-item_location{
+          //                    .yb-loc{
+          //                        font-size: em(14);
+          //                    }
+          //                    .yb-price{
+          //                        font-size: em(14);
+          //                    }
+          //                }
+          //            }
+          //        }
+          //    }
+          //}
+      }
+      .ysearch_items-list{
+          .ysearch_expanded{
+              padding: 15px 8px 0 8px;
+              font-size: em(14);
+          }
+      }
+
+  }
 }

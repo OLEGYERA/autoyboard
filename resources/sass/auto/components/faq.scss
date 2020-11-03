@@ -1,7 +1,7 @@
 @import '../clear';
 @import '../../vars';
 
-.yb_faq-content{
+.yb-content{
     background: $bgfaq;
     overflow-x: hidden;
     .yb_faq-search{
@@ -13,6 +13,9 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: right;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
+        padding: 0 26%;
         h1{
             font-family: $rale;
             font-weight: 800;
@@ -23,7 +26,7 @@
             text-shadow: 0 4px 4px rgba(255, 255, 255, 0.4);
         }
         .yb_about-faq{
-            width: 30%;
+            width: 45%;
             font-family: $aleg;
             font-weight: 500;
             font-size: em(16);
@@ -34,7 +37,7 @@
         .yb_input-faq{
             display: flex;
             align-items: center;
-            width: 30%;
+            width: 45%;
             justify-content: center;
             margin: 15px 0 25px 0;
             border-radius: 8px;
@@ -85,7 +88,6 @@
         }
     }
     .yb_faq-questions{
-        padding: 0 17%;
         .yflex_svg-title{
             svg{
                 display: none;
@@ -101,7 +103,6 @@
         }
     }
     .yb_faq-answers{
-        padding: 0 17%;
         margin-top: 34px;
         .yb_answer_prev{
             padding: 20px 100px 50px 45px;
@@ -232,17 +233,17 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .yb_faq-content{
+    .yb-content{
        .yb_faq-search{
            padding-bottom: 20px;
            h1{
                font-size: em(86);
            }
            .yb_about-faq{
-               width: 35%;
+               width: 55%;
            }
            .yb_input-faq{
-               width: 35%;
+               width: 55%;
            }
        }
         .yb_faq-questions{
@@ -268,30 +269,19 @@
         }
     }
 }
-@media only screen and (max-width: 1500px){
-    .yb_faq-content{
-        .yb_faq-questions{
-            padding: 0 10%;
-        }
-        .yb_faq-answers{
-            padding: 0 10%;
-        }
-
-    }
-}
 @media only screen and (max-width: 1440px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-search{
             h1{
                 font-size: em(70);
                 line-height: 91px;
             }
             .yb_about-faq{
-                width: 40%;
+                width: 50%;
                 font-size: em(15);
             }
             .yb_input-faq{
-                width: 40%;
+                width: 45%;
             }
         }
         .yb_faq-questions{
@@ -316,12 +306,8 @@
     }
 }
 @media only screen and (max-width: 1366px){
-    .yb_faq-content{
-        .yb_faq-questions{
-            padding: 0 8%;
-        }
+    .yb-content{
         .yb_faq-answers{
-            padding: 0 8%;
                 .yb_answer_prev{
                     .yquestion_title{
                         font-size: em(32);
@@ -331,9 +317,8 @@
     }
 }
 @media only screen and (max-width: 1330px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-questions{
-            padding: 0 6%;
             .yflex_svg-title{
                 h2{
                     font-size: em(36);
@@ -341,16 +326,10 @@
                 }
             }
         }
-        .yb_faq-answers{
-            padding: 0 6%;
-            .yb_answer_prev{
-
-            }
-        }
     }
 }
 @media only screen and (max-width: 1024px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-search{
             h1{
                 font-size: em(62);
@@ -364,7 +343,6 @@
             }
         }
         .yb_faq-questions{
-            padding: 0 3%;
             .yflex_svg-title{
                 h2{
                     font-size: em(32);
@@ -373,7 +351,6 @@
             }
         }
         .yb_faq-answers{
-            padding: 0 3%;
             .yb_answer_prev{
                 .yquestion_title{
                     font-size: em(26);
@@ -402,7 +379,7 @@
     }
 }
 @media only screen and (max-width: 945px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-search{
             h1{
                 font-size: em(56);
@@ -416,10 +393,8 @@
             }
         }
         .yb_faq-questions{
-            padding: 0 2%;
         }
         .yb_faq-answers{
-            padding: 0 2%;
             .yb_answer_prev{
                 padding: 15px 80px 39px 45px;
                 .yquestion_title{
@@ -438,10 +413,10 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-search{
             .yb_about-faq{
-                width: 70%;
+                width: 75%;
             }
             .yb_input-faq{
                 width: 70%;
@@ -466,7 +441,7 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-search{
             h1{
                 margin: 15px 0 15px 0;
@@ -493,6 +468,20 @@
                 h2{
                     font-size: em(48);
                     line-height: 56px;
+                }
+            }
+            .yfaqquestions{
+                .yfaq_list-categories{
+                    margin-bottom: 20px;
+                    .ycat_list-items{
+                        padding: 0;
+                    }
+                    &:after{
+                        display: none;
+                    }
+                }
+                .yfaq_list-questions{
+                    margin: 0 0 20px 30px;
                 }
             }
         }
@@ -534,7 +523,7 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-search{
             h1{
                 font-size: em(56);
@@ -551,7 +540,6 @@
             }
         }
         .yb_faq-questions{
-            padding: 0 4%;
             .yflex_svg-title{
                 svg{
                     margin-right: 10px;
@@ -565,7 +553,6 @@
             }
         }
         .yb_faq-answers{
-            padding: 0 4%;
             .yb_answer_prev{
                 .yquestion_title{
 
@@ -575,7 +562,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-questions{
             .yflex_svg-title{
                 svg{
@@ -611,7 +598,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .yb_faq-content{
+    .yb-content{
         .yb_faq-questions{
             .yflex_svg-title{
                 svg{

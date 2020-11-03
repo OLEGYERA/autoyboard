@@ -7,27 +7,27 @@
                 <button class="change_type">Б/у</button>
             </div>
             <div class="selector-rows">
-                <yselect :placeholder="'Тип авто'" :options="options"></yselect>
-                <yselect :placeholder="'Модель'" :options="options"></yselect>
-                <yselect :placeholder="'Марка'" :options="options"></yselect>
-                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>
-                <yselect :placeholder="'Регион'" :options="options"></yselect>
+<!--                <yselect :placeholder="'Тип авто'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Модель'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Марка'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>-->
+<!--                <yselect :placeholder="'Регион'" :options="options"></yselect>-->
             </div>
             <div class="yprice_options">
                 <h3 class="ytitle_option">Цена, $</h3>
                 <div class="change_price">
-                    <yrange></yrange>
+<!--                    <yrange></yrange>-->
                 </div>
             </div>
             <div class="yresource_options">
                 <ycheckbox
-                    :text="'Поиск со всех ресурсов'">
+                    :name="'Поиск со всех ресурсов'">
                 </ycheckbox>
                 <ycheckbox
-                    :text="'Провереные'">
+                    :name="'Провереные'">
                 </ycheckbox>
                 <ycheckbox
-                    :text="'С фото'">
+                    :name="'С фото'">
                 </ycheckbox>
             </div>
         </div>
@@ -40,11 +40,11 @@
     <div class="yform"  v-else>
         <div class="left_options">
             <div class="selector-rows">
-                <yselect :placeholder="'Тип авто'" :options="options"></yselect>
-                <yselect :placeholder="'Модель'" :options="options"></yselect>
-                <yselect :placeholder="'Марка'" :options="options"></yselect>
-                <yselect :placeholder="'Тип кузова'" :options="options"></yselect>
-                <yselect :placeholder="'Регион'" :options="options"></yselect>
+                <yselectmultysearch :placeholder="'Тип авто'" :options="options"></yselectmultysearch>
+                <yselectmultysearch :placeholder="'Модель'" :options="options"></yselectmultysearch>
+                <yselectmultysearch :placeholder="'Марка'" :options="options"></yselectmultysearch>
+                <yselectmultysearch :placeholder="'Тип кузова'" :options="options"></yselectmultysearch>
+                <yselectmultysearch :placeholder="'Регион'" :options="options"></yselectmultysearch>
             </div>
             <div class="yform-submit">
                 <button>Поиск</button>
@@ -59,18 +59,18 @@
             <div class="yprice_options">
                 <h3 class="ytitle_option">Цена, $</h3>
                 <div class="change_price">
-                    <yrange></yrange>
+                    <yprice></yprice>
                 </div>
             </div>
             <div class="yresource_options">
                 <ycheckbox
-                    :text="'Поиск со всех ресурсов'">
+                    :name="'Поиск со всех ресурсов'">
                 </ycheckbox>
                 <ycheckbox
-                    :text="'Провереные'">
+                    :name="'Провереные'">
                 </ycheckbox>
                 <ycheckbox
-                    :text="'С фото'">
+                    :name="'С фото'">
                 </ycheckbox>
             </div>
         </div>
@@ -160,6 +160,3 @@
 
 </script>
 
-<style>
-
-</style>

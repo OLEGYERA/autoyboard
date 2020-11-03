@@ -36,6 +36,15 @@ Vue.component('yselectsearch', require('./components/yselectsearch').default);
 Vue.component('yselectmultysearch', require('./components/yselectmultysearch').default);
 Vue.component('ycheck', require('./components/ycheck').default);
 Vue.component('yprice', require('./components/yprice').default);
+<<<<<<< HEAD
+=======
+Vue.component('ypaginaton', require('./components/ypagination').default);
+
+
+Vue.component('yfsearch', require('./components/yregionsearch').default);
+
+
+>>>>>>> 76e70d42d1e71ee50ecf1562a5a5106d7ab3f792
 Vue.component('ydropdown', require('./components/ydropdown').default);
 Vue.component('ydoublenuminput', require('./components/ydoublenuminput').default);
 Vue.component('ycolors', require('./components/ycolors').default);

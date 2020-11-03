@@ -8,7 +8,7 @@
             placeholder="Поиск"
             v-model="search"
         />
-        <i @click="toggle = !toggle" class=" fas fa-search"></i>
+        <i @click="toggle = !toggle" class=" search_toggle fas fa-search"></i>
 <!--        drop down when search by text-->
         <ul v-if="search.length > 0" class="ysearch_items-list">
             <li
@@ -26,128 +26,128 @@
             </button>
         </ul>
 <!--        drop down when search with bestOffer card and last search-->
-        <div v-if="toggle"  class="ysearch_items-res">
-            <div  class="yb-last_requests">
-                Недавние поисковые запросы
-                <svg @click="lastReguest = false" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="6" cy="6" r="6" fill="#0B3F8D"/>
-                    <g clip-path="url(#clip0)">
-                        <path d="M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z" fill="white"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0">
-                            <rect width="6" height="6" fill="white" transform="translate(3 3)"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-            </div>
-            <ul v-if="lastReguest" class="yb-requests_items">
-                <li class="yb-requests_item">audi </li>
-                <li class="yb-requests_item">автомобили б/у</li>
-                <li class="yb-requests_item">audi Киев</li>
-                <li class="yb-requests_item">автомобили б/у</li>
-                <li class="yb-requests_item">audi </li>
-            </ul>
-            <h2 class="yb_best-title">Лучшие предложения</h2>
-            <div class="yb_best-offers">
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-offer_item">
-                    <figure class="yb-offer_img">
-                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">
-                    </figure>
-                    <div class="yb_item-desc">
-                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>
-                        <div class="yb-item_location price">
-                            <span class="yb-loc">Киев</span>
-                            <span class="yb-price">8 200 $</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div v-if="toggle && search.length <= 0"  class="ysearch_items-res">-->
+<!--            <div  class="yb-last_requests">-->
+<!--                Недавние поисковые запросы-->
+<!--                <svg @click="lastReguest = false" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                    <circle cx="6" cy="6" r="6" fill="#0B3F8D"/>-->
+<!--                    <g clip-path="url(#clip0)">-->
+<!--                        <path d="M6.54969 6.00707L8.88597 3.67072C9.03801 3.51875 9.03801 3.27303 8.88597 3.12106C8.734 2.96909 8.48829 2.96909 8.33632 3.12106L5.99997 5.45741L3.66369 3.12106C3.51164 2.96909 3.266 2.96909 3.11403 3.12106C2.96199 3.27303 2.96199 3.51875 3.11403 3.67072L5.45031 6.00707L3.11403 8.34342C2.96199 8.49539 2.96199 8.7411 3.11403 8.89307C3.18977 8.96888 3.28935 9.00696 3.38886 9.00696C3.48837 9.00696 3.58788 8.96888 3.66369 8.89307L5.99997 6.55672L8.33632 8.89307C8.41213 8.96888 8.51164 9.00696 8.61115 9.00696C8.71066 9.00696 8.81017 8.96888 8.88597 8.89307C9.03801 8.7411 9.03801 8.49539 8.88597 8.34342L6.54969 6.00707Z" fill="white"/>-->
+<!--                    </g>-->
+<!--                    <defs>-->
+<!--                        <clipPath id="clip0">-->
+<!--                            <rect width="6" height="6" fill="white" transform="translate(3 3)"/>-->
+<!--                        </clipPath>-->
+<!--                    </defs>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <ul v-if="lastReguest" class="yb-requests_items">-->
+<!--                <li class="yb-requests_item">audi </li>-->
+<!--                <li class="yb-requests_item">автомобили б/у</li>-->
+<!--                <li class="yb-requests_item">audi Киев</li>-->
+<!--                <li class="yb-requests_item">автомобили б/у</li>-->
+<!--                <li class="yb-requests_item">audi </li>-->
+<!--            </ul>-->
+<!--            <h2 class="yb_best-title">Лучшие предложения</h2>-->
+<!--            <div class="yb_best-offers">-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="yb-offer_item">-->
+<!--                    <figure class="yb-offer_img">-->
+<!--                        <img src="https://images.outlookindia.com/public/uploads/articles/2019/1/10/Webstories_1_20190110.jpg" alt="">-->
+<!--                    </figure>-->
+<!--                    <div class="yb_item-desc">-->
+<!--                        <h2 class="yb-item_name"> Mercedes-Benz E 220,2009</h2>-->
+<!--                        <div class="yb-item_location price">-->
+<!--                            <span class="yb-loc">Киев</span>-->
+<!--                            <span class="yb-price">8 200 $</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </template>
 
@@ -171,9 +171,11 @@ export default {
         }
     },
     methods: {
+
         handleClickOutside(evt) {
             if (!this.$el.contains(evt.target)) {
                 this.toggle = false;
+                this.search - ''
             }
         },
     },
@@ -192,13 +194,15 @@ export default {
     },
     watch: {
         toggle: function (to) {
-            to ? $('.ylocation-box').addClass('search_hide') : $('.ylocation-box').removeClass('search_hide');
+            if(to === false){
+                this.search =''
+            }
+            to ? $('.search_toggle').addClass('fa-times') : $('.search_toggle').removeClass('fa-times');
             to ? $('.ysearch').addClass('search_long') : $('.ysearch').removeClass('search_long');
-            to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute')
+            to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute');
+            //add class from .yb-header-right when ysearch is opened, this class push (right: 0;) to yb-header-right
+            to ? $('.yb-header-right').addClass('yb-fullright_zero') : $('.yb-header-right').removeClass('yb-fullright_zero');
         },
-        mutableValue(to){
-            this.searchEngine();
-        }
     }
 
 }

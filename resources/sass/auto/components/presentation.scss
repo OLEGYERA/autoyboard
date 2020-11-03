@@ -2,15 +2,17 @@
 @import '../../vars';
 
 
-.presentation_content{
+.yb-content{
     .first_screen-present{
         background-image: url('/img/system/static/backgroundPresentation.svg');
-        width: 100%;
-        padding-left: 17%;
         display: flex;
         align-items: center;
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: right;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
+        padding: 0 26%;
         .vis-l_screen{
             width: 50%;
             display: flex;
@@ -40,6 +42,8 @@
     }
     .yb-scope_present{
         background: #F8FBFF;
+        margin-left: -26%;
+        width: calc(100% + 26%*2);
         h1{
             padding-top: 50px;
             margin: 0;
@@ -71,7 +75,7 @@
                     height: 100%;
                 }
                 .y_write-up{
-                    padding-left: 0;
+                    padding-left: 0!important;
                     width: 50%;
                 }
             }
@@ -168,7 +172,7 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
             .vis-l_screen{
                 .ytitle_present{
@@ -202,9 +206,8 @@
     }
 }
 @media only screen and (max-width: 1440px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
-            padding-left: 10%;
             .vis-l_screen{
                 padding: 50px 0 80px 0;
                 .ytitle_present{
@@ -217,8 +220,11 @@
         }
         .yb-scope_present{
             .yb_opportunity{
-                .y_write-up{
-                    padding-left: 10%;
+                height: 450px;
+                &.auto_demo{
+                    img{
+                        right: 150px;
+                    }
                 }
                 &.new_auto{
                     .y_write-up{
@@ -227,25 +233,47 @@
                             width: 65%;
                         }
                     }
+                    img{
+                        left: 150px;
+                    }
+                }
+                &.car_service{
+                    img{
+                        right: 150px;
+                    }
+                }
+                &.check_auto{
+                    img{
+                        left: 150px;
+                    }
+                }
+                &.monitoring_price{
+                    img{
+                        right: 150px;
+                    }
+                }
+                &.analytics{
+                    img{
+                        left: 150px;
+                    }
                 }
             }
         }
     }
 }
 @media only screen and (max-width: 1366px){
-    .presentation_content{
-        .first_screen-present{
-            padding-left: 8%;
-        }
+    .yb-content{
+
         .yb-scope_present{
             h1{
                 font-size: em(58);
                 line-height: 58px;
             }
             .yb_opportunity{
-                height: 550px;
+                padding: 0 17%;
+                height: 450px;
                 .y_write-up{
-                    padding-left: 8%;
+                    padding-left: 0;
                     .yb_demo-title{
                         font-size: em(38);
                         margin: 0 0 15px 0;
@@ -254,14 +282,45 @@
                         font-size: em(18);
                     }
                 }
+                &.auto_demo{
+                    img{
+                        right: 190px;
+                    }
+                }
+                &.new_auto{
+
+                    img{
+                        left: 190px;
+                    }
+                }
+                &.car_service{
+                    img{
+                        right: 190px;
+                    }
+                }
+                &.check_auto{
+                    img{
+                        left: 190px;
+
+                    }
+                }
+                &.monitoring_price{
+                    img{
+                        right: 190px;
+                    }
+                }
+                &.analytics{
+                    img{
+                        left: 190px;
+                    }
+                }
             }
         }
     }
 }
 @media only screen and (max-width: 1280px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
-            padding-left: 6%;
             .vis-l_screen{
                 padding: 45px 0 60px 0;
             }
@@ -273,9 +332,38 @@
                 padding-top: 60px;
             }
             .yb_opportunity{
-                height: 500px;
+                height: 400px;
+                &.auto_demo{
+                    img{
+                        right: 215px;
+                    }
+                }
+                &.new_auto{
+                    img{
+                        left: 215px;
+                    }
+                }
+                &.car_service{
+                    img{
+                        right: 215px;
+                    }
+                }
+                &.check_auto{
+                    img{
+                        left: 215px;
+                    }
+                }
+                &.monitoring_price{
+                    img{
+                        right: 215px;
+                    }
+                }
+                &.analytics{
+                    img{
+                        left: 215px;
+                    }
+                }
                 .y_write-up{
-                    padding-left: 6%;
                     .yb_demo-title{
                         font-size: em(34);
                     }
@@ -288,10 +376,8 @@
     }
 }
 @media only screen and (max-width: 1024px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
-            background-position: right;
-            padding-left: 3%;
             .vis-l_screen{
                 width: 55%;
                 .ytitle_present{
@@ -308,9 +394,8 @@
                 line-height: 46px;
             }
             .yb_opportunity{
-                height: 500px;
+                height: 350px;
                 .y_write-up{
-                    padding-left: 3%;
                     .yb_demo-title{
                         font-size: em(28);
                         margin: 0 0 5px 0;
@@ -345,9 +430,8 @@
     }
 }
 @media only screen and (max-width: 945px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
-            padding-left: 2%;
             .vis-l_screen{
                 width: 55%;
                 .ytitle_present{
@@ -365,9 +449,8 @@
                 padding-top: 40px;
             }
             .yb_opportunity{
-                height: 400px;
+                height: 320px;
                 .y_write-up{
-                    padding-left: 2%;
                     .yb_demo-title{
                         font-size: em(26);
                         margin:0;
@@ -382,7 +465,7 @@
     }
 }
 @media only screen and (max-width: 768px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
             .vis-l_screen{
                 padding: 35px 0 25px 0;
@@ -403,6 +486,36 @@
             }
             .yb_opportunity{
                 height: 350px;
+                &.auto_demo{
+                    img{
+                        right: 175px;
+                    }
+                }
+                &.new_auto{
+                    img{
+                        left: 175px;
+                    }
+                }
+                &.car_service{
+                    img{
+                        right: 175px;
+                    }
+                }
+                &.check_auto{
+                    img{
+                        left: 175px;
+                    }
+                }
+                &.monitoring_price{
+                    img{
+                        right: 175px;
+                    }
+                }
+                &.analytics{
+                    img{
+                        left: 175px;
+                    }
+                }
                 .y_write-up{
                     .yb_demo-title{
                         font-size: em(26);
@@ -418,7 +531,7 @@
     }
 }
 @media only screen and (max-width: 600px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
             background-image: url('/img/system/static/backgroundPresentationMobile.svg');
             justify-content: center;
@@ -447,7 +560,6 @@
                 height: 450px;
                 .y_write-up{
                     width: 100%;
-                    padding-left: 2%!important;
                     .yb_demo-title{
                         font-size: em(36);
                         line-height: 45px;
@@ -464,12 +576,23 @@
                     height: 85%!important;
                     bottom: -145px;
                 }
+                &.auto_demo{
+                    img{
+                        right: 135px;
+                    }
+                }
                 &.new_auto{
                     .y_write-up{
                         width: 100%;
                     }
                     img{
                         bottom: -210px;
+                        left: 135px;
+                    }
+                }
+                &.car_service{
+                    img{
+                        right: 135px;
                     }
                 }
                 &.check_auto{
@@ -477,6 +600,7 @@
                         width: 100%;
                     }
                     img{
+                        left: 135px;
                         bottom: -210px;
                     }
                 }
@@ -486,6 +610,12 @@
                     }
                     img{
                         bottom: -210px;
+                        left: 135px;
+                    }
+                }
+                &.monitoring_price{
+                    img{
+                        right: 135px;
                     }
                 }
             }
@@ -493,7 +623,7 @@
     }
 }
 @media only screen and (max-width: 425px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
             .vis-l_screen{
                 width: 90%;
@@ -511,22 +641,19 @@
         }
         .yb-scope_present{
             h1{
-                padding-top: 26px;
                 font-size: em(54);
                 text-align: start;
-                padding-left: 15px;
                 line-height: 63px;
+                padding: 15px 17% 0 17%;
             }
             .yb_opportunity{
                 height: 480px;
                 .y_write-up{
                     width: 100%;
-                    padding-left: 4%!important;
                     .yb_demo-title{
                         font-size: em(34);
                         line-height: 39px;
                         margin-bottom: 10px;
-                        padding-right: 15px;
                     }
                     .yb_demo-desc{
                         width: 95%;
@@ -543,12 +670,28 @@
                     height: 70%!important;
                     bottom: -145px;
                 }
+                &.auto_demo{
+                    img{
+                        right: 85px;
+                    }
+                }
+                &.car_service{
+                    img{
+                        right: 85px;
+                    }
+                }
+                &.check_auto{
+                    img{
+                        right: 85px;
+                    }
+                }
                 &.new_auto{
                     .y_write-up{
                         width: 100%;
                     }
                     img{
                         bottom: -210px;
+                        left: 85px;
                     }
                 }
                 &.check_auto{
@@ -557,6 +700,12 @@
                     }
                     img{
                         bottom: -210px;
+                        left: 85px;
+                    }
+                }
+                &.monitoring_price{
+                    img{
+                        right: 85px;
                     }
                 }
                 &.analytics{
@@ -565,6 +714,7 @@
                     }
                     img{
                         bottom: -210px;
+                        left: 85px;
                     }
                 }
             }
@@ -572,7 +722,7 @@
     }
 }
 @media only screen and (max-width: 375px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
             .vis-l_screen{
                 width: 95%;
@@ -623,6 +773,41 @@
                     right: 0;
                     width: 100%;
                 }
+                &.auto_demo{
+                    img{
+                        right: -15px;
+                    }
+                }
+                &.car_service{
+                    img{
+                        right: -15px;
+                    }
+                }
+                &.check_auto{
+                    img{
+                        right: -15px;
+                    }
+                }
+                &.new_auto{
+                    img{
+                        left: -15px;
+                    }
+                }
+                &.check_auto{
+                    img{
+                        left: -15px;
+                    }
+                }
+                &.monitoring_price{
+                    img{
+                        right: -15px;
+                    }
+                }
+                &.analytics{
+                    img{
+                        left: -15px;
+                    }
+                }
                 &.new_auto, &.check_auto, &.analytics{
                     img{
                         bottom: 40px !important;
@@ -634,7 +819,7 @@
     }
 }
 @media only screen and (max-width: 320px){
-    .presentation_content{
+    .yb-content{
         .first_screen-present{
             .vis-l_screen{
                 width: 95%;

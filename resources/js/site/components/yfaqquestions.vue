@@ -77,6 +77,7 @@
 
 <script>
     export  default{
+        props:['lang'],
         mounted() {
             this.onResize();
         },
