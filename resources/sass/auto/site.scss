@@ -18,22 +18,22 @@
 
 
 //@import 'modules/yfilterform';
-//@import 'modules/ycardfilter';
+@import 'modules/ycardfilter';
 //@import 'modules/ydropdownfilter';
 //@import 'modules/yregionsearch';
 @import 'modules/yratio';
 
 
 
-//@import 'components/card';
-//@import 'components/favorite';
+@import 'components/card';
+@import 'components/favorite';
 //modules
 @import 'modules/header/ymenu';
 @import 'modules/header/ysearch';
 @import 'modules/ylocation';
 
-//@import 'modules/yfaqquestions';
-=======
+@import 'modules/yfaqquestions';
+
 @import 'modules/yfaqquestions';
 @import 'modules/pagination';
 
@@ -41,7 +41,7 @@
 @import 'modules/yselectmultysearch';
 @import 'modules/ycheck';
 
-
+//
 //@import 'modules/yexpanded';
 //@import 'modules/ytitle';
 //@import 'modules/ystatus';
@@ -74,7 +74,7 @@
         flex-direction: column;
         width: 100%;
         overflow-x: hidden;
-        //padding: 0 17%;
+        padding: 0 17%;
         .ycatalog{
             &:after{
                 content: '';
