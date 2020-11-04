@@ -18,9 +18,36 @@ class SearchController extends Controller
         $query = ParserUrlList::where('status', 3);
         $r = $query;
 
+//      Condition
         if($autoCondition !== 1) $query = $query->where('autoCondition', $autoCondition);
         $query = $query->where('transport_type', $transportType);
 
+//      SearchProps
+        $query = $query->whereHas('main', function ($q) use ($search_request) {
+            if($search_request['searchDetailFullStore']['searchPropsChoosed']['bargain']){
+                $q->where('bargain', $search_request['searchDetailFullStore']['searchPropsChoosed']['bargain']);
+            }
+
+            if($search_request['searchDetailFullStore']['searchPropsChoosed']['exchange']){
+                $q->where('exchange', $search_request['searchDetailFullStore']['searchPropsChoosed']['exchange']);
+            }
+            $q->where('abroad', $search_request['searchDetailFullStore']['searchPropsChoosed']['abroad']);
+            $q->where('credit', $search_request['searchDetailFullStore']['searchPropsChoosed']['credit']);
+            $q->where('customsСleared', $search_request['searchDetailFullStore']['searchPropsChoosed']['customsСleared']);
+            $q->where('accident', $search_request['searchDetailFullStore']['searchPropsChoosed']['accident']);
+            $q->where('noMotion', $search_request['searchDetailFullStore']['searchPropsChoosed']['noMotion']);
+        });
+
+////      Photos
+//        $query = $query->when('photos', function ($q) use ($search_request) {
+//            $q->where('id', '>=', 1);
+//        });
+
+
+//      TransportType
+        $query = $query->where('transport_type', $transportType);
+
+//      Bodies
         $bodyChoosed = $search_request['transportFullStore']['bodiesChoosed'];
         if(count($bodyChoosed) > 0){
             $query = $query->whereHas('body', function ($q) use ($bodyChoosed) {
@@ -28,6 +55,7 @@ class SearchController extends Controller
             });
         }
 
+//      Cities
         if(isset($search_request['regionFullStore'])){
             $regions = $search_request['regionFullStore']['choosedRegions'];
             $cities_query = [];
@@ -70,7 +98,7 @@ class SearchController extends Controller
             }
         }
 
-
+//      Colors
         $colorsChoosed = $search_request['transportFullStore']['colorsChoosed'];
         if(count($colorsChoosed) > 0){
             $query = $query->whereHas('body', function ($q) use ($colorsChoosed) {
