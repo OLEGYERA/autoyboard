@@ -2206,37 +2206,37 @@
                     .yb_auto_vis-l{
                         .ycard_image{
                             .yb_fullpage-visual{
+                                .yb_slide-header{
+                                    padding: 15px 30px 15px 35px;
+                                }
                                 .yb-full_img{
                                     display: none;
-                                    .y-current_img{
-                                        height: 520px;
-                                        svg{
-                                            display: none;
-                                        }
-                                    }
                                 }
                                 .yb-click_mobile{
-                                    display: flex;
                                     width: 100%;
+                                    display: block;
                                     padding: 0 15px;
                                     overflow: hidden;
-                                    .yb_slick_list{
-                                        width: 100%;
-                                        overflow: hidden;
-                                        display: flex;
+                                    .slick-initialized{
+                                        .slick-list{
+                                           .slick-track{
+                                               display: flex;
+                                           }
+                                        }
+                                    }
                                         .yb_slick_items{
                                             overflow: hidden;
                                             width: 100%;
+                                            margin: 0;
+                                            max-width: 550px;
+                                            height: 560px;
                                             display: flex;
                                             align-items: center;
                                             justify-content: center;
-                                            margin: 0;
-                                            padding: 0;
                                             .yb_slick_item{
                                                 width: 100%;
                                             }
                                         }
-                                    }
                                 }
                             }
                         }
@@ -2309,9 +2309,10 @@
                                         font-size: 32px;
                                     }
                                 }
-                                .yb-full_img{
-                                    .y-current_img{
-                                        height: 500px;
+                                .yb-click_mobile{
+                                    .yb_slick_items{
+                                        max-width: 380px;
+                                        height: 560px;
                                     }
                                 }
                             }
@@ -2375,11 +2376,13 @@
                     .yb_auto_vis-l{
                         .ycard_image{
                             .yb_fullpage-visual{
-                                .yb-full_img{
-                                    .y-current_img{
-                                        height: 480px;
+                                .yb-click_mobile{
+                                    .yb_slick_items{
+                                        max-width: 320px;
+                                        height: 520px;
                                     }
                                 }
+
                             }
                         }
                     }
@@ -2420,119 +2423,23 @@
                     line-height: 14px;
                 }
             }
-
-            .yb-visible_mobile {
-                .yb_fullpage-visual {
-                    .yb_slide-header {
-                        padding: 10px 20px 0 10px;
-
-                        .yb-slide_left {
-                            .yb_car-name {
-                                font-size: em(20);
-                            }
-
-                            .yb_header-price {
-                                .yb_price-car {
-                                    font-size: em(18);
-                                }
-
-                                .yb_location-car {
-                                    font-size: em(18);
-                                }
-                            }
-                        }
-
-                        i {
-                            font-size: em(30);
-                        }
-                    }
-
-                    .yb_count-image {
-                        font-size: em(16);
-                        margin: 5px 0 0 5px;
-                    }
-                }
-
-                .yb_auto-preview {
-                    .yb_auto_vis-l {
-                        .y-visl_items {
-                            .y-image_large {
-                                .yb-icon_check {
-                                    top: 10px;
-                                    left: 10px;
-
-                                    .icon {
-                                        width: 35px;
-                                        height: 35px;
-
-                                        svg {
-                                            width: 20px;
-                                        }
+            .yb_auto-item{
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .ycard_image{
+                            .yb_fullpage-visual{
+                                .yb-click_mobile{
+                                    .yb_slick_items{
+                                        max-width: 265px;
                                     }
                                 }
 
-                                .yb-count_increase-img {
-                                    .yb_count-img {
-                                        height: 30px;
-
-                                        i {
-                                            font-size: em(16);
-                                        }
-
-                                        .yb_count {
-                                            font-size: em(12);
-                                        }
-                                    }
-
-                                    .yb-increase {
-                                        height: 30px;
-
-                                        i {
-                                            font-size: em(16);
-                                        }
-                                    }
-                                }
-                            }
-
-                            .without_photos {
-                                padding: 20px 0 15px;
-                            }
-
-                            .yb_auto_vis-r {
-                                .yvis_item-car {
-                                    .vis_car-price {
-                                        .yb_flex-price {
-                                            .yb-price_car {
-                                                width: 95%;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            .y-auto_options {
-                                .yb_verified_car {
-                                    .yb_verified_content {
-                                        h2 {
-                                            font-size: em(20);
-                                        }
-                                    }
-
-                                    .y_verified {
-                                        left: 40px;
-                                    }
-
-                                    .yb_disable-verified {
-                                        span {
-                                            font-size: em(12);
-                                        }
-                                    }
-                                }
                             }
                         }
                     }
                 }
             }
+
         }
     }
 

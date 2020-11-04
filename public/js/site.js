@@ -2502,18 +2502,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
-/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-slick-carousel/dist/vue-slick-carousel-theme.css */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel-theme.css");
-/* harmony import */ var vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
+/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
+/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-slick-carousel/dist/vue-slick-carousel-theme.css */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel-theme.css");
+/* harmony import */ var vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -3057,8 +3050,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    vuescroll: vuescroll__WEBPACK_IMPORTED_MODULE_0___default.a,
-    Slick: vue_slick__WEBPACK_IMPORTED_MODULE_2__["default"]
+    vuescroll: vuescroll__WEBPACK_IMPORTED_MODULE_1___default.a,
+    Slick: vue_slick__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['lang', 'options'],
   mounted: function mounted() {
@@ -3074,17 +3067,6 @@ __webpack_require__.r(__webpack_exports__);
   updated: function updated() {
     this.scrollY();
     this.onResize();
-  },
-  computed: {
-    arrImage: function arrImage() {
-      var _this2 = this;
-
-      return Array.from({
-        length: Math.ceil(this.imgList.length / this.imgShow)
-      }, function (v, i) {
-        return _this2.imgList.slice(i * _this2.imgShow, i * _this2.imgShow + _this2.imgShow);
-      });
-    }
   },
   data: function data() {
     return {
@@ -3133,24 +3115,19 @@ __webpack_require__.r(__webpack_exports__);
           mousedownStep: 30
         }
       },
-      slickOps: {
+      slickOptions: {
         slidesToShow: 1,
         slidesToScroll: 1,
         edgeFriction: 0,
-        infinite: true,
+        infinite: false,
         speed: 600,
         dots: false,
         arrows: false,
-        adaptiveHeight: true,
-        ZIndex: 1000,
+        adaptiveHeight: false,
+        ZIndex: 11,
         cssEase: 'linear',
-        responsive: [{
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }]
+        swipe: true,
+        mobileFirst: true
       },
       //start slider fullPage
       imgShow: 6,
@@ -3163,7 +3140,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       // obj from touch slider in mobile visible
       //end slider fullPage
-      showSlider: true,
+      showSlider: false,
       imgFullList: false,
       //show all small img
       windowWidth: 0,
@@ -37974,7 +37951,7 @@ var render = function() {
                                   _vm._v(_vm._s(_vm.currImgIdx + 1))
                                 ]),
                                 _vm._v(
-                                  "\n                                    из\n                                    "
+                                  "\n                                из\n                                "
                                 ),
                                 _c("span", [_vm._v(_vm._s(_vm.options.length))])
                               ])
@@ -38050,7 +38027,7 @@ var render = function() {
                     on: { click: _vm.nextImage }
                   },
                   [
-                    _vm._v("-->\n                            "),
+                    _vm._v("-->\n                    "),
                     _c("path", {
                       attrs: {
                         d:
@@ -38069,24 +38046,14 @@ var render = function() {
                 "div",
                 { staticClass: "yb-click_mobile" },
                 [
-                  _c(
-                    "Slick",
-                    { ref: "slick", attrs: { options: _vm.slickOps } },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "yb_slick_list" },
+                  _vm.options.length > 0
+                    ? _c(
+                        "Slick",
+                        { ref: "slick", attrs: { options: _vm.slickOptions } },
                         _vm._l(_vm.options, function(item, i) {
                           return _c(
                             "figure",
-                            {
-                              staticClass: "yb_slick_items",
-                              on: {
-                                touchstart: _vm.touchStart,
-                                touchmove: _vm.touchMove,
-                                touchend: _vm.touchEnd
-                              }
-                            },
+                            { key: i, staticClass: "yb_slick_items" },
                             [
                               _c("img", {
                                 staticClass: "yb_slick_item",
@@ -38097,8 +38064,7 @@ var render = function() {
                         }),
                         0
                       )
-                    ]
-                  )
+                    : _vm._e()
                 ],
                 1
               )
