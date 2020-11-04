@@ -319,7 +319,7 @@
 
                                             img {
                                                 width: 100%;
-                                                height: 100%;
+                                                //height: 100%;
                                             }
 
                                             .yb-sold_carout {
@@ -637,11 +637,12 @@
 
                                 svg {
                                     margin-right: 15px;
-                                    width: 10%;
+                                    width: 8%;
+                                    height: 25%;
                                 }
 
                                 .yoption_name {
-                                    width: 85%;
+                                    width: 90%;
                                     display: flex;
                                     align-items: center;
                                     justify-content: space-between;
@@ -649,7 +650,7 @@
                                     h2 {
                                         font-family: $mont;
                                         font-weight: 500;
-                                        font-size: em(18);
+                                        font-size: em(16);
                                         line-height: 28px;
                                         color: #999E9F;
                                         margin: 0;
@@ -658,7 +659,7 @@
                                     .y-option {
                                         font-family: $mont;
                                         font-weight: 600;
-                                        font-size: em(18);
+                                        font-size: em(16);
                                         line-height: 28px;
                                         color: #414242;
                                     }
@@ -695,7 +696,7 @@
                                     .y-item {
                                         font-family: $mont;
                                         font-weight: 500;
-                                        font-size: em(14);
+                                        font-size: em(12);
                                         line-height: 28px;
                                     }
 
@@ -818,7 +819,7 @@
                 margin-top: 20px;
 
                 .yb-scroll_vis {
-                    width: 15%;
+                    width: 12%;
                     //vue scroll library custom style
                     .__vuescroll {
                         .__rail-is-horizontal {
@@ -835,6 +836,7 @@
 
                         .chunk_item {
                             width: 100%;
+                            height: 120px;
                             overflow: hidden;
                             position: relative;
                             border-radius: 12px;
@@ -890,20 +892,9 @@
                     }
 
                 }
-
-                //.yb-carousel_vis{
-                //    position: relative;
-                //    width: 10%;
-                //    display: flex;
-                //    align-items: center;
-                //    justify-content: center;
-                //    flex-direction: column;
-                //    max-height: 680px;
-                //
-                //
-                //}
                 .y-current_img {
                     width: 60%;
+                    height: 670px;
                     display: flex;
                     align-items: center;
                     margin: 0 auto;
@@ -914,7 +905,6 @@
 
                     img {
                         width: 100%;
-                        object-fit: cover;
                     }
 
                     .yb_prev {
@@ -927,24 +917,6 @@
                         position: absolute;
                         right: 30px;
                         cursor: pointer;
-                    }
-
-                    .yb-link_increase {
-                        position: absolute;
-                        right: 38px;
-                        bottom: 23px;
-                        z-index: 2;
-                        background: rgba(0, 0, 0, 0.64);
-                        border-radius: 12px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 1% 2%;
-
-                        i {
-                            font-size: 25px;
-                            color: #ffffff;
-                        }
                     }
                 }
             }
@@ -1234,12 +1206,15 @@
                                     .yb-scroll_vis {
                                         .yb-full_carousel {
                                             max-height: 550px;
+                                            .chunk_item{
+                                                margin: 0 0 10px 0;
+                                            }
                                         }
                                     }
                                 }
 
                                 .y-current_img {
-                                    max-height: 475px;
+                                    height: 550px;
                                 }
 
                                 .yb-carousel_vis {
@@ -1456,18 +1431,18 @@
                                         }
                                     }
                                 }
-
-                                .y-current_img {
-                                    //max-height:360px;
-                                }
-
-                                .yb-carousel_vis {
-                                    padding: 10px 0 0;
-
-                                    .yb-full_carousel {
-                                        height: 100px;
+                                    .yb-full_img{
+                                        .yb-scroll_vis{
+                                            .yb-full_carousel{
+                                                .chunk_item{
+                                                    height: 100px;
+                                                    .yb_count-img{
+                                                        font-size: em(15);
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
-                                }
                             }
                         }
                         .y-auto_options {
@@ -1500,7 +1475,6 @@
         }
     }
 }
-
 @media only screen and (max-width: 1366px) {
     .yb-content {
         .yb-card_auto {
@@ -1525,7 +1499,34 @@
         }
     }
 }
-
+@media only screen and (max-width: 1330px) {
+    .yb-content {
+        .yb-card_auto {
+            .yb_auto-item {
+                .yb_auto-preview {
+                    .yb_auto_vis-l {
+                        .ycard_image {
+                            .yb_fullpage-visual {
+                                .yb_slide-header {
+                                    padding: 15px 30px 0 35px;
+                                }
+                                .yb-full_img{
+                                    .yb-scroll_vis{
+                                        .yb-full_carousel{
+                                            .chunk_item{
+                                                height: 95px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 @media only screen and (max-width: 1280px) {
     .yb-content {
         .yb-card_auto {
@@ -1537,6 +1538,19 @@
             .yb_auto-item {
                 .yb_auto-preview {
                     .yb_auto_vis-l {
+                        .ycard_image{
+                            .yb_fullpage-visual{
+                                .yb-full_img{
+                                    .yb-scroll_vis{
+                                        .yb-full_carousel{
+                                            .chunk_item{
+                                                height: 80px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         .y-auto_options {
                             .yb_verified_car {
                                 .yb_verified_content {
@@ -1578,23 +1592,17 @@
                                         }
                                     }
                                 }
+                                    .yb-full_img{
+                                        .yb-scroll_vis{
+                                            width: 15%;
+                                            .yb-full_carousel{
 
-                                .y-current_img {
-                                    max-height: 420px;
-                                    width: 60%;
-                                }
-
-                                .yb-carousel_vis {
-                                    .yb-full_carousel {
-                                        height: 100px;
-
-                                        .yb-carousel_chunk {
-                                            .chunk_item {
-                                                width: 24%;
                                             }
                                         }
+                                        .y-current_img {
+                                            width: 80%;
+                                        }
                                     }
-                                }
                             }
                         }
                         .y-auto_options {
@@ -2028,26 +2036,12 @@
                                 }
                             }
                             .yb_fullpage-visual {
-                                .y-current_img {
-                                    width: 100%;
-                                }
-
-                                .yb-carousel_vis {
-                                    width: 70%;
-                                }
-
-                                .yb_carousel-controls {
-                                    width: 70%;
-
-                                    .yb_controls_dot {
-                                        width: 20px;
-                                        height: 20px;
-                                        font-size: em(15);
-                                        line-height: 1rem;
-
-                                        &.active_dot {
-                                            transform: scale(1.3, 1.3);
-                                        }
+                                .yb-full_img{
+                                    .yb-scroll_vis{
+                                        display: none;
+                                    }
+                                    .y-current_img {
+                                        width: 100%;
                                     }
                                 }
                             }
@@ -2202,267 +2196,57 @@
             .yb-bread_next-card {
                 margin: 10px 0 15px;
             }
-
             .yb_status-bar {
                 span {
                     font-size: em(14);
                 }
             }
-
-            .yb-visible_mobile {
-                .yb_auto-preview {
-                    .yb_auto_vis-l {
-                        width: 100%;
-
-                        .y-visl_items {
-                            box-shadow: none;
-
-                            .y-image_large {
-                                .yb-count_increase-img {
-                                    padding: 0 10px;
-                                    margin: 0 0 5px;
-
-                                    .yb_count-img {
-                                        height: 35px;
-
-                                        .yb_count {
-                                            font-size: em(14);
-                                        }
-                                    }
-
-                                    .yb-increase {
-                                        height: 35px;
-
-                                        i {
-                                            font-size: em(24);
+            .yb_auto-item{
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .ycard_image{
+                            .yb_fullpage-visual{
+                                .yb-full_img{
+                                    display: none;
+                                    .y-current_img{
+                                        height: 520px;
+                                        svg{
+                                            display: none;
                                         }
                                     }
                                 }
-                            }
-
-                            .yb_sold-car {
-                                top: 5%;
-                            }
-
-                            .without_photos {
-                                margin: 0;
-                            }
-
-                            .yb_auto_vis-r {
-                                width: 100%;
-                                margin-top: 10px;
-
-                                .yvis_item-car {
-                                    .vis_car-price {
-                                        padding: 15px;
-
-                                        .car_name {
-                                            font-size: em(20);
-                                        }
-
-                                        .yb_flex-price {
-                                            width: 100%;
-
-                                            .yb-price_car {
-                                                width: 45%;
-
-                                                .price_vis {
-                                                    font-size: em(15);
-                                                    line-height: 20px;
-
-                                                    &.active {
-                                                        font-size: em(24);
-                                                        line-height: 29px;
-                                                        font-weight: 500;
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        .price_monitoring {
-                                            font-size: em(16);
-                                            line-height: 19px;
-                                        }
-                                    }
-
-                                    .yvis-car_options {
-                                        padding: 15px;
-
-                                        .y-car_option {
-                                            svg {
-                                                width: 35px;
-                                                height: 35px;
-                                            }
-
-                                            .yoption_name {
-                                                width: 90%;
-
-                                                h2 {
-                                                    font-size: em(18);
-                                                }
-
-                                                .y-option {
-                                                    width: 35%;
-                                                    font-size: em(18);
-                                                }
-                                            }
-
-                                            &:first-child {
-                                                padding: 0 0 15px;
-                                            }
-                                        }
-                                    }
-
-                                    .yb-additional_car-opt {
-                                        .yadditional_i {
-                                            flex-direction: inherit;
-                                            width: 90%;
-
-                                            .yvis_item {
-                                                &:first-child {
-                                                    margin-bottom: 0;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                .yb_go_to {
-                                    width: 95%;
-                                    padding: 4% 22%;
-                                    font-size: em(18);
-                                    line-height: 22px;
-                                    margin: 0 auto 35px auto;
-
-                                    .yexpended {
+                                .yb-click_mobile{
+                                    display: flex;
+                                    width: 100%;
+                                    padding: 0 15px;
+                                    overflow: hidden;
+                                    .yb_slick_list{
+                                        width: 100%;
+                                        overflow: hidden;
                                         display: flex;
-
-                                        .white {
-                                            .arrow {
-                                                right: 13px;
-                                                width: 25px;
-                                            }
-
-                                            .eclipse {
-                                                font-size: em(38);
-
-                                                &:after {
-                                                    left: -10px;
-                                                    width: 15px;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            .y-auto_options {
-                                .yb_verified_car {
-                                    margin: 0 0 15px;
-
-                                    .yb_disable-verified {
-                                        width: 95%;
-
-                                        span {
-                                            font-size: em(20);
-                                        }
-                                    }
-
-                                    .yb_verified_content {
-                                        .y-vin_code {
-                                            svg {
-                                                width: 32px;
-                                                height: 35px;
-                                            }
-                                        }
-                                    }
-
-                                    .y_verified {
-                                        line-height: 19px;
-
-                                        .yexpended {
+                                        .yb_slick_items{
+                                            overflow: hidden;
+                                            width: 100%;
                                             display: flex;
-                                        }
-                                    }
-                                }
-
-                                .y_check_item-car {
-                                    tr {
-                                        .y-check_title {
-                                            font-size: em(18);
-                                        }
-
-                                        .y-check_desc {
-                                            font-size: em(18);
-                                            line-height: 22px;
-                                            width: 45%;
+                                            align-items: center;
+                                            justify-content: center;
+                                            margin: 0;
+                                            padding: 0;
+                                            .yb_slick_item{
+                                                width: 100%;
+                                            }
                                         }
                                     }
                                 }
                             }
-                        }
-                    }
-                }
-
-                .yb_fullpage-visual {
-                    .yb_slide-header {
-                        padding: 15px 25px 0 25px;
-
-                        .yb-slide_left {
-                            .yb_car-name {
-                                font-size: em(28);
-                                margin: 0;
-                            }
-
-                            .yb_header-price {
-                                .yb_price-car {
-
-                                }
-
-                                .yb_location-car {
-
-                                }
-                            }
-                        }
-
-                        i {
-
-                        }
-                    }
-
-                    .y-current_img {
-                        width: 100%;
-                        height: auto;
-                        margin: 60px 0 0 0;
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-                    .yb_count-image {
-                        display: flex;
-                        align-items: center;
-                        font-family: $noto;
-                        font-weight: 600;
-                        font-size: em(18);
-                        line-height: 33px;
-                        color: #FFFFFF;
-                        margin: 10px 0 0 10px;
-
-                        span {
-                            color: #FFFFFF;
-                            margin: 0 7px;
                         }
                     }
                 }
             }
-
             .mobile_vis {
                 display: none;
             }
         }
-
         .yb-options {
             padding: 25px 25px;
             width: 100%;
@@ -2494,7 +2278,6 @@
             .yb-bread_next-card {
                 display: none;
             }
-
             .yb_status-bar {
                 margin: 15px 0 15px;
 
@@ -2507,156 +2290,28 @@
                     font-size: em(10);
                 }
             }
-
-            .yb-visible_mobile {
-                .yb_fullpage-visual {
-                    .yb_slide-header {
-                        padding: 15px 20px 0 15px;
-
-                        .yb-slide_left {
-                            .yb_car-name {
-                                font-size: em(24);
-                            }
-
-                            .yb_header-price {
-                                .yb_price-car {
-                                    font-size: em(18);
-                                }
-
-                                .yb_location-car {
-                                    font-size: em(18);
-                                }
-                            }
-                        }
-
-                        i {
-                            font-size: em(30);
-                        }
-                    }
-                }
-
-                .yb_auto-preview {
-                    .yb_auto_vis-l {
-                        .y-visl_items {
-                            .y-image_large {
-                                .yb-count_increase-img {
-                                    .yb_count-img {
-                                        padding: 7px 10px;
-
-                                        i {
-                                            font-size: em(16);
+            .yb_auto-item{
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .ycard_image{
+                            .yb_fullpage-visual{
+                                .yb_slide-header{
+                                    padding: 15px 15px 0 15px;
+                                    .yb-slide_left{
+                                        .yb_car-name{
+                                            font-size: em(22);
                                         }
+                                        .yb_header-price{
 
-                                        .yb_count {
-                                            font-size: em(12);
                                         }
                                     }
-
-                                    .yb-increase {
-                                        i {
-
-                                        }
+                                    i{
+                                        font-size: 32px;
                                     }
                                 }
-                            }
-
-                            .without_photos {
-                                padding: 30px 0 30px;
-
-                                h2 {
-                                    margin: 25px 0 0 0;
-                                    font-size: em(30);
-                                }
-                            }
-
-                            .yb_sold-car {
-                                top: 3%;
-                            }
-
-                            .yb_auto_vis-r {
-                                .yvis_item-car {
-                                    .vis_car-price {
-                                        .yb_flex-price {
-                                            .yb-price_car {
-                                                width: 65%;
-                                            }
-
-                                            .favorite {
-                                                top: 15px;
-                                                right: 15px;
-                                            }
-                                        }
-                                    }
-
-                                    .yvis-car_options {
-                                        .y-car_option {
-                                            .yoption_name {
-                                                .y-option {
-                                                    width: 40%;
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    .yb-additional_car-opt {
-                                        .yadditional_i {
-                                            width: 100%;
-                                            flex-direction: column;
-                                        }
-                                    }
-                                }
-
-                                .yb_go_to {
-                                    padding: 3% 10%;
-                                }
-                            }
-
-                            .y-auto_options {
-                                padding: 0 0 70px 0;
-
-                                .yb_verified_car {
-                                    .yb_verified_content {
-                                        width: 100%;
-                                        align-items: center;
-
-                                        h2 {
-                                            font-weight: 600;
-                                        }
-                                    }
-
-                                    .y_verified {
-                                        bottom: 30px;
-                                        left: 55px;
-                                    }
-
-                                    .yb_disable-verified {
-                                        width: 100%;
-                                        flex-direction: column;
-
-                                        svg {
-                                            width: 40px;
-                                        }
-
-                                        span {
-                                            font-size: 15px;
-                                            font-weight: 600;
-                                        }
-                                    }
-                                }
-
-                                .y_check_item-car {
-                                    tr {
-                                        flex-direction: column;
-
-                                        .y-check_title {
-                                            width: 70%;
-                                            align-items: center;
-                                        }
-
-                                        .y-check_desc {
-                                            width: 90%;
-                                            padding-left: 35px;
-                                        }
+                                .yb-full_img{
+                                    .y-current_img{
+                                        height: 500px;
                                     }
                                 }
                             }
@@ -2665,13 +2320,11 @@
                 }
             }
         }
-
         h3 {
             font-size: em(24);
             line-height: 28px;
             padding-left: 0;
         }
-
         .yb-options {
             padding: 25px 10px;
 
@@ -2699,6 +2352,9 @@
                 }
             }
         }
+
+
+
     }
 }
 
@@ -2714,102 +2370,14 @@
                     margin-right: 0;
                 }
             }
-
-            .yb-visible_mobile {
-                .yb_auto-preview {
-                    .yb_auto_vis-l {
-                        .y-visl_items {
-                            .yb_sold-car {
-                                padding: 10px;
-                                font-size: 30px;
-                                top: 2%;
-                                line-height: 56px;
-                            }
-
-                            .without_photos {
-                                padding: 25px 0 25px;
-
-                                h2 {
-                                    margin: 20px 0 0 0;
-                                    font-size: em(22);
-                                }
-                            }
-
-                            .yb_auto_vis-r {
-                                .yvis_item-car {
-                                    .vis_car-price {
-                                        .yb_flex-price {
-                                            .yb-price_car {
-                                                width: 80%;
-                                            }
-                                        }
-                                    }
-
-                                    .yvis-car_options {
-                                        .y-car_option {
-                                            svg {
-                                                width: 32px;
-                                                height: 32px;
-                                                margin-right: 14px;
-                                            }
-
-                                            .yoption_name {
-                                                h2 {
-                                                    font-size: em(16);
-                                                }
-
-                                                .y-option {
-                                                    font-size: em(15);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                .yb_go_to {
-                                    display: flex;
-                                    justify-content: center;
-                                    width: 90%;
-                                    height: 43px;
-                                    font-size: em(16);
-                                    line-height: 19px;
-
-                                    .yexpended {
-                                        display: none;
-                                    }
-                                }
-                            }
-
-                            .y-auto_options {
-                                .yb_verified_car {
-                                    .yb_verified_content {
-                                        h2 {
-                                            font-size: em(22);
-                                        }
-                                    }
-
-                                    .y_verified {
-                                        left: 60px;
-                                        padding: 0 55px 0 55px;
-                                        height: 43px;
-
-                                        .yexpended {
-                                            display: none;
-                                        }
-                                    }
-
-                                    .yb_disable-verified {
-                                        span {
-                                            font-size: em(14);
-                                        }
-                                    }
-                                }
-
-                                .y_check_item-car {
-                                    tr {
-                                        .y-check_title {
-                                            width: 100%;
-                                        }
+            .yb_auto-item{
+                .yb_auto-preview{
+                    .yb_auto_vis-l{
+                        .ycard_image{
+                            .yb_fullpage-visual{
+                                .yb-full_img{
+                                    .y-current_img{
+                                        height: 480px;
                                     }
                                 }
                             }

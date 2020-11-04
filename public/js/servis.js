@@ -1,4 +1,3 @@
-
 accordion();
 dropDown();
 scrollConvention();
@@ -125,3 +124,20 @@ $(window).scroll(function(){
     }
 });
 
+function resizeImage () {
+    $('.y-current_img img').each(
+        function () {
+            var theWidth = $(this).width();
+            var theHeight = $(this).height();
+            if (theHeight < theWidth ) {
+                $(this).height('100%');
+                $(this).width('auto');
+            }
+            else  {
+
+                $(this).width('100%');
+            }
+
+        });
+}
+resizeImage()
