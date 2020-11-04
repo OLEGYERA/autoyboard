@@ -27,8 +27,12 @@
         </div>
         @php($main = $card->main)
         @php($body = $card->body)
-{{--        @dd($card->photos)--}}
+{{--        @dd($main)--}}
     <h1 class="y-auto_name">{{$card->main->brand->title}} {{$card->main->modificaion}} {{$card->main->model->title}}</h1>
+        <div class="yb-car_tag">
+            <span>Пригнан из Германии</span>
+            <span>Растаможен</span>
+        </div>
     @if($card->status !== 3)
             <div class="yb_status-bar">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -48,107 +52,76 @@
         <div class="yb_auto-item">
             <div class="yb_auto-preview">
                 <div class="yb_auto_vis-l">
-                    <ycardauto :options="{{$card->photos}}"></ycardauto>
-                    <div class="y-auto_options">
-                        <div class="yb_verified_car">
-                            <div class="yb_verified_content" >
-                                <h2 >Перевірено за реєстрами МВС</h2>
-                                <span class="y-vin_code">
-                            <svg fill="none" height="40" viewBox="0 0 40 40" width="40"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0)">
-                                    <path
-                                        d="M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z"
-                                        fill="#0B3F8D"/>
-                                    <path
-                                        d="M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z"
-                                        fill="#0B3F8D"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0">
-                                        <rect fill="#0B3F8D" height="39.5652" transform="translate(0.217773 0.35376)"
-                                              width="39.5652"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            5YJSA1E4хFFхххх17
-                        </span>
-                            </div>
-                            <div class="yb_disable-verified" >
-                                <svg fill="none" height="48" viewBox="0 0 48 48" width="48"
-                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <rect fill="url(#pattern0)" height="48" width="48"/>
-                                    <defs>
-                                        <pattern height="1" id="pattern0" patternContentUnits="objectBoundingBox"
-                                                 width="1">
-                                            <use transform="scale(0.0208333)" xlink:href="#image0"/>
-                                        </pattern>
-                                        <image height="48" id="image0" width="48"
-                                               xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADr0lEQVRoge2ZTYhVdRjGf+85c+494yiDjib0AdUqEqLUhYhzr5pUWEGbgRa2LkEwokUtIjIq0UFduGnTQqKNkEVkHwg6c2msKBuJplYSOY7ZEGEzc++ZO3fO62L8OIre/8c5Qy3uAxcOd57/+zzPff8v53/OQAcddLAoUEV0KN6rw6U3/msvztARunU4/kiHyrrwid9WRRZDq/CiOhQ/ABwFXXfLX44QNV+SjTSK1Cs0gJ4qDSDB+6DL70AZQ3RAKs2xojQLCaAnu+8l1AOoDljQ6yD7WZm8K2to5tXOFUBHWEEr3o3qq8ASx+WjpLwuW2a/zOPBK4DW4gdJdSfwIrAsjwFgFNV9LG1+Kuupuy42BtDjlFm6ZAWkDwMVVJ8DHvFxakADOInyOWHwIxqeo2/6smmbmQMMlVMb3iIhleps2I4QWBRpFWTGB0ZtmwAzBRjxhBi1bQJMFeDEEzptYnSZi8hF0PtcpXcPruGfqQiAvt45Dr7yi2sJQCdMDHMHVP/wUCbqSq9fl6K0DbMNJDBqmwMEeAUoRXr9OhvGCRY/nkUHfANkO6BtmG1x3kSwGGL5yUc56rphuuTbgVTOmijmAD3JD3jcC27ugFeAlO7kjIlkDHD1fPKzq3rWdOQXYEw28K+JZHMfAOFbV/Xstil1+cyAfm/DsguQymlX+fwzIAUGaEXHgXkX+dwzkMpXNjSrALJt6m8Epy7knIEzsiX53YZo1wGAlKMuDrKmI+cZ0I9tmdbnfD2xrI+oOQ7Ejm5ckUJwv1QbxpsYOHRgYRvJMX9ftkJ8bWserE6jWcwPQvA8Fp27MBnzWW01AjzTf4l7ViW2IodcHDk/Kupw+QuUp0y81w4/xMTkwm67e1XC3l2/2ZQfpTK7VgTrobEf4mtIgz1gFpiaiW573Raqe1zMg0cA2dw4jeiHJt6O7eP09rTo7WmxY/u4Teka1eYnzn5cFwDoiZ7VRPO/tnmF6IoW6FqpNp3PXO5bCJBtM5eAl33W3hYq7/mYB88AAFJNjoB+4Ls+g2H+St7y9pFHWUfoZq78DfCYZ4k/CcN1sqlufHi/E7w7ACAbaSDRk4DP6/LLSPp0HvOQMwCAVKYnaQVPAOccltVReVYqc8YnLhNyBwCQxxsXCMN+0O8s6BcJgq2yOakVoV1IAADZVJ9gplltO9jKWcJgg/Q3bILa6RZVKAs9Fb+A6CBw19WvWigHKc2++b/+H1kWWmM5Wn4H1UcJdKf0zxlfkXTQQQfuuAJ5Jy9oVaJtcgAAAABJRU5ErkJggg=="/>
-                                    </defs>
-                                </svg>
-                                <span >Продавец отказался предоставить VIN-код для проверки</span>
-                            </div>
-                            <button class="y_verified">
-                                <span >Проверить авто</span>
-                                <yexpanded :color="'white'" :text_color="'white'"></yexpanded>
-                            </button>
+                <?php
+                        $fullTitle = json_encode([
+                            'brand' => $card->main->brand->title,
+                            'mod' => $card->main->modificaion,
+                            'model' => $card->main->model->title,
+                            'price' => $card->main->price_value,
+
+                        ]);
+
+                        $fullRegion = json_encode([
+                            'city' => $card->main->city->rtitle,
+                            'region' => $card->main->region->rtitle
+                        ])
+                    ?>
+                    <ycardauto :region="{{$fullRegion}}" :fullname="{{$fullTitle}}" :options="{{$card->photos}}"></ycardauto>
+                    <div class="yb_main-cardesc">
+                        <div class="yb_car-description">
+                            <h2>Описание</h2>
+                            <p>
+                                Автомобіль пригнаний з Німеччини.
+                                Повний привід. FULL LED. VIRTUAL COCKPIT.
+                                Без підкрасів. Оригінальний пробіг.
+                                Можливий продаж по перерахунку.
+                            </p>
                         </div>
-                        <table class="y_check_item-car">
-                            <tr>
-                                <th class="y-check_title">
-                                    <i class="fas fa-check"></i>
-                                    <span >Марка, модель, рік</span>
-                                </th>
-                                <th class="y-check_desc"> Mercedes-Benz Coupe AMG 53 AT</th>
-                            </tr>
-                            <tr>
-                                <th class="y-check_title">
-                                    <i class="fas fa-check"></i>
-                                    <span >Двигатель</span>
-                                </th>
-                                <th class="y-check_desc" >Електро</th>
-                            </tr>
-                            <tr>
-                                <th class="y-check_title">
-                                    <i class="fas fa-check"></i>
-                                    <span >Колір</span>
-                                </th>
-                                <th class="y-check_desc" >Сірий</th>
-                            </tr>
-                            <tr>
-                                <th class="y-check_title">
-                                    <i class="fas fa-check"></i>
-                                    <span >В розыске</span>
-                                </th>
-                                <th class="y-check_desc" >Нет</th>
-                            </tr>
-                            <tr>
-                                <th class="y-check_title">
-                                    <i class="fas fa-check"></i>
+                        <div class="yb_main-options">
+                            <div class="yb_optons_list" >
+                                <div class="yb_option-title">
+                                    <h3 class="option_title">Двигатель</h3>
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.6876 17.5003C14.6188 17.9219 14.5093 18.3292 14.3619 18.7187L15.6847 19.9173C15.4992 20.3077 15.288 20.6829 15.0442 21.0352L13.3458 20.4877C13.0779 20.8151 12.778 21.1147 12.4506 21.3825L12.9981 23.0809C12.6457 23.3247 12.2706 23.5355 11.8802 23.7214L10.6816 22.3986C10.2921 22.546 9.88521 22.6555 9.46315 22.7243L9.08587 24.4717C8.87251 24.4886 8.65831 24.5043 8.44031 24.5043C8.22231 24.5043 8.00811 24.4886 7.79433 24.4717L7.41705 22.7243C6.9954 22.6555 6.58813 22.546 6.19859 22.3986L5 23.7214C4.60962 23.5359 4.23445 23.3247 3.8821 23.0809L4.42964 21.3825C4.10221 21.1147 3.80267 20.8147 3.53481 20.4877L1.83642 21.0352C1.59264 20.6829 1.38182 20.3077 1.19593 19.9173L2.51873 18.7187C2.37128 18.3292 2.26186 17.9223 2.19299 17.5003L0.445589 17.123C0.428689 16.9092 0.413057 16.695 0.413057 16.477C0.413057 16.259 0.428689 16.0448 0.445589 15.831L2.19299 15.4538C2.26186 15.0321 2.37128 14.6248 2.51873 14.2353L1.19593 13.0367C1.3814 12.6463 1.59264 12.2712 1.83642 11.9188L3.53481 12.4664C3.80267 12.1389 4.10264 11.8394 4.43006 11.5715L3.88252 9.87313C4.23487 9.62935 4.61004 9.41853 5.00042 9.23264L6.19902 10.5554C6.58855 10.408 6.9954 10.2986 7.41747 10.2297L7.79475 8.4823C8.00811 8.4654 8.22231 8.44977 8.44031 8.44977C8.65831 8.44977 8.87251 8.4654 9.08629 8.4823L9.46357 10.2297C9.88522 10.2986 10.2925 10.408 10.682 10.5554L11.8806 9.23264C12.271 9.41811 12.6462 9.62935 12.9985 9.87313L12.451 11.5715C12.7784 11.8394 13.0779 12.1393 13.3458 12.4668L15.0442 11.9192C15.288 12.2716 15.4988 12.6468 15.6847 13.0371L14.3619 14.2357C14.5093 14.6253 14.6188 15.0321 14.6876 15.4542L16.435 15.8315C16.4519 16.0448 16.4676 16.259 16.4676 16.477C16.4676 16.695 16.4519 16.9092 16.435 17.123L14.6876 17.5003ZM8.44031 12.2522C6.10691 12.2522 4.21544 14.1436 4.21544 16.477C4.21544 18.8104 6.10691 20.7019 8.44031 20.7019C10.7737 20.7019 12.6652 18.8104 12.6652 16.477C12.6652 14.1436 10.7737 12.2522 8.44031 12.2522V12.2522Z" fill="#0B3F8D"/>
+                                        <path d="M20.5484 5.62119C20.4825 5.83961 20.3963 6.04917 20.2902 6.24647L20.9573 7.52492C20.7321 7.80967 20.4753 8.06654 20.1905 8.29173L18.9121 7.62462C18.7148 7.73109 18.5052 7.81728 18.2868 7.88276L17.8542 9.26007C17.6759 9.28119 17.4959 9.29471 17.3125 9.29471C17.1292 9.29471 16.9492 9.28119 16.7713 9.26049L16.3387 7.88318C16.1203 7.8177 15.9107 7.73109 15.7134 7.62504L14.435 8.29215C14.1502 8.06697 13.8933 7.81009 13.6682 7.52534L14.3353 6.24689C14.2288 6.04959 14.1426 5.84004 14.0771 5.62161L12.6998 5.18898C12.6787 5.0107 12.6652 4.83072 12.6652 4.64736C12.6652 4.464 12.6787 4.28402 12.6994 4.10615L14.0767 3.67352C14.1422 3.4551 14.2288 3.24554 14.3348 3.04824L13.6677 1.7698C13.8929 1.48504 14.1498 1.22817 14.4346 1.00298L15.713 1.67009C15.9103 1.56362 16.1199 1.47744 16.3383 1.41195L16.7709 0.0346439C16.9492 0.0135196 17.1292 0 17.3125 0C17.4959 0 17.6759 0.0135196 17.8537 0.0342215L18.2864 1.41153C18.5048 1.47701 18.7143 1.56362 18.9116 1.66967L20.1901 1.00256C20.4749 1.22775 20.7317 1.48462 20.9569 1.76938L20.2898 3.04782C20.3963 3.24512 20.4825 3.45468 20.5479 3.6731L21.9252 4.10573C21.9464 4.28402 21.9599 4.464 21.9599 4.64736C21.9599 4.83072 21.9464 5.0107 21.9257 5.18856L20.5484 5.62119ZM17.3125 2.95741C16.3793 2.95741 15.6226 3.71408 15.6226 4.64736C15.6226 5.58063 16.3793 6.3373 17.3125 6.3373C18.2458 6.3373 19.0025 5.58063 19.0025 4.64736C19.0025 3.71408 18.2458 2.95741 17.3125 2.95741Z" fill="#0B3F8D"/>
+                                        <path d="M23.9621 15.155C23.897 15.3895 23.8053 15.6118 23.6879 15.8192L24.1082 16.7039C23.9173 16.9477 23.698 17.1669 23.4542 17.3579L22.5695 16.9375C22.3625 17.055 22.1399 17.1467 21.9054 17.2117L21.5767 18.1361C21.425 18.1547 21.2717 18.167 21.1149 18.167C20.9582 18.167 20.8048 18.1547 20.6531 18.1361L20.3244 17.2117C20.09 17.1467 19.8677 17.055 19.6603 16.9375L18.7756 17.3579C18.5318 17.1669 18.3126 16.9477 18.1216 16.7039L18.542 15.8192C18.4245 15.6122 18.3328 15.3895 18.2678 15.1555L17.3434 14.8268C17.3248 14.6747 17.3125 14.5213 17.3125 14.3646C17.3125 14.2078 17.3248 14.0545 17.3434 13.9028L18.2678 13.5741C18.3328 13.3396 18.4245 13.1174 18.542 12.9104L18.1216 12.0257C18.3126 11.7819 18.5318 11.5626 18.7756 11.3717L19.6603 11.7921C19.8673 11.6746 20.09 11.5829 20.3244 11.5179L20.6531 10.5935C20.8048 10.5744 20.9582 10.5622 21.1149 10.5622C21.2717 10.5622 21.425 10.5744 21.5767 10.593L21.9054 11.5174C22.1399 11.5825 22.3621 11.6742 22.5695 11.7916L23.4542 11.3713C23.698 11.5622 23.9173 11.7815 24.1082 12.0253L23.6879 12.91C23.8053 13.117 23.897 13.3396 23.9621 13.5741L24.8865 13.9028C24.905 14.0545 24.9173 14.2078 24.9173 14.3646C24.9173 14.5213 24.905 14.6747 24.8865 14.8264L23.9621 15.155ZM21.1149 13.0971C20.4149 13.0971 19.8475 13.6645 19.8475 14.3646C19.8475 15.0646 20.4149 15.632 21.1149 15.632C21.815 15.632 22.3824 15.0646 22.3824 14.3646C22.3824 13.6645 21.815 13.0971 21.1149 13.0971Z" fill="#0B3F8D"/>
+                                        <path d="M25 0.853439L22.4731 0.348145L21.9678 2.87462L22.7963 3.04065L23.024 1.90332C23.4334 2.75505 23.6497 3.69382 23.6497 4.64737C23.6497 6.10411 23.1689 7.47381 22.2597 8.60819L22.9193 9.13672C23.9353 7.86883 24.4947 6.27479 24.4947 4.64737C24.4947 3.54088 24.2391 2.45002 23.7528 1.46562L24.8344 1.68194L25 0.853439Z" fill="#0B3F8D"/>
+                                        <path d="M9.16163 4.34863L8.56423 4.94603L9.13839 5.52019C8.90603 5.5054 8.67324 5.4923 8.44044 5.4923C5.17209 5.4923 2.09554 6.93341 0 9.44636L0.64894 9.98756C2.58351 7.66769 5.42304 6.33728 8.44044 6.33728C8.65549 6.33728 8.87011 6.34953 9.08474 6.36305L8.56423 6.88355L9.16163 7.48095L10.7278 5.91479L9.16163 4.34863Z" fill="#0B3F8D"/>
+                                    </svg>
+                                </div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="yb_optons_list">
+                                <div class="yb_option-title">
+                                    <h3 class="option_title">Кузов</h3>
+                                    <svg width="35" height="17" viewBox="0 0 35 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.58344 10.1856C5.97521 10.1856 4.66675 11.494 4.66675 13.1023C4.66675 14.7105 5.97515 16.019 7.58344 16.019C9.19166 16.019 10.5001 14.7106 10.5001 13.1023C10.5001 11.4941 9.19173 10.1856 7.58344 10.1856ZM7.58344 14.8523C6.61861 14.8523 5.83344 14.0672 5.83344 13.1023C5.83344 12.1375 6.61861 11.3523 7.58344 11.3523C8.54826 11.3523 9.33344 12.1375 9.33344 13.1023C9.33344 14.0672 8.54826 14.8523 7.58344 14.8523Z" fill="#0B3F8D"/>
+                                        <path d="M34.4167 10.1856V6.68562C34.4167 6.43481 34.2562 6.21134 34.0177 6.13204L30.7265 5.03481C29.487 2.93542 27.783 0.937484 24.0176 0.277748C24.0106 0.276586 24.0036 0.275424 23.9966 0.274262C17.0427 -0.687076 11.8219 0.881498 8.47 4.93801C5.97509 4.97417 3.42822 5.49569 1.93026 6.4547C1.15445 6.95167 0.694189 7.81676 0.650986 8.73729L0.583311 10.1857C0.261338 10.1857 0 10.447 0 10.769V13.1023C0 13.4243 0.261338 13.6856 0.583311 13.6856H2.91662C3.24037 13.6856 3.49938 13.4196 3.49993 13.0959C3.49993 13.0929 3.50055 13.0901 3.50055 13.0865C3.5093 10.8389 5.3334 9.01893 7.58331 9.01893C9.83849 9.01893 11.6666 10.8471 11.6666 13.1022C11.6246 13.4563 11.904 13.6855 12.2499 13.6855H22.7499C23.0737 13.6855 23.3327 13.4196 23.3332 13.0958C23.3332 13.0929 23.3338 13.09 23.3338 13.0864C23.3425 10.8389 25.1666 9.01886 27.4166 9.01886C29.6717 9.01886 31.4999 10.847 31.4999 13.1022C31.4579 13.4563 31.7373 13.6855 32.0832 13.6855H34.4165C34.7385 13.6855 34.9998 13.4241 34.9998 13.1022V10.7689C35 10.447 34.7387 10.1856 34.4167 10.1856ZM18.6667 4.644C18.6667 4.80498 18.5361 4.93569 18.375 4.93569H10.7678C10.4983 4.93569 10.3758 4.60435 10.5746 4.42292C12.5988 2.57784 15.173 1.52257 18.3453 1.24203C18.5162 1.22685 18.6667 1.36452 18.6667 1.53604V4.644ZM25.6748 4.64687C25.673 4.80669 25.543 4.93562 25.3831 4.93562H20.125C19.964 4.93562 19.8333 4.80498 19.8333 4.64393V1.45893C19.8333 1.29733 19.9622 1.16437 20.1232 1.16437C21.2864 1.16321 22.5172 1.24777 23.8256 1.42865C24.4487 1.53829 25.0039 1.68882 25.5091 1.87373C25.6252 1.91632 25.6993 2.02891 25.6981 2.15257L25.6748 4.64687ZM28.7193 4.93562H27.1332C26.9711 4.93562 26.8398 4.80321 26.8415 4.64106L26.8567 3.06025C26.859 2.81935 27.1337 2.68865 27.328 2.83097C27.9586 3.29178 28.483 3.84071 28.9503 4.46373C29.0961 4.65794 28.9619 4.93562 28.7193 4.93562Z" fill="#0B3F8D"/>
+                                        <path d="M27.4167 10.1856C25.8085 10.1856 24.5 11.494 24.5 13.1023C24.5 14.7105 25.8084 16.019 27.4167 16.019C29.0249 16.019 30.3334 14.7106 30.3334 13.1023C30.3333 11.4941 29.0249 10.1856 27.4167 10.1856ZM27.4167 14.8523C26.4519 14.8523 25.6667 14.0672 25.6667 13.1023C25.6667 12.1375 26.4519 11.3523 27.4167 11.3523C28.3815 11.3523 29.1667 12.1375 29.1667 13.1023C29.1667 14.0672 28.3815 14.8523 27.4167 14.8523Z" fill="#0B3F8D"/>
+                                    </svg>
+                                </div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="yb_optons_list">
+                                <div class="yb_option-title">
+                                    <h3 class="option_title">Трансмиссия</h3>
+                                    <svg width="26" height="35" viewBox="0 0 26 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.9868 0H4.03032C3.43113 0 2.94336 0.541595 2.94336 1.2069V6.0651C2.94336 6.5413 3.19655 6.97442 3.58874 7.16768L6.5439 8.62561C7.3278 9.0128 7.83466 9.87844 7.83466 10.8314V23.5345C7.83466 24.1998 8.32243 24.7414 8.92162 24.7414H11.0955C11.6947 24.7414 12.1825 24.1998 12.1825 23.5345V10.8314C12.1825 9.87852 12.6893 9.01287 13.4732 8.62568L16.4284 7.16775C16.8206 6.97442 17.0738 6.5413 17.0738 6.06518V1.2069C17.0738 0.541595 16.586 0 15.9868 0Z" fill="#0B3F8D"/>
+                                        <path d="M18.7041 1.8103H18.1606V4.22409H18.7041C19.004 4.22409 19.2476 3.9536 19.2476 3.62065V2.41375C19.2476 2.0808 19.004 1.8103 18.7041 1.8103Z" fill="#0B3F8D"/>
+                                        <path d="M20.8784 15.6896V35H23.0523V15.6896H20.8784ZM22.5089 32.5862H21.4219V31.3793H22.5089V32.5862ZM22.5089 28.9655H21.4219V27.7586H22.5089V28.9655ZM22.5089 25.3448H21.4219V24.1379H22.5089V25.3448ZM22.5089 21.7241H21.4219V20.5172H22.5089V21.7241ZM22.5089 18.1034H21.4219V16.8965H22.5089V18.1034Z" fill="#0B3F8D"/>
+                                        <path d="M23.0521 12.6724H13.2695V23.5345C13.2695 24.8657 12.2945 25.9483 11.0956 25.9483H8.92171C7.72279 25.9483 6.74779 24.8657 6.74779 23.5345V12.6724H3.48692C1.98862 12.6724 0.769531 14.026 0.769531 15.6897V35H2.39997V15.6897C2.39997 15.3561 2.64304 15.0862 2.94344 15.0862H5.66084V16.2931H3.48692V35H17.6174V31.9828H14.9C14.5996 31.9828 14.3565 31.7129 14.3565 31.3793V27.1552C14.3565 26.8216 14.5996 26.5517 14.9 26.5517H17.6174V23.5345H14.3565C14.0561 23.5345 13.813 23.2646 13.813 22.931V19.3104C13.813 18.9768 14.0561 18.7069 14.3565 18.7069H15.9869V16.2931H14.3565V15.0862H16.5304C16.8308 15.0862 17.0739 15.3561 17.0739 15.6897V19.3104C17.0739 19.6439 16.8308 19.9138 16.5304 19.9138H14.9V22.3276H18.1608C18.4612 22.3276 18.7043 22.5975 18.7043 22.931V27.1552C18.7043 27.4887 18.4612 27.7586 18.1608 27.7586H15.4434V30.7759H18.1608C18.4612 30.7759 18.7043 31.0458 18.7043 31.3793V35H19.7913V15.0862C19.7913 14.7527 20.0343 14.4828 20.3347 14.4828H23.5956C23.896 14.4828 24.1391 14.7527 24.1391 15.0862V35H25.7695V15.6897C25.7695 14.026 24.5504 12.6724 23.0521 12.6724Z" fill="#0B3F8D"/>
+                                    </svg>
 
-                                    <span >Пробіг перевірений</span>
-                                </th>
-
-                                <th class="y-check_desc" >19 тис.км (2 роки, 4 міс. назад). Остання наявна
-                                    фіксація пробігу більше року назад - 02.02.2018
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="y-check_title">
-                                    <i class="fas fa-check"></i>
-                                    <span >Пробіг від продавця</span>
-                                </th>
-                                <th class="y-check_desc" >62 тис.км</th>
-                            </tr>
-                            <tr>
-                                <th class="y-check_title">
-                                    <i class="fas fa-check"></i>
-                                    <span >Остання операція</span>
-                                </th>
-                                <th class="y-check_desc" >27.07.2019 (11 міс. назад)</th>
-                            </tr>
-                        </table>
+                                </div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="yb_auto_vis-r">
@@ -186,7 +159,7 @@
                                     @if($card->body->mileage === null)
                                         <span class="y-option" >Не указано</span>
                                     @else
-                                        <span class="y-option" >{{$card->body->mileage}}. тыс </span>
+                                        <span class="y-option" >{{$card->body->mileage}} .тыс </span>
                                     @endif
                                 </div>
 
@@ -343,57 +316,54 @@
                 </div>
             </div>
         </div>
-        <div style="background-image: url(data:image/jpeg;base64,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)"  class="commercial mobile_vis">
-            <h3> @ На правах реклами</h3>
-        </div>
     </section>
-        <h3>Технические характеристики</h3>
-    <section class="yb-options specifications ">
-            <div class="yb-technical_info">
-                <div class="yb-vis_info">
-                    <div class="y-info_column">
-                        <div class="y-items_info vis_l">
-                            <span class="option_name">Другое</span>
-                            <div class="yvis_items_column">
-                                @foreach($card->other as $other)
-                                    @if($other->rtitle === null)
-                                        <span class="y_item">Не указано</span>
-                                    @else
-                                        <span class="y_item">{{$other->rtitle}}</span>
-                                    @endif
-                                @endforeach
-                                    @foreach($card->state as $state)
-                                        @if($state->rtitle === null)
-                                            <span class="y_item">Не указано</span>
-                                        @else
-                                            <span class="y_item">{{$state->rtitle}}</span>
-                                        @endif
-                                    @endforeach
-                            </div>
+{{--        <h3>Технические характеристики</h3>--}}
+{{--    <section class="yb-options specifications ">--}}
+{{--            <div class="yb-technical_info">--}}
+{{--                <div class="yb-vis_info">--}}
+{{--                    <div class="y-info_column">--}}
+{{--                        <div class="y-items_info vis_l">--}}
+{{--                            <span class="option_name">Другое</span>--}}
+{{--                            <div class="yvis_items_column">--}}
+{{--                                @foreach($card->other as $other)--}}
+{{--                                    @if($other->rtitle === null)--}}
+{{--                                        <span class="y_item">Не указано</span>--}}
+{{--                                    @else--}}
+{{--                                        <span class="y_item">{{$other->rtitle}}</span>--}}
+{{--                                    @endif--}}
+{{--                                @endforeach--}}
+{{--                                    @foreach($card->state as $state)--}}
+{{--                                        @if($state->rtitle === null)--}}
+{{--                                            <span class="y_item">Не указано</span>--}}
+{{--                                        @else--}}
+{{--                                            <span class="y_item">{{$state->rtitle}}</span>--}}
+{{--                                        @endif--}}
+{{--                                    @endforeach--}}
+{{--                            </div>--}}
 
-                        </div>
-                        <div class="y-items_info vis_r">
-                            <span class="option_name">Двигатель</span>
+{{--                        </div>--}}
+{{--                        <div class="y-items_info vis_r">--}}
+{{--                            <span class="option_name">Двигатель</span>--}}
 {{--                            <div class="yvis_items_column">--}}
 {{--                                <span class="y_item-label">Расположение</span>--}}
 {{--                                <span class="y_item">Спереди(продольно)</span>--}}
 {{--                            </div>--}}
-                            <div class="yvis_items_column">
-                                <span class="y_item-label">Топливо</span>
-                                @if($card->body->typeFuel->rtitle === null)
-                                        <span class="y_item">Не указано</span>
-                                    @else
-                                        <span class="y_item">{{$card->body->typeFuel->rtitle}}</span>
-                                    @endif
-                            </div>
-                            <div class="yvis_items_column">
-                                <span class="y_item-label">Объем, л</span>
-                                @if($card->body->volume === null)
-                                    <span class="y_item">Не указано</span>
-                                @else
-                                    <span class="y_item">{{$card->body->volume}}</span>
-                                @endif
-                            </div>
+{{--                            <div class="yvis_items_column">--}}
+{{--                                <span class="y_item-label">Топливо</span>--}}
+{{--                                @if($card->body->typeFuel->rtitle === null)--}}
+{{--                                        <span class="y_item">Не указано</span>--}}
+{{--                                    @else--}}
+{{--                                        <span class="y_item">{{$card->body->typeFuel->rtitle}}</span>--}}
+{{--                                    @endif--}}
+{{--                            </div>--}}
+{{--                            <div class="yvis_items_column">--}}
+{{--                                <span class="y_item-label">Объем, л</span>--}}
+{{--                                @if($card->body->volume === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                @else--}}
+{{--                                    <span class="y_item">{{$card->body->volume}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
 {{--                            <div class="yvis_items_column">--}}
 {{--                                <span class="y_item-label">Количество цилиндров</span>--}}
 {{--                                <span class="y_item">6</span>--}}
@@ -406,65 +376,65 @@
 {{--                                <span class="y_item-label">Наличие дополнительного давления</span>--}}
 {{--                                <span class="y_item">Турбокомпрессор</span>--}}
 {{--                            </div>--}}
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-vis_info">
-                    <div class="y-info_column">
-                        <div class="y-items_info vis_l">
-                            <span class="option_name">Кузов</span>
-                            <div class="yvis_items_column">
-                                <span class="y_item-label">Количество дверей</span>
-                                @if($card->body->doors === null)
-                                    <span class="y_item">Не указано</span>
-                                @else
-                                    <span class="y_item">{{$card->body->doors}}</span>
-                                @endif
-                            </div>
-                            <div class="yvis_items_column">
-                                <span class="y_item-label">Тип кузова</span>
-                                @if($card->body->typeBody->rtitle === null)
-                                    <span class="y_item">Не указано</span>
-                                @else
-                                    <span class="y_item">{{$card->body->typeBody->rtitle}}</span>
-                                @endif
-                            </div>
-                            <div class="yvis_items_column">
-                                <span class="y_item-label">Количество мест</span>
-                                @if($card->body->seats === null)
-                                    <span class="y_item">Не указано</span>
-                                @else
-                                    <span class="y_item">{{$card->body->seats}}</span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="y-items_info vis_r">
-                            <span class="option_name">Трансмиссия</span>
-                            <div class="yvis_items_column">
-                                <span class="y_item-label">Коробка передач</span>
-                                @if($card->body->typeTransmission->rtitle === null)
-                                    <span class="y_item">Не указано</span>
-                                @else
-                                    <span class="y_item">{{$card->body->typeTransmission->rtitle}}</span>
-                                @endif
-                            </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="yb-vis_info">--}}
+{{--                    <div class="y-info_column">--}}
+{{--                        <div class="y-items_info vis_l">--}}
+{{--                            <span class="option_name">Кузов</span>--}}
+{{--                            <div class="yvis_items_column">--}}
+{{--                                <span class="y_item-label">Количество дверей</span>--}}
+{{--                                @if($card->body->doors === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                @else--}}
+{{--                                    <span class="y_item">{{$card->body->doors}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                            <div class="yvis_items_column">--}}
+{{--                                <span class="y_item-label">Тип кузова</span>--}}
+{{--                                @if($card->body->typeBody->rtitle === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                @else--}}
+{{--                                    <span class="y_item">{{$card->body->typeBody->rtitle}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                            <div class="yvis_items_column">--}}
+{{--                                <span class="y_item-label">Количество мест</span>--}}
+{{--                                @if($card->body->seats === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                @else--}}
+{{--                                    <span class="y_item">{{$card->body->seats}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="y-items_info vis_r">--}}
+{{--                            <span class="option_name">Трансмиссия</span>--}}
+{{--                            <div class="yvis_items_column">--}}
+{{--                                <span class="y_item-label">Коробка передач</span>--}}
+{{--                                @if($card->body->typeTransmission->rtitle === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                @else--}}
+{{--                                    <span class="y_item">{{$card->body->typeTransmission->rtitle}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
 {{--                            <div class="yvis_items_column">--}}
 {{--                                <span class="y_item-label">Количество передач</span>--}}
 {{--                                <span class="y_item">6</span>--}}
 {{--                            </div>--}}
-                            <div class="yvis_items_column">
-                                <span class="y_item-label">Тип привода</span>
-                                @if($card->body->typeGear->rtitle === null)
-                                    <span class="y_item">Не указано</span>
-                                    @else
-                                    <span class="y_item">{{$card->body->typeGear->rtitle}}</span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="yb-vis_info">
-                    <div class="y-info_column">
+{{--                            <div class="yvis_items_column">--}}
+{{--                                <span class="y_item-label">Тип привода</span>--}}
+{{--                                @if($card->body->typeGear->rtitle === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                    @else--}}
+{{--                                    <span class="y_item">{{$card->body->typeGear->rtitle}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="yb-vis_info">--}}
+{{--                    <div class="y-info_column">--}}
 {{--                        <div class="y-items_info vis_l">--}}
 {{--                            <span class="option_name">Рулевое управление</span>--}}
 {{--                            <div class="yvis_items_column">--}}
@@ -479,13 +449,13 @@
 {{--                                <span class="y_item">Есть</span>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-                    </div>
-                </div>
-            </div>
-    </section>
-        <h3>Опции комплектации</h3>
-    <section class="yb-options configuration ">
-        <div class="yb-technical_info">
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--    </section>--}}
+{{--        <h3>Опции комплектации</h3>--}}
+{{--    <section class="yb-options configuration ">--}}
+{{--        <div class="yb-technical_info">--}}
 {{--            <div class="yb-vis_info">--}}
 {{--                <div class="y-info_column">--}}
 {{--                    <div class="y-items_info vis_l">--}}
@@ -532,20 +502,20 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <div class="yb-vis_info">
-                <div class="y-info_column">
-                    <div class="y-items_info vis_l">
-                        <span class="option_name">Комфорт</span>
-                        <div class="yvis_items_column">
-                            @foreach($card->comfort as $comfort)
-                                @if($comfort->rtitle === null)
-                                    <span class="y_item">Не указано</span>
-                                    @else
-                                    <span class="y_item">{{$comfort->rtitle}}</span>
-                                @endif
-                            @endforeach
-                        </div>
-                        <div class="yvis_items_column">
+{{--            <div class="yb-vis_info">--}}
+{{--                <div class="y-info_column">--}}
+{{--                    <div class="y-items_info vis_l">--}}
+{{--                        <span class="option_name">Комфорт</span>--}}
+{{--                        <div class="yvis_items_column">--}}
+{{--                            @foreach($card->comfort as $comfort)--}}
+{{--                                @if($comfort->rtitle === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                    @else--}}
+{{--                                    <span class="y_item">{{$comfort->rtitle}}</span>--}}
+{{--                                @endif--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+{{--                        <div class="yvis_items_column">--}}
 {{--                            @foreach($card->state as $state)--}}
 {{--                                @if($state->rtitle === null)--}}
 {{--                                    <span class="y_item">Не указано</span>--}}
@@ -553,7 +523,7 @@
 {{--                                    <span class="y_item">{{$state->rtitle}}</span>--}}
 {{--                                @endif--}}
 {{--                            @endforeach--}}
-                        </div>
+{{--                        </div>--}}
 {{--                        <div class="yvis_items_column">--}}
 {{--                            <span class="y_item-label">Электрооборудование</span>--}}
 {{--                            <span class="y_item">Датчик давления в шинах, Электропривод рулевой колонки, Датчик света, Подогрев руля, Цифровая панель приборов, Омыватель фар, Электропривод багажника, Память рулевой колонки, Обогрев дворников, Подогрев лобового стекла, Камера кругового обзора, Бортовой компьютер, Корректор фар, Подогрев заднего стекла, Круиз-контроль, Hands Free, Режимы движения, Парктроник, Navi, Кнопка запуска двигателя, Электропривод сидений, Start/Stop, Память сидений</span>--}}
@@ -570,19 +540,19 @@
 {{--                            <span class="y_item-label">Электростеклоподъемники</span>--}}
 {{--                            <span class="y_item">Передние, Задние</span>--}}
 {{--                        </div>--}}
-                    </div>
-                    <div class="y-items_info vis_r">
-                        <span class="option_name">Безопасность</span>
-                        <div class="yvis_items_column">
-<!--                            <span class="y_item-label">Замки</span>-->
-                                @foreach($card->security as $security)
-                                    @if($security->rtitle === null)
-                                    <span class="y_item">Не указано</span>
-                                @else
-                                    <span class="y_item">{{$security->rtitle}}</span>
-                                @endif
-                                @endforeach
-                        </div>
+{{--                    </div>--}}
+{{--                    <div class="y-items_info vis_r">--}}
+{{--                        <span class="option_name">Безопасность</span>--}}
+{{--                        <div class="yvis_items_column">--}}
+{{--<!--                            <span class="y_item-label">Замки</span>-->--}}
+{{--                                @foreach($card->security as $security)--}}
+{{--                                    @if($security->rtitle === null)--}}
+{{--                                    <span class="y_item">Не указано</span>--}}
+{{--                                @else--}}
+{{--                                    <span class="y_item">{{$security->rtitle}}</span>--}}
+{{--                                @endif--}}
+{{--                                @endforeach--}}
+{{--                        </div>--}}
 {{--                        <div class="yvis_items_column">--}}
 {{--                            <span class="y_item-label">Системы безопасности</span>--}}
 {{--                            <span class="y_item">BAS, Система BrakeAssist, VSW, TRC, ACC, AHS, DAC, AHB, EPB, HAC, EBS, DRS, HSA, TPWS, BSM, TSR, ПБС, LDA, EBD, ABS, LKA</span>--}}
@@ -591,11 +561,11 @@
 {{--                            <span class="y_item-label">Система курсовой устойчивости</span>--}}
 {{--                            <span class="y_item">ESP</span>--}}
 {{--                        </div>--}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
     <section class="yb_more-offers">
         <h2 class="offers_title">Смотрите также</h2>
         <ybestoffer></ybestoffer>
