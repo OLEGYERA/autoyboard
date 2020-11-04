@@ -524,7 +524,7 @@
                     </svg>
                 </figure>
             </div>
-            <div v-if="windowWidth <= 600" class="yb-click_mobile">
+            <div v-if="windowWidth <= 600" class="yb-slick_mobile">
                     <Slick ref="slick" :options="slickOptions" v-if="options.length > 0">
                             <figure v-for="(item, i) in options" :key="i"  class="yb_slick_items">
                                 <img :src=" '/' + item.path" alt="" class="yb_slick_item"/>
