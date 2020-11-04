@@ -15,6 +15,7 @@ use App\ParserSecurityCard;
 use App\ParserComfortCard;
 use App\ParserMultimediaCard;
 use App\ParserOtherCard;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class AutoRia extends Core
@@ -70,8 +71,7 @@ class AutoRia extends Core
 //            $i->status = 1; $i->save();
 //        }
 //        dd(13);
-        $cardURLs = ParserUrlList::where('status', 1)->take(60)->get();
-
+        $cardURLs = ParserUrlList::where('status', 1)->take(20)->get();
         foreach ($cardURLs as $cardURL){
             $cardURL->status = $port;
             $cardURL->save();
@@ -87,7 +87,6 @@ class AutoRia extends Core
             $cardURL->save();
             return false;
         }
-
         try {
             if (!$content) {
                 $cardURL->status = -1;
@@ -130,7 +129,7 @@ class AutoRia extends Core
             'modification' => $this->cardData['mainProps']['additional']['mod'],
             'year' => intval($this->cardData['mainProps']['additional']['year']),
             'chat_link' => $this->cardData['mainProps']['additional']['chat_link'],
-            'price_value' => intval($this->cardData['mainProps']['additional']['priceVal']),
+            'price_value' => str_replace(' ', '', $this->cardData['mainProps']['additional']['priceVal']),
             'price_currency' => intval($this->cardData['mainProps']['additional']['priceCur']),
             'resource_created' => Carbon::create($this->cardData['mainProps']['additional']['resource_create_date']),
             'resource_updated' => Carbon::create($this->cardData['mainProps']['additional']['resource_update_date']),
@@ -154,13 +153,13 @@ class AutoRia extends Core
             'doors' => isset($this->cardData['body']['doors']) ? intval($this->cardData['body']['doors']) : null,
             'seats' => isset($this->cardData['body']['seats']) ? intval($this->cardData['body']['seats']) : null,
             'mileage' => isset($this->cardData['body']['mileage']) ? intval($this->cardData['body']['mileage']) : null,
-            'volume' => isset($this->cardData['body']['volume']) ? intval($this->cardData['body']['volume']) : null,
-            'horse' => isset($this->cardData['body']['horse']) ? intval($this->cardData['body']['horse']) : null,
-            'kilowatt' => isset($this->cardData['body']['kilowatt']) ? intval($this->cardData['body']['kilowatt']) : null,
-            'cons_city' => isset($this->cardData['body']['city']) ? intval($this->cardData['body']['city']) : null,
-            'cons_track' => isset($this->cardData['body']['track']) ? intval($this->cardData['body']['track']) : null,
-            'cons_mixed' => isset($this->cardData['body']['mixed']) ? intval($this->cardData['body']['mixed']) : null,
-            'metalic' => isset($this->cardData['body']['metalic']) ? $this->cardData['body']['metalic'] : false,
+            'volume' => isset($this->cardData['body']['volume']) ? doubleval($this->cardData['body']['volume']) : null,
+            'horse' => isset($this->cardData['body']['horse']) ? doubleval($this->cardData['body']['horse']) : null,
+            'kilowatt' => isset($this->cardData['body']['kilowatt']) ? doubleval($this->cardData['body']['kilowatt']) : null,
+            'cons_city' => isset($this->cardData['body']['fuels']['city']) ? doubleval($this->cardData['body']['fuels']['city']) : null,
+            'cons_track' => isset($this->cardData['body']['fuels']['track']) ? doubleval($this->cardData['body']['fuels']['track']) : null,
+            'cons_mixed' => isset($this->cardData['body']['fuels']['mixed']) ? doubleval($this->cardData['body']['fuels']['mixed']) : null,
+            'metalic' => isset($this->cardData['body']['color']['metalic']) ? $this->cardData['body']['color']['metalic'] : false,
         ]);
 
         if(count($this->cardData['state']) > 0){

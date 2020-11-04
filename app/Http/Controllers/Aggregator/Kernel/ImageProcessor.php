@@ -22,18 +22,22 @@ class ImageProcessor extends Controller
                     continue;
                 }
 
-                $watermark = Image::make(asset('img/system/logos/logo_white.png'));
-                $image->insert($watermark, 'bottom-left', 5, 5);
+                try {
+                    $watermark = Image::make(public_path('img/system/logos/logo_white.png'));
+                    $image->insert($watermark, 'bottom-left', 5, 5);
 
-                $size = $this->createTrusSize($image->getWidth(), $image->getHeight());
-                $auto_photo = $image->resize($size['w'], $size['h']);
-                $auto_photo = $auto_photo->encode('jpg', 70);
-                $auto_photo_path = 'auto/' . $id . '/' . 'photo_' . $key . '.jpg';
+                    $size = $this->createTrusSize($image->getWidth(), $image->getHeight());
+                    $auto_photo = $image->resize($size['w'], $size['h']);
+                    $auto_photo = $auto_photo->encode('jpg', 70);
+                    $auto_photo_path = 'auto/' . $id . '/' . 'photo_' . $key . '.jpg';
 
-                if (Storage::disk('webdav')->put($auto_photo_path, $auto_photo)) (new ParserPhotoCard)->create([
-                    'url_id' => $id,
-                    'path' => $auto_photo_path
-                ]);
+                    if (Storage::disk('webdav')->put($auto_photo_path, $auto_photo)) (new ParserPhotoCard)->create([
+                        'url_id' => $id,
+                        'path' => $auto_photo_path
+                    ]);
+                }catch (\Exception $e){
+                    continue;
+                }
             }
         }
         return true;

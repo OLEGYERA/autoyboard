@@ -39542,7 +39542,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                                Росход топлива,л./100 км\n                            "
+                      "\n                                Росход топлива, л./100 км\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -63944,8 +63944,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
   // baseURL: `https://api.yboard.com.ua/v1`,
-  // baseURL: `http://127.0.0.1:8000/v1`,
-  baseURL: "http://yboard.loc/v1",
+  baseURL: "http://127.0.0.1:8000/v1",
+  // baseURL: `http://yboard.loc/v1`,
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -65797,8 +65797,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/js/site/site.js */"./resources/js/site/site.js");
-module.exports = __webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
+__webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/site/site.js */"./resources/js/site/site.js");
+module.exports = __webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
 
 
 /***/ })

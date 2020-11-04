@@ -20,6 +20,7 @@ Route::get('/parseCards', 'Aggregator\Parse@runParseCards');
 Route::get('/cardTest/{id}', 'Auto\SearchController@cardTest');
 
 Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
+Route::get('/parseExchange', 'Auto\ExchangeRatesController@parseRate');
 //Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
 //Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
 //Route::get('/home', 'HomeController@index')->name('home');

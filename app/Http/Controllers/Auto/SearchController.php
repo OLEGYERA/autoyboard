@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auto;
+use App\Http\Controllers\Auto\ExchangeRatesController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -12,22 +13,23 @@ use App\UkrainianCity;
 class SearchController extends Controller
 {
     public function dataCollection($search_request){
-        $autoCondition = $search_request['searchDetailFullStore']['autoConditionChoosed'];
-        $transportType = $search_request['transportFullStore']['typeChoosed'];
-
+//      Create Query
         $query = ParserUrlList::where('status', 3);
-        $r = $query;
-
 //      Condition
+        $autoCondition = $search_request['searchDetailFullStore']['autoConditionChoosed'];
         if($autoCondition !== 1) $query = $query->where('autoCondition', $autoCondition);
+//      TransportType
+        $transportType = $search_request['transportFullStore']['typeChoosed'];
         $query = $query->where('transport_type', $transportType);
-
+//      Currency
+        $query = $this->currencyQuery($query, $search_request['searchDetailFullStore']['priceChoosed']);
+//      Photos
+        $query = $search_request['searchDetailFullStore']['searchPropsChoosed']['withPhoto'] ? $query->has('photos') : $query->has('photos', 'NOT');
 //      SearchProps
         $query = $query->whereHas('main', function ($q) use ($search_request) {
             if($search_request['searchDetailFullStore']['searchPropsChoosed']['bargain']){
                 $q->where('bargain', $search_request['searchDetailFullStore']['searchPropsChoosed']['bargain']);
             }
-
             if($search_request['searchDetailFullStore']['searchPropsChoosed']['exchange']){
                 $q->where('exchange', $search_request['searchDetailFullStore']['searchPropsChoosed']['exchange']);
             }
@@ -37,24 +39,22 @@ class SearchController extends Controller
             $q->where('accident', $search_request['searchDetailFullStore']['searchPropsChoosed']['accident']);
             $q->where('noMotion', $search_request['searchDetailFullStore']['searchPropsChoosed']['noMotion']);
         });
-
-////      Photos
-//        $query = $query->when('photos', function ($q) use ($search_request) {
-//            $q->where('id', '>=', 1);
-//        });
-
-
-//      TransportType
-        $query = $query->where('transport_type', $transportType);
-
-//      Bodies
-        $bodyChoosed = $search_request['transportFullStore']['bodiesChoosed'];
-        if(count($bodyChoosed) > 0){
-            $query = $query->whereHas('body', function ($q) use ($bodyChoosed) {
-                $q->whereIn('body_id', $bodyChoosed);
+//      Colors
+        $colorsChoosed = $search_request['transportFullStore']['colorsChoosed'];
+        if(count($colorsChoosed) > 0){
+            $query = $query->whereHas('body', function ($q) use ($colorsChoosed) {
+                $q->whereIn('color_id', $colorsChoosed);
             });
         }
-
+//      TransportType
+        $query = $query->where('transport_type', $transportType);
+//      Bodies
+        $bodiesChoosed = $search_request['transportFullStore']['bodiesChoosed'];
+        if(count($bodiesChoosed) > 0){
+            $query = $query->whereHas('body', function ($q) use ($bodiesChoosed) {
+                $q->whereIn('body_id', $bodiesChoosed);
+            });
+        }
 //      Cities
         if(isset($search_request['regionFullStore'])){
             $regions = $search_request['regionFullStore']['choosedRegions'];
@@ -97,35 +97,95 @@ class SearchController extends Controller
                 });
             }
         }
+//      Manufacture
+        $importersChoosed = $search_request['transportFullStore']['importersChoosed'];
+        if(count($importersChoosed) > 0){
+            $query = $query->whereHas('main', function ($q) use ($importersChoosed) {
+                $q->whereIn('manufacture_id', $importersChoosed);
+            });
+        }
+//      States
+        $statesChoosed = $search_request['transportFullStore']['statesChoosed'];
+        if(count($statesChoosed) > 0){
+            foreach ($statesChoosed as $state){
+                $query = $query->whereHas('state', function ($q) use ($state) {
+                    $q->where('state_id', $state);
+                });
+            }
 
-//      Colors
-        $colorsChoosed = $search_request['transportFullStore']['colorsChoosed'];
-        if(count($colorsChoosed) > 0){
-            $query = $query->whereHas('body', function ($q) use ($colorsChoosed) {
-                $q->whereIn('color_id', $colorsChoosed);
+        }
+//      Fuels
+        $fuelsChoosed = $search_request['transportFullStore']['fuelsChoosed'];
+        if(count($fuelsChoosed) > 0){
+            $query = $query->whereHas('body', function ($q) use ($fuelsChoosed) {
+                $q->whereIn('fuel_id', $fuelsChoosed);
+            });
+        }
+//      Fuel Consumtion
+        $fuelConsumptionChoosed = $search_request['transportFullStore']['fuelConsumptionChoosed'];
+        if($fuelConsumptionChoosed['from'] !== null && $fuelConsumptionChoosed['to']) {
+            $query = $query->whereHas('body', function ($q) use ($fuelConsumptionChoosed) {
+                $q->whereBetween('cons_mixed', [$fuelConsumptionChoosed['from'], $fuelConsumptionChoosed['to']]);
             });
         }
 
-        return $query->get()->count();
+
+
+        return $query->get();
 
 
 //        $merge = ParserUrlList::where('id',  '<=',  10)->get()->merge(ParserUrlList::where('id', '=', 1)->get());
 
 //        dd($merge()->where('id', 7)->get());
-
-
-
-//        ParserUrlList::where('')
-        return $query->get()->count();
     }
 
 
-    public function cardTest($id){
+    public function currencyQuery($query, $currency){
+        if($currency['to'] !== null && $currency['from'] !== null){
+            $exchangeRates = (new ExchangeRatesController)->generateMultyRate($currency);
+            return $query->whereHas('main', function ($q) use ($exchangeRates) {
+                $q->where(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 1);
+                    $qr->whereBetween('price_value', [$exchangeRates['USD']['from'], $exchangeRates['USD']['to']]);
+                })->orWhere(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 2);
+                    $qr->whereBetween('price_value', [$exchangeRates['UAH']['from'], $exchangeRates['UAH']['to']]);
+                })->orWhere(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 3);
+                    $qr->whereBetween('price_value', [$exchangeRates['EUR']['from'], $exchangeRates['EUR']['to']]);
+                });
+            });
+        } elseif ($currency['to'] !== null){
+            $exchangeRates = (new ExchangeRatesController)->generateMultyRate($currency);
+            return $query->whereHas('main', function ($q) use ($exchangeRates) {
+                $q->where(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 1);
+                    $qr->where('price_value', '<=', $exchangeRates['USD']['to']);
+                })->orWhere(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 2);
+                    $qr->where('price_value', '<=', $exchangeRates['UAH']['to']);
+                })->orWhere(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 3);
+                    $qr->where('price_value', '<=', $exchangeRates['EUR']['to']);
+                });
+            });
+        } elseif ($currency['from'] !== null){
+            $exchangeRates = (new ExchangeRatesController)->generateMultyRate($currency);
+            return $query->whereHas('main', function ($q) use ($exchangeRates) {
+                $q->where(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 1);
+                    $qr->where('price_value', '>=', $exchangeRates['USD']['from']);
+                })->orWhere(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 2);
+                    $qr->where('price_value', '>=', $exchangeRates['UAH']['from']);
+                })->orWhere(function ($qr) use ($exchangeRates) {
+                    $qr->where('price_currency', 3);
+                    $qr->where('price_value', '>=', $exchangeRates['EUR']['from']);
+                });
+            });
+        }
 
-
-//        dd($base->other);
-
-
+        return $query;
     }
 }
 

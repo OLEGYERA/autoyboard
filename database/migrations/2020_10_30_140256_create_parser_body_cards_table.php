@@ -23,12 +23,12 @@ class CreateParserBodyCardsTable extends Migration
             $table->smallInteger('doors')->nullable();
             $table->smallInteger('seats')->nullable();
             $table->smallInteger('mileage')->nullable();
-            $table->smallInteger('volume')->nullable();
-            $table->smallInteger('horse')->nullable();
-            $table->smallInteger('kilowatt')->nullable();
-            $table->smallInteger('cons_city')->nullable();
-            $table->smallInteger('cons_track')->nullable();
-            $table->smallInteger('cons_mixed')->nullable();
+            $table->double('volume')->nullable();
+            $table->double('horse')->nullable();
+            $table->double('kilowatt')->nullable();
+            $table->double('cons_city')->nullable();
+            $table->double('cons_track')->nullable();
+            $table->double('cons_mixed')->nullable();
             $table->boolean('metalic')->default(false);
 
             $table->timestamps();

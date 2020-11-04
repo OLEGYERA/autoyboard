@@ -309,7 +309,7 @@
                         </div>
                         <div class="option-box tech">
                             <h2 class="option-title">
-                                Росход топлива,л./100 км
+                                Росход топлива, л./100 км
                             </h2>
                             <ydoublenuminput
                                 :doubleChoosed="transportsArr.fuelConsumptionChoosed"
