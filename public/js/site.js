@@ -2663,7 +2663,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2676,6 +2675,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    window.addEventListener('orientationchange', this.changeOrientation);
     window.addEventListener('resize', this.onResize);
     this.onResize();
     document.addEventListener("keydown", function (event) {
@@ -2689,6 +2689,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      landscape: false,
       ops: {
         vuescroll: {
           mode: 'native',
@@ -2751,7 +2752,7 @@ __webpack_require__.r(__webpack_exports__);
       //start slider fullPage
       imgShow: 6,
       currSlide: 0,
-      currImgIdx: 1,
+      currImgIdx: 0,
       transition_name: "slide_next",
       touch: {
         startX: 0,
@@ -2766,7 +2767,14 @@ __webpack_require__.r(__webpack_exports__);
       verifiedCar: true,
       withPhotos: true,
       soldCar: false,
-      refuseScroll: false
+      refuseScroll: false,
+      responsive: [{
+        breakpoint: 600,
+        settings: {
+          vertical: true,
+          verticalSwiping: true
+        }
+      }]
     };
   },
   methods: {
@@ -2785,6 +2793,36 @@ __webpack_require__.r(__webpack_exports__);
       this.windowWidth = document.documentElement.clientWidth;
       if (this.windowWidth <= 1024) this.imgShow = 4;
     },
+    changeOrientation: function changeOrientation() {
+      switch (window.orientation) {
+        case -90:
+        case 90:
+          this.landscape = true;
+          console.log('landscape');
+          break;
+
+        default:
+          console.log('portrait');
+          break;
+      } // var mql = window.matchMedia("(orientation: portrait)");
+      // var orientation = false
+      // mql.addListener(function(m) {
+      //     if(!m.matches) {
+      //         orientation = true
+      //         console.log('orient',this.portrait)
+      //         // console.log(this.orientation)
+      //         console.log('Изменено на портретный режим')
+      //
+      //     }
+      //     else {
+      //         orientation = false
+      //         console.log('orient',this.portrait)
+      //         // console.log(this.orientation)
+      //         console.log('Изменено на горизонтальный режим' )
+      //     }
+      // });
+
+    },
     scrollY: function scrollY() {
       if (this.showSlider === true) {
         document.body.classList.add('scroll-disallowed');
@@ -2795,14 +2833,6 @@ __webpack_require__.r(__webpack_exports__);
     goToChunk: function goToChunk(idx) {
       this.transition_name = idx < this.currSlide ? "slide_prev" : "slide_next";
       this.currSlide = idx;
-    },
-    prevChunk: function prevChunk() {
-      this.transition_name = "slide_prev";
-      this.currSlide = this.currSlide === 0 ? this.options.length - 1 : this.currSlide - 1;
-    },
-    nextChunk: function nextChunk() {
-      this.transition_name = "slide_next";
-      this.currSlide = this.currSlide === this.options.length - 1 ? 0 : this.currSlide + 1;
     },
     prevImage: function prevImage() {
       this.currImgIdx = this.currImgIdx - 1 >= 0 ? this.currImgIdx - 1 : this.options.length - 1;
@@ -2822,7 +2852,8 @@ __webpack_require__.r(__webpack_exports__);
         this.nextChunk();
       }
     }
-  }
+  },
+  watch: {}
 });
 
 /***/ }),
@@ -37508,46 +37539,51 @@ var render = function() {
     _vm._v(" "),
     _vm.showSlider
       ? _c("div", { staticClass: "yb_fullpage-visual" }, [
-          _c("div", { staticClass: "yb_slide-header" }, [
-            _c("div", { staticClass: "yb-slide_left" }, [
-              _c("h2", { staticClass: "yb_car-name" }, [
-                _vm._v(
-                  _vm._s(_vm.fullname.brand) +
-                    " " +
-                    _vm._s(_vm.fullname.model) +
-                    " " +
-                    _vm._s(_vm.fullname.mod)
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "yb_header-price" }, [
-                _c("span", { staticClass: "yb_price-car" }, [
-                  _vm._v(_vm._s(_vm.fullname.price))
+          _c(
+            "div",
+            {
+              staticClass: "yb_slide-header",
+              class: { "yb_slide-landscape": _vm.landscape }
+            },
+            [
+              _c("div", { staticClass: "yb-slide_left" }, [
+                _c("h2", { staticClass: "yb_car-name" }, [
+                  _vm._v(
+                    _vm._s(_vm.fullname.brand) +
+                      " " +
+                      _vm._s(_vm.fullname.model) +
+                      " " +
+                      _vm._s(_vm.fullname.mod)
+                  )
                 ]),
                 _vm._v(" "),
-                _vm.lang == "ru"
-                  ? _c("div", { staticClass: "yb_location-car" })
-                  : _c("div", { staticClass: "yb_location-car" }, [
-                      _vm._v(
-                        " " +
-                          _vm._s(_vm.region.region) +
-                          " обл, " +
-                          _vm._s(_vm.region.city) +
-                          " "
-                      )
-                    ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "fas fa-times",
-              on: {
-                click: function($event) {
-                  _vm.showSlider = false
+                _c("div", { staticClass: "yb_header-price" }, [
+                  _c("span", { staticClass: "yb_price-car" }, [
+                    _vm._v(_vm._s(_vm.fullname.price) + " $")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "yb_location-car" }, [
+                    _vm._v(
+                      " " +
+                        _vm._s(_vm.region.region) +
+                        " обл, " +
+                        _vm._s(_vm.region.city) +
+                        " "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("i", {
+                staticClass: "fas fa-times",
+                on: {
+                  click: function($event) {
+                    _vm.showSlider = false
+                  }
                 }
-              }
-            })
-          ]),
+              })
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "yb-full_img" }, [
             _c(

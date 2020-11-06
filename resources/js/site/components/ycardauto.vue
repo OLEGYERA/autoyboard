@@ -88,14 +88,13 @@
                 </div>
             </div>
         </div>
-        <div class="yb_fullpage-visual" v-if="showSlider">
-            <div class="yb_slide-header">
+        <div  class="yb_fullpage-visual" v-if="showSlider">
+            <div :class="{'yb_slide-landscape' : landscape}"  class="yb_slide-header">
                 <div class="yb-slide_left" >
                     <h2 class="yb_car-name">{{ fullname.brand }} {{ fullname.model }} {{fullname.mod}}</h2>
                     <div class="yb_header-price">
-                        <span class="yb_price-car">{{fullname.price}}</span>
-                        <div class="yb_location-car" v-if="lang == 'ru' "></div>
-                        <div class="yb_location-car" v-else> {{region.region}} обл, {{region.city}} </div>
+                        <span class="yb_price-car">{{fullname.price}} $</span>
+                        <div class="yb_location-car" > {{region.region}} обл, {{region.city}} </div>
                     </div>
                 </div>
                 <i
@@ -165,6 +164,7 @@
         props: ['fullname', 'options', 'lang','region'],
 
         mounted() {
+            window.addEventListener('orientationchange', this.changeOrientation);
             window.addEventListener('resize', this.onResize)
             this.onResize();
             document.addEventListener("keydown", (event) => {
@@ -180,6 +180,7 @@
 
         data() {
             return {
+                landscape: false,
                 ops: {
                     vuescroll: {
                         mode: 'native',
@@ -243,7 +244,7 @@
                 //start slider fullPage
                 imgShow: 6,
                 currSlide: 0,
-                currImgIdx: 1,
+                currImgIdx: 0,
                 transition_name: "slide_next",
                 touch: {
                     startX: 0,
@@ -256,7 +257,17 @@
                 verifiedCar: true,
                 withPhotos: true,
                 soldCar: false,
-                refuseScroll: false
+                refuseScroll: false,
+                responsive: [
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            vertical: true,
+                            verticalSwiping: true
+                        }
+                    },
+                ]
+
             }
         },
         methods: {
@@ -280,6 +291,37 @@
                 this.windowWidth = document.documentElement.clientWidth;
                 if (this.windowWidth <= 1024) this.imgShow = 4;
             },
+            changeOrientation(){
+                switch(window.orientation)
+                {
+                    case -90:
+                    case 90:
+                        this.landscape = true
+                        console.log('landscape');
+                        break;
+                    default:
+                        console.log('portrait');
+                        break;
+                }
+
+                // var mql = window.matchMedia("(orientation: portrait)");
+                // var orientation = false
+                // mql.addListener(function(m) {
+                //     if(!m.matches) {
+                //         orientation = true
+                //         console.log('orient',this.portrait)
+                //         // console.log(this.orientation)
+                //         console.log('Изменено на портретный режим')
+                //
+                //     }
+                //     else {
+                //         orientation = false
+                //         console.log('orient',this.portrait)
+                //         // console.log(this.orientation)
+                //         console.log('Изменено на горизонтальный режим' )
+                //     }
+                // });
+            },
             scrollY() {
                 if (this.showSlider === true) {
                     document.body.classList.add('scroll-disallowed');
@@ -291,14 +333,7 @@
                 this.transition_name = (idx < this.currSlide) ? "slide_prev" : "slide_next";
                 this.currSlide = idx;
             },
-            prevChunk() {
-                this.transition_name = "slide_prev";
-                this.currSlide = this.currSlide === 0 ? this.options.length - 1 : this.currSlide - 1;
-            },
-            nextChunk() {
-                this.transition_name = "slide_next";
-                this.currSlide = this.currSlide === this.options.length - 1 ? 0 : this.currSlide + 1;
-            },
+
             prevImage() {
                 this.currImgIdx = (this.currImgIdx - 1 >= 0 ? this.currImgIdx - 1 : this.options.length - 1)
                 if (!((this.currImgIdx + 1) % this.imgShow)) {
@@ -315,6 +350,9 @@
                 }
             },
         },
+        watch: {
+
+        }
     }
 </script>
 

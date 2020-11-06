@@ -141,3 +141,16 @@ function resizeImage () {
         });
 }
 resizeImage()
+
+
+
+
+// var mql = window.matchMedia("(orientation: portrait)");
+// mql.addListener(function(m) {
+//     if(m.matches) {
+//         console.log('Изменено на портретный режим')
+//     }
+//     else {
+//         console.log('Изменено на горизонтальный режим' )
+//     }
+// });
