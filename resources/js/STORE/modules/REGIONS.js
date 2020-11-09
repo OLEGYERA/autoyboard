@@ -53,6 +53,16 @@ let mutations = {
         state.choosedRegions = payload.choosedRegions,
         state.choosedCities = payload.choosedCities
     },
+    SET_REGION_ARR_STATIC: (state, payload) => {
+        state.FULL_REGIONS = payload;
+        payload.forEach(el => {
+            el.children.forEach(el_reg => {
+                el_reg.children.forEach(el_city => {
+                    state.cities.push(el_city);
+                })
+            })
+        })
+    },
     SET_CITIES_CHOOSE: (state, payload) => {
         state.choosedCities.push(payload);
     },
@@ -88,34 +98,10 @@ let mutations = {
             state.choosedRegionParts.push(payload)
         }
     },
-
-    SET_REGIONS_FROM_API: (state, payload) => {
-        state.FULL_REGIONS = payload;
-        payload.forEach(el => {
-            el.children.forEach(el_reg => {
-                el_reg.children.forEach(el_city => {
-                    state.cities.push(el_city);
-                })
-            })
-        })
-    },
-};
-
-let actions = {
-    FULL_REGIONS_FROM_API: async (context, payload) => {
-        HTTP.get(payload)
-            .then(response => {
-                context.commit('SET_REGIONS_FROM_API', response.data);
-            })
-            .catch(error =>{
-                console.log('error', error)
-            })
-    }
 };
 
 export default {
     state,
     getters,
     mutations,
-    actions,
 };

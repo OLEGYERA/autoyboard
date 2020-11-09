@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auto;
-use App\Http\Controllers\Auto\ExchangeRatesController;
+namespace App\Http\Controllers\System;
+use App\Http\Controllers\System\ExchangeRatesController;
 use App\Http\Controllers\Controller;
+use App\ManufactureCountry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -53,6 +54,53 @@ class SearchController extends Controller
         if(count($bodiesChoosed) > 0){
             $query = $query->whereHas('body', function ($q) use ($bodiesChoosed) {
                 $q->whereIn('body_id', $bodiesChoosed);
+            });
+        }
+//      RBMYs
+        if(isset($search_request['rbmyFullStore']['rbmys'])){
+            $rbmys = $search_request['rbmyFullStore']['rbmys'];
+            $query = $query->whereHas('main', function ($q) use ($rbmys) {
+                $firstQ = true;
+                foreach ($rbmys as $rbmy){
+                    if($firstQ){
+                        $q->where(function ($qr) use ($rbmy) {
+                            if(!empty($rbmy['modelsChoose'])){
+                                $qr->whereIn('model_id', $rbmy['modelsChoose']);
+                            } elseif ($rbmy['brandChoose'] !== null){
+                                $qr->where('brand_id', $rbmy['brandChoose']);
+                            } elseif (!empty($rbmy['brands'])){
+                                $qr->whereIn('brand_id', $rbmy['brands']->pluck('val')->toArray());
+                            }
+                            if($rbmy['yearFrom'] !== null && $rbmy['yearTo'] !== null) {
+                                $qr->whereBetween('year', [$rbmy['yearFrom'], $rbmy['yearTo']]);
+                            } elseif ($rbmy['yearTo'] !== null){
+                                $qr->where('year', '<=', $rbmy['yearTo']);
+                            } elseif ($rbmy['yearFrom'] !== null){
+                                $qr->where('year', '>=', $rbmy['yearFrom']);
+                            }
+                        });
+                        $firstQ = false;
+                    } else{
+                        $q->orWhere(function ($qr) use ($rbmy) {
+                            if(!empty($rbmy['modelsChoose'])){
+                                $qr->whereIn('model_id', $rbmy['modelsChoose']);
+                            } elseif ($rbmy['brandChoose'] !== null){
+                                $qr->where('brand_id', $rbmy['brandChoose']);
+                            } elseif (!empty($rbmy['brands'])){
+                                $qr->whereIn('brand_id', $rbmy['brands']->pluck('val')->toArray());
+                            }
+
+                            if($rbmy['yearFrom'] !== null && $rbmy['yearTo'] !== null) {
+                                $qr->whereBetween('year', [$rbmy['yearFrom'], $rbmy['yearTo']]);
+                            } elseif ($rbmy['yearTo'] !== null){
+                                $qr->where('year', '<=', $rbmy['yearTo']);
+                            } elseif ($rbmy['yearFrom'] !== null){
+                                $qr->where('year', '>=', $rbmy['yearFrom']);
+                            }
+                        });
+                    }
+                }
+
             });
         }
 //      Cities
@@ -204,13 +252,79 @@ class SearchController extends Controller
             });
         }
 
+//      Power
+        $powerChoosed = $search_request['transportFullStore']['powerChoosed'];
+        if(count($powerChoosed) > 0){
+            if($powerChoosed['from'] !== null && $powerChoosed['to'] !== null) {
+                $query = $query->whereHas('body', function ($q) use ($powerChoosed) {
+                    $q->whereBetween('horse', [$powerChoosed['from'], $powerChoosed['to']]);
+                });
+            } elseif ($powerChoosed['to'] !== null){
+                $query = $query->whereHas('body', function ($q) use ($powerChoosed) {
+                    $q->where('horse', '<=', $powerChoosed['to']);
+                });
+            } elseif ($powerChoosed['from'] !== null){
+                $query = $query->whereHas('body', function ($q) use ($powerChoosed) {
+                    $q->where('horse', '>=', $powerChoosed['from']);
+                });
+            }
+        }
 
+//      Seats
+        $seatsChoosed = $search_request['transportFullStore']['seatsChoosed'];
+        if(count($seatsChoosed) > 0){
+            if($seatsChoosed['from'] !== null && $seatsChoosed['to'] !== null) {
+                $query = $query->whereHas('body', function ($q) use ($seatsChoosed) {
+                    $q->whereBetween('seats', [$seatsChoosed['from'], $seatsChoosed['to']]);
+                });
+            } elseif ($seatsChoosed['to'] !== null){
+                $query = $query->whereHas('body', function ($q) use ($seatsChoosed) {
+                    $q->where('seats', '<=', $seatsChoosed['to']);
+                });
+            } elseif ($seatsChoosed['from'] !== null){
+                $query = $query->whereHas('body', function ($q) use ($seatsChoosed) {
+                    $q->where('seats', '>=', $seatsChoosed['from']);
+                });
+            }
+        }
+
+//      Security
+        $securityChoosed = $search_request['transportFullStore']['techsChoosed']['security'];
+        if(count($securityChoosed) > 0){
+            foreach ($securityChoosed as $security){
+                $query = $query->whereHas('security', function ($q) use ($security) {
+                    $q->where('security_id', $security);
+                });
+            }
+        }
+//      Comfort
+        $comfortChoosed = $search_request['transportFullStore']['techsChoosed']['comfort'];
+        if(count($comfortChoosed) > 0){
+            foreach ($comfortChoosed as $comfort){
+                $query = $query->whereHas('comfort', function ($q) use ($comfort) {
+                    $q->where('comfort_id', $comfort);
+                });
+            }
+        }
+//      Multimedia
+        $multimediaChoosed = $search_request['transportFullStore']['techsChoosed']['multimedia'];
+        if(count($multimediaChoosed) > 0){
+            foreach ($multimediaChoosed as $multimedia){
+                $query = $query->whereHas('multimedia', function ($q) use ($multimedia) {
+                    $q->where('multimedia_id', $multimedia);
+                });
+            }
+        }
+//      Others
+        $othersChoosed = $search_request['transportFullStore']['techsChoosed']['others'];
+        if(count($othersChoosed) > 0){
+            foreach ($othersChoosed as $other){
+                $query = $query->whereHas('other', function ($q) use ($other) {
+                    $q->where('other_id', $other);
+                });
+            }
+        }
         return $query->get();
-
-
-//        $merge = ParserUrlList::where('id',  '<=',  10)->get()->merge(ParserUrlList::where('id', '=', 1)->get());
-
-//        dd($merge()->where('id', 7)->get());
     }
 
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\System;
 use App\Http\Controllers\API\BasicController;
-use App\Http\Controllers\Auto\SearchController;
+use App\Http\Controllers\System\SearchController;
 
+use App\ManufactureCountry;
 use App\TransportType;
 use App\TransportChColor;
 use App\TransportChState;
@@ -13,6 +14,7 @@ use App\SystemPeriod;
 use App\SystemRelevance;
 use App\SystemShow;
 use App\Brand;
+use App\UkrainianRegionPart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -20,9 +22,11 @@ class UriValidatorController extends BasicController
 {
     public $jSON_RESPONSE = [];
     public $verifiedData = [];
+    public $langTitle = [];
 
-    public function validateSearch(Request $request){
-        parse_str($request->uri, $uris);
+    public function validateSearch($searchData, $langTitle){
+        $uris = $searchData;
+        $this->langTitle = $langTitle;
         $this->verifyMainQueries($uris);
         foreach ($uris as $alias => $uri){
             switch ($alias){
@@ -33,90 +37,26 @@ class UriValidatorController extends BasicController
                     $this->analizeTransportAlias($uri);
                     break;
                 case 'rbmy':
-                    $rbmyFullStores = [];
-                    foreach ($uri as $k => $rbmy){
-                        $rbmyFullStore = [];
-                        if(isset($rbmy['reg'])){
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', intval($rbmy['reg']));
-                            $brands = $this->verifiedData['transport_type']->brands()->where('manufacture_id', intval($rbmy['reg']))->select(['brands.id as val', 'title as name'])->get();
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
-                        }
-                        else{
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', null);
-                            $brands = [];
-                        }
-                        $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
-
-                        if(isset($rbmy['brand'])){
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', intval($rbmy['brand']));
-                            $brand = Brand::select(['brands.id as val', 'title as name'])->find($rbmy['brand']);
-                            $models = $brand->modelsWithTransportType($this->verifiedData['transport_type']->val)->select(['id as val', 'title as name'])->get();
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'models', $models);
-                        }
-                        else{
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', null);
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'models', []);
-                        }
-                        if(isset($rbmy['model']) && isset($rbmy['brand'])){
-                            $modelArr = [];
-                            foreach ($rbmy['model'] as $model){
-                                array_push($modelArr, intval($model));
-                            }
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', $modelArr);
-                        }
-                        else{
-                            $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', []);
-                        }
-
-                        $yearForm = isset($rbmy['yearF']) ? intval($rbmy['yearF']) : null;
-                        $yearTo = isset($rbmy['yearT']) ? intval($rbmy['yearT']) : null;
-                        if($yearForm > $yearTo && $yearTo !== null){
-                            $tempYear = $yearForm;
-                            $yearForm = $yearTo;
-                            $yearTo = $tempYear;
-                        }
-                        $rbmyFullStore = Arr::add($rbmyFullStore, 'yearFrom', $yearForm);
-                        $rbmyFullStore = Arr::add($rbmyFullStore, 'yearTo', $yearTo);
-                        array_push($rbmyFullStores, $rbmyFullStore);
-
-                    }
-                    $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', $rbmyFullStores);
+                    $this->analizeRbmyAlias($uri);
                     break;
                 case 'region':
-                    $regionFullStores = [];
-                    $regionsArr = [];
-                    if(isset($uri['reg'])){
-                        foreach ($uri['reg'] as $region){
-                            array_push($regionsArr, intval($region));
-                        }
-                    }
-                    $regionFullStores = Arr::add($regionFullStores, 'choosedRegions', $regionsArr);
-
-                    $citiesArr = [];
-                    if(isset($uri['city'])){
-                        foreach ($uri['city'] as $city){
-                            array_push($citiesArr, intval($city));
-                        }
-                    }
-                    $regionFullStores = Arr::add($regionFullStores, 'choosedCities', $citiesArr);
-                    $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', $regionFullStores);
+                    $this->analizeRegionAlias($uri);
                     break;
             }
         }
 
-        $search_response = (new SearchController)->dataCollection($this->jSON_RESPONSE);
-        $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'searchResponse', $search_response);
-
-        return response()->json($this->jSON_RESPONSE, 200);
+        return $this->jSON_RESPONSE;
     }
 
     private function verifyMainQueries($data){
         $this->validateSearchDetailMain($data);
         $this->validateTransportMain($data);
+        $this->validateRbmyMain($data);
+        $this->validateRegionMain($data);
         return true;
     }
 
-    protected function validateSearchDetailMain($data){
+    private function validateSearchDetailMain($data){
         $this->verifiedData['autoCond'] = (isset($data['sch']['autoCond']) && $data['sch']['autoCond'] <= 3 && $data['sch']['autoCond'] >= 1) ? intval($data['sch']['autoCond']) : 1;
         $this->verifiedData['curr'] = (isset($data['sch']['curr']) && $data['sch']['curr'] <= 3 && $data['sch']['curr'] >= 1) ? intval($data['sch']['curr']) : 1;
         $this->verifiedData['sorting'] = (isset($data['sch']['sort']) && $data['sch']['sort'] <= SystemSorting::count() && $data['sch']['sort'] >= 1) ? intval($data['sch']['sort']) : 1;
@@ -130,7 +70,7 @@ class UriValidatorController extends BasicController
         return true;
     }
 
-    protected function validateTransportMain($data){
+    private function validateTransportMain($data){
         $tempTTID = 1;
         if(!isset($data['transport']['type'])){
             $tempTT = null;
@@ -148,6 +88,40 @@ class UriValidatorController extends BasicController
 
         return true;
     }
+
+    private function validateRbmyMain($data){
+        $this->verifiedData['staticRbmy'] = [
+            'manufactureRegions' => ManufactureCountry::select(['id as val', $this->langTitle . ' as name'])->get(),
+            'brands' => $this->verifiedData['transport_type']->brands()->select('brands.id as val', 'title as name', 'manufacture_id as manufacture')->get(),
+        ];
+        if(!isset($data['rbmy'])){
+            $this->analizeRbmyAlias();
+        }
+        return true;
+    }
+
+    private function validateRegionMain($data){
+        $regions = [];
+        $selecting_query = ['id as val', $this->langTitle . ' as name'];
+
+        foreach (UkrainianRegionPart::select($selecting_query)->get() as $urp){
+            $region_part = [];
+            foreach ($urp->regions()->select($selecting_query)->get() as $ur){
+                $ur->children = $ur->cities()->select($selecting_query)->orderBy('created_at', 'asc')->get();
+                array_push($region_part, $ur);
+            }
+            $urp->children = $region_part;
+            array_push($regions, $urp);
+        }
+
+        $this->verifiedData['staticRegion'] = $regions;
+
+        if(!isset($data['region'])){
+            $this->analizeRegionAlias();
+        }
+        return true;
+    }
+
 
     private function analizeSearchDetailAlias($uri = []){
         $searchDetailFullStores = [];
@@ -179,8 +153,6 @@ class UriValidatorController extends BasicController
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'autoConditionChoosed', $this->verifiedData['autoCond']);
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'searchPropsChoosed', $searchPropsChoosed);
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'priceChoosed', $priceChoosed);
-
-
 
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'sortingChoosed', $this->verifiedData['sorting']);
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemSorting', SystemSorting::select(['id as val', 'rtitle as name'])->get());
@@ -263,8 +235,8 @@ class UriValidatorController extends BasicController
         $transportFullStores = Arr::add($transportFullStores, 'transportFuels', TransportChFuel::select(['id as val', 'rtitle as name'])->get());
 
         $fuelConsumptionChoosed = [];
-        $fuelConsumptionChoosed['from'] = isset($uri['fuelsF']) ? intval(substr($uri['fuelsF'], 0,5)) : null;
-        $fuelConsumptionChoosed['to'] = isset($uri['fuelsT']) ? intval(substr($uri['fuelsT'], 0,5)) : null;
+        $fuelConsumptionChoosed['from'] = isset($uri['fuelsF']) ? floatval(substr($uri['fuelsF'], 0,5)) : null;
+        $fuelConsumptionChoosed['to'] = isset($uri['fuelsT']) ? floatval(substr($uri['fuelsT'], 0,5)) : null;
         if($fuelConsumptionChoosed['from'] > $fuelConsumptionChoosed['to'] && $fuelConsumptionChoosed['to'] !== null){
             $tempFrom = $fuelConsumptionChoosed['from'];
             $fuelConsumptionChoosed['from'] = $fuelConsumptionChoosed['to'];
@@ -326,8 +298,8 @@ class UriValidatorController extends BasicController
         $transportFullStores = Arr::add($transportFullStores, 'transportGears', $this->verifiedData['transport_type']->gears()->select('tranport_ch_gears.id as val', 'rtitle as name')->get());
 
         $powerChoosed = [];
-        $powerChoosed['from'] = isset($uri['powF']) ? intval(substr($uri['powF'], 0,5)) : null;
-        $powerChoosed['to'] = isset($uri['powT']) ? intval(substr($uri['powT'], 0,5)) : null;
+        $powerChoosed['from'] = isset($uri['powF']) ? floatval(substr($uri['powF'], 0,5)) : null;
+        $powerChoosed['to'] = isset($uri['powT']) ? floatval(substr($uri['powT'], 0,5)) : null;
         if($powerChoosed['from'] > $powerChoosed['to'] && $powerChoosed['to'] !== null){
             $tempFrom = $powerChoosed['from'];
             $powerChoosed['from'] = $powerChoosed['to'];
@@ -336,8 +308,8 @@ class UriValidatorController extends BasicController
         $transportFullStores = Arr::add($transportFullStores, 'powerChoosed', $powerChoosed);
 
         $seatsChoosed = [];
-        $seatsChoosed['from'] = isset($uri['doorsF']) ? intval(substr($uri['doorsF'], 0,5)) : null;
-        $seatsChoosed['to'] = isset($uri['doorsT']) ? intval(substr($uri['doorsT'], 0,5)) : null;
+        $seatsChoosed['from'] = isset($uri['seatsF']) ? intval(substr($uri['seatsF'], 0,5)) : null;
+        $seatsChoosed['to'] = isset($uri['seatsT']) ? intval(substr($uri['seatsT'], 0,5)) : null;
         if($seatsChoosed['from'] > $seatsChoosed['to'] && $seatsChoosed['to'] !== null){
             $tempFrom = $seatsChoosed['from'];
             $seatsChoosed['from'] = $seatsChoosed['to'];
@@ -397,7 +369,87 @@ class UriValidatorController extends BasicController
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
 
-    private function bollStr($str){
+    private function analizeRbmyAlias($uri = []){
+        $rbmyFullStores = [];
+        if(!empty($uri)){
+            foreach ($uri as $k => $rbmy){
+                $rbmyFullStore = [];
+                if(isset($rbmy['reg'])){
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', intval($rbmy['reg']));
+                    $brands = $this->verifiedData['transport_type']->brands()->where('manufacture_id', intval($rbmy['reg']))->select(['brands.id as val', 'title as name'])->get();
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
+                }
+                else{
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', null);
+                    $brands = [];
+                }
+                $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
+
+                if(isset($rbmy['brand'])){
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', intval($rbmy['brand']));
+                    $brand = Brand::select(['brands.id as val', 'title as name'])->find($rbmy['brand']);
+                    $models = $brand->modelsWithTransportType($this->verifiedData['transport_type']->val)->select(['id as val', 'title as name'])->get();
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'models', $models);
+                }
+                else{
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', null);
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'models', []);
+                }
+                if(isset($rbmy['model']) && isset($rbmy['brand'])){
+                    $modelArr = [];
+                    foreach ($rbmy['model'] as $model){
+                        array_push($modelArr, intval($model));
+                    }
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', $modelArr);
+                }
+                else{
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', []);
+                }
+
+                $yearForm = isset($rbmy['yearF']) ? intval($rbmy['yearF']) : null;
+                $yearTo = isset($rbmy['yearT']) ? intval($rbmy['yearT']) : null;
+                if($yearForm > $yearTo && $yearTo !== null){
+                    $tempYear = $yearForm;
+                    $yearForm = $yearTo;
+                    $yearTo = $tempYear;
+                }
+                $rbmyFullStore = Arr::add($rbmyFullStore, 'yearFrom', $yearForm);
+                $rbmyFullStore = Arr::add($rbmyFullStore, 'yearTo', $yearTo);
+                array_push($rbmyFullStores, $rbmyFullStore);
+
+            }
+            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', ['rbmys' => $rbmyFullStores, 'static' => $this->verifiedData['staticRbmy']]);
+        } else{
+            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', ['static' => $this->verifiedData['staticRbmy']]);
+        }
+    }
+
+    private function analizeRegionAlias($uri = []){
+        $regionFullStores = [];
+        if(!empty($uri)){
+            $regionsArr = [];
+            if(isset($uri['reg'])){
+                foreach ($uri['reg'] as $region){
+                    array_push($regionsArr, intval($region));
+                }
+            }
+            $regionFullStores = Arr::add($regionFullStores, 'choosedRegions', $regionsArr);
+
+            $citiesArr = [];
+            if(isset($uri['city'])){
+                foreach ($uri['city'] as $city){
+                    array_push($citiesArr, intval($city));
+                }
+            }
+            $regionFullStores = Arr::add($regionFullStores, 'choosedCities', $citiesArr);
+
+            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', ['regions' => $regionFullStores, 'static' => $this->verifiedData['staticRegion']]);
+        } else{
+            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', ['static' => $this->verifiedData['staticRegion']]);
+        }
+    }
+
+    public function bollStr($str){
         return $str == 'true' ? true : false;
     }
 

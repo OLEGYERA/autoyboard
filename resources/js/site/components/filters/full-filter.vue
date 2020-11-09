@@ -170,10 +170,10 @@
                             <h2 class="option-title">Тип кузова</h2>
                             <div class="option-box hide-list">
                                 <ycheck v-for="(body, i) in transportBodies" :key="i"
-                                    v-if="bodyFullList ? true : i < 8"
-                                    :name="body.name"
-                                    :checked="body.choosed"
-                                    @checked="SET_TRANSPORT_BODY_CHOOSE(body.val)"></ycheck>
+                                        v-if="bodyFullList ? true : i < 8"
+                                        :name="body.name"
+                                        :checked="body.choosed"
+                                        @checked="SET_TRANSPORT_BODY_CHOOSE(body.val)"></ycheck>
                                 <div v-if="transportBodies.length > 8" class="ycheck toggleHideKist" @click="bodyFullList = !bodyFullList">
                                     <span v-if="!bodyFullList">Просмотреть еще</span>
                                     <span v-else>Скрыть</span>
@@ -220,7 +220,7 @@
                             <h2 v-if="i == 0" class="option-title">Год</h2>
                             <div class="option-row">
                                 <yselectsearch
-                                      @updateChoose="SET_YEAR_FROM({choose: $event, index: i})"
+                                    @updateChoose="SET_YEAR_FROM({choose: $event, index: i})"
                                     @deleteChoose="DELETE_YEAR_FROM({choose: $event, index: i})"
                                     :shade="true"
                                     :placeholder="'От'"
@@ -233,7 +233,7 @@
                                     :placeholder="'До'"
                                     :options="years"
                                     :choosedItem="rbmy.yearTo"></yselectsearch>
-<!--                                v-if="i != 0"-->
+                                <!--                                v-if="i != 0"-->
                                 <button class="delRbmy">
                                     <i v-if="i !== 0" @click="DELETE_RBMY(i)" class="yicon trash"></i>
                                 </button>
@@ -286,9 +286,9 @@
                             </h2>
                             <div class="option-box hide-list">
                                 <ycheck v-for="(body, i) in transportStates" :key="i"
-                                    :name="body.name"
-                                    :checked="body.choosed"
-                                    @checked="SET_TRANSPORT_STATE_CHOOSE(body.val)"></ycheck>
+                                        :name="body.name"
+                                        :checked="body.choosed"
+                                        @checked="SET_TRANSPORT_STATE_CHOOSE(body.val)"></ycheck>
                             </div>
                         </div>
                     </div>
@@ -398,6 +398,13 @@
                             ></ychaccordion>
                         </div>
                     </div>
+                    <hr>
+                    <h2 class="category-title">Вы ищите:</h2>
+                    <div class="option-row">
+                        <div class="option-box full-width mt">
+                            <selected-items></selected-items>
+                        </div>
+                    </div>
                 </div>
             </section>
             {{generateLink}}
@@ -407,38 +414,57 @@
 <script>
     import Vue from 'vue';
     import {mapGetters, mapActions, mapMutations} from 'vuex';
-    import {HTTP} from "../../http.js";
-    import {routingSplicerBus} from '../../site/routingSplicerBus.js';
+    import {HTTP} from "../../../http.js";
+    import {routingSplicerBus} from '../../../site/routingSplicerBus.js';
     export default {
+        props: ['validate_data'],
         beforeMount() {
-            this.initFilter();
+            this.initFilterPage();
         },
-        mounted () {
-            window.addEventListener('resize', this.changeResize)
-            // this.changeResize();
-            // this.getYears()
-            // // this.getRegion()
-            // this.getTransportType();
-            // this.getManufactureCounries()
-            // this.getCarBrands()
-        },
+        mounted(){window.addEventListener('resize', this.changeResize)},
         data(){
             return{
                 //services
-                bodyFullList: false,
-                initPage: false,
                 langType: 3,
+                initPage: false,
+                bodyFullList: false,
+
+                uriName: 'full-filter'
             }
         },
         methods: {
+            initFilterPage() {
+                if(this.validate_data.searchDetailFullStore !== undefined){
+                    this.SET_SEARCHDETAIL_ARR(this.validate_data.searchDetailFullStore)
+                }
+                if(this.validate_data.transportFullStore !== undefined){
+                    this.SET_TRANPORT_ARR(this.validate_data.transportFullStore)
+                    this.GENERATE_YEAR(new Date().getFullYear());
+                }
+                if(this.validate_data.rbmyFullStore !== undefined){
+                    if(this.validate_data.rbmyFullStore.rbmys !== undefined)
+                        this.SET_NEW_RBMY(this.validate_data.rbmyFullStore.rbmys);
+                    console.log(this.validate_data.rbmyFullStore.static);
+                    this.SET_NEW_RBMY_STATIC(this.validate_data.rbmyFullStore.static);
+                }
+                if(this.validate_data.regionFullStore !== undefined){
+                    if(this.validate_data.regionFullStore.regions !== undefined)
+                        this.SET_REGION_ARR(this.validate_data.regionFullStore.regions);
+                    this.SET_REGION_ARR_STATIC(this.validate_data.regionFullStore.static);
+                }
+                this.initPage = true;
+            },
+
             ...mapMutations([
                 //search deataild
                 'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED', 'SET_SORTING_CHOOSED',
                 'SET_PERIOD_CHOOSED', 'SET_RELEVANCE_CHOOSED', 'SET_SHOW_CHOOSED',
                 //regions
-                'SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS',
+                'SET_REGION_ARR', 'SET_REGION_ARR_STATIC',
+                'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS',
                 //RBMY
                 'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY',
+                'SET_NEW_RBMY_STATIC',
                 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE',
                 'CLEAR_BRANDS_MODELS',
                 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE',
@@ -450,10 +476,8 @@
 
             ]),
             ...mapActions([
-                'FULL_REGIONS_FROM_API',
-
                 //RBMY
-                'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API',
+                'BRANDS_FROM_API',
                 'MODELS_FROM_API', 'GENERATE_YEAR',
                 //TRANSPORT
                 'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'
@@ -465,30 +489,6 @@
                 this.MODELS_FROM_API(data);
             },
 
-            initFilter() {
-                const UriSearch = window.location.search;
-                let UriPromise = routingSplicerBus.$options.methods.ValidateUri(UriSearch);
-                let lang = 3, query = "?langType=" + lang + '&alias=1' ;
-                UriPromise().then(el => {
-                    if(el.searchDetailFullStore !== undefined){
-                        this.SET_SEARCHDETAIL_ARR(el.searchDetailFullStore)
-                    }
-                    if(el.transportFullStore !== undefined){
-                        this.SET_TRANPORT_ARR(el.transportFullStore)
-                        this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
-                        this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query)
-                        this.GENERATE_YEAR(new Date().getFullYear());
-                    }
-                    if(el.rbmyFullStore !== undefined){
-                        this.SET_NEW_RBMY(el.rbmyFullStore);
-                    }
-                    if(el.regionFullStore !== undefined){
-                        this.SET_REGION_ARR(el.regionFullStore);
-                    }
-                    this.initPage = true;
-                });
-                this.FULL_REGIONS_FROM_API('/regions' + query);
-            },
             reInitFilterByClick(event){
                 this.SET_TRANSPORT_TYPE(event);
                 this.CLEAR_BRANDS_MODELS();
@@ -525,13 +525,12 @@
                 'choosedRegions': 'GET_CHOOSED_REGIONS',
             }),
             generateLink() {
-                const CurrentURI = 'extended';
                 let SEARCHDETAILsProps = routingSplicerBus.$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils);
                 let TRANPORTsProps = routingSplicerBus.$options.methods.creatingTRANSPORTsProps(this.transportsArr);
                 let RBMYsProps = routingSplicerBus.$options.methods.creatingRBMYsProps(this.rbmysArr);
                 let REGIONProps = routingSplicerBus.$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
                 if(this.initPage)
-                    window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + SEARCHDETAILsProps + '&' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
+                    window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + SEARCHDETAILsProps + '&' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
             },
         },
         watch: {
