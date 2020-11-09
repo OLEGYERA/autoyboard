@@ -32,7 +32,7 @@ class AutoRia extends Core
         }
     }
     protected function collectLinks($page, $resource_type_id, $transport_type){
-        $url = $this->resource_domain . 'search/?indexName=auto&categories.main.id=' . $resource_type_id . '&price.currency=1&sort[0].order=dates.created.desc&top=1&abroad.not=-1&custom.not=-1&page=' . $page . '&size=100';
+        $url = $this->resource_domain . 'uk/search/?indexName=auto&categories.main.id=' . $resource_type_id . '&price.currency=1&sort[0].order=dates.created.desc&top=1&abroad.not=-1&custom.not=-1&page=' . $page . '&size=100';
         $content = $this->getPage($url);
         if(!$content) return false;
 
