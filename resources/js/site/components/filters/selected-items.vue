@@ -1,7 +1,8 @@
 <template>
     <div class="selected-items">
-        <div class="selected-item" v-for="body in GET_TRANSPORT_BODIES">
-            <span v-if="isEqualBodies(body.val)" @click="SET_TRANSPORT_BODY_CHOOSE(body.val)">{{body.name}}</span>
+        <!--bodies-->
+        <div class="selected-item" v-for="body in GET_TRANSPORT_BODIES" v-if="isEqualBodies(body.val)">
+            {{body.name}}<i class="yicon cancel" @click="SET_TRANSPORT_BODY_CHOOSE(body.val)"></i>
         </div>
     </div>
 </template>

@@ -401,9 +401,7 @@
                     <hr>
                     <h2 class="category-title">Вы ищите:</h2>
                     <div class="option-row">
-                        <div class="option-box full-width mt">
-                            <selected-items></selected-items>
-                        </div>
+                        <selected-items></selected-items>
                     </div>
                 </div>
             </section>

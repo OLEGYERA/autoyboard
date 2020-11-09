@@ -1,5 +1,24 @@
 @import '../../../vars';
 
 .selected-items{
-
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    .selected-item{
+        font-size: em(16);
+        font-family: $aleg;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 2px 8px;
+        border-radius: 4px;
+        background-color: $darkblue;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        .yicon{
+            cursor: pointer;
+            margin-left: 8px;
+            font-size: 16px;
+        }
+    }
 }

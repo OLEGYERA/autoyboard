@@ -2342,8 +2342,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -2467,6 +2465,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -36589,14 +36588,7 @@ var render = function() {
             _vm._v(" "),
             _c("h2", { staticClass: "category-title" }, [_vm._v("Вы ищите:")]),
             _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box full-width mt" },
-                [_c("selected-items")],
-                1
-              )
-            ])
+            _c("div", { staticClass: "option-row" }, [_c("selected-items")], 1)
           ],
           2
         )
@@ -36631,21 +36623,19 @@ var render = function() {
     "div",
     { staticClass: "selected-items" },
     _vm._l(_vm.GET_TRANSPORT_BODIES, function(body) {
-      return _c("div", { staticClass: "selected-item" }, [
-        _vm.isEqualBodies(body.val)
-          ? _c(
-              "span",
-              {
-                on: {
-                  click: function($event) {
-                    return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
-                  }
+      return _vm.isEqualBodies(body.val)
+        ? _c("div", { staticClass: "selected-item" }, [
+            _vm._v("\n        " + _vm._s(body.name)),
+            _c("i", {
+              staticClass: "yicon cancel",
+              on: {
+                click: function($event) {
+                  return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
                 }
-              },
-              [_vm._v(_vm._s(body.name))]
-            )
-          : _vm._e()
-      ])
+              }
+            })
+          ])
+        : _vm._e()
     }),
     0
   )
