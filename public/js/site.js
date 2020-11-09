@@ -2505,8 +2505,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick */ "./node_modules/vue-slick/dist/slickCarousel.esm.js");
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-slick-carousel/dist/vue-slick-carousel-theme.css */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel-theme.css");
-/* harmony import */ var vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel_dist_vue_slick_carousel_theme_css__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -2663,7 +2661,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2683,12 +2749,49 @@ __webpack_require__.r(__webpack_exports__);
       if (event.which === 39) _this.nextChunk();
     });
   },
+  computed: {
+    slickOptions: function slickOptions() {
+      return {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: false,
+        zIndex: 11,
+        adaptiveHeight: true,
+        asNavFor: "#slick2"
+      };
+    },
+    slickOptions2: function slickOptions2() {
+      return {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: false,
+        vertical: true,
+        zIndex: 12,
+        verticalSwiping: true,
+        infinite: true,
+        // cssEase: "linear",
+        focusOnSelect: true,
+        asNavFor: "#slick1",
+        adaptiveHeight: false
+      };
+    }
+  },
   updated: function updated() {
     this.scrollY();
     this.onResize();
   },
   data: function data() {
     return {
+      settings: {
+        "accessibility": false,
+        "dots": true,
+        "infinite": true,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "adaptiveHeight": true
+      },
       landscape: false,
       ops: {
         vuescroll: {
@@ -2735,20 +2838,51 @@ __webpack_require__.r(__webpack_exports__);
           mousedownStep: 30
         }
       },
-      slickOptions: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        edgeFriction: 0,
-        infinite: false,
-        speed: 600,
-        dots: false,
-        arrows: false,
-        adaptiveHeight: false,
-        ZIndex: 11,
-        cssEase: 'linear',
-        swipe: true,
-        mobileFirst: true
-      },
+      // slickOptions: {
+      //     slidesToShow: 1,
+      //     slidesToScroll: 1,
+      //     edgeFriction: 0,
+      //     infinite: false,
+      //     speed: 600,
+      //     dots: false,
+      //     arrows: true,
+      //     adaptiveHeight: true,
+      //     ZIndex: 11,
+      //     cssEase: 'linear',
+      //     swipe: true,
+      //     mobileFirst: true,
+      //     prevArrow: '                    ' +
+      //         '<svg  class="yb_prev" fill="none" height="50" viewBox="0 0 26 50" width="26"\n' +
+      //         '     xmlns="http://www.w3.org/2000/svg">\n' +
+      //         '    <path\n' +
+      //         'd="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z"\n' +
+      //         'fill="rgba(255, 255, 255, 0.44)"/>\n' +
+      //         '                    </svg>\n',
+      //     nextArrow: '                    <svg  class="yb_next" fill="none" height="57" viewBox="0 0 30 57" width="30"\n' +
+      //         '                         xmlns="http://www.w3.org/2000/svg">-->\n' +
+      //         '                        <path\n' +
+      //         '                            d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z"\n' +
+      //         '                            fill="rgba(255, 255, 255, 0.44)"/>\n' +
+      //         '                    </svg>\n',
+      //     asNavFor: '.slider-nav'
+      //
+      //
+      // },
+      // slickOptions2: {
+      //     asNavFor: '.slider-for',
+      //     slidesToShow: 5,
+      //     slidesToScroll: 1,
+      //     edgeFriction: 0,
+      //     infinite: false,
+      //     speed: 600,
+      //     dots: false,
+      //     arrows: false,
+      //     adaptiveHeight: true,
+      //     ZIndex: 11,
+      //     cssEase: 'linear',
+      //     swipe: true,
+      //     mobileFirst: true,
+      // },
       //start slider fullPage
       imgShow: 6,
       currSlide: 0,
@@ -2760,7 +2894,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       // obj from touch slider in mobile visible
       //end slider fullPage
-      showSlider: false,
+      showSlider: true,
       imgFullList: false,
       //show all small img
       windowWidth: 0,
@@ -37585,155 +37719,49 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "yb-full_img" }, [
-            _c(
-              "div",
-              { staticClass: "yb-scroll_vis" },
-              [
-                _c("vuescroll", { attrs: { ops: _vm.ops } }, [
-                  _c(
-                    "div",
-                    { ref: "scrollTo", staticClass: "yb-full_carousel" },
-                    _vm._l(_vm.options, function(item, j) {
-                      return _c(
-                        "figure",
-                        {
-                          key: j,
-                          staticClass: "chunk_item",
-                          class: {
-                            active_item: item === _vm.options[_vm.currImgIdx]
-                          },
-                          on: {
-                            click: function($event) {
-                              _vm.currImgIdx = j
-                            }
-                          }
-                        },
-                        [
-                          item === _vm.options[_vm.currImgIdx]
-                            ? _c("div", { staticClass: "yb_count-img" }, [
-                                _c("span", [
-                                  _vm._v(_vm._s(_vm.currImgIdx + 1))
-                                ]),
-                                _vm._v(
-                                  "\n                                из\n                                "
-                                ),
-                                _c("span", [_vm._v(_vm._s(_vm.options.length))])
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: { src: "/" + item.path, alt: "" }
-                          })
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "figure",
-              {
-                staticClass: "y-current_img",
-                on: {
-                  touchstart: _vm.touchStart,
-                  touchmove: _vm.touchMove,
-                  touchend: _vm.touchEnd
-                }
-              },
-              [
-                _c("img", {
-                  staticClass: "currImg",
-                  attrs: {
-                    src: "/" + _vm.options[_vm.currImgIdx].path,
-                    alt: ""
-                  }
+          _c(
+            "div",
+            {
+              staticClass: "yb-full_img",
+              class: { "yb_full-landscape": _vm.landscape }
+            },
+            [
+              _c(
+                "slick",
+                {
+                  ref: "slickSetting1",
+                  attrs: { id: "slick1", options: _vm.slickOptions }
+                },
+                _vm._l(_vm.options, function(item, j) {
+                  return _c("figure", { staticClass: "yb_navigation-for" }, [
+                    _c("img", {
+                      staticClass: "img-responsive",
+                      attrs: { src: "/" + item.path }
+                    })
+                  ])
                 }),
-                _vm._v(" "),
-                _c(
-                  "svg",
-                  {
-                    staticClass: "yb_prev",
-                    attrs: {
-                      fill: "none",
-                      height: "50",
-                      viewBox: "0 0 26 50",
-                      width: "26",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    },
-                    on: { click: _vm.prevImage }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z",
-                        fill: "rgba(255, 255, 255, 0.44)"
-                      }
+                0
+              ),
+              _vm._v(" "),
+              _c(
+                "slick",
+                {
+                  ref: "slickSetting2",
+                  attrs: { id: "slick2", options: _vm.slickOptions2 }
+                },
+                _vm._l(_vm.options, function(item) {
+                  return _c("figure", { staticClass: "yb_navigation-item" }, [
+                    _c("img", {
+                      staticClass: "img-responsive",
+                      attrs: { src: "/" + item.path }
                     })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "svg",
-                  {
-                    staticClass: "yb_next",
-                    attrs: {
-                      fill: "none",
-                      height: "57",
-                      viewBox: "0 0 30 57",
-                      width: "30",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    },
-                    on: { click: _vm.nextImage }
-                  },
-                  [
-                    _vm._v("-->\n                    "),
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z",
-                        fill: "rgba(255, 255, 255, 0.44)"
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.windowWidth <= 600
-            ? _c(
-                "div",
-                { staticClass: "yb-slick_mobile" },
-                [
-                  _vm.options.length > 0
-                    ? _c(
-                        "Slick",
-                        { ref: "slick", attrs: { options: _vm.slickOptions } },
-                        _vm._l(_vm.options, function(item, i) {
-                          return _c(
-                            "figure",
-                            { key: i, staticClass: "yb_slick_items" },
-                            [
-                              _c("img", {
-                                staticClass: "yb_slick_item",
-                                attrs: { src: "/" + item.path, alt: "" }
-                              })
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ],
-                1
+                  ])
+                }),
+                0
               )
-            : _vm._e()
+            ],
+            1
+          )
         ])
       : _vm._e()
   ])

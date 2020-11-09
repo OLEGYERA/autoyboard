@@ -485,7 +485,7 @@
                                 </svg>
                                 <div class="yoption_name">
                                     <h2>Коробка</h2>
-                                    @if($body->typeTransmission->rtitle === null)
+                                    @if($body->typeTransmission === null)
                                         <span class="y-option">Не указано</span>
                                     @else
                                         <span class="y-option">{{$body->typeTransmission->rtitle}}</span>

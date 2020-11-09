@@ -102,53 +102,122 @@
                     class="fas fa-times">
                 </i>
             </div>
-            <div class="yb-full_img">
-                <div class="yb-scroll_vis">
-                    <vuescroll :ops="ops">
-                        <div class="yb-full_carousel" ref="scrollTo">
-                            <figure :class="{active_item: item === options[currImgIdx]}"
-                                    :key="j"
-                                    @click="currImgIdx = j"
-                                    class="chunk_item"
-                                    v-for="(item,j) in options"
-                            >
-                                <div class="yb_count-img" v-if="item === options[currImgIdx]">
-                                    <span>{{ currImgIdx + 1 }}</span>
-                                    из
-                                    <span>{{ options.length }}</span>
-                                </div>
-                                <img :src="'/' + item.path" alt=""/>
-                            </figure>
-                        </div>
-                    </vuescroll>
-                </div>
-                <figure class="y-current_img"
-                        @touchstart="touchStart"
-                        @touchmove="touchMove"
-                        @touchend="touchEnd"
-                >
-                    <img :src="'/' + options[currImgIdx].path" alt="" class="currImg"/>
-                    <svg @click="prevImage" class="yb_prev" fill="none" height="50" viewBox="0 0 26 50" width="26"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z"
-                            fill="rgba(255, 255, 255, 0.44)"/>
-                    </svg>
-                    <svg @click="nextImage" class="yb_next" fill="none" height="57" viewBox="0 0 30 57" width="30"
-                         xmlns="http://www.w3.org/2000/svg">-->
-                        <path
-                            d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z"
-                            fill="rgba(255, 255, 255, 0.44)"/>
-                    </svg>
-                </figure>
+            <div class="yb-full_img" :class="{'yb_full-landscape' : landscape}">
+<!--                <div>-->
+                    <slick id="slick1" :options="slickOptions" ref="slickSetting1">
+                        <figure v-for="(item,j) in options" class="yb_navigation-for">
+                            <img :src="'/' + item.path" class="img-responsive" />
+                        </figure>
+<!--                        <figure class="yb_navigation-for">-->
+<!--                            2-->
+<!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
+<!--                        </figure>-->
+<!--                        <figure class="yb_navigation-for">-->
+<!--                            3-->
+<!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
+<!--                        </figure>-->
+<!--                        <figure class="yb_navigation-for">-->
+<!--                            4-->
+<!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
+<!--                        </figure>-->
+                    </slick>
+
+<!--                </div>-->
+<!--                <div>-->
+                    <slick id="slick2" :options="slickOptions2" ref="slickSetting2">
+                        <figure v-for="(item) in options" class="yb_navigation-item">
+                            <img :src="'/' + item.path" class="img-responsive" />
+                        </figure>
+<!--                        <div class="yb_navigation-item">-->
+<!--                            2<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
+<!--                        </div>-->
+<!--                        <div class="yb_navigation-item">-->
+<!--                            3<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
+<!--                        </div>-->
+<!--                        <div class="yb_navigation-item">-->
+<!--                            4<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
+<!--                        </div>-->
+                    </slick>
+<!--                </div>-->
+<!--                <VueSlickCarousel-->
+<!--                    :options="slickOptions"-->
+<!--                    id="slick1"-->
+<!--                    ref="c1"-->
+<!--                    :focusOnSelect="true">-->
+<!--                    <div>-->
+<!--                        <h3>1</h3>-->
+<!--                    </div>-->
+<!--                </VueSlickCarousel>-->
+<!--                <VueSlickCarousel-->
+<!--                    id="slick2"-->
+<!--                    :options="slickOptions2"-->
+<!--                    v-bind="settings2"-->
+<!--                    ref="c2"-->
+<!--                    :slidesToShow="4"-->
+<!--                    :focusOnSelect="true">-->
+<!--                    <div>-->
+<!--                        <h3>1</h3>-->
+<!--                        <h3>2</h3>-->
+<!--                        <h3>3</h3>-->
+<!--                        <h3>4</h3>-->
+<!--                    </div>-->
+
+<!--                </VueSlickCarousel>-->
+<!--                <div class="yb-scroll_vis">-->
+<!--                    <vuescroll :ops="ops">-->
+<!--                        <div class="yb-full_carousel" ref="scrollTo">-->
+<!--                            <Slick class="slider-nav"  id="slick2" :options="slickOptions2" ref="slickSetting2">-->
+<!--                                <figure :class="{active_item: item === options[currImgIdx]}"-->
+<!--                                        :key="j"-->
+<!--                                        @click="currImgIdx = j"-->
+<!--                                        class="chunk_item"-->
+<!--                                        v-for="(item,j) in options"-->
+<!--                                >-->
+<!--                                    <div class="yb_count-img" v-if="item === options[currImgIdx]">-->
+<!--                                        <span>{{ currImgIdx + 1 }}</span>-->
+<!--                                        из-->
+<!--                                        <span>{{ options.length }}</span>-->
+<!--                                    </div>-->
+<!--                                    <img :src="'/' + item.path" alt=""/>-->
+<!--                                </figure>-->
+<!--                            </Slick>-->
+<!--                        </div>-->
+<!--                    </vuescroll>-->
+<!--                </div>-->
+<!--                <div  class="yb-slick_mobile">-->
+<!--                    <Slick class="slider-for"  id="slick1" :options="slickOptions" ref="slickSetting1" v-if="options.length > 0">-->
+<!--                        <figure v-for="(item, i) in options" :key="i"  class="yb_slick_items y-current_img">-->
+<!--                            <img :src=" '/' + item.path" alt="" class="yb_slick_item"/>-->
+<!--                        </figure>-->
+<!--                    </Slick>-->
+<!--                </div>-->
+<!--                <figure class="y-current_img"-->
+<!--                        @touchstart="touchStart"-->
+<!--                        @touchmove="touchMove"-->
+<!--                        @touchend="touchEnd"-->
+<!--                >-->
+<!--                    <img :src="'/' + options[currImgIdx].path" alt="" class="currImg"/>-->
+<!--                    <svg @click="prevImage" class="yb_prev" fill="none" height="50" viewBox="0 0 26 50" width="26"-->
+<!--                         xmlns="http://www.w3.org/2000/svg">-->
+<!--                        <path-->
+<!--                            d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z"-->
+<!--                            fill="rgba(255, 255, 255, 0.44)"/>-->
+<!--                    </svg>-->
+<!--                    <svg @click="nextImage" class="yb_next" fill="none" height="57" viewBox="0 0 30 57" width="30"-->
+<!--                         xmlns="http://www.w3.org/2000/svg">&ndash;&gt;-->
+<!--                        <path-->
+<!--                            d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z"-->
+<!--                            fill="rgba(255, 255, 255, 0.44)"/>-->
+<!--                    </svg>-->
+<!--                </figure>-->
             </div>
-            <div v-if="windowWidth <= 600" class="yb-slick_mobile">
-                    <Slick ref="slick" :options="slickOptions" v-if="options.length > 0">
-                            <figure v-for="(item, i) in options" :key="i"  class="yb_slick_items">
-                                <img :src=" '/' + item.path" alt="" class="yb_slick_item"/>
-                            </figure>
-                    </Slick>
-            </div>
+<!--            <div v-if="windowWidth <= 600" class="yb-slick_mobile">-->
+<!--                    <Slick ref="slick" :options="slickOptions" v-if="options.length > 0">-->
+<!--                            <figure v-for="(item, i) in options" :key="i"  class="yb_slick_items">-->
+<!--                                <img :src=" '/' + item.path" alt="" class="yb_slick_item"/>-->
+<!--                            </figure>-->
+<!--                    </Slick>-->
+<!--            </div>-->
         </div>
     </div>
 
@@ -157,10 +226,8 @@
 <script>
     import Slick from 'vue-slick';
     import vuescroll from "vuescroll";
-    import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
-
     export default {
-        components: {vuescroll, Slick},
+        components: {vuescroll, Slick, },
         props: ['fullname', 'options', 'lang','region'],
 
         mounted() {
@@ -172,14 +239,50 @@
                 if (event.which === 39) this.nextChunk()
             });
         },
+        computed: {
+            slickOptions() {
+                return {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    fade: false,
+                    zIndex: 11,
+                    adaptiveHeight: true,
+                    asNavFor: "#slick2"
+                }
+            },
+            slickOptions2() {
+                return {
+                    slidesToShow:4,
+                    slidesToScroll: 1,
+                    dots: false,
+                    arrows: false,
+                    vertical: true,
+                    zIndex: 12,
+                    verticalSwiping: true,
+                    infinite: true,
+                    // cssEase: "linear",
+                    focusOnSelect: true,
+                    asNavFor: "#slick1",
+                    adaptiveHeight: false
+                }
+            }
+        },
 
         updated() {
             this.scrollY();
             this.onResize();
         },
-
         data() {
             return {
+                settings:{
+                    "accessibility": false,
+                    "dots": true,
+                    "infinite": true,
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1,
+                    "adaptiveHeight": true
+                },
                 landscape: false,
                 ops: {
                     vuescroll: {
@@ -226,20 +329,51 @@
                         mousedownStep: 30
                     }
                 },
-                slickOptions: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    edgeFriction: 0,
-                    infinite: false,
-                    speed: 600,
-                    dots: false,
-                    arrows: false,
-                    adaptiveHeight: false,
-                    ZIndex: 11,
-                    cssEase: 'linear',
-                    swipe: true,
-                    mobileFirst: true,
-                },
+                // slickOptions: {
+                //     slidesToShow: 1,
+                //     slidesToScroll: 1,
+                //     edgeFriction: 0,
+                //     infinite: false,
+                //     speed: 600,
+                //     dots: false,
+                //     arrows: true,
+                //     adaptiveHeight: true,
+                //     ZIndex: 11,
+                //     cssEase: 'linear',
+                //     swipe: true,
+                //     mobileFirst: true,
+                //     prevArrow: '                    ' +
+                //         '<svg  class="yb_prev" fill="none" height="50" viewBox="0 0 26 50" width="26"\n' +
+                //         '     xmlns="http://www.w3.org/2000/svg">\n' +
+                //         '    <path\n' +
+                //         'd="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z"\n' +
+                //         'fill="rgba(255, 255, 255, 0.44)"/>\n' +
+                //         '                    </svg>\n',
+                //     nextArrow: '                    <svg  class="yb_next" fill="none" height="57" viewBox="0 0 30 57" width="30"\n' +
+                //         '                         xmlns="http://www.w3.org/2000/svg">-->\n' +
+                //         '                        <path\n' +
+                //         '                            d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z"\n' +
+                //         '                            fill="rgba(255, 255, 255, 0.44)"/>\n' +
+                //         '                    </svg>\n',
+                //     asNavFor: '.slider-nav'
+                //
+                //
+                // },
+                // slickOptions2: {
+                //     asNavFor: '.slider-for',
+                //     slidesToShow: 5,
+                //     slidesToScroll: 1,
+                //     edgeFriction: 0,
+                //     infinite: false,
+                //     speed: 600,
+                //     dots: false,
+                //     arrows: false,
+                //     adaptiveHeight: true,
+                //     ZIndex: 11,
+                //     cssEase: 'linear',
+                //     swipe: true,
+                //     mobileFirst: true,
+                // },
 
                 //start slider fullPage
                 imgShow: 6,
@@ -251,7 +385,7 @@
                     endX: 0
                 }, // obj from touch slider in mobile visible
                 //end slider fullPage
-                showSlider: false,
+                showSlider: true,
                 imgFullList: false, //show all small img
                 windowWidth: 0,
                 verifiedCar: true,

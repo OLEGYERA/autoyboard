@@ -124,33 +124,26 @@ $(window).scroll(function(){
     }
 });
 
-function resizeImage () {
-    $('.y-current_img img').each(
-        function () {
-            var theWidth = $(this).width();
-            var theHeight = $(this).height();
-            if (theHeight < theWidth ) {
-                $(this).height('100%');
-                $(this).width('auto');
-            }
-            else  {
-
-                $(this).width('100%');
-            }
-
-        });
-}
-resizeImage()
-
-
+// function resizeImage () {
+//     $('.y-current_img img').each(
+//         function () {
+//             var theWidth = $(this).width();
+//             var theHeight = $(this).height();
+//             if (theHeight < theWidth ) {
+//                 $(this).height('100%');
+//                 $(this).width('auto');
+//             }
+//             else  {
+//
+//                 $(this).width('100%');
+//             }
+//
+//         });
+// }
+// resizeImage()
 
 
-// var mql = window.matchMedia("(orientation: portrait)");
-// mql.addListener(function(m) {
-//     if(m.matches) {
-//         console.log('Изменено на портретный режим')
-//     }
-//     else {
-//         console.log('Изменено на горизонтальный режим' )
-//     }
-// });
+
+
+
+
