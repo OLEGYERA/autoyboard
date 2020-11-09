@@ -294,8 +294,8 @@ class UriValidatorController extends BasicController
         $transportFullStores = Arr::add($transportFullStores, 'transportTransmissions', $this->verifiedData['transport_type']->transmissions()->select('tranport_ch_transmissions.id as val', 'rtitle as name')->get());
 
         $volumeChoosed = [];
-        $volumeChoosed['from'] = isset($uri['volF']) ? intval(substr($uri['volF'], 0,5)) : null;
-        $volumeChoosed['to'] = isset($uri['volT']) ? intval(substr($uri['volT'], 0,5)) : null;
+        $volumeChoosed['from'] = isset($uri['volF']) ? floatval(substr($uri['volF'], 0,5)) : null;
+        $volumeChoosed['to'] = isset($uri['volT']) ? floatval(substr($uri['volT'], 0,5)) : null;
         if($volumeChoosed['from'] > $volumeChoosed['to'] && $volumeChoosed['to'] !== null){
             $tempFrom = $volumeChoosed['from'];
             $volumeChoosed['from'] = $volumeChoosed['to'];

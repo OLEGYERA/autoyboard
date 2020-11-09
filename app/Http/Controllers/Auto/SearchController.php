@@ -114,6 +114,7 @@ class SearchController extends Controller
             }
 
         }
+
 //      Fuels
         $fuelsChoosed = $search_request['transportFullStore']['fuelsChoosed'];
         if(count($fuelsChoosed) > 0){
@@ -123,12 +124,85 @@ class SearchController extends Controller
         }
 //      Fuel Consumtion
         $fuelConsumptionChoosed = $search_request['transportFullStore']['fuelConsumptionChoosed'];
-        if($fuelConsumptionChoosed['from'] !== null && $fuelConsumptionChoosed['to']) {
+        if($fuelConsumptionChoosed['from'] !== null && $fuelConsumptionChoosed['to'] !== null) {
             $query = $query->whereHas('body', function ($q) use ($fuelConsumptionChoosed) {
                 $q->whereBetween('cons_mixed', [$fuelConsumptionChoosed['from'], $fuelConsumptionChoosed['to']]);
             });
+        } elseif ($fuelConsumptionChoosed['to'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($fuelConsumptionChoosed) {
+                $q->where('cons_mixed', '<=', $fuelConsumptionChoosed['to']);
+            });
+        } elseif ($fuelConsumptionChoosed['from'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($fuelConsumptionChoosed) {
+                $q->where('cons_mixed', '>=', $fuelConsumptionChoosed['from']);
+            });
         }
 
+//      Mileage
+        $mileageChoosed = $search_request['transportFullStore']['mileageChoosed'];
+        if($mileageChoosed['from'] !== null && $mileageChoosed['to'] !== null) {
+            $query = $query->whereHas('body', function ($q) use ($mileageChoosed) {
+                $q->whereBetween('mileage', [$mileageChoosed['from'], $mileageChoosed['to']]);
+            });
+        } elseif ($mileageChoosed['to'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($mileageChoosed) {
+                $q->where('mileage', '<=', $mileageChoosed['to']);
+            });
+        } elseif ($mileageChoosed['from'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($mileageChoosed) {
+                $q->where('mileage', '>=', $mileageChoosed['from']);
+            });
+        }
+
+
+//      Transmissions
+        $transmissionsChoosed = $search_request['transportFullStore']['transmissionsChoosed'];
+        if(count($transmissionsChoosed) > 0){
+            $query = $query->whereHas('body', function ($q) use ($transmissionsChoosed) {
+                $q->whereIn('transmission_id', $transmissionsChoosed);
+            });
+        }
+
+//      Volume
+        $volumeChoosed = $search_request['transportFullStore']['volumeChoosed'];
+        if($volumeChoosed['from'] !== null && $volumeChoosed['to'] !== null) {
+            $query = $query->whereHas('body', function ($q) use ($volumeChoosed) {
+                $q->whereBetween('volume', [$volumeChoosed['from'], $volumeChoosed['to']]);
+            });
+        } elseif ($volumeChoosed['to'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($volumeChoosed) {
+                $q->where('volume', '<=', $volumeChoosed['to']);
+            });
+        } elseif ($volumeChoosed['from'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($volumeChoosed) {
+                $q->where('volume', '>=', $volumeChoosed['from']);
+            });
+        }
+
+//      Doors
+        $doorsChoosed = $search_request['transportFullStore']['doorsChoosed'];
+        if($doorsChoosed['from'] !== null && $doorsChoosed['to'] !== null) {
+            $query = $query->whereHas('body', function ($q) use ($doorsChoosed) {
+                $q->whereBetween('doors', [$doorsChoosed['from'], $doorsChoosed['to']]);
+            });
+        } elseif ($doorsChoosed['to'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($doorsChoosed) {
+                $q->where('doors', '<=', $doorsChoosed['to']);
+            });
+        } elseif ($doorsChoosed['from'] !== null){
+            $query = $query->whereHas('body', function ($q) use ($doorsChoosed) {
+                $q->where('doors', '>=', $doorsChoosed['from']);
+            });
+        }
+
+
+//      Gears
+        $gearsChoosed = $search_request['transportFullStore']['gearsChoosed'];
+        if(count($gearsChoosed) > 0){
+            $query = $query->whereHas('body', function ($q) use ($gearsChoosed) {
+                $q->whereIn('gear_id', $gearsChoosed);
+            });
+        }
 
 
         return $query->get();
