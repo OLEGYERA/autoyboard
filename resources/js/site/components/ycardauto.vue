@@ -103,11 +103,40 @@
                 </i>
             </div>
             <div class="yb-full_img" :class="{'yb_full-landscape' : landscape}">
+                <section class="banner-section">
+                    <div class="container">
+                        <div class="vehicle-detail-banner banner-content clearfix">
+                            <div class="banner-slider">
+                                <div class="slider slider-for " v-if="options.length > 0">
+                                    <Slick id="slick1" :options="slickOptions" ref="slickSetting1">
+                                    <div v-for="(item,j) in options" class="slider-banner-image">
+                                        <img :src="'/' + item.path" alt="Car-Image">
+                                    </div>
+                                    </Slick>
+                                </div>
+                                <div class="slider slider-nav thumb-image" v-if="options.length > 0">
+                                    <div class="thumbnail-image">
+                                        <Slick id="slick2" :options="slickOptions2" ref="slickSetting2">
+                                        <div v-for="(item,j) in options" class="thumbImg">
+                                            <div class="yb_count-img" v-if="item === j">
+                                                <span>{{ j+1 }}</span>
+                                                из
+                                                <span>{{ options.length }}</span>
+                                            </div>
+                                            <img :src="'/' + item.path" alt="">
+                                        </div>
+                                        </Slick>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 <!--                <div>-->
-                    <slick id="slick1" :options="slickOptions" ref="slickSetting1">
-                        <figure v-for="(item,j) in options" class="yb_navigation-for">
-                            <img :src="'/' + item.path" class="img-responsive" />
-                        </figure>
+<!--                    <Slick id="slick1" :options="slickOptions" ref="slickSetting1">-->
+<!--                        <figure v-for="(item,j) in options" class="yb_navigation-for">-->
+<!--                            <img :src="'/' + item.path" class="img-responsive" />-->
+<!--                        </figure>-->
 <!--                        <figure class="yb_navigation-for">-->
 <!--                            2-->
 <!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
@@ -120,14 +149,14 @@
 <!--                            4-->
 <!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
 <!--                        </figure>-->
-                    </slick>
+<!--                    </Slick>-->
 
 <!--                </div>-->
 <!--                <div>-->
-                    <slick id="slick2" :options="slickOptions2" ref="slickSetting2">
-                        <figure v-for="(item) in options" class="yb_navigation-item">
-                            <img :src="'/' + item.path" class="img-responsive" />
-                        </figure>
+<!--                    <Slick id="slick2" :options="slickOptions2" ref="slickSetting2">-->
+<!--                        <figure v-for="(item) in options" class="yb_navigation-item">-->
+<!--                            <img :src="'/' + item.path" class="img-responsive" />-->
+<!--                        </figure>-->
 <!--                        <div class="yb_navigation-item">-->
 <!--                            2<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
 <!--                        </div>-->
@@ -137,7 +166,7 @@
 <!--                        <div class="yb_navigation-item">-->
 <!--                            4<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
 <!--                        </div>-->
-                    </slick>
+<!--                    </Slick>-->
 <!--                </div>-->
 <!--                <VueSlickCarousel-->
 <!--                    :options="slickOptions"-->
@@ -222,7 +251,192 @@
     </div>
 
 </template>
+<style scoped>
 
+
+
+
+
+
+
+
+/*.vehicle-detail-banner .car-slider-desc {*/
+/*    max-width: 180px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+
+
+.banner-slider .slider.slider-for,
+.banner-slider .slider.slider-nav {
+    width: 76%;
+    /*overflow: hidden;*/
+    /*float: left;*/
+}
+.banner-slider .slider.slider-nav {
+    /*height: 610px;*/
+    /*overflow: hidden;*/
+
+}
+.slider-banner-image {
+    /*height: 610px;*/
+}
+
+.slider-nav .slick-slide.thumbnail-image .thumbImg{
+    /*max-width: 178px;*/
+    /*height: 110px;*/
+    /*margin: 0 auto;*/
+    /*border: 1px solid #EBEBEB;*/
+}
+.slider-banner-image img,
+.slider-nav .slick-slide.thumbnail-image .thumbImg img {
+    /*height: 100%;*/
+    /*width:100%;*/
+    /*object-fit: contain;*/
+}
+.slick-vertical .slick-slide:active,
+.slick-vertical .slick-slide:focus,
+.slick-arrow:hover,
+.slick-arrow:focus {
+    border: 0;
+    outline: 0;
+}
+.slider-nav .slick-slide.slick-current.thumbnail-image .thumbImg {
+    /*border: 2px solid #196DB6;*/
+}
+.slider-nav .slick-slide.slick-current span {
+    /*color: #196DB6;*/
+}
+.slider-nav .slick-slide {
+    /*text-align: center;*/
+}
+.slider-nav .slick-slide span {
+    /*font-size: 14px;*/
+    /*display: block;*/
+    /*padding: 5px 0 15px;*/
+}
+/*.slick-arrow {*/
+/*    width: 100%;*/
+/*    background-color: transparent;*/
+/*    border: 0;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    font-size: 0;*/
+/*    height: 18px;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    z-index: 99;*/
+/*}*/
+/*.slick-prev {*/
+/*    top: 0;*/
+/*}*/
+/*.slick-next {*/
+/*    bottom: 0;*/
+/*    background-color: #fff;*/
+/*}*/
+.slick-prev.slick-arrow {
+}
+.slick-next.slick-arrow {
+}
+/*End USE CSS for Slider*/
+
+/*@media screen and (max-width : 991px) {*/
+
+/*    .banner-slider .slider.slider-for,*/
+/*    .banner-slider .slider.slider-nav {*/
+/*        max-width: 100%;*/
+/*        float: none;*/
+/*    }*/
+/*    .banner-slider .slider.slider-for {*/
+/*        padding-right: 0;*/
+/*    }*/
+/*    .banner-slider .slider.slider-nav {*/
+/*        height: auto;*/
+/*    }*/
+/*    .slider-banner-image {*/
+/*        height: 500px;*/
+/*    }*/
+/*    .slider.slider-nav.thumb-image {*/
+/*        padding: 10px 30px 0;*/
+/*    }*/
+/*    .slider-nav .slick-slide span {*/
+/*        padding: 5px 0;*/
+/*    }*/
+/*    .slick-arrow {*/
+/*        padding: 0;*/
+/*        width: 30px;*/
+/*        height: 30px;*/
+/*        top: 50%;*/
+/*        bottom: 0;*/
+/*        -webkit-transform: translateY(-50%) rotate(-90deg);*/
+/*        -moz-transform: translateY(-50%) rotate(-90deg);*/
+/*        -ms-transform: translateY(-50%) rotate(-90deg);*/
+/*        transform: translateY(-50%) rotate(-90deg);*/
+/*    }*/
+/*    .slick-prev {*/
+/*        left: 0;*/
+/*        right: unset;*/
+/*    }*/
+/*    .slick-next {*/
+/*        left: unset;*/
+/*        right: 0;*/
+/*        background-color: transparent;*/
+/*    }*/
+/*    .vehicle-detail-banner .car-slider-desc {*/
+/*        max-width: 340px;*/
+/*    }*/
+/*    .bid-tag {*/
+/*        padding: 10px 0 15px;*/
+/*    }*/
+/*    .slider.slider-nav.thumb-image {*/
+/*        white-space: nowrap;*/
+/*    }*/
+/*    .thumbnail-image.slick-slide {*/
+/*        padding: 0px 5px;*/
+/*        min-width: 75px;*/
+/*        display: inline-block;*/
+/*        float: none;*/
+/*    }*/
+/*}*/
+
+/*@media screen and (max-width : 767px) {*/
+/*    .slider-banner-image {*/
+/*        height: 400px;*/
+/*    }*/
+/*    .slider.slider-nav.thumb-image {*/
+/*        padding: 0px 20px 0;*/
+/*        margin: 10px 0px 0;*/
+/*    }*/
+/*    .slider-nav .slick-slide.thumbnail-image .thumbImg {*/
+/*        max-width: 140px;*/
+/*        height: 80px;*/
+/*    }*/
+/*    .slick-prev.slick-arrow {*/
+/*        background-position: center 10px;*/
+/*    }*/
+/*    .slick-next.slick-arrow {*/
+/*        background-position: center 10px, center;*/
+/*    }*/
+/*    .slider-nav .slick-slide span {*/
+/*        font-size: 12px;*/
+/*        white-space: normal;*/
+/*    }*/
+/*}*/
+
+/*@media screen and (max-width: 580px) {*/
+/*    .slider-banner-image {*/
+/*        height:340px;*/
+/*    }*/
+/*}*/
+
+/*@media screen and (max-width : 480px) {*/
+/*    .slider-banner-image {*/
+/*        height:280px;*/
+/*    }*/
+/*}*/
+
+</style>
 <script>
     import Slick from 'vue-slick';
     import vuescroll from "vuescroll";
@@ -248,12 +462,25 @@
                     fade: false,
                     zIndex: 11,
                     adaptiveHeight: true,
-                    asNavFor: "#slick2"
+                    asNavFor: "#slick2",
+                    prevArrow: '                    ' +
+                        '<svg  class="yb_prev" fill="none" height="50" viewBox="0 0 26 50" width="26"\n' +
+                        '     xmlns="http://www.w3.org/2000/svg">\n' +
+                        '    <path\n' +
+                        'd="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z"\n' +
+                        'fill="rgba(255, 255, 255, 0.44)"/>\n' +
+                        '                    </svg>\n',
+                    nextArrow: '                    <svg  class="yb_next" fill="none" height="57" viewBox="0 0 30 57" width="30"\n' +
+                        '                         xmlns="http://www.w3.org/2000/svg">-->\n' +
+                        '                        <path\n' +
+                        '                            d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z"\n' +
+                        '                            fill="rgba(255, 255, 255, 0.44)"/>\n' +
+                        '                    </svg>\n',
                 }
             },
             slickOptions2() {
                 return {
-                    slidesToShow:4,
+                    slidesToShow:3,
                     slidesToScroll: 1,
                     dots: false,
                     arrows: false,
@@ -329,52 +556,6 @@
                         mousedownStep: 30
                     }
                 },
-                // slickOptions: {
-                //     slidesToShow: 1,
-                //     slidesToScroll: 1,
-                //     edgeFriction: 0,
-                //     infinite: false,
-                //     speed: 600,
-                //     dots: false,
-                //     arrows: true,
-                //     adaptiveHeight: true,
-                //     ZIndex: 11,
-                //     cssEase: 'linear',
-                //     swipe: true,
-                //     mobileFirst: true,
-                //     prevArrow: '                    ' +
-                //         '<svg  class="yb_prev" fill="none" height="50" viewBox="0 0 26 50" width="26"\n' +
-                //         '     xmlns="http://www.w3.org/2000/svg">\n' +
-                //         '    <path\n' +
-                //         'd="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z"\n' +
-                //         'fill="rgba(255, 255, 255, 0.44)"/>\n' +
-                //         '                    </svg>\n',
-                //     nextArrow: '                    <svg  class="yb_next" fill="none" height="57" viewBox="0 0 30 57" width="30"\n' +
-                //         '                         xmlns="http://www.w3.org/2000/svg">-->\n' +
-                //         '                        <path\n' +
-                //         '                            d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z"\n' +
-                //         '                            fill="rgba(255, 255, 255, 0.44)"/>\n' +
-                //         '                    </svg>\n',
-                //     asNavFor: '.slider-nav'
-                //
-                //
-                // },
-                // slickOptions2: {
-                //     asNavFor: '.slider-for',
-                //     slidesToShow: 5,
-                //     slidesToScroll: 1,
-                //     edgeFriction: 0,
-                //     infinite: false,
-                //     speed: 600,
-                //     dots: false,
-                //     arrows: false,
-                //     adaptiveHeight: true,
-                //     ZIndex: 11,
-                //     cssEase: 'linear',
-                //     swipe: true,
-                //     mobileFirst: true,
-                // },
-
                 //start slider fullPage
                 imgShow: 6,
                 currSlide: 0,
@@ -437,24 +618,6 @@
                         console.log('portrait');
                         break;
                 }
-
-                // var mql = window.matchMedia("(orientation: portrait)");
-                // var orientation = false
-                // mql.addListener(function(m) {
-                //     if(!m.matches) {
-                //         orientation = true
-                //         console.log('orient',this.portrait)
-                //         // console.log(this.orientation)
-                //         console.log('Изменено на портретный режим')
-                //
-                //     }
-                //     else {
-                //         orientation = false
-                //         console.log('orient',this.portrait)
-                //         // console.log(this.orientation)
-                //         console.log('Изменено на горизонтальный режим' )
-                //     }
-                // });
             },
             scrollY() {
                 if (this.showSlider === true) {
@@ -484,9 +647,7 @@
                 }
             },
         },
-        watch: {
 
-        }
     }
 </script>
 

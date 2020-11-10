@@ -29,7 +29,7 @@
         </div>
         @php($main = $card->main)
         @php($body = $card->body)
-{{--        @dd($body)--}}
+{{--        @dd($card->photos)--}}
 
         <h1 class="y-auto_name">
             {{$main->brand->title}}
