@@ -79,7 +79,7 @@
                         return 'others';
                 }
             }
-        }
+        },
     }
 </script>
 

@@ -1,0 +1,52 @@
+@import '../../clear';
+@import '../../../vars';
+
+.ycheck{
+    display: flex;
+    .ycheck-container{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        .checkbox{
+            background-color: $box-bg;
+            border-radius: 4px;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                opacity: 0;
+                font-size: em(20);
+                color: #fff;
+            }
+        }
+
+        .ycheck-label{
+            font-family: $aleg;
+            font-weight: normal;
+            font-size: em(16);
+            line-height: 19px;
+            color: $filercheckbox;
+            margin-left: 10px;
+        }
+
+        &.checked{
+            .checkbox{
+                background-color: $dgreen;
+                i{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+
+    &:last-child{
+        margin-right: 0;
+    }
+
+
+}
+
+

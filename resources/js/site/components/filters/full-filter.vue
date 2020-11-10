@@ -181,7 +181,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="option-row" v-for="(rbmy, i) in rbmysArr">
+                    <div class="option-row rbmy" v-for="(rbmy, i) in rbmysArr">
                         <div class="option-box rbmy">
                             <h2 v-if="i == 0" class="option-title">Страна производитель</h2>
                             <yselectsearch
@@ -216,7 +216,7 @@
                                 :options="rbmy.models"
                                 :choosedItems="rbmy.modelsChoose"></yselectmultysearch>
                         </div>
-                        <div class="option-box rbmy">
+                        <div class="option-box rbmy years">
                             <h2 v-if="i == 0" class="option-title">Год</h2>
                             <div class="option-row">
                                 <yselectsearch
@@ -398,15 +398,17 @@
                             ></ychaccordion>
                         </div>
                     </div>
-<!--                    <h2 class="category-title">Вы ищите:</h2>-->
-<!--                    <div class="option-row">-->
-<!--                        <selected-items></selected-items>-->
-<!--                    </div>-->
                 </div>
             </section>
             <div class="search-helper-station">
                 <div class="search-helper" :class="{pin: pinOrderPanel}">
-                    <span class="searched-transport">Найдено транспорта: <span class="counter">{{prettify(countTransport)}}</span></span>
+                    <div class="lhelp">
+                        <span class="searched-transport">Найдено транспорта: <span class="counter">{{prettify(countTransport)}}</span></span>
+                        <button class="search-btn">Поиск</button>
+                    </div>
+                    <div class="rhelp">
+                        <span class="clear-filter">Очистить фильтр</span>
+                    </div>
                 </div>
             </div>
             {{generateLink}}
@@ -422,11 +424,11 @@
         props: ['validate_data'],
         beforeMount() {
             this.initFilterPage();
-            this.handleScroll();
         },
         mounted(){
             window.addEventListener('resize', this.changeResize);
             window.addEventListener('scroll',  this.handleScroll);
+            this.handleScroll();
         },
         destroyed() {
             window.removeEventListener('resize', this.changeResize);
@@ -485,6 +487,7 @@
                     this.countTransport = response.data;
                 })
             },
+            changeResize(){},
             handleScroll(){
                 let heperStation = document.getElementsByClassName('search-helper-station')[0];
                 const checkWindow = window !== undefined && heperStation !== undefined;

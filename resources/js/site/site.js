@@ -11,6 +11,16 @@ Vue.component('selected-items', require('./components/filters/selected-items').d
 
 
 //modules
+Vue.component('ycheck', require('./modules/inputs/ycheck').default);
+Vue.component('yselectsearch', require('./modules/inputs/yselectsearch').default);
+Vue.component('yselectmultysearch', require('./modules/inputs/yselectmultysearch').default);
+Vue.component('ydropdown', require('./modules/inputs/ydropdown').default);
+Vue.component('ydoublenuminput', require('./modules/inputs/ydoublenuminput').default);
+Vue.component('yprice', require('./modules/inputs/yprice').default);
+
+
+
+
 Vue.component('ymenu', require('./modules/header/ymenu.vue').default);
 //
 // //mobile
@@ -39,18 +49,13 @@ Vue.component('yfavorite', require('./components/yfavorite').default);
 // Vue.component('ynews', require('./components/ynews').default);
 // Vue.component('yfaqquestions', require('./components/yfaqquestions').default);
 
-Vue.component('yselectsearch', require('./components/yselectsearch').default);
-Vue.component('yselectmultysearch', require('./components/yselectmultysearch').default);
-Vue.component('ycheck', require('./components/ycheck').default);
-Vue.component('yprice', require('./components/yprice').default);
+
 
 Vue.component('ypaginaton', require('./components/ypagination').default);
 
 
 Vue.component('yfsearch', require('./components/yregionsearch').default);
 
-Vue.component('ydropdown', require('./components/ydropdown').default);
-Vue.component('ydoublenuminput', require('./components/ydoublenuminput').default);
 Vue.component('ycolors', require('./components/ycolors').default);
 Vue.component('ychaccordion', require('./components/ychaccordion').default);
 
