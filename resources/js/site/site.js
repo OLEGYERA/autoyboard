@@ -3,6 +3,13 @@ require('../bootstrap.js');
 import Vue from 'vue';
 import {services} from '../STORE/services';
 
+
+Vue.component('full-filter', require('./components/filters/full-filter').default);
+Vue.component('selected-items', require('./components/filters/selected-items').default);
+
+
+
+
 //modules
 Vue.component('ymenu', require('./modules/header/ymenu.vue').default);
 //
@@ -60,7 +67,6 @@ Vue.component('ycardauto', require('./components/ycardauto').default);
 
 
 
-Vue.component('yfilterextended', require('./components/yfilterextended').default);
 // Vue.component('yfilterform', require('./components/yfilterform').default);
 // Vue.component('ycardfilter', require('./components/ycardfilter').default);
 // Vue.component('ydropdowfilter', require('./components/ydropdownfilter').default);

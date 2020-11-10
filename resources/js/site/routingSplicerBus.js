@@ -3,11 +3,6 @@ import {HTTP} from "../http.js";
 
 export const routingSplicerBus = new Vue({
     methods: {
-        //deconstrucot
-        ValidateUri(search){
-            return async() => HTTP.post('/validateSearch', {uri: search.substring(1)}).then(response => response.data)
-        },
-
         //constructor
         creatingSEARCHDETAILsProps(arr) {
             let strProps = '';
@@ -16,11 +11,11 @@ export const routingSplicerBus = new Vue({
             // strProps += arr.searchPropsChoosed.verifiedAuto ? 'sch[va]=true&' : '';
             strProps += arr.searchPropsChoosed.withPhoto !== true ? 'sch[wph]=false&' : '';
 
-            strProps += arr.searchPropsChoosed.abroad !== false ? 'sch[ab]=true&' : '';
-            strProps += arr.searchPropsChoosed.credit !== false ? 'sch[cr]=true&' : '';
-            strProps += arr.searchPropsChoosed.customsСleared !== false ? 'sch[cc]=true&' : '';
-            strProps += arr.searchPropsChoosed.accident !== false ? 'sch[acc]=true&' : '';
-            strProps += arr.searchPropsChoosed.noMotion !== false ? 'sch[nom]=true&' : '';
+            strProps += arr.searchPropsChoosed.abroad ? 'sch[ab]=true&' : '';
+            strProps += arr.searchPropsChoosed.credit ? 'sch[cr]=true&' : '';
+            strProps += arr.searchPropsChoosed.customsСleared ? 'sch[cc]=true&' : '';
+            strProps += arr.searchPropsChoosed.accident ? 'sch[acc]=true&' : '';
+            strProps += arr.searchPropsChoosed.noMotion ? 'sch[nom]=true&' : '';
 
             strProps += arr.searchPropsChoosed.bargain ? 'sch[b]=true&' : '';
             strProps += arr.searchPropsChoosed.exchange ? 'sch[e]=true&' : '';

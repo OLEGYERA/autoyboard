@@ -1911,6 +1911,599 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/full-filter.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/filters/full-filter.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../http.js */ "./resources/js/http.js");
+/* harmony import */ var _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../site/routingSplicerBus.js */ "./resources/js/site/routingSplicerBus.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['validate_data'],
+  beforeMount: function beforeMount() {
+    this.initFilterPage();
+  },
+  mounted: function mounted() {
+    window.addEventListener('resize', this.changeResize);
+  },
+  data: function data() {
+    return {
+      //services
+      langType: 3,
+      initPage: false,
+      bodyFullList: false,
+      uriName: 'full-filter'
+    };
+  },
+  methods: _objectSpread(_objectSpread(_objectSpread({
+    initFilterPage: function initFilterPage() {
+      if (this.validate_data.searchDetailFullStore !== undefined) {
+        this.SET_SEARCHDETAIL_ARR(this.validate_data.searchDetailFullStore);
+      }
+
+      if (this.validate_data.transportFullStore !== undefined) {
+        this.SET_TRANPORT_ARR(this.validate_data.transportFullStore);
+        this.GENERATE_YEAR(new Date().getFullYear());
+      }
+
+      if (this.validate_data.rbmyFullStore !== undefined) {
+        if (this.validate_data.rbmyFullStore.rbmys !== undefined) this.SET_NEW_RBMY(this.validate_data.rbmyFullStore.rbmys);
+        console.log(this.validate_data.rbmyFullStore["static"]);
+        this.SET_NEW_RBMY_STATIC(this.validate_data.rbmyFullStore["static"]);
+      }
+
+      if (this.validate_data.regionFullStore !== undefined) {
+        if (this.validate_data.regionFullStore.regions !== undefined) this.SET_REGION_ARR(this.validate_data.regionFullStore.regions);
+        this.SET_REGION_ARR_STATIC(this.validate_data.regionFullStore["static"]);
+      }
+
+      this.initPage = true;
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])([//search deataild
+  'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED', 'SET_SORTING_CHOOSED', 'SET_PERIOD_CHOOSED', 'SET_RELEVANCE_CHOOSED', 'SET_SHOW_CHOOSED', //regions
+  'SET_REGION_ARR', 'SET_REGION_ARR_STATIC', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
+  'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_NEW_RBMY_STATIC', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
+  'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE', 'SET_COLORS_CHOOSE', 'DELETE_COLORS_CHOOSE', 'SET_TRANSPORT_STATE_CHOOSE', 'SET_IMPORTERS_CHOOSE', 'DELETE_IMPORTERS_CHOOSE', 'SET_FUELS_CHOOSE', 'DELETE_FUELS_CHOOSE', 'SET_TRANSMISSIONS_CHOOSE', 'DELETE_TRANSMISSIONS_CHOOSE', 'SET_GERAS_CHOOSE', 'DELETE_GEARS_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])([//RBMY
+  'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
+  'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'])), {}, {
+    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
+      this.SET_BRAND_CHOSE(data);
+      data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
+      this.MODELS_FROM_API(data);
+    },
+    reInitFilterByClick: function reInitFilterByClick(event) {
+      this.SET_TRANSPORT_TYPE(event);
+      this.CLEAR_BRANDS_MODELS();
+      this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
+      this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1');
+      this.TRANSMISSIONS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/transmissions?langType=3&alias=1');
+      this.GEARS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/gears?langType=3&alias=1');
+      this.TECHS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/techs?langType=3&alias=1');
+    }
+  }),
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    //search detail
+    'searchDeatils': 'GET_SEARCHDETAILS',
+    //RBMY
+    'rbmysArr': 'GET_RBMYS',
+    'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
+    'brands': 'GET_BRANDS',
+    'years': 'GET_YEARS',
+    //TRANSPORT
+    'transportsArr': 'GET_TRANSPORTS',
+    'transportTypes': 'GET_TRANSPORT_TYPES',
+    'transportBodies': 'GET_TRANSPORT_BODIES',
+    'transportColors': 'GET_TRANSPORT_COLORS',
+    'transportImporters': 'GET_TRANSPORT_IMPORTERS',
+    'transportStates': 'GET_TRANSPORT_STATES',
+    'transportFuels': 'GET_TRANSPORT_FUELS',
+    'transportTransmissions': 'GET_TRANSPORT_TRANSMISSIONS',
+    'transportGears': 'GET_TRANSPORT_GEARS',
+    'transportTechs': 'GET_TRANSPORT_TECHS',
+    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
+    'cities': 'GET_CITIES',
+    'choosedCities': 'GET_CHOOSED_CITIES',
+    'choosedRegions': 'GET_CHOOSED_REGIONS'
+  })), {}, {
+    generateLink: function generateLink() {
+      var SEARCHDETAILsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils);
+      var TRANPORTsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingTRANSPORTsProps(this.transportsArr);
+      var RBMYsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingRBMYsProps(this.rbmysArr);
+      var REGIONProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
+      if (this.initPage) window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + SEARCHDETAILsProps + '&' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
+    }
+  }),
+  watch: {
+    transportArr: function transportArr(to) {// console.log(to, 'watch')
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/selected-items.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/filters/selected-items.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log(this.type, 123);
+  },
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['SET_TRANSPORT_BODY_CHOOSE'])), {}, {
+    isEqualBodies: function isEqualBodies(val) {
+      var b = this.GET_TRANSPORTS.bodiesChoosed.find(function (el) {
+        if (el == val) {
+          console.log(el.val);
+          return true;
+        }
+      });
+
+      if (b !== undefined) {
+        return true;
+      }
+
+      return false;
+    }
+  }),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['GET_TRANSPORTS', 'GET_TRANSPORT_BODIES'])),
+  watch: {
+    type: function type(to, from) {
+      console.log(to);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestoffers.vue?vue&type=script&lang=js& ***!
@@ -3621,553 +4214,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['favorite']
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-/* harmony import */ var _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../site/routingSplicerBus.js */ "./resources/js/site/routingSplicerBus.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  beforeMount: function beforeMount() {
-    this.initFilter();
-  },
-  mounted: function mounted() {
-    window.addEventListener('resize', this.changeResize); // this.changeResize();
-    // this.getYears()
-    // // this.getRegion()
-    // this.getTransportType();
-    // this.getManufactureCounries()
-    // this.getCarBrands()
-  },
-  data: function data() {
-    return {
-      //services
-      bodyFullList: false,
-      initPage: false,
-      langType: 3
-    };
-  },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])([//search deataild
-  'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED', 'SET_SORTING_CHOOSED', 'SET_PERIOD_CHOOSED', 'SET_RELEVANCE_CHOOSED', 'SET_SHOW_CHOOSED', //regions
-  'SET_REGION_ARR', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
-  'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
-  'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE', 'SET_COLORS_CHOOSE', 'DELETE_COLORS_CHOOSE', 'SET_TRANSPORT_STATE_CHOOSE', 'SET_IMPORTERS_CHOOSE', 'DELETE_IMPORTERS_CHOOSE', 'SET_FUELS_CHOOSE', 'DELETE_FUELS_CHOOSE', 'SET_TRANSMISSIONS_CHOOSE', 'DELETE_TRANSMISSIONS_CHOOSE', 'SET_GERAS_CHOOSE', 'DELETE_GEARS_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['FULL_REGIONS_FROM_API', //RBMY
-  'MANUFACTURE_REGIONS_FROM_API', 'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
-  'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'])), {}, {
-    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
-      this.SET_BRAND_CHOSE(data);
-      data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
-      this.MODELS_FROM_API(data);
-    },
-    initFilter: function initFilter() {
-      var _this = this;
-
-      var UriSearch = window.location.search;
-      var UriPromise = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.ValidateUri(UriSearch);
-      var lang = 3,
-          query = "?langType=" + lang + '&alias=1';
-      UriPromise().then(function (el) {
-        if (el.searchDetailFullStore !== undefined) {
-          _this.SET_SEARCHDETAIL_ARR(el.searchDetailFullStore);
-        }
-
-        if (el.transportFullStore !== undefined) {
-          _this.SET_TRANPORT_ARR(el.transportFullStore);
-
-          _this.BRANDS_FROM_API('/transport_types/' + _this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
-
-          _this.MANUFACTURE_REGIONS_FROM_API('/manufacture_countries' + query);
-
-          _this.GENERATE_YEAR(new Date().getFullYear());
-        }
-
-        if (el.rbmyFullStore !== undefined) {
-          _this.SET_NEW_RBMY(el.rbmyFullStore);
-        }
-
-        if (el.regionFullStore !== undefined) {
-          _this.SET_REGION_ARR(el.regionFullStore);
-        }
-
-        _this.initPage = true;
-      });
-      this.FULL_REGIONS_FROM_API('/regions' + query);
-    },
-    reInitFilterByClick: function reInitFilterByClick(event) {
-      this.SET_TRANSPORT_TYPE(event);
-      this.CLEAR_BRANDS_MODELS();
-      this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1');
-      this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1');
-      this.TRANSMISSIONS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/transmissions?langType=3&alias=1');
-      this.GEARS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/gears?langType=3&alias=1');
-      this.TECHS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/techs?langType=3&alias=1');
-    }
-  }),
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    //search detail
-    'searchDeatils': 'GET_SEARCHDETAILS',
-    //RBMY
-    'rbmysArr': 'GET_RBMYS',
-    'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
-    'brands': 'GET_BRANDS',
-    'years': 'GET_YEARS',
-    //TRANSPORT
-    'transportsArr': 'GET_TRANSPORTS',
-    'transportTypes': 'GET_TRANSPORT_TYPES',
-    'transportBodies': 'GET_TRANSPORT_BODIES',
-    'transportColors': 'GET_TRANSPORT_COLORS',
-    'transportImporters': 'GET_TRANSPORT_IMPORTERS',
-    'transportStates': 'GET_TRANSPORT_STATES',
-    'transportFuels': 'GET_TRANSPORT_FUELS',
-    'transportTransmissions': 'GET_TRANSPORT_TRANSMISSIONS',
-    'transportGears': 'GET_TRANSPORT_GEARS',
-    'transportTechs': 'GET_TRANSPORT_TECHS',
-    'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
-    'cities': 'GET_CITIES',
-    'choosedCities': 'GET_CHOOSED_CITIES',
-    'choosedRegions': 'GET_CHOOSED_REGIONS'
-  })), {}, {
-    generateLink: function generateLink() {
-      var CurrentURI = 'extended';
-      var SEARCHDETAILsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils);
-      var TRANPORTsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingTRANSPORTsProps(this.transportsArr);
-      var RBMYsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingRBMYsProps(this.rbmysArr);
-      var REGIONProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
-      if (this.initPage) window.history.pushState('', '', document.location.origin + '/' + CurrentURI + '?' + SEARCHDETAILsProps + '&' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
-    }
-  }),
-  watch: {
-    transportArr: function transportArr(to) {// console.log(to, 'watch')
-    }
-  }
 });
 
 /***/ }),
@@ -35536,6 +35582,1071 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/full-filter.vue?vue&type=template&id=1575a223&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/filters/full-filter.vue?vue&type=template&id=1575a223& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "yfilterextended" }, [
+    _c("div", { staticClass: "yexpanded_search" }, [
+      _c("h1", { staticClass: "ytitle-exp" }, [_vm._v("Расширенный поиск")]),
+      _vm._v(" "),
+      _c("section", { staticClass: "yexpanded_search_filter" }, [
+        _c("aside", { staticClass: "yexpanded_sidebar" }, [
+          _c("div", { staticClass: "ysearch_type_btn" }, [
+            _c(
+              "button",
+              {
+                staticClass: "change_type",
+                class: { active: _vm.searchDeatils.autoConditionChoosed == 1 },
+                on: {
+                  click: function($event) {
+                    return _vm.SET_AUTO_CONDITION_CHOOSED(1)
+                  }
+                }
+              },
+              [_vm._v("\n                        Все\n                    ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "change_type",
+                class: { active: _vm.searchDeatils.autoConditionChoosed == 2 },
+                on: {
+                  click: function($event) {
+                    return _vm.SET_AUTO_CONDITION_CHOOSED(2)
+                  }
+                }
+              },
+              [_vm._v("\n                        Новые\n                    ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "change_type",
+                class: { active: _vm.searchDeatils.autoConditionChoosed == 3 },
+                on: {
+                  click: function($event) {
+                    return _vm.SET_AUTO_CONDITION_CHOOSED(3)
+                  }
+                }
+              },
+              [_vm._v("\n                        Б/у\n                    ")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ygroup-box" }, [
+            _c("h2", { staticClass: "yfilter-aside-title" }, [_vm._v("Цена")]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "yprice_filter-box" },
+              [
+                _c("yprice"),
+                _vm._v(" "),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Возможен торг",
+                    checked: _vm.searchDeatils.searchPropsChoosed.bargain
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "bargain",
+                        val: $event
+                      })
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Возможен обмен",
+                    checked: _vm.searchDeatils.searchPropsChoosed.exchange
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "exchange",
+                        val: $event
+                      })
+                    }
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ygroup-box" }, [
+            _c("h2", { staticClass: "yfilter-aside-title" }, [_vm._v("Цвет")]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ycolors_options" },
+              [
+                _c("ycolors", {
+                  attrs: {
+                    options: _vm.transportColors,
+                    choosedItems: _vm.transportsArr.colorsChoosed
+                  },
+                  on: {
+                    updateChoose: function($event) {
+                      return _vm.SET_COLORS_CHOOSE($event)
+                    },
+                    deleteChoose: function($event) {
+                      return _vm.DELETE_COLORS_CHOOSE($event)
+                    }
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ygroup-box" }, [
+            _c("h2", { staticClass: "yfilter-aside-title" }, [
+              _vm._v("Скрыть / Показать только")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ycheckbox_options" },
+              [
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Только с фото",
+                    checked: _vm.searchDeatils.searchPropsChoosed.withPhoto
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "withPhoto",
+                        val: $event
+                      })
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Авто не в Украине",
+                    checked: _vm.searchDeatils.searchPropsChoosed.abroad
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "abroad",
+                        val: $event
+                      })
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "В кредите",
+                    checked: _vm.searchDeatils.searchPropsChoosed.credit
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "credit",
+                        val: $event
+                      })
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Нерастаможеные",
+                    checked: _vm.searchDeatils.searchPropsChoosed.customsСleared
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "customsСleared",
+                        val: $event
+                      })
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "После ДТП",
+                    checked: _vm.searchDeatils.searchPropsChoosed.accident
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "accident",
+                        val: $event
+                      })
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("ycheckbox", {
+                  attrs: {
+                    name: "Не на ходу",
+                    checked: _vm.searchDeatils.searchPropsChoosed.noMotion
+                  },
+                  on: {
+                    checked: function($event) {
+                      return _vm.SET_SEARCH_PROPS_CHOOSED({
+                        name: "noMotion",
+                        val: $event
+                      })
+                    }
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ygroup-box" }, [
+            _c("h2", { staticClass: "yfilter-aside-title" }, [
+              _vm._v("Выдача результата")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "ysearch_options" }, [
+              _c(
+                "div",
+                { staticClass: "ygroup-col-box" },
+                [
+                  _c("h3", { staticClass: "sidebar-title" }, [
+                    _vm._v(
+                      "\n                                Сортировка\n                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectsearch", {
+                    attrs: {
+                      deleteDis: true,
+                      placeholder: "Выберите сортировку",
+                      options: _vm.searchDeatils.systemSorting,
+                      choosedItem: _vm.searchDeatils.sortingChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_SORTING_CHOOSED($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "ygroup-col-box" },
+                [
+                  _c("h3", { staticClass: "sidebar-title" }, [
+                    _vm._v(
+                      "\n                                Период подачи\n                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectsearch", {
+                    attrs: {
+                      deleteDis: true,
+                      placeholder: "Выберите период подачи",
+                      options: _vm.searchDeatils.systemPeriod,
+                      choosedItem: _vm.searchDeatils.periodChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_PERIOD_CHOOSED($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "ygroup-col-box" },
+                [
+                  _c("h3", { staticClass: "sidebar-title" }, [
+                    _vm._v(
+                      "\n                                Актуальность\n                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectsearch", {
+                    attrs: {
+                      deleteDis: true,
+                      placeholder: "Выберите актуальность",
+                      options: _vm.searchDeatils.systemRelevance,
+                      choosedItem: _vm.searchDeatils.relevanceChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_RELEVANCE_CHOOSED($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "ygroup-col-box" },
+                [
+                  _c("h3", { staticClass: "sidebar-title" }, [
+                    _vm._v(
+                      "\n                                Показать\n                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectsearch", {
+                    attrs: {
+                      deleteDis: true,
+                      placeholder: "Выберите показать",
+                      options: _vm.searchDeatils.systemShow,
+                      choosedItem: _vm.searchDeatils.showChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_SHOW_CHOOSED($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "yexpanded_content" },
+          [
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "div",
+                { staticClass: "option-box mono-block" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v("Тип транспорта")
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectsearch", {
+                    attrs: {
+                      shade: true,
+                      deleteDis: true,
+                      placeholder: "Выберите тип транспорта",
+                      options: _vm.transportTypes,
+                      choosedItem: _vm.transportsArr.typeChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.reInitFilterByClick($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c("div", { staticClass: "option-box full-width" }, [
+                _c("h2", { staticClass: "option-title" }, [
+                  _vm._v("Тип кузова")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "option-box hide-list" },
+                  [
+                    _vm._l(_vm.transportBodies, function(body, i) {
+                      return (_vm.bodyFullList
+                      ? true
+                      : i < 8)
+                        ? _c("ycheck", {
+                            key: i,
+                            attrs: { name: body.name, checked: body.choosed },
+                            on: {
+                              checked: function($event) {
+                                return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
+                              }
+                            }
+                          })
+                        : _vm._e()
+                    }),
+                    _vm._v(" "),
+                    _vm.transportBodies.length > 8
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "ycheck toggleHideKist",
+                            on: {
+                              click: function($event) {
+                                _vm.bodyFullList = !_vm.bodyFullList
+                              }
+                            }
+                          },
+                          [
+                            !_vm.bodyFullList
+                              ? _c("span", [_vm._v("Просмотреть еще")])
+                              : _c("span", [_vm._v("Скрыть")])
+                          ]
+                        )
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.rbmysArr, function(rbmy, i) {
+              return _c("div", { staticClass: "option-row" }, [
+                _c(
+                  "div",
+                  { staticClass: "option-box rbmy" },
+                  [
+                    i == 0
+                      ? _c("h2", { staticClass: "option-title" }, [
+                          _vm._v("Страна производитель")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("yselectsearch", {
+                      attrs: {
+                        shade: true,
+                        placeholder: "Выберите страну",
+                        options: _vm.manufactureRegions,
+                        choosedItem: rbmy.regionChoose
+                      },
+                      on: {
+                        updateChoose: function($event) {
+                          return _vm.SET_REGION_CHOOSE({
+                            choose: $event,
+                            index: i
+                          })
+                        },
+                        deleteChoose: function($event) {
+                          return _vm.DELETE_REGION_CHOOSE({ index: i })
+                        }
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "option-box rbmy" },
+                  [
+                    i == 0
+                      ? _c("h2", { staticClass: "option-title" }, [
+                          _vm._v("Марка")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("yselectsearch", {
+                      attrs: {
+                        shade: true,
+                        placeholder: "Выберите марку",
+                        options:
+                          rbmy.brands.length > 0
+                            ? rbmy.brands
+                            : rbmy.regionChoose !== null
+                            ? []
+                            : _vm.brands,
+                        choosedItem: rbmy.brandChoose
+                      },
+                      on: {
+                        updateChoose: function($event) {
+                          return _vm.setBrandsAndGetModels({
+                            choose: $event,
+                            index: i
+                          })
+                        },
+                        deleteChoose: function($event) {
+                          return _vm.DELETE_BRAND_CHOOSE({ index: i })
+                        }
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "option-box rbmy" },
+                  [
+                    i == 0
+                      ? _c("h2", { staticClass: "option-title" }, [
+                          _vm._v("Модель")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("yselectmultysearch", {
+                      attrs: {
+                        shade: true,
+                        placeholder: "Выберите модель",
+                        options: rbmy.models,
+                        choosedItems: rbmy.modelsChoose
+                      },
+                      on: {
+                        updateChoose: function($event) {
+                          return _vm.SET_MODELS_CHOOSE({
+                            choose: $event,
+                            index: i
+                          })
+                        },
+                        deleteChoose: function($event) {
+                          return _vm.DELETE_MODELS_CHOOSE({
+                            choose: $event,
+                            index: i
+                          })
+                        }
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "option-box rbmy" }, [
+                  i == 0
+                    ? _c("h2", { staticClass: "option-title" }, [_vm._v("Год")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "option-row" },
+                    [
+                      _c("yselectsearch", {
+                        attrs: {
+                          shade: true,
+                          placeholder: "От",
+                          options: _vm.years,
+                          choosedItem: rbmy.yearFrom
+                        },
+                        on: {
+                          updateChoose: function($event) {
+                            return _vm.SET_YEAR_FROM({
+                              choose: $event,
+                              index: i
+                            })
+                          },
+                          deleteChoose: function($event) {
+                            return _vm.DELETE_YEAR_FROM({
+                              choose: $event,
+                              index: i
+                            })
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("yselectsearch", {
+                        attrs: {
+                          shade: true,
+                          placeholder: "До",
+                          options: _vm.years,
+                          choosedItem: rbmy.yearTo
+                        },
+                        on: {
+                          updateChoose: function($event) {
+                            return _vm.SET_YEAR_TO({ choose: $event, index: i })
+                          },
+                          deleteChoose: function($event) {
+                            return _vm.DELETE_YEAR_TO({
+                              choose: $event,
+                              index: i
+                            })
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "delRbmy" }, [
+                        i !== 0
+                          ? _c("i", {
+                              staticClass: "yicon trash",
+                              on: {
+                                click: function($event) {
+                                  return _vm.DELETE_RBMY(i)
+                                }
+                              }
+                            })
+                          : _vm._e()
+                      ])
+                    ],
+                    1
+                  )
+                ])
+              ])
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "addRbmy",
+                  on: {
+                    click: function($event) {
+                      return _vm.CREATE_NEW_RBMY()
+                    }
+                  }
+                },
+                [_vm._v("Добавить еще")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "div",
+                { staticClass: "option-box mono-block" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [_vm._v("Регион")]),
+                  _vm._v(" "),
+                  _c("yselectmultysearch", {
+                    attrs: {
+                      shade: true,
+                      placeholder: "Выберите город",
+                      options: _vm.cities,
+                      choosedItems: _vm.choosedCities
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_CITIES_CHOOSE($event)
+                      },
+                      deleteChoose: function($event) {
+                        return _vm.DELETE_CITIES_CHOOSE($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "option-row regions" },
+              _vm._l(_vm.regionAndPart, function(item) {
+                return _c("div", { staticClass: "option-box" }, [
+                  _c(
+                    "h2",
+                    { staticClass: "option-title" },
+                    [
+                      _c("ycheck", {
+                        attrs: {
+                          name: item.name,
+                          checked: item.choosed,
+                          checkHide: true
+                        },
+                        on: {
+                          checked: function($event) {
+                            return _vm.SET_CHOOSED_REGION_PARTS(item.val)
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "regionsList" },
+                    _vm._l(item.children, function(child, i) {
+                      return _c("ycheck", {
+                        key: i,
+                        attrs: { name: child.name, checked: child.choosed },
+                        on: {
+                          checked: function($event) {
+                            return _vm.SET_CHOOSED_REGIONS(child.val)
+                          }
+                        }
+                      })
+                    }),
+                    1
+                  )
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "div",
+                { staticClass: "option-box mono-block" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Транспорт пригнан из\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectmultysearch", {
+                    attrs: {
+                      shade: true,
+                      placeholder: "Выберите страну",
+                      options: _vm.transportImporters,
+                      choosedItems: _vm.transportsArr.importersChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_IMPORTERS_CHOOSE($event)
+                      },
+                      deleteChoose: function($event) {
+                        return _vm.DELETE_IMPORTERS_CHOOSE($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c("div", { staticClass: "option-box" }, [
+                _c("h2", { staticClass: "option-title" }, [
+                  _vm._v(
+                    "\n                            Cостояние транспорта\n                        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "option-box hide-list" },
+                  _vm._l(_vm.transportStates, function(body, i) {
+                    return _c("ycheck", {
+                      key: i,
+                      attrs: { name: body.name, checked: body.choosed },
+                      on: {
+                        checked: function($event) {
+                          return _vm.SET_TRANSPORT_STATE_CHOOSE(body.val)
+                        }
+                      }
+                    })
+                  }),
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("h2", { staticClass: "category-title" }, [
+              _vm._v("Технические характеристики")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Топливо\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectmultysearch", {
+                    attrs: {
+                      shade: true,
+                      placeholder: "Выберите топливо",
+                      options: _vm.transportFuels,
+                      choosedItems: _vm.transportsArr.fuelsChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_FUELS_CHOOSE($event)
+                      },
+                      deleteChoose: function($event) {
+                        return _vm.DELETE_FUELS_CHOOSE($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Росход топлива, л./100 км\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("ydoublenuminput", {
+                    attrs: {
+                      doubleChoosed: _vm.transportsArr.fuelConsumptionChoosed,
+                      shade: true
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Пробег, тыс.км\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("ydoublenuminput", {
+                    attrs: {
+                      doubleChoosed: _vm.transportsArr.mileageChoosed,
+                      shade: true
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            КПП\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectmultysearch", {
+                    attrs: {
+                      shade: true,
+                      placeholder: "Выберите КПП",
+                      options: _vm.transportTransmissions,
+                      choosedItems: _vm.transportsArr.transmissionsChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_TRANSMISSIONS_CHOOSE($event)
+                      },
+                      deleteChoose: function($event) {
+                        return _vm.DELETE_TRANSMISSIONS_CHOOSE($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Объём, л.\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("ydoublenuminput", {
+                    attrs: {
+                      doubleChoosed: _vm.transportsArr.volumeChoosed,
+                      shade: true
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Количество дверей\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("ydoublenuminput", {
+                    attrs: {
+                      doubleChoosed: _vm.transportsArr.doorsChoosed,
+                      shade: true
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Тип привода\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("yselectmultysearch", {
+                    attrs: {
+                      shade: true,
+                      placeholder: "Выберите привод",
+                      options: _vm.transportGears,
+                      choosedItems: _vm.transportsArr.gearsChoosed
+                    },
+                    on: {
+                      updateChoose: function($event) {
+                        return _vm.SET_GERAS_CHOOSE($event)
+                      },
+                      deleteChoose: function($event) {
+                        return _vm.DELETE_GEARS_CHOOSE($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Мощность, л.с.\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("ydoublenuminput", {
+                    attrs: {
+                      doubleChoosed: _vm.transportsArr.powerChoosed,
+                      shade: true
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "option-box tech" },
+                [
+                  _c("h2", { staticClass: "option-title" }, [
+                    _vm._v(
+                      "\n                            Количество мест\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("ydoublenuminput", {
+                    attrs: {
+                      doubleChoosed: _vm.transportsArr.seatsChoosed,
+                      shade: true
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [
+              _c(
+                "div",
+                { staticClass: "option-box full-width mt" },
+                [
+                  _c("ychaccordion", {
+                    attrs: {
+                      options: _vm.transportTechs,
+                      choosedItems: _vm.transportsArr.techsChoosed
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("h2", { staticClass: "category-title" }, [_vm._v("Вы ищите:")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "option-row" }, [_c("selected-items")], 1)
+          ],
+          2
+        )
+      ]),
+      _vm._v("\n        " + _vm._s(_vm.generateLink) + "\n    ")
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/selected-items.vue?vue&type=template&id=584ddf71&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/filters/selected-items.vue?vue&type=template&id=584ddf71& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "selected-items" },
+    _vm._l(_vm.GET_TRANSPORT_BODIES, function(body) {
+      return _vm.isEqualBodies(body.val)
+        ? _c("div", { staticClass: "selected-item" }, [
+            _vm._v("\n        " + _vm._s(body.name)),
+            _c("i", {
+              staticClass: "yicon cancel",
+              on: {
+                click: function($event) {
+                  return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
+                }
+              }
+            })
+          ])
+        : _vm._e()
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/ybestoffers.vue?vue&type=template&id=5ebce775& ***!
@@ -38715,1034 +39826,6 @@ var render = function() {
           )
     ]
   )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa& ***!
-  \***********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "yfilterextended" }, [
-    _c("div", { staticClass: "yexpanded_search" }, [
-      _c("h1", { staticClass: "ytitle-exp" }, [_vm._v("Расширенный поиск")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "yexpanded_search_filter" }, [
-        _c("aside", { staticClass: "yexpanded_sidebar" }, [
-          _c("div", { staticClass: "ysearch_type_btn" }, [
-            _c(
-              "button",
-              {
-                staticClass: "change_type",
-                class: { active: _vm.searchDeatils.autoConditionChoosed == 1 },
-                on: {
-                  click: function($event) {
-                    return _vm.SET_AUTO_CONDITION_CHOOSED(1)
-                  }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                            Все\n                        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "change_type",
-                class: { active: _vm.searchDeatils.autoConditionChoosed == 2 },
-                on: {
-                  click: function($event) {
-                    return _vm.SET_AUTO_CONDITION_CHOOSED(2)
-                  }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                            Новые\n                        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "change_type",
-                class: { active: _vm.searchDeatils.autoConditionChoosed == 3 },
-                on: {
-                  click: function($event) {
-                    return _vm.SET_AUTO_CONDITION_CHOOSED(3)
-                  }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                            Б/у\n                        "
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ygroup-box" }, [
-            _c("h2", { staticClass: "yfilter-aside-title" }, [_vm._v("Цена")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "yprice_filter-box" },
-              [
-                _c("yprice"),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "Возможен торг",
-                    checked: _vm.searchDeatils.searchPropsChoosed.bargain
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "bargain",
-                        val: $event
-                      })
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "Возможен обмен",
-                    checked: _vm.searchDeatils.searchPropsChoosed.exchange
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "exchange",
-                        val: $event
-                      })
-                    }
-                  }
-                })
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ygroup-box" }, [
-            _c("h2", { staticClass: "yfilter-aside-title" }, [_vm._v("Цвет")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ycolors_options" },
-              [
-                _c("ycolors", {
-                  attrs: {
-                    options: _vm.transportColors,
-                    choosedItems: _vm.transportsArr.colorsChoosed
-                  },
-                  on: {
-                    updateChoose: function($event) {
-                      return _vm.SET_COLORS_CHOOSE($event)
-                    },
-                    deleteChoose: function($event) {
-                      return _vm.DELETE_COLORS_CHOOSE($event)
-                    }
-                  }
-                })
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ygroup-box" }, [
-            _c("h2", { staticClass: "yfilter-aside-title" }, [
-              _vm._v("Скрыть / Показать только")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ycheckbox_options" },
-              [
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "Только с фото",
-                    checked: _vm.searchDeatils.searchPropsChoosed.withPhoto
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "withPhoto",
-                        val: $event
-                      })
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "Авто не в Украине",
-                    checked: _vm.searchDeatils.searchPropsChoosed.abroad
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "abroad",
-                        val: $event
-                      })
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "В кредите",
-                    checked: _vm.searchDeatils.searchPropsChoosed.credit
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "credit",
-                        val: $event
-                      })
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "Нерастаможеные",
-                    checked: _vm.searchDeatils.searchPropsChoosed.customsСleared
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "customsСleared",
-                        val: $event
-                      })
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "После ДТП",
-                    checked: _vm.searchDeatils.searchPropsChoosed.accident
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "accident",
-                        val: $event
-                      })
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("ycheckbox", {
-                  attrs: {
-                    name: "Не на ходу",
-                    checked: _vm.searchDeatils.searchPropsChoosed.noMotion
-                  },
-                  on: {
-                    checked: function($event) {
-                      return _vm.SET_SEARCH_PROPS_CHOOSED({
-                        name: "noMotion",
-                        val: $event
-                      })
-                    }
-                  }
-                })
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ygroup-box" }, [
-            _c("h2", { staticClass: "yfilter-aside-title" }, [
-              _vm._v("Выдача результата")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ysearch_options" }, [
-              _c(
-                "div",
-                { staticClass: "ygroup-col-box" },
-                [
-                  _c("h3", { staticClass: "sidebar-title" }, [
-                    _vm._v(
-                      "\n                                    Сортировка\n                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectsearch", {
-                    attrs: {
-                      deleteDis: true,
-                      placeholder: "Выберите сортировку",
-                      options: _vm.searchDeatils.systemSorting,
-                      choosedItem: _vm.searchDeatils.sortingChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_SORTING_CHOOSED($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "ygroup-col-box" },
-                [
-                  _c("h3", { staticClass: "sidebar-title" }, [
-                    _vm._v(
-                      "\n                                    Период подачи\n                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectsearch", {
-                    attrs: {
-                      deleteDis: true,
-                      placeholder: "Выберите период подачи",
-                      options: _vm.searchDeatils.systemPeriod,
-                      choosedItem: _vm.searchDeatils.periodChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_PERIOD_CHOOSED($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "ygroup-col-box" },
-                [
-                  _c("h3", { staticClass: "sidebar-title" }, [
-                    _vm._v(
-                      "\n                                    Актуальность\n                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectsearch", {
-                    attrs: {
-                      deleteDis: true,
-                      placeholder: "Выберите актуальность",
-                      options: _vm.searchDeatils.systemRelevance,
-                      choosedItem: _vm.searchDeatils.relevanceChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_RELEVANCE_CHOOSED($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "ygroup-col-box" },
-                [
-                  _c("h3", { staticClass: "sidebar-title" }, [
-                    _vm._v(
-                      "\n                                    Показать\n                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectsearch", {
-                    attrs: {
-                      deleteDis: true,
-                      placeholder: "Выберите показать",
-                      options: _vm.searchDeatils.systemShow,
-                      choosedItem: _vm.searchDeatils.showChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_SHOW_CHOOSED($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "yexpanded_content" },
-          [
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box mono-block" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v("Тип транспорта")
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectsearch", {
-                    attrs: {
-                      shade: true,
-                      deleteDis: true,
-                      placeholder: "Выберите тип транспорта",
-                      options: _vm.transportTypes,
-                      choosedItem: _vm.transportsArr.typeChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.reInitFilterByClick($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c("div", { staticClass: "option-box full-width" }, [
-                _c("h2", { staticClass: "option-title" }, [
-                  _vm._v("Тип кузова")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "option-box hide-list" },
-                  [
-                    _vm._l(_vm.transportBodies, function(body, i) {
-                      return (_vm.bodyFullList
-                      ? true
-                      : i < 8)
-                        ? _c("ycheck", {
-                            key: i,
-                            attrs: { name: body.name, checked: body.choosed },
-                            on: {
-                              checked: function($event) {
-                                return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
-                              }
-                            }
-                          })
-                        : _vm._e()
-                    }),
-                    _vm._v(" "),
-                    _vm.transportBodies.length > 8
-                      ? _c(
-                          "div",
-                          {
-                            staticClass: "ycheck toggleHideKist",
-                            on: {
-                              click: function($event) {
-                                _vm.bodyFullList = !_vm.bodyFullList
-                              }
-                            }
-                          },
-                          [
-                            !_vm.bodyFullList
-                              ? _c("span", [_vm._v("Просмотреть еще")])
-                              : _c("span", [_vm._v("Скрыть")])
-                          ]
-                        )
-                      : _vm._e()
-                  ],
-                  2
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.rbmysArr, function(rbmy, i) {
-              return _c("div", { staticClass: "option-row" }, [
-                _c(
-                  "div",
-                  { staticClass: "option-box rbmy" },
-                  [
-                    i == 0
-                      ? _c("h2", { staticClass: "option-title" }, [
-                          _vm._v("Страна производитель")
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("yselectsearch", {
-                      attrs: {
-                        shade: true,
-                        placeholder: "Выберите страну",
-                        options: _vm.manufactureRegions,
-                        choosedItem: rbmy.regionChoose
-                      },
-                      on: {
-                        updateChoose: function($event) {
-                          return _vm.SET_REGION_CHOOSE({
-                            choose: $event,
-                            index: i
-                          })
-                        },
-                        deleteChoose: function($event) {
-                          return _vm.DELETE_REGION_CHOOSE({ index: i })
-                        }
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "option-box rbmy" },
-                  [
-                    i == 0
-                      ? _c("h2", { staticClass: "option-title" }, [
-                          _vm._v("Марка")
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("yselectsearch", {
-                      attrs: {
-                        shade: true,
-                        placeholder: "Выберите марку",
-                        options:
-                          rbmy.brands.length > 0
-                            ? rbmy.brands
-                            : rbmy.regionChoose !== null
-                            ? []
-                            : _vm.brands,
-                        choosedItem: rbmy.brandChoose
-                      },
-                      on: {
-                        updateChoose: function($event) {
-                          return _vm.setBrandsAndGetModels({
-                            choose: $event,
-                            index: i
-                          })
-                        },
-                        deleteChoose: function($event) {
-                          return _vm.DELETE_BRAND_CHOOSE({ index: i })
-                        }
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "option-box rbmy" },
-                  [
-                    i == 0
-                      ? _c("h2", { staticClass: "option-title" }, [
-                          _vm._v("Модель")
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("yselectmultysearch", {
-                      attrs: {
-                        shade: true,
-                        placeholder: "Выберите модель",
-                        options: rbmy.models,
-                        choosedItems: rbmy.modelsChoose
-                      },
-                      on: {
-                        updateChoose: function($event) {
-                          return _vm.SET_MODELS_CHOOSE({
-                            choose: $event,
-                            index: i
-                          })
-                        },
-                        deleteChoose: function($event) {
-                          return _vm.DELETE_MODELS_CHOOSE({
-                            choose: $event,
-                            index: i
-                          })
-                        }
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "option-box rbmy" }, [
-                  i == 0
-                    ? _c("h2", { staticClass: "option-title" }, [_vm._v("Год")])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "option-row" },
-                    [
-                      _c("yselectsearch", {
-                        attrs: {
-                          shade: true,
-                          placeholder: "От",
-                          options: _vm.years,
-                          choosedItem: rbmy.yearFrom
-                        },
-                        on: {
-                          updateChoose: function($event) {
-                            return _vm.SET_YEAR_FROM({
-                              choose: $event,
-                              index: i
-                            })
-                          },
-                          deleteChoose: function($event) {
-                            return _vm.DELETE_YEAR_FROM({
-                              choose: $event,
-                              index: i
-                            })
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("yselectsearch", {
-                        attrs: {
-                          shade: true,
-                          placeholder: "До",
-                          options: _vm.years,
-                          choosedItem: rbmy.yearTo
-                        },
-                        on: {
-                          updateChoose: function($event) {
-                            return _vm.SET_YEAR_TO({ choose: $event, index: i })
-                          },
-                          deleteChoose: function($event) {
-                            return _vm.DELETE_YEAR_TO({
-                              choose: $event,
-                              index: i
-                            })
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("button", { staticClass: "delRbmy" }, [
-                        i !== 0
-                          ? _c("i", {
-                              staticClass: "yicon trash",
-                              on: {
-                                click: function($event) {
-                                  return _vm.DELETE_RBMY(i)
-                                }
-                              }
-                            })
-                          : _vm._e()
-                      ])
-                    ],
-                    1
-                  )
-                ])
-              ])
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "addRbmy",
-                  on: {
-                    click: function($event) {
-                      return _vm.CREATE_NEW_RBMY()
-                    }
-                  }
-                },
-                [_vm._v("Добавить еще")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box mono-block" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [_vm._v("Регион")]),
-                  _vm._v(" "),
-                  _c("yselectmultysearch", {
-                    attrs: {
-                      shade: true,
-                      placeholder: "Выберите город",
-                      options: _vm.cities,
-                      choosedItems: _vm.choosedCities
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_CITIES_CHOOSE($event)
-                      },
-                      deleteChoose: function($event) {
-                        return _vm.DELETE_CITIES_CHOOSE($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "option-row regions" },
-              _vm._l(_vm.regionAndPart, function(item) {
-                return _c("div", { staticClass: "option-box" }, [
-                  _c(
-                    "h2",
-                    { staticClass: "option-title" },
-                    [
-                      _c("ycheck", {
-                        attrs: {
-                          name: item.name,
-                          checked: item.choosed,
-                          checkHide: true
-                        },
-                        on: {
-                          checked: function($event) {
-                            return _vm.SET_CHOOSED_REGION_PARTS(item.val)
-                          }
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "regionsList" },
-                    _vm._l(item.children, function(child, i) {
-                      return _c("ycheck", {
-                        key: i,
-                        attrs: { name: child.name, checked: child.choosed },
-                        on: {
-                          checked: function($event) {
-                            return _vm.SET_CHOOSED_REGIONS(child.val)
-                          }
-                        }
-                      })
-                    }),
-                    1
-                  )
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box mono-block" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Транспорт пригнан из\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectmultysearch", {
-                    attrs: {
-                      shade: true,
-                      placeholder: "Выберите страну",
-                      options: _vm.transportImporters,
-                      choosedItems: _vm.transportsArr.importersChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_IMPORTERS_CHOOSE($event)
-                      },
-                      deleteChoose: function($event) {
-                        return _vm.DELETE_IMPORTERS_CHOOSE($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c("div", { staticClass: "option-box" }, [
-                _c("h2", { staticClass: "option-title" }, [
-                  _vm._v(
-                    "\n                                Cостояние транспорта\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "option-box hide-list" },
-                  _vm._l(_vm.transportStates, function(body, i) {
-                    return _c("ycheck", {
-                      key: i,
-                      attrs: { name: body.name, checked: body.choosed },
-                      on: {
-                        checked: function($event) {
-                          return _vm.SET_TRANSPORT_STATE_CHOOSE(body.val)
-                        }
-                      }
-                    })
-                  }),
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c("h2", { staticClass: "category-title" }, [
-              _vm._v("Технические характеристики")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Топливо\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectmultysearch", {
-                    attrs: {
-                      shade: true,
-                      placeholder: "Выберите топливо",
-                      options: _vm.transportFuels,
-                      choosedItems: _vm.transportsArr.fuelsChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_FUELS_CHOOSE($event)
-                      },
-                      deleteChoose: function($event) {
-                        return _vm.DELETE_FUELS_CHOOSE($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Росход топлива, л./100 км\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("ydoublenuminput", {
-                    attrs: {
-                      doubleChoosed: _vm.transportsArr.fuelConsumptionChoosed,
-                      shade: true
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Пробег, тыс.км\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("ydoublenuminput", {
-                    attrs: {
-                      doubleChoosed: _vm.transportsArr.mileageChoosed,
-                      shade: true
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                КПП\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectmultysearch", {
-                    attrs: {
-                      shade: true,
-                      placeholder: "Выберите КПП",
-                      options: _vm.transportTransmissions,
-                      choosedItems: _vm.transportsArr.transmissionsChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_TRANSMISSIONS_CHOOSE($event)
-                      },
-                      deleteChoose: function($event) {
-                        return _vm.DELETE_TRANSMISSIONS_CHOOSE($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Объём, л.\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("ydoublenuminput", {
-                    attrs: {
-                      doubleChoosed: _vm.transportsArr.volumeChoosed,
-                      shade: true
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Количество дверей\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("ydoublenuminput", {
-                    attrs: {
-                      doubleChoosed: _vm.transportsArr.doorsChoosed,
-                      shade: true
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Тип привода\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("yselectmultysearch", {
-                    attrs: {
-                      shade: true,
-                      placeholder: "Выберите привод",
-                      options: _vm.transportGears,
-                      choosedItems: _vm.transportsArr.gearsChoosed
-                    },
-                    on: {
-                      updateChoose: function($event) {
-                        return _vm.SET_GERAS_CHOOSE($event)
-                      },
-                      deleteChoose: function($event) {
-                        return _vm.DELETE_GEARS_CHOOSE($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Мощность, л.с.\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("ydoublenuminput", {
-                    attrs: {
-                      doubleChoosed: _vm.transportsArr.powerChoosed,
-                      shade: true
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "option-box tech" },
-                [
-                  _c("h2", { staticClass: "option-title" }, [
-                    _vm._v(
-                      "\n                                Количество мест\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("ydoublenuminput", {
-                    attrs: {
-                      doubleChoosed: _vm.transportsArr.seatsChoosed,
-                      shade: true
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [
-              _c(
-                "div",
-                { staticClass: "option-box full-width mt" },
-                [
-                  _c("ychaccordion", {
-                    attrs: {
-                      options: _vm.transportTechs,
-                      choosedItems: _vm.transportsArr.techsChoosed
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ],
-          2
-        )
-      ]),
-      _vm._v("\n            " + _vm._s(_vm.generateLink) + "\n        ")
-    ])
-  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -62996,6 +63079,10 @@ var mutations = {
   DELETE_RBMY: function DELETE_RBMY(state, payload) {
     state.rbmyFullStore.splice(payload, 1);
   },
+  SET_NEW_RBMY_STATIC: function SET_NEW_RBMY_STATIC(state, payload) {
+    state.manufactureRegions = payload.manufactureRegions;
+    state.brands = payload.brands;
+  },
   SET_REGION_CHOOSE: function SET_REGION_CHOOSE(state, payload) {
     state.rbmyFullStore[payload.index].regionChoose = payload.choose;
     var manufactureBrands = [];
@@ -63071,9 +63158,6 @@ var mutations = {
   DELETE_YEAR_TO: function DELETE_YEAR_TO(state, payload) {
     state.rbmyFullStore[payload.index].yearTo = null;
   },
-  SET_MANUFACTURE_REGIONS_FROM_API: function SET_MANUFACTURE_REGIONS_FROM_API(state, payload) {
-    state.manufactureRegions = payload;
-  },
   SET_BRANDS_FROM_API: function SET_BRANDS_FROM_API(state, payload) {
     state.brands = payload;
   },
@@ -63085,14 +63169,14 @@ var mutations = {
   }
 };
 var actions = {
-  MANUFACTURE_REGIONS_FROM_API: function () {
-    var _MANUFACTURE_REGIONS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
+  BRANDS_FROM_API: function () {
+    var _BRANDS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_MANUFACTURE_REGIONS_FROM_API', response.data);
+                context.commit('SET_BRANDS_FROM_API', response.data);
               })["catch"](function (error) {
                 console.log('error', error);
               });
@@ -63105,20 +63189,21 @@ var actions = {
       }, _callee);
     }));
 
-    function MANUFACTURE_REGIONS_FROM_API(_x, _x2) {
-      return _MANUFACTURE_REGIONS_FROM_API.apply(this, arguments);
+    function BRANDS_FROM_API(_x, _x2) {
+      return _BRANDS_FROM_API.apply(this, arguments);
     }
 
-    return MANUFACTURE_REGIONS_FROM_API;
+    return BRANDS_FROM_API;
   }(),
-  BRANDS_FROM_API: function () {
-    var _BRANDS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+  MODELS_FROM_API: function () {
+    var _MODELS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_BRANDS_FROM_API', response.data);
+              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload['url']).then(function (response) {
+                payload['models'] = response.data;
+                context.commit('SET_MODELS_FROM_API', payload);
               })["catch"](function (error) {
                 console.log('error', error);
               });
@@ -63131,34 +63216,7 @@ var actions = {
       }, _callee2);
     }));
 
-    function BRANDS_FROM_API(_x3, _x4) {
-      return _BRANDS_FROM_API.apply(this, arguments);
-    }
-
-    return BRANDS_FROM_API;
-  }(),
-  MODELS_FROM_API: function () {
-    var _MODELS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload['url']).then(function (response) {
-                payload['models'] = response.data;
-                context.commit('SET_MODELS_FROM_API', payload);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    function MODELS_FROM_API(_x5, _x6) {
+    function MODELS_FROM_API(_x3, _x4) {
       return _MODELS_FROM_API.apply(this, arguments);
     }
 
@@ -63195,15 +63253,7 @@ var actions = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http.js */ "./resources/js/http.js");
 
 var state = {
   choosedCities: [],
@@ -63268,6 +63318,16 @@ var mutations = {
   SET_REGION_ARR: function SET_REGION_ARR(state, payload) {
     state.choosedRegions = payload.choosedRegions, state.choosedCities = payload.choosedCities;
   },
+  SET_REGION_ARR_STATIC: function SET_REGION_ARR_STATIC(state, payload) {
+    state.FULL_REGIONS = payload;
+    payload.forEach(function (el) {
+      el.children.forEach(function (el_reg) {
+        el_reg.children.forEach(function (el_city) {
+          state.cities.push(el_city);
+        });
+      });
+    });
+  },
   SET_CITIES_CHOOSE: function SET_CITIES_CHOOSE(state, payload) {
     state.choosedCities.push(payload);
   },
@@ -63300,51 +63360,12 @@ var mutations = {
       });
       state.choosedRegionParts.push(payload);
     }
-  },
-  SET_REGIONS_FROM_API: function SET_REGIONS_FROM_API(state, payload) {
-    state.FULL_REGIONS = payload;
-    payload.forEach(function (el) {
-      el.children.forEach(function (el_reg) {
-        el_reg.children.forEach(function (el_city) {
-          state.cities.push(el_city);
-        });
-      });
-    });
   }
-};
-var actions = {
-  FULL_REGIONS_FROM_API: function () {
-    var _FULL_REGIONS_FROM_API = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, payload) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _http_js__WEBPACK_IMPORTED_MODULE_1__["HTTP"].get(payload).then(function (response) {
-                context.commit('SET_REGIONS_FROM_API', response.data);
-              })["catch"](function (error) {
-                console.log('error', error);
-              });
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    function FULL_REGIONS_FROM_API(_x, _x2) {
-      return _FULL_REGIONS_FROM_API.apply(this, arguments);
-    }
-
-    return FULL_REGIONS_FROM_API;
-  }()
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: state,
   getters: getters,
-  mutations: mutations,
-  actions: actions
+  mutations: mutations
 });
 
 /***/ }),
@@ -63944,8 +63965,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
   // baseURL: `https://api.yboard.com.ua/v1`,
-  // baseURL: `http://127.0.0.1:8000/v1`,
-  baseURL: "http://yboard.loc/v1",
+  baseURL: "http://127.0.0.1:8000/v1",
+  // baseURL: `http://yboard.loc/v1`,
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -63954,6 +63975,144 @@ var HTTP = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
     'Access-Control-Allow-Credentials': true
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/site/components/filters/full-filter.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/site/components/filters/full-filter.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _full_filter_vue_vue_type_template_id_1575a223___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./full-filter.vue?vue&type=template&id=1575a223& */ "./resources/js/site/components/filters/full-filter.vue?vue&type=template&id=1575a223&");
+/* harmony import */ var _full_filter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./full-filter.vue?vue&type=script&lang=js& */ "./resources/js/site/components/filters/full-filter.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _full_filter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _full_filter_vue_vue_type_template_id_1575a223___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _full_filter_vue_vue_type_template_id_1575a223___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/filters/full-filter.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/filters/full-filter.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/site/components/filters/full-filter.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_full_filter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./full-filter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/full-filter.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_full_filter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/filters/full-filter.vue?vue&type=template&id=1575a223&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/site/components/filters/full-filter.vue?vue&type=template&id=1575a223& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_full_filter_vue_vue_type_template_id_1575a223___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./full-filter.vue?vue&type=template&id=1575a223& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/full-filter.vue?vue&type=template&id=1575a223&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_full_filter_vue_vue_type_template_id_1575a223___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_full_filter_vue_vue_type_template_id_1575a223___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/site/components/filters/selected-items.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/site/components/filters/selected-items.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _selected_items_vue_vue_type_template_id_584ddf71___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./selected-items.vue?vue&type=template&id=584ddf71& */ "./resources/js/site/components/filters/selected-items.vue?vue&type=template&id=584ddf71&");
+/* harmony import */ var _selected_items_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./selected-items.vue?vue&type=script&lang=js& */ "./resources/js/site/components/filters/selected-items.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _selected_items_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _selected_items_vue_vue_type_template_id_584ddf71___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _selected_items_vue_vue_type_template_id_584ddf71___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/site/components/filters/selected-items.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/site/components/filters/selected-items.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/site/components/filters/selected-items.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_selected_items_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./selected-items.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/selected-items.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_selected_items_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/site/components/filters/selected-items.vue?vue&type=template&id=584ddf71&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/site/components/filters/selected-items.vue?vue&type=template&id=584ddf71& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_selected_items_vue_vue_type_template_id_584ddf71___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./selected-items.vue?vue&type=template&id=584ddf71& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/filters/selected-items.vue?vue&type=template&id=584ddf71&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_selected_items_vue_vue_type_template_id_584ddf71___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_selected_items_vue_vue_type_template_id_584ddf71___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -64716,75 +64875,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/site/components/yfilterextended.vue":
-/*!**********************************************************!*\
-  !*** ./resources/js/site/components/yfilterextended.vue ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yfilterextended.vue?vue&type=template&id=4a7de0aa& */ "./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&");
-/* harmony import */ var _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yfilterextended.vue?vue&type=script&lang=js& */ "./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/site/components/yfilterextended.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfilterextended.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa& ***!
-  \*****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./yfilterextended.vue?vue&type=template&id=4a7de0aa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/site/components/yfilterextended.vue?vue&type=template&id=4a7de0aa&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yfilterextended_vue_vue_type_template_id_4a7de0aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/site/components/ylocation.vue":
 /*!****************************************************!*\
   !*** ./resources/js/site/components/ylocation.vue ***!
@@ -65503,42 +65593,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routingSplicerBus", function() { return routingSplicerBus; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.js */ "./resources/js/http.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.js */ "./resources/js/http.js");
 
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-var routingSplicerBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
+var routingSplicerBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   methods: {
-    //deconstrucot
-    ValidateUri: function ValidateUri(search) {
-      return /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                return _context.abrupt("return", _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].post('/validateSearch', {
-                  uri: search.substring(1)
-                }).then(function (response) {
-                  return response.data;
-                }));
-
-              case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-    },
     //constructor
     creatingSEARCHDETAILsProps: function creatingSEARCHDETAILsProps(arr) {
       var strProps = '';
@@ -65546,11 +65607,11 @@ var routingSplicerBus = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       // strProps += arr.searchPropsChoosed.verifiedAuto ? 'sch[va]=true&' : '';
 
       strProps += arr.searchPropsChoosed.withPhoto !== true ? 'sch[wph]=false&' : '';
-      strProps += arr.searchPropsChoosed.abroad !== false ? 'sch[ab]=true&' : '';
-      strProps += arr.searchPropsChoosed.credit !== false ? 'sch[cr]=true&' : '';
-      strProps += arr.searchPropsChoosed.customsСleared !== false ? 'sch[cc]=true&' : '';
-      strProps += arr.searchPropsChoosed.accident !== false ? 'sch[acc]=true&' : '';
-      strProps += arr.searchPropsChoosed.noMotion !== false ? 'sch[nom]=true&' : '';
+      strProps += arr.searchPropsChoosed.abroad ? 'sch[ab]=true&' : '';
+      strProps += arr.searchPropsChoosed.credit ? 'sch[cr]=true&' : '';
+      strProps += arr.searchPropsChoosed.customsСleared ? 'sch[cc]=true&' : '';
+      strProps += arr.searchPropsChoosed.accident ? 'sch[acc]=true&' : '';
+      strProps += arr.searchPropsChoosed.noMotion ? 'sch[nom]=true&' : '';
       strProps += arr.searchPropsChoosed.bargain ? 'sch[b]=true&' : '';
       strProps += arr.searchPropsChoosed.exchange ? 'sch[e]=true&' : '';
       strProps += 'sch[curr]=' + arr.priceChoosed.currency + '&';
@@ -65705,7 +65766,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ../bootstrap.js */ "./resources/js/bootstrap.js");
 
 
- //modules
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('full-filter', __webpack_require__(/*! ./components/filters/full-filter */ "./resources/js/site/components/filters/full-filter.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('selected-items', __webpack_require__(/*! ./components/filters/selected-items */ "./resources/js/site/components/filters/selected-items.vue")["default"]); //modules
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ymenu', __webpack_require__(/*! ./modules/header/ymenu.vue */ "./resources/js/site/modules/header/ymenu.vue")["default"]); //
 // //mobile
@@ -65752,8 +65815,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ychaccordion', __webpack_r
 //
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ycardauto', __webpack_require__(/*! ./components/ycardauto */ "./resources/js/site/components/ycardauto.vue")["default"]); //
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('yfilterextended', __webpack_require__(/*! ./components/yfilterextended */ "./resources/js/site/components/yfilterextended.vue")["default"]); // Vue.component('yfilterform', require('./components/yfilterform').default);
+// Vue.component('yfilterform', require('./components/yfilterform').default);
 // Vue.component('ycardfilter', require('./components/ycardfilter').default);
 // Vue.component('ydropdowfilter', require('./components/ydropdownfilter').default);
 
@@ -65797,8 +65859,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/js/site/site.js */"./resources/js/site/site.js");
-module.exports = __webpack_require__(/*! /Users/olegyera/Projects/autoyboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
+__webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/js/site/site.js */"./resources/js/site/site.js");
+module.exports = __webpack_require__(/*! /media/olegyera/99ea16a7-f795-4e3c-88e9-0d3aaa20b505/yboard/resources/sass/auto/site.scss */"./resources/sass/auto/site.scss");
 
 
 /***/ })

@@ -49,6 +49,10 @@ let mutations = {
     DELETE_RBMY: (state, payload) => {
         state.rbmyFullStore.splice(payload, 1);
     },
+    SET_NEW_RBMY_STATIC: (state, payload) => {
+        state.manufactureRegions = payload.manufactureRegions;
+        state.brands = payload.brands;
+    },
     SET_REGION_CHOOSE: (state, payload) => {
         state.rbmyFullStore[payload.index].regionChoose = payload.choose;
         let manufactureBrands = [];
@@ -124,10 +128,6 @@ let mutations = {
     DELETE_YEAR_TO: (state, payload) => {
         state.rbmyFullStore[payload.index].yearTo = null;
     },
-
-    SET_MANUFACTURE_REGIONS_FROM_API: (state, payload) => {
-        state.manufactureRegions = payload;
-    },
     SET_BRANDS_FROM_API: (state, payload) => {
         state.brands = payload;
     },
@@ -143,15 +143,6 @@ let mutations = {
 };
 
 let actions = {
-    MANUFACTURE_REGIONS_FROM_API: async (context, payload) => {
-        HTTP.get(payload)
-            .then(response => {
-                context.commit('SET_MANUFACTURE_REGIONS_FROM_API', response.data);
-            })
-            .catch(error =>{
-                console.log('error', error)
-            })
-    },
     BRANDS_FROM_API: async (context, payload) => {
         HTTP.get(payload)
             .then(response => {
