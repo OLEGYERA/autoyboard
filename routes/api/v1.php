@@ -29,12 +29,15 @@ $appRoutes = function() {
     Route::get('/transport_types/{id}/gears', 'API\FilterController@GET_transport_gears');
     Route::get('/transport_types/{id}/techs', 'API\FilterController@GET_transport_techs');
 
-    Route::get('/regions', 'API\RegionController@GET_region');
     Route::get('/manufacture_countries', 'API\FilterController@GET_manufacture_countries');
+    Route::get('/regions', 'API\RegionController@GET_region');
 
-    Route::get('/count_transport', 'API\SearchController@getCountTransport');
 
+    Route::post('/validateSearch', 'API\UriValidatorController@validateSearch');
 
+//    manufatureID=4
+
+//    Route::post('/inverse_form', 'API\RegionController@POST_inverse_form');
 
 };
 

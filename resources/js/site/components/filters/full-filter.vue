@@ -1,9 +1,9 @@
 <template>
-    <div class="full-filter">
+    <div class="yfilterextended">
         <!--v-else-->
-        <div  class="filter_search">
+        <div  class="yexpanded_search">
             <h1 class="ytitle-exp">Расширенный поиск</h1>
-            <section class="filter_search_filter">
+            <section class="yexpanded_search_filter">
                 <aside class="yexpanded_sidebar">
                     <div class="ysearch_type_btn">
                         <button class="change_type"
@@ -398,17 +398,13 @@
                             ></ychaccordion>
                         </div>
                     </div>
-<!--                    <h2 class="category-title">Вы ищите:</h2>-->
-<!--                    <div class="option-row">-->
-<!--                        <selected-items></selected-items>-->
-<!--                    </div>-->
+                    <hr>
+                    <h2 class="category-title">Вы ищите:</h2>
+                    <div class="option-row">
+                        <selected-items></selected-items>
+                    </div>
                 </div>
             </section>
-            <div class="search-helper-station">
-                <div class="search-helper" :class="{pin: pinOrderPanel}">
-                    <span class="searched-transport">Найдено транспорта: <span class="counter">{{prettify(countTransport)}}</span></span>
-                </div>
-            </div>
             {{generateLink}}
         </div>
     </div>
@@ -422,16 +418,8 @@
         props: ['validate_data'],
         beforeMount() {
             this.initFilterPage();
-            this.handleScroll();
         },
-        mounted(){
-            window.addEventListener('resize', this.changeResize);
-            window.addEventListener('scroll',  this.handleScroll);
-        },
-        destroyed() {
-            window.removeEventListener('resize', this.changeResize);
-            window.removeEventListener('scroll', this.handleScroll);
-        },
+        mounted(){window.addEventListener('resize', this.changeResize)},
         data(){
             return{
                 //services
@@ -439,8 +427,6 @@
                 initPage: false,
                 bodyFullList: false,
 
-                countTransport: 0,
-                pinOrderPanel: false,
                 uriName: 'full-filter'
             }
         },
@@ -466,38 +452,7 @@
                 }
                 this.initPage = true;
             },
-            reInitFilterByClick(event){
-                this.SET_TRANSPORT_TYPE(event);
-                this.CLEAR_BRANDS_MODELS();
-                this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1')
-                this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1')
-                this.TRANSMISSIONS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/transmissions?langType=3&alias=1')
-                this.GEARS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/gears?langType=3&alias=1')
-                this.TECHS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/techs?langType=3&alias=1')
-            },
-            setBrandsAndGetModels(data){
-                this.SET_BRAND_CHOSE(data);
-                data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
-                this.MODELS_FROM_API(data);
-            },
-            getTransportCount(query){
-                HTTP.get('count_transport?' + query).then(response => {
-                    this.countTransport = response.data;
-                })
-            },
-            handleScroll(){
-                let heperStation = document.getElementsByClassName('search-helper-station')[0];
-                const checkWindow = window !== undefined && heperStation !== undefined;
-                if (checkWindow && window.innerHeight + window.scrollY - 60 < heperStation.offsetTop + heperStation.offsetHeight) {
-                    this.pinOrderPanel = true;
-                } else{
-                    this.pinOrderPanel = false;
-                }
-            },
-            prettify(num){
-                var n = num.toString();
-                return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
-            },
+
             ...mapMutations([
                 //search deataild
                 'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED', 'SET_SORTING_CHOOSED',
@@ -525,28 +480,24 @@
                 //TRANSPORT
                 'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'
             ]),
+
+            setBrandsAndGetModels(data){
+                this.SET_BRAND_CHOSE(data);
+                data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
+                this.MODELS_FROM_API(data);
+            },
+
+            reInitFilterByClick(event){
+                this.SET_TRANSPORT_TYPE(event);
+                this.CLEAR_BRANDS_MODELS();
+                this.BRANDS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/brands?langType=1&alias=1&manufactureID=1')
+                this.BODIES_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/bodies?langType=3&alias=1')
+                this.TRANSMISSIONS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/transmissions?langType=3&alias=1')
+                this.GEARS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/gears?langType=3&alias=1')
+                this.TECHS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/techs?langType=3&alias=1')
+            },
         },
         computed: {
-            generateQuery(){
-                let SEARCHDETAILsProps = routingSplicerBus.$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils),
-                    TRANPORTsProps = routingSplicerBus.$options.methods.creatingTRANSPORTsProps(this.transportsArr),
-                    RBMYsProps = routingSplicerBus.$options.methods.creatingRBMYsProps(this.rbmysArr),
-                    REGIONProps = routingSplicerBus.$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities),
-                    query = '';
-
-                query += SEARCHDETAILsProps != '' ? SEARCHDETAILsProps + '&' : '';
-                query += TRANPORTsProps != '' ? TRANPORTsProps + '&' : '';
-                query += RBMYsProps != '' ? RBMYsProps + '&' : '';
-                query += REGIONProps != '' ? REGIONProps + '&' : '';
-                query = query.substring(0, query.length - 1);
-
-                return query;
-            },
-            generateLink() {
-                let query = this.generateQuery;
-                this.getTransportCount(query);
-                window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + query);
-            },
             ...mapGetters({
                 //search detail
                 'searchDeatils': 'GET_SEARCHDETAILS',
@@ -571,6 +522,14 @@
                 'choosedCities': 'GET_CHOOSED_CITIES',
                 'choosedRegions': 'GET_CHOOSED_REGIONS',
             }),
+            generateLink() {
+                let SEARCHDETAILsProps = routingSplicerBus.$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils);
+                let TRANPORTsProps = routingSplicerBus.$options.methods.creatingTRANSPORTsProps(this.transportsArr);
+                let RBMYsProps = routingSplicerBus.$options.methods.creatingRBMYsProps(this.rbmysArr);
+                let REGIONProps = routingSplicerBus.$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
+                if(this.initPage)
+                    window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + SEARCHDETAILsProps + '&' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
+            },
         },
         watch: {
             transportArr(to) {

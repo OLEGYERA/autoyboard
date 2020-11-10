@@ -4,9 +4,6 @@
         <div class="selected-item" v-for="body in GET_TRANSPORT_BODIES" v-if="isEqualBodies(body.val)">
             {{body.name}}<i class="yicon cancel" @click="SET_TRANSPORT_BODY_CHOOSE(body.val)"></i>
         </div>
-        <div class="selected-item" v-for="body in GET_TRANSPORT_BODIES" v-if="isEqualBodies(body.val)">
-            {{body.name}}<i class="yicon cancel" @click="SET_TRANSPORT_BODY_CHOOSE(body.val)"></i>
-        </div>
     </div>
 </template>
 <script>

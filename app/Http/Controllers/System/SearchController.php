@@ -104,8 +104,8 @@ class SearchController extends Controller
             });
         }
 //      Cities
-        if(isset($search_request['regionFullStore']['regions'])){
-            $regions = $search_request['regionFullStore']['regions']['choosedRegions'];
+        if(isset($search_request['regionFullStore'])){
+            $regions = $search_request['regionFullStore']['choosedRegions'];
             $cities_query = [];
             $citiesChoosed = [];
             if(isset($regions) && count($regions) > 0){
@@ -116,7 +116,7 @@ class SearchController extends Controller
                 }
             }
 
-            $cities = $search_request['regionFullStore']['regions']['choosedCities'];
+            $cities = $search_request['regionFullStore']['choosedCities'];
             if(isset($cities) && count($cities) > 0){
                 $cityTempSort = [];
                 foreach($cities as $city){
@@ -377,3 +377,11 @@ class SearchController extends Controller
     }
 }
 
+//if(count($citiesChoosed) > 0){
+//    $query = $query->whereHas('main', function ($mainQuery) use ($citiesChoosed) {
+//        $mainQuery->whereHas('city', function ($q) use ($citiesChoosed) {
+//            $q->whereIn('city_id', $citiesChoosed);
+//        });
+//    });
+//    return $query->get();
+//}
