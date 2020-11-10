@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\System;
 use App\Http\Controllers\API\BasicController;
-use App\Http\Controllers\System\SearchController;
 
 use App\ManufactureCountry;
 use App\TransportType;
@@ -23,11 +22,15 @@ class UriValidatorController extends BasicController
     public $jSON_RESPONSE = [];
     public $verifiedData = [];
     public $langTitle = [];
+    public $withoutStatic = [];
 
-    public function validateSearch($searchData, $langTitle){
+    public function validateSearch($searchData, $langTitle, $withoutStatic = false){
         $uris = $searchData;
         $this->langTitle = $langTitle;
+        $this->withoutStatic = $withoutStatic;
+
         $this->verifyMainQueries($uris);
+
         foreach ($uris as $alias => $uri){
             switch ($alias){
                 case 'sch':
@@ -59,10 +62,13 @@ class UriValidatorController extends BasicController
     private function validateSearchDetailMain($data){
         $this->verifiedData['autoCond'] = (isset($data['sch']['autoCond']) && $data['sch']['autoCond'] <= 3 && $data['sch']['autoCond'] >= 1) ? intval($data['sch']['autoCond']) : 1;
         $this->verifiedData['curr'] = (isset($data['sch']['curr']) && $data['sch']['curr'] <= 3 && $data['sch']['curr'] >= 1) ? intval($data['sch']['curr']) : 1;
-        $this->verifiedData['sorting'] = (isset($data['sch']['sort']) && $data['sch']['sort'] <= SystemSorting::count() && $data['sch']['sort'] >= 1) ? intval($data['sch']['sort']) : 1;
-        $this->verifiedData['period'] = (isset($data['sch']['period']) && $data['sch']['period'] <= SystemPeriod::count() && $data['sch']['period'] >= 1) ? intval($data['sch']['period']) : 1;
-        $this->verifiedData['relevance'] = (isset($data['sch']['rel']) && $data['sch']['rel'] <= SystemRelevance::count() && $data['sch']['rel'] >= 1) ? intval($data['sch']['rel']) : 1;
-        $this->verifiedData['show'] = (isset($data['sch']['show']) && $data['sch']['show'] <= SystemShow::count() && $data['sch']['show'] >= 1) ? intval($data['sch']['show']) : 1;
+
+        if(!$this->withoutStatic){
+            $this->verifiedData['sorting'] = (isset($data['sch']['sort']) && $data['sch']['sort'] <= SystemSorting::count() && $data['sch']['sort'] >= 1) ? intval($data['sch']['sort']) : 1;
+            $this->verifiedData['period'] = (isset($data['sch']['period']) && $data['sch']['period'] <= SystemPeriod::count() && $data['sch']['period'] >= 1) ? intval($data['sch']['period']) : 1;
+            $this->verifiedData['relevance'] = (isset($data['sch']['rel']) && $data['sch']['rel'] <= SystemRelevance::count() && $data['sch']['rel'] >= 1) ? intval($data['sch']['rel']) : 1;
+            $this->verifiedData['show'] = (isset($data['sch']['show']) && $data['sch']['show'] <= SystemShow::count() && $data['sch']['show'] >= 1) ? intval($data['sch']['show']) : 1;
+        }
 
         if(!isset($data['sch'])){
             $this->analizeSearchDetailAlias();
@@ -154,17 +160,19 @@ class UriValidatorController extends BasicController
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'searchPropsChoosed', $searchPropsChoosed);
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'priceChoosed', $priceChoosed);
 
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'sortingChoosed', $this->verifiedData['sorting']);
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemSorting', SystemSorting::select(['id as val', 'rtitle as name'])->get());
+        if(!$this->withoutStatic){
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'sortingChoosed', $this->verifiedData['sorting']);
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemSorting', SystemSorting::select(['id as val', 'rtitle as name'])->get());
 
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'periodChoosed', $this->verifiedData['period']);
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemPeriod', SystemPeriod::select(['id as val', 'rtitle as name'])->get());
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'periodChoosed', $this->verifiedData['period']);
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemPeriod', SystemPeriod::select(['id as val', 'rtitle as name'])->get());
 
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'relevanceChoosed', $this->verifiedData['relevance']);
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemRelevance', SystemRelevance::select(['id as val', 'rtitle as name'])->get());
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'relevanceChoosed', $this->verifiedData['relevance']);
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemRelevance', SystemRelevance::select(['id as val', 'rtitle as name'])->get());
 
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'showChoosed', $this->verifiedData['show']);
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemShow', SystemShow::select(['id as val', 'rtitle as name'])->get());
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'showChoosed', $this->verifiedData['show']);
+            $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemShow', SystemShow::select(['id as val', 'rtitle as name'])->get());
+        }
 
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'searchDetailFullStore', $searchDetailFullStores);
     }
@@ -172,7 +180,9 @@ class UriValidatorController extends BasicController
     private function analizeTransportAlias($uri = []){
         $transportFullStores = [];
         $transportFullStores = Arr::add($transportFullStores, 'typeChoosed', $this->verifiedData['transport_type']->val);
-        $transportFullStores = Arr::add($transportFullStores, 'transportTypes', TransportType::select(['id as val', 'rtitle as name'])->get());
+        if(!$this->withoutStatic) {
+            $transportFullStores = Arr::add($transportFullStores, 'transportTypes', TransportType::select(['id as val', 'rtitle as name'])->get());
+        }
         if(isset($uri['bodies'])){
             $bodyArr = [];
             foreach ($uri['bodies'] as $body){
@@ -183,8 +193,10 @@ class UriValidatorController extends BasicController
         else{
             $transportFullStores = Arr::add($transportFullStores, 'bodiesChoosed', []);
         }
-        $bodies = $this->verifiedData['transport_type']->bodies()->select('id as val', 'rtitle as name')->get();
-        $transportFullStores = Arr::add($transportFullStores, 'transportBodies', $bodies);
+        if(!$this->withoutStatic) {
+            $bodies = $this->verifiedData['transport_type']->bodies()->select('id as val', 'rtitle as name')->get();
+            $transportFullStores = Arr::add($transportFullStores, 'transportBodies', $bodies);
+        }
 
         if(isset($uri['colors'])){
             $colorsArr = [];
@@ -196,8 +208,9 @@ class UriValidatorController extends BasicController
         else{
             $transportFullStores = Arr::add($transportFullStores, 'colorsChoosed', []);
         }
-        $transportFullStores = Arr::add($transportFullStores, 'transportColors', TransportChColor::select(['id as val', 'rtitle as name', 'color', 'bg_color as bg'])->get());
-
+        if(!$this->withoutStatic) {
+            $transportFullStores = Arr::add($transportFullStores, 'transportColors', TransportChColor::select(['id as val', 'rtitle as name', 'color', 'bg_color as bg'])->get());
+        }
 
         if(isset($uri['imp'])){
             $importerArr = [];
@@ -220,8 +233,9 @@ class UriValidatorController extends BasicController
         else{
             $transportFullStores = Arr::add($transportFullStores, 'statesChoosed', []);
         }
-        $transportFullStores = Arr::add($transportFullStores, 'transportStates', TransportChState::select(['id as val', 'rtitle as name'])->get());
-
+        if(!$this->withoutStatic) {
+            $transportFullStores = Arr::add($transportFullStores, 'transportStates', TransportChState::select(['id as val', 'rtitle as name'])->get());
+        }
         if(isset($uri['fuels'])){
             $fuelsArr = [];
             foreach ($uri['fuels'] as $fuel){
@@ -232,8 +246,9 @@ class UriValidatorController extends BasicController
         else{
             $transportFullStores = Arr::add($transportFullStores, 'fuelsChoosed', []);
         }
-        $transportFullStores = Arr::add($transportFullStores, 'transportFuels', TransportChFuel::select(['id as val', 'rtitle as name'])->get());
-
+        if(!$this->withoutStatic) {
+            $transportFullStores = Arr::add($transportFullStores, 'transportFuels', TransportChFuel::select(['id as val', 'rtitle as name'])->get());
+        }
         $fuelConsumptionChoosed = [];
         $fuelConsumptionChoosed['from'] = isset($uri['fuelsF']) ? floatval(substr($uri['fuelsF'], 0,5)) : null;
         $fuelConsumptionChoosed['to'] = isset($uri['fuelsT']) ? floatval(substr($uri['fuelsT'], 0,5)) : null;
@@ -263,8 +278,9 @@ class UriValidatorController extends BasicController
         else{
             $transportFullStores = Arr::add($transportFullStores, 'transmissionsChoosed', []);
         }
-        $transportFullStores = Arr::add($transportFullStores, 'transportTransmissions', $this->verifiedData['transport_type']->transmissions()->select('tranport_ch_transmissions.id as val', 'rtitle as name')->get());
-
+        if(!$this->withoutStatic) {
+            $transportFullStores = Arr::add($transportFullStores, 'transportTransmissions', $this->verifiedData['transport_type']->transmissions()->select('tranport_ch_transmissions.id as val', 'rtitle as name')->get());
+        }
         $volumeChoosed = [];
         $volumeChoosed['from'] = isset($uri['volF']) ? floatval(substr($uri['volF'], 0,5)) : null;
         $volumeChoosed['to'] = isset($uri['volT']) ? floatval(substr($uri['volT'], 0,5)) : null;
@@ -295,8 +311,9 @@ class UriValidatorController extends BasicController
         else{
             $transportFullStores = Arr::add($transportFullStores, 'gearsChoosed', []);
         }
-        $transportFullStores = Arr::add($transportFullStores, 'transportGears', $this->verifiedData['transport_type']->gears()->select('tranport_ch_gears.id as val', 'rtitle as name')->get());
-
+        if(!$this->withoutStatic) {
+            $transportFullStores = Arr::add($transportFullStores, 'transportGears', $this->verifiedData['transport_type']->gears()->select('tranport_ch_gears.id as val', 'rtitle as name')->get());
+        }
         $powerChoosed = [];
         $powerChoosed['from'] = isset($uri['powF']) ? floatval(substr($uri['powF'], 0,5)) : null;
         $powerChoosed['to'] = isset($uri['powT']) ? floatval(substr($uri['powT'], 0,5)) : null;
@@ -359,56 +376,53 @@ class UriValidatorController extends BasicController
 
         $transportFullStores = Arr::add($transportFullStores, 'techsChoosed', $techsChoosed);
 
-
-        $transportTechs['security'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'security')->get();
-        $transportTechs['comfort'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'comfort')->get();
-        $transportTechs['multimedia'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'multimedia')->get();
-        $transportTechs['others'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'others')->get();
-        $transportFullStores = Arr::add($transportFullStores, 'transportTechs', $transportTechs);
-
+        if(!$this->withoutStatic) {
+            $transportTechs['security'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'security')->get();
+            $transportTechs['comfort'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'comfort')->get();
+            $transportTechs['multimedia'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'multimedia')->get();
+            $transportTechs['others'] = $this->verifiedData['transport_type']->techs()->select('transport_ch_teches.id as val', 'rtitle as name')->where('type', 'others')->get();
+            $transportFullStores = Arr::add($transportFullStores, 'transportTechs', $transportTechs);
+        }
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'transportFullStore', $transportFullStores);
     }
 
     private function analizeRbmyAlias($uri = []){
         $rbmyFullStores = [];
-        if(!empty($uri)){
-            foreach ($uri as $k => $rbmy){
+        if(!empty($uri)) {
+            foreach ($uri as $k => $rbmy) {
                 $rbmyFullStore = [];
-                if(isset($rbmy['reg'])){
+                if (isset($rbmy['reg'])) {
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', intval($rbmy['reg']));
                     $brands = $this->verifiedData['transport_type']->brands()->where('manufacture_id', intval($rbmy['reg']))->select(['brands.id as val', 'title as name'])->get();
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
-                }
-                else{
+                } else {
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', null);
                     $brands = [];
                 }
                 $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
 
-                if(isset($rbmy['brand'])){
+                if (isset($rbmy['brand'])) {
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', intval($rbmy['brand']));
                     $brand = Brand::select(['brands.id as val', 'title as name'])->find($rbmy['brand']);
                     $models = $brand->modelsWithTransportType($this->verifiedData['transport_type']->val)->select(['id as val', 'title as name'])->get();
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'models', $models);
-                }
-                else{
+                } else {
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', null);
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'models', []);
                 }
-                if(isset($rbmy['model']) && isset($rbmy['brand'])){
+                if (isset($rbmy['model']) && isset($rbmy['brand'])) {
                     $modelArr = [];
-                    foreach ($rbmy['model'] as $model){
+                    foreach ($rbmy['model'] as $model) {
                         array_push($modelArr, intval($model));
                     }
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', $modelArr);
-                }
-                else{
+                } else {
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', []);
                 }
 
                 $yearForm = isset($rbmy['yearF']) ? intval($rbmy['yearF']) : null;
                 $yearTo = isset($rbmy['yearT']) ? intval($rbmy['yearT']) : null;
-                if($yearForm > $yearTo && $yearTo !== null){
+                if ($yearForm > $yearTo && $yearTo !== null) {
                     $tempYear = $yearForm;
                     $yearForm = $yearTo;
                     $yearTo = $tempYear;
@@ -418,9 +432,15 @@ class UriValidatorController extends BasicController
                 array_push($rbmyFullStores, $rbmyFullStore);
 
             }
-            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', ['rbmys' => $rbmyFullStores, 'static' => $this->verifiedData['staticRbmy']]);
+            if (!$this->withoutStatic) {
+                $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', ['rbmys' => $rbmyFullStores, 'static' => $this->verifiedData['staticRbmy']]);
+            } else{
+                $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', ['rbmys' => $rbmyFullStores]);
+            }
         } else{
-            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', ['static' => $this->verifiedData['staticRbmy']]);
+            if(!$this->withoutStatic) {
+                $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'rbmyFullStore', ['static' => $this->verifiedData['staticRbmy']]);
+            }
         }
     }
 
@@ -443,10 +463,17 @@ class UriValidatorController extends BasicController
             }
             $regionFullStores = Arr::add($regionFullStores, 'choosedCities', $citiesArr);
 
-            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', ['regions' => $regionFullStores, 'static' => $this->verifiedData['staticRegion']]);
+            if (!$this->withoutStatic) {
+                $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', ['regions' => $regionFullStores, 'static' => $this->verifiedData['staticRegion']]);
+            } else{
+                $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', ['regions' => $regionFullStores]);
+            }
         } else{
-            $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', ['static' => $this->verifiedData['staticRegion']]);
+            if(!$this->withoutStatic) {
+                $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'regionFullStore', ['static' => $this->verifiedData['staticRegion']]);
+            }
         }
+
     }
 
     public function bollStr($str){

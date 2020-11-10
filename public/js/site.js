@@ -2342,6 +2342,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2350,9 +2354,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   props: ['validate_data'],
   beforeMount: function beforeMount() {
     this.initFilterPage();
+    this.handleScroll();
   },
   mounted: function mounted() {
     window.addEventListener('resize', this.changeResize);
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener('resize', this.changeResize);
+    window.removeEventListener('scroll', this.handleScroll);
   },
   data: function data() {
     return {
@@ -2360,10 +2370,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       langType: 3,
       initPage: false,
       bodyFullList: false,
+      countTransport: 0,
+      pinOrderPanel: false,
       uriName: 'full-filter'
     };
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({
+  methods: _objectSpread(_objectSpread({
     initFilterPage: function initFilterPage() {
       if (this.validate_data.searchDetailFullStore !== undefined) {
         this.SET_SEARCHDETAIL_ARR(this.validate_data.searchDetailFullStore);
@@ -2386,18 +2398,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       this.initPage = true;
-    }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])([//search deataild
-  'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED', 'SET_SORTING_CHOOSED', 'SET_PERIOD_CHOOSED', 'SET_RELEVANCE_CHOOSED', 'SET_SHOW_CHOOSED', //regions
-  'SET_REGION_ARR', 'SET_REGION_ARR_STATIC', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
-  'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_NEW_RBMY_STATIC', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
-  'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE', 'SET_COLORS_CHOOSE', 'DELETE_COLORS_CHOOSE', 'SET_TRANSPORT_STATE_CHOOSE', 'SET_IMPORTERS_CHOOSE', 'DELETE_IMPORTERS_CHOOSE', 'SET_FUELS_CHOOSE', 'DELETE_FUELS_CHOOSE', 'SET_TRANSMISSIONS_CHOOSE', 'DELETE_TRANSMISSIONS_CHOOSE', 'SET_GERAS_CHOOSE', 'DELETE_GEARS_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])([//RBMY
-  'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
-  'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'])), {}, {
-    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
-      this.SET_BRAND_CHOSE(data);
-      data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
-      this.MODELS_FROM_API(data);
     },
     reInitFilterByClick: function reInitFilterByClick(event) {
       this.SET_TRANSPORT_TYPE(event);
@@ -2407,9 +2407,60 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.TRANSMISSIONS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/transmissions?langType=3&alias=1');
       this.GEARS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/gears?langType=3&alias=1');
       this.TECHS_FROM_API('/transport_types/' + this.transportsArr.typeChoosed + '/techs?langType=3&alias=1');
+    },
+    setBrandsAndGetModels: function setBrandsAndGetModels(data) {
+      this.SET_BRAND_CHOSE(data);
+      data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
+      this.MODELS_FROM_API(data);
+    },
+    getTransportCount: function getTransportCount(query) {
+      var _this = this;
+
+      _http_js__WEBPACK_IMPORTED_MODULE_2__["HTTP"].get('count_transport?' + query).then(function (response) {
+        _this.countTransport = response.data;
+      });
+    },
+    handleScroll: function handleScroll() {
+      var heperStation = document.getElementsByClassName('search-helper-station')[0];
+      var checkWindow = window !== undefined && heperStation !== undefined;
+
+      if (checkWindow && window.innerHeight + window.scrollY - 60 < heperStation.offsetTop + heperStation.offsetHeight) {
+        this.pinOrderPanel = true;
+      } else {
+        this.pinOrderPanel = false;
+      }
+    },
+    prettify: function prettify(num) {
+      var n = num.toString();
+      return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
     }
-  }),
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])([//search deataild
+  'SET_SEARCHDETAIL_ARR', 'SET_AUTO_CONDITION_CHOOSED', 'SET_SEARCH_PROPS_CHOOSED', 'SET_SORTING_CHOOSED', 'SET_PERIOD_CHOOSED', 'SET_RELEVANCE_CHOOSED', 'SET_SHOW_CHOOSED', //regions
+  'SET_REGION_ARR', 'SET_REGION_ARR_STATIC', 'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS', //RBMY
+  'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY', 'SET_NEW_RBMY_STATIC', 'SET_REGION_CHOOSE', 'DELETE_REGION_CHOOSE', 'CLEAR_BRANDS_MODELS', 'SET_BRAND_CHOSE', 'DELETE_BRAND_CHOOSE', 'SET_MODELS_CHOOSE', 'DELETE_MODELS_CHOOSE', 'SET_YEAR_FROM', 'DELETE_YEAR_FROM', 'SET_YEAR_TO', 'DELETE_YEAR_TO', //TRANSPORT
+  'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE', 'SET_COLORS_CHOOSE', 'DELETE_COLORS_CHOOSE', 'SET_TRANSPORT_STATE_CHOOSE', 'SET_IMPORTERS_CHOOSE', 'DELETE_IMPORTERS_CHOOSE', 'SET_FUELS_CHOOSE', 'DELETE_FUELS_CHOOSE', 'SET_TRANSMISSIONS_CHOOSE', 'DELETE_TRANSMISSIONS_CHOOSE', 'SET_GERAS_CHOOSE', 'DELETE_GEARS_CHOOSE'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])([//RBMY
+  'BRANDS_FROM_API', 'MODELS_FROM_API', 'GENERATE_YEAR', //TRANSPORT
+  'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'])),
+  computed: _objectSpread({
+    generateQuery: function generateQuery() {
+      var SEARCHDETAILsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils),
+          TRANPORTsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingTRANSPORTsProps(this.transportsArr),
+          RBMYsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingRBMYsProps(this.rbmysArr),
+          REGIONProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities),
+          query = '';
+      query += SEARCHDETAILsProps != '' ? SEARCHDETAILsProps + '&' : '';
+      query += TRANPORTsProps != '' ? TRANPORTsProps + '&' : '';
+      query += RBMYsProps != '' ? RBMYsProps + '&' : '';
+      query += REGIONProps != '' ? REGIONProps + '&' : '';
+      query = query.substring(0, query.length - 1);
+      return query;
+    },
+    generateLink: function generateLink() {
+      var query = this.generateQuery;
+      this.getTransportCount(query);
+      window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + query);
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     //search detail
     'searchDeatils': 'GET_SEARCHDETAILS',
     //RBMY
@@ -2432,15 +2483,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     'cities': 'GET_CITIES',
     'choosedCities': 'GET_CHOOSED_CITIES',
     'choosedRegions': 'GET_CHOOSED_REGIONS'
-  })), {}, {
-    generateLink: function generateLink() {
-      var SEARCHDETAILsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils);
-      var TRANPORTsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingTRANSPORTsProps(this.transportsArr);
-      var RBMYsProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingRBMYsProps(this.rbmysArr);
-      var REGIONProps = _site_routingSplicerBus_js__WEBPACK_IMPORTED_MODULE_3__["routingSplicerBus"].$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities);
-      if (this.initPage) window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + SEARCHDETAILsProps + '&' + TRANPORTsProps + '&' + RBMYsProps + '&' + REGIONProps);
-    }
-  }),
+  })),
   watch: {
     transportArr: function transportArr(to) {// console.log(to, 'watch')
     }
@@ -2465,6 +2508,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -35597,11 +35643,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "yfilterextended" }, [
-    _c("div", { staticClass: "yexpanded_search" }, [
+  return _c("div", { staticClass: "full-filter" }, [
+    _c("div", { staticClass: "filter_search" }, [
       _c("h1", { staticClass: "ytitle-exp" }, [_vm._v("Расширенный поиск")]),
       _vm._v(" "),
-      _c("section", { staticClass: "yexpanded_search_filter" }, [
+      _c("section", { staticClass: "filter_search_filter" }, [
         _c("aside", { staticClass: "yexpanded_sidebar" }, [
           _c("div", { staticClass: "ysearch_type_btn" }, [
             _c(
@@ -35615,7 +35661,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n                        Все\n                    ")]
+              [
+                _vm._v(
+                  "\n                            Все\n                        "
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -35629,7 +35679,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n                        Новые\n                    ")]
+              [
+                _vm._v(
+                  "\n                            Новые\n                        "
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -35643,7 +35697,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n                        Б/у\n                    ")]
+              [
+                _vm._v(
+                  "\n                            Б/у\n                        "
+                )
+              ]
             )
           ]),
           _vm._v(" "),
@@ -35831,7 +35889,7 @@ var render = function() {
                 [
                   _c("h3", { staticClass: "sidebar-title" }, [
                     _vm._v(
-                      "\n                                Сортировка\n                            "
+                      "\n                                    Сортировка\n                                "
                     )
                   ]),
                   _vm._v(" "),
@@ -35858,7 +35916,7 @@ var render = function() {
                 [
                   _c("h3", { staticClass: "sidebar-title" }, [
                     _vm._v(
-                      "\n                                Период подачи\n                            "
+                      "\n                                    Период подачи\n                                "
                     )
                   ]),
                   _vm._v(" "),
@@ -35885,7 +35943,7 @@ var render = function() {
                 [
                   _c("h3", { staticClass: "sidebar-title" }, [
                     _vm._v(
-                      "\n                                Актуальность\n                            "
+                      "\n                                    Актуальность\n                                "
                     )
                   ]),
                   _vm._v(" "),
@@ -35912,7 +35970,7 @@ var render = function() {
                 [
                   _c("h3", { staticClass: "sidebar-title" }, [
                     _vm._v(
-                      "\n                                Показать\n                            "
+                      "\n                                    Показать\n                                "
                     )
                   ]),
                   _vm._v(" "),
@@ -36294,7 +36352,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Транспорт пригнан из\n                        "
+                      "\n                                Транспорт пригнан из\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36323,7 +36381,7 @@ var render = function() {
               _c("div", { staticClass: "option-box" }, [
                 _c("h2", { staticClass: "option-title" }, [
                   _vm._v(
-                    "\n                            Cостояние транспорта\n                        "
+                    "\n                                Cостояние транспорта\n                            "
                   )
                 ]),
                 _vm._v(" "),
@@ -36359,7 +36417,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Топливо\n                        "
+                      "\n                                Топливо\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36389,7 +36447,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Росход топлива, л./100 км\n                        "
+                      "\n                                Росход топлива, л./100 км\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36409,7 +36467,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Пробег, тыс.км\n                        "
+                      "\n                                Пробег, тыс.км\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36431,7 +36489,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            КПП\n                        "
+                      "\n                                КПП\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36461,7 +36519,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Объём, л.\n                        "
+                      "\n                                Объём, л.\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36481,7 +36539,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Количество дверей\n                        "
+                      "\n                                Количество дверей\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36503,7 +36561,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Тип привода\n                        "
+                      "\n                                Тип привода\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36533,7 +36591,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Мощность, л.с.\n                        "
+                      "\n                                Мощность, л.с.\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36553,7 +36611,7 @@ var render = function() {
                 [
                   _c("h2", { staticClass: "option-title" }, [
                     _vm._v(
-                      "\n                            Количество мест\n                        "
+                      "\n                                Количество мест\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -36582,18 +36640,27 @@ var render = function() {
                 ],
                 1
               )
-            ]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c("h2", { staticClass: "category-title" }, [_vm._v("Вы ищите:")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "option-row" }, [_c("selected-items")], 1)
+            ])
           ],
           2
         )
       ]),
-      _vm._v("\n        " + _vm._s(_vm.generateLink) + "\n    ")
+      _vm._v(" "),
+      _c("div", { staticClass: "search-helper-station" }, [
+        _c(
+          "div",
+          { staticClass: "search-helper", class: { pin: _vm.pinOrderPanel } },
+          [
+            _c("span", { staticClass: "searched-transport" }, [
+              _vm._v("Найдено транспорта: "),
+              _c("span", { staticClass: "counter" }, [
+                _vm._v(_vm._s(_vm.prettify(_vm.countTransport)))
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v("\n            " + _vm._s(_vm.generateLink) + "\n        ")
     ])
   ])
 }
@@ -36622,22 +36689,40 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "selected-items" },
-    _vm._l(_vm.GET_TRANSPORT_BODIES, function(body) {
-      return _vm.isEqualBodies(body.val)
-        ? _c("div", { staticClass: "selected-item" }, [
-            _vm._v("\n        " + _vm._s(body.name)),
-            _c("i", {
-              staticClass: "yicon cancel",
-              on: {
-                click: function($event) {
-                  return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
+    [
+      _vm._l(_vm.GET_TRANSPORT_BODIES, function(body) {
+        return _vm.isEqualBodies(body.val)
+          ? _c("div", { staticClass: "selected-item" }, [
+              _vm._v("\n        " + _vm._s(body.name)),
+              _c("i", {
+                staticClass: "yicon cancel",
+                on: {
+                  click: function($event) {
+                    return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
+                  }
                 }
-              }
-            })
-          ])
-        : _vm._e()
-    }),
-    0
+              })
+            ])
+          : _vm._e()
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.GET_TRANSPORT_BODIES, function(body) {
+        return _vm.isEqualBodies(body.val)
+          ? _c("div", { staticClass: "selected-item" }, [
+              _vm._v("\n        " + _vm._s(body.name)),
+              _c("i", {
+                staticClass: "yicon cancel",
+                on: {
+                  click: function($event) {
+                    return _vm.SET_TRANSPORT_BODY_CHOOSE(body.val)
+                  }
+                }
+              })
+            ])
+          : _vm._e()
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
