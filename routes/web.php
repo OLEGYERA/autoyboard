@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/parseLinks', 'Aggregator\Parse@runParseLinks');
 Route::get('/parseCards', 'Aggregator\Parse@runParseCards');
-Route::get('/cardTest/{id}', 'Auto\SearchController@cardTest');
+//Route::get('/cardTest/{id}', 'Site\Auto\SearchController@cardTest');
 
 Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
-Route::get('/parseExchange', 'Auto\ExchangeRatesController@parseRate');
+Route::get('/parseExchange', 'System\ExchangeRatesController@parseRate');
 //Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
 //Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -42,7 +42,7 @@ Route::get('/catbody', 'Site\Auto\PageController@catbody')->name('catbody');
 Route::get('/changelog', 'Site\Auto\PageController@changelog')->name('changelog');
 Route::get('/update', 'Site\Auto\PageController@update')->name('update');
 
-Route::get('/auto/{card_id}/photo_{num}.jpg', 'Auto\ImageConnector@getImage')->name('getImage');
+Route::get('/auto/{card_id}/photo_{num}.jpg', 'System\ImageConnector@getImage')->name('getImage');
 
 
 
