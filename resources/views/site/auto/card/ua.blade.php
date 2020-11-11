@@ -3,15 +3,15 @@
         <div class="yb-bread_next-card">
             <div class="yb-bread_crumbs">
                 <span class="yb-crumbs">
-                <a href="#" class="yb-crumbs_name">Главная</a>
+                <a href="#" class="yb-crumbs_name">Головна</a>
                 <i class="fas fa-angle-right"></i>
             </span>
                 <span class="yb-crumbs">
-                <a href="#" class="yb-crumbs_name">Новые авто</a>
+                <a href="#" class="yb-crumbs_name">Нові авто</a>
                 <i class="fas fa-angle-right"></i>
             </span>
                 <span class="yb-crumbs">
-                <a href="#" class="yb-crumbs_name active">Легковые</a>
+                <a href="#" class="yb-crumbs_name active">Легкові</a>
             </span>
             </div>
             <button class="yb_come-back">
@@ -19,7 +19,7 @@
                 Назад
             </button>
             <button class="ynext_card-auto">
-                Следующий автомобиль
+                Наступний автомобіль
                 <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z"
@@ -29,37 +29,37 @@
         </div>
         @php($main = $card->main)
         @php($body = $card->body)
-{{--        @dd($card->photos)--}}
+{{--        @dd($main->manufacture)--}}
 
         <h1 class="y-auto_name">
             {{$main->brand->title}}
             {{$main->modificaion}}
-{{--            {{$main->model->title}}--}}
+            {{$main->model->title}}
         </h1>
         <div class="yb-car_tag">
             @if($main->customCleared === 1)
-                <span>Авто не растаможено</span>
+                <span>Авто не розмитнено</span>
             @endif
             @if($main->noMotion === 1)
                 <span>Авто не на ходу</span>
             @endif
             @if($main->accident === 1)
-                <span>Авто после ДТП</span>
+                <span>Після аварії</span>
             @endif
             @if($main->abroad === 1)
-                <span>Авто находится за границей</span>
+                <span>Авто знаходиться за кордоном</span>
             @endif
             @if($main->credit === 1)
-                <span>Авто в кредите</span>
+                <span>Авто в кредиті</span>
             @endif
             @if($main->manufacture)
-                <span>Пригнан из {{$main->manufacture->rtitle}}</span>
+                <span>Пригнаний з {{$main->manufacture->utitle}}</span>
             @endif
             @if($main->bargain === 1)
-                <span>Возможен торг</span>
+                <span>Можливий торг</span>
             @endif
             @if($main->exchange === 1)
-                <span>Возможен обмен</span>
+                <span>Можливий обмін</span>
             @endif
         </div>
         @if($card->status !== 3)
@@ -76,7 +76,7 @@
                     </defs>
                 </svg>
                 <span>
-                    Объявления Hyundai Sonata 2016 г. удалено и не принимает участие в поиске!
+                    Оголошення Hyundai Sonata 2016 р видалено і не бере участь в пошуку!
                 </span>
             </div>
         @endif
@@ -93,8 +93,8 @@
                     ]);
 
                     $fullRegion = json_encode([
-                        'city' => $card->main->city->rtitle,
-                        'region' => $card->main->region->rtitle
+                        'city' => $card->main->city->utitle,
+                        'region' => $card->main->region->utitle
                     ])
                     ?>
                     <div class="yb_autol-top">
@@ -112,7 +112,7 @@
                         <div class="yb_main-options">
                             <div class="yb_optons_list">
                                 <div class="yb_option-title">
-                                    <h3 class="option_title">Двигатель</h3>
+                                    <h3 class="option_title">Двигун</h3>
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -133,17 +133,17 @@
                                     </svg>
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Топливо</span>
+                                    <span class="yb_items-title">Паливо</span>
                                     @if($card->body->typeFuel === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc">{{$card->body->typeFuel->rtitle}} </h4>
+                                        <h4 class="yb_item-desc">{{$card->body->typeFuel->utitle}} </h4>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Объем</span>
+                                    <span class="yb_items-title">Об`єм</span>
                                     @if($card->body->volume === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
                                         <h4 class="yb_item-desc  item_number">{{$card->body->volume}} <span>л</span>
                                         </h4>
@@ -173,32 +173,32 @@
                                 <div class="yb-flex_items">
                                     <span class="yb_items-title">Тип кузова</span>
                                     @if($card->body->typeBody === null)--}}
-                                    <h4 class="yb_item-desc">Не указано</h4>
+                                    <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <span class="yb_item-desc">{{$card->body->typeBody->rtitle}}</span>
+                                        <span class="yb_item-desc">{{$card->body->typeBody->utitle}}</span>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Двери</span>
+                                    <span class="yb_items-title">Двері</span>
                                     @if($card->body->doors === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
                                         <h4 class="yb_item-desc">{{$card->body->doors}}</h4>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Места</span>
+                                    <span class="yb_items-title">Місця</span>
                                     @if($card->body->seats === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc item_number">{{$card->body->seats}} <span> мест</span>
+                                        <h4 class="yb_item-desc item_number">{{$card->body->seats}} <span> місць</span>
                                         </h4>
                                     @endif
                                 </div>
                             </div>
                             <div class="yb_optons_list">
                                 <div class="yb_option-title">
-                                    <h3 class="option_title">Трансмиссия</h3>
+                                    <h3 class="option_title">Трансмісія</h3>
                                     <svg width="26" height="35" viewBox="0 0 26 35" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -218,21 +218,21 @@
                                 <div class="yb-flex_items">
                                     <span class="yb_items-title">Коробка передач</span>
                                     @if($body->typeTransmission === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc">{{$body->typeTransmission->rtitle}}</h4>
+                                        <h4 class="yb_item-desc">{{$body->typeTransmission->utitle}}</h4>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Кол.передач</span>
-                                    <h4 class="yb_item-desc">Не указано</h4>
+                                    <span class="yb_items-title">Кіл.передач</span>
+                                    <h4 class="yb_item-desc">Не вказано</h4>
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Тип привода</span>
+                                    <span class="yb_items-title">Тип приводу</span>
                                     @if($body->typeGear === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc">{{$body->typeGear->rtitle}}</h4>
+                                        <h4 class="yb_item-desc">{{$body->typeGear->utitle}}</h4>
                                     @endif
                                 </div>
                             </div>
@@ -242,7 +242,7 @@
                         <div class="yb_additionally-column">
                             @if(count($card->state) > 0)
                                 <div class="yb_column_items">
-                                    <h4>Состояние</h4>
+                                    <h4>Стан</h4>
                                     <ul class="yb_row_list">
                                         @foreach($card->state as $state)
                                             <li class="yb-items_row">
@@ -252,7 +252,7 @@
                                                         d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                         fill="#06CB78"/>
                                                 </svg>
-                                                {{$state->rtitle}}
+                                                {{$state->utitle}}
                                             </li>
                                         @endforeach
                                     </ul>
@@ -260,7 +260,7 @@
                             @endif
                             @if(count($card->security) > 0)
                                 <div class="yb_column_items">
-                                    <h4>Безопасность</h4>
+                                    <h4>Безпека</h4>
                                     <ul class="yb_row_list">
                                         @foreach($card->security as $security)
                                             <li class="yb-items_row">
@@ -270,7 +270,7 @@
                                                         d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                         fill="#06CB78"/>
                                                 </svg>
-                                                {{$security->rtitle}}
+                                                {{$security->utitle}}
                                             </li>
                                         @endforeach
                                     </ul>
@@ -288,7 +288,7 @@
                                                         d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                         fill="#06CB78"/>
                                                 </svg>
-                                                {{$comfort->rtitle}}
+                                                {{$comfort->utitle}}
                                             </li>
                                         @endforeach
                                     </ul>
@@ -296,7 +296,7 @@
                             @endif
                             @if(count($card->multimedia) > 0)
                                 <div class="yb_column_items">
-                                    <h4>Мультимедиа</h4>
+                                    <h4>Мультимедіа</h4>
                                     <ul class="yb_row_list">
                                         @foreach($card->multimedia as $multimedia)
                                             <li class="yb-items_row">
@@ -306,7 +306,7 @@
                                                         d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                         fill="#06CB78"/>
                                                 </svg>
-                                                {{$multimedia->rtitle}}
+                                                {{$multimedia->utitle}}
                                             </li>
                                         @endforeach
                                     </ul>
@@ -314,7 +314,7 @@
                             @endif
                             @if(count($card->other) > 0)
                                 <div class="yb_column_items">
-                                    <h4>Прочее</h4>
+                                    <h4>Інше</h4>
                                     <ul class="yb_row_list">
                                         @foreach($card->other as $other)
                                             <li class="yb-items_row">
@@ -324,7 +324,7 @@
                                                         d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                         fill="#06CB78"/>
                                                 </svg>
-                                                {{$other->rtitle}}
+                                                {{$other->utitle}}
                                             </li>
                                         @endforeach
                                     </ul>
@@ -346,7 +346,7 @@
                                 <yfavorite></yfavorite>
                             </div>
                             <button class="price_monitoring">
-                                Мониториг цен на авто
+                                Моніторинг цін на авто
                             </button>
                         </div>
                         <div class="yvis-car_options">
@@ -364,11 +364,11 @@
                                         fill="#0B3F8D"/>
                                 </svg>
                                 <div class="yoption_name">
-                                    <h2>Пробег</h2>
+                                    <h2>Пробіг</h2>
                                     @if($body->mileage === null)
-                                        <span class="y-option">Не указано</span>
+                                        <span class="y-option">Не вказано</span>
                                     @else
-                                        <span class="y-option">{{$body->mileage}} .тыс </span>
+                                        <span class="y-option">{{$body->mileage}} .тис </span>
                                     @endif
                                 </div>
 
@@ -381,12 +381,12 @@
                                         fill="#0B3F8D"/>
                                 </svg>
                                 <div class="yoption_name">
-                                    <h2>Локация</h2>
+                                    <h2>Локація</h2>
                                     <div
                                         class="y-option">
                                         <div>
-                                            <span>{{$main->region->rtitle}} обл,</span>
-                                            <span>{{$main->city->rtitle}} </span>
+                                            <span>{{$main->region->utitle}} обл,</span>
+                                            <span>{{$main->city->utitle}} </span>
                                         </div>
                                     </div>
                                 </div>
@@ -411,11 +411,11 @@
                                         fill="#0B3F8D"/>
                                 </svg>
                                 <div class="yoption_name">
-                                    <h2>Двигатель</h2>
-                                    @if($body->typeFuel->rtitle === null)
-                                        <span class="y-option">Не указано</span>
+                                    <h2>Двигун</h2>
+                                    @if($body->typeFuel === null)
+                                        <span class="y-option">Не вказано</span>
                                     @else
-                                        <span class="y-option">{{$body->typeFuel->rtitle}} </span>
+                                        <span class="y-option">{{$body->typeFuel->utitle}} </span>
                                     @endif
                                 </div>
                             </div>
@@ -436,9 +436,9 @@
                                         fill="#0B3F8D"/>
                                 </svg>
                                 <div class="yoption_name">
-                                    <h2>Год выпуска</h2>
+                                    <h2>Рік випуску</h2>
                                     @if($main->year === null)
-                                        <span class="y-option">Не указано</span>
+                                        <span class="y-option">Не вказано</span>
                                     @else
                                         <span class="y-option">{{$main->year}}</span>
                                     @endif
@@ -460,10 +460,10 @@
                                 </svg>
                                 <div class="yoption_name">
                                     <h2>Кузов</h2>
-                                    @if($body->typeBody->rtitle === null)
-                                        <span class="y-option">Не указано</span>
+                                    @if($body->typeBody->utitle === null)
+                                        <span class="y-option">Не вказано</span>
                                     @else
-                                        <span class="y-option">{{$body->typeBody->rtitle}}</span>
+                                        <span class="y-option">{{$body->typeBody->utitle}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -486,9 +486,9 @@
                                 <div class="yoption_name">
                                     <h2>Коробка</h2>
                                     @if($body->typeTransmission === null)
-                                        <span class="y-option">Не указано</span>
+                                        <span class="y-option">Не вказано</span>
                                     @else
-                                        <span class="y-option">{{$body->typeTransmission->rtitle}}</span>
+                                        <span class="y-option">{{$body->typeTransmission->utitle}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -496,13 +496,13 @@
                         <div class="yb-additional_car-opt">
                             <div class="yadditional_i">
                                 <div class="yvis_item">
-                                    <h2 class="y-item name">Просмотров авто:</h2>
+                                    <h2 class="y-item name">Переглядів авто:</h2>
                                     <span class="y-item count">120</span>
                                 </div>
                                 <div class="yvis_item">
-                                    <h2 class="y-item name">Создано:</h2>
+                                    <h2 class="y-item name">Створено:</h2>
                                     @if($card->created_at === null)
-                                        <span class="y-option">Не указано</span>
+                                        <span class="y-option">Не вказано</span>
                                     @else
                                         <span class="y-item count">{{$card->created_at}}</span>
                                     @endif
@@ -510,13 +510,13 @@
                             </div>
                             <div class="yadditional_i">
                                 <div class="yvis_item">
-                                    <h2 class="y-item name">Добавлено в блокнот:</h2>
+                                    <h2 class="y-item name">Додано в блокнот:</h2>
                                     <span class="y-item count">320</span>
                                 </div>
                                 <div class="yvis_item">
                                     <h2 class="y-item name">ID авто:</h2>
                                     @if($card->id === null)
-                                        <span class="y-option">Не указано</span>
+                                        <span class="y-option">Не вказано</span>
                                     @else
                                         <span class="y-item count">{{$card->id}}</span>
                                     @endif
@@ -525,14 +525,14 @@
                         </div>
                     </div>
                     <button class="yb_go_to">
-                        <span>Перейти на сайт объявления</span>
+                        <span>Перейти на сайт оголошення</span>
                         <yexpanded :color="'white'" :text_color="'white'"></yexpanded>
                     </button>
                     <div class="yb_commercial-block">
                         <span class="commercial_title">Реклама</span>
                     </div>
                     <div class="yb_vis-anouther">
-                        <h5 class="yb_anouter-title">Другие объявления в Киеве</h5>
+                        <h5 class="yb_anouter-title">Інші оголошення в Києві</h5>
                         <div class="yb_anouther_item">
                             <figure class="yb_item-img">
                                 <img
@@ -541,7 +541,7 @@
                             </figure>
                             <div class="yb_desc-item">
                                 <h2 class="yb-car_name">Mercedes-Benz E 220,2009</h2>
-                                <h6 class="yb_car-loc">Киев</h6>
+                                <h6 class="yb_car-loc">Київ</h6>
                                 <div class="yb_car-price">8 200 $</div>
                             </div>
                         </div>
@@ -553,7 +553,7 @@
                             </figure>
                             <div class="yb_desc-item">
                                 <h2 class="yb-car_name">Mercedes-Benz E 220,2009</h2>
-                                <h6 class="yb_car-loc">Киев</h6>
+                                <h6 class="yb_car-loc">Київ</h6>
                                 <div class="yb_car-price">8 200 $</div>
                             </div>
                         </div>
@@ -565,12 +565,12 @@
                             </figure>
                             <div class="yb_desc-item">
                                 <h6 class="yb-car_name">Mercedes-Benz E 220,2009</h6>
-                                <span class="yb_car-loc">Киев</span>
+                                <span class="yb_car-loc">Київ</span>
                                 <div class="yb_car-price">8 200 $</div>
                             </div>
                         </div>
                         <button class="yb_watch_more">
-                            Смотреть еще
+                            Дивитися ще
                             <svg width="54" height="8" viewBox="0 0 54 8" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -583,7 +583,7 @@
                 <div class="yb-caroptions_mobile">
                     @if(mb_strlen($main->description) > 0)
                         <div class="yb_car-description">
-                            <h2>Описание</h2>
+                            <h2>Опис</h2>
                             <p>
                                 {{$main->description}}
                             </p>
@@ -593,7 +593,7 @@
                         <div class="yb_main-options">
                             <div class="yb_optons_list">
                                 <div class="yb_option-title">
-                                    <h3 class="option_title">Двигатель</h3>
+                                    <h3 class="option_title">Двигун</h3>
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -614,17 +614,17 @@
                                     </svg>
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Топливо</span>
+                                    <span class="yb_items-title">Паливо</span>
                                     @if($card->body->typeFuel === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc">{{$card->body->typeFuel->rtitle}} </h4>
+                                        <h4 class="yb_item-desc">{{$card->body->typeFuel->utitle}} </h4>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Объем</span>
+                                    <span class="yb_items-title">Об`єм</span>
                                     @if($card->body->volume === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
                                         <h4 class="yb_item-desc  item_number">{{$card->body->volume}} <span>л</span>
                                         </h4>
@@ -653,33 +653,33 @@
                                 </div>
                                 <div class="yb-flex_items">
                                     <span class="yb_items-title">Тип кузова</span>
-                                    @if($card->body->typeBody === null)
-                                    <h4 class="yb_item-desc">Не указано</h4>
+                                    @if($card->body->typeBody=== null)
+                                    <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <span class="yb_item-desc">{{$card->body->typeBody->rtitle}}</span>
+                                        <span class="yb_item-desc">{{$card->body->typeBody->utitle}}</span>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Двери</span>
+                                    <span class="yb_items-title">Двері</span>
                                     @if($card->body->doors === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
                                         <h4 class="yb_item-desc">{{$card->body->doors}}</h4>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Места</span>
+                                    <span class="yb_items-title">Місця</span>
                                     @if($card->body->seats === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc item_number">{{$card->body->seats}} <span> мест</span>
+                                        <h4 class="yb_item-desc item_number">{{$card->body->seats}} <span> місць</span>
                                         </h4>
                                     @endif
                                 </div>
                             </div>
                             <div class="yb_optons_list">
                                 <div class="yb_option-title">
-                                    <h3 class="option_title">Трансмиссия</h3>
+                                    <h3 class="option_title">Трансмісія</h3>
                                     <svg width="26" height="35" viewBox="0 0 26 35" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -699,21 +699,21 @@
                                 <div class="yb-flex_items">
                                     <span class="yb_items-title">Коробка передач</span>
                                     @if($body->typeTransmission === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc">{{$body->typeTransmission->rtitle}}</h4>
+                                        <h4 class="yb_item-desc">{{$body->typeTransmission->utitle}}</h4>
                                     @endif
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Кол.передач</span>
-                                    <h4 class="yb_item-desc">Не указано</h4>
+                                    <span class="yb_items-title">Кіл.передач</span>
+                                    <h4 class="yb_item-desc">Не вказано</h4>
                                 </div>
                                 <div class="yb-flex_items">
-                                    <span class="yb_items-title">Тип привода</span>
+                                    <span class="yb_items-title">Тип приводу</span>
                                     @if($body->typeGear === null)
-                                        <h4 class="yb_item-desc">Не указано</h4>
+                                        <h4 class="yb_item-desc">Не вказано</h4>
                                     @else
-                                        <h4 class="yb_item-desc">{{$body->typeGear->rtitle}}</h4>
+                                        <h4 class="yb_item-desc">{{$body->typeGear->utitle}}</h4>
                                     @endif
                                 </div>
                             </div>
@@ -723,7 +723,7 @@
                     <div class="yb_additionally-column">
                         @if(count($card->state) > 0)
                             <div class="yb_column_items">
-                                <h4>Состояние</h4>
+                                <h4>Стан</h4>
                                 <ul class="yb_row_list">
                                     @foreach($card->state as $state)
                                         <li class="yb-items_row">
@@ -733,7 +733,7 @@
                                                     d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                     fill="#06CB78"/>
                                             </svg>
-                                            {{$state->rtitle}}
+                                            {{$state->utitle}}
                                         </li>
                                     @endforeach
                                 </ul>
@@ -741,7 +741,7 @@
                         @endif
                         @if(count($card->security) > 0)
                             <div class="yb_column_items">
-                                <h4>Безопасность</h4>
+                                <h4>Безпека</h4>
                                 <ul class="yb_row_list">
                                     @foreach($card->security as $security)
                                         <li class="yb-items_row">
@@ -751,7 +751,7 @@
                                                     d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                     fill="#06CB78"/>
                                             </svg>
-                                            {{$security->rtitle}}
+                                            {{$security->utitle}}
                                         </li>
                                     @endforeach
                                 </ul>
@@ -769,7 +769,7 @@
                                                     d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                     fill="#06CB78"/>
                                             </svg>
-                                            {{$comfort->rtitle}}
+                                            {{$comfort->utitle}}
                                         </li>
                                     @endforeach
                                 </ul>
@@ -777,7 +777,7 @@
                         @endif
                         @if(count($card->multimedia) > 0)
                             <div class="yb_column_items">
-                                <h4>Мультимедиа</h4>
+                                <h4>Мультимедіа</h4>
                                 <ul class="yb_row_list">
                                     @foreach($card->multimedia as $multimedia)
                                         <li class="yb-items_row">
@@ -787,7 +787,7 @@
                                                     d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                     fill="#06CB78"/>
                                             </svg>
-                                            {{$multimedia->rtitle}}
+                                            {{$multimedia->utitle}}
                                         </li>
                                     @endforeach
                                 </ul>
@@ -795,7 +795,7 @@
                         @endif
                         @if(count($card->other) > 0)
                             <div class="yb_column_items">
-                                <h4>Прочее</h4>
+                                <h4>Інше</h4>
                                 <ul class="yb_row_list">
                                     @foreach($card->other as $other)
                                         <li class="yb-items_row">
@@ -805,7 +805,7 @@
                                                     d="M6.5 0C2.91604 0 0 2.91604 0 6.5C0 10.084 2.91604 13 6.5 13C10.084 13 13 10.084 13 6.5C13 2.91604 10.084 0 6.5 0ZM10.1328 4.78947L5.9787 8.91103C5.73434 9.15539 5.34336 9.17168 5.08271 8.92732L2.88346 6.92356C2.62281 6.6792 2.60652 6.27193 2.83459 6.01128C3.07895 5.75063 3.48622 5.73434 3.74687 5.9787L5.48998 7.57519L9.20426 3.8609C9.46491 3.60025 9.87218 3.60025 10.1328 3.8609C10.3935 4.12155 10.3935 4.52882 10.1328 4.78947Z"
                                                     fill="#06CB78"/>
                                             </svg>
-                                            {{$other->rtitle}}
+                                            {{$other->utitle}}
                                         </li>
                                     @endforeach
                                 </ul>
@@ -817,13 +817,13 @@
         </div>
     </section>
     <section class="yb_more-similar">
-        <h2 class="similar_title">Похожие</h2>
+        <h2 class="similar_title">Схожі</h2>
         <ybestoffer></ybestoffer>
         <div class="yb-similar_commercial">
             <span>Реклама</span>
         </div>
         <div class="ybsimilar_city-item">
-            <h2 class="similar_title">Другие обьявления в Киеве</h2>
+            <h2 class="similar_title">Інші оголошення в Києві</h2>
             <ybestoffer></ybestoffer>
         </div>
     </section>

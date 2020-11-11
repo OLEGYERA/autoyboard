@@ -89,7 +89,7 @@
             </div>
         </div>
         <div  class="yb_fullpage-visual" v-if="showSlider">
-            <div :class="{'yb_slide-landscape' : landscape}"  class="yb_slide-header">
+            <div :class="{'yb_slide-landscape' : landscape}"  class="yb_slide-header ">
                 <div class="yb-slide_left" >
                     <h2 class="yb_car-name">{{ fullname.brand }} {{ fullname.model }} {{fullname.mod}}</h2>
                     <div class="yb_header-price">
@@ -120,7 +120,9 @@
                                         <div v-for="(item,j) in options" class="thumbImg">
                                             <div class="yb_count-img" v-if="item === j">
                                                 <span>{{ j+1 }}</span>
-                                                из
+                                                <span v-if="lang === 'ru'">из</span>
+                                                <span v-else>з</span>
+
                                                 <span>{{ options.length }}</span>
                                             </div>
                                             <img :src="'/' + item.path" alt="">
@@ -168,30 +170,6 @@
 <!--                        </div>-->
 <!--                    </Slick>-->
 <!--                </div>-->
-<!--                <VueSlickCarousel-->
-<!--                    :options="slickOptions"-->
-<!--                    id="slick1"-->
-<!--                    ref="c1"-->
-<!--                    :focusOnSelect="true">-->
-<!--                    <div>-->
-<!--                        <h3>1</h3>-->
-<!--                    </div>-->
-<!--                </VueSlickCarousel>-->
-<!--                <VueSlickCarousel-->
-<!--                    id="slick2"-->
-<!--                    :options="slickOptions2"-->
-<!--                    v-bind="settings2"-->
-<!--                    ref="c2"-->
-<!--                    :slidesToShow="4"-->
-<!--                    :focusOnSelect="true">-->
-<!--                    <div>-->
-<!--                        <h3>1</h3>-->
-<!--                        <h3>2</h3>-->
-<!--                        <h3>3</h3>-->
-<!--                        <h3>4</h3>-->
-<!--                    </div>-->
-
-<!--                </VueSlickCarousel>-->
 <!--                <div class="yb-scroll_vis">-->
 <!--                    <vuescroll :ops="ops">-->
 <!--                        <div class="yb-full_carousel" ref="scrollTo">-->
@@ -240,13 +218,6 @@
 <!--                    </svg>-->
 <!--                </figure>-->
             </div>
-<!--            <div v-if="windowWidth <= 600" class="yb-slick_mobile">-->
-<!--                    <Slick ref="slick" :options="slickOptions" v-if="options.length > 0">-->
-<!--                            <figure v-for="(item, i) in options" :key="i"  class="yb_slick_items">-->
-<!--                                <img :src=" '/' + item.path" alt="" class="yb_slick_item"/>-->
-<!--                            </figure>-->
-<!--                    </Slick>-->
-<!--            </div>-->
         </div>
     </div>
 

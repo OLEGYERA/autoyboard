@@ -3,8 +3,10 @@
     <div class="yfilter">
     <div class="yfilterform">
         <div class="yoption_btn">
-            <button class="change_type active">Все</button>
-            <button class="change_type">Новые</button>
+            <button v-if="lang === 'ru'" class="change_type active">Все</button>
+            <button v-else class="change_type active">Всі</button>
+            <button v-if="lang === 'ru'" class="change_type">Новые</button>
+            <button v-else class="change_type">Нові</button>
             <button class="change_type">Б/у</button>
         </div>
         <div class="yresource_options">
@@ -23,13 +25,15 @@
             <yselect :placeholder="'Модель'" :options="options"></yselect>
             <yselect :placeholder="'Марка'" :options="options"></yselect>
             <div class="yb-add_marks">
-                <button class="yadd_mark" >Добавить марку</button>
+                <button v-if="lang==='ru'" class="yadd_mark" >Добавить марку</button>
+                <button v-else class="yadd_mark" >Додати марку</button>
             </div>
             <ydropdowfilter :placeholder="'Тип кузова'" :items="bodyType"></ydropdowfilter>
             <yselect :placeholder="'Регион'" :options="options"></yselect>
         </div>
         <div class="yprice_options">
-            <h3 class="ytitle_option">Цена, $</h3>
+            <h3 v-if="lang === 'ru'" class="ytitle_option">Цена, $</h3>
+            <h3 v-else class="ytitle_option">Ціна, $</h3>
             <div class="change_price">
                 <yprice></yprice>
             </div>
@@ -40,7 +44,8 @@
             <ydropdowfilter :placeholder="'Коробка передач'" :items="transmission"></ydropdowfilter>
         </div>
         <div class="yselect-car_colors">
-            <h3 class="color_title">Цвет</h3>
+            <h3 v-if="lang === 'ru'" class="color_title">Цвет</h3>
+            <h3 v-else class="color_title">Колір</h3>
                 <div class="ycheck_color">
                     <div class="ylabel_visible">
                         <input  class="" @click="check" type="checkbox">
@@ -95,7 +100,8 @@
                 </div>
         </div>
         <div class="yb-confirm_btn">
-            <button>Поиск</button>
+            <button v-if="lang==='ru'">Поиск</button>
+            <button v-else>Пошук</button>
         </div>
     </div>
     </div>
@@ -106,6 +112,7 @@
     import vuescroll from "vuescroll";
     export default {
         components: {vuescroll},
+        props: ['lang'],
         data(){
             return{
                 transmission: ['Механическая', 'Автоматическая', 'Роботизированная', 'Вариативная', 'Типтроник' ],

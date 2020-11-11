@@ -961,6 +961,7 @@
                                     float: right;
                                     position: relative;
                                     .slick-arrow{
+                                        cursor: pointer;
                                         position: absolute;
                                         top: 40%;
                                         z-index: 2;
@@ -977,6 +978,7 @@
                                         justify-content: center;
                                         align-items: center;
                                         width: 100%;
+                                        cursor: pointer;
                                         img{
                                             height: 100%;
                                             width: 100%;
@@ -990,6 +992,7 @@
                                     height: 610px;
                                     overflow: hidden;
                                     max-width: 12%;
+                                    cursor: pointer;
                                     .thumbnail-image{
                                         .thumbImg{
                                             height: 120px;
@@ -1172,44 +1175,6 @@
                         }
                     }
 
-                }
-                .yb-slick_mobile{
-                    width: 85% ;
-                    overflow: hidden;
-                    position: relative;
-                    height: 660px;
-                    .slick-arrow{
-                        position: absolute;
-                        top: 50%;
-                        &.yb_prev{
-                            left: 0;
-                        }
-                        &.yb_next{
-                            right: 0;
-                        }
-                    }
-                    .yb_slick_items{
-                        margin: 0;
-                        img{
-                            width: 100%;
-                        }
-                    }
-                    .slick-slider{
-                        .slick-list{
-                            .slick-slide{
-                                align-items: flex-start;
-                                div{
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    width: 100%;
-                                }
-                            }
-                            .slick-track{
-                                display: flex;
-                            }
-                        }
-                    }
                 }
                 .y-current_img {
                     width: 60%!important;
@@ -2627,36 +2592,6 @@
                                             }
                                         }
                                     }
-
-                                    .yb-slick_mobile {
-                                        width: 100%;
-                                        display: block;
-                                        padding: 0 15px;
-                                        overflow: hidden;
-
-                                        .slick-initialized {
-                                            .slick-list {
-                                                .slick-track {
-                                                    display: flex;
-                                                }
-                                            }
-                                        }
-
-                                        .yb_slick_items {
-                                            overflow: hidden;
-                                            width: 100%;
-                                            margin: 0;
-                                            max-width: 550px;
-                                            height: 560px;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-
-                                            .yb_slick_item {
-                                                width: 100%;
-                                            }
-                                        }
-                                    }
                                 }
 
                                 .ycard_image-vis {
@@ -2758,12 +2693,6 @@
                                     .yb-full_img{
 
 
-                                    }
-                                    .yb-slick_mobile {
-                                        .yb_slick_items {
-                                            max-width: 380px;
-                                            height: 560px;
-                                        }
                                     }
                                 }
                             }
@@ -2904,12 +2833,6 @@
                                 }
 
                                 .yb_fullpage-visual {
-                                    .yb-slick_mobile {
-                                        .yb_slick_items {
-                                            max-width: 320px;
-                                            height: 520px;
-                                        }
-                                    }
 
                                 }
                             }
@@ -2975,12 +2898,6 @@
                                     }
                                 }
                                 .yb_fullpage-visual {
-                                    .yb-slick_mobile {
-                                        .yb_slick_items {
-                                            max-width: 265px;
-                                        }
-                                    }
-
                                 }
                             }
                         }

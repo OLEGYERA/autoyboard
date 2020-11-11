@@ -6,7 +6,8 @@
         ></ytitle>
         <div class="y-cat-bottom">
             <div class="cat_categories">
-                    <h3  class="title">Категории</h3>
+                    <h3 v-if="lang === 'ru'" class="title">Категории</h3>
+                    <h3 v-else class="title">Категорії</h3>
                 <div class="cat_list-items">
                     <ul class="list_items">
                         <li  tabindex="0" class="cat_item">Легковые</li>
@@ -25,8 +26,9 @@
             <div class="type_body-marks">
                 <div class="car_body-type">
                     <div class="body-type_top">
-                        <h3 class="type-top_title">Популярные кузовы</h3>
-                        <yexpanded :text_color="'white'" :text="'Смотреть больше'"></yexpanded>
+                        <h3 v-if="lang ==='ru'" class="type-top_title">Популярные кузовы</h3>
+                        <h3 v-else class="type-top_title">Популярні кузови</h3>
+                        <yexpanded :text_color="'white'" :utext="'Дивитися більше'" :text="'Смотреть больше'"></yexpanded>
                     </div>
                     <div class="yb-slide_type">
                         <Slick id="slick3" :options="slickOptions" ref="slick">
@@ -113,7 +115,8 @@
                                     </li>
                                 </ul>
                                 <div class="yshow_more-marks">
-                                    <button class="ymore_marks">Все марки</button>
+                                    <button v-if="lang==='ru'" class="ymore_marks">Все марки</button>
+                                    <button v-else class="ymore_marks">Всі марки</button>
                                 </div>
                             </div>
                 </div>

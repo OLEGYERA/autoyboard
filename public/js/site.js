@@ -2915,35 +2915,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3546,8 +3517,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['color', 'text', 'text_color']
+  props: ['color', 'text', 'utext', 'text_color']
 });
 
 /***/ }),
@@ -5591,7 +5570,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.vehicle-detail-banner .car-slider-desc {*/\n/*    max-width: 180px;*/\n/*    margin: 0 auto;*/\n/*}*/\n.banner-slider .slider.slider-for[data-v-46f58b8e],\n.banner-slider .slider.slider-nav[data-v-46f58b8e] {\n    width: 76%;\n    /*overflow: hidden;*/\n    /*float: left;*/\n}\n.banner-slider .slider.slider-nav[data-v-46f58b8e] {\n    /*height: 610px;*/\n    /*overflow: hidden;*/\n}\n.slider-banner-image[data-v-46f58b8e] {\n    /*height: 610px;*/\n}\n.slider-nav .slick-slide.thumbnail-image .thumbImg[data-v-46f58b8e]{\n    /*max-width: 178px;*/\n    /*height: 110px;*/\n    /*margin: 0 auto;*/\n    /*border: 1px solid #EBEBEB;*/\n}\n.slider-banner-image img[data-v-46f58b8e],\n.slider-nav .slick-slide.thumbnail-image .thumbImg img[data-v-46f58b8e] {\n    /*height: 100%;*/\n    /*width:100%;*/\n    /*object-fit: contain;*/\n}\n.slick-vertical .slick-slide[data-v-46f58b8e]:active,\n.slick-vertical .slick-slide[data-v-46f58b8e]:focus,\n.slick-arrow[data-v-46f58b8e]:hover,\n.slick-arrow[data-v-46f58b8e]:focus {\n    border: 0;\n    outline: 0;\n}\n.slider-nav .slick-slide.slick-current.thumbnail-image .thumbImg[data-v-46f58b8e] {\n    /*border: 2px solid #196DB6;*/\n}\n.slider-nav .slick-slide.slick-current span[data-v-46f58b8e] {\n    /*color: #196DB6;*/\n}\n.slider-nav .slick-slide[data-v-46f58b8e] {\n    /*text-align: center;*/\n}\n.slider-nav .slick-slide span[data-v-46f58b8e] {\n    /*font-size: 14px;*/\n    /*display: block;*/\n    /*padding: 5px 0 15px;*/\n}\n/*.slick-arrow {*/\n/*    width: 100%;*/\n/*    background-color: transparent;*/\n/*    border: 0;*/\n/*    background-position: center;*/\n/*    background-repeat: no-repeat;*/\n/*    font-size: 0;*/\n/*    height: 18px;*/\n/*    position: absolute;*/\n/*    left: 0;*/\n/*    right: 0;*/\n/*    z-index: 99;*/\n/*}*/\n/*.slick-prev {*/\n/*    top: 0;*/\n/*}*/\n/*.slick-next {*/\n/*    bottom: 0;*/\n/*    background-color: #fff;*/\n/*}*/\n.slick-prev.slick-arrow[data-v-46f58b8e] {\n}\n.slick-next.slick-arrow[data-v-46f58b8e] {\n}\n/*End USE CSS for Slider*/\n\n/*@media screen and (max-width : 991px) {*/\n\n/*    .banner-slider .slider.slider-for,*/\n/*    .banner-slider .slider.slider-nav {*/\n/*        max-width: 100%;*/\n/*        float: none;*/\n/*    }*/\n/*    .banner-slider .slider.slider-for {*/\n/*        padding-right: 0;*/\n/*    }*/\n/*    .banner-slider .slider.slider-nav {*/\n/*        height: auto;*/\n/*    }*/\n/*    .slider-banner-image {*/\n/*        height: 500px;*/\n/*    }*/\n/*    .slider.slider-nav.thumb-image {*/\n/*        padding: 10px 30px 0;*/\n/*    }*/\n/*    .slider-nav .slick-slide span {*/\n/*        padding: 5px 0;*/\n/*    }*/\n/*    .slick-arrow {*/\n/*        padding: 0;*/\n/*        width: 30px;*/\n/*        height: 30px;*/\n/*        top: 50%;*/\n/*        bottom: 0;*/\n/*        -webkit-transform: translateY(-50%) rotate(-90deg);*/\n/*        -moz-transform: translateY(-50%) rotate(-90deg);*/\n/*        -ms-transform: translateY(-50%) rotate(-90deg);*/\n/*        transform: translateY(-50%) rotate(-90deg);*/\n/*    }*/\n/*    .slick-prev {*/\n/*        left: 0;*/\n/*        right: unset;*/\n/*    }*/\n/*    .slick-next {*/\n/*        left: unset;*/\n/*        right: 0;*/\n/*        background-color: transparent;*/\n/*    }*/\n/*    .vehicle-detail-banner .car-slider-desc {*/\n/*        max-width: 340px;*/\n/*    }*/\n/*    .bid-tag {*/\n/*        padding: 10px 0 15px;*/\n/*    }*/\n/*    .slider.slider-nav.thumb-image {*/\n/*        white-space: nowrap;*/\n/*    }*/\n/*    .thumbnail-image.slick-slide {*/\n/*        padding: 0px 5px;*/\n/*        min-width: 75px;*/\n/*        display: inline-block;*/\n/*        float: none;*/\n/*    }*/\n/*}*/\n\n/*@media screen and (max-width : 767px) {*/\n/*    .slider-banner-image {*/\n/*        height: 400px;*/\n/*    }*/\n/*    .slider.slider-nav.thumb-image {*/\n/*        padding: 0px 20px 0;*/\n/*        margin: 10px 0px 0;*/\n/*    }*/\n/*    .slider-nav .slick-slide.thumbnail-image .thumbImg {*/\n/*        max-width: 140px;*/\n/*        height: 80px;*/\n/*    }*/\n/*    .slick-prev.slick-arrow {*/\n/*        background-position: center 10px;*/\n/*    }*/\n/*    .slick-next.slick-arrow {*/\n/*        background-position: center 10px, center;*/\n/*    }*/\n/*    .slider-nav .slick-slide span {*/\n/*        font-size: 12px;*/\n/*        white-space: normal;*/\n/*    }*/\n/*}*/\n\n/*@media screen and (max-width: 580px) {*/\n/*    .slider-banner-image {*/\n/*        height:340px;*/\n/*    }*/\n/*}*/\n\n/*@media screen and (max-width : 480px) {*/\n/*    .slider-banner-image {*/\n/*        height:280px;*/\n/*    }*/\n/*}*/\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.vehicle-detail-banner .car-slider-desc {*/\n/*    max-width: 180px;*/\n/*    margin: 0 auto;*/\n/*}*/\n.banner-slider .slider.slider-for[data-v-46f58b8e],\n.banner-slider .slider.slider-nav[data-v-46f58b8e] {\n    width: 76%;\n    /*overflow: hidden;*/\n    /*float: left;*/\n}\n.banner-slider .slider.slider-nav[data-v-46f58b8e] {\n    /*height: 610px;*/\n    /*overflow: hidden;*/\n}\n.slider-banner-image[data-v-46f58b8e] {\n    /*height: 610px;*/\n}\n.slider-nav .slick-slide.thumbnail-image .thumbImg[data-v-46f58b8e]{\n    /*max-width: 178px;*/\n    /*height: 110px;*/\n    /*margin: 0 auto;*/\n    /*border: 1px solid #EBEBEB;*/\n}\n.slider-banner-image img[data-v-46f58b8e],\n.slider-nav .slick-slide.thumbnail-image .thumbImg img[data-v-46f58b8e] {\n    /*height: 100%;*/\n    /*width:100%;*/\n    /*object-fit: contain;*/\n}\n.slick-vertical .slick-slide[data-v-46f58b8e]:active,\n.slick-vertical .slick-slide[data-v-46f58b8e]:focus,\n.slick-arrow[data-v-46f58b8e]:hover,\n.slick-arrow[data-v-46f58b8e]:focus {\n    border: 0;\n    outline: 0;\n}\n.slider-nav .slick-slide.slick-current.thumbnail-image .thumbImg[data-v-46f58b8e] {\n    /*border: 2px solid #196DB6;*/\n}\n.slider-nav .slick-slide.slick-current span[data-v-46f58b8e] {\n    /*color: #196DB6;*/\n}\n.slider-nav .slick-slide[data-v-46f58b8e] {\n    /*text-align: center;*/\n}\n.slider-nav .slick-slide span[data-v-46f58b8e] {\n    /*font-size: 14px;*/\n    /*display: block;*/\n    /*padding: 5px 0 15px;*/\n}\n/*.slick-arrow {*/\n/*    width: 100%;*/\n/*    background-color: transparent;*/\n/*    border: 0;*/\n/*    background-position: center;*/\n/*    background-repeat: no-repeat;*/\n/*    font-size: 0;*/\n/*    height: 18px;*/\n/*    position: absolute;*/\n/*    left: 0;*/\n/*    right: 0;*/\n/*    z-index: 99;*/\n/*}*/\n/*.slick-prev {*/\n/*    top: 0;*/\n/*}*/\n/*.slick-next {*/\n/*    bottom: 0;*/\n/*    background-color: #fff;*/\n/*}*/\n.slick-prev.slick-arrow[data-v-46f58b8e] {\n}\n.slick-next.slick-arrow[data-v-46f58b8e] {\n}\n/*End USE CSS for Slider*/\n\n/*@media screen and (max-width : 991px) {*/\n\n/*    .banner-slider .slider.slider-for,*/\n/*    .banner-slider .slider.slider-nav {*/\n/*        max-width: 100%;*/\n/*        float: none;*/\n/*    }*/\n/*    .banner-slider .slider.slider-for {*/\n/*        padding-right: 0;*/\n/*    }*/\n/*    .banner-slider .slider.slider-nav {*/\n/*        height: auto;*/\n/*    }*/\n/*    .slider-banner-image {*/\n/*        height: 500px;*/\n/*    }*/\n/*    .slider.slider-nav.thumb-image {*/\n/*        padding: 10px 30px 0;*/\n/*    }*/\n/*    .slider-nav .slick-slide span {*/\n/*        padding: 5px 0;*/\n/*    }*/\n/*    .slick-arrow {*/\n/*        padding: 0;*/\n/*        width: 30px;*/\n/*        height: 30px;*/\n/*        top: 50%;*/\n/*        bottom: 0;*/\n/*        -webkit-transform: translateY(-50%) rotate(-90deg);*/\n/*        -moz-transform: translateY(-50%) rotate(-90deg);*/\n/*        -ms-transform: translateY(-50%) rotate(-90deg);*/\n/*        transform: translateY(-50%) rotate(-90deg);*/\n/*    }*/\n/*    .slick-prev {*/\n/*        left: 0;*/\n/*        right: unset;*/\n/*    }*/\n/*    .slick-next {*/\n/*        left: unset;*/\n/*        right: 0;*/\n/*        background-color: transparent;*/\n/*    }*/\n/*    .vehicle-detail-banner .car-slider-desc {*/\n/*        max-width: 340px;*/\n/*    }*/\n/*    .bid-tag {*/\n/*        padding: 10px 0 15px;*/\n/*    }*/\n/*    .slider.slider-nav.thumb-image {*/\n/*        white-space: nowrap;*/\n/*    }*/\n/*    .thumbnail-image.slick-slide {*/\n/*        padding: 0px 5px;*/\n/*        min-width: 75px;*/\n/*        display: inline-block;*/\n/*        float: none;*/\n/*    }*/\n/*}*/\n\n/*@media screen and (max-width : 767px) {*/\n/*    .slider-banner-image {*/\n/*        height: 400px;*/\n/*    }*/\n/*    .slider.slider-nav.thumb-image {*/\n/*        padding: 0px 20px 0;*/\n/*        margin: 10px 0px 0;*/\n/*    }*/\n/*    .slider-nav .slick-slide.thumbnail-image .thumbImg {*/\n/*        max-width: 140px;*/\n/*        height: 80px;*/\n/*    }*/\n/*    .slick-prev.slick-arrow {*/\n/*        background-position: center 10px;*/\n/*    }*/\n/*    .slick-next.slick-arrow {*/\n/*        background-position: center 10px, center;*/\n/*    }*/\n/*    .slider-nav .slick-slide span {*/\n/*        font-size: 12px;*/\n/*        white-space: normal;*/\n/*    }*/\n/*}*/\n\n/*@media screen and (max-width: 580px) {*/\n/*    .slider-banner-image {*/\n/*        height:340px;*/\n/*    }*/\n/*}*/\n\n/*@media screen and (max-width : 480px) {*/\n/*    .slider-banner-image {*/\n/*        height:280px;*/\n/*    }*/\n/*}*/\n\n", ""]);
 
 // exports
 
@@ -35631,7 +35610,7 @@ var render = function() {
                           _vm._v("8 200 $")
                         ]),
                         _vm._v(" "),
-                        _vm.lang == "ru"
+                        _vm.lang === "ru"
                           ? _c("button", { staticClass: "show_more" }, [
                               _vm._v(
                                 "\n                                Подробнее\n                                "
@@ -36701,7 +36680,7 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _vm.lang == "ru"
+            _vm.lang === "ru"
               ? _c("button", { staticClass: "show_more" }, [
                   _vm._v(
                     "\n                        Подробнее\n                        "
@@ -36848,7 +36827,7 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _vm.lang == "ru"
+            _vm.lang === "ru"
               ? _c("button", { staticClass: "show_more" }, [
                   _vm._v(
                     "\n                        Подробнее\n                        "
@@ -36995,7 +36974,7 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _vm.lang == "ru"
+            _vm.lang === "ru"
               ? _c("button", { staticClass: "show_more" }, [
                   _vm._v(
                     "\n                        Подробнее\n                        "
@@ -37144,7 +37123,7 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _vm.lang == "ru"
+            _vm.lang === "ru"
               ? _c("button", { staticClass: "show_more" }, [
                   _vm._v(
                     "\n                        Подробнее\n                        "
@@ -37291,7 +37270,7 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _vm.lang == "ru"
+            _vm.lang === "ru"
               ? _c("button", { staticClass: "show_more" }, [
                   _vm._v(
                     "\n                        Подробнее\n                        "
@@ -37438,7 +37417,7 @@ var render = function() {
           _c("div", { staticClass: "price_more" }, [
             _c("span", { staticClass: "item_price" }, [_vm._v("8 200 $")]),
             _vm._v(" "),
-            _vm.lang == "ru"
+            _vm.lang === "ru"
               ? _c("button", { staticClass: "show_more" }, [
                   _vm._v(
                     "\n                        Подробнее\n                        "
@@ -37878,7 +37857,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "yb_slide-header",
+              staticClass: "yb_slide-header ",
               class: { "yb_slide-landscape": _vm.landscape }
             },
             [
@@ -38006,9 +37985,15 @@ var render = function() {
                                                     _c("span", [
                                                       _vm._v(_vm._s(j + 1))
                                                     ]),
-                                                    _vm._v(
-                                                      "\n                                                из\n                                                "
-                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm.lang === "ru"
+                                                      ? _c("span", [
+                                                          _vm._v("из")
+                                                        ])
+                                                      : _c("span", [
+                                                          _vm._v("з")
+                                                        ]),
+                                                    _vm._v(" "),
                                                     _c("span", [
                                                       _vm._v(
                                                         _vm._s(
@@ -38604,60 +38589,115 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "yexpended" }, [
-    _c("button", { staticClass: "ex_search", class: _vm.text_color }, [
-      _vm._v("\n        " + _vm._s(_vm.text) + "\n        "),
-      _c(
-        "svg",
-        {
-          staticClass: "arrow",
-          attrs: {
-            xmlns: "http://www.w3.org/2000/svg",
-            x: "0px",
-            y: "0px",
-            width: "60",
-            height: "60",
-            viewBox: "0 0 172 172"
-          }
-        },
-        [
+    _vm.lang === "ru"
+      ? _c("button", { staticClass: "ex_search", class: _vm.text_color }, [
+          _vm._v("\n        " + _vm._s(_vm.text) + "\n        "),
           _c(
-            "g",
+            "svg",
             {
-              staticStyle: { "mix-blend-mode": "normal" },
+              staticClass: "arrow",
               attrs: {
-                fill: "none",
-                "fill-rule": "nonzero",
-                stroke: "none",
-                "stroke-width": "1",
-                "stroke-linecap": "butt",
-                "stroke-linejoin": "miter",
-                "stroke-miterlimit": "10",
-                "stroke-dasharray": "",
-                "stroke-dashoffset": "0",
-                "font-family": "none",
-                "font-weight": "none",
-                "font-size": "none",
-                "text-anchor": "none"
+                xmlns: "http://www.w3.org/2000/svg",
+                x: "0px",
+                y: "0px",
+                width: "60",
+                height: "60",
+                viewBox: "0 0 172 172"
               }
             },
             [
-              _c("path", { attrs: { d: "M0,172v-172h172v172z" } }),
-              _c("g", [
-                _c("path", {
-                  staticClass: "arr_path",
+              _c(
+                "g",
+                {
+                  staticStyle: { "mix-blend-mode": "normal" },
                   attrs: {
-                    d:
-                      "M131.81067,51.54401c-2.33302,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26668l18.87969,18.87969h-135.22604c-2.06765,-0.02924 -3.99087,1.05709 -5.03322,2.843c-1.04236,1.78592 -1.04236,3.99474 0,5.78066c1.04236,1.78592 2.96558,2.87225 5.03322,2.843h135.22604l-18.87969,18.87969c-1.49778,1.43802 -2.10113,3.5734 -1.57735,5.5826c0.52378,2.0092 2.09284,3.57826 4.10204,4.10204c2.0092,0.52378 4.14458,-0.07957 5.5826,-1.57735l28.16276,-28.16276c1.41918,-1.08154 2.25398,-2.76211 2.25837,-4.54643c0.00439,-1.78431 -0.82213,-3.46898 -2.23597,-4.55748c-0.01117,-0.0075 -0.02237,-0.01497 -0.03359,-0.02239l-28.15157,-28.15156c-1.07942,-1.10959 -2.56163,-1.73559 -4.10964,-1.73568z"
+                    fill: "none",
+                    "fill-rule": "nonzero",
+                    stroke: "none",
+                    "stroke-width": "1",
+                    "stroke-linecap": "butt",
+                    "stroke-linejoin": "miter",
+                    "stroke-miterlimit": "10",
+                    "stroke-dasharray": "",
+                    "stroke-dashoffset": "0",
+                    "font-family": "none",
+                    "font-weight": "none",
+                    "font-size": "none",
+                    "text-anchor": "none"
                   }
-                })
-              ])
+                },
+                [
+                  _c("path", { attrs: { d: "M0,172v-172h172v172z" } }),
+                  _c("g", [
+                    _c("path", {
+                      staticClass: "arr_path",
+                      attrs: {
+                        d:
+                          "M131.81067,51.54401c-2.33302,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26668l18.87969,18.87969h-135.22604c-2.06765,-0.02924 -3.99087,1.05709 -5.03322,2.843c-1.04236,1.78592 -1.04236,3.99474 0,5.78066c1.04236,1.78592 2.96558,2.87225 5.03322,2.843h135.22604l-18.87969,18.87969c-1.49778,1.43802 -2.10113,3.5734 -1.57735,5.5826c0.52378,2.0092 2.09284,3.57826 4.10204,4.10204c2.0092,0.52378 4.14458,-0.07957 5.5826,-1.57735l28.16276,-28.16276c1.41918,-1.08154 2.25398,-2.76211 2.25837,-4.54643c0.00439,-1.78431 -0.82213,-3.46898 -2.23597,-4.55748c-0.01117,-0.0075 -0.02237,-0.01497 -0.03359,-0.02239l-28.15157,-28.15156c-1.07942,-1.10959 -2.56163,-1.73559 -4.10964,-1.73568z"
+                      }
+                    })
+                  ])
+                ]
+              )
             ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("i", { staticClass: "eclipse fas fa-circle", class: _vm.color })
-    ])
+          ),
+          _vm._v(" "),
+          _c("i", { staticClass: "eclipse fas fa-circle", class: _vm.color })
+        ])
+      : _c("button", { staticClass: "ex_search", class: _vm.text_color }, [
+          _vm._v("\n        " + _vm._s(_vm.utext) + "\n        "),
+          _c(
+            "svg",
+            {
+              staticClass: "arrow",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                x: "0px",
+                y: "0px",
+                width: "60",
+                height: "60",
+                viewBox: "0 0 172 172"
+              }
+            },
+            [
+              _c(
+                "g",
+                {
+                  staticStyle: { "mix-blend-mode": "normal" },
+                  attrs: {
+                    fill: "none",
+                    "fill-rule": "nonzero",
+                    stroke: "none",
+                    "stroke-width": "1",
+                    "stroke-linecap": "butt",
+                    "stroke-linejoin": "miter",
+                    "stroke-miterlimit": "10",
+                    "stroke-dasharray": "",
+                    "stroke-dashoffset": "0",
+                    "font-family": "none",
+                    "font-weight": "none",
+                    "font-size": "none",
+                    "text-anchor": "none"
+                  }
+                },
+                [
+                  _c("path", { attrs: { d: "M0,172v-172h172v172z" } }),
+                  _c("g", [
+                    _c("path", {
+                      staticClass: "arr_path",
+                      attrs: {
+                        d:
+                          "M131.81067,51.54401c-2.33302,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26668l18.87969,18.87969h-135.22604c-2.06765,-0.02924 -3.99087,1.05709 -5.03322,2.843c-1.04236,1.78592 -1.04236,3.99474 0,5.78066c1.04236,1.78592 2.96558,2.87225 5.03322,2.843h135.22604l-18.87969,18.87969c-1.49778,1.43802 -2.10113,3.5734 -1.57735,5.5826c0.52378,2.0092 2.09284,3.57826 4.10204,4.10204c2.0092,0.52378 4.14458,-0.07957 5.5826,-1.57735l28.16276,-28.16276c1.41918,-1.08154 2.25398,-2.76211 2.25837,-4.54643c0.00439,-1.78431 -0.82213,-3.46898 -2.23597,-4.55748c-0.01117,-0.0075 -0.02237,-0.01497 -0.03359,-0.02239l-28.15157,-28.15156c-1.07942,-1.10959 -2.56163,-1.73559 -4.10964,-1.73568z"
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("i", { staticClass: "eclipse fas fa-circle", class: _vm.color })
+        ])
   ])
 }
 var staticRenderFns = []
