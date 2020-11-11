@@ -419,20 +419,6 @@
                         Б/у
                     </button>
                 </div>
-                <div class="option-row">
-                    <div class="option-box mono-block">
-                        <h2 class="option-title">Тип транспорта</h2>
-                        <yselectsearch
-                            @updateChoose='reInitFilterByClick($event)'
-                            :shade="true"
-                            :deleteDis="true"
-                            :placeholder="'Выберите тип транспорта'"
-                            :options="transportTypes"
-                            :choosedItem="transportsArr.typeChoosed">
-                        </yselectsearch>
-                    </div>
-                </div>
-
                 <div class="ygroup-box">
                     <h2 class="yfilter-aside-title">Цена</h2>
                     <div class="yprice_filter-box">
@@ -449,111 +435,21 @@
                         </ycheckbox>
                     </div>
                 </div>
-                <div class="ygroup-box">
-                    <h2 class="yfilter-aside-title">Цвет</h2>
-                    <div class="ycolors_options">
-                        <ycolors
-                            @updateChoose="SET_COLORS_CHOOSE($event)"
-                            @deleteChoose="DELETE_COLORS_CHOOSE($event)"
-                            :options="transportColors"
-                            :choosedItems="transportsArr.colorsChoosed"
-                        >
-                        </ycolors>
-                    </div>
-                </div>
-                <div class="ygroup-box">
-                    <h2 class="yfilter-aside-title">Скрыть / Показать только</h2>
-                    <div class="ycheckbox_options">
-                        <ycheckbox
-                            :name="'Только с фото'"
-                            :checked="searchDeatils.searchPropsChoosed.withPhoto"
-                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'withPhoto', val: $event})">
-                        </ycheckbox>
-
-                        <ycheckbox
-                            :name="'Авто не в Украине'"
-                            :checked="searchDeatils.searchPropsChoosed.abroad"
-                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'abroad', val: $event})">
-                        </ycheckbox>
-                        <ycheckbox
-                            :name="'В кредите'"
-                            :checked="searchDeatils.searchPropsChoosed.credit"
-                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'credit', val: $event})">
-                        </ycheckbox>
-                        <ycheckbox
-                            :name="'Нерастаможеные'"
-                            :checked="searchDeatils.searchPropsChoosed.customsСleared"
-                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'customsСleared', val: $event})">
-                        </ycheckbox>
-                        <ycheckbox
-                            :name="'После ДТП'"
-                            :checked="searchDeatils.searchPropsChoosed.accident"
-                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'accident', val: $event})">
-                        </ycheckbox>
-                        <ycheckbox
-                            :name="'Не на ходу'"
-                            :checked="searchDeatils.searchPropsChoosed.noMotion"
-                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'noMotion', val: $event})">
-                        </ycheckbox>
-
-                    </div>
-                </div>
-                <div class="ygroup-box">
-                    <h2 class="yfilter-aside-title">Выдача результата</h2>
-                    <div class="ysearch_options">
-                        <div class="ygroup-col-box">
-                            <h3 class="sidebar-title">
-                                Сортировка
-                            </h3>
-                            <yselectsearch
-                                @updateChoose="SET_SORTING_CHOOSED($event)"
-                                :deleteDis="true"
-                                :placeholder="'Выберите сортировку'"
-                                :options="searchDeatils.systemSorting"
-                                :choosedItem="searchDeatils.sortingChoosed">
-                            </yselectsearch>
-                        </div>
-                        <div class="ygroup-col-box">
-                            <h3 class="sidebar-title">
-                                Период подачи
-                            </h3>
-                            <yselectsearch
-                                @updateChoose="SET_PERIOD_CHOOSED($event)"
-                                :deleteDis="true"
-                                :placeholder="'Выберите период подачи'"
-                                :options="searchDeatils.systemPeriod"
-                                :choosedItem="searchDeatils.periodChoosed">
-                            </yselectsearch>
-                        </div>
-                        <div class="ygroup-col-box">
-                            <h3 class="sidebar-title">
-                                Актуальность
-                            </h3>
-                            <yselectsearch
-                                @updateChoose="SET_RELEVANCE_CHOOSED($event)"
-                                :deleteDis="true"
-                                :placeholder="'Выберите актуальность'"
-                                :options="searchDeatils.systemRelevance"
-                                :choosedItem="searchDeatils.relevanceChoosed">
-                            </yselectsearch>
-                        </div>
-                        <div class="ygroup-col-box">
-                            <h3 class="sidebar-title">
-                                Показать
-                            </h3>
-                            <yselectsearch
-                                @updateChoose="SET_SHOW_CHOOSED($event)"
-                                :deleteDis="true"
-                                :placeholder="'Выберите показать'"
-                                :options="searchDeatils.systemShow"
-                                :choosedItem="searchDeatils.showChoosed">
-                            </yselectsearch>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="option-row">
-                    <div class="option-box full-width">
+                    <div class="option-box mono-block">
+                        <h2 class="option-title">Тип транспорта</h2>
+                        <yselectsearch
+                            @updateChoose='reInitFilterByClick($event)'
+                            :shade="true"
+                            :deleteDis="true"
+                            :placeholder="'Выберите тип транспорта'"
+                            :options="transportTypes"
+                            :choosedItem="transportsArr.typeChoosed">
+                        </yselectsearch>
+                    </div>
+                </div>
+                <div class="option-row">
+                    <div class="option-box">
                         <h2 class="option-title">Тип кузова</h2>
                         <div class="option-box hide-list">
                             <ycheck v-for="(body, i) in transportBodies" :key="i"
@@ -684,6 +580,43 @@
                         </div>
                     </div>
                 </div>
+                <div class="ygroup-box">
+                    <h2 class="yfilter-aside-title">Скрыть / Показать только</h2>
+                    <div class="ycheckbox_options">
+                        <ycheckbox
+                            :name="'Только с фото'"
+                            :checked="searchDeatils.searchPropsChoosed.withPhoto"
+                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'withPhoto', val: $event})">
+                        </ycheckbox>
+
+                        <ycheckbox
+                            :name="'Авто не в Украине'"
+                            :checked="searchDeatils.searchPropsChoosed.abroad"
+                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'abroad', val: $event})">
+                        </ycheckbox>
+                        <ycheckbox
+                            :name="'В кредите'"
+                            :checked="searchDeatils.searchPropsChoosed.credit"
+                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'credit', val: $event})">
+                        </ycheckbox>
+                        <ycheckbox
+                            :name="'Нерастаможеные'"
+                            :checked="searchDeatils.searchPropsChoosed.customsСleared"
+                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'customsСleared', val: $event})">
+                        </ycheckbox>
+                        <ycheckbox
+                            :name="'После ДТП'"
+                            :checked="searchDeatils.searchPropsChoosed.accident"
+                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'accident', val: $event})">
+                        </ycheckbox>
+                        <ycheckbox
+                            :name="'Не на ходу'"
+                            :checked="searchDeatils.searchPropsChoosed.noMotion"
+                            @checked="SET_SEARCH_PROPS_CHOOSED({name: 'noMotion', val: $event})">
+                        </ycheckbox>
+
+                    </div>
+                </div>
                 <hr>
                 <h2 class="category-title">Технические характеристики</h2>
                 <div class="option-row techs">
@@ -786,9 +719,74 @@
                         ></ychaccordion>
                     </div>
                 </div>
+                <div class="ygroup-box">
+                    <h2 class="yfilter-aside-title">Цвет</h2>
+                    <div class="ycolors_options">
+                        <ycolors
+                            @updateChoose="SET_COLORS_CHOOSE($event)"
+                            @deleteChoose="DELETE_COLORS_CHOOSE($event)"
+                            :options="transportColors"
+                            :choosedItems="transportsArr.colorsChoosed"
+                        >
+                        </ycolors>
+                    </div>
+                </div>
+                <div class="ygroup-box">
+                    <h2 class="yfilter-aside-title">Выдача результата</h2>
+                    <div class="ysearch_options">
+                        <div class="ygroup-col-box">
+                            <h3 class="sidebar-title">
+                                Сортировка
+                            </h3>
+                            <yselectsearch
+                                @updateChoose="SET_SORTING_CHOOSED($event)"
+                                :deleteDis="true"
+                                :placeholder="'Выберите сортировку'"
+                                :options="searchDeatils.systemSorting"
+                                :choosedItem="searchDeatils.sortingChoosed">
+                            </yselectsearch>
+                        </div>
+                        <div class="ygroup-col-box">
+                            <h3 class="sidebar-title">
+                                Период подачи
+                            </h3>
+                            <yselectsearch
+                                @updateChoose="SET_PERIOD_CHOOSED($event)"
+                                :deleteDis="true"
+                                :placeholder="'Выберите период подачи'"
+                                :options="searchDeatils.systemPeriod"
+                                :choosedItem="searchDeatils.periodChoosed">
+                            </yselectsearch>
+                        </div>
+                        <div class="ygroup-col-box">
+                            <h3 class="sidebar-title">
+                                Актуальность
+                            </h3>
+                            <yselectsearch
+                                @updateChoose="SET_RELEVANCE_CHOOSED($event)"
+                                :deleteDis="true"
+                                :placeholder="'Выберите актуальность'"
+                                :options="searchDeatils.systemRelevance"
+                                :choosedItem="searchDeatils.relevanceChoosed">
+                            </yselectsearch>
+                        </div>
+                        <div class="ygroup-col-box">
+                            <h3 class="sidebar-title">
+                                Показать
+                            </h3>
+                            <yselectsearch
+                                @updateChoose="SET_SHOW_CHOOSED($event)"
+                                :deleteDis="true"
+                                :placeholder="'Выберите показать'"
+                                :options="searchDeatils.systemShow"
+                                :choosedItem="searchDeatils.showChoosed">
+                            </yselectsearch>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <div class="search-helper-station">
+            <div class="search-helper-station" v-if="currentWidth > 768">
                 <div class="search-helper" :class="{pin: pinOrderPanel}">
                     <div class="lhelp">
                         <span class="searched-transport">Найдено транспорта: <span class="counter">{{prettify(countTransport)}}</span></span>
@@ -796,6 +794,18 @@
                     </div>
                     <div class="rhelp" @click="clearFilter">
                         <span class="clear-filter">Очистить фильтр</span>
+                    </div>
+                </div>
+            </div>
+            <div class="search-helper-station" v-else>
+                <div class="search-helper" :class="{pin: pinOrderPanel}">
+                    <div class="lhelp">
+                        <span class="searched-transport">Найдено транспорта:</span>
+                        <span class="counter">{{prettify(countTransport)}}</span>
+                    </div>
+                    <div class="rhelp">
+                        <span class="clear-filter" @click="clearFilter"><i class="yicon cancel"></i></span>
+                        <span class="search-btn"><i class="yicon search"></i></span>
                     </div>
                 </div>
             </div>
@@ -885,7 +895,7 @@
                 })
             },
             changeResize(){
-                this.currentWidth = document.documentElement.clientWidth;
+                this.currentWidth = window.innerWidth;
             },
             handleScroll(){
                 let heperStation = document.getElementsByClassName('search-helper-station')[0];

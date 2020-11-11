@@ -10,7 +10,7 @@
     &.search_long{
         width: 85%;
     }
-    .search{
+    .search-input{
         height: 100%;
         width: 100%;
         background: #FFFFFF;
@@ -332,7 +332,7 @@
         &.search_long{
             width: 79%;
         }
-        .search{
+        .search-input{
             height: 35px;
 
         }
@@ -380,7 +380,7 @@
                 font-size: em(16);
             }
         }
-        .search{
+        .search-input{
             display: none;
         }
         i{

@@ -14,9 +14,9 @@
                     <button class="ylang">UA</button>
                     <button class="ylang active">RU</button>
                 </div>
-                        <div class="yb-favorite">
-                            <span class="yb_count_items">1</span>
-                            <i class="far fa-heart"></i>
+                <div class="yb-favorite">
+                    <span class="yb_count_items">1</span>
+                        <i class="yicon heart-empty"></i>
                 {{--            <div class="yb_favorite-null">--}}
                 {{--            <figure class="yb-image_null">--}}
                 {{--                <img src="{{asset('img/system/static/favorite_null.png')}}" alt="">--}}
@@ -26,7 +26,7 @@
                 {{--                    <p>Добавляйте автомобили в список желаний,чтобы не потерять</p>--}}
                 {{--                </div>--}}
                 {{--            </div>--}}
-                        </div>
+                </div>
          </div>
     </div>
 </header>

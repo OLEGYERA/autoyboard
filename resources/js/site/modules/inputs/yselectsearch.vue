@@ -1,7 +1,7 @@
 <template>
     <div class="yselectsearch" :class="{black: shade !== undefined, active: openResults}">
         <div class="pre-header" v-if="currentWidth <= 768">
-            <div class="modal-cancel"><i class="yicon arrow-left"></i>Назад</div>
+            <div class="modal-cancel" @click="openResults = false"><i class="yicon arrow-left"></i>Назад</div>
             <div class="modal-title">{{placeholder}}</div>
         </div>
         <input
@@ -32,7 +32,6 @@
                 ref="options"
                 @mouseenter="mouseSelected = i"
                 @mouseleave="mouseSelected = null"
-
                 @click="clickingResult(result.val)"
                 :class="{
                     'selected': i === selected,
@@ -96,6 +95,20 @@
             handleClickOutside(evt){
                 if(!this.$el.contains(evt.target))this.cleanTextField();
             },
+            changeResize(){
+                this.currentWidth = window.innerWidth;
+                this.overflowDOM();
+            },
+            overflowDOM(){
+                if(this.currentWidth <= 945){
+                    if(this.openResults){
+                        document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+                    }
+                    else{
+                        document.getElementsByTagName('body')[0].style.overflow = 'auto'
+                    }
+                }
+            },
             focusSelectSearch(){
                 this.selected = null;
                 this.mouseSelected = null;
@@ -118,9 +131,6 @@
                     return text.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
                 });
             },
-            changeResize(){
-                this.currentWidth = document.documentElement.clientWidth;
-            }
         },
         computed: {
             getChoosedObject(){
@@ -144,12 +154,14 @@
             options(to){
                 // if updating will be later
                 this.computingResults('');
+            },
+            openResults(to){
+                this.overflowDOM()
             }
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside);
             window.removeEventListener('resize', this.changeResize);
-
         },
 
     }

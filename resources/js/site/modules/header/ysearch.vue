@@ -1,14 +1,14 @@
 <template>
     <div class="ysearch">
         <input
-            class="search"
+            class="search-input"
             :class="{'focus' : toggle === true}"
             @focus="blurInput = true, toggle = true"
             type="text"
             placeholder="Поиск"
             v-model="search"
         />
-        <i @click="toggle = !toggle" class=" search_toggle fas fa-search"></i>
+        <i @click="toggle = !toggle" class=" search_toggle yicon search"></i>
 <!--        drop down when search by text-->
         <ul v-if="search.length > 0" class="ysearch_items-list">
             <li

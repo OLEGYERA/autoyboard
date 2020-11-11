@@ -120,6 +120,7 @@
             justify-content: center;
             align-items: center;
             font-family: $aleg;
+            border-bottom: 1px solid #EEEEEE;
             .modal-cancel{
                 display: flex;
                 align-items: center;
@@ -142,17 +143,47 @@
                 color: $darkgray-filter;
             }
         }
-        .input-dropdown{
-            height: 42px;
-        }
 
         &.active{
             top: 0;
             left: 0;
             position: fixed;
             z-index: 10;
+            width: 100%!important;
             .pre-header{
                 display: flex;
+            }
+            .input-dropdown{
+                position: absolute;
+                top: 65px;
+                left: 15px;
+                width: calc(100% - 15px * 2);
+                height: 42px;
+                box-shadow: 1px 3px 8px 1px rgba(52, 110, 197, 0.28);
+            }
+            i.search,
+            i.cancel{
+                top: 75px;
+                right: 30px;
+            }
+            .options-list{
+                max-height: calc(100% - 128px);
+                padding: 0 1px;
+                position: absolute;
+                top: 128px;
+                box-shadow: none;
+                li{
+                    padding: 0px 0px 0px 25px;
+                    &:last-child{
+                        border-bottom: 0;
+                    }
+                    &.choosed{
+                        border-bottom: 1px solid rgba(199, 199, 199, 0.33);
+                        i{
+                            right: 30px;
+                        }
+                    }
+                }
             }
             &:before{
                 content: '';
@@ -161,6 +192,37 @@
                 height: 100%;
                 background-color: #fff;
             }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 435px){
+    .yselectsearch{
+        .pre-header{
+            .modal-title{
+                font-size: em(16);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 380px){
+    .yselectsearch{
+        .pre-header{
+            justify-content: flex-end;
+            .modal-title{
+                font-weight: 400;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .yselectsearch{
+        &.active{
+            min-width: 300px;
         }
     }
 }

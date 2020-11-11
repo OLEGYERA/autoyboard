@@ -1,5 +1,9 @@
 <template>
-    <div class="yselectmultysearch" :class="{black: shade !== undefined}">
+    <div class="yselectmultysearch" :class="{black: shade !== undefined, active: openResults}">
+        <div class="pre-header" v-if="currentWidth <= 768">
+            <div class="modal-cancel" @click="openResults = false"><i class="yicon arrow-left"></i>Назад</div>
+            <div class="modal-title">{{placeholder}}</div>
+        </div>
         <input
             type="text"
             class="input-dropdown"
@@ -41,13 +45,15 @@
         mounted() {
             this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);
+            window.addEventListener('resize', this.changeResize);
+            this.changeResize();
         },
         data() {
             return {
                 openResults: false,
                 selected: null,
                 mouseSelected: null,
-
+                currentWidth: null,
                 search: "",
                 results: [],
             }
@@ -87,6 +93,20 @@
 
             handleClickOutside(evt){
                 if(!this.$el.contains(evt.target))this.cleanTextField();
+            },
+            changeResize(){
+                this.currentWidth = window.innerWidth;
+                this.overflowDOM();
+            },
+            overflowDOM(){
+                if(this.currentWidth <= 945){
+                    if(this.openResults){
+                        document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+                    }
+                    else{
+                        document.getElementsByTagName('body')[0].style.overflow = 'auto'
+                    }
+                }
             },
             focusSelectSearch(){
                 this.selected = null;
@@ -136,10 +156,14 @@
             options(to){
                 // if updating will be later
                 this.computingResults('');
+            },
+            openResults(to){
+                this.overflowDOM()
             }
         },
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)
+            window.removeEventListener('resize', this.changeResize);
         },
 
     }

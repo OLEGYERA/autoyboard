@@ -129,14 +129,15 @@
         computed: {
             generateAccordionChecks(){
                 const alias = this.getAliasCategory;
-                this.options[alias].forEach((el, i) => {
-                    if(this.choosedItems[alias].indexOf(el.val) !== -1){
-                        el.choosed = true;
-                    }
-                    else{
-                        el.choosed = false;
-                    }
-                })
+                if(this.options[alias] !== undefined)
+                    this.options[alias].forEach((el, i) => {
+                        if(this.choosedItems[alias].indexOf(el.val) !== -1){
+                            el.choosed = true;
+                        }
+                        else{
+                            el.choosed = false;
+                        }
+                    })
 
                 return this.options[alias];
             },

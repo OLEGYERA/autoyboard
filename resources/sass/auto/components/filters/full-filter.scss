@@ -56,6 +56,7 @@
                         font-weight: 500;
                         font-size: em(15);
                         line-height: 18px;
+                        color: $darkgray-filter;
                         &.active{
                             background: #0B3F8D;
                             color: #FFFEFE;
@@ -126,7 +127,7 @@
                             line-height: em(22);
                             font-weight: 500;
                             font-size: em(18);
-                            color: $filtergray;
+                            color: #0B3F8D;
                             margin: 0 0 8px;
                         }
                         &.full-width{
@@ -378,7 +379,6 @@
         }
     }
 }
-
 @media only screen and (max-width: 1500px){
     .full-filter{
         .filter_search{
@@ -489,6 +489,7 @@
 @media only screen and (max-width: 945px){
     .full-filter{
         .filter_search{
+            padding: 20px 15px 0px;
             border-radius: 0px;
             .filter_search_filter{
                 .yexpanded_sidebar{
@@ -531,8 +532,14 @@
                 }
             }
             .search-helper-station{
+                height: 50px;
                 .search-helper{
+                    width: calc(100% + 15px * 2);
+                    margin-left: -15px;
+                    padding: 0 15px;
                     &.pin{
+                        box-sizing: border-box;
+                        margin-left: -15px;
                         width: 100%;
                     }
                 }
@@ -544,8 +551,39 @@
 @media only screen and (max-width: 768px){
     .full-filter{
         .filter_search{
+            h1.ytitle-exp{
+                font-size: em(30);
+            }
             .filter_search_filter{
                 flex-direction: column;
+                h2.yfilter-aside-title,
+                h2.option-title{
+                    font-family: $aleg;
+                    line-height: em(22);
+                    font-weight: 500;
+                    font-size: em(18);
+                    color: #0B3F8D;
+                    margin: 0 0 8px;
+                }
+                h2.category-title{
+                    font-family: $aleg;
+                    line-height: em(22);
+                    font-weight: 500;
+                    font-size: em(22);
+                    color: $darkblue;
+                    margin: 0 0 15px;
+                }
+                h3.sidebar-title{
+                    font-family: $aleg;
+                    font-weight: 500;
+                    font-size: em(16);
+                    line-height: 22px;
+                    color: $filtergray;
+                    margin: 0 0 5px;
+                }
+                .ygroup-col-box{
+                    margin-bottom: 10px;
+                }
                 .ysearch_type_btn{
                     width: 100%;
                     display: flex;
@@ -559,6 +597,7 @@
                         font-family: $aleg;
                         font-weight: 500;
                         font-size: em(18);
+                        color: $darkgray-filter;
                         line-height: 18px;
                         &.active{
                             background: #0B3F8D;
@@ -566,27 +605,245 @@
                         }
                     }
                 }
+                .yprice_filter-box,
+                .ycheckbox_options,
+                .ycolors_options,
+                .ysearch_options{
+                    width: 100%;
+                    background-color: $box-bg;
+                    border-radius: 10px;
+                    padding: 15px;
+                    margin-bottom: 15px;
+                    .yprice{
+                        margin-bottom: 10px;
+                    }
+                    .ycheckbox,
+                    .ycolor{
+                        .title_change,
+                        .ycolor-label{
+                            font-weight: 400;
+                        }
+                    }
+                }
+
                 .option-row{
                     width: 100%;
                     display: flex;
                     flex-direction: column;
-                    h2.option-title{
+                    margin-bottom: 15px;
+                    .option-box{
+                        &.hide-list{
+                            display: flex;
+                            flex-wrap: wrap;
+                            .ycheck{
+                                width: 49.5%;
+                                margin-right: 0.33%;
+                                margin-bottom: 10px;
+                                &.toggleHideKist{
+                                    font-family: $aleg;
+                                    font-weight: 500;
+                                    color: $titleblue;
+                                    span{
+                                        text-decoration: underline;
+                                    }
+                                    span{
+                                        cursor: pointer;
+                                        &:hover{
+                                            text-decoration: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.rbmy{
+                        .option-box{
+                            margin-bottom: 5px;
+                            &.years{
+                                .option-row{
+                                   flex-direction: row;
+                                    .yselectsearch{
+                                        width: 47.5%;
+                                        margin-right: 1%;
+                                    }
+                                    .delRbmy{
+                                        width: 22px;
+                                        i{
+                                            color: $darkblue;
+                                            font-size: em(22);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .addRbmy{
+                        text-align: left;
+                        margin-bottom: 15px;
+                        font-size: em(16);
+                        cursor: pointer;
                         font-family: $aleg;
-                        line-height: em(22);
                         font-weight: 500;
-                        font-size: em(22);
+                        color: $titleblue;
+                        text-decoration: underline;
+                        &:hover{
+                            text-decoration: none;
+                        }
+                    }
+                    &.regions{
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        .option-box{
+                            width: 49.5%;
+                            margin-right: 0.33%;
+                            margin-bottom: 15px;
+                            .option-title{
+                                margin-bottom: 15px;
+                            }
+                            .regionsList{
+                                .ycheck{
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                    &.techs{
+                        .option-box{
+                            margin-bottom: 15px;
+                        }
+                    }
+
+                    .ychaccordion{
+                        .accordion-checks-box{
+                            .ycheck{
+                                width: 49.5%;
+                                margin-right: 0.33%;
+                            }
+                        }
+                    }
+                }
+            }
+            .search-helper-station{
+                height: 60px;
+                .search-helper{
+                    padding-bottom: 5px;
+                    .lhelp{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
                         color: $filtergray;
-                        margin: 0 0 8px;
+                        line-height: em(18);
+                        .searched-transport{
+                            font-size: em(16);
+                        }
+                        .counter{
+                            font-size: em(16);
+                        }
+                    }
+                    .rhelp{
+                        display: flex;
+                        .clear-filter,
+                        .search-btn{
+                            border-radius: 8px;
+                            cursor: pointer;
+                            height: 35px;
+                            width: 60px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.2);
+                            color: #fff;
+                            i{
+                                font-size: em(24);
+                            }
+                        }
+                        .clear-filter{
+                            width: 40px;
+                            background-color: rgba(195, 7, 3, 0.68);
+                            margin-right: 10px;
+                            text-decoration: none;
+                        }
+                        .search-btn{
+                            background: linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .full-filter{
+        .filter_search{
+            .filter_search_filter{
+                .ysearch_type_btn{
+                    .change_type{
+                        font-weight: 400;
+                        font-size: em(18);
                     }
                 }
 
-            }
-            .search-helper-station{
-                .search-helper{
-                    &.pin{
-                        width: 100%;
+                .ygroup-col-box{
+                    margin-bottom: 10px;
+                }
+                .option-row{
+                    .option-box{
+                        &.hide-list{
+                            .ycheck{
+                                width: 100%;
+                                margin-right: 0%;
+                            }
+                        }
+                    }
+                    &.regions{
+                      .option-box{
+                            width: 100%;
+                            margin-right: 0%;
+                            .regionsList{
+                                .ycheck{
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    &.techs{
+                        .option-box{
+                            margin-bottom: 15px;
+                        }
+                    }
+
+                    .ychaccordion{
+                        .accordion-checks-box{
+                            .ycheck{
+                                width: 100%;
+                                margin-right: 0%;
+                            }
+                        }
                     }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .full-filter{
+        .filter_search{
+            h1.ytitle-exp{
+                font-size: em(26);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .full-filter{
+        min-width: 300px;
+        .search-helper-station{
+            .search-helper{
+                min-width: 300px;
             }
         }
     }
