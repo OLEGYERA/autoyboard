@@ -5,9 +5,9 @@
     .filter_search{
         background: #FFFFFF;
         box-shadow: 0px 4px 64px rgba(105, 105, 105, 0.19);
-        border-radius: 13px;
+        border-radius: 12px;
         width: 100%;
-        padding: 30px 25px 0px;
+        padding: 20px 25px 0px;
         position: relative;
         .ytitle-exp{
             font-family: $rale;
@@ -153,13 +153,20 @@
                                 font-family: $aleg;
                                 font-weight: 500;
                                 color: $titleblue;
-                                text-decoration: underline;
-                                &:hover{
-                                    text-decoration: none;
+                                span{
+                                    text-decoration: underline;
+                                }
+                                span{
+                                    cursor: pointer;
+                                    &:hover{
+                                        text-decoration: none;
+                                    }
                                 }
                             }
                         }
-                        &.rbmy{
+                    }
+                    &.rbmy{
+                        .option-box{
                             width: 24.2%;
                             .option-row{
                                 justify-content: flex-start;
@@ -179,11 +186,12 @@
                                 }
                             }
                         }
-                        &.tech{
-                            width: 32.5%;
+                        &:last-child{
+                            margin-bottom: 0;
                         }
                     }
                     .addRbmy{
+                        margin-bottom: 15px;
                         font-size: em(16);
                         cursor: pointer;
                         font-family: $aleg;
@@ -212,6 +220,14 @@
                             }
                         }
                     }
+                    &.techs{
+                        flex-wrap: wrap;
+                        margin-bottom: 0px;
+                        .option-box{
+                            width: 32.5%;
+                            margin-bottom: 15px;
+                        }
+                    }
                 }
             }
         }
@@ -223,17 +239,52 @@
                 margin-left: -25px;
                 border-top: 1px solid #E7E7E7;
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
                 padding: 0 25px;
-                .searched-transport{
-                    font-family: $aleg;
-                    font-size: em(18);
-                    font-weight: 500;
-                    color: $filtergray;
-                }
+                .lhelp{
+                    display: flex;
+                    align-items: center;
+                    .searched-transport{
+                        font-family: $aleg;
+                        font-size: em(18);
+                        font-weight: 500;
+                        color: $filtergray;
+                        .counter{
+                            margin-left: 5px;
+                            font-size: 16px;
+                            font-family: $noto;
+                        }
+                    }
+                    .search-btn{
+                        margin-left: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 200px;
+                        height: 35px;
+                        border-radius: 8px;
+                        background: linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
+                        box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.3);
+                        font-size: em(18);
+                        font-family: $aleg;
+                        font-weight: 600;
+                        color: #fff;
 
+                    }
+                }
+                .rhelp{
+                    .clear-filter{
+                        cursor: pointer;
+                        font-family: $aleg;
+                        font-size: em(16);
+                        color: #0B3F8D;
+                        text-decoration: underline;
+                    }
+                }
                 &.pin{
-                    width: calc(100% - 6% *2);
+                    z-index: 2;
+                    width: calc(100% - 17% *2);
                     position: fixed;
                     bottom: 0;
                     background-color: #fff;
@@ -241,1152 +292,7 @@
                 }
             }
         }
-
-
-
-
-
-
-
-        .yb-carsearch_items{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            .yoptions_items{
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                margin: 0 30px 25px 0;
-                .yfilter_view-option{
-                    width: 22%;
-
-
-                }
-                .y-transport_options{
-                    width: 76%;
-                    h2{
-                        color: $filtergray;
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        margin: 0;
-                        margin-bottom: 5px;
-                    }
-                    .ydropdown{
-                        width: 100%;
-                        height: 40px;
-                        position: relative;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        padding: 10px 15px 10px 20px;
-                        border-radius: 10px;
-                        border: 1px solid #E2E2E2;
-                        cursor: pointer;
-                        .value{
-                            font-family: $aleg;
-                            font-weight: normal;
-                            font-size: em(16);
-                            line-height: 22px;
-                            color: #696969;
-                        }
-                        i{
-                            color: #C7C7C7;
-                        }
-                        .items{
-                            position: absolute;
-                            scrollbar-width: none;
-                            max-height: 140px;
-                            overflow: scroll;
-                            overflow-x: hidden;
-                            top: 45px;
-                            left: 0;
-                            width: 100%;
-                            background: #FFFFFF;
-                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                            border-radius: 3px;
-                            z-index: 2;
-                            .item{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                height: 35px;
-                                position: relative;
-                                display: flex;
-                                align-items: center;
-                                font-size: em(16);
-                                line-height: 22px;
-                                padding: 0px 0px 0px 20px;
-                                cursor: pointer;
-                                color: rgba(0, 0, 0, 0.83);
-                                i{
-                                    position: absolute;
-                                    top: auto;
-                                    color: $dgreen;
-                                    right: 16px;
-                                    font-size: em(12);
-                                }
-                                &:after{
-                                    content: '';
-                                    position: absolute;
-                                    height: 1px;
-                                    bottom: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    background: rgba(199, 199, 199, 0.33) ;
-                                }
-                            }
-                            .checked{
-                                border-left: 4px solid $darkblue;
-                                padding: 10px 15px 10px 20px;
-                                &:after{
-                                    height: 2px;
-                                    background: rgba(91, 91, 91, 0.13);
-                                }
-                            }
-                            &::-webkit-scrollbar { width: 0; }
-                        }
-                    }
-                    h3{
-                        color: $filtergray;
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        margin: 0;
-                        margin-bottom: 10px;
-                        margin-top: 15px;
-                    }
-                    .yb-checked_type{
-                        display: flex;
-                        width: 100%;
-                        margin-bottom: 18px;
-                        //.yl-vis{
-                        //    margin-right: 30px;
-                        //}
-                        .checkbox{
-                            width: 100%;
-                            display: flex;
-                            align-items: center;
-                            flex-flow: wrap;
-                            .yvis_checkbox{
-                                width: 50%;
-                                margin-bottom: 5px;
-                                .ycheck{
-                                    width: 12px;
-                                    height: 12px;
-                                    background: #FFFFFF;
-                                    border: 1px solid rgba(196, 196, 196, 0.7);
-                                }
-                                .y-body_name{
-                                    font-family: $aleg;
-                                    font-weight: normal;
-                                    font-size: em(16);
-                                    line-height: 19px;
-                                    color: $filercheckbox;
-                                }
-                            }
-                        }
-                    }
-                    h4{
-                        color: $filtergray;
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        margin: 0;
-                        margin-bottom: 5px;
-                    }
-                }
-            }
-            .add-cars_items{
-                width: 73%;
-                .yflex_car-item{
-                    width: 100%;
-                    display: flex;
-                    margin-bottom: 15px;
-                    .ycars-item{
-                        margin-right: 15px;
-                        width: 22%;
-                        h2{
-                            font-family: $aleg;
-                            font-weight: 500;
-                            font-size: em(18);
-                            line-height: 22px;
-                            color: $filtergray;
-                            margin: 0;
-                            margin-bottom: 5px;
-                        }
-                        .autocomplete{
-                            height: 40px;
-                            cursor: pointer;
-                            .input-dropdown{
-                                font-size: em(16);
-                                font-weight: normal;
-                                line-height: 19px;
-                                color: #696969;
-                            }
-                        }
-                        &:last-child{
-                            margin-right: 0;
-                        }
-                    }
-                    .countries{
-                        .ydropdown{
-                            width: 100%;
-                            height: 40px;
-                            position: relative;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            padding: 10px 15px 10px 20px;
-                            border-radius: 10px;
-                            border: 1px solid #E2E2E2;
-                            cursor: pointer;
-                            .value{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                font-size: em(16);
-                                line-height: 22px;
-                                color: #696969;
-                            }
-                            i{
-                                color: #C7C7C7;
-                            }
-                            .items{
-                                position: absolute;
-                                scrollbar-width: none;
-                                max-height: 140px;
-                                overflow: scroll;
-                                overflow-x: hidden;
-                                top: 45px;
-                                left: 0;
-                                width: 100%;
-                                background: #FFFFFF;
-                                box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                                border-radius: 3px;
-                                z-index: 2;
-                                .item{
-                                    font-family: $aleg;
-                                    font-weight: normal;
-                                    height: 35px;
-                                    position: relative;
-                                    display: flex;
-                                    align-items: center;
-                                    font-size: em(16);
-                                    line-height: 22px;
-                                    padding: 0px 0px 0px 20px;
-                                    cursor: pointer;
-                                    color: rgba(0, 0, 0, 0.83);
-                                    i{
-                                        position: absolute;
-                                        top: auto;
-                                        color: $dgreen;
-                                        right: 16px;
-                                        font-size: em(12);
-                                    }
-                                    &:after{
-                                        content: '';
-                                        position: absolute;
-                                        height: 1px;
-                                        bottom: 0;
-                                        left: 0;
-                                        width: 100%;
-                                        background: rgba(199, 199, 199, 0.33) ;
-                                    }
-                                }
-                                .checked{
-                                    border-left: 4px solid $darkblue;
-                                    padding: 10px 15px 10px 20px;
-                                    &:after{
-                                        height: 2px;
-                                        background: rgba(91, 91, 91, 0.13);
-                                    }
-                                }
-                                &::-webkit-scrollbar { width: 0; }
-                            }
-                        }
-                    }
-                    .years{
-                        width: 26.9%;
-                        .ydrop_down-years{
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            .ydropdown{
-                                width: 45%;
-                                height: 40px;
-                                padding: 10px 15px 10px 20px;
-                                border-radius: 10px;
-                                border: 1px solid #E2E2E2;
-                                position: relative;
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                cursor: pointer;
-                                .value{
-                                    font-family: $aleg;
-                                    font-weight: normal;
-                                    font-size: em(16);
-                                    line-height: 19px;
-                                    color: #696969;
-                                }
-                                i{
-                                    color: #C7C7C7;
-                                }
-                                .items{
-                                    width: 100%;
-                                    background: #FFFFFF;
-                                    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25), 0px -1px 3px rgba(0, 0, 0, 0.25);
-                                    border-radius: 5px;
-                                    position: absolute;
-                                    padding: 0;
-                                    margin: 0;
-                                    left: 0;
-                                    max-height: 140px;
-                                    overflow: auto;
-                                    top: 45px;
-                                    z-index: 2;
-                                    .item{
-                                        display: flex;
-                                        align-items: center;
-                                        font-family: $noto;
-                                        font-weight: normal;
-                                        font-size: em(16);
-                                        line-height: 19px;
-                                        color: #696969;
-                                        height: 35px;
-                                        position: relative;
-                                        padding: 0 0 0 20px;
-                                        cursor: pointer;
-                                        i{
-                                            position: absolute;
-                                            top: auto;
-                                            color: $dgreen;
-                                            right: 16px;
-                                            font-size: em(12);
-                                        }
-                                        &:after{
-                                            content: '';
-                                            position: absolute;
-                                            height: 1px;
-                                            bottom: 0;
-                                            left: 0;
-                                            width: 100%;
-                                            background: rgba(199, 199, 199, 0.33) ;
-                                        }
-                                    }
-                                    .checked{
-                                        border-left: 4px solid $darkblue;
-                                        &:after{
-                                            height: 2px;
-                                            background: rgba(91, 91, 91, 0.13);
-                                        }
-                                    }
-                                    &::-webkit-scrollbar { width: 0; }
-                                }
-                            }
-                        }
-                    }
-                    &.remove{
-                        position: relative;
-                        .ycars-item{
-                            &:last-child{
-                                margin-right: 0!important;
-                            }
-                        }
-                        .yremove_car-items{
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            position: absolute;
-                            right: -30px;
-                            top: 33px;
-                            i{
-                                color: $darkblue;
-                                font-size: 25px;
-                            }
-                        }
-                    }
-                }
-                //.remove{
-                //    position: relative;
-                //    .ycars-item{
-                //        &.years{
-                //            &:last-child{
-                //                margin-right: 0;
-                //            }
-                //        }
-                //        //width: 22%;
-                //    }
-                //    .yremove_car-items{
-                //        display: flex;
-                //        align-items: center;
-                //        justify-content: center;
-                //        position: absolute;
-                //        right: -30px;
-                //        top: 33px;
-                //        i{
-                //            color: $darkblue;
-                //            font-size: 25px;
-                //        }
-                //    }
-                //}
-                .yadded-car-item{
-                    font-family: $aleg;
-                    font-weight: 500;
-                    font-size: em(15);
-                    line-height: 18px;
-                    color: $darkblue;
-                    margin-bottom: 15px;
-                }
-                .yexclude_country-car{
-                    width: 31.8%;
-                    margin-bottom: 10px;
-                    h2{
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: $filtergray;
-                        margin: 0;
-                        margin-bottom: 5px;
-                    }
-                    .ydropdown{
-                        width: 100%;
-                        height: 40px;
-                        position: relative;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        padding: 10px 15px 10px 20px;
-                        border-radius: 10px;
-                        border: 1px solid #E2E2E2;
-                        cursor: pointer;
-                        .value{
-                            font-family: $aleg;
-                            font-weight: normal;
-                            font-size: em(16);
-                            line-height: 22px;
-                            color: #696969;
-                        }
-                        i{
-                            color: #C7C7C7;
-                        }
-                        .items{
-                            position: absolute;
-                            scrollbar-width: none;
-                            max-height: 140px;
-                            overflow: scroll;
-                            overflow-x: hidden;
-                            top: 45px;
-                            left: 0;
-                            width: 100%;
-                            background: #FFFFFF;
-                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                            border-radius: 3px;
-                            z-index: 2;
-                            .item{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                height: 35px;
-                                position: relative;
-                                display: flex;
-                                align-items: center;
-                                font-size: em(16);
-                                line-height: 22px;
-                                padding: 0px 0px 0px 20px;
-                                cursor: pointer;
-                                color: rgba(0, 0, 0, 0.83);
-                                i{
-                                    position: absolute;
-                                    top: auto;
-                                    color: $dgreen;
-                                    right: 16px;
-                                    font-size: em(12);
-                                }
-                                &:after{
-                                    content: '';
-                                    position: absolute;
-                                    height: 1px;
-                                    bottom: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    background: rgba(199, 199, 199, 0.33) ;
-                                }
-                            }
-                            .checked{
-                                border-left: 4px solid $darkblue;
-                                &:after{
-                                    height: 2px;
-                                    background: rgba(91, 91, 91, 0.13);
-                                }
-                            }
-                            &::-webkit-scrollbar { width: 0px; }
-                        }
-                    }
-                }
-            }
-            &:after{
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                background-color: #E7E7E7;
-            }
-        }
-        .yb-region_price-items{
-            display: flex;
-            width: 100%;
-            position: relative;
-            justify-content: space-between;
-            padding: 15px 0 25px;
-            .ychange_price-container{
-                width: 28%;
-
-            }
-            .yreg_container{
-                width: 70%;
-                h2{
-                    font-family: $aleg;
-                    font-weight: 500;
-                    font-size: em(22);
-                    line-height: 26px;
-                    color: rgba(91, 91, 91, 0.9);
-                    margin: 0 0 15px;
-                }
-                .autocomplete{
-                    margin-bottom: 15px;
-                    width: 40%;
-                }
-                .yselect_region{
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    flex-flow: wrap;
-                    .yselect_region-item{
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        width: auto;
-                        padding: 0 2%;
-                        margin: 0 15px 15px 0px;
-                        height: 30px;
-                        background: linear-gradient(0deg, rgba(11, 63, 141, 0.04), rgba(11, 63, 141, 0.04));
-                        border: 1px solid rgba(11, 63, 141, 0.79);
-                        box-sizing: border-box;
-                        border-radius: 8px;
-                        font-family: $aleg;
-                        font-weight: normal;
-                        font-size: em(15);
-                        line-height: 18px;
-                        color: $darkblue;
-                        white-space: nowrap;
-                        svg{
-                            width: 16px;
-                            height: 16px;
-                            margin-left: 15px;
-                        }
-                        &:last-child{
-                            margin: 0 0 15px 0;
-                        }
-                    }
-                }
-                .yreg-checkbox{
-                    width: 100%;
-                    .yflex_dir{
-                        display: flex;
-                        width: 100%;
-                        justify-content: space-between;
-                        flex-flow: wrap;
-                        .yside_country{
-                            width: 50%;
-                            h2{
-                                font-family: $aleg;
-                                font-style: normal;
-                                font-weight: 500;
-                                font-size: em(18);
-                                line-height: 22px;
-                                color: rgba(46, 46, 46, 0.76);
-                            }
-                            .yside_check{
-                                display: flex;
-                                flex-flow: wrap;
-                                .ycheck{
-                                    width: 50%;
-                                    margin-bottom: 5px;
-                                    &:last-child{
-                                        margin-bottom: 0;
-                                    }
-                                }
-                            }
-                            &:first-child{
-                                margin-bottom: 15px;
-                            }
-                        }
-                    }
-                }
-            }
-
-            &:after{
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                background-color: #E7E7E7;
-            }
-        }
-        .yb-specifications_cars{
-            position: relative;
-            width: 100%;
-            padding: 15px 0 20px;
-            h2{
-                font-family: $aleg;
-                font-weight: 500;
-                font-size: em(22);
-                line-height: 26px;
-                color: $darkblue;
-                margin: 0 0 15px;
-            }
-            .yselect_specifications{
-                display: flex;
-                width: 100%;
-                .vis_l-specifications{
-                    width: 24.5%;
-                    margin-right: 20px;
-                    h2{
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: rgba(46, 46, 46, 0.76);
-                        margin: 0 0 5px;
-                    }
-                    .ydropdown{
-                        width: 100%;
-                        height: 40px;
-                        position: relative;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        padding: 10px 15px 10px 20px;
-                        border-radius: 10px;
-                        border: 1px solid #E2E2E2;
-                        cursor: pointer;
-                        margin-bottom: 15px;
-                        .value{
-                            font-family: $aleg;
-                            font-weight: normal;
-                            font-size: em(16);
-                            line-height: 22px;
-                            color: #696969;
-                        }
-                        i{
-                            color: #C7C7C7;
-                        }
-                        .items{
-                            position: absolute;
-                            scrollbar-width: none;
-                            max-height: 140px;
-                            overflow: scroll;
-                            overflow-x: hidden;
-                            top: 45px;
-                            left: 0;
-                            width: 100%;
-                            background: #FFFFFF;
-                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                            border-radius: 3px;
-                            z-index: 2;
-                            .item{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                height: 35px;
-                                position: relative;
-                                display: flex;
-                                align-items: center;
-                                font-size: em(16);
-                                line-height: 22px;
-                                padding: 0px 0px 0px 20px;
-                                cursor: pointer;
-                                color: rgba(0, 0, 0, 0.83);
-                                i{
-                                    position: absolute;
-                                    top: auto;
-                                    color: $dgreen;
-                                    right: 16px;
-                                    font-size: em(12);
-                                }
-                                &:after{
-                                    content: '';
-                                    position: absolute;
-                                    height: 1px;
-                                    bottom: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    background: rgba(199, 199, 199, 0.33) ;
-                                }
-                            }
-                            .checked{
-                                border-left: 4px solid $darkblue;
-                                &:after{
-                                    height: 2px;
-                                    background: rgba(91, 91, 91, 0.13);
-                                }
-                            }
-                            &::-webkit-scrollbar { width: 0px; }
-                        }
-                        &:last-child{
-                            margin-bottom: 0;
-                        }
-                    }
-                }
-                .y-double{
-                    width: 20.7%;
-                    margin-right: 20px;
-                    h3{
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: rgba(46, 46, 46, 0.76);
-                        margin: 15px 0 5px;
-                        &:first-child{
-                            margin: 0 0 5px;
-                        }
-                    }
-                    .ydouble_dropdown{
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        .ydropdown{
-                            width: 48%;
-                            height: 40px;
-                            position: relative;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            padding: 10px 15px 10px 20px;
-                            border-radius: 10px;
-                            border: 1px solid #E2E2E2;
-                            cursor: pointer;
-                            .value{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                font-size: em(16);
-                                line-height: 22px;
-                                color: #696969;
-                            }
-                            i{
-                                color: #C7C7C7;
-                            }
-                            .items{
-                                position: absolute;
-                                scrollbar-width: none;
-                                max-height: 140px;
-                                overflow: scroll;
-                                overflow-x: hidden;
-                                top: 45px;
-                                left: 0;
-                                width: 100%;
-                                background: #FFFFFF;
-                                box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                                border-radius: 3px;
-                                z-index: 2;
-                                .item{
-                                    font-family: $aleg;
-                                    font-weight: normal;
-                                    height: 35px;
-                                    position: relative;
-                                    display: flex;
-                                    align-items: center;
-                                    font-size: em(16);
-                                    line-height: 22px;
-                                    padding: 0px 0px 0px 20px;
-                                    cursor: pointer;
-                                    color: rgba(0, 0, 0, 0.83);
-                                    i{
-                                        position: absolute;
-                                        top: auto;
-                                        color: $dgreen;
-                                        right: 16px;
-                                        font-size: em(12);
-                                    }
-                                    &:after{
-                                        content: '';
-                                        position: absolute;
-                                        height: 1px;
-                                        bottom: 0;
-                                        left: 0;
-                                        width: 100%;
-                                        background: rgba(199, 199, 199, 0.33) ;
-                                    }
-                                }
-                                .checked{
-                                    border-left: 4px solid $darkblue;
-                                    &:after{
-                                        height: 2px;
-                                        background: rgba(91, 91, 91, 0.13);
-                                    }
-                                }
-                                &::-webkit-scrollbar { width: 0px; }
-                            }
-                        }
-                    }
-                    &:last-child{
-                        margin-right: 0;
-                    }
-                }
-
-            }
-            .yother_specifications{
-                width: 100%;
-                h3{
-                    font-family: $aleg;
-                    font-weight: 500;
-                    font-size: em(18);
-                    line-height: 22px;
-                    color: #5B5B5B;
-                    margin: 15px 0 10px;
-                }
-                .yvis_other{
-                    display: flex;
-                    width: 100%;
-                    justify-content: space-between;
-                    .yvis_other-left{
-                        width: 20%;
-                        border-radius: 12px;
-                        border: 1px solid #E2E2E2;
-                        padding: 15px 10px 10px 10px;
-                        text-align: center;
-                        .ycheck_color{
-                            width: 100%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            margin-bottom: 10px;
-                            .ylabel_visible{
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                input{
-                                    position: absolute;
-                                    z-index: 2;
-                                    opacity: 0;
-                                }
-                                label{
-                                    width: 23px;
-                                    height: 23px;
-                                    border: 1px solid #D6D6D6;
-                                    border-radius: 50%;
-                                    position: relative;
-
-                                }
-                            }
-                            &:last-child{
-                                margin-bottom: 0;
-                            }
-                        }
-                        .ycolor_more{
-                            i{
-                                color: $darkblue;
-                            }
-                        }
-                    }
-                    .yvis_other-right{
-                        width: 75%;
-                        display: flex;
-                        .yother_visl-btn{
-                            width: 15%;
-                            margin-right: 20px;
-                            button{
-                                width: 100%;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                font-family: $aleg;
-                                font-weight: 500;
-                                font-size: em(18);
-                                line-height: 22px;
-                                color: $darkblue;
-                                margin-bottom: 10px;
-                                i{
-                                    color: $darkblue;
-                                }
-                                &:last-child{
-                                    margin-bottom: 0;
-                                }
-                            }
-                        }
-                        .yother_visr-options{
-                            display: flex;
-                            width: 80%;
-                            .ycars_options{
-                                width: 100%;
-                                display: flex;
-                                flex-flow: wrap;
-                                .yoption{
-                                    display: flex;
-                                    width: 30%;
-                                    margin: 0 22px 5px 0px;
-                                    cursor: pointer;
-                                    input{
-                                        width: 12px;
-                                        height: 12px;
-                                        margin-right: 5px;
-                                    }
-                                    label{
-                                        font-family: $aleg;
-                                        font-weight: normal;
-                                        font-size: em(16);
-                                        line-height: 19px;
-                                        color: $filercheckbox;
-                                    }
-                                    &:last-child{
-                                        margin-bottom: 0;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            &:after{
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                background-color: #E7E7E7;
-            }
-        }
-        .yspecification_results{
-            padding: 15px 0 25px;
-            width: 100%;
-            position: relative;
-            h3{
-                font-family: $aleg;
-                font-weight: 500;
-                font-size: em(22);
-                line-height: 26px;
-                color: $darkblue;
-                margin:  0 ;
-            }
-            .yvisual_results{
-                display: flex;
-                width: 100%;
-                .yvis_res-select{
-                    width: 24.5%;
-                    margin-right: 20px;
-                    h2{
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: rgba(24, 23, 23, 0.76);
-                        margin: 15px 0 6px;
-                    }
-                    .ydropdown{
-                        width: 100%;
-                        height: 40px;
-                        position: relative;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        padding: 10px 15px 10px 20px;
-                        border-radius: 10px;
-                        border: 2px solid $darkblue;
-                        cursor: pointer;
-                        .value{
-                            font-family: $aleg;
-                            font-weight: normal;
-                            font-size: em(16);
-                            line-height: 22px;
-                            color: #696969;
-                        }
-                        i{
-                            color: $darkblue;
-                        }
-                        .items{
-                            position: absolute;
-                            scrollbar-width: none;
-                            max-height: 140px;
-                            overflow: scroll;
-                            overflow-x: hidden;
-                            top: 45px;
-                            left: 0;
-                            width: 100%;
-                            background: #FFFFFF;
-                            box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                            border-radius: 3px;
-                            z-index: 2;
-                            .item{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                height: 35px;
-                                position: relative;
-                                display: flex;
-                                align-items: center;
-                                font-size: em(16);
-                                line-height: 22px;
-                                padding: 0px 0px 0px 20px;
-                                cursor: pointer;
-                                color: rgba(0, 0, 0, 0.83);
-                                i{
-                                    position: absolute;
-                                    top: auto;
-                                    color: $dgreen;
-                                    right: 16px;
-                                    font-size: em(12);
-                                }
-                                &:after{
-                                    content: '';
-                                    position: absolute;
-                                    height: 1px;
-                                    bottom: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    background: rgba(199, 199, 199, 0.33) ;
-                                }
-                            }
-                            .checked{
-                                border-left: 4px solid $darkblue;
-                                &:after{
-                                    height: 2px;
-                                    background: rgba(91, 91, 91, 0.13);
-                                }
-                            }
-                            &::-webkit-scrollbar { width: 0px; }
-                        }
-                    }
-                }
-                .yseach_card-id{
-                    width: 24.5%;
-                    h3{
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: rgba(24, 23, 23, 0.76);
-                        margin: 15px 0 6px;
-                    }
-                    .y_seach-id{
-                        width: 100%;
-                        height: 40px;
-                        padding: 10px 15px 10px 20px;
-                        font-family: $aleg;
-                        font-weight: normal;
-                        font-size: em(16);
-                        line-height: 19px;
-                        color: #C7C7C7;
-                        background: #FFFFFF;
-                        border: 2px solid #717171;
-                        border-radius: 10px;
-                        &::placeholder{
-                            font-family: $aleg;
-                            font-weight: normal;
-                            font-size: em(16);
-                            color: #C7C7C7;
-                        }
-                    }
-                }
-            }
-            &:after{
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                background-color: #E7E7E7;
-            }
-        }
-        .ysearch_results{
-            width: 100%;
-            padding: 15px 0 40px;
-            h2{
-                font-family: $aleg;
-                font-weight: 500;
-                font-size: em(22);
-                line-height: 26px;
-                color: $darkblue;
-                margin: 0 0 15px;
-            }
-            .yb-repeat_selected{
-                display: flex;
-                align-items: center;
-                margin-bottom: 10px;
-                flex-wrap: wrap;
-                .item_selected{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-evenly;
-                    width: 110px;
-                    height: 34px;
-                    margin-right: 5px;
-                    background: linear-gradient(0deg, rgba(11, 63, 141, 0.04), rgba(11, 63, 141, 0.04));
-                    border: 1px solid rgba(11, 63, 141, 0.79);
-                    box-sizing: border-box;
-                    border-radius: 8px;
-                    span{
-                        font-family: $aleg;
-                        font-weight: normal;
-                        font-size: em(15);
-                        line-height: 18px;
-                        color: $darkblue;
-                    }
-                    i{
-                        color: $darkblue;
-                        font-size: em(14);
-                    }
-                    &:last-child{
-                        margin-right: 0;
-                    }
-                }
-                .yb-count_result{
-                    margin-left: 20px;
-                    font-family: $noto;
-                    font-weight: 500;
-                    font-size: em(16);
-                    line-height: 22px;
-                    color: rgba(24, 23, 23, 0.76);
-                }
-            }
-            .yclear_form{
-                font-family: $aleg;
-                font-weight: normal;
-                font-size: em(14);
-                line-height: 17px;
-                text-decoration-line: underline;
-                color: $darkblue;
-                margin-bottom: 30px;
-            }
-            .y_form-search{
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                button{
-                    width: 270px;
-                    height: 58px;
-                    background: $darkblue;
-                    box-shadow: 0px 4px 4px rgba(7, 25, 48, 0.54);
-                    border-radius: 14px;
-                    font-family: $aleg;
-                    font-weight: bold;
-                    font-size: em(22);
-                    line-height: 26px;
-                    text-align: center;
-                    color: #FFFFFF;
-                }
-            }
-        }
     }
-
     hr{
         border-width: 0px;
         height: 1px;
@@ -1396,120 +302,73 @@
     }
 }
 
-
-
-@media only screen and (max-width: 1600px){
+@media only screen and (max-width: 1640px){
     .full-filter{
         .filter_search{
-            .yb-carsearch_items{
-                .add-cars_items{
-                    .yflex_car-item{
-                        .ycars-item{
-                            margin-right: 10px;
-                            h2{
-                                font-size: em(17);
-                            }
-                            .ydropdown{
-                                .value{
-                                    font-size: em(14);
-                                }
-                                i{
-                                    font-size: em(12);
-                                }
-                            }
-                            .autocomplete{
-                                .input-dropdown{
-                                    font-size: em(15);
-                                }
-                                i{
-                                    font-size: em(12);
-                                }
-                            }
-                            &:last-child{
-                                margin-right: 0;
-                            }
-                        }
+            .filter_search_filter{
+                .yexpanded_sidebar{
+                    h2.yfilter-aside-title{
+                        font-size: em(16);
+                        margin-bottom: 5px;
                     }
-                }
-            }
-            .yb-region_price-items{
-                .ychange_price-container{
-                    .yrange_slider-container{
-                        .yprice_container{
-                            .input_change{
-                                .currency_change{
-                                    .ydropdown{
-                                        padding: 10px 10px 10px 15px;
-                                    }
+                    .ygroup-box{
+                        .yprice_filter-box{
+                            .yprice{
+                                .change{
+                                    width: 35.5%;
+                                }
+                                .ydropdown{
+                                    width: 27%;
                                 }
                             }
                         }
                     }
                 }
-                .yreg_container{
-                    .yreg-checkbox{
-                        .yflex_dir{
-                            .yside_country{
-                                .yside_check{
-                                    width: 100%;
-                                    justify-content: space-between;
+                .yexpanded_content{
+                    .option-row{
+                        &.rbmy{
+                            flex-wrap: wrap;
+                            align-items: flex-end;
+                            .option-box{
+                                width: 22.2%;
+                                &.years{
+                                    width: 30%;
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-            .yb-condition_cars{
-                .yb-status_car-items{
-                    margin-bottom: 0px;
-                    .status_items{
-                        margin-bottom: 15px;
-                    }
-                }
-            }
-            .yb-specifications_cars{
-                .yother_specifications{
-                    .yvis_other{
-                        .yvis_other-left{
-                            max-height: 120px;
-                        }
-                        .yvis_other-right{
-                            .yother_visl-btn{
-                                margin-right: 18px;
-                                width: 15%;
-                                button{
+                                .option-title{
                                     font-size: em(16);
                                 }
                             }
-                            .yother_visr-options{
-                                .ycars_options{
-                                    .yoption{
-                                        width: 40%;
-                                        label{
-                                            font-size: em(15);
+                        }
+                        &.regions{
+                            flex-wrap: wrap;
+                            justify-content: flex-start;
+                            .option-box{
+                                width: 33%;
+                                margin-right: 0.33%;
+                                &:last-child{
+                                    margin-right: 0;
+                                    width: 100%;
+                                    margin-top: 15px;
+                                    .regionsList{
+                                        display: flex;
+                                        .ycheck{
+                                            margin-right: 20px;
                                         }
                                     }
                                 }
                             }
                         }
-                    }
-                }
-            }
-        }
-    }
-
-}
-@media only screen and (max-width: 1440px){
-    .filter_search{
-        .yb-specifications_cars{
-            .yother_specifications{
-                .yvis_other{
-                    .yvis_other-right{
-                        .yother_visr-options{
-                            .ycars_options{
-                                .yoption{
-                                    width: 35%;
-
+                        .option-box{
+                            h2.option-title{
+                                font-size: em(16);
+                                margin-bottom: 5px;
+                            }
+                            .ychaccordion{
+                                .accordion-checks{
+                                    .ycheck{
+                                        width: 49.5%;
+                                        margin-right: 0.33%;
+                                    }
                                 }
                             }
                         }
@@ -1520,1090 +379,215 @@
     }
 }
 
+@media only screen and (max-width: 1500px){
+    .full-filter{
+        .filter_search{
+            .search-helper-station{
+                .search-helper{
+                    &.pin{
+                        width: calc(100% - 10% *2);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1366px){
+    .full-filter{
+        .filter_search{
+            .search-helper-station{
+                .search-helper{
+                    &.pin{
+                        width: calc(100% - 8% *2);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1330px){
+    .full-filter{
+        .filter_search{
+            .filter_search_filter{
+                .yexpanded_sidebar{
+                    width: 29%;
+                }
+                .yexpanded_content{
+                    width: 69%;
+                    .option-row{
+                        .option-box{
+                            &.hide-list{
+                                .ycheck{
+                                    width: 49.5%;
+                                    &:nth-child(3n){
+                                        margin-right: 0.33%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .search-helper-station{
+                .search-helper{
+                    &.pin{
+                        width: calc(100% - 6% *2);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .full-filter{
+        .filter_search{
+            .filter_search_filter{
+                .yexpanded_content{
+                    .option-row{
+                        &.rbmy{
+                            .option-box{
+                                width: 49%;
+                                margin-bottom: 15px;
+                                &:nth-child(-n+2){
+                                    width: 49%;
+                                    margin-bottom: 8px;
+                                }
+
+                                &.years,
+                                &:nth-child(3){
+                                    width: 49%;
+                                }
+                            }
+                        }
+                        .option-box{
+                            &.hide-list{
+                                .ycheck{
+                                    width: 49.5%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 @media only screen and (max-width: 1024px){
     .full-filter{
         .filter_search{
-            .ytitle-exp{
-                font-size: em(32);
-                margin-bottom: 15px;
-            }
-            .yb-carsearch_items{
-                justify-content: space-between;
-                .yoptions_items{
-                    width: 24%;
-                    margin: 0 20px 20px 0;
-                    .y-transport_options{
-                        h2{
-                            font-size: em(15);
-                        }
-                        .ydropdown{
-                            .value{
-                                font-size: em(15);
-                            }
-                        }
-                        h3{
-                            font-size: em(15);
-                        }
-                        .yb-checked_type{
-                            .checkbox{
-                                .yvis_checkbox{
-                                    .y-body_name{
-                                        font-size: em(15);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .add-cars_items{
-                    width: 75%;
-                    .yflex_car-item{
-                        .ycars-item {
-                            h2{
-                                font-size: em(15);
-                            }
-                            .ydropdown
-                            {
-                                padding: 10px;
-                            }
-                            .ydrop_down-years{
-                                .ydropdown{
-                                    padding: 10px;
-                                }
-                            }
-                            .autocomplete{
-                                .input-dropdown{
-                                    right: -15px;
-                                    padding: 10px;
-                                    i{
-                                        font-size: em(18);
-                                    }
-                                }
-                            }
-                        }
-                        &.remove{
-                            .yremove_car-items{
-                                right: -10px;
-                                top: 38px;
-                                i{
-                                    font-size: em(18);
-                                }
-                            }
-                        }
-                    }
-                    .yexclude_country-car{
-                        width: 25%;
-                        h2{
-                            font-size: em(15);
-                        }
-                        .ydropdown{
-                            padding: 10px;
-                            .value{
-                                font-size: em(15);
-                            }
-                            i{
-                                font-size: em(12);
-                            }
-                        }
-                    }
-                }
-            }
-            .yb-region_price-items{
-                .ychange_price-container{
-                    width: 30%;
-                }
-                .yreg_container{
-                    width: 69%;
-                    .yreg-checkbox{
-                        .yflex_dir{
-                            .yside_country{
-                                .yside_check{
-                                    .y-check{
-                                        label{
-                                            font-size: em(15);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .yb-specifications_cars{
-                .yother_specifications{
-                    .yvis_other{
-                        .yvis_other-left{
-                            width: 23%;
-                        }
-                        .yvis_other-right{
-                            .yother_visl-btn{
-                                width: 17%;
-                                margin-right: 15px;
-                            }
-                            .yother_visr-options{
-                                .ycars_options{
-                                    .yoption{
-                                        width: 40%;
-                                    }
-                                }
-                            }
-                        }
+            .search-helper-station{
+                .search-helper{
+                    &.pin{
+                        width: calc(100% - 3% *2);
                     }
                 }
             }
         }
     }
-
 }
+
 @media only screen and (max-width: 945px){
     .full-filter{
-        .show_tablet{
-            padding: 25px 15px;
-            .ytitle-exp{
-                font-size: em(24);
-                line-height: 28px;
+        .filter_search{
+            border-radius: 0px;
+            .filter_search_filter{
+                .yexpanded_sidebar{
+                    width: 35%;
+                }
+                .yexpanded_content{
+                    width: 62%;
+                    .option-row{
+                        .option-box{
+                            &.hide-list{
+                                .ycheck{
+                                    width: 100%;
+                                }
+                            }
+                        }
 
-            }
-            .yb-carsearch_items{
-                display: block;
-                .yoptions_items{
-                    width: 100%;
-                    display: flex;
-                    margin: 0 30px 15px 0;
-                    .yoptions_items_mobile{
-                        width: 27%;
-                        margin-right: 25px;
-                        .ycheckbox_options{
-                            .change_resource{
-                                .title_change{
-                                    font-size: em(16);
+                        &.regions{
+                            .option-box{
+                                width: 49.5%;
+                                &:nth-child(-n+2){
+                                    margin-bottom: 15px;
                                 }
-                            }
-                        }
-                        h4{
-                            font-family: $aleg;
-                            font-weight: 500;
-                            font-size: em(18);
-                            line-height: 22px;
-                            margin: 15px 0 5px;
-                            color: rgba(46, 46, 46, 0.76);
-                        }
-                        .ydropdown{
-                            width: 100%;
-                            height: 40px;
-                            position: relative;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            padding: 10px 15px 10px 20px;
-                            border-radius: 10px;
-                            border: 1px solid #E2E2E2;
-                            cursor: pointer;
-                            .value{
-                                font-family: $aleg;
-                                font-weight: normal;
-                                font-size: em(16);
-                                line-height: 22px;
-                                color: #696969;
-                            }
-                            i{
-                                color: #C7C7C7;
-                            }
-                            .items{
-                                position: absolute;
-                                scrollbar-width: none;
-                                max-height: 140px;
-                                overflow: scroll;
-                                overflow-x: hidden;
-                                top: 45px;
-                                left: 0;
-                                width: 100%;
-                                background: #FFFFFF;
-                                box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                                border-radius: 3px;
-                                z-index: 2;
-                                .item{
-                                    font-family: $aleg;
-                                    font-weight: normal;
-                                    height: 35px;
-                                    position: relative;
-                                    display: flex;
-                                    align-items: center;
-                                    font-size: em(16);
-                                    line-height: 22px;
-                                    padding: 0px 0px 0px 20px;
-                                    cursor: pointer;
-                                    color: rgba(0, 0, 0, 0.83);
-                                    i{
-                                        position: absolute;
-                                        top: auto;
-                                        color: $dgreen;
-                                        right: 16px;
-                                        font-size: em(12);
-                                    }
-                                    &:after{
-                                        content: '';
-                                        position: absolute;
-                                        height: 1px;
-                                        bottom: 0;
-                                        left: 0;
-                                        width: 100%;
-                                        background: rgba(199, 199, 199, 0.33) ;
-                                    }
-                                }
-                                .checked{
-                                    border-left: 4px solid $darkblue;
-                                    &:after{
-                                        height: 2px;
-                                        background: rgba(91, 91, 91, 0.13);
-                                    }
-                                }
-                                &::-webkit-scrollbar { width: 0px; }
-                            }
-                        }
-                    }
-                    .y-transport_options{
-                        width: 27%;
-                        margin-right: 25px;
-                    }
-                    .ychecked_options-mobile{
-                        width: 24%;
-                        h3{
-                            font-family: $aleg;
-                            font-weight: 500;
-                            font-size: 18px;
-                            line-height: 22px;
-                            margin: 0 0 10px;
-                            color: rgba(46, 46, 46, 0.76);
-                        }
-                        .yb-checked_type{
-                            .checkbox{
-                                display: flex;
-                                justify-content: space-between;
-                                flex-flow: wrap;
-                                align-items: center;
-                                .yvis_checkbox{
-                                    width: 50%;
-                                    .ycheck{
-                                        width: 12px;
-                                        height: 12px;
-                                        margin-right: 5px;
-                                    }
-                                    .y-body_name{
-                                        font-family: $aleg;
-                                        font-weight: normal;
-                                        font-size: em(16);
-                                        line-height: 19px;
-                                        color: $filercheckbox;
+                                &:last-child{
+                                    width: 49.5%;
+                                    margin-top: 0px;
+                                    .regionsList{
+                                        display: block;
                                     }
                                 }
                             }
                         }
-                    }
-                }
-                .add-cars_items{
-                    width: 100%;
-                    .yflex_car-item{
-                        &.remove{
-                            .yremove_car-items{
-                                right: 0;
+                        &.techs{
+                            .option-box{
+                                width: 49%;
+                                margin-right: 0.33%;
+                                margin-bottom: 15px;
                             }
                         }
                     }
                 }
             }
-            .yb-region_price-items{
-                .ychange_price-container{
-                    .yrange_slider-container{
-                        padding: 25px 10px;
-                        .yprice_container{
-                            .input_change{
-                                .change{
-                                    width: 32%;
-                                }
-                            }
-                        }
-                    }
-                }
-                .yreg_container{
-                    .yreg-checkbox{
-                        .yflex_dir{
-                            .yside_country{
-                                &:first-child{
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .yb-specifications_cars{
-                .yselect_specifications{
-                    .vis_l-specifications{
-                        width: 33.7%;
-                    }
-                    .y-double{
-                        width: 28.2%;
-                    }
-                }
-                .yother_specifications{
-                    .yvis_other{
-                        .yvis_other-right{
-                            .yother_visr-options{
-                                .ycars_options{
-                                    &:last-child{
-                                    }
-                                }
-                            }
-                        }
+            .search-helper-station{
+                .search-helper{
+                    &.pin{
+                        width: 100%;
                     }
                 }
             }
         }
     }
-
 }
+
 @media only screen and (max-width: 768px){
-    .yb_extended-content{
-        .full-filter {
-            .yfilter_selected-item{
-                .show-drop_down{
-                    padding: 15px 20px 15px 20px;
-                }
-            }
-            .show_tablet{
-                .yb-carsearch_items{
-                    .yoptions_items{
-                        .yoptions_items_mobile{
-                            margin-right: 15px;
-                            width: 32%;
-                        }
-                        .y-transport_options{
-                            margin-right: 15px;
-                        }
-                        .ychecked_options-mobile{
-                            width: 32%;
-                        }
-                    }
-                }
-                .yb-region_price-items{
-                    .ychange_price-container{
-                        width: 38%;
-                    }
-                    .yreg_container{
-                        width: 61%;
-                        .autocomplete{
-                            width: 50%;
-                        }
-                        .yreg-checkbox{
-                            .yflex_dir{
-                                .yside_country{
-                                    h2{
-                                        font-size: em(16);
-                                    }
-                                    .yside_check{
-                                        flex-direction: column;
-                                        .y-check{
-                                            width: 100%;
-                                            label{
-                                                font-size: em(14);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .yb-condition_cars{
-                    .yb-status_checked-items{
-                        .yb-select_items{
-                            display: block;
-                            .ydropdown{
-                                width: 30%;
-                                margin-right: 0px;
-                                margin-bottom: 15px;
-                            }
-                            .yb-cheked_items{
-                                width: 100%;
-                            }
-                        }
-                    }
-                }
-                .yb-specifications_cars{
-                    .yother_specifications{
-                        .yvis_other{
-                            flex-direction: column;
-                            .yvis_other-left{
-                                width: 30%;
-                                padding: 15px;
-                                margin-bottom: 15px;
-                            }
-                            .yvis_other-right{
-                                width: 100%;
-                                .yother_visl-btn{
-                                    width: 20%;
-                                }
-                                .yother_visr-options{
-                                    width: 75%;
-                                }
-                            }
-                        }
-                    }
-                }
-                .yspecification_results{
-                    .yvisual_results{
-                        .yvis_res-select{
-                            width: 30%;
-                            margin-right: 15px;
-                        }
-                        .yseach_card-id{
-                            width: 30%;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-}
-@media only screen and (max-width: 600px){
     .full-filter{
-        .yfilter_selected-item{
-            margin: 20px 0 20px;
-            .show-drop_down{
-                bottom: -80px;
-            }
-        }
         .filter_search{
-            &.show_mobile{
-                padding: 25px 10px;
-                width: 100%;
-                .ytitle-exp{
-                    font-size: em(24);
-                    line-height: 28px;
-                    margin: 0 0 18px;
-                }
-                .yb-carsearch_items{
-                    display: block;
-                    .yoptions_items{
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        margin: 0;
-                        .yoptions_items_mobile{
-                            width: 50%;
-                        }
-                        .ychecked_options-mobile{
-                            width: 44%;
-                            h3{
-                                font-family: $aleg;
-                                font-weight: 500;
-                                font-size: em(18);
-                                line-height: 22px;
-                                color: rgba(46, 46, 46, 0.76);
-                                margin: 0 0 10px;
-                            }
-                            .yb-checked_type{
-                                width: 100%;
-                                display: flex;
-                                justify-content: space-between;
-                                .checkbox{
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: space-between;
-                                    flex-flow: wrap;
-                                }
-                                .yvis_checkbox{
-                                    width: 50%;
-                                    .ycheck{
-                                        width: 12px;
-                                        height: 12px;
-                                        margin-right: 5px;
-                                    }
-                                    .y-body_name{
-                                        font-family: $aleg;
-                                        font-weight: normal;
-                                        font-size: em(16);
-                                        line-height: 19px;
-                                        color: $filercheckbox;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    h4{
-                        font-size: em(15);
-                    }
-                    .ydropdown{
-                        .value{
-                            font-size: em(15);
-                        }
-                    }
-                }
-                .yb-region_price-items{
-                    flex-direction: column;
-                    .ychange_price-container{
-                        width: 50%;
-                        h2{
-                            color: $darkblue!important;
-                        }
-                        .yrange_slider-container{
-                            .yprice_container{
-                                .input_change{
-                                    .currency_change{
-                                        .ydropdown{
-                                            margin-bottom: 0;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .yreg_container{
-                        width: 50%;
-                        h2{
-                            margin: 10px 0 15px;
-                            color: $darkblue;
-                        }
-                        .autocomplete{
-                            width: 100%;
-                            margin-bottom: 10px;
-                            &:last-child{
-                                margin-bottom: 0;
-                            }
-                        }
-                    }
-                }
-                .yb-condition_cars{
-                    .yb-status_checked-items{
-                        .yb-select_items{
-                            flex-direction: column;
-                            .ydropdown{
-                                width: 50%;
-                                margin-right: 0;
-                                margin-bottom: 10px;
-                            }
-                            .yb-cheked_items{
-                                width: 90%;
-                            }
-                        }
-                    }
-                }
-                .yb-specifications_cars{
-                    .yselect_specifications{
-                        width: 100%;
-                        justify-content: space-between;
-                        .vis_l-specifications{
-                            width: 50%;
-                        }
-                        .vis_c-specifications{
-                            width: 45%;
-                        }
-                    }
-                    .vis_mobile{
-                        width: 100%;
-                        margin-top: 15px;
-                        position: relative;
-                        .y-double{
-                            width: 45%;
-                            margin-right: 0;
-                        }
-                        .yother_specifications{
-                            width: 45%;
-                            h3{
-                                margin: 0px 0 10px;
-                            }
-                            .yvis_other{
-                                flex-direction: column;
-                                .yvis_other-left{
-                                    width: 100%;
-                                    padding: 15px 20px 10px 20px;
-                                    margin-bottom: 10px;
-                                }
-                                .yvis_other-right{
-                                    width: 100%;
-                                    .yother_visl-btn{
-                                        width: 100%;
-                                        .yb_list-options{
-                                            button{
-                                                width: 50%;
-                                                i{
-                                                    font-size: em(14);
-                                                }
-                                            }
-                                            .yoption{
-                                                display: flex;
-                                                margin-bottom: 5px;
-                                                cursor: pointer;
-                                                input{
-                                                    width: 12px;
-                                                    height: 12px;
-                                                    margin-right: 5px;
-                                                }
-                                                label{
-                                                    font-family: $aleg;
-                                                    font-weight: normal;
-                                                    font-size: em(16);
-                                                    line-height: 19px;
-                                                    color: $filercheckbox;
-                                                }
-                                            }
-                                        }
-
-                                    }
-                                    .yother_visr-options{
-                                        flex-direction: column;
-                                        text-align: center;
-                                        height: 150px;
-                                        padding: 20px 5px;
-                                        position: absolute;
-                                        z-index: 2;
-                                        bottom: -160px;
-                                        left: 0;
-                                        width: 100%;
-                                        background: #FFFFFF;
-                                        box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                                        border-radius: 3px;
-                                        .yflex_vis_options{
-                                            width: 100%;
-                                            display: flex;
-                                            justify-content: space-between;
-                                            .ycars_options{
-                                                margin-right: 0;
-                                            }
-                                        }
-                                        i{
-                                            margin-top: 15px;
-                                            color: $darkblue;
-                                            font-size: em(18);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .yspecification_results{
-                    .yvisual_results{
-                        flex-direction: column;
-                        .yvis_res-select{
-                            width: 50%;
-
-                        }
-                        .yseach_card-id{
-                            width: 50%;
-                        }
-                    }
-                }
-                .ysearch_results{
-                    .yclear_form{
-                        margin-bottom: 15px;
-                    }
-                    .yb-count_result{
-                        margin-bottom: 25px;
-                        font-family: $aleg;
-                        font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: rgba(24, 23, 23, 0.76);
-                    }
-                }
-                h4{
-                    font-family: $aleg;
-                    font-weight: 500;
-                    font-size: em(18);
-                    line-height: 22px;
-                    color: rgba(46, 46, 46, 0.76);
-                    margin: 0 0 5px;
-                }
-                .ydropdown{
-                    width: 50%;
-                    height: 40px;
-                    position: relative;
+            .filter_search_filter{
+                flex-direction: column;
+                .ysearch_type_btn{
+                    width: 100%;
                     display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 10px 15px 10px 20px;
-                    border-radius: 10px;
-                    border: 1px solid #E2E2E2;
-                    cursor: pointer;
+                    background-color: $box-bg;
                     margin-bottom: 15px;
-                    .value{
-                        font-family: $aleg;
-                        font-weight: normal;
-                        font-size: em(16);
-                        line-height: 22px;
-                        color: #696969;
-                    }
-                    i{
-                        color: #C7C7C7;
-                    }
-                    .items{
-                        position: absolute;
-                        scrollbar-width: none;
-                        max-height: 140px;
-                        overflow: scroll;
-                        overflow-x: hidden;
-                        top: 45px;
-                        left: 0;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    .change_type{
                         width: 100%;
-                        background: #FFFFFF;
-                        box-shadow: 0px 0px 5px 1px rgba(52, 110, 197, 0.28);
-                        border-radius: 3px;
-                        z-index: 2;
-                        .item{
-                            font-family: $aleg;
-                            font-weight: normal;
-                            height: 35px;
-                            position: relative;
-                            display: flex;
-                            align-items: center;
-                            font-size: em(16);
-                            line-height: 22px;
-                            padding: 0px 0px 0px 20px;
-                            cursor: pointer;
-                            color: rgba(0, 0, 0, 0.83);
-                            i{
-                                position: absolute;
-                                top: auto;
-                                color: $dgreen;
-                                right: 16px;
-                                font-size: em(12);
-                            }
-                            &:after{
-                                content: '';
-                                position: absolute;
-                                height: 1px;
-                                bottom: 0;
-                                left: 0;
-                                width: 100%;
-                                background: rgba(199, 199, 199, 0.33) ;
-                            }
-                        }
-                        .checked{
-                            border-left: 4px solid $darkblue;
-                            &:after{
-                                height: 2px;
-                                background: rgba(91, 91, 91, 0.13);
-                            }
-                        }
-                        &::-webkit-scrollbar { width: 0px; }
-                    }
-                }
-                .add-cars_items{
-                    width: 50%;
-                    .yflex_car-item{
-                        flex-direction: column;
-                        margin-bottom: 10px;
-                        .ycars-item{
-                            width: 100%!important;
-                            h2{
-                                margin: 0 0 5px;
-                            }
-                            .autocomplete{
-                                margin-bottom: 15px;
-                            }
-                        }
-                        .years{
-                            .ydrop_down-years{
-                                .ydropdown{
-                                    padding: 10px 15px 10px 20px;
-                                    margin-bottom: 0;
-                                }
-                            }
-                        }
-                    }
-                    .y-cut_added-item{
-                        display: flex;
-                        flex-direction: column;
-                        width: 100%;
-                        .car-items_btn{
-                            text-align: left;
-                            font-family: $aleg;
-                            font-weight: 500;
-                            font-size: em(15);
-                            line-height: 18px;
-                            color: $darkblue;
-                            margin-bottom: 10px;
-                            &:last-child{
-                                margin-bottom: 15px;
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
-    }
-
-}
-
-
-@media only screen and (max-width: 425px){
-    .full-filter{
-        .yfilter_selected-item{
-            padding: 15px 30px 15px 30px;
-            .yb-items_selected{
-                width: 90%;
-                overflow: hidden;
-                .item_selected{
-                    padding: 0 10% 0 5%;
-                    height: 30px;
-                    span{
-                        font-size: em(12);
-                    }
-                    i{
-                        font-size: em(10);
-                    }
-                    &:nth-child(3){
-                        display: none;
-                    }
-                }
-            }
-            .show-drop_down{
-                bottom: -75px;
-                margin: 0;
-            }
-        }
-        .filter_search{
-            &.show_mobile{
-                padding: 25px 10px;
-                width: 100%;
-                .ytitle-exp{
-                    font-size: em(24);
-                    line-height: 28px;
-                    margin: 0 0 18px;
-                }
-                .yb-carsearch_items{
-                    .yoptions_items{
-                        flex-direction: column;
-                        .yoptions_items_mobile{
-                            width: 100%;
-                        }
-                        .ychecked_options-mobile{
-                            width: 100%;
-                            margin-bottom: 15px;
-                            .yb-checked_type{
-                                width: 80%;
-                            }
-                        }
-                    }
-                    .ydropdown{
-                        width: 100%;
-                    }
-                    .add-cars_items{
-                        width: 100%;
-                    }
-                }
-                .yb-region_price-items{
-                    .ychange_price-container{
-                        width: 100%;
-                    }
-                    .yreg_container{
-                        width: 100%;
-                    }
-                }
-                .yb-condition_cars{
-                    .yb-status_checked-items{
-                        .yb-select_items{
-                            .ydropdown{
-                                width: 60%;
-                            }
-                            .yb-cheked_items{
-                                width: 100%;
-                                flex-direction: column;
-                                .ycheked{
-                                    margin-right: 0;
-                                }
-                                .vis_l{
-                                    margin-bottom: 5px;
-                                }
-                            }
-                        }
-                    }
-                }
-                .yb-specifications_cars{
-                    .yselect_specifications{
-                        flex-direction: column;
-                        .vis_l-specifications{
-                            width: 100%;
-                            margin: 0 0 15px;
-                        }
-                        .y-double{
-                            width: 70%;
-                            margin-bottom: 15px;
-                        }
-                    }
-                    .vis_mobile{
-                        .y-double{
-                            width: 70%;
-                        }
-                        .yother_specifications{
-                            width: 100%;
-                            .yvis_other{
-                                .yvis_other-left{
-                                    width: 70%;
-                                    margin-bottom: 15px;
-                                }
-                                .yvis_other-right{
-                                    .yother_visr-options{
-                                        height: auto;
-                                        padding: 20px 15px;
-                                        bottom: -65px;
-                                        .yflex_vis_options{
-                                            flex-direction: column;
-                                            .ycars_options{
-                                                .yoption{
-                                                    margin-bottom: 10px;
-                                                }
-                                            }
-                                        }
-                                    }   }
-                            }
-                        }
-                    }
-                }
-                .yspecification_results{
-                    .yvisual_results{
-                        .yvis_res-select{
-                            width: 100%;
-                        }
-                        .yseach_card-id{
-                            width: 100%;
-                        }
-                    }
-                }
-                .ysearch_results{
-                    .yb-repeat_selected{
-                        .item_selected{
-                            margin-bottom: 5px;
-                        }
-                    }
-                    .yclear_form{
-                        margin-bottom: 15px;
-                    }
-                    .yb-count_result{
-                        margin-bottom: 25px;
+                        height: 42px;
                         font-family: $aleg;
                         font-weight: 500;
                         font-size: em(18);
-                        line-height: 22px;
-                        color: rgba(24, 23, 23, 0.76);
-                    }
-                }
-            }
-        }
-
-    }
-
-}
-
-@media only screen and (max-width: 320px){
-    .full-filter{
-        .yfilter_selected-item{
-            .yb-items_selected{
-                .item_selected{
-                    padding: 0 10%;
-                    &:nth-child(2){
-                        display: none;
-                    }
-                }
-            }
-        }
-        .filter_search{
-            &.show_mobile{
-                .yb-region_price-items{
-                    .ychange_price-container{
-                        .yrange_slider-container{
-                            padding: 25px 5px;
-                            .change_resource{
-                                .title_change{
-                                    font-size: em(14);
-                                }
-                            }
+                        line-height: 18px;
+                        &.active{
+                            background: #0B3F8D;
+                            color: #FFFEFE;
                         }
                     }
                 }
-                .yb-condition_cars{
-                    .yb-status_car-items{
-                        .status_items{
-                            margin-right: 10px;
-                            h2{
-                                font-size: em(16);
-                            }
-                            .change_vis-btn{
-                                .btn_s{
-                                    font-size: em(15);
-                                    &.active{
-                                        width: 75px;
-                                        height: 35px;
-                                        font-size: em(15);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .yb-status_checked-items{
-                        .yb-select_items{
-                            .ydropdown{
-                                width: 70%;
-                            }
-                        }
-                    }
-                }
-                .yb-specifications_cars{
-                    .yselect_specifications{
-                        .y-double{
-                            width: 90%;
-                        }
-                    }
-                    .vis_mobile{
-                        .y-double{
-                            width: 90%;
-                        }
-                        .yother_specifications{
-                            .yvis_other{
-                                .yvis_other-left{
-                                    width: 90%;
-                                    margin-bottom: 15px;
-                                }
-                            }
-                        }
-                    }
-                }
-                .yspecification_results{
-                    .yvisual_results{
-                        .yvis_res-select{
-                            width: 100%;
-                        }
-                        .yseach_card-id{
-                            width: 100%;
-                        }
-                    }
-                }
-                .ysearch_results{
-                    .yb-repeat_selected{
-                        .item_selected{
-                            &:last-child{
-                                display: none;
-                            }
-                        }
-                    }
-                    .yclear_form{
-                        margin-bottom: 15px;
-                    }
-                    .yb-count_result{
-                        margin-bottom: 25px;
+                .option-row{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    h2.option-title{
                         font-family: $aleg;
+                        line-height: em(22);
                         font-weight: 500;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: rgba(24, 23, 23, 0.76);
+                        font-size: em(22);
+                        color: $filtergray;
+                        margin: 0 0 8px;
+                    }
+                }
+
+            }
+            .search-helper-station{
+                .search-helper{
+                    &.pin{
+                        width: 100%;
                     }
                 }
             }
         }
-
     }
-
 }

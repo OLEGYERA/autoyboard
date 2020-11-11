@@ -1,12 +1,12 @@
-@import '../clear';
-@import '../../vars';
+@import '../../clear';
+@import '../../../vars';
 
 .yprice{
     width: 100%;
     display: flex;
     justify-content: space-between;
     .change{
-        width: 32%;
+        width: 36%;
         height: 42px;
         padding: 5px 8px;
         border: 1px solid $search-border;
@@ -22,7 +22,7 @@
         }
     }
     .ydropdown{
-        width: 32%;
+        width: 25%;
         .name-dropdown{
             font-family: $noto;
             padding: 5px 8px;

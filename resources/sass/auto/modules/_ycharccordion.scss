@@ -46,4 +46,36 @@
            }
        }
     }
+
+    .accordion-box{
+        display: flex;
+        flex-direction: column;
+        .accordion-title{
+            cursor: pointer;
+            width: fit-content;
+            display: inline-flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0px 0px 10px;
+            color: $darkblue;
+            font-weight: 500;
+            font-family: $aleg;
+            font-size: em(18);
+            span{
+                border-bottom: 1px dashed $darkblue;
+            }
+            i{
+                margin-left: 5px;
+                font-size: em(24);
+            }
+            &.selected{
+                span{
+                    border-bottom: 1px solid transparent;
+                }
+            }
+        }
+        .accordion-checks{
+            width: 100%;
+        }
+    }
 }

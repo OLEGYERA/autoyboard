@@ -1,5 +1,9 @@
 <template>
-    <div class="yselectsearch" :class="{black: shade !== undefined}">
+    <div class="yselectsearch" :class="{black: shade !== undefined, active: openResults}">
+        <div class="pre-header" v-if="currentWidth <= 768">
+            <div class="modal-cancel"><i class="yicon arrow-left"></i>Назад</div>
+            <div class="modal-title">{{placeholder}}</div>
+        </div>
         <input
             type="text"
             class="input-dropdown"
@@ -46,12 +50,15 @@
         mounted() {
             this.computingResults(''); // if data load rapid and doesn`t updated
             document.addEventListener('click', this.handleClickOutside);
+            window.addEventListener('resize', this.changeResize);
+            this.changeResize();
         },
         data() {
             return {
                 openResults: false,
                 selected: null,
                 mouseSelected: null,
+                currentWidth: null,
 
                 search: "",
                 results: [],
@@ -110,6 +117,9 @@
                 this.results = this.options.filter((item)=>{
                     return text.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
                 });
+            },
+            changeResize(){
+                this.currentWidth = document.documentElement.clientWidth;
             }
         },
         computed: {
@@ -137,7 +147,9 @@
             }
         },
         destroyed() {
-            document.removeEventListener('click', this.handleClickOutside)
+            document.removeEventListener('click', this.handleClickOutside);
+            window.removeEventListener('resize', this.changeResize);
+
         },
 
     }

@@ -65,33 +65,32 @@ let mutations = {
     SET_SHOW_CHOOSED: (state, payload) => {
         state.searchDetailFullStore.showChoosed = payload;
     },
+    CLEAR_SEARCHDETAIL_MODULE: (state, payload) => {
+        state.searchDetailFullStore.autoConditionChoosed = 1;
+        state.searchDetailFullStore.searchPropsChoosed = {
+            withPhoto: true,
+            abroad: false,
+            credit: false,
+            customsСleared: false,
+            accident: false,
+            noMotion: false,
+            bargain: false,
+            exchange: false,
+        };
+        state.searchDetailFullStore.priceChoosed = {
+            currency: 1,
+            from: '',
+            to: '',
+        };
+        state.searchDetailFullStore.sortingChoosed = 1;
+        state.searchDetailFullStore.periodChoosed = 1;
+        state.searchDetailFullStore.relevanceChoosed = 1;
+        state.searchDetailFullStore.showChoosed = 1;
+    },
 }
-
-let actions = {
-    // TRANSPORT_TYPES_FROM_API: async (context, payload) => {
-    //     HTTP.get(payload)
-    //         .then(response => {
-    //             context.commit('SET_TRANSPORT_TYPES_FROM_API', response.data);
-    //         })
-    //         .catch(error =>{
-    //             console.log('error', error)
-    //         })
-    // },
-    //
-    // BODIES_FROM_API: async (context, payload) => {
-    //     HTTP.get(payload)
-    //         .then(response => {
-    //             context.commit('SET_TRANSPORT_BODIES_FROM_API', response.data);
-    //         })
-    //         .catch(error =>{
-    //             console.log('error', error)
-    //         })
-    // },
-};
 
 export default {
     state,
     getters,
     mutations,
-    actions,
 };

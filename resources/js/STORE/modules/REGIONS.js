@@ -45,7 +45,7 @@ let getters = {
         })
 
         return regionAndParts
-    }
+    },
 };
 
 let mutations = {
@@ -98,6 +98,11 @@ let mutations = {
             state.choosedRegionParts.push(payload)
         }
     },
+    CLEAR_REGION_MODULE: (state, payload) => {
+        state.choosedCities = [];
+        state.choosedRegions = [];
+        state.choosedRegionParts = [];
+    }
 };
 
 export default {

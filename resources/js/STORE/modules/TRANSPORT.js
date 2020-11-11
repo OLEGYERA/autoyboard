@@ -134,14 +134,12 @@ let mutations = {
             state.transportFullStore.bodiesChoosed.push(payload)
         }
     },
-
     SET_COLORS_CHOOSE: (state, payload) => {
         state.transportFullStore.colorsChoosed.push(payload);
     },
     DELETE_COLORS_CHOOSE: (state, payload) => {
         state.transportFullStore.colorsChoosed.splice(state.transportFullStore.colorsChoosed.indexOf(payload), 1);
     },
-
     SET_TRANSPORT_STATE_CHOOSE: (state, payload) => {
         const condition = state.transportFullStore.statesChoosed.find(function (el) {
             if (payload === el) return true;
@@ -171,14 +169,12 @@ let mutations = {
     DELETE_TRANSMISSIONS_CHOOSE: (state, payload) => {
         state.transportFullStore.transmissionsChoosed.splice(state.transportFullStore.transmissionsChoosed.indexOf(payload), 1);
     },
-
     SET_GERAS_CHOOSE: (state, payload) => {
         state.transportFullStore.gearsChoosed.push(payload);
     },
     DELETE_GEARS_CHOOSE: (state, payload) => {
         state.transportFullStore.gearsChoosed.splice(state.transportFullStore.gearsChoosed.indexOf(payload), 1);
     },
-
     SET_TRANSPORT_TECHS_CHOOSE: (state, payload) => {
         const condition = state.transportFullStore.techsChoosed[payload.alias].find(function (el) {
             if (payload.val === el) return true;
@@ -191,8 +187,6 @@ let mutations = {
         }
 
     },
-
-
     SET_TRANSPORT_TYPES_FROM_API: (state, payload) => {
         state.transportTypes = payload;
     },
@@ -208,7 +202,31 @@ let mutations = {
     SET_TECHS_FROM_API: (state, payload) => {
         state.transportTechs = payload;
     },
+    CLEAR_TRANSPORT_MODULE: (state, payload) => {
+        state.transportFullStore = {
+            typeChoosed: 1,
+            bodiesChoosed: [],
+            colorsChoosed: [],
+            importersChoosed: [],
+            statesChoosed: [],
+            fuelsChoosed: [],
+            fuelConsumptionChoosed: {from: null, to: null},
+            mileageChoosed: {from: null, to: null},
+            transmissionsChoosed: [],
+            volumeChoosed: {from: null, to: null},
+            doorsChoosed: {from: null, to: null},
+            gearsChoosed: [],
+            powerChoosed: {from: null, to: null},
+            seatsChoosed: {from: null, to: null},
+            techsChoosed: {
+                security: [],
+                comfort: [],
+                multimedia: [],
+                others: [],
+            }
+        }
 
+    }
 
 }
 

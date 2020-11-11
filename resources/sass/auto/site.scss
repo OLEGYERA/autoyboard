@@ -28,7 +28,21 @@
 
 //@import 'components/card';
 //@import 'components/favorite';
+
 //modules
+@import 'modules/inputs/yselectsearch';
+@import 'modules/inputs/yselectmultysearch';
+@import 'modules/inputs/ycheck';
+@import 'modules/inputs/ydropdown';
+@import 'modules/inputs/ydoublenuminput';
+@import 'modules/inputs/yprice';
+
+
+
+
+
+
+
 @import 'modules/header/ymenu';
 @import 'modules/header/ysearch';
 @import 'modules/ylocation';
@@ -38,9 +52,6 @@
 @import 'modules/yfaqquestions';
 @import 'modules/pagination';
 
-@import 'modules/yselectsearch';
-@import 'modules/yselectmultysearch';
-@import 'modules/ycheck';
 
 
 //@import 'modules/yexpanded';
@@ -48,9 +59,6 @@
 //@import 'modules/ystatus';
 //@import 'modules/yform';
 @import 'modules/ycheckbox';
-@import 'modules/yprice';
-@import 'modules/ydropdown';
-@import 'modules/ydoublenuminput';
 @import 'modules/ycolors';
 @import 'modules/ycharccordion';
 //@import 'modules/ybestoffers';
@@ -75,7 +83,7 @@
         flex-direction: column;
         width: 100%;
         overflow-x: hidden;
-        //padding: 0 17%;
+        padding: 0 17%;
         .ycatalog{
             &:after{
                 content: '';
@@ -741,6 +749,9 @@
         }
     }
 }
+
+//main Media Content
+
 @media only screen and (max-width: 1500px){
     #yb-site{
         .yb-content{
@@ -772,7 +783,7 @@
 @media only screen and (max-width: 945px){
     #yb-site{
         .yb-content{
-            padding: 0 2%;
+            padding: 0;
         }
     }
 }
@@ -780,7 +791,7 @@
     #yb-site{
         padding-top: 50px;
         .yb-content{
-            padding: 0 4%;
+            padding: 0 0;
         }
     }
 }
