@@ -153,13 +153,20 @@
                                 font-family: $aleg;
                                 font-weight: 500;
                                 color: $titleblue;
-                                text-decoration: underline;
-                                &:hover{
-                                    text-decoration: none;
+                                span{
+                                    text-decoration: underline;
+                                }
+                                span{
+                                    cursor: pointer;
+                                    &:hover{
+                                        text-decoration: none;
+                                    }
                                 }
                             }
                         }
-                        &.rbmy{
+                    }
+                    &.rbmy{
+                        .option-box{
                             width: 24.2%;
                             .option-row{
                                 justify-content: flex-start;
@@ -179,11 +186,12 @@
                                 }
                             }
                         }
-                        &.tech{
-                            width: 32.5%;
+                        &:last-child{
+                            margin-bottom: 0;
                         }
                     }
                     .addRbmy{
+                        margin-bottom: 15px;
                         font-size: em(16);
                         cursor: pointer;
                         font-family: $aleg;
@@ -210,6 +218,14 @@
                                     margin-bottom: 10px;
                                 }
                             }
+                        }
+                    }
+                    &.techs{
+                        flex-wrap: wrap;
+                        margin-bottom: 0px;
+                        .option-box{
+                            width: 32.5%;
+                            margin-bottom: 15px;
                         }
                     }
                 }
@@ -267,7 +283,7 @@
                     }
                 }
                 &.pin{
-                    z-index: 9999;
+                    z-index: 2;
                     width: calc(100% - 17% *2);
                     position: fixed;
                     bottom: 0;
@@ -291,6 +307,10 @@
         .filter_search{
             .filter_search_filter{
                 .yexpanded_sidebar{
+                    h2.yfilter-aside-title{
+                        font-size: em(16);
+                        margin-bottom: 5px;
+                    }
                     .ygroup-box{
                         .yprice_filter-box{
                             .yprice{
@@ -309,7 +329,7 @@
                         &.rbmy{
                             flex-wrap: wrap;
                             align-items: flex-end;
-                            .option-box.rbmy{
+                            .option-box{
                                 width: 22.2%;
                                 &.years{
                                     width: 30%;
@@ -346,7 +366,8 @@
                             .ychaccordion{
                                 .accordion-checks{
                                     .ycheck{
-                                        width: 48%;
+                                        width: 49.5%;
+                                        margin-right: 0.33%;
                                     }
                                 }
                             }
@@ -387,10 +408,64 @@
 @media only screen and (max-width: 1330px){
     .full-filter{
         .filter_search{
+            .filter_search_filter{
+                .yexpanded_sidebar{
+                    width: 29%;
+                }
+                .yexpanded_content{
+                    width: 69%;
+                    .option-row{
+                        .option-box{
+                            &.hide-list{
+                                .ycheck{
+                                    width: 49.5%;
+                                    &:nth-child(3n){
+                                        margin-right: 0.33%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             .search-helper-station{
                 .search-helper{
                     &.pin{
                         width: calc(100% - 6% *2);
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .full-filter{
+        .filter_search{
+            .filter_search_filter{
+                .yexpanded_content{
+                    .option-row{
+                        &.rbmy{
+                            .option-box{
+                                width: 49%;
+                                margin-bottom: 15px;
+                                &:nth-child(-n+2){
+                                    width: 49%;
+                                    margin-bottom: 8px;
+                                }
+
+                                &.years,
+                                &:nth-child(3){
+                                    width: 49%;
+                                }
+                            }
+                        }
+                        .option-box{
+                            &.hide-list{
+                                .ycheck{
+                                    width: 49.5%;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -415,6 +490,97 @@
     .full-filter{
         .filter_search{
             border-radius: 0px;
+            .filter_search_filter{
+                .yexpanded_sidebar{
+                    width: 35%;
+                }
+                .yexpanded_content{
+                    width: 62%;
+                    .option-row{
+                        .option-box{
+                            &.hide-list{
+                                .ycheck{
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                        &.regions{
+                            .option-box{
+                                width: 49.5%;
+                                &:nth-child(-n+2){
+                                    margin-bottom: 15px;
+                                }
+                                &:last-child{
+                                    width: 49.5%;
+                                    margin-top: 0px;
+                                    .regionsList{
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                        &.techs{
+                            .option-box{
+                                width: 49%;
+                                margin-right: 0.33%;
+                                margin-bottom: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+            .search-helper-station{
+                .search-helper{
+                    &.pin{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .full-filter{
+        .filter_search{
+            .filter_search_filter{
+                flex-direction: column;
+                .ysearch_type_btn{
+                    width: 100%;
+                    display: flex;
+                    background-color: $box-bg;
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    .change_type{
+                        width: 100%;
+                        height: 42px;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(18);
+                        line-height: 18px;
+                        &.active{
+                            background: #0B3F8D;
+                            color: #FFFEFE;
+                        }
+                    }
+                }
+                .option-row{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    h2.option-title{
+                        font-family: $aleg;
+                        line-height: em(22);
+                        font-weight: 500;
+                        font-size: em(22);
+                        color: $filtergray;
+                        margin: 0 0 8px;
+                    }
+                }
+
+            }
             .search-helper-station{
                 .search-helper{
                     &.pin{

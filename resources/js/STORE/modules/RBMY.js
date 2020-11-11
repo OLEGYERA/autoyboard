@@ -136,10 +136,18 @@ let mutations = {
     },
     SET_YEAR_FROM_GENERATOR: (state, payload) => {
         state.years = payload;
+    },
+    CLEAR_RBMY_MODULE: (state, payload) => {
+        state.rbmyFullStore = [{
+            regionChoose: null,
+            brandChoose: null,
+            modelsChoose: [],
+            yearFrom: null,
+            yearTo: null,
+            brands: [],
+            models: [],
+        }];
     }
-
-
-
 };
 
 let actions = {
