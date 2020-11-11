@@ -809,6 +809,18 @@
                     </div>
                 </div>
             </div>
+            <div class="search-helper-station" v-else>
+                <div class="search-helper" :class="{pin: pinOrderPanel}">
+                    <div class="lhelp">
+                        <span class="searched-transport">Найдено транспорта:</span>
+                        <span class="counter">{{prettify(countTransport)}}</span>
+                    </div>
+                    <div class="rhelp">
+                        <span class="clear-filter" @click="clearFilter"><i class="yicon cancel"></i></span>
+                        <span class="search-btn"><i class="yicon search"></i></span>
+                    </div>
+                </div>
+            </div>
             {{generateLink}}
         </div>
     </div>

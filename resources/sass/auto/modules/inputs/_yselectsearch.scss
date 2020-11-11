@@ -227,3 +227,34 @@
     }
 }
 
+
+@media only screen and (max-width: 435px){
+    .yselectsearch{
+        .pre-header{
+            .modal-title{
+                font-size: em(16);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 380px){
+    .yselectsearch{
+        .pre-header{
+            justify-content: flex-end;
+            .modal-title{
+                font-weight: 400;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .yselectsearch{
+        &.active{
+            min-width: 300px;
+        }
+    }
+}
+
