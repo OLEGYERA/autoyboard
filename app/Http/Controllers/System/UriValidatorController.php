@@ -30,16 +30,16 @@ class UriValidatorController extends BasicController
         $this->verifyMainQueries($uris);
         foreach ($uris as $alias => $uri){
             switch ($alias){
-                case 'sch':
+                case 's':
                     $this->analizeSearchDetailAlias($uri);
                     break;
-                case 'transport':
+                case 't':
                     $this->analizeTransportAlias($uri);
                     break;
                 case 'rbmy':
                     $this->analizeRbmyAlias($uri);
                     break;
-                case 'region':
+                case 'r':
                     $this->analizeRegionAlias($uri);
                     break;
             }
@@ -57,14 +57,14 @@ class UriValidatorController extends BasicController
     }
 
     private function validateSearchDetailMain($data){
-        $this->verifiedData['autoCond'] = (isset($data['sch']['autoCond']) && $data['sch']['autoCond'] <= 3 && $data['sch']['autoCond'] >= 1) ? intval($data['sch']['autoCond']) : 1;
-        $this->verifiedData['curr'] = (isset($data['sch']['curr']) && $data['sch']['curr'] <= 3 && $data['sch']['curr'] >= 1) ? intval($data['sch']['curr']) : 1;
-        $this->verifiedData['sorting'] = (isset($data['sch']['sort']) && $data['sch']['sort'] <= SystemSorting::count() && $data['sch']['sort'] >= 1) ? intval($data['sch']['sort']) : 1;
-        $this->verifiedData['period'] = (isset($data['sch']['period']) && $data['sch']['period'] <= SystemPeriod::count() && $data['sch']['period'] >= 1) ? intval($data['sch']['period']) : 1;
-        $this->verifiedData['relevance'] = (isset($data['sch']['rel']) && $data['sch']['rel'] <= SystemRelevance::count() && $data['sch']['rel'] >= 1) ? intval($data['sch']['rel']) : 1;
-        $this->verifiedData['show'] = (isset($data['sch']['show']) && $data['sch']['show'] <= SystemShow::count() && $data['sch']['show'] >= 1) ? intval($data['sch']['show']) : 1;
+        $this->verifiedData['autoCond'] = (isset($data['s']['autoCond']) && $data['s']['autoCond'] <= 3 && $data['s']['autoCond'] >= 1) ? intval($data['s']['autoCond']) : 1;
+        $this->verifiedData['curr'] = (isset($data['s']['curr']) && $data['s']['curr'] <= 3 && $data['s']['curr'] >= 1) ? intval($data['s']['curr']) : 1;
+        $this->verifiedData['sorting'] = (isset($data['s']['sort']) && $data['s']['sort'] <= SystemSorting::count() && $data['s']['sort'] >= 1) ? intval($data['s']['sort']) : 1;
+        $this->verifiedData['period'] = (isset($data['s']['period']) && $data['s']['period'] <= SystemPeriod::count() && $data['s']['period'] >= 1) ? intval($data['s']['period']) : 1;
+        $this->verifiedData['relevance'] = (isset($data['s']['rel']) && $data['s']['rel'] <= SystemRelevance::count() && $data['s']['rel'] >= 1) ? intval($data['s']['rel']) : 1;
+        $this->verifiedData['show'] = (isset($data['s']['show']) && $data['s']['show'] <= SystemShow::count() && $data['s']['show'] >= 1) ? intval($data['s']['show']) : 1;
 
-        if(!isset($data['sch'])){
+        if(!isset($data['s'])){
             $this->analizeSearchDetailAlias();
         }
         return true;
@@ -72,17 +72,17 @@ class UriValidatorController extends BasicController
 
     private function validateTransportMain($data){
         $tempTTID = 1;
-        if(!isset($data['transport']['type'])){
+        if(!isset($data['t']['type'])){
             $tempTT = null;
         }
         else {
-            $tempTT = TransportType::select('id as val')->find(intval($data['transport']['type']));
+            $tempTT = TransportType::select('id as val')->find(intval($data['t']['type']));
         }
 
         $tt = $tempTT == null ? TransportType::select('id as val')->find($tempTTID) : $tempTT;
         $this->verifiedData['transport_type'] = $tt;
 
-        if(!isset($data['transport'])){
+        if(!isset($data['t'])){
             $this->analizeTransportAlias();
         }
 
@@ -116,7 +116,7 @@ class UriValidatorController extends BasicController
 
         $this->verifiedData['staticRegion'] = $regions;
 
-        if(!isset($data['region'])){
+        if(!isset($data['r'])){
             $this->analizeRegionAlias();
         }
         return true;
@@ -374,9 +374,9 @@ class UriValidatorController extends BasicController
         if(!empty($uri)){
             foreach ($uri as $k => $rbmy){
                 $rbmyFullStore = [];
-                if(isset($rbmy['reg'])){
-                    $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', intval($rbmy['reg']));
-                    $brands = $this->verifiedData['transport_type']->brands()->where('manufacture_id', intval($rbmy['reg']))->select(['brands.id as val', 'title as name'])->get();
+                if(isset($rbmy['r'])){
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'regionChoose', intval($rbmy['r']));
+                    $brands = $this->verifiedData['transport_type']->brands()->where('manufacture_id', intval($rbmy['r']))->select(['brands.id as val', 'title as name'])->get();
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
                 }
                 else{
@@ -385,9 +385,9 @@ class UriValidatorController extends BasicController
                 }
                 $rbmyFullStore = Arr::add($rbmyFullStore, 'brands', $brands);
 
-                if(isset($rbmy['brand'])){
-                    $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', intval($rbmy['brand']));
-                    $brand = Brand::select(['brands.id as val', 'title as name'])->find($rbmy['brand']);
+                if(isset($rbmy['b'])){
+                    $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', intval($rbmy['b']));
+                    $brand = Brand::select(['brands.id as val', 'title as name'])->find($rbmy['b']);
                     $models = $brand->modelsWithTransportType($this->verifiedData['transport_type']->val)->select(['id as val', 'title as name'])->get();
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'models', $models);
                 }
@@ -395,9 +395,9 @@ class UriValidatorController extends BasicController
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'brandChoose', null);
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'models', []);
                 }
-                if(isset($rbmy['model']) && isset($rbmy['brand'])){
+                if(isset($rbmy['m']) && isset($rbmy['m'])){
                     $modelArr = [];
-                    foreach ($rbmy['model'] as $model){
+                    foreach ($rbmy['m'] as $model){
                         array_push($modelArr, intval($model));
                     }
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', $modelArr);
@@ -406,8 +406,8 @@ class UriValidatorController extends BasicController
                     $rbmyFullStore = Arr::add($rbmyFullStore, 'modelsChoose', []);
                 }
 
-                $yearForm = isset($rbmy['yearF']) ? intval($rbmy['yearF']) : null;
-                $yearTo = isset($rbmy['yearT']) ? intval($rbmy['yearT']) : null;
+                $yearForm = isset($rbmy['f']) ? intval($rbmy['f']) : null;
+                $yearTo = isset($rbmy['t']) ? intval($rbmy['t']) : null;
                 if($yearForm > $yearTo && $yearTo !== null){
                     $tempYear = $yearForm;
                     $yearForm = $yearTo;

@@ -6,108 +6,108 @@ export const routingSplicerBus = new Vue({
         //constructor
         creatingSEARCHDETAILsProps(arr) {
             let strProps = '';
-            strProps += 'sch[autoCond]=' + arr.autoConditionChoosed + '&';
-            // strProps += arr.searchPropsChoosed.fullResource ? 'sch[fr]=true&' : '';
-            // strProps += arr.searchPropsChoosed.verifiedAuto ? 'sch[va]=true&' : '';
-            strProps += arr.searchPropsChoosed.withPhoto !== true ? 'sch[wph]=false&' : '';
+            strProps += arr.autoConditionChoosed !== 1 ? 's[autoCond]=' + arr.autoConditionChoosed + '&': '';
+            // strProps += arr.searchPropsChoosed.fullResource ? 's[fr]=true&' : '';
+            // strProps += arr.searchPropsChoosed.verifiedAuto ? 's[va]=true&' : '';
+            strProps += arr.searchPropsChoosed.withPhoto !== true ? 's[wph]=false&' : '';
 
-            strProps += arr.searchPropsChoosed.abroad ? 'sch[ab]=true&' : '';
-            strProps += arr.searchPropsChoosed.credit ? 'sch[cr]=true&' : '';
-            strProps += arr.searchPropsChoosed.customsСleared ? 'sch[cc]=true&' : '';
-            strProps += arr.searchPropsChoosed.accident ? 'sch[acc]=true&' : '';
-            strProps += arr.searchPropsChoosed.noMotion ? 'sch[nom]=true&' : '';
+            strProps += arr.searchPropsChoosed.abroad ? 's[ab]=true&' : '';
+            strProps += arr.searchPropsChoosed.credit ? 's[cr]=true&' : '';
+            strProps += arr.searchPropsChoosed.customsСleared ? 's[cc]=true&' : '';
+            strProps += arr.searchPropsChoosed.accident ? 's[acc]=true&' : '';
+            strProps += arr.searchPropsChoosed.noMotion ? 's[nom]=true&' : '';
 
-            strProps += arr.searchPropsChoosed.bargain ? 'sch[b]=true&' : '';
-            strProps += arr.searchPropsChoosed.exchange ? 'sch[e]=true&' : '';
+            strProps += arr.searchPropsChoosed.bargain ? 's[b]=true&' : '';
+            strProps += arr.searchPropsChoosed.exchange ? 's[e]=true&' : '';
 
-            strProps += 'sch[curr]=' + arr.priceChoosed.currency + '&'
-            strProps += arr.priceChoosed.from ? 'sch[priceF]=' + arr.priceChoosed.from + '&' : '';
-            strProps += arr.priceChoosed.to ? 'sch[priceT]=' + arr.priceChoosed.to + '&' : '';
+            strProps += arr.priceChoosed.currency !== 1 ?  's[curr]=' + arr.priceChoosed.currency + '&' : '';
+            strProps += arr.priceChoosed.from ? 's[priceF]=' + arr.priceChoosed.from + '&' : '';
+            strProps += arr.priceChoosed.to ? 's[priceT]=' + arr.priceChoosed.to + '&' : '';
 
-            strProps += arr.sortingChoosed ? 'sch[sort]=' + arr.sortingChoosed + '&' : '';
-            strProps += arr.periodChoosed ? 'sch[period]=' + arr.periodChoosed + '&' : '';
-            strProps += arr.relevanceChoosed ? 'sch[rel]=' + arr.relevanceChoosed + '&' : '';
-            strProps += arr.showChoosed ? 'sch[show]=' + arr.showChoosed + '&' : '';
+            strProps += arr.sortingChoosed !== 1 ? 's[sort]=' + arr.sortingChoosed + '&' : '';
+            strProps += arr.periodChoosed !== 1 ? 's[period]=' + arr.periodChoosed + '&' : '';
+            strProps += arr.relevanceChoosed !== 1 ? 's[rel]=' + arr.relevanceChoosed + '&' : '';
+            strProps += arr.showChoosed !== 1 ? 's[show]=' + arr.showChoosed + '&' : '';
 
 
             return strProps.substring(0, strProps.length - 1);
         },
         creatingTRANSPORTsProps(arr) {
             let strProps = '';
-            strProps += 'transport[type]=' + arr.typeChoosed + '&';
+            strProps += arr.typeChoosed !== 1 ? 't[type]=' + arr.typeChoosed + '&' : '';
             if(arr.bodiesChoosed.length > 0){
                 arr.bodiesChoosed.forEach((el, i) =>{
-                    strProps += 'transport[bodies][' + i + ']=' + el + '&';
+                    strProps += 't[bodies][' + i + ']=' + el + '&';
                 });
             }
             if(arr.colorsChoosed.length > 0){
                 arr.colorsChoosed.forEach((el, i) =>{
-                    strProps += 'transport[colors][' + i + ']=' + el + '&';
+                    strProps += 't[colors][' + i + ']=' + el + '&';
                 });
             }
             if(arr.importersChoosed.length > 0){
                 arr.importersChoosed.forEach((el, i) =>{
-                    strProps += 'transport[imp][' + i + ']=' + el + '&';
+                    strProps += 't[imp][' + i + ']=' + el + '&';
                 });
             }
             if(arr.statesChoosed.length > 0){
                 arr.statesChoosed.forEach((el, i) =>{
-                    strProps += 'transport[states][' + i + ']=' + el + '&';
+                    strProps += 't[states][' + i + ']=' + el + '&';
                 });
             }
 
             if(arr.fuelsChoosed.length > 0){
                 arr.fuelsChoosed.forEach((el, i) =>{
-                    strProps += 'transport[fuels][' + i + ']=' + el + '&';
+                    strProps += 't[fuels][' + i + ']=' + el + '&';
                 });
             }
 
-            strProps += arr.fuelConsumptionChoosed.from ? 'transport[fuelsF]=' + arr.fuelConsumptionChoosed.from + '&' : '';
-            strProps += arr.fuelConsumptionChoosed.to ? 'transport[fuelsT]=' + arr.fuelConsumptionChoosed.to + '&' : '';
+            strProps += arr.fuelConsumptionChoosed.from ? 't[fuelsF]=' + arr.fuelConsumptionChoosed.from + '&' : '';
+            strProps += arr.fuelConsumptionChoosed.to ? 't[fuelsT]=' + arr.fuelConsumptionChoosed.to + '&' : '';
 
-            strProps += arr.mileageChoosed.from ? 'transport[mileageF]=' + arr.mileageChoosed.from + '&' : '';
-            strProps += arr.mileageChoosed.to ? 'transport[mileageT]=' + arr.mileageChoosed.to + '&' : '';
+            strProps += arr.mileageChoosed.from ? 't[mileageF]=' + arr.mileageChoosed.from + '&' : '';
+            strProps += arr.mileageChoosed.to ? 't[mileageT]=' + arr.mileageChoosed.to + '&' : '';
 
             if(arr.transmissionsChoosed.length > 0){
                 arr.transmissionsChoosed.forEach((el, i) =>{
-                    strProps += 'transport[trans][' + i + ']=' + el + '&';
+                    strProps += 't[trans][' + i + ']=' + el + '&';
                 });
             }
-            strProps += arr.volumeChoosed.from ? 'transport[volF]=' + arr.volumeChoosed.from + '&' : '';
-            strProps += arr.volumeChoosed.to ? 'transport[volT]=' + arr.volumeChoosed.to + '&' : '';
+            strProps += arr.volumeChoosed.from ? 't[volF]=' + arr.volumeChoosed.from + '&' : '';
+            strProps += arr.volumeChoosed.to ? 't[volT]=' + arr.volumeChoosed.to + '&' : '';
 
-            strProps += arr.doorsChoosed.from ? 'transport[doorsF]=' + arr.doorsChoosed.from + '&' : '';
-            strProps += arr.doorsChoosed.to ? 'transport[doorsT]=' + arr.doorsChoosed.to + '&' : '';
+            strProps += arr.doorsChoosed.from ? 't[doorsF]=' + arr.doorsChoosed.from + '&' : '';
+            strProps += arr.doorsChoosed.to ? 't[doorsT]=' + arr.doorsChoosed.to + '&' : '';
 
             if(arr.gearsChoosed.length > 0){
                 arr.gearsChoosed.forEach((el, i) =>{
-                    strProps += 'transport[gears][' + i + ']=' + el + '&';
+                    strProps += 't[gears][' + i + ']=' + el + '&';
                 });
             }
-            strProps += arr.powerChoosed.from ? 'transport[powF]=' + arr.powerChoosed.from + '&' : '';
-            strProps += arr.powerChoosed.to ? 'transport[powT]=' + arr.powerChoosed.to + '&' : '';
+            strProps += arr.powerChoosed.from ? 't[powF]=' + arr.powerChoosed.from + '&' : '';
+            strProps += arr.powerChoosed.to ? 't[powT]=' + arr.powerChoosed.to + '&' : '';
 
-            strProps += arr.seatsChoosed.from ? 'transport[seatsF]=' + arr.seatsChoosed.from + '&' : '';
-            strProps += arr.seatsChoosed.to ? 'transport[seatsT]=' + arr.seatsChoosed.to + '&' : '';
+            strProps += arr.seatsChoosed.from ? 't[seatsF]=' + arr.seatsChoosed.from + '&' : '';
+            strProps += arr.seatsChoosed.to ? 't[seatsT]=' + arr.seatsChoosed.to + '&' : '';
 
             if(arr.techsChoosed.security.length > 0){
                 arr.techsChoosed.security.forEach((el, i) =>{
-                    strProps += 'transport[secur][' + i + ']=' + el + '&';
+                    strProps += 't[secur][' + i + ']=' + el + '&';
                 });
             }
             if(arr.techsChoosed.comfort.length > 0){
                 arr.techsChoosed.comfort.forEach((el, i) =>{
-                    strProps += 'transport[comf][' + i + ']=' + el + '&';
+                    strProps += 't[comf][' + i + ']=' + el + '&';
                 });
             }
             if(arr.techsChoosed.multimedia.length > 0){
                 arr.techsChoosed.multimedia.forEach((el, i) =>{
-                    strProps += 'transport[mult][' + i + ']=' + el + '&';
+                    strProps += 't[mult][' + i + ']=' + el + '&';
                 });
             }
             if(arr.techsChoosed.others.length > 0){
                 arr.techsChoosed.others.forEach((el, i) =>{
-                    strProps += 'transport[oth][' + i + ']=' + el + '&';
+                    strProps += 't[oth][' + i + ']=' + el + '&';
                 });
             }
 
@@ -117,15 +117,15 @@ export const routingSplicerBus = new Vue({
             let strProps = '';
             arr.forEach((el, i) => {
                 if (el.regionChoose !== null || el.brandChoose !== null || el.yearFrom !== null || el.yearTo !== null) {
-                    strProps += el.regionChoose !== null ? 'rbmy[' + i + '][reg]=' + el.regionChoose + '&' : '';
-                    strProps += el.brandChoose !== null ? 'rbmy[' + i + '][brand]=' + el.brandChoose + '&' : '';
+                    strProps += el.regionChoose !== null ? 'rbmy[' + i + '][r]=' + el.regionChoose + '&' : '';
+                    strProps += el.brandChoose !== null ? 'rbmy[' + i + '][b]=' + el.brandChoose + '&' : '';
                     if (el.brandChoose !== null && el.modelsChoose.length > 0) {
                         el.modelsChoose.forEach((el_model, i_model) => {
-                            strProps += 'rbmy[' + i + '][model][' + i_model + ']=' + el_model + '&';
+                            strProps += 'rbmy[' + i + '][m][' + i_model + ']=' + el_model + '&';
                         })
                     }
-                    strProps  += el.yearFrom !== null ? 'rbmy[' + i + '][yearF]='+ el.yearFrom + '&' : '';
-                    strProps  += el.yearTo !== null ? 'rbmy[' + i + '][yearT]='+ el.yearTo + '&' : '';
+                    strProps  += el.yearFrom !== null ? 'rbmy[' + i + '][f]='+ el.yearFrom + '&' : '';
+                    strProps  += el.yearTo !== null ? 'rbmy[' + i + '][t]='+ el.yearTo + '&' : '';
                 }
             })
             return strProps.substring(0, strProps.length - 1);
@@ -134,12 +134,12 @@ export const routingSplicerBus = new Vue({
             let strProps = '';
             if(regions.length > 0){
                 regions.forEach((el, i) => {
-                    strProps += 'region[reg][' + i + ']=' + el + '&';
+                    strProps += 'r[reg][' + i + ']=' + el + '&';
                 })
             }
             if(cities.length > 0){
                 cities.forEach((el, i) => {
-                    strProps += 'region[city][' + i + ']=' + el + '&';
+                    strProps += 'r[city][' + i + ']=' + el + '&';
                 })
             }
             return strProps.substring(0, strProps.length - 1);
