@@ -1,6 +1,5 @@
 <template>
     <div class="full-filter">
-        <!--v-else-->
         <div  class="filter_search">
             <h1 class="ytitle-exp">Расширенный поиск</h1>
             <section class="filter_search_filter" v-if="currentWidth > 768">
@@ -794,18 +793,6 @@
                     </div>
                     <div class="rhelp" @click="clearFilter">
                         <span class="clear-filter">Очистить фильтр</span>
-                    </div>
-                </div>
-            </div>
-            <div class="search-helper-station" v-else>
-                <div class="search-helper" :class="{pin: pinOrderPanel}">
-                    <div class="lhelp">
-                        <span class="searched-transport">Найдено транспорта:</span>
-                        <span class="counter">{{prettify(countTransport)}}</span>
-                    </div>
-                    <div class="rhelp">
-                        <span class="clear-filter" @click="clearFilter"><i class="yicon cancel"></i></span>
-                        <span class="search-btn"><i class="yicon search"></i></span>
                     </div>
                 </div>
             </div>
