@@ -59,7 +59,7 @@
                 <div class="yb-car_marks">
                     <div class="car_marks-title">
                         <h3 class="marks_title">Популярные марки</h3>
-                        <yexpanded :text_color="'blue'" :text="'Смотреть больше'" :color="'blue'"  ></yexpanded>
+                        <yexpanded :text_color="'blue'" :utext="'Дивитися більше'" :text="'Смотреть больше'" :color="'blue'"  ></yexpanded>
                     </div>
                             <div class="yb_marks_list">
                                 <ul class="marks-list_body">
