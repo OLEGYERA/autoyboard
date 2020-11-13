@@ -31,6 +31,10 @@ class ParserUrlList extends Model
         return $this->hasMany('App\ParserPhotoCard', 'url_id');
     }
 
+    public function photo(){
+        return $this->hasOne('App\ParserPhotoCard', 'url_id');
+    }
+
     public function state(){
         return $this->hasManyThrough('App\TransportChState' , 'App\ParserStateCard', 'url_id','id', 'id', 'state_id');
     }

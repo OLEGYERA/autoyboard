@@ -1,6 +1,6 @@
 <template>
     <div class="filter-cards">
-        <div class="option-line">
+        <div class="option-line" v-if="currentWidth > 768">
             <div class="selectors-group">
                 <div class="ygroup-row-box">
                     <h3 class="sidebar-title">
@@ -27,12 +27,21 @@
                     </yselectsearch>
                 </div>
             </div>
-           <div class="icon-group">
-               <i class="yicon grid-1 active"></i>
-               <i class="yicon grid-2"></i>
+           <div class="icon-group" v-if="currentWidth > 900">
+               <i class="yicon grid-2" :class="{active: !isRowView}" @click="[setRowViewtoStorage(false), isRowView = false]"></i>
+               <i class="yicon grid-1" :class="{active: isRowView}" @click="[setRowViewtoStorage(true), isRowView = true]"></i>
            </div>
         </div>
-        <div class="filter-cards-box">
+        <div class="filter-cards-box" :class="{rows: isRowView}">
+            <div class="filter-card" v-for="dataIdTransport in dataIdTransports">
+                <div class="img-box">
+                    <picture v-if="dataIdTransport.photo">
+                        <img v-lazy="dataIdTransport.photo.path" alt="">
+                    </picture>
+                </div>
+
+            </div>
+
             <div class="filter-card">
                 <div class="img-box">
                     <picture>
@@ -62,6 +71,9 @@
                             <i class="yicon fuel"></i>
                             <div class="option-title"> Дизель, <span class="sp-num">2</span> л.</div>
                         </div>
+                    </div>
+                    <div class="description-row" v-if="isRowView == true">
+                        Действительно НОВЫЙ АВТОМОБИЛЬ ! КОЛЛЕКЦИОННОЕ СОСТОЯНИЕ Достался по наследству от родителей БЕЗ ЕДИНОГО ПОДКРАСА !!! Ни одна деталь кузова .включая бампера, НЕ БИТАЯ !!! НЕ КРАШЕНАЯ !!! НЕ ПОДКРАШЕННАЯ !!!
                     </div>
                     <div class="other-row">
                         <time class="date"><span class="sp-num">30</span> минут назад</time>
@@ -98,6 +110,7 @@
                             <div class="option-title"> Дизель, <span class="sp-num">2</span> л.</div>
                         </div>
                     </div>
+                    <div class="description-row" v-if="isRowView == true"></div>
                     <div class="other-row">
                         <time class="date"><span class="sp-num">5</span> мая, <span class="sp-num">2020</span></time>
                     </div>
@@ -145,7 +158,7 @@
                     </picture>
                 </div>
                 <div class="content-box">
-                    <h3 class="card-title">Ford Fiesta St line 219 2009</h3>
+                    <h3 class="card-title">Renault Fluence 1.5DCi OFFiCiAL GPS 2014</h3>
                     <div class="price-row">
                         <div class="usd">{{prettify(8200)}}<span class="symb">$</span></div>
                         <div class="uah">{{prettify(124000)}}<span class="symb">₴</span></div>
@@ -381,50 +394,25 @@
     export default {
         props: ['lang'],
         mounted() {
-            window.addEventListener('resize', this.onResize)
-            this.onResize();
+            window.addEventListener('resize', this.changeResize);
+            this.changeResize();
             document.addEventListener('click', this.handleClickOutside)
         },
         destroyed() {
+            window.removeEventListener('resize', this.changeResize);
             document.removeEventListener('click', this.handleClickOutside)
         },
         data() {
             return {
+                currentWidth: 0,
+                isRowView: false,
                 page: 1,
                 length: 10,
                 totalVisible: 5,
-
+                test: [],
                 //////////
                 sortByOpen: false,
                 itemSort: [],
-                windowWidth: 0,
-                status: false,
-                left: ['Обычная', 'По рейтингу', 'По к-ву просмотров', 'По цене', 'По дате добавления', 'Пробег, по взрастанию', 'Пробег, по убыванию',],
-                right: ['Все', 'За час', 'За 3 часа', 'За 6 часов', 'За 12 часов', 'За сегодня', 'За сутки', 'За Неделю'],
-                users: [
-                    {"id":1, "name":"Tom"},
-                    {"id":2, "name":"Kate"},
-                    {"id":3, "name":"Jack"},
-                    {"id":4, "name":"Jill"},
-                    {"id":5, "name":"bill"},
-                    {"id":6, "name":"aill"},
-                    {"id":7, "name":"cill"},
-                    {"id":8, "name":"dill"},
-                    {"id":9, "name":"eill"},
-                    {"id":10, "name":"cill"},
-                    {"id":11, "name":"dill"},
-                    {"id":12, "name":"eill"},
-                    {"id":13, "name":"cill"},
-                    {"id":14, "name":"dill"},
-                    {"id":15, "name":"eill"},
-                    {"id":16, "name":"cill"},
-                    {"id":17, "name":"dill"},
-                    {"id":18, "name":"eill"},
-                    {"id":19, "name":"cill"},
-                    {"id":10, "name":"dill"},
-                    {"id":11, "name":"eill"}
-
-                ],
                 currentPage: 1,
                 itemsPerPage: 1,
                 resultCount: 0,
@@ -435,6 +423,19 @@
             prettify(num){
                 var n = num.toString();
                 return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
+            },
+            reciveTransportData(id){
+                let findingTransport = this.dataTransports.find(el => {
+                    if(el.id == id) return true
+                });
+                if(findingTransport == undefined) {
+                    this.dataTransports.push({id: id, ping: true})
+                    this.FILTER_TRANSPORT_FROM_API('data_transport/' + id);
+                    return null;
+                }else {
+                    return findingTransport;
+                }
+
             },
             prevPage(){
                 this.currentPage = ( this.currentPage-1 >= 0 ? this.currentPage-1 : this.users.length-1 )
@@ -449,28 +450,36 @@
             setPage: function(pageNumber) {
                 this.currentPage = pageNumber
             },
-            changeStatus(s) {
-                this.status = s;
+            getRowViewFromStorage(){
+                let rowStorage = localStorage.getItem('rowStorage');
+                if(rowStorage == null || rowStorage == 'false'){
+                    localStorage.setItem('rowStorage', 'false');
+                    this.isRowView = false;
+                }
+                else{
+                    this.isRowView = true;
+                }
             },
-            onResize() {
-                this.windowWidth = document.documentElement.clientWidth;
+            setRowViewtoStorage(bool){
+                localStorage.setItem('rowStorage', bool);
             },
-            openSortBy() {
-                this.sortByOpen = true
-            },
-            setItem(item) {
-                this.itemSort = item
-                this.sortByOpen = false
+            changeResize(){
+                this.currentWidth = window.innerWidth;
             },
             handleClickOutside(evt) {
                 if (!this.$el.contains(evt.target)) {
                     this.sortByOpen = false;
                 }
             },
+            ...mapActions([
+                'FILTER_TRANSPORT_FROM_API'
+            ]),
         },
         computed: {
             ...mapGetters({
                 'searchDeatils': 'GET_SEARCHDETAILS',
+                'dataIdTransports': 'GET_DATA_ID',
+                'dataTransports': 'GET_DATA_TRANSPORTS'
             }),
             totalPages: function() {
                 return Math.ceil(this.resultCount / this.itemsPerPage)
@@ -488,6 +497,17 @@
             },
             filterSortItems() {
                 return this.left
+            },
+        },
+        watch:{
+            currentWidth(to){
+                // this.$forceUpdate();
+                if(to < 900){
+                    this.isRowView = false;
+                }
+                else{
+                    this.getRowViewFromStorage();
+                }
             },
         }
     }

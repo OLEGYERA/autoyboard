@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\ManufactureCountry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Carbon\Carbon;
 
 use App\ParserUrlList;
 use App\UkrainianRegion;
@@ -13,7 +14,7 @@ use App\UkrainianCity;
 
 class SearchController extends Controller
 {
-    public function dataCollection($search_request){
+    public function dataCollection($search_request, $onlyCount = true){
 //      Create Query
         $query = ParserUrlList::where('status', 3);
 //      Condition
@@ -22,6 +23,8 @@ class SearchController extends Controller
 //      TransportType
         $transportType = $search_request['transportFullStore']['typeChoosed'];
         $query = $query->where('transport_type', $transportType);
+//      Period
+        $query = $this->periodQuery($query, $search_request['searchDetailFullStore']['periodChoosed']);
 //      Currency
         $query = $this->currencyQuery($query, $search_request['searchDetailFullStore']['priceChoosed']);
 //      Photos
@@ -324,9 +327,13 @@ class SearchController extends Controller
                 });
             }
         }
-        return $query->get();
-    }
 
+        if($onlyCount){
+            return ['count' => $query->count()];
+        } else{
+            return ['count' => $query->count(), 'dataID' => $query->skip(1)->take(10)->with('photo', 'main', 'body')->get()];
+        }
+    }
 
     public function currencyQuery($query, $currency){
         if($currency['to'] !== null && $currency['from'] !== null){
@@ -374,6 +381,37 @@ class SearchController extends Controller
         }
 
         return $query;
+    }
+
+    public function periodQuery($query, $period){
+        $date = '';
+        switch ($period){
+            case 1:
+                return $query;
+                break;
+            case 2:
+                $date = Carbon::now()->subHour(1);
+                break;
+            case 3:
+                $date = Carbon::now()->subHour(3);
+                break;
+            case 4:
+                $date = Carbon::now()->subHour(6);
+                break;
+            case 5:
+                $date = Carbon::now()->subHour(12);
+                break;
+            case 6:
+                $date = Carbon::today();
+                break;
+            case 7:
+                $date = Carbon::now()->subDay(1);
+                break;
+            case 8:
+                $date = Carbon::now()->subDay(2);
+                break;
+        }
+        return $query->where('created_at', '>=', $date->toDateTimeString());
     }
 }
 

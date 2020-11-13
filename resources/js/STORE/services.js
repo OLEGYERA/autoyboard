@@ -4,6 +4,7 @@ import REGIONS from './modules/REGIONS';
 import RBMY from './modules/RBMY';
 import TRANSPORT from './modules/TRANSPORT';
 import SEARCHDEATAILS from './modules/SEARCHDETAILS';
+import FILTER from './modules/FILTER';
 
 Vue.use(Vuex);
 
@@ -16,6 +17,7 @@ export const services = new Vuex.Store({
         REGIONS,
         RBMY,
         TRANSPORT,
-        SEARCHDEATAILS
+        SEARCHDEATAILS,
+        FILTER
     },
 });

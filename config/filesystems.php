@@ -78,7 +78,6 @@ return [
             'userName'   => 'Admin',
             'password'   => 'CZ2kUNRDSx329eiz',
         ],
-
     ],
 
     /*

@@ -1,7 +1,7 @@
 <template>
     <div class="filter-form">
         <div class="filter_search">
-            <section class="filter_search_filter">
+            <section class="filter_search_filter" v-if="currentWidth > 768">
                 <div class="ysearch_type_btn">
                     <button class="change_type"
                             @click="SET_AUTO_CONDITION_CHOOSED(1)"
@@ -284,15 +284,15 @@
                 </div>
             </section>
             <div class="search-helper-station">
-                <div class="search-helper" :class="{pin: pinOrderPanel}">
+                <div class="search-helper" :class="{pin: pinOrderPanel && currentWidth > 768}">
                     <div class="searched-transport">
                         <h3 class="searcher-title">Найдено транспорта:</h3>
                         <div class="searcher-counter">{{prettify(countTransport)}}</div>
                     </div>
                     <div class="btn-cols">
                         <button class="goto_full-filter" @click="clearFilter">Расширенный поиск</button>
-                        <div class="one-row">
-                            <button class="search-btn">Поиск</button>
+                        <div class="one-row" v-if="currentWidth > 768 ">
+                            <button class="search-btn">Показать</button>
                             <button class="clear-filter" @click="clearFilter">Очистить фильтр</button>
                         </div>
                     </div>
@@ -330,7 +330,6 @@
                 bodyFullList: false,
                 currentWidth: null,
 
-                countTransport: 0,
                 pinOrderPanel: false,
                 uriName: 'filter'
             }
@@ -378,10 +377,9 @@
                 data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
                 this.MODELS_FROM_API(data);
             },
-            getTransportCount(query){
-                HTTP.get('count_transport' + query).then(response => {
-                    this.countTransport = response.data;
-                })
+
+            getTransportData(query){
+                this.FILTER_IDS_FROM_API('data_transports' + query);
             },
             changeResize(){
                 this.currentWidth = window.innerWidth;
@@ -427,7 +425,9 @@
                 'BRANDS_FROM_API',
                 'MODELS_FROM_API', 'GENERATE_YEAR',
                 //TRANSPORT
-                'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API'
+                'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API',
+                //FILTER
+                'FILTER_IDS_FROM_API'
             ]),
         },
         computed: {
@@ -449,7 +449,7 @@
             },
             generateLink() {
                 let query = this.generateQuery;
-                this.getTransportCount(query);
+                this.getTransportData(query);
                 window.history.pushState('', '', document.location.origin + '/' + this.uriName + query);
             },
             ...mapGetters({
@@ -470,11 +470,13 @@
                 'transportTransmissions': 'GET_TRANSPORT_TRANSMISSIONS',
                 'transportGears': 'GET_TRANSPORT_GEARS',
                 'transportTechs': 'GET_TRANSPORT_TECHS',
-
+                //REGIONS
                 'regionAndPart': 'GET_REGION_AND_PART_FROM_STORE',
                 'cities': 'GET_CITIES',
                 'choosedCities': 'GET_CHOOSED_CITIES',
                 'choosedRegions': 'GET_CHOOSED_REGIONS',
+                //FILTER
+                'countTransport': 'GET_COUNT'
             }),
         },
         watch: {

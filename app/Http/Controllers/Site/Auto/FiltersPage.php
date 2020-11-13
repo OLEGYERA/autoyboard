@@ -19,10 +19,11 @@ class FiltersPage extends BasicController
     public function getFilterRu(Request $request){
         $validateData = (new UVC)->validateSearch($request->all(), 'rtitle');
         $this->content = view('site.auto.filters.filter.ru')->with([
-            'validateData' => $validateData,
-            'title' => TransportType::find($validateData)->first()->rtitle
+            'validateData' => $validateData
         ])->render();
         return $this->renderBasic();
     }
+
+
 
 }
