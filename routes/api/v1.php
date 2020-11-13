@@ -33,6 +33,7 @@ $appRoutes = function() {
     Route::get('/manufacture_countries', 'API\FilterController@GET_manufacture_countries');
 
     Route::get('/count_transport', 'API\SearchController@getCountTransport');
+    Route::get('/search_transport_result', 'API\SearchController@getCountTransport');
 
 
 

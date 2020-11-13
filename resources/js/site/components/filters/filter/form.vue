@@ -298,7 +298,7 @@
                     </div>
                 </div>
             </div>
-<!--            {{generateLink}}-->
+            {{generateLink}}
         </div>
     </div>
 </template>
@@ -332,7 +332,7 @@
 
                 countTransport: 0,
                 pinOrderPanel: false,
-                uriName: 'full-filter'
+                uriName: 'filter'
             }
         },
         methods: {
@@ -379,7 +379,7 @@
                 this.MODELS_FROM_API(data);
             },
             getTransportCount(query){
-                HTTP.get('count_transport?' + query).then(response => {
+                HTTP.get('count_transport' + query).then(response => {
                     this.countTransport = response.data;
                 })
             },
@@ -406,7 +406,7 @@
                 'CLEAR_SEARCHDETAIL_MODULE',
                 //regions
                 'SET_REGION_ARR', 'SET_REGION_ARR_STATIC',
-                'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE', 'SET_CHOOSED_REGIONS', 'SET_CHOOSED_REGION_PARTS',
+                'SET_CITIES_CHOOSE', 'DELETE_CITIES_CHOOSE',
                 'CLEAR_REGION_MODULE',
                 //RBMY
                 'CREATE_NEW_RBMY', 'DELETE_RBMY', 'SET_NEW_RBMY',
@@ -438,6 +438,7 @@
                     REGIONProps = routingSplicerBus.$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities),
                     query = '';
 
+                query += '?';
                 query += SEARCHDETAILsProps != '' ? SEARCHDETAILsProps + '&' : '';
                 query += TRANPORTsProps != '' ? TRANPORTsProps + '&' : '';
                 query += RBMYsProps != '' ? RBMYsProps + '&' : '';
@@ -449,7 +450,7 @@
             generateLink() {
                 let query = this.generateQuery;
                 this.getTransportCount(query);
-                window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + query);
+                window.history.pushState('', '', document.location.origin + '/' + this.uriName + query);
             },
             ...mapGetters({
                 //search detail
