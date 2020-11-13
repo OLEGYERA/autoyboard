@@ -134,89 +134,6 @@
                         </div>
                     </div>
                 </section>
-<!--                <div>-->
-<!--                    <Slick id="slick1" :options="slickOptions" ref="slickSetting1">-->
-<!--                        <figure v-for="(item,j) in options" class="yb_navigation-for">-->
-<!--                            <img :src="'/' + item.path" class="img-responsive" />-->
-<!--                        </figure>-->
-<!--                        <figure class="yb_navigation-for">-->
-<!--                            2-->
-<!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
-<!--                        </figure>-->
-<!--                        <figure class="yb_navigation-for">-->
-<!--                            3-->
-<!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
-<!--                        </figure>-->
-<!--                        <figure class="yb_navigation-for">-->
-<!--                            4-->
-<!--                            <img src="http://via.placeholder.com/350x150" class="img-responsive" />-->
-<!--                        </figure>-->
-<!--                    </Slick>-->
-
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <Slick id="slick2" :options="slickOptions2" ref="slickSetting2">-->
-<!--                        <figure v-for="(item) in options" class="yb_navigation-item">-->
-<!--                            <img :src="'/' + item.path" class="img-responsive" />-->
-<!--                        </figure>-->
-<!--                        <div class="yb_navigation-item">-->
-<!--                            2<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
-<!--                        </div>-->
-<!--                        <div class="yb_navigation-item">-->
-<!--                            3<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
-<!--                        </div>-->
-<!--                        <div class="yb_navigation-item">-->
-<!--                            4<img src="http://via.placeholder.com/50x50" class="img-responsive" />-->
-<!--                        </div>-->
-<!--                    </Slick>-->
-<!--                </div>-->
-<!--                <div class="yb-scroll_vis">-->
-<!--                    <vuescroll :ops="ops">-->
-<!--                        <div class="yb-full_carousel" ref="scrollTo">-->
-<!--                            <Slick class="slider-nav"  id="slick2" :options="slickOptions2" ref="slickSetting2">-->
-<!--                                <figure :class="{active_item: item === options[currImgIdx]}"-->
-<!--                                        :key="j"-->
-<!--                                        @click="currImgIdx = j"-->
-<!--                                        class="chunk_item"-->
-<!--                                        v-for="(item,j) in options"-->
-<!--                                >-->
-<!--                                    <div class="yb_count-img" v-if="item === options[currImgIdx]">-->
-<!--                                        <span>{{ currImgIdx + 1 }}</span>-->
-<!--                                        из-->
-<!--                                        <span>{{ options.length }}</span>-->
-<!--                                    </div>-->
-<!--                                    <img :src="'/' + item.path" alt=""/>-->
-<!--                                </figure>-->
-<!--                            </Slick>-->
-<!--                        </div>-->
-<!--                    </vuescroll>-->
-<!--                </div>-->
-<!--                <div  class="yb-slick_mobile">-->
-<!--                    <Slick class="slider-for"  id="slick1" :options="slickOptions" ref="slickSetting1" v-if="options.length > 0">-->
-<!--                        <figure v-for="(item, i) in options" :key="i"  class="yb_slick_items y-current_img">-->
-<!--                            <img :src=" '/' + item.path" alt="" class="yb_slick_item"/>-->
-<!--                        </figure>-->
-<!--                    </Slick>-->
-<!--                </div>-->
-<!--                <figure class="y-current_img"-->
-<!--                        @touchstart="touchStart"-->
-<!--                        @touchmove="touchMove"-->
-<!--                        @touchend="touchEnd"-->
-<!--                >-->
-<!--                    <img :src="'/' + options[currImgIdx].path" alt="" class="currImg"/>-->
-<!--                    <svg @click="prevImage" class="yb_prev" fill="none" height="50" viewBox="0 0 26 50" width="26"-->
-<!--                         xmlns="http://www.w3.org/2000/svg">-->
-<!--                        <path-->
-<!--                            d="M24.1396 3.8147e-06C25.1652 -0.00198038 25.9981 0.858079 26 1.9207C26.0009 2.43299 25.8045 2.92452 25.4544 3.28637L4.47682 25.0129L25.4544 46.7393C26.1668 47.5035 26.1464 48.7216 25.4088 49.4599C24.689 50.18 23.5481 50.18 22.8286 49.4599C14.1258 40.4432 0.543716 26.3712 0.543716 26.3712C-0.181238 25.6199 -0.181238 24.402 0.543716 23.6505L22.8286 0.561714C23.1764 0.202034 23.6479 3.8147e-06 24.1396 3.8147e-06Z"-->
-<!--                            fill="rgba(255, 255, 255, 0.44)"/>-->
-<!--                    </svg>-->
-<!--                    <svg @click="nextImage" class="yb_next" fill="none" height="57" viewBox="0 0 30 57" width="30"-->
-<!--                         xmlns="http://www.w3.org/2000/svg">&ndash;&gt;-->
-<!--                        <path-->
-<!--                            d="M2.14666 57C0.963249 57.0023 0.00221306 56.0218 3.32498e-06 54.8104C-0.0010011 54.2264 0.225598 53.666 0.629578 53.2535L24.8344 28.4853L0.629578 3.71725C-0.192444 2.84598 -0.168942 1.45733 0.682209 0.615669C1.51267 -0.205223 2.82907 -0.205223 3.65933 0.615669C13.701 10.8947 29.3726 26.9369 29.3726 26.9369C30.2091 27.7933 30.2091 29.1818 29.3726 30.0384L3.65933 56.3596C3.25796 56.7697 2.71396 57 2.14666 57Z"-->
-<!--                            fill="rgba(255, 255, 255, 0.44)"/>-->
-<!--                    </svg>-->
-<!--                </figure>-->
             </div>
         </div>
     </div>
@@ -537,7 +454,7 @@
                     endX: 0
                 }, // obj from touch slider in mobile visible
                 //end slider fullPage
-                showSlider: true,
+                showSlider: false,
                 imgFullList: false, //show all small img
                 windowWidth: 0,
                 verifiedCar: true,
