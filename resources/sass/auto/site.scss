@@ -3,8 +3,8 @@
 
 //components
 @import 'components/header';
-//@import 'components/filter';
 @import 'components/filters/full-filter';
+@import 'components/filters/filter';
 @import 'components/filters/selected-items';
 //@import 'components/home';
 //@import 'components/presentation';
@@ -16,10 +16,6 @@
 //@import 'components/catbody';
 //@import 'components/changelog';
 //@import 'components/update';
-
-
-//@import 'modules/yfilterform';
-//@import 'modules/ycardfilter';
 //@import 'modules/ydropdownfilter';
 //@import 'modules/yregionsearch';
 @import 'modules/yratio';

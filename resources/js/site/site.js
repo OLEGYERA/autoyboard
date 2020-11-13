@@ -6,6 +6,8 @@ import {services} from '../STORE/services';
 
 Vue.component('full-filter', require('./components/filters/full-filter').default);
 Vue.component('selected-items', require('./components/filters/selected-items').default);
+Vue.component('filter-form', require('./components/filters/filter/form').default);
+Vue.component('filter-cards', require('./components/filters/filter/cards').default);
 
 
 
@@ -37,7 +39,6 @@ Vue.component('ysearch', require('./modules/header/ysearch.vue').default);
 Vue.component('ylocation', require('./components/ylocation.vue').default);
 // Vue.component('ystatus', require('./components/ystatus').default);
 Vue.component('yexpanded', require('./components/yexpanded').default);
-// Vue.component('yform', require('./components/yform').default);
 Vue.component('ycheckbox', require('./components/ycheckbox').default);
 Vue.component('yratio', require('./components/yratio').default);
 
@@ -72,9 +73,8 @@ Vue.component('ycardauto', require('./components/ycardauto').default);
 
 
 
-// Vue.component('yfilterform', require('./components/yfilterform').default);
-// Vue.component('ycardfilter', require('./components/ycardfilter').default);
-// Vue.component('ydropdowfilter', require('./components/ydropdownfilter').default);
+Vue.component('ydropdowfilter', require('./components/ydropdownfilter').default);
+
 
 Vue.directive('click-outside', {
     bind: function (el, binding, vnode) {

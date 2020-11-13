@@ -100,7 +100,7 @@
                 this.overflowDOM();
             },
             overflowDOM(){
-                if(this.currentWidth <= 945){
+                if(this.currentWidth <= 768){
                     if(this.openResults){
                         document.getElementsByTagName('body')[0].style.overflow = 'hidden'
                     }
