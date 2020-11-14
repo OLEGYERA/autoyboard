@@ -1,0 +1,190 @@
+@import '../../vars';
+
+.yb-content{
+    .yb-bread_crumbs{
+        margin: 25px 0 20px;
+        display: flex;
+        .y-crumbs{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            a{
+                font-family: $aleg;
+                font-weight: normal;
+                font-size: em(18);
+                line-height: 22px;
+                color: $crumbsgray;
+                &.active{
+                    color: $darkblue;
+                }
+            }
+            i{
+                color: $crumbsgray;
+                padding: 0 7px;
+            }
+        }
+    }
+    .yb_search-visible{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .yb_search-visl{
+            width: 30%;
+            padding: 0px 0 20px 15px ;
+            background: #FFFFFF;
+            box-shadow: 1px 1px 3px rgba(11, 63, 141, 0.34);
+            border-radius: 8px;
+            .yb_search-list{
+                padding: 10px 0 10px 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+                &:last-child{
+                    border-bottom: none;
+                }
+                .yb_title-list{
+                    font-family: $mont;
+                    font-weight: 600;
+                    font-size: em(24);
+                    line-height: 29px;
+                    color: $darkblue;
+                    margin: 0 0 10px 0;
+                }
+                .yb_list-items{
+                    padding: 0;
+                    margin: 0;
+                    .yb_list-item{
+                        .yb_list-title{
+                            display: flex;
+                            align-items: center;
+                            font-family: $aleg;
+                            font-weight: 500;
+                            font-size:em(20);
+                            line-height: 24px;
+                            color: $darkgray-filter;
+                            margin-bottom: 5px;
+                            &:last-child{
+                                margin-bottom: 10px;
+                            }
+                            i{
+                                margin-left: 5px;
+                            }
+                        }
+                        .sub-menu{
+                            padding: 0;
+                            margin: 0;
+                            .yb_sub-item{
+                                font-family:  $aleg;
+                                font-weight: normal;
+                                font-size: em(18);
+                                line-height: 22px;
+                                color: $darkgray-filter;
+                            }
+                        }
+
+                    }
+                }
+                .yb_more-types{
+                    display: flex;
+                    align-items: center;
+                    font-family: $aleg ;
+                    font-weight: 500;
+                    font-size: em(20);
+                    line-height: 24px;
+                    color: $darkblue;
+                    svg{
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+        .yb_search-visr{
+            width: 68%;
+            .yb_search-title{
+                font-family: $rale;
+                font-weight: 600;
+                font-size: em(36);
+                line-height: 42px;
+                color: #100D0D;
+                margin: 0 0 20px 0;
+            }
+            .yb-search_card{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.13), 0px 2px 6px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.44);
+                .yb-search_img{
+                    margin: 0;
+                    width: 35%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .yb_card-desc{
+                    width: 65%;
+                    padding: 26px 25px 24px 25px;
+                    background: #FFFFFF;
+                    .yb-car_name{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .yb_car-name{
+                            font-family: $mont;
+                            font-weight: 600;
+                            font-size: em(18);
+                            line-height: 26px;
+                            color: $darkgray-filter;
+                            margin: 0;
+                        }
+                        .car_price{
+                            font-family: $mont;
+                            font-weight: 500;
+                            font-size: em(24);
+                            line-height: 29px;
+                            color: #10A667;
+                        }
+                    }
+                }
+                .yb-title_car{
+                    font-family: $aleg;
+                    font-weight: normal;
+                    font-size: em(16);
+                    margin: 15px 0 20px;
+                    padding: 0;
+                    line-height: 19px;
+                    color: rgba(0, 0, 0, 0.8);
+                    text-overflow: ellipsis;
+                }
+                .yb_car-config{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    .yb_config-item{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        svg{
+                            width: 25px;
+                            height: 20px;
+                        }
+                        .yb-config_title{
+                            margin: 0;
+                            font-family: $mont;
+                            font-weight: 500;
+                            font-size: em(16);
+                            line-height: 28px;
+                            color: $lianswerfaq;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

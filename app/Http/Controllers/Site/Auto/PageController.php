@@ -295,6 +295,12 @@ class PageController extends BasicController
 
     }
 
+    public function seo()
+    {
+
+        $this->content = view('site.auto.seo.ru')->render();
+        return $this->renderBasic();
+    }
 
     public function generateURL()
     {

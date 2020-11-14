@@ -191,4 +191,22 @@ $(window).scroll(function(){
 
 
 
+$(document).ready(function() {
+
+    $('.yb_search-visl .drop-target').each(function(i, el){
+        $('.option-target[data-target="' + $(el).attr('data-alias') +'"]').hide();
+    })
+
+    $('.yb_search-visl').on('click', '.drop-target', function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+            $('.option-target[data-target="' + $(this).attr('data-alias') +'"]').stop(true,true).slideToggle(200);;
+        } else{
+            $(this).addClass('active');
+            $('.option-target[data-target="' + $(this).attr('data-alias') +'"]').slideUp(200);
+        }
+        console.log($(this).hasClass('active'))
+    });
+});
+
 

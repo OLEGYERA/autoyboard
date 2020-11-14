@@ -21,6 +21,6 @@ mix.browserSync('http://yboard.loc/');
 //     .sass('resources/sass/admin/admin.scss', 'public/css/');
 
 
-// mix.js('resources/js/site/site.js', 'public/js')
-//     .sass('resources/sass/auto/site.scss', 'public/css/');
-mix.sass('resources/sass/auto/status.scss', 'public/css/');
+mix.js('resources/js/site/site.js', 'public/js')
+    .sass('resources/sass/auto/site.scss', 'public/css/');
+// mix.sass('resources/sass/auto/status.scss', 'public/css/');

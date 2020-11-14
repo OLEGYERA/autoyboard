@@ -77,6 +77,9 @@ Route::get('/503', 'Site\Auto\PageController@status503ru')->name('503.ru');
 Route::get('/503', 'Site\Auto\PageController@status503ua')->name('503.ua');
 
 
+Route::get('/seo', 'Site\Auto\PageController@seo')->name('seo');
+
+
 Route::get('/auto/{card_id}/photo_{num}.jpg', 'Auto\ImageConnector@getImage')->name('getImage');
 
 
