@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site\Auto;
 
+use App\ExchangeRates;
 use App\TransportType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\System\UriValidatorController as UVC;
@@ -19,7 +20,8 @@ class FiltersPage extends BasicController
     public function getFilterRu(Request $request){
         $validateData = (new UVC)->validateSearch($request->all(), 'rtitle');
         $this->content = view('site.auto.filters.filter.ru')->with([
-            'validateData' => $validateData
+            'validateData' => $validateData,
+            'currency' => ExchangeRates::latest('created_at')->first()
         ])->render();
         return $this->renderBasic();
     }

@@ -13,15 +13,15 @@ class ParserMainCard extends Model
         'abroad', 'credit', 'accident', 'noMotion', 'exchange', 'bargain', 'customsСleared'
     ];
 
-    protected function brand(){
+    public function brand(){
         return $this->belongsTo('App\Brand', 'brand_id');
     }
 
-    protected function model(){
+    public function model(){
         return $this->belongsTo('App\ModelOfBrand', 'model_id');
     }
 
-    protected function region(){
+    public function region(){
         return $this->belongsTo('App\UkrainianRegion', 'region_id');
     }
 
@@ -32,5 +32,4 @@ class ParserMainCard extends Model
     protected function manufacture(){
         return $this->belongsTo('App\ManufactureCountry', 'manufacture_id');
     }
-
 }
