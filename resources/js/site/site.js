@@ -96,6 +96,13 @@ import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueLazyload)
 
+Vue.use(VueLazyload, {
+    loading: 'http://yboard.loc/img/system/preloader/card.gif',
+    preLoad: 1.3,
+    error: 'dist/error.png',
+    attempt: 1
+})
+
 new Vue({
     store: services
 }).$mount('#yb-site', );

@@ -331,7 +331,7 @@ class SearchController extends Controller
         if($onlyCount){
             return ['count' => $query->count()];
         } else{
-            return ['count' => $query->count(), 'dataID' => $query->skip(1)->take(10)->with('photo', 'main', 'body')->get()];
+            return ['count' => $query->count(), 'dataTransports' => $query->take(10)->with('photo', 'main.brand', 'main.model', 'body.typeTransmission', 'main.city', 'body.typeFuel')->get()];
         }
     }
 

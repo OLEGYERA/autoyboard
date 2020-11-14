@@ -16,11 +16,11 @@ class ParserBodyCard extends Model
         return $this->belongsTo('App\TranportBody', 'body_id');
     }
 
-    protected function typeFuel(){
+    public function typeFuel(){
         return $this->belongsTo('App\TransportChFuel', 'fuel_id');
     }
 
-    protected function typeTransmission(){
+    public function typeTransmission(){
         return $this->belongsTo('App\TranportChTransmission', 'transmission_id');
     }
 
