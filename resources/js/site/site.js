@@ -98,9 +98,9 @@ Vue.use(VueLazyload)
 
 Vue.use(VueLazyload, {
     loading: 'http://yboard.loc/img/system/preloader/card.gif',
-    preLoad: 1.3,
+    preLoad: 2,
     error: 'dist/error.png',
-    attempt: 1
+    attempt: 2
 })
 
 new Vue({

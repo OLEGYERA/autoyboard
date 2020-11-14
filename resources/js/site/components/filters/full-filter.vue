@@ -890,7 +890,7 @@
             },
             //move to store
             getTransportCount(query){
-                HTTP.get('count_transport?' + query).then(response => {
+                HTTP.get('count_transport' + query).then(response => {
                     this.countTransport = response.data.count;
                 })
             },

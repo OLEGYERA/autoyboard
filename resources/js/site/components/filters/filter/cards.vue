@@ -100,7 +100,7 @@
         <div class="filter-cards-box" v-else>
             <h1 class="filter-title">Ничего не найдено</h1>
         </div>
-        <ypaginaton  v-model="searchDeatils.page" :length="Math.trunc((countTransport/muchDataShow) + (countTransport%muchDataShow  !== 0 ? 1 : 0))" :total-visible="8"></ypaginaton>
+        <ypaginaton  v-model="searchDeatils.page" :length="Math.trunc((countTransport/muchDataShow) + (countTransport%muchDataShow  !== 0 ? 1 : 0))" :total-visible="currentWidth > 768 ? 8 : 4"></ypaginaton>
     </div>
 </template>
 <script>
