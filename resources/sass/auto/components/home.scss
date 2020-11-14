@@ -140,15 +140,185 @@
     }
 
     .yb-analytics{
+        display: none;
         position: relative;
         width: 100%;
     }
     .ymobileanalitics{
         display: none;
     }
+    .yb-best_models{
+        width: 100%;
+        .yb-brands_column{
+            .yb_advt-count{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                flex-flow: wrap;
+                margin-bottom: 15px;
+                .yb_logo-name{
+                    display: flex;
+                    align-items: center;
+                    .yb-logo_brand{
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 62px;
+                        width: 30%;
+                        img{
+                            height: 70%;
+                        }
+                    }
 
+                    .yb_brand-name{
+                        font-family: $mont;
+                        font-weight: 600;
+                        font-size:em(48);
+                        line-height: 59px;
+                        color: $darkblue;
+                        margin: 0 15px;
+                    }
+                }
+                .yb_count{
+                    font-family: $noto;
+                    font-weight: normal;
+                    font-size: em(18);
+                    line-height: 134.7%;
+                    letter-spacing: -0.04em;
+                    color: #505353;
+                    .count-text{
+                        font-family: $aleg;
+                    }
+                }
+            }
+            .yb_between-row{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                .yb_brands-tag{
+                    display: flex;
+                    align-items: center;
+                    .yb-tag_name{
+                        position: relative;
+                        display: inline-flex;
+                        align-items: center;
+                        font-family: $mont;
+                        font-weight: normal;
+                        font-size: em(18);
+                        line-height: 121%;
+                        color: $darkblue;
+                        margin-right: 10px;
+                        padding-right: 15px;
+                        &:last-child:after{
+                            display: none;
+                        }
+                        &:last-child{
+                            margin-right: 0;
+                            padding-right: 0;
+                        }
+                        &:after{
+                            position: absolute;
+                            right: 0;
+                            content: '';
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 50%;
+                            top: 45%;
+                            transform: translate(0%, -50%);
+                            background: $darkblue;
+                            //transform: rotate(0.07deg);
+                        }
+                    }
+                }
+
+            }
+            .yb-brand_items-row{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin: 0 0 25px 0;
+                .yb-brand-item{
+                    width: 23%;
+                    .yb-brand_img{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .yb-brand_desc{
+                        font-family: $mont;
+                        .name{
+                            margin: 8px 0 5px 0;
+                            font-weight: bold;
+                            font-size: em(16);
+                            line-height: 142.5%;
+                            color: $darkgray-filter;
+                        }
+                        .price{
+                            font-weight: 500;
+                            font-size: em(18);
+                            line-height: 22px;
+                            color: $dgreen;
+                        }
+                    }
+                }
+            }
+            .yb_watch-more{
+                display: none;
+            }
+        }
+    }
     .yb-news{
         width: 100%
+
+    }
+    .yb_cookie{
+        display: flex;
+        justify-content: flex-end;
+        z-index: 2;
+        position: fixed;
+        bottom: 10px;
+        right: 17%;
+        width: inherit;
+        .cookie{
+            position: relative;
+            width: 25%;
+            padding: 10px 3%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90.89deg, #0B3F8D -128.77%, rgba(0, 22, 54, 0.97) -70.66%, #0543A0 97.17%);
+            border-radius: 8px;
+            h2{
+                font-family: $rale;
+                font-style: normal;
+                font-weight: bold;
+                font-size: em(18);
+                line-height: 28px;
+                color: #FFFFFF;
+                margin: 0;
+            }
+            .cookie_svg{
+                height: 45px;
+            }
+            .close_cookie{
+                position: absolute;
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+                right: 5px;
+                top: 5px;
+            }
+        }
     }
 }
 .yfooter_content{
@@ -212,6 +382,32 @@
                 }
             }
         }
+        .yb-best_models{
+            .yb-brands_column{
+                .yb_between-row{
+                    .yb_brands-tag{
+                       .yb-tag_name{
+                           font-size: em(16);
+                       }
+                    }
+                }
+            }
+        }
+        .yb_cookie{
+            .cookie{
+                width: 28%;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1500px){
+    .yb-content{
+        .yb_cookie{
+            right: 10%;
+            .cookie{
+                width: 28%;
+            }
+        }
     }
 }
 @media only screen and (max-width: 1440px){
@@ -242,6 +438,11 @@
                     margin-bottom: 15px;
                     width: 22%;
                 }
+            }
+        }
+        .yb_cookie{
+            .cookie{
+                width: 30%;
             }
         }
     }
@@ -285,6 +486,10 @@
                 }
             }
         }
+        .yb_cookie{
+            right: 8%;
+
+        }
     }
 }
 @media only screen and (max-width: 1330px){
@@ -305,6 +510,12 @@
         .yb-analytics{
         }
         .yb-news{
+        }
+        .yb_cookie{
+            right: 6%;
+            .cookie{
+                width: 32%;
+            }
         }
     }
 
@@ -371,6 +582,32 @@
                 }
             }
         }
+        .yb-best_models{
+            .yb-brands_column{
+                .yb_advt-count{
+                    .yb_logo-name{
+                        .yb_brand-name{
+                            font-size: em(36);
+                            line-height: 39px;
+                        }
+                    }
+                }
+                .yb_between-row{
+                    .yb_brands-tag{
+                        .yb-tag_name{
+                            font-size: em(15);
+                            line-height: 19px;
+                        }
+                    }
+                }
+            }
+        }
+        .yb_cookie{
+            right: 3%;
+            .cookie{
+                width: 40%;
+            }
+        }
     }
 }
 
@@ -424,7 +661,30 @@
                 }
             }
         }
-        .yb-best_offers{
+        .yb-best_models{
+            .yb-brands_column{
+                .yb-brand_items-row{
+                   .yb-brand-item{
+                       .yb-brand_desc{
+                           .name{
+                               font-size: em(15);
+                               line-height: 19px;
+                           }
+                           .price{
+                               font-size: em(16);
+                               line-height: 20px;
+                           }
+                       }
+                   }
+                }
+            }
+        }
+        .yb_cookie{
+            right: 2%;
+            .cookie{
+                width: 45%;
+                padding: 10px 4%;
+            }
         }
     }
 }
@@ -502,10 +762,75 @@
             display: none;
         }
         .ymobileanalitics{
-            display: block;
+            display: none;
             position: relative;
             width: 100%;
             margin-bottom: 30px;
+        }
+        .yb-best_models{
+            .yb-brands_column{
+                margin: 0 0 25px 0;
+                .yb_between-row{
+                    .yb_brands-tag{
+                        flex-flow: wrap;
+                        .yb-tag_name{
+                            font-size: em(18);
+                            line-height: 21px;
+                        }
+                    }
+                    .yexpended{
+                        display: none;
+                    }
+                }
+                .yb-brand_items-row{
+                    flex-flow: wrap;
+                    margin: 0 0 5px 0;
+                    .yb-brand-item{
+                        width: 48%;
+                        margin-bottom: 15px;
+                        .yb-brand_desc{
+                            .name{
+                                font-size: em(18);
+                            }
+                            .price{
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+                .yb_watch-more{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .yb_more-brands{
+                        width: fit-content;
+                        height: 38px;
+                        padding: 0 3%;
+                        font-family: $aleg;
+                        font-weight: 500;
+                        font-size: em(16);
+                        line-height: 19px;
+                        text-align: center;
+                        color: #FFFFFF;
+                        background: linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
+                        box-shadow: 0 4px 4px rgba(7, 25, 48, 0.54);
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+        .yb_cookie{
+            .cookie{
+                padding: 10px 5%;
+                h2{
+                    font-size: em(15);
+                    line-height: 19px;
+                }
+                .cookie_svg{
+                    width: 50px;
+                    height: 40px;
+                }
+            }
         }
     }
 }
@@ -706,7 +1031,42 @@
             width: 100%;
             display: block;
         }
-
+        .yb-best_models{
+            .yb-brands_column{
+                .yb_between-row{
+                    .yb_brands-tag{
+                      .yb-tag_name{
+                          margin-bottom: 5px;
+                          font-size: 15px;
+                          line-height: 19px;
+                      }
+                    }
+                }
+                .yb-brand_items-row{
+                   .yb-brand-item{
+                       .yb-brand_desc{
+                           .name{
+                               font-size: em(15);
+                               line-height: 19px;
+                           }
+                       }
+                   }
+                }
+            }
+        }
+        .yb_cookie{
+            .cookie{
+                width: 30%;
+                justify-content: center;
+                h2{
+                    display: none;
+                }
+                .cookie_svg{
+                    height: auto;
+                    width: 85px;
+                }
+            }
+        }
     }
 }
 @media only screen and (max-width: 475px){
@@ -843,6 +1203,58 @@
                 }
             }
         }
+        .yb-best_models{
+            .yb-brands_column{
+                .yb_advt-count{
+                    margin-bottom: 5px;
+                    .yb_logo-name{
+                        .yb-logo_brand{
+                            height: 42px;
+                        }
+                        .yb_brand-name{
+                            font-size: em(28);
+                            line-height: 34px;
+                            margin: 0 10px;
+                        }
+                    }
+                    .yb_count{
+                        font-size: em(14);
+                        line-height: 134.7%;
+                    }
+                }
+                .yb_between-row{
+                    .yb_brands-tag{
+                       .yb-tag_name{
+                           margin-right: 5px;
+                           padding-right: 10px;
+                           font-size: em(12);
+                       }
+                    }
+                }
+                .yb-brand_items-row{
+                    .yb-brand-item{
+                        .yb-brand_desc{
+                            .name{
+                                font-size: em(12);
+                            }
+                            .price{
+                                font-size: em(14);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .yb_cookie{
+            right: 4%;
+            .cookie{
+                width: 35%;
+                .cookie_svg{
+                    width: 70px;
+                }
+            }
+        }
+
     }
 }
 @media only screen and (max-width: 393px){
@@ -924,6 +1336,13 @@
                 }
             }
         }
+        .yb_cookie{
+            .cookie{
+                width: 40%;
+
+            }
+        }
+
     }
 }
 @media only screen and (max-width: 320px){
@@ -964,6 +1383,33 @@
                                         }
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .yb-best_models{
+            .yb-brands_column{
+                .yb_advt-count{
+                    .yb_logo-name{
+                        .yb-logo_brand{
+                            height: 36px;
+                        }
+                        .yb_brand-name{
+                            font-size: em(24);
+                        }
+                    }
+                }
+                .yb-brand_items-row{
+                    .yb-brand-item{
+                        width: 100%;
+                        .yb-brand_desc{
+                            .name{
+                                font-size: em(14);
+                            }
+                            .price{
+                                font-size: em(14);
                             }
                         }
                     }

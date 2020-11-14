@@ -1,4 +1,3 @@
-
 accordion();
 dropDown();
 scrollConvention();
@@ -121,4 +120,72 @@ $(window).scroll(function(){
         $('.yb-scroll_terms').removeClass('scroll-fixed'); //Convention page add position fixed when page scroll down
     }
 });
+
+// function resizeImage () {
+//     $('.y-current_img img').each(
+//         function () {
+//             var theWidth = $(this).width();
+//             var theHeight = $(this).height();
+//             if (theHeight < theWidth ) {
+//                 $(this).height('100%');
+//                 $(this).width('auto');
+//             }
+//             else  {
+//
+//                 $(this).width('100%');
+//             }
+//
+//         });
+// }
+// resizeImage()
+
+
+
+// $('.slider-for').slick({
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     arrows: false,
+//     fade: true,
+//     asNavFor: '.slider-nav'
+// });
+// $('.slider-nav').slick({
+//     slidesToShow: 4,
+//     slidesToScroll: 1,
+//     vertical:true,
+//     asNavFor: '.slider-for',
+//     dots: false,
+//     focusOnSelect: true,
+//     verticalSwiping:true,
+//     responsive: [
+//         {
+//             breakpoint: 992,
+//             settings: {
+//                 vertical: false,
+//             }
+//         },
+//         {
+//             breakpoint: 768,
+//             settings: {
+//                 vertical: false,
+//             }
+//         },
+//         {
+//             breakpoint: 580,
+//             settings: {
+//                 vertical: false,
+//                 slidesToShow: 3,
+//             }
+//         },
+//         {
+//             breakpoint: 380,
+//             settings: {
+//                 vertical: false,
+//                 slidesToShow: 2,
+//             }
+//         }
+//     ]
+// });
+
+
+
 

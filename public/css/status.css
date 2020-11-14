@@ -1,0 +1,698 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+header,
+footer,
+div,
+section,
+article,
+aside,
+main,
+input,
+button {
+  box-sizing: border-box;
+  outline: none;
+}
+
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+li,
+a {
+  list-style: none;
+  outline: none;
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.yicon {
+  font-size: 2em;
+}
+
+h1.yb-main-title {
+  font-family: "Fira Sans", sans-serif;
+  margin: 0px;
+  font-size: 1.625em;
+  font-weight: 500;
+  color: #2E2E2E;
+}
+
+span.yb-gradient {
+  background: linear-gradient(180deg, #007880 0%, #5DCCDB 93.75%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.yb-tm-box {
+  background-color: #fff;
+  box-shadow: -6px 6px 15px rgba(224, 224, 224, 0.9), 6px -6px 12px rgba(255, 255, 255, 0.9), -6px -6px 12px rgba(224, 224, 224, 0.2), 6px 6px 12px rgba(224, 224, 224, 0.2), inset 1px -1px 2px rgba(224, 224, 224, 0.5), inset -1px 1px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 25px 40px;
+}
+
+.yb_status-error404 {
+  width: 100%;
+  background: linear-gradient(288.18deg, #0B3F8D -5.56%, #032557 100.99%, rgba(255, 255, 255, 0.26) 101%), #0B3F8D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px 140px 50px 240px;
+  height: 100vh;
+}
+
+.yb_status-error404 .yb_status-container {
+  position: relative;
+}
+
+.yb_status-error404 .yb_status-container .yb_status-text {
+  position: absolute;
+  right: 15%;
+}
+
+.yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 9em;
+  line-height: 169px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 9px 5px rgba(0, 0, 0, 0.49);
+  margin: 0;
+}
+
+.yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  font-size: 3em;
+  line-height: 58px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.yb_status-error404 .yb_status-container .yb_404-svg {
+  height: 660px;
+}
+
+.yb_status-error404 .yb_back-home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.5em;
+  height: 72px;
+  line-height: 28px;
+  color: #072F6A;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0 28px 0 18px;
+}
+
+.yb_status-error500 {
+  background: linear-gradient(288.18deg, #0B3F8D -5.56%, #032557 100.99%, rgba(255, 255, 255, 0.26) 101%);
+  padding: 29px 15px 5px 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.yb_status-error500 .yb-status_title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 4em;
+  line-height: 75px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0px 9px 5px rgba(0, 0, 0, 0.49);
+  margin: 0;
+}
+
+.yb_status-error500 .svg_500 {
+  height: 380px;
+}
+
+.yb_status-error500 .yb_back {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.yb_status-error500 .yb_back .yb_back-home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.5em;
+  height: 72px;
+  line-height: 28px;
+  color: #072F6A;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0 28px 0 18px;
+}
+
+.yb_status-error500 .yb_back .svg_sub-500 {
+  width: 80%;
+  height: 320px;
+}
+
+.yb_status-error503 {
+  padding: 90px 180px 90px 180px;
+  height: 100vh;
+  background: linear-gradient(288.18deg, #0B3F8D -5.56%, #032557 100.99%, rgba(255, 255, 255, 0.26) 101%);
+}
+
+.yb_status-error503 .status_error_prev {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.yb_status-error503 .status_error_prev .yb_text-speech {
+  position: absolute;
+  right: 20%;
+  top: 15px;
+  background: #FFFFFF;
+  box-shadow: 0 13px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 21px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 25px;
+}
+
+.yb_status-error503 .status_error_prev .yb_text-speech .yb_speech {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 2.25em;
+  line-height: 44px;
+  color: #1F2427;
+  margin: 0;
+}
+
+.yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  top: 100px;
+  border: 25px solid;
+  border-color: #fff transparent transparent #fff;
+}
+
+.yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 38px;
+  top: 100px;
+  border: 15px solid;
+  border-color: #fff transparent transparent #fff;
+}
+
+.yb_status-error503 .status_error_prev .svg_503 {
+  height: -webkit-fill-available;
+}
+
+@media only screen and (max-width: 1600px) {
+  .yb_status-error404 {
+    padding: 50px 100px 47px 140px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text {
+    right: 20%;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+    font-size: 5.25em;
+    line-height: 103px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+    font-size: 2.625em;
+    line-height: 49px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_404-svg {
+    height: 460px;
+  }
+
+  .yb_status-error500 {
+    padding: 45px 100px 5px 100px;
+  }
+
+  .yb_status-error500 .yb-status_title {
+    font-size: 3.625em;
+    line-height: 72px;
+  }
+
+  .yb_status-error500 .svg_500 {
+    width: 100%;
+    height: 300px;
+  }
+
+  .yb_status-error500 .yb_back {
+    justify-content: center;
+  }
+
+  .yb_status-error500 .yb_back .svg_sub-500 {
+    width: 60%;
+    height: 170px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    right: 15%;
+    top: 0;
+    padding: 20px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    right: 10%;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 1330px) {
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    right: 8%;
+  }
+}
+
+@media only screen and (max-width: 1330px) {
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    right: 6%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .yb_status-error404 {
+    padding: 50px 60px 50px 60px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text {
+    position: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+    font-size: 9em;
+    line-height: 169px;
+    margin-right: 5px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+    font-size: 3em;
+    line-height: 58px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_404-svg {
+    width: 100%;
+    height: 300px;
+  }
+
+  .yb_status-error404 .yb_back-home {
+    font-size: 1.25em;
+    line-height: 21px;
+    height: 58px;
+  }
+
+  .yb_status-error500 {
+    padding: 60px 30px 5px 30px;
+  }
+
+  .yb_status-error500 .yb-status_title {
+    font-size: 3.375em;
+    line-height: 69px;
+  }
+
+  .yb_status-error500 .svg_500 {
+    height: 280px;
+  }
+
+  .yb_status-error500 .yb_back {
+    position: relative;
+    justify-content: center;
+  }
+
+  .yb_status-error500 .yb_back .yb_back-home {
+    font-size: 1em;
+    height: 50px;
+    line-height: 21px;
+  }
+
+  .yb_status-error500 .yb_back .svg_sub-500 {
+    width: 50%;
+    height: 100px;
+  }
+
+  .yb_status-error503 {
+    padding: 80px 55px 90px 55px;
+  }
+}
+
+@media only screen and (max-width: 945px) {
+  .yb_status-error500 {
+    padding: 50px 25px 50px 25px;
+  }
+
+  .yb_status-error500 .svg_500 {
+    height: 240px;
+  }
+
+  .yb_status-error500 .yb_back {
+    position: relative;
+    justify-content: center;
+  }
+
+  .yb_status-error500 .yb_back .yb_back-home {
+    font-size: 0.9375em;
+    height: 50px;
+    line-height: 19px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    right: 4%;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech {
+    font-size: 1.75em;
+    line-height: 44px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .yb_status-error404 {
+    padding: 40px 60px 40px 60px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+    font-size: 7.5em;
+    line-height: 149px;
+    margin-right: 10px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+    font-size: 2em;
+    line-height: 35px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_404-svg {
+    height: 255px;
+  }
+
+  .yb_status-error404 .yb_back-home {
+    font-size: 1.125em;
+    height: 50px;
+    line-height: 19px;
+  }
+
+  .yb_status-error500 {
+    padding: 40px 20px 40px 20px;
+  }
+
+  .yb_status-error500 .yb-status_title {
+    font-size: 3em;
+    line-height: 59px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    right: 4%;
+    padding: 15px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech {
+    font-size: 1.375em;
+    line-height: 29px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:after {
+    left: 10px;
+    top: 65px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:before {
+    left: 4px;
+    top: 65px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .yb_status-error404 {
+    padding: 35px 30px 35px 30px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text {
+    flex-direction: column;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+    font-size: 7.375em;
+    line-height: 121px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+    font-size: 2.25em;
+    line-height: 42px;
+    margin-bottom: 25px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_404-svg {
+    height: 215px;
+  }
+
+  .yb_status-error500 {
+    padding: 35px 15px 35px 15px;
+  }
+
+  .yb_status-error500 .yb-status_title {
+    font-size: 2.625em;
+    line-height: 51px;
+  }
+
+  .yb_status-error500 .yb_back {
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+
+  .yb_status-error500 .yb_back .yb_back-home {
+    font-size: 0.9375em;
+    height: 50px;
+    line-height: 19px;
+  }
+
+  .yb_status-error500 .yb_back .svg_sub-500 {
+    width: 100%;
+    height: 100px;
+  }
+
+  .yb_status-error503 {
+    padding: 40px 20px 40px 20px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    right: 0%;
+    padding: 25px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech {
+    font-size: 1.25em;
+    line-height: 21px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:after {
+    left: 10px;
+    top: 65px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:before {
+    left: 4px;
+    top: 65px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .yb_status-error404 {
+    padding: 20px 25px 20px 25px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+    font-size: 7.8125em;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+    font-size: 2em;
+  }
+
+  .yb_status-error500 {
+    padding: 30px 15px 30px 15px;
+  }
+
+  .yb_status-error500 .yb-status_title {
+    font-size: 1.75em;
+    line-height: 31px;
+  }
+
+  .yb_status-error500 .yb_back {
+    flex-direction: column-reverse;
+  }
+
+  .yb_status-error500 .yb_back .yb_back-home {
+    font-size: 0.9375em;
+    line-height: 19px;
+  }
+
+  .yb_status-error503 {
+    padding: 40px 20px 40px 20px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    padding: 25px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech {
+    font-size: 1.25em;
+    line-height: 21px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:after {
+    left: 30px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:before {
+    left: 30px;
+    border: 20px solid;
+    border-color: #fff transparent transparent #fff;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .yb_status-error404 {
+    padding: 15px 20px 15px 20px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+    font-size: 6.875em;
+    line-height: 139px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+    font-size: 1.75em;
+    line-height: 31px;
+    margin-bottom: 10px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_404-svg {
+    width: 335px;
+    height: 210px;
+  }
+
+  .yb_status-error404 .yb_back-home {
+    font-size: 1.125em;
+    height: 50px;
+    line-height: 19px;
+  }
+
+  .yb_status-error503 {
+    padding: 20px 20px 40px 20px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    top: 20px;
+    padding: 15px;
+    right: 6%;
+    width: 200px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech {
+    font-size: 0.875em;
+    line-height: 19px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:after {
+    left: 20px;
+    top: 45px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech .yb_speech:before {
+    top: 45px;
+    left: 20px;
+  }
+
+  .yb_status-error503 .status_error_prev .svg_503 {
+    height: 520px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-title {
+    font-size: 5.3125em;
+    line-height: 100px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_status-text .yb_status-desc {
+    font-size: 1.5em;
+    line-height: 29px;
+  }
+
+  .yb_status-error404 .yb_status-container .yb_404-svg {
+    width: 300px;
+    height: 200px;
+  }
+
+  .yb_status-error404 .yb_back-home {
+    font-size: 1em;
+    height: 48px;
+  }
+
+  .yb_status-error500 {
+    padding: 25px 15px 25px 15px;
+  }
+
+  .yb_status-error500 .yb_back .svg_sub-500 {
+    height: 90px;
+  }
+
+  .yb_status-error503 .status_error_prev .yb_text-speech {
+    top: 40px;
+    right: 0;
+  }
+
+  .yb_status-error503 .status_error_prev .svg_503 {
+    height: 520px;
+  }
+}
+

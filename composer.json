@@ -24,7 +24,8 @@
         "nesbot/carbon": "^2.35",
         "paquettg/php-html-parser": "^2.2",
         "pbmedia/laravel-webdav": "^1.8",
-        "stichoza/google-translate-php": "^4.1"
+        "stichoza/google-translate-php": "^4.1",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
