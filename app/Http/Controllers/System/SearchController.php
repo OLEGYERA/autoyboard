@@ -420,9 +420,7 @@ class SearchController extends Controller
                 break;
         }
 
-        return $query->whereHas('main', function ($q) use ($date) {
-            $q->where('resource_created', '>=', $date->toDateTimeString());
-        });
+        return $query->where('parser_url_lists.created_at', '>=', $date->format('Y-m-d H:i:s'))->where('parser_url_lists.created_at', '<=', Carbon::now()->format('Y-m-d H:i:s'));
     }
 
 
@@ -445,8 +443,8 @@ class SearchController extends Controller
             ->leftJoin('tranport_ch_transmissions', 'tranport_ch_transmissions.id', '=', 'parser_body_cards.transmission_id')
 
             ->select(
-                'parser_url_lists.id',
-                'parser_main_cards.year', 'parser_main_cards.resource_created', 'parser_main_cards.modification', 'parser_main_cards.price_value', 'parser_main_cards.price_currency', 'parser_main_cards.description',
+                'parser_url_lists.id', 'parser_url_lists.created_at',
+                'parser_main_cards.year', 'parser_main_cards.modification', 'parser_main_cards.price_value', 'parser_main_cards.price_currency', 'parser_main_cards.description',
                 'parser_body_cards.mileage', 'parser_body_cards.volume', 'transport_ch_fuels.rtitle as fuel', 'tranport_ch_transmissions.rtitle as transmission',
                 'brands.title as brand',
                 'models.title as model',
