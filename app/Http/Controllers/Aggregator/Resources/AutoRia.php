@@ -71,7 +71,7 @@ class AutoRia extends Core
 //            $i->status = 1; $i->save();
 //        }
 //        dd(13);
-        $cardURLs = ParserUrlList::where('status', 1)->take(40)->get();
+        $cardURLs = ParserUrlList::where('status', 1)->take(20)->get();
         foreach ($cardURLs as $cardURL){
             $cardURL->status = $port;
             $cardURL->save();
@@ -277,7 +277,7 @@ class AutoRia extends Core
         foreach($photoData as $key=>$photo_item){
             array_push($photoArr, $photo_item->getAttribute('src'));
         }
-        $photoUrls = $this->createBasic($photoArr, $cardURL->id);
+
         $photoUrls = $this->performImages($photoArr, $cardURL->id);
     }
 

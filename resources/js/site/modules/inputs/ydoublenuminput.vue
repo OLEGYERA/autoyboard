@@ -2,17 +2,17 @@
     <div class="ydoublenuminput" :class="{black: shade !== undefined}">
         <input
             class="input-field"
-            v-model="tempData.from"
+            v-model="doubleData.from"
             placeholder="От"
             :maxlength="5"
-            @blur="watchData"
+            @change="watchData"
             @keypress="isNumber($event)">
         <input
             class="input-field"
-            v-model="tempData.to"
+            v-model="doubleData.to"
             placeholder="До"
             :maxlength="5"
-            @blur="watchData"
+            @change="watchData"
             @keypress="isNumber($event)">
     </div>
 </template>
@@ -20,12 +20,11 @@
 export default{
     props: ['doubleChoosed', 'shade'],
     mounted(){
-        this.tempData.to = this.doubleChoosed.to;
-        this.tempData.from = this.doubleChoosed.from;
+        this.doubleData = this.doubleChoosed;
     },
     data() {
         return{
-            tempData: {
+            doubleData: {
                 from: null,
                 to: null,
             }
@@ -33,14 +32,11 @@ export default{
     },
     methods: {
         watchData(){
-            if(Number(this.tempData.from) > Number(this.tempData.to) && this.tempData.to !== null && this.tempData.to !== ''){
-                let tempVar = this.tempData.from;
-                this.tempData.from = Number(this.tempData.to);
-                this.tempData.to = Number(tempVar);
+            if(Number(this.doubleData.from) > Number(this.doubleData.to) && this.doubleData.to !== null && this.doubleData.to !== ''){
+                let tempVar = this.doubleData.from;
+                this.doubleData.from = Number(this.doubleData.to);
+                this.doubleData.to = Number(tempVar);
             }
-
-            this.doubleChoosed.from = this.tempData.from;
-            this.doubleChoosed.to = this.tempData.to;
         },
         isNumber: function(evt) {
             evt = (evt) ? evt : window.event;
@@ -54,8 +50,7 @@ export default{
     },
     watch: {
         doubleChoosed(to){
-            this.tempData.to = to.to;
-            this.tempData.from = to.from;
+            this.doubleData = to;
         },
     }
 }

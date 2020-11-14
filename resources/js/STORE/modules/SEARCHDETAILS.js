@@ -32,14 +32,12 @@ let state = {
         relevanceChoosed: null,
         systemShow: [],
         showChoosed: null,
-        page: null,
     },
 };
 
 let getters = {
     GET_SEARCHDETAILS: state => state.searchDetailFullStore,
     GET_CURRENCIES: state => state.currencies,
-    GET_PRICE: state => state.searchDetailFullStore.priceChoosed,
 };
 
 let mutations = {
@@ -51,6 +49,9 @@ let mutations = {
     },
     SET_SEARCH_PROPS_CHOOSED: (state, payload) => {
         state.searchDetailFullStore.searchPropsChoosed[payload.name] = payload.val;
+    },
+    SET_PRICE_CHOOSED: (state, payload) => {
+        state.searchDetailFullStore.priceChoosed[payload.name] = payload.val;
     },
     SET_SORTING_CHOOSED: (state, payload) => {
         state.searchDetailFullStore.sortingChoosed = payload;
@@ -85,7 +86,6 @@ let mutations = {
         state.searchDetailFullStore.periodChoosed = 1;
         state.searchDetailFullStore.relevanceChoosed = 1;
         state.searchDetailFullStore.showChoosed = 1;
-        state.searchDetailFullStore.page = 1;
     },
 }
 

@@ -28,7 +28,7 @@ export const routingSplicerBus = new Vue({
             strProps += arr.periodChoosed !== 1 ? 's[period]=' + arr.periodChoosed + '&' : '';
             strProps += arr.relevanceChoosed !== 1 ? 's[rel]=' + arr.relevanceChoosed + '&' : '';
             strProps += arr.showChoosed !== 1 ? 's[show]=' + arr.showChoosed + '&' : '';
-            strProps += arr.page !== 1 ? 's[page]=' + arr.page + '&' : '';
+
 
             return strProps.substring(0, strProps.length - 1);
         },

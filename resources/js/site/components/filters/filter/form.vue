@@ -22,7 +22,7 @@
                 <div class="ygroup-box">
                     <h2 class="yfilter-aside-title">Цена</h2>
                     <div class="yprice_filter-box">
-                        <yprice :priceChoosed="price"></yprice>
+                        <yprice></yprice>
                         <ycheckbox
                             :name="'Возможен торг'"
                             :checked="searchDeatils.searchPropsChoosed.bargain"
@@ -290,9 +290,9 @@
                         <div class="searcher-counter">{{prettify(countTransport)}}</div>
                     </div>
                     <div class="btn-cols">
-                        <button class="goto_full-filter" @click="linkToFullFilter">Расширенный поиск</button>
+                        <button class="goto_full-filter" @click="jumpToStart">Расширенный поиск</button>
                         <div class="one-row" v-if="currentWidth > 768 ">
-                            <button class="search-btn" @click="scrollToTop">Показать</button>
+                            <button class="search-btn">Показать</button>
                             <button class="clear-filter" @click="clearFilter">Очистить фильтр</button>
                         </div>
                     </div>
@@ -316,11 +316,7 @@
             window.addEventListener('resize', this.changeResize);
             this.changeResize();
             window.addEventListener('scroll',  this.handleScroll);
-            let self = this;
-            setTimeout(function(){
-                self.handleScroll();
-            }, 500);
-            localStorage.setItem('currentPage', this.searchDeatils.page);
+            this.handleScroll();
         },
         destroyed() {
             window.removeEventListener('resize', this.changeResize);
@@ -381,15 +377,14 @@
                 data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
                 this.MODELS_FROM_API(data);
             },
+            jumpToStart(){
+                this.$refs.scrollContainer.scrollTop = 0;
+            },
             getTransportData(query){
                 this.FILTER_TRANSPORT_FROM_API('data_transports' + query);
             },
             changeResize(){
                 this.currentWidth = window.innerWidth;
-            },
-            linkToFullFilter(){
-                let query = this.generateQuery;
-                window.location.href = document.location.origin + '/full-filter' + query
             },
             handleScroll(){
                 let heperStation = document.getElementsByClassName('search-helper-station')[0];
@@ -403,9 +398,6 @@
             prettify(num){
                 var n = num.toString();
                 return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
-            },
-            scrollToTop(){
-                window.scrollTo({top: 0});
             },
             ...mapMutations([
                 //search deataild
@@ -428,9 +420,7 @@
                 //TRANSPORT
                 'SET_TRANSPORT_TYPE', 'SET_TRANPORT_ARR', 'SET_TRANSPORT_BODY_CHOOSE', 'SET_COLORS_CHOOSE', 'DELETE_COLORS_CHOOSE', 'SET_TRANSPORT_STATE_CHOOSE', 'SET_IMPORTERS_CHOOSE', 'DELETE_IMPORTERS_CHOOSE',
                 'SET_FUELS_CHOOSE', 'DELETE_FUELS_CHOOSE', 'SET_TRANSMISSIONS_CHOOSE', 'DELETE_TRANSMISSIONS_CHOOSE', 'SET_GERAS_CHOOSE', 'DELETE_GEARS_CHOOSE',
-                'CLEAR_TRANSPORT_MODULE',
-                //FILTER
-                'CLEAR_DATA_TRANSPORTS'
+                'CLEAR_TRANSPORT_MODULE'
             ]),
             ...mapActions([
                 //RBMY
@@ -444,15 +434,6 @@
         },
         computed: {
             generateQuery(){
-                this.CLEAR_DATA_TRANSPORTS();
-                if(localStorage.getItem('currentPage') == this.searchDeatils.page && this.searchDeatils.page !== undefined){
-                    this.searchDeatils.page = 1;
-                    localStorage.setItem('currentPage', 1)
-                } else{
-                    this.scrollToTop();
-                    localStorage.setItem('currentPage', this.searchDeatils.page)
-                }
-
                 let SEARCHDETAILsProps = routingSplicerBus.$options.methods.creatingSEARCHDETAILsProps(this.searchDeatils),
                     TRANPORTsProps = routingSplicerBus.$options.methods.creatingTRANSPORTsProps(this.transportsArr),
                     RBMYsProps = routingSplicerBus.$options.methods.creatingRBMYsProps(this.rbmysArr),
@@ -476,7 +457,6 @@
             ...mapGetters({
                 //search detail
                 'searchDeatils': 'GET_SEARCHDETAILS',
-                'price': 'GET_PRICE',
 
                 //RBMY
                 'rbmysArr': 'GET_RBMYS', 'manufactureRegions': 'GET_MANUFACTURE_REGIONS',

@@ -11,9 +11,6 @@ let getters = {
 };
 
 let mutations = {
-    CLEAR_DATA_TRANSPORTS: (state, payload) => {
-        state.dataTransports = [];
-    },
     SET_FILTER_TRANSPORT_FROM_API: (state, payload) => {
         state.count = payload.count;
         state.dataTransports = payload.dataTransports;

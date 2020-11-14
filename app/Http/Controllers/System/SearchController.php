@@ -16,14 +16,7 @@ class SearchController extends Controller
 {
     public function dataCollection($search_request, $onlyCount = true){
 //      Create Query
-        $relevance = $search_request['searchDetailFullStore']['relevanceChoosed'];
-        if($relevance == 1){
-            $query = ParserUrlList::where('status', 3);
-        } else if($relevance == 2){
-            $query = ParserUrlList::where('status', 10);
-        } else{
-            $query = ParserUrlList::whereIn('status', [3, 10]);
-        }
+        $query = ParserUrlList::where('status', 3);
 //      Condition
         $autoCondition = $search_request['searchDetailFullStore']['autoConditionChoosed'];
         if($autoCondition !== 1) $query = $query->where('autoCondition', $autoCondition);
@@ -338,8 +331,7 @@ class SearchController extends Controller
         if($onlyCount){
             return ['count' => $query->count()];
         } else{
-            $transports = $this->fetchDataFromQuery($query, $search_request['searchDetailFullStore']);
-            return ['count' => $query->count(), 'dataTransports' => count($transports) > 0 ? $transports : null];
+            return ['count' => $query->count(), 'dataTransports' => $query->take(10)->with('photo', 'main.brand', 'main.model', 'body.typeTransmission', 'main.city', 'body.typeFuel')->get()];
         }
     }
 
@@ -419,99 +411,7 @@ class SearchController extends Controller
                 $date = Carbon::now()->subDay(2);
                 break;
         }
-
-        return $query->whereHas('main', function ($q) use ($date) {
-            $q->where('resource_created', '>=', $date->toDateTimeString());
-        });
+        return $query->where('created_at', '>=', $date->toDateTimeString());
     }
-
-
-    public function fetchDataFromQuery($query, $details){
-        $show = $this->muchShowData($details['showChoosed']);
-        $page = $details['page'];
-//        $query = $query->skip(($page - 1) * $show)->take($show)->with('photo', 'main.brand', 'main.model', 'body.typeTransmission', 'main.city', 'body.typeFuel');
-        if($details['sortingChoosed'] > 2){
-            $query = $query->skip(($page - 1) * $show)->take($show);
-        }
-        $query = $query->with('photo')
-            ->leftJoin('parser_main_cards', 'parser_main_cards.id', '=', 'parser_url_lists.id')
-            ->leftJoin('parser_body_cards', 'parser_body_cards.id', '=', 'parser_url_lists.id')
-
-            ->leftJoin('brands', 'brands.id', '=', 'parser_main_cards.brand_id')
-            ->leftJoin('models', 'models.id', '=', 'parser_main_cards.model_id')
-            ->leftJoin('ukrainian_cities', 'ukrainian_cities.id', '=', 'parser_main_cards.city_id')
-
-            ->leftJoin('transport_ch_fuels', 'transport_ch_fuels.id', '=', 'parser_body_cards.fuel_id')
-            ->leftJoin('tranport_ch_transmissions', 'tranport_ch_transmissions.id', '=', 'parser_body_cards.transmission_id')
-
-            ->select(
-                'parser_url_lists.id',
-                'parser_main_cards.year', 'parser_main_cards.resource_created', 'parser_main_cards.modification', 'parser_main_cards.price_value', 'parser_main_cards.price_currency', 'parser_main_cards.description',
-                'parser_body_cards.mileage', 'parser_body_cards.volume', 'transport_ch_fuels.rtitle as fuel', 'tranport_ch_transmissions.rtitle as transmission',
-                'brands.title as brand',
-                'models.title as model',
-                'ukrainian_cities.rtitle as city'
-            );
-        return $this->sortData($query, $details['sortingChoosed'], $page, $show);
-    }
-
-    //костыль
-    protected function muchShowData($systemShow){
-        switch ($systemShow){
-            case 1:
-                return 15;
-            case 2:
-                return 20;
-            case 3:
-                return 30;
-            case 4:
-                return 50;
-            case 5:
-                return 100;
-        }
-    }
-    protected function sortData($query, $sortType, $page, $show){
-        switch ($sortType){
-            case 1:
-                $exchange = (new ExchangeRatesController)->getExchange();
-                $data = $query->get();
-                foreach ($data as $item){
-                    if($item->price_currency == 1){
-                        $item->priceRate = intval($item->price_value * $exchange->USD);
-                    } elseif ($item->price_currency == 2){
-                        $item->priceRate = intval($item->price_value);
-                    } else{
-                        $item->priceRate = intval($item->price_value  * $exchange->EUR);
-                    }
-                }
-                $data = $data->sortBy('priceRate')->skip(($page - 1) * $show)->take($show);
-                return $data->values();
-            case 2:
-                $exchange = (new ExchangeRatesController)->getExchange();
-                $data = $query->get();
-                foreach ($data as $item){
-                    if($item->price_currency == 1){
-                        $item->priceRate = intval($item->price_value * $exchange->USD);
-                    } elseif ($item->price_currency == 2){
-                        $item->priceRate = intval($item->price_value);
-                    } else{
-                        $item->priceRate = intval($item->price_value  * $exchange->EUR);
-                    }
-                }
-                $data = $data->sortByDesc('priceRate', true)->skip(($page - 1) * $show)->take($show);
-                return $data->values();
-            case 3:
-                return $query->orderBy('resource_created', 'desc')->get();
-            case 4:
-                return $query->orderBy('year', 'asc')->get();
-            case 5:
-                return $query->orderBy('year', 'desc')->get();
-            case 6:
-                return $query->orderBy('mileage', 'asc')->get();
-            case 7:
-                return $query->orderBy('mileage', 'desc')->get();
-        }
-    }
-
 }
 

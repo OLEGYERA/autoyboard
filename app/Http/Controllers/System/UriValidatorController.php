@@ -63,7 +63,7 @@ class UriValidatorController extends BasicController
         $this->verifiedData['period'] = (isset($data['s']['period']) && $data['s']['period'] <= SystemPeriod::count() && $data['s']['period'] >= 1) ? intval($data['s']['period']) : 1;
         $this->verifiedData['relevance'] = (isset($data['s']['rel']) && $data['s']['rel'] <= SystemRelevance::count() && $data['s']['rel'] >= 1) ? intval($data['s']['rel']) : 1;
         $this->verifiedData['show'] = (isset($data['s']['show']) && $data['s']['show'] <= SystemShow::count() && $data['s']['show'] >= 1) ? intval($data['s']['show']) : 1;
-        $this->verifiedData['page'] = (isset($data['s']['page']) && $data['s']['page'] >= 1) ? intval($data['s']['page']) : 1;
+
         if(!isset($data['s'])){
             $this->analizeSearchDetailAlias();
         }
@@ -165,8 +165,6 @@ class UriValidatorController extends BasicController
 
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'showChoosed', $this->verifiedData['show']);
         $searchDetailFullStores = Arr::add($searchDetailFullStores, 'systemShow', SystemShow::select(['id as val', 'rtitle as name'])->get());
-
-        $searchDetailFullStores = Arr::add($searchDetailFullStores, 'page', $this->verifiedData['page']);
 
         $this->jSON_RESPONSE = Arr::add($this->jSON_RESPONSE, 'searchDetailFullStore', $searchDetailFullStores);
     }
