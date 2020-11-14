@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ImageConnector extends Controller
 {
-    public function getImage($card_id, $num){
+    public function getImage($card_id, $alias){
         try{
-            $img = Storage::disk('webdav')->get('/auto/' . $card_id . '/photo_' . $num . '.jpg');
+            $img = Storage::disk('webdav')->get('/auto/' . $card_id . '/'. $alias . '.jpg');
         }
         catch (\Exception $e){
             abort(404);

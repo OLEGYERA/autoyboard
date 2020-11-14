@@ -77,21 +77,29 @@
             box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.18);
             margin-bottom: 15px;
 
+            @keyframes slidein {
+                50% {
+                    background: $box-bg;
+                    box-shadow: 0 -200px 100px -100px #eaeaea inset;
+                }
+            }
+
             .img-box{
                 height: 220px;
                 overflow: hidden;
                 position: relative;
                 background-color: $box-bg;
+                box-shadow: 0 -200px 100px -120px #bcbaba inset;
+                animation: slidein 3s infinite alternate;
                 picture{
                     img{
                         position: absolute;
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
-                        //min-height: 100%;
-                        //width: auto;
-                        //min-width: 100%;
-                        width: 100%;
+                        min-height: 100%;
+                        width: auto;
+                        min-width: 100%;
                     }
                 }
             }
@@ -152,6 +160,10 @@
                             font-weight: 400;
                             font-family: $aleg;
                             color: $darkgray-filter;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
                             .sp-num{
                                 font-size: em(15);
                                 font-family: $noto;

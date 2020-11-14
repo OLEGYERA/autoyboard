@@ -6,7 +6,7 @@
                 <filter-form :validate_data="{{json_encode($validateData)}}"></filter-form>
             </aside>
             <div class="filter-finding">
-                <filter-cards></filter-cards>
+                <filter-cards :currency="{{json_encode($currency)}}"></filter-cards>
             </div>
         </div>
     </section>

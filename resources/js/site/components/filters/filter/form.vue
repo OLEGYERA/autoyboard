@@ -290,7 +290,7 @@
                         <div class="searcher-counter">{{prettify(countTransport)}}</div>
                     </div>
                     <div class="btn-cols">
-                        <button class="goto_full-filter" @click="clearFilter">Расширенный поиск</button>
+                        <button class="goto_full-filter" @click="jumpToStart">Расширенный поиск</button>
                         <div class="one-row" v-if="currentWidth > 768 ">
                             <button class="search-btn">Показать</button>
                             <button class="clear-filter" @click="clearFilter">Очистить фильтр</button>
@@ -377,9 +377,11 @@
                 data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
                 this.MODELS_FROM_API(data);
             },
-
+            jumpToStart(){
+                this.$refs.scrollContainer.scrollTop = 0;
+            },
             getTransportData(query){
-                this.FILTER_IDS_FROM_API('data_transports' + query);
+                this.FILTER_TRANSPORT_FROM_API('data_transports' + query);
             },
             changeResize(){
                 this.currentWidth = window.innerWidth;
@@ -427,7 +429,7 @@
                 //TRANSPORT
                 'TRANSPORT_TYPES_FROM_API', 'BODIES_FROM_API', 'TRANSMISSIONS_FROM_API', 'GEARS_FROM_API', 'TECHS_FROM_API',
                 //FILTER
-                'FILTER_IDS_FROM_API'
+                'FILTER_TRANSPORT_FROM_API'
             ]),
         },
         computed: {

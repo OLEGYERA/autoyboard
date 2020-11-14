@@ -24,10 +24,5 @@ class SearchController extends BasicController{
         return response()->json($result, 200);
     }
 
-    public function getDataTransport(Request $request, $id){
-        $transport = ParserUrlList::with('photo', 'main', 'body')->findOrFail($id);
-        return response()->json($transport, 200);
-    }
-
 }
 

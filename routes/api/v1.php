@@ -34,7 +34,6 @@ $appRoutes = function() {
 
     Route::get('/count_transport', 'API\SearchController@getCountTransport');
     Route::get('/data_transports', 'API\SearchController@getDataTransports');
-    Route::get('/data_transport/{id}', 'API\SearchController@getDataTransport');
 };
 
 Route::group(array('domain' => 'api.yboard.com.ua'), $appRoutes);
