@@ -70,4 +70,8 @@ abstract class Core
     public function performImages($imgArr, $id){
         return $this->image_processor->imageCollector($imgArr, $id);
     }
+
+    public function createBasic($imgArr, $id){
+        return $this->image_processor->createBasic($imgArr, $id);
+    }
 }
