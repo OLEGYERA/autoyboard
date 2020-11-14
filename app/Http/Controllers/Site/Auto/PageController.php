@@ -114,6 +114,22 @@ class PageController extends BasicController
         return $this->renderBasic();
     }
 
+    public function status404ru(){
+
+        return view('site.auto.status.404.ru')->render();
+
+    }
+ public function status500ru(){
+
+        return view('site.auto.status.500.ru')->render();
+
+    }
+ public function status503ru(){
+
+        return view('site.auto.status.503.ru')->render();
+
+    }
+
 
 
 

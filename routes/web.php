@@ -41,6 +41,10 @@ Route::get('/catbody', 'Site\Auto\PageController@catbody')->name('catbody');
 Route::get('/changelog', 'Site\Auto\PageController@changelog')->name('changelog');
 Route::get('/update', 'Site\Auto\PageController@update')->name('update');
 
+Route::get('/404', 'Site\Auto\PageController@status404ru')->name('404.ru');
+Route::get('/500', 'Site\Auto\PageController@status500ru')->name('500.ru');
+Route::get('/503', 'Site\Auto\PageController@status503ru')->name('503.ru');
+
 Route::get('/auto/{card_id}/photo_{num}.jpg', 'Auto\ImageConnector@getImage')->name('getImage');
 
 
