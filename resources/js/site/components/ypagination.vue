@@ -1,5 +1,5 @@
 <template>
-    <ul :class="['pagination', { disabled: disabled }]">
+    <ul :class="['pagination', { disabled: disabled }]" v-show="length > 1">
         <li ref="navPrev">
             <button
                 :class="['pagination-navigation', { disabled: isValueFirst }]"
@@ -51,6 +51,9 @@
             totalVisible: Number,
             disabled: Boolean,
         },
+        mounted() {
+            this.setMaxButtons();
+        },
         data(){
             return{
                 maxButtons: 0,
@@ -60,11 +63,9 @@
             isValueLast() {
                 return this.value >= this.length;
             },
-
             isValueFirst() {
                 return this.value <= 1;
             },
-
             items() {
                 const maxLength = this.totalVisible > this.maxButtons
                     ? this.maxButtons
@@ -99,23 +100,17 @@
                 }
             },
         },
-
-        mounted() {
-            this.setMaxButtons();
-        },
         methods: {
             goNext(e) {
                 e.preventDefault();
                 this.$emit('input', this.value + 1);
                 this.$emit('next');
             },
-
             goPrevious(e) {
                 e.preventDefault();
                 this.$emit('input', this.value - 1);
                 this.$emit('previous');
             },
-
             getRange(from, to) {
                 const range = [];
 
@@ -127,7 +122,6 @@
 
                 return range;
             },
-
             setMaxButtons() {
                 const containerWidth = this.$el && this.$el.parentElement
                     ? this.$el.parentElement.clientWidth
@@ -143,139 +137,12 @@
                     (containerWidth - navItemsWidth) / itemWidth
                 );
             },
-        },
+        }
     }
 </script>
 <style  scoped>
 
 
-    .pagination-item,
-    .pagination-navigation,
-    .pagination-more {
-        height: 2.2rem;
-        width: 2.2rem;
-        margin: 0.3rem;
-        font-size: 15px;
-        color: #9ca4c1;
-        font-weight: 700;
-    }
 
-    .pagination-item,
-    .pagination-navigation {
-        background-color: white;
-        border-radius: 4px;
-        -webkit-transition-property: opacity, color, background-color;
-        transition-property: opacity, color, background-color;
-        -webkit-transition-duration: 160ms;
-        transition-duration: 160ms;
-        -webkit-transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-        transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-    }
-
-    .pagination-item {
-        padding: 0 5px;
-    }
-    .pagination-item.active {
-        color: white;
-        background-color: #7d6ee7;
-    }
-    .pagination-item:hover, .pagination-item:focus {
-        background-color: #f7f7f7;
-    }
-    .pagination-item:hover.active, .pagination-item:focus.active {
-        background-color: #8d80ea;
-    }
-    .pagination-item:active {
-        background-color: #ededed;
-    }
-    .pagination-item:active.active {
-        background-color: #a095ee;
-    }
-
-    .pagination-navigation {
-        display: -webkit-inline-box;
-        display: inline-flex;
-        -webkit-box-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        align-items: center;
-        margin-left: 10px;
-        margin-right: 10px;
-        text-decoration: none;
-    }
-    .pagination-navigation.disabled {
-        opacity: 0.6;
-        cursor: default;
-    }
-    .pagination-navigation:hover:not(.disabled), .pagination-navigation:focus:not(.disabled) {
-        background-color: #f7f7f7;
-    }
-    .pagination-navigation:active:not(.disabled) {
-        background-color: #ededed;
-    }
-
-    .pagination-more {
-        display: inline-flex;
-        -webkit-box-align: end;
-        align-items: flex-end;
-        -webkit-box-pack: center;
-        justify-content: center;
-    }
-
-    .pagination {
-        display: inline-flex;
-        -webkit-box-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        justify-content: center;
-        max-width: 100%;
-        width: 100%;
-        margin: 0;
-        padding-left: 0;
-        list-style-type: none;
-    }
-    .pagination > li {
-        -webkit-box-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: flex;
-    }
-    .pagination button {
-        border: 0;
-        outline: none;
-        cursor: pointer;
-    }
-    .pagination.disabled {
-        pointer-events: none;
-        opacity: 0.6;
-    }
-
-    .container {
-        margin: 0 auto;
-        padding: 0 1rem;
-        padding-bottom: 50px;
-    }
-
-    .controls {
-        display: -webkit-box;
-        display: flex;
-        -webkit-box-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        align-items: center;
-        margin: 40px 0;
-    }
-    .controls input {
-        width: 60px;
-        margin-left: 0.3rem;
-        margin-right: 1.5rem;
-    }
-
-    .stage-container {
-        padding: 10px 0;
-        background-color: white;
-        border-radius: 6px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
 
 </style>
