@@ -66,7 +66,7 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         .filter-card{
             width: 32%;
             display: flex;
@@ -74,23 +74,21 @@
             border-radius: 6px;
             overflow: hidden;
             background-color: #fff;
-            box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 1px 10px 1px #bcbaba;
             margin-bottom: 15px;
-
             @keyframes slidein {
                 50% {
                     background: $box-bg;
                     box-shadow: 0 -200px 100px -100px #eaeaea inset;
                 }
             }
-
             .img-box{
                 height: 220px;
                 overflow: hidden;
                 position: relative;
                 background-color: $box-bg;
                 box-shadow: 0 -200px 100px -120px #bcbaba inset;
-                animation: slidein 3s infinite alternate;
+                animation: slidein 2s infinite alternate;
                 picture{
                     img{
                         position: absolute;
@@ -189,6 +187,38 @@
             }
             &:nth-child(3n){
                 margin-right: 0;
+            }
+            &.prerender{
+                box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.18);
+                .img-box{
+                    box-shadow: none;
+                    animation: unset;
+                }
+                .content-box{
+                    h3.card-title,
+                    .price-row,
+                    .option-item,
+                    .description-row,
+                    .other-row .date{
+                        background-color: rgba(168, 177, 180, 0.15);
+                    }
+                    .price-row{
+                        height: 18px;
+                        width: 80%;
+                    }
+                    .option-item{
+                        margin-right: 8%;
+                        height: 22px;
+                        width: 46%;
+                        &:nth-child(2n){
+                            margin-right: 0;
+                        }
+                    }
+                    .other-row .date{
+                        width: 60px;
+                        height: 15px;
+                    }
+                }
             }
         }
         &.rows{
@@ -300,6 +330,24 @@
                 }
                 &:nth-child(3n){
                     margin-right: 0;
+                }
+                &.prerender{
+                    .price-row{
+                        height: 22px;
+                        width: 50%;
+                    }
+                    .option-item{
+                        margin-right: 8%;
+                        height: 22px;
+                        width: 30%;
+                        &:nth-child(2n){
+                            margin-right: 0;
+                        }
+                    }
+                    .other-row .date{
+                        width: 80px;
+                        height: 22px;
+                    }
                 }
             }
         }

@@ -32,7 +32,7 @@
                <i class="yicon grid-1" :class="{active: isRowView}" @click="[setRowViewtoStorage(true), isRowView = true]"></i>
            </div>
         </div>
-        <div class="filter-cards-box" :class="{rows: isRowView}" ref="filterCard">
+        <div class="filter-cards-box" :class="{rows: isRowView}" v-if="dataTransports !== null">
             <div class="filter-card" v-for="dataTransport in dataTransports">
                 <div class="img-box">
                     <picture v-if="dataTransport.photo">
@@ -40,49 +40,71 @@
                     </picture>
                 </div>
                 <div class="content-box">
-                    <h3 class="card-title">{{ dataTransport.main.brand.title }} {{ dataTransport.main.modification }}  {{ dataTransport.main.model.title }} {{ dataTransport.main.year }}</h3>
+                    <h3 class="card-title">{{ dataTransport.brand }} {{ dataTransport.modification }}  {{ dataTransport.model }} <span class="sp-num" v-if="dataTransport.year !== null">{{ dataTransport.year }}</span></h3>
                     <div class="price-row">
-                        <div class="usd">{{prettify(Math.trunc(generateCurrency(dataTransport.main.price_currency, dataTransport.main.price_value, 1)))}}<span class="symb">$</span></div>
-                        <div class="uah">{{prettify(Math.trunc(generateCurrency(dataTransport.main.price_currency, dataTransport.main.price_value, 2)))}}<span class="symb">₴</span></div>
+                        <div class="usd">{{prettify(Math.trunc(generateCurrency(dataTransport.price_currency, dataTransport.price_value, 1)))}}<span class="symb">$</span></div>
+                        <div class="uah">{{prettify(Math.trunc(generateCurrency(dataTransport.price_currency, dataTransport.price_value, 2)))}}<span class="symb">₴</span></div>
                     </div>
                     <div class="option-list">
                         <div class="option-item">
                             <i class="yicon engine"></i>
-                            <div class="option-title" v-if="dataTransport.body.mileage !== null"><span class="sp-num">{{dataTransport.body.mileage}}</span> тыс. км</div>
+                            <div class="option-title" v-if="dataTransport.mileage !== null"><span class="sp-num">{{dataTransport.mileage}}</span> тыс. км</div>
                             <div class="option-title" v-else>Не указано</div>
                         </div>
                         <div class="option-item">
                             <i class="yicon transmission"></i>
-                            <div class="option-title" v-if="dataTransport.body.type_transmission !== null">{{dataTransport.body.type_transmission.rtitle}}</div>
+                            <div class="option-title" v-if="dataTransport.transmission !== null">{{dataTransport.transmission}}</div>
                             <div class="option-title" v-else>Не указано</div>
                         </div>
                         <div class="option-item">
                             <i class="yicon full-location"></i>
-                            <div class="option-title">{{dataTransport.main.city.rtitle}}</div>
+                            <div class="option-title">{{dataTransport.city}}</div>
                         </div>
                         <div class="option-item">
                             <i class="yicon fuel"></i>
-                            <div class="option-title" v-if="dataTransport.body.type_fuel !== null && dataTransport.body.volume !== null">{{dataTransport.body.type_fuel.rtitle}}, <span class="sp-num">{{dataTransport.body.volume}}</span> л.</div>
-                            <div class="option-title" v-else-if="dataTransport.body.type_fuel !== null && dataTransport.body.volume == null">{{dataTransport.body.type_fuel.rtitle}}</div>
-                            <div class="option-title" v-else-if="dataTransport.body.type_fuel == null && dataTransport.body.volume !== null"><span class="sp-num">{{dataTransport.body.volume}}</span> л.</div>
+                            <div class="option-title" v-if="dataTransport.fuel !== null && dataTransport.volume !== null">{{dataTransport.fuel}}, <span class="sp-num">{{dataTransport.volume}}</span> л.</div>
+                            <div class="option-title" v-else-if="dataTransport.fuel !== null && dataTransport.volume == null">{{dataTransport.fuel}}</div>
+                            <div class="option-title" v-else-if="dataTransport.fuel == null && dataTransport.volume !== null"><span class="sp-num">{{dataTransport.volume}}</span> л.</div>
                             <div class="option-title" v-else>Не указано</div>
                         </div>
                     </div>
-                    <div class="description-row" v-if="isRowView == true && dataTransport.main.description !== null">
-                        {{dataTransport.main.description}}
+                    <div class="description-row" v-if="isRowView == true && dataTransport.description !== null">
+                        {{dataTransport.description}}
                     </div>
                     <div class="description-row" v-else-if="isRowView == true"></div>
                     <div class="other-row">
-                        <time class="date" :date="dataTransport.created_at" v-html="generateDate(dataTransport.created_at)"></time>
+                        <time class="date" :date="dataTransport.resource_created" v-html="generateDate(dataTransport.resource_created)"></time>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-card prerender" v-for="i in 10" v-if="dataTransports.length == 0">
+                <div class="img-box">
+                    <picture></picture>
+                </div>
+                <div class="content-box">
+                    <h3 class="card-title"></h3>
+                    <div class="price-row"></div>
+                    <div class="option-list">
+                        <div class="option-item"></div>
+                        <div class="option-item"></div>
+                        <div class="option-item"></div>
+                        <div class="option-item"></div>
+                    </div>
+                    <div class="description-row"></div>
+                    <div class="other-row">
+                        <div class="date"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <ypaginaton v-model="page" :length="Math.trunc(countTransport/10)" :total-visible="8"></ypaginaton>
+        <div class="filter-cards-box" v-else>
+            <h1 class="filter-title">Ничего не найдено</h1>
+        </div>
+        <ypaginaton  v-model="searchDeatils.page" :length="Math.trunc((countTransport/muchDataShow) + (countTransport%muchDataShow  !== 0 ? 1 : 0))" :total-visible="8"></ypaginaton>
     </div>
 </template>
 <script>
-    import {mapGetters, mapActions, mapMutations} from 'vuex';
+    import {mapGetters, mapMutations} from 'vuex';
 
     export default {
         props: ['lang', 'currency'],
@@ -99,20 +121,12 @@
             return {
                 currentWidth: 0,
                 isRowView: false,
-                page: 1,
-                length: 10,
-                totalVisible: 10,
-                test: [],
-                //////////
-                sortByOpen: false,
-                itemSort: [],
-                currentPage: 1,
-                itemsPerPage: 1,
-                resultCount: 0,
-                //end pagination
             }
         },
         methods: {
+            ...mapMutations([
+                'SET_PERIOD_CHOOSED', 'SET_SORTING_CHOOSED'
+            ]),
             generateCurrency(curr, val, toConvert){
                 switch (curr){
                     case 1:
@@ -203,23 +217,6 @@
                     }
                 }
             },
-            prettify(num){
-                var n = num.toString();
-                return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
-            },
-            prevPage(){
-                this.currentPage = ( this.currentPage-1 >= 0 ? this.currentPage-1 : this.users.length-1 )
-            },
-            nextPage(){
-                this.currentPage = ( this.currentPage+1 < this.users.length ? this.currentPage+1 : 0 )
-                // if(this.currentPage === 0) this.currentPage = 1
-                // if(this.currentPage === this.users.length-1){
-                //     this.currentPage = 1
-                // }
-            },
-            setPage: function(pageNumber) {
-                this.currentPage = pageNumber
-            },
             getRowViewFromStorage(){
                 let rowStorage = localStorage.getItem('rowStorage');
                 if(rowStorage == null || rowStorage == 'false'){
@@ -241,34 +238,35 @@
                     this.sortByOpen = false;
                 }
             },
+            prettify(num){
+                var n = num.toString();
+                return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
+            },
         },
         computed: {
             ...mapGetters({
                 'searchDeatils': 'GET_SEARCHDETAILS',
                 'dataTransports': 'GET_DATA_TRANSPORTS',
-                'countTransport': 'GET_COUNT'
+                'countTransport': 'GET_COUNT',
             }),
-            totalPages: function() {
-                return Math.ceil(this.resultCount / this.itemsPerPage)
-            },
-            paginate: function() {
-                if (!this.users || this.users.length != this.users.length) {
-                    return
+            //костыль
+            muchDataShow(){
+                switch (this.searchDeatils.showChoosed){
+                    case 1:
+                        return 15;
+                    case 2:
+                        return 20;
+                    case 3:
+                        return 30;
+                    case 4:
+                        return 50;
+                    case 5:
+                        return 100;
                 }
-                this.resultCount = this.users.length
-                if (this.currentPage >= this.totalPages) {
-                    this.currentPage = this.totalPages
-                }
-                var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
-                return this.users.slice(index, index + this.itemsPerPage)
-            },
-            filterSortItems() {
-                return this.left
-            },
+            }
         },
         watch:{
             currentWidth(to){
-                // this.$forceUpdate();
                 if(to < 900){
                     this.isRowView = false;
                 }

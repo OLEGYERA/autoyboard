@@ -24,7 +24,7 @@
                     <div class="ygroup-box">
                         <h2 class="yfilter-aside-title">Цена</h2>
                         <div class="yprice_filter-box">
-                            <yprice></yprice>
+                            <yprice :priceChoosed="price"></yprice>
                             <ycheckbox
                                 :name="'Возможен торг'"
                                 :checked="searchDeatils.searchPropsChoosed.bargain"
@@ -421,7 +421,7 @@
                 <div class="ygroup-box">
                     <h2 class="yfilter-aside-title">Цена</h2>
                     <div class="yprice_filter-box">
-                        <yprice></yprice>
+                        <yprice :priceChoosed="price"></yprice>
                         <ycheckbox
                             :name="'Возможен торг'"
                             :checked="searchDeatils.searchPropsChoosed.bargain"
@@ -789,7 +789,7 @@
                 <div class="search-helper" :class="{pin: pinOrderPanel}">
                     <div class="lhelp">
                         <span class="searched-transport">Найдено транспорта: <span class="counter">{{prettify(countTransport)}}</span></span>
-                        <button class="search-btn">Поиск</button>
+                        <button class="search-btn" @click="linkToFilter">Поиск</button>
                     </div>
                     <div class="rhelp" @click="clearFilter">
                         <span class="clear-filter">Очистить фильтр</span>
@@ -804,7 +804,7 @@
                     </div>
                     <div class="rhelp">
                         <span class="clear-filter" @click="clearFilter"><i class="yicon cancel"></i></span>
-                        <span class="search-btn"><i class="yicon search"></i></span>
+                        <span class="search-btn" @click="linkToFilter"><i class="yicon search"></i></span>
                     </div>
                 </div>
             </div>
@@ -888,9 +888,10 @@
                 data['url'] = '/transport_types/' + this.transportsArr.typeChoosed + '/brands/' + data.choose + '/models?langType=1&alias=1';
                 this.MODELS_FROM_API(data);
             },
+            //move to store
             getTransportCount(query){
                 HTTP.get('count_transport?' + query).then(response => {
-                    this.countTransport = response.data;
+                    this.countTransport = response.data.count;
                 })
             },
             changeResize(){
@@ -908,6 +909,10 @@
             prettify(num){
                 var n = num.toString();
                 return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
+            },
+            linkToFilter(){
+                let query = this.generateQuery;
+                window.location.href = document.location.origin + '/filter' + query
             },
             ...mapMutations([
                 //search deataild
@@ -948,6 +953,7 @@
                     REGIONProps = routingSplicerBus.$options.methods.creatingREGIONsProps(this.choosedRegions, this.choosedCities),
                     query = '';
 
+                query += '?';
                 query += SEARCHDETAILsProps != '' ? SEARCHDETAILsProps + '&' : '';
                 query += TRANPORTsProps != '' ? TRANPORTsProps + '&' : '';
                 query += RBMYsProps != '' ? RBMYsProps + '&' : '';
@@ -959,11 +965,12 @@
             generateLink() {
                 let query = this.generateQuery;
                 this.getTransportCount(query);
-                window.history.pushState('', '', document.location.origin + '/' + this.uriName + '?' + query);
+                window.history.pushState('', '', document.location.origin + '/' + this.uriName + query);
             },
             ...mapGetters({
                 //search detail
                 'searchDeatils': 'GET_SEARCHDETAILS',
+                'price': 'GET_PRICE',
 
                 //RBMY
                 'rbmysArr': 'GET_RBMYS', 'manufactureRegions': 'GET_MANUFACTURE_REGIONS',
