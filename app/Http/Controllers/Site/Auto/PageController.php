@@ -13,7 +13,7 @@ use Storage;
 class PageController extends BasicController
 {
 
-    public function start(){
+    public function startru(){
         $this->content = view('site.auto.home.ru')->render();
         return $this->renderBasic();
     }

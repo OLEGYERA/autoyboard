@@ -73,7 +73,7 @@
                     </div>
                     <div class="description-row" v-else-if="isRowView == true"></div>
                     <div class="other-row">
-                        <time class="date" :date="dataTransport.resource_created" v-html="generateDate(dataTransport.resource_created)"></time>
+                        <time class="date" :date="dataTransport.created_at" v-html="generateDate(dataTransport.created_at)"></time>
                     </div>
                 </div>
             </div>
@@ -151,12 +151,10 @@
                     millisecondsPerDay = millisecondsPerHour * 24,
                     currentDate = new Date(),
                     choosedDate = new Date(date);
-
                 let diff = currentDate.getTime() - choosedDate.getTime(),
                     diffDay = Math.trunc(diff/millisecondsPerDay),
                     diffHour = Math.trunc(diff/millisecondsPerHour),
                     diffMinute = Math.trunc(diff/millisecondsPerMinute);
-
                 if(diffDay > 0  || currentDate.getDay() - choosedDate.getDay() == 1){
                     if(diffDay == 1 || currentDate.getDay() - choosedDate.getDay() == 1){
                         return 'Вчера, ' + '<span class="sp-num">' + choosedDate.getHours() + ':' + choosedDate.getMinutes() + '</span>';

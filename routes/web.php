@@ -32,7 +32,7 @@ Route::get('/', 'Site\Auto\PageController@startru');
 Route::get('/filter', 'Site\Auto\PageController@filterru')->name('filter.ru');
 Route::get('/filter', 'Site\Auto\PageController@filterua')->name('filter.ua');
 
-Route::get('/card/{id}', 'Site\Auto\PageController@cardru')->name('card.ru');
+Route::get('/cardru/{id}', 'Site\Auto\PageController@cardru')->name('card.ru');
 Route::get('/card/{id}', 'Site\Auto\PageController@cardua')->name('card.ua');
 
 Route::get('/favorite', 'Site\Auto\PageController@favoriteru')->name('favorite.ru');
