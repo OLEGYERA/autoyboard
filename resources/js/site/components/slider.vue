@@ -7,29 +7,8 @@
                     :class="{'blur' : soldCar}"
                     class="y-image_large"
                     v-if="withPhotos === true">
-                    <div class="yb-icon_check" v-if="verifiedCar">
-                        <div class="icon check">
-                            <svg fill="none" height="40" viewBox="0 0 40 40" width="40"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0)">
-                                    <path
-                                        d="M38.3729 11.3872C38.2235 11.3872 38.0706 11.4087 37.9177 11.4507L36.1889 11.9268L34.3934 7.5532C33.8849 6.31429 32.3814 5.3064 31.0421 5.3064H14.24C12.9009 5.3064 11.3972 6.31429 10.8886 7.5532L9.0957 11.9208L7.38833 11.4507C7.2355 11.4087 7.08251 11.3872 6.9332 11.3872C6.11616 11.3872 5.52322 12.0114 5.52322 12.8715V13.8908C5.52322 13.9325 5.52659 13.9734 5.52951 14.0146C4.81777 14.4633 4.14972 14.9919 3.54023 15.6014C1.39782 17.7436 0.217773 20.5924 0.217773 23.6225C0.217773 26.6528 1.39782 29.5015 3.54039 31.6437C5.68311 33.7863 8.53174 34.9665 11.5617 34.9665C14.5917 34.9665 17.4405 33.7864 19.583 31.6437C20.8319 30.395 21.7509 28.9051 22.3028 27.2802H32.8703V29.4499C32.8703 30.4539 33.687 31.2706 34.6909 31.2706H37.0686C38.0726 31.2706 38.8893 30.4539 38.8893 29.4499V20.7613C38.8893 19.5169 38.505 17.5681 38.0324 16.417L37.7425 15.7113H37.9623C38.9662 15.7113 39.783 14.8945 39.783 13.8906V12.8714C39.783 12.0114 39.1899 11.3872 38.3729 11.3872ZM13.1169 8.10736C13.421 7.36619 14.3256 6.75992 15.1265 6.75992H30.1555C30.9566 6.75992 31.861 7.36619 32.1651 8.10736L34.881 14.7225C35.1851 15.4637 34.7786 16.07 33.9775 16.07H20.0242C19.8815 15.9106 19.7353 15.7536 19.5829 15.6011C17.44 13.4583 14.5914 12.2784 11.5616 12.2784C11.5084 12.2784 11.4559 12.2815 11.4029 12.2823L13.1169 8.10736ZM11.5617 31.5712C9.43861 31.5712 7.4426 30.7442 5.94125 29.2428C4.43991 27.7417 3.6132 25.7458 3.6132 23.6225C3.6132 21.4993 4.44006 19.5034 5.94125 18.0021C7.4426 16.5009 9.43861 15.674 11.5617 15.674C13.6848 15.674 15.6808 16.5009 17.1822 18.0021C18.6834 19.5034 19.5102 21.4993 19.5102 23.6225C19.5102 25.7458 18.6835 27.7417 17.1822 29.2428C15.6807 30.7442 13.6848 31.5712 11.5617 31.5712ZM35.385 23.0898C35.385 23.4904 35.0573 23.8181 34.6567 23.8181H29.498C29.0974 23.8181 28.7697 23.4904 28.7697 23.0898V20.6139C28.7697 20.2133 29.0974 19.8856 29.498 19.8856H34.6567C35.0573 19.8856 35.385 20.2133 35.385 20.6139V23.0898Z"
-                                        fill="white"/>
-                                    <path
-                                        d="M16.7972 19.0032C16.1481 18.5268 15.2356 18.6663 14.7589 19.3155L10.5959 24.9842L8.04726 23.1305C7.39622 22.6566 6.48414 22.8006 6.01046 23.4521C5.53679 24.1033 5.68073 25.0152 6.33207 25.4889L9.7396 27.9671C10.0667 28.2054 10.4472 28.3202 10.8246 28.3202C11.3939 28.3202 11.9564 28.059 12.3175 27.5669L17.1096 21.0417C17.5862 20.3927 17.4464 19.4799 16.7972 19.0032Z"
-                                        fill="white"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0">
-                                        <rect fill="white" height="39.5652" transform="translate(0.217773 0.35376)"
-                                              width="39.5652"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
-                    </div>
                     <div :class="{'yb-sold_carout' : soldCar}"></div>
-                    <img :src="'/' + options[currImgIdx].path" alt="">
+                    <img v-lazy="'/' + options[currImgIdx].path" alt="">
                     <div class="yb-count_increase-img">
                         <div class="yb_count-img">
                             <i class="far fa-image"></i>
@@ -61,11 +40,11 @@
                                 v-if="imgFullList ? true : i < 5"
                         >
                             <div :class="{'yb-sold_carout' : soldCar}"></div>
-                            <img :src="'/' + item.path" alt="">
+                            <img v-lazy="'/' + item.path" alt="">
                         </figure>
                     </div>
-                    <div @click="imgFullList = !imgFullList" class="yb_img-fulllist" v-if="options.length > 5">
-                            <span class="y-image_all"
+                    <div class="yb_img-fulllist" v-if="options.length > 5">
+                            <span class="y-image_all" @click="imgFullList = !imgFullList"
                                   v-if="!imgFullList">
                                 <span v-if="lang == 'ru' ">Смотреть все фото</span>
                                 <span v-else>Дивитися всі фото</span>
@@ -75,7 +54,7 @@
                                  >
                             </i>
                             </span>
-                        <span class="y-image_all" v-else>
+                            <span class="y-image_all" @click="imgFullList = !imgFullList" v-else>
                                 <span v-if="lang == 'ru' ">Скрыть</span>
                                 <span v-else>Приховати</span>
                                    <i
@@ -110,7 +89,7 @@
                                 <div class="slider slider-for " v-if="options.length > 0">
                                     <Slick id="slick1" :options="slickOptions" ref="slickSetting1">
                                     <div v-for="(item,j) in options" class="slider-banner-image">
-                                        <img :src="'/' + item.path" alt="Car-Image">
+                                        <img v-lazy="'/' + item.path" alt="Car-Image">
                                     </div>
                                     </Slick>
                                 </div>
@@ -125,7 +104,7 @@
 
                                                 <span>{{ options.length }}</span>
                                             </div>
-                                            <img :src="'/' + item.path" alt="">
+                                            <img v-lazy="'/' + item.path" alt="">
                                         </div>
                                         </Slick>
                                     </div>

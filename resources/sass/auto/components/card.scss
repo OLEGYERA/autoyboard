@@ -8,6 +8,7 @@
     .yb-card_auto {
         width: 100%;
         position: relative;
+        margin-bottom: 20px;
 
         .yb-bread_next-card {
             width: 100%;
@@ -16,59 +17,30 @@
             justify-content: space-between;
             margin: 20px 0 25px;
 
-            .yb-bread_crumbs {
-                display: flex;
-
-                .yb-crumbs {
-                    display: flex;
-                    align-items: center;
-
-                    .yb-crumbs_name {
-                        font-family: $aleg;
-                        font-weight: normal;
-                        font-size: em(18);
-                        line-height: 22px;
-                        color: $crumbsgray;
-
-                        &.active {
-                            color: $darkblue;
-                        }
-                    }
-
-                    i {
-                        margin: 0 8px;
-                        color: $crumbsgray;
-                    }
-                }
-            }
-
-            .yb_come-back {
-                display: none;
-            }
-
             .ynext_card-auto {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 font-family: $aleg;
                 font-weight: normal;
-                font-size: em(18);
+                font-size: em(16);
                 line-height: 22px;
                 color: $darkblue;
 
-                svg {
-                    margin-left: 10px;
+                i {
+                    font-size: em(16);
+                    margin-left: 5px;
                 }
             }
         }
 
         .y-auto_name {
-            margin: 22px 0 11px;
-            font-family: $rale;
+            margin: 20px 0 8px;
+            font-family: $noto;
             font-weight: 600;
-            font-size: em(48);
-            line-height: 68px;
-            color: #222222;
+            font-size: em(36);
+            line-height: em(26);
+            color: $darkgray-filter;
             padding: 0;
         }
 
@@ -107,6 +79,7 @@
             background: $darkblue;
             border: 3px solid $darkblue;
             border-radius: 10px;
+            margin-bottom: 15px;
 
             svg {
                 width: 35px;
@@ -128,7 +101,7 @@
                 justify-content: space-between;
 
                 .yb_auto_vis-l {
-                    width: 68%;
+                    width: 65%;
                     height: max-content;
 
                     .yb_autol-top {
@@ -207,33 +180,6 @@
                                             object-fit: cover;
                                         }
 
-                                        .yb-icon_check {
-                                            position: absolute;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: space-between;
-                                            top: 15px;
-                                            left: 15px;
-
-                                            .icon {
-                                                display: flex;
-                                                align-items: center;
-                                                justify-content: center;
-                                                color: #FFFFFF;
-                                                font-family: $mont;
-                                                font-weight: bold;
-                                                font-size: em(20);
-                                                line-height: 24px;
-                                                width: 60px;
-                                                height: 60px;
-                                                border-radius: 50%;
-                                                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
-                                            }
-
-                                            .check {
-                                                background: #0549CE;
-                                            }
-                                        }
 
                                         .yb-sold_carout {
                                             position: absolute;
@@ -352,6 +298,8 @@
                                                 justify-content: center;
                                                 padding: 0;
                                                 margin: 0 0 5px 0;
+                                                background-color: $box-bg;
+                                                cursor: pointer;
 
                                                 img {
                                                     width: 100%;
@@ -389,6 +337,7 @@
                                                 color: $darkblue;
                                                 margin-bottom: 15px;
                                                 padding-left: 15px;
+                                                cursor: pointer;
 
                                                 i {
                                                     color: $darkblue;
@@ -404,7 +353,7 @@
 
                         .yb_car-description {
                             width: 100%;
-                            padding: 0 20px;
+                            padding: 0 15px;
 
                             h2 {
                                 font-family: $mont;
@@ -557,22 +506,22 @@
                 }
 
                 .yb_auto_vis-r {
-                    width: 30%;
+                    width: 33%;
                     height: max-content;
 
                     .yvis_item-car {
                         position: relative;
                         background: #FFFFFF;
                         width: 100%;
-                        box-shadow: -3px -3px 6px rgba(192, 192, 192, 0.2), 3px 3px 6px rgba(192, 192, 192, 0.2), -3px 3px 6px rgba(255, 255, 255, 0.9), 3px -3px 8px rgba(192, 192, 192, 0.54), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
+                        box-shadow: -3px -3px 4px rgba(192, 192, 192, 0.2), 3px 3px 4px rgba(192, 192, 192, 0.2), -3px 3px 4px rgba(255, 255, 255, 0.9), 3px -3px 4px rgba(192, 192, 192, 0.54), inset 1px -1px 2px rgba(255, 255, 255, 0.3), inset -1px 1px 2px rgba(192, 192, 192, 0.5);
                         border-radius: 0 0 15px 15px;
 
                         .vis_car-price {
                             width: 100%;
                             background: #FFFFFF;
-                            box-shadow: -5px 5px 10px rgba(224, 224, 224, 0.2), 5px -5px 10px rgba(224, 224, 224, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(224, 224, 224, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(224, 224, 224, 0.5);
-                            border-radius: 12px;
-                            padding: 25px 20px 25px 30px;
+                            box-shadow: 5px 5px 8px rgba(224, 224, 224, 0.7), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(224, 224, 224, 0.5);
+                            border-radius: 0 0 12px 12px;
+                            padding: 15px;
 
                             .car_name {
                                 display: none;
@@ -584,65 +533,67 @@
                                 justify-content: space-between;
 
                                 .yb-price_car {
-                                    width: 80%;
+                                    width: 100%;
                                     display: flex;
+                                    flex-direction: column;
                                     align-items: center;
                                     justify-content: space-between;
-
-                                    .price_vis {
-                                        font-family: $noto;
-                                        font-weight: 300;
-                                        font-size: em(18);
-                                        line-height: 25px;
-                                        color: $admin-grey;
-
-                                        &.active {
-                                            font-family: $mont;
+                                    .main-price,
+                                    .other-price{
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        .price_vis{
+                                            display: flex;
+                                            align-items: center;
+                                            font-family: $noto;
+                                        }
+                                    }
+                                    .main-price{
+                                        margin-bottom: 10px;
+                                        .price_vis{
                                             font-weight: 600;
                                             font-size: em(28);
-                                            line-height: 34px;
-                                            color: #10A667;
+                                            color: $price-color;
+                                        }
+                                    }
+                                    .other-price{
+                                        .price_vis {
+                                            font-weight: 300;
+                                            font-size: em(16);
+                                            color: $admin-grey;
+                                            &:first-child{
+                                                margin-right: 10px;
+                                            }
                                         }
                                     }
                                 }
-
-                                .favorite {
-                                    position: inherit;
-                                    box-shadow: none;
-
-                                    svg {
-                                        width: 40px;
-                                        fill: #C7C7C7;
-                                    }
-                                }
-                            }
-
-                            .price_monitoring {
-                                font-family: $aleg;
-                                font-weight: 500;
-                                font-size: em(16);
-                                line-height: 28px;
-                                color: #052BB0;
-                                opacity: 0.8;
                             }
                         }
 
                         .yvis-car_options {
                             width: 100%;
-                            padding: 23px 15px 17px 15px;
+                            padding: 10px 15px 15px 15px;
 
                             .y-car_option {
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-between;
-                                padding: 15px 0 15px;
+                                padding: 10px 0;
                                 position: relative;
 
-                                svg {
-                                    margin-right: 15px;
-                                    width: 8%;
-                                    height: 25%;
+                                i{
+                                    font-size: em(28);
+                                    color: $darkblue;
+                                    margin-right: 8px;
                                 }
+
+                                svg{
+                                    width: 24px;
+                                    height: 24px;
+                                    margin-right: 12px;
+                                }
+
 
                                 .yoption_name {
                                     width: 90%;
@@ -651,17 +602,16 @@
                                     justify-content: space-between;
 
                                     h2 {
-                                        font-family: $mont;
+                                        font-family: $aleg;
                                         font-weight: 500;
                                         font-size: em(16);
-                                        line-height: 28px;
                                         color: #999E9F;
                                         margin: 0;
                                     }
 
                                     .y-option {
                                         font-family: $mont;
-                                        font-weight: 600;
+                                        font-weight: 500;
                                         font-size: em(14);
                                         line-height: 28px;
                                         color: #414242;
@@ -669,11 +619,11 @@
                                         div {
                                             display: flex;
                                             align-items: center;
-                                            justify-content: center;
-                                            flex-direction: column;
-
                                             span {
                                                 text-align: center;
+                                                &:first-child{
+                                                    margin-right: 3px;
+                                                }
                                             }
                                         }
                                     }
@@ -748,6 +698,7 @@
                         background: linear-gradient(180deg, rgba(34, 34, 34, 0.18) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #03347D, #03347D), #FFFFFF;
                         box-shadow: 0 4px 8px rgba(8, 34, 73, 0.16);
                         border-radius: 0 0 15px 15px;
+                        box-sizing: border-box;
 
                         .yexpended {
                             .white {
@@ -864,7 +815,7 @@
                             justify-content: space-between;
                             margin: 10px 0 0 10px;
                             font-family: $aleg;
-                            font-weight: bold;
+                            font-weight: 500;
                             font-size: em(24);
                             line-height: 22px;
                             text-align: center;
@@ -1351,19 +1302,6 @@
                                 .ycard_image-vis {
                                     .y-image_items {
                                         .y-image_large {
-                                            .yb-icon_check {
-                                                .icon {
-                                                    width: 45px;
-                                                    height: 45px;
-                                                }
-
-                                                .check {
-                                                    svg {
-                                                        width: 30px;
-                                                        height: 30px;
-                                                    }
-                                                }
-                                            }
 
                                             .yb-count_increase-img {
 
@@ -1873,36 +1811,13 @@
 @media only screen and (max-width: 945px) {
     .yb-content {
         .yb-card_auto {
+            padding: 0 15px;
             .yb-bread_next-card {
                 margin: 15px 0 15px;
-
-                .yb-bread_crumbs {
-                    display: none;
-                }
-
-                .yb_come-back {
-                    display: flex;
-                    align-items: center;
-                    font-family: $aleg;
-                    font-weight: normal;
-                    font-size: em(13);
-                    line-height: 16px;
-                    color: $darkblue;
-
-                    i {
-                        margin-right: 7px;
-                        color: $darkblue;
-                        font-size: em(20);
-                    }
-                }
-
                 .ynext_card-auto {
                     font-size: em(15);
                     line-height: 18px;
 
-                    svg {
-                        width: 45px;
-                    }
                 }
             }
 
@@ -2007,11 +1922,6 @@
                                         }
                                     }
                                 }
-
-                                .price_monitoring {
-                                    font-size: em(15);
-                                    line-height: 18px;
-                                }
                             }
 
                             .yvis-car_options {
@@ -2063,6 +1973,7 @@
                             line-height: 19px;
                             padding: 6% 7%;
                             margin: 0 auto 25px auto;
+                            box-sizing: border-box;
 
                             .yexpended {
                                 .ex_search {
@@ -2149,16 +2060,6 @@
                                 .ycard_image-vis {
                                     .y-image_items {
                                         .y-image_large {
-                                            .yb-icon_check {
-                                                .icon {
-                                                    width: 45px;
-                                                    height: 45px;
-
-                                                    svg {
-                                                        width: 25px;
-                                                    }
-                                                }
-                                            }
 
                                             .yb-count_increase-img {
                                                 .yb_count-img {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site\Auto;
 
+use App\Http\Controllers\System\ExchangeRatesController;
 use App\ParserUrlList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -34,68 +35,27 @@ class PageController extends BasicController
     public function cardru($id)
     {
         $card = ParserUrlList::findOrFail($id);
-        $this->content = view('site.auto.card.ru')->with(['card' => $card])->render();
+
+        $analog_city = ParserUrlList::where('status', 3);
+
+        $analog_city = $analog_city->whereHas('main', function ($q) use ($card) {
+            $q->where('city_id', $card->main->city->id);
+        });
+
+        $this->content = view('site.auto.card.ru')->with([
+            'card' => $card,
+            'exchange' => (new ExchangeRatesController)->getExchange(),
+            'images' => $card->photos()->where('path', '!=', 'auto/' . $card->id . '/basic.jpg')->get(),
+            'analog' => $analog_city->take(5)->get(),
+            'nextPage' => ParserUrlList::where('id', '>', $card->id)->where('status', 3)->first()
+        ])->render();
         return $this->renderBasic();
-        //Body
-        //$base->body->typeBody
-        //$base->body->typeFuel
-        //$base->body->typeTransmission
-        //$base->body->typeGear
-        //$base->body->typeColor
-
-        //Main
-        //$base->main->brand
-        //$base->main->model
-        //$base->main->region
-        //$base->main->manufacture
-
-        //Photos
-        //$base->photos
-
-        //$base->state
-        //$base->security
-        //$base->comfort
-        //$base->comfort
-        //$base->other
-
-
-        //@if($base->body->typeBody !== null)
-        //
-        //@endif
-
     }
     public function cardua($id)
     {
         $card = ParserUrlList::findOrFail($id);
         $this->content = view('site.auto.card.ua')->with(['card' => $card])->render();
         return $this->renderBasic();
-        //Body
-        //$base->body->typeBody
-        //$base->body->typeFuel
-        //$base->body->typeTransmission
-        //$base->body->typeGear
-        //$base->body->typeColor
-
-        //Main
-        //$base->main->brand
-        //$base->main->model
-        //$base->main->region
-        //$base->main->manufacture
-
-        //Photos
-        //$base->photos
-
-        //$base->state
-        //$base->security
-        //$base->comfort
-        //$base->comfort
-        //$base->other
-
-
-        //@if($base->body->typeBody !== null)
-        //
-        //@endif
-
     }
 
     public function favoriteru(){

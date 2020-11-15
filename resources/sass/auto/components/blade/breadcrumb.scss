@@ -1,0 +1,31 @@
+.breadcrumbs {
+    display: flex;
+    .bread-item {
+        display: flex;
+        align-items: center;
+        height: 18px;
+        .bread-item_name {
+            font-family: $aleg;
+            font-weight: normal;
+            font-size: em(16);
+            line-height: 22px;
+            color: $crumbsgray;
+
+            &.active {
+                color: $darkblue;
+            }
+        }
+
+        i {
+            margin: 0 5px;
+            font-size: em(16);
+            color: $crumbsgray;
+        }
+    }
+}
+
+@media only screen and (max-width: 945px) {
+    .breadcrumbs {
+        display: none;
+    }
+}

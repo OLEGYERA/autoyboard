@@ -68,7 +68,7 @@ Vue.component('ychaccordion', require('./components/ychaccordion').default);
 //
 // Vue.component('ystickers', require('./components/ystickers').default);
 //
-Vue.component('ycardauto', require('./components/ycardauto').default);
+Vue.component('slider', require('./components/slider').default);
 //
 
 

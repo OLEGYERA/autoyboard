@@ -104,7 +104,7 @@
   margin-left: -1.4619140625em;
   color: rgb(255, 255, 255);
 }
-.icon-car:before {
+.car-body:before {
   content: "\e917";
 }
 .icon-check-auto:before {
@@ -159,7 +159,7 @@
 .icon-email-2:before {
   content: "\e926";
 }
-.icon-engine:before {
+.main-engine:before {
   content: "\e927";
 }
 .icon-facebook:before {

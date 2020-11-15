@@ -8,14 +8,6 @@
         <div v-if="status || windowWidth < 946" class="ybest-items">
                 <Slick ref="slick" :options="slickOptions">
                     <div class="ybest-item">
-                        <div class="yb-icon_check">
-                            <button class="item_check">
-                                <img src="img/system/icons/car_check.svg" alt="">
-                            </button>
-                            <button class="new_item">
-                                NEW
-                            </button>
-                        </div>
                         <figure class="item_image">
                             <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
@@ -46,14 +38,6 @@
                         </div>
                     </div>
                     <div class="ybest-item">
-                        <div class="yb-icon_check">
-                            <button class="item_check">
-                                <img src="img/system/icons/car_check.svg" alt="">
-                            </button>
-                            <button class="new_item">
-                                NEW
-                            </button>
-                        </div>
                         <figure class="item_image">
                             <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
@@ -83,14 +67,7 @@
                         </div>
                     </div>
                     <div class="ybest-item">
-                        <div class="yb-icon_check">
-                            <button class="item_check">
-                                <img src="img/system/icons/car_check.svg" alt="">
-                            </button>
-                            <button class="new_item">
-                                NEW
-                            </button>
-                        </div>
+
                         <figure class="item_image">
                             <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
@@ -121,14 +98,6 @@
                         </div>
                     </div>
                     <div class="ybest-item">
-                        <div class="yb-icon_check">
-                            <button class="item_check">
-                                <img src="img/system/icons/car_check.svg" alt="">
-                            </button>
-                            <button class="new_item">
-                                NEW
-                            </button>
-                        </div>
                         <figure class="item_image">
                             <img src="https://vis.iaai.com/resizer?imageKeys=28196525~SID~B818~S1~I2~RW2592~H1944~TH0&width=845&height=633" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
@@ -159,14 +128,7 @@
                         </div>
                     </div>
                     <div class="ybest-item">
-                        <div class="yb-icon_check">
-                            <button class="item_check">
-                                <img src="img/system/icons/car_check.svg" alt="">
-                            </button>
-                            <button class="new_item">
-                                NEW
-                            </button>
-                        </div>
+
                         <figure class="item_image">
                             <img src="https://insurance-guidelines.com/wp-content/uploads/2019/03/car-rental.jpeg" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
@@ -197,14 +159,6 @@
                         </div>
                     </div>
                     <div class="ybest-item">
-                        <div class="yb-icon_check">
-                            <button class="item_check">
-                                <img src="img/system/icons/car_check.svg" alt="">
-                            </button>
-                            <button class="new_item">
-                                NEW
-                            </button>
-                        </div>
                         <figure class="item_image">
                             <img src="https://autoworld.files.wordpress.com/2010/01/peugeot-sr1-concept-car-img_1.jpg" alt="">
                             <yfavorite :favorite="favorite"></yfavorite>
