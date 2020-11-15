@@ -21,6 +21,7 @@
 <div id="yb-site">
     @yield('header')
     @yield('content')
+    @yield('footer')
 </div>
 
 <script src="{{asset('js/site.js')}}"></script>

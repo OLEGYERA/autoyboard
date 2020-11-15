@@ -102,9 +102,11 @@
             overflowDOM(){
                 if(this.currentWidth <= 768){
                     if(this.openResults){
+                        document.getElementsByTagName('header')[0].style.display = 'none';
                         document.getElementsByTagName('body')[0].style.overflow = 'hidden'
                     }
                     else{
+                        document.getElementsByTagName('header')[0].style.display = 'flex';
                         document.getElementsByTagName('body')[0].style.overflow = 'auto'
                     }
                 }

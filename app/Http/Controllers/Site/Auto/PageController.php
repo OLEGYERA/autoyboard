@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Site\Auto;
 
+use App\ExchangeRates;
 use App\Http\Controllers\System\ExchangeRatesController;
+use App\Http\Controllers\System\UriValidatorController as UVC;
 use App\ParserUrlList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,7 +17,30 @@ class PageController extends BasicController
 {
 
     public function startru(){
-        $this->content = view('site.auto.home.ru')->render();
+        $cards = ParserUrlList::where('status', 3)->with('photo')->leftJoin('parser_main_cards', 'parser_main_cards.id', '=', 'parser_url_lists.id')
+            ->leftJoin('parser_body_cards', 'parser_body_cards.id', '=', 'parser_url_lists.id')
+
+            ->leftJoin('brands', 'brands.id', '=', 'parser_main_cards.brand_id')
+            ->leftJoin('models', 'models.id', '=', 'parser_main_cards.model_id')
+            ->leftJoin('ukrainian_cities', 'ukrainian_cities.id', '=', 'parser_main_cards.city_id')
+
+            ->leftJoin('transport_ch_fuels', 'transport_ch_fuels.id', '=', 'parser_body_cards.fuel_id')
+            ->leftJoin('tranport_ch_transmissions', 'tranport_ch_transmissions.id', '=', 'parser_body_cards.transmission_id')
+
+            ->select(
+                'parser_url_lists.id', 'parser_url_lists.created_at',
+                'parser_main_cards.year', 'parser_main_cards.modification', 'parser_main_cards.price_value', 'parser_main_cards.price_currency', 'parser_main_cards.description',
+                'parser_body_cards.mileage', 'parser_body_cards.volume', 'transport_ch_fuels.rtitle as fuel', 'tranport_ch_transmissions.rtitle as transmission',
+                'brands.title as brand',
+                'models.title as model',
+                'ukrainian_cities.rtitle as city');
+        $validateData = (new UVC)->validateSearch([], 'rtitle');
+        $this->content = view('site.auto.home.ru')->with([
+            'validateData' => $validateData,
+            'cards' => $cards->take(20)->get(),
+            'currency' => ExchangeRates::latest('created_at')->first()
+
+        ]);
         return $this->renderBasic();
     }
     public function startua(){
@@ -34,11 +59,12 @@ class PageController extends BasicController
 
     public function cardru($id)
     {
-        $card = ParserUrlList::findOrFail($id);
+        $card = ParserUrlList::find($id);
+        if($card == null) abort(404);
 
         $analog_city = ParserUrlList::where('status', 3);
 
-        $analog_city = $analog_city->whereHas('main', function ($q) use ($card) {
+        $analog_city = $analog_city->where('id', '!=', $card->id)->whereHas('main', function ($q) use ($card) {
             $q->where('city_id', $card->main->city->id);
         });
 

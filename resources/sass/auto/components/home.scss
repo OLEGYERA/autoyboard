@@ -127,7 +127,7 @@
         display: none;
     }
     .yb-best_offers{
-        padding-bottom: 40px;
+        padding-bottom: 20px;
         width: 100%;
     }
 
@@ -353,19 +353,10 @@
                 .yb-form_right{
                     width: 23%;
                     margin-bottom: 40px;
-                    .yexpended{
-                        .ex_search {
-                            &.white{
-                                .eclipse{
-                                    padding-left: 30px;
-                                    &:after{
-                                        left: 18px;
-                                        width: 15px;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: c;
                 }
             }
         }

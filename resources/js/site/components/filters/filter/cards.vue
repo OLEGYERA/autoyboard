@@ -33,7 +33,7 @@
            </div>
         </div>
         <div class="filter-cards-box" :class="{rows: isRowView}" v-if="dataTransports !== null">
-            <div class="filter-card" v-for="dataTransport in dataTransports">
+            <a :href="'/card/' + dataTransport.id" class="filter-card" v-for="dataTransport in dataTransports">
                 <div class="img-box">
                     <picture v-if="dataTransport.photo">
                         <img v-lazy="dataTransport.photo.path">
@@ -76,7 +76,7 @@
                         <time class="date" :date="dataTransport.created_at" v-html="generateDate(dataTransport.created_at)"></time>
                     </div>
                 </div>
-            </div>
+            </a>
             <div class="filter-card prerender" v-for="i in 10" v-if="dataTransports.length == 0">
                 <div class="img-box">
                     <picture></picture>

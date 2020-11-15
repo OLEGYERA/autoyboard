@@ -50,6 +50,21 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+//        if (config('app.debug') && !$this->isHttpException($exception)) {
+//            $exception = new \Symfony\Component\HttpKernel\Exception\HttpException(500);
+//        }
+
+        if ($this->isHttpException($exception)) {
+                /** @var HttpExceptionInterface $exception */
+            if ($exception->getStatusCode() == 404) {
+                return response()->view('site.auto.status.404.ru', [], 404);
+            }
+
+            if ($exception->getStatusCode() == 500) {
+                return response()->view('site.auto.status.500.ru', [], 500);
+            }
+        }
         return parent::render($request, $exception);
     }
 }

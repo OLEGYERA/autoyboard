@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>404 Упс =( - Yboard</title>
     <link rel="stylesheet" href="{{asset('css/status.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/AlegreyaSans/alegreyasans.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/Raleway/raleway.css')}}">
@@ -648,9 +648,9 @@
               </defs>
           </svg>
       </div>
-      <button class="yb_back-home">
-          Вернуться назад
-      </button>
+      <a href="{{url('/')}}" class="yb_back-home">
+          Вернуться на главную
+      </a>
   </div>
 </body>
 </html>

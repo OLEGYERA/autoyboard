@@ -23,6 +23,7 @@ class BasicController extends Controller
 //        $this->vars = Arr::add($this->vars, 'is_mobile', $this->is_mobile);
 
         $this->vars = Arr::add($this->vars, 'header', view('site.components.headers.ru')->render());
+        $this->vars = Arr::add($this->vars, 'footer', view('site.components.footer.ru')->render());
 
 //        $this->vars = Arr::add($this->vars, 'footer', view('OLEGYERA.FrontBox.COMPONENTS.footers.' . ($this->is_mobile ? 'mobile.' : 'desktop.') . $this->lang)->render());
 //

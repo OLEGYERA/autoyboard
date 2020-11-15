@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="ydrop_down">
-                <ydropdown></ydropdown>
+<!--                <ydropdown></ydropdown>-->
             </div>
             <div class="type_body-marks">
                 <div class="car_body-type">

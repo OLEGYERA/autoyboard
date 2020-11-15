@@ -16,14 +16,14 @@
                 class="ysearch_item"
                 :key="index"
             >
-                {{item}}
+                <a :href="'/filter?rbmy[0][b]=' + item.id">{{item.title}}</a>
             </li>
-            <button class="ysearch_expanded">
+            <a href="/full-filter" class="ysearch_expanded">
                 Расширеный поиск
                 <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="#0B3F8D"/>
                 </svg>
-            </button>
+            </a>
         </ul>
 <!--        drop down when search with bestOffer card and last search-->
 <!--        <div v-if="toggle && search.length <= 0"  class="ysearch_items-res">-->
@@ -152,32 +152,31 @@
 </template>
 
 <script>
-export default {
+    import {HTTP} from '../../../http.js'
+
+    export default {
     data(){
         return{
             blurInput: false,
             toggle: false,
             lastReguest: true,
-            testAray:[
-                'Ауди',
-                'ауди а3',
-                'ауди ТТ',
-                'фольксваген',
-                'тойота аурис',
-                'королла киев',
-                'тесла битая',
-            ],
+            filterSearch: [],
             search: '',
         }
     },
     methods: {
-
         handleClickOutside(evt) {
             if (!this.$el.contains(evt.target)) {
                 this.toggle = false;
                 this.search - ''
             }
         },
+        searchFunc(){
+            HTTP.post('brand-search', {q: this.search})
+                .then(response => {
+                   this.filterSearch = response.data
+                })
+        }
     },
     mounted() {
         document.addEventListener('click', this.handleClickOutside)
@@ -185,24 +184,20 @@ export default {
     destroyed() {
         document.removeEventListener('click', this.handleClickOutside)
     },
-    computed: {
-        filterSearch(){
-            return this.testAray.filter(item => {
-                return item.indexOf(this.search) > - 1
-            })
-        }
-    },
     watch: {
         toggle: function (to) {
             if(to === false){
                 this.search =''
             }
-            to ? $('.search_toggle').addClass('fa-times') : $('.search_toggle').removeClass('fa-times');
+            to ? $('.search_toggle').addClass('cancel') : $('.search_toggle').removeClass('cancel');
             to ? $('.ysearch').addClass('search_long') : $('.ysearch').removeClass('search_long');
             to ? $('#yb-site').addClass('y_shadow-absolute') : $('#yb-site').removeClass('y_shadow-absolute');
             //add class from .yb-header-right when ysearch is opened, this class push (right: 0;) to yb-header-right
             to ? $('.yb-header-right').addClass('yb-fullright_zero') : $('.yb-header-right').removeClass('yb-fullright_zero');
         },
+        search(to){
+            this.searchFunc();
+        }
     }
 
 }

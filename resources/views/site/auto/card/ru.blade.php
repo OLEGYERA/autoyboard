@@ -473,40 +473,45 @@
 {{--                    <div class="yb_commercial-block">--}}
 {{--                        <span class="commercial_title">Реклама</span>--}}
 {{--                    </div>--}}
-                    <div class="yb_vis-anouther">
-                        <h5 class="yb_anouter-title">Другие объявления в <span>{{$main->city->rtitle}} </span></h5>
-                        @if(count($analog) !== 0)
-                            @foreach($analog as $analog_item)
-                                 <div class="yb_anouther_item">
-                                    <figure class="yb_item-img">
-                                        <img
-                                            src="{{'/' . $analog_item->photo->path}}" alt="">
-                                    </figure>
-                                    <div class="yb_desc-item">
-                                        <h2 class="yb-car_name">{{$analog_item->main->brand->title}} {{$analog_item->main->modificaion}} {{$analog_item->main->model->title}}, {{$analog_item->main->year}}</h2>
-                                        <h6 class="yb_car-loc">{{$analog_item->main->city->rtitle}}</h6>
-                                        <div class="yb_car-price">
-                                            @if($analog_item->main->price_currency == 1)
-                                                {{number_format(intval($analog_item->main->price_value), 0, '.', ' ')}} $
-                                            @elseif($main->price_currency == 2)
-                                                {{number_format(intval($analog_item->main->price_value * $exchange->USD), 0, '.', ' ')}} $
-                                            @elseif($main->price_currency == 3)
-                                                {{number_format(intval($analog_item->main->price_value * $exchange->EUR), 0, '.', ' ')}} $
-                                            @endif
+                    @if(count($analog) !== 0)
+                        <div class="yb_vis-anouther">
+                            <h5 class="yb_anouter-title">Другие объявления в <span>{{$main->city->rtitle}} </span></h5>
+                                @foreach($analog as $analog_item)
+                                     <div class="yb_anouther_item">
+                                         @if($analog_item->photo !== null)
+                                            <figure class="yb_item-img">
+                                                <img src="{{'/' . $analog_item->photo->path}}" alt="">
+                                            </figure>
+                                         @else
+                                             <figure class="yb_item-img">
+                                                 без фото
+                                             </figure>
+                                         @endif
+                                        <div class="yb_desc-item">
+                                            <h2 class="yb-car_name">{{$analog_item->main->brand->title}} {{$analog_item->main->modificaion}} {{$analog_item->main->model->title}}, {{$analog_item->main->year}}</h2>
+                                            <h6 class="yb_car-loc">{{$analog_item->main->city->rtitle}}</h6>
+                                            <div class="yb_car-price">
+                                                @if($analog_item->main->price_currency == 1)
+                                                    {{number_format(intval($analog_item->main->price_value), 0, '.', ' ')}} $
+                                                @elseif($main->price_currency == 2)
+                                                    {{number_format(intval($analog_item->main->price_value * $exchange->USD), 0, '.', ' ')}} $
+                                                @elseif($main->price_currency == 3)
+                                                    {{number_format(intval($analog_item->main->price_value * $exchange->EUR), 0, '.', ' ')}} $
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            <a href="/filter?r[city][0]={{$main->city->id}}" class="yb_watch_more">
+                                Смотреть еще
+                                <svg width="54" height="8" viewBox="0 0 54 8" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z"
+                                        fill="#0B3F8D"/>
+                                </svg>
+                            </a>
                         @endif
-                        <button class="yb_watch_more">
-                            Смотреть еще
-                            <svg width="54" height="8" viewBox="0 0 54 8" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z"
-                                    fill="#0B3F8D"/>
-                            </svg>
-                        </button>
                     </div>
                 </div>
                 <div class="yb-caroptions_mobile">
