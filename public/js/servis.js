@@ -144,69 +144,45 @@ $(window).scroll(function(){
 
 
 
-// $('.slider-for').slick({
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     arrows: false,
-//     fade: true,
-//     asNavFor: '.slider-nav'
-// });
-// $('.slider-nav').slick({
-//     slidesToShow: 4,
-//     slidesToScroll: 1,
-//     vertical:true,
-//     asNavFor: '.slider-for',
-//     dots: false,
-//     focusOnSelect: true,
-//     verticalSwiping:true,
-//     responsive: [
-//         {
-//             breakpoint: 992,
-//             settings: {
-//                 vertical: false,
-//             }
-//         },
-//         {
-//             breakpoint: 768,
-//             settings: {
-//                 vertical: false,
-//             }
-//         },
-//         {
-//             breakpoint: 580,
-//             settings: {
-//                 vertical: false,
-//                 slidesToShow: 3,
-//             }
-//         },
-//         {
-//             breakpoint: 380,
-//             settings: {
-//                 vertical: false,
-//                 slidesToShow: 2,
-//             }
+
+//func from toggle in seo component
+// $(document).ready(function() {
+//
+//     $('.yb_search-visl .drop-target').each(function(i, el){
+//         $('.option-target[data-target="' + $(el).attr('data-alias') +'"]').hide();
+//     })
+//
+//     $('.yb_search-visl').on('click', '.drop-target', function(){
+//         if($(this).hasClass('active')){
+//             $(this).removeClass('active').find('.fas').removeClass('fa-angle-up')
+//             $('.option-target[data-target="' + $(this).attr('data-alias') +'"]').stop(true,true).slideToggle(200);
+//             // $(this).children().removeClass('fa-angle-up')
+//         } else{
+//             $(this).addClass('active').find('.fas').addClass('fa-angle-up')
+//
+//             // $(this).children().addClass('fa-angle-up')
+//             $('.option-target[data-target="' + $(this).attr('data-alias') +'"]').slideUp(200);
+//
 //         }
-//     ]
+//     });
 // });
-
-
 
 $(document).ready(function() {
 
-    $('.yb_search-visl .drop-target').each(function(i, el){
-        $('.option-target[data-target="' + $(el).attr('data-alias') +'"]').hide();
-    })
-
-    $('.yb_search-visl').on('click', '.drop-target', function(){
-        if($(this).hasClass('active')){
-            $(this).removeClass('active');
-            $('.option-target[data-target="' + $(this).attr('data-alias') +'"]').stop(true,true).slideToggle(200);;
-        } else{
-            $(this).addClass('active');
-            $('.option-target[data-target="' + $(this).attr('data-alias') +'"]').slideUp(200);
+    $(".option-target").hide();
+    // $(".option-target:first").show(); // firs item is open onload page
+    $("span.drop-target").click(function(){
+        if ($(this).is(".current"))
+        {
+            $(this).removeClass("current").find('.fas').removeClass('fa-angle-up');
+            $(this).next(".option-target").slideUp(400);
         }
-        console.log($(this).hasClass('active'))
+        else
+        {
+            $(".option-target").slideUp(400);
+            $("span.drop-target").removeClass("current").find('.fas').removeClass('fa-angle-up');
+            $(this).addClass("current").find('.fas').addClass('fa-angle-up');
+            $(this).next(".option-target").slideDown(400);
+        }
     });
 });
-
-

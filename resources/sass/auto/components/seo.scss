@@ -77,6 +77,7 @@
                                 font-size: em(18);
                                 line-height: 22px;
                                 color: $darkgray-filter;
+                                margin-bottom: 5px;
                             }
                         }
 
@@ -187,4 +188,38 @@
         }
     }
 }
-
+@media only screen and (max-width: 768px){
+    .yb-content{
+        .yb_search-visible{
+            .yb_search-visl{
+                .yb_search-list{
+                    .yb_title-list{
+                        font-size: em(18);
+                        line-height: 21px;
+                    }
+                    .yb_list-items{
+                        .yb_list-item{
+                            .yb_list-title{
+                                font-size: em(18);
+                                line-height: 21px;
+                            }
+                            .sub-menu{
+                                .yb_sub-item{
+                                    font-size: em(16);
+                                    line-height: 19px;
+                                }
+                            }
+                        }
+                    }
+                    .yb_more-types{
+                        font-size: em(16);
+                        line-height: 19px;
+                        svg{
+                            width: 35px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

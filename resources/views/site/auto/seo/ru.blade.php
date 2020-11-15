@@ -14,22 +14,22 @@
                 <h2 class="yb_title-list">Типы транспорта</h2>
                 <ul class="accordion yb_list-items">
                     <li class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex">
+                        <span class="yb_list-title drop-target" data-alias="target">
                             Легковые
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex">
+                        <ul class="sub-menu option-target" data-target="target">
                             <li  class="yb_sub-item">Седан</li>
                             <li  class="yb_sub-item">Универсал</li>
                             <li  class="yb_sub-item">Минивэн</li>
                         </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex1">
+                        <span class="yb_list-title drop-target" data-alias="target1">
                             Прицепы
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex1">
+                        <ul class="sub-menu option-target" data-target="target1">
                             <li  class="yb_sub-item">Автовоз</li>
                             <li  class="yb_sub-item">Борт</li>
                             <li  class="yb_sub-item">Бортовой полуприцеп</li>
@@ -38,11 +38,11 @@
                         </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex2" >
+                        <span class="yb_list-title drop-target" data-alias="target2" >
                             Спецтехника
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex2">
+                        <ul class="sub-menu option-target" data-target="target2">
                             <li  class="yb_sub-item">Какой то прицеп</li>
                             <li  class="yb_sub-item">Какой то прицеп</li>
                             <li  class="yb_sub-item">Какой то прицеп</li>
@@ -52,11 +52,11 @@
                         </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex3" >
+                        <span class="yb_list-title drop-target" data-alias="target3" >
                             Мото
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex3">
+                        <ul class="sub-menu option-target" data-target="target3">
                             <li class="yb_sub-item">Какой то мотоцикл</li>
                             <li class="yb_sub-item">Какой то мотоцикл</li>
                             <li class="yb_sub-item">Какой то мотоцикл</li>
@@ -74,22 +74,22 @@
                 <h2 class="yb_title-list">Выберите марку</h2>
                 <ul class="accordion yb_list-items">
                     <li class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex4">
-                            Легковые
+                        <span class="yb_list-title drop-target" data-alias="target4">
+                            Популярные
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex4">
+                        <ul class="sub-menu option-target" data-target="target4">
                             <li  class="yb_sub-item">Седан</li>
                             <li  class="yb_sub-item">Универсал</li>
                             <li  class="yb_sub-item">Минивэн</li>
                         </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex5">
-                            Прицепы
+                        <span class="yb_list-title drop-target" data-alias="target5">
+                            Американские
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex5">
+                        <ul class="sub-menu option-target" data-target="target5">
                             <li  class="yb_sub-item">Автовоз</li>
                             <li  class="yb_sub-item">Борт</li>
                             <li  class="yb_sub-item">Бортовой полуприцеп</li>
@@ -98,11 +98,11 @@
                         </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex6" >
-                            Спецтехника
+                        <span class="yb_list-title drop-target" data-alias="target6" >
+                           Английские
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex6">
+                        <ul class="sub-menu option-target" data-target="target6">
                             <li  class="yb_sub-item">Какой то прицеп</li>
                             <li  class="yb_sub-item">Какой то прицеп</li>
                             <li  class="yb_sub-item">Какой то прицеп</li>
@@ -112,11 +112,11 @@
                         </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex7" >
-                            Мото
+                        <span class="yb_list-title drop-target" data-alias="target7" >
+                            Китайские
                             <i class="fas fa-angle-down"></i>
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex7">
+                        <ul class="sub-menu option-target" data-target="target7">
                             <li class="yb_sub-item">Какой то мотоцикл</li>
                             <li class="yb_sub-item">Какой то мотоцикл</li>
                             <li class="yb_sub-item">Какой то мотоцикл</li>
@@ -134,57 +134,28 @@
                 <h2 class="yb_title-list">Выберите город</h2>
                 <ul class="accordion yb_list-items">
                     <li class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex8">
-                            Легковые
-                            <i class="fas fa-angle-down"></i>
+                        <span class="yb_list-title drop-target" data-alias="target8">
+                            Днепр
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex8">
-                            <li  class="yb_sub-item">Седан</li>
-                            <li  class="yb_sub-item">Универсал</li>
-                            <li  class="yb_sub-item">Минивэн</li>
-                        </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex9">
-                            Прицепы
-                            <i class="fas fa-angle-down"></i>
+                        <span class="yb_list-title drop-target" data-alias="target9">
+                           Винница
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex9">
-                            <li  class="yb_sub-item">Автовоз</li>
-                            <li  class="yb_sub-item">Борт</li>
-                            <li  class="yb_sub-item">Бортовой полуприцеп</li>
-                            <li  class="yb_sub-item">Бортовой полуприцеп</li>
-                            <li  class="yb_sub-item">Для перевозки животных - полуприцеп</li>
-                        </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex10" >
-                            Спецтехника
-                            <i class="fas fa-angle-down"></i>
+                        <span class="yb_list-title drop-target" data-alias="target10" >
+                           Киев
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex10">
-                            <li  class="yb_sub-item">Какой то прицеп</li>
-                            <li  class="yb_sub-item">Какой то прицеп</li>
-                            <li  class="yb_sub-item">Какой то прицеп</li>
-                            <li  class="yb_sub-item">Какой то прицеп</li>
-                            <li  class="yb_sub-item">Какой то прицеп</li>
-                            <li  class="yb_sub-item">Какой то прицеп</li>
-                        </ul>
                     </li>
                     <li  class="yb_list-item">
-                        <span class="yb_list-title drop-target" data-alias="rex11" >
-                            Мото
-                            <i class="fas fa-angle-down"></i>
+                        <span class="yb_list-title drop-target" data-alias="target11" >
+                            Полтава
                         </span>
-                        <ul class="sub-menu option-target" data-target="rex11">
-                            <li class="yb_sub-item">Какой то мотоцикл</li>
-                            <li class="yb_sub-item">Какой то мотоцикл</li>
-                            <li class="yb_sub-item">Какой то мотоцикл</li>
-                        </ul>
                     </li>
                 </ul>
                 <button class="yb_more-types">
-                    Смотреть все типы
+                    Смотреть все города
                     <svg width="54" height="8" viewBox="0 0 54 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M53.3536 4.35355C53.5488 4.15829 53.5488 3.8417 53.3536 3.64644L50.1716 0.464462C49.9763 0.2692 49.6597 0.2692 49.4645 0.464462C49.2692 0.659724 49.2692 0.976306 49.4645 1.17157L52.2929 4L49.4645 6.82842C49.2692 7.02368 49.2692 7.34027 49.4645 7.53553C49.6597 7.73079 49.9763 7.73079 50.1716 7.53553L53.3536 4.35355ZM4.37114e-08 4.5L53 4.5L53 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="#0B3F8D"/>
                     </svg>
