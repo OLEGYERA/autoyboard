@@ -36,7 +36,7 @@
             <a :href="'/card/' + dataTransport.id" class="filter-card" v-for="dataTransport in dataTransports">
                 <div class="img-box">
                     <picture v-if="dataTransport.photo">
-                        <img v-lazy="dataTransport.photo.path">
+                        <img :src="dataTransport.photo.path">
                     </picture>
                 </div>
                 <div class="content-box">
