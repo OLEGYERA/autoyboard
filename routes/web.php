@@ -20,6 +20,8 @@ Route::get('/parseCards', 'Aggregator\Parse@runParseCards');
 //Route::get('/cardTest/{id}', 'Site\Auto\SearchController@cardTest');
 
 Route::get('/filterparse', 'Controller@filterparse')->name('filterparse');
+Route::get('/test-ftp', 'Controller@testFTP')->name('filterparse');
+
 Route::get('/parseExchange', 'System\ExchangeRatesController@parseRate');
 //Route::get('/launch', 'AGGREGATOR\Services\autoria\LaunchController@parse');
 //Route::get('/aggregator', 'AGGREGATOR\Kernel\Core@startProcedure');
