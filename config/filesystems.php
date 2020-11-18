@@ -78,6 +78,14 @@ return [
             'userName'   => 'Admin',
             'password'   => 'CZ2kUNRDSx329eiz',
         ],
+
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => 'u248209.your-storagebox.de',
+            'username' => 'u248209',
+            'password' => 'seaeVhSM5iKvqMqp',
+        ],
+
     ],
 
     /*

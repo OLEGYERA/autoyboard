@@ -18,6 +18,7 @@ use App\BrandPivotType;
 use App\TransportChTech;
 use App\TransportChTechPivotType;
 
+use Illuminate\Support\Facades\Storage;
 
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\File;
@@ -29,6 +30,46 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+
+    public function testFTP(){
+        $url    = 'https://u248209.your-storagebox.de/auto/95/photo_0.jpg';
+        $c = curl_init($url);
+
+        $authString = 'u248209:seaeVhSM5iKvqMqp';
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($c, CURLOPT_USERPWD, $authString);
+
+        $content = curl_exec($c);
+        $contentType = curl_getinfo($c, CURLINFO_CONTENT_TYPE);
+        header('Content-Type:'.$contentType);
+        echo $content;
+
+//        $last_modified_time = filemtime($content);
+//        $etag = md5_file($content);
+//// always send headers
+//        header("Last-Modified: ".gmdate("D, d M Y H:i:s", $last_modified_time)." GMT");
+//        header("Etag: $etag");
+//// exit if not modified
+//        if (@strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $last_modified_time ||
+//            @trim($_SERVER['HTTP_IF_NONE_MATCH']) == $etag) {
+//            header("HTTP/1.1 304 Not Modified");
+//            exit;
+//        }
+//        header("HTTP/1.1 304 Not Modified");
+
+
+//        header('Content-Type:'.$contentType);
+//        print $content;
+
+
+
+////        dd(123);
+//        $img = Storage::disk('ftp')->get('/test/photo_0.jpg');
+//        return response($img)->header('Content-type','image/jpg');
+
+    }
+
 
 
     public function testParse(){
